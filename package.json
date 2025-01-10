@@ -2,9 +2,9 @@
   "name": "latex-compiler",
   "version": "1.0.0",
   "scripts": {
-    "start": "node index.js"  // Or the entry point for your app
+    "start": "node index.js"
   },
   "dependencies": {
-    "express": "^4.17.1"  // Or any other server dependencies you need
+    "express": "^4.17.1"
   }
 }
