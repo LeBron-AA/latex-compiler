@@ -1,5 +1,10 @@
 \documentclass{article}
 \usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\setlength{\jot}{3mm}
+
 \begin{document}
 
 \title{TG I}
@@ -8,18 +13,17 @@
 \begin{center}
     
     \author{
-    GOTA ORTÍN, JORGE \\
-    \and MARTÍN RIVERA, BRUNO \\
-    \and ORTÍN RODENAS, JAVIER \\
-    \and SÁNCHEZ MAYO, ALEJANDRA
+    Javier Ortín Rodenas \\
+    \and Manuel Mateos Suárez \\
+    \and Jimena Rubín Sánchez \\
+    \and Alejandra García Fernández
     }   
 \end{center}
 \vspace{5mm}
-
 \noindent
 \textbf{Problema:} \\[1mm]
 
-Sea $\alpha : I \to R^3$ una p.p.a birregular de clase
+Sea $\alpha : I \to \mathbb{R} ^3$ una p.p.a birregular de clase
 $\mathcal{C}^k$ $(k \geq 3)$ tal que $\tau(t) \neq 0$, \\
 para todo $t \in I$, entonces son equivalentes:
 
@@ -35,5 +39,195 @@ para todo $t \in I$, y como radio
 $r = \sqrt{R(t)^2 + \left( \frac{R'(t)}{\tau(t)}\right)^2} \hspace{2mm} > 0$.
 \\\\[0,6cm]
 \textbf{Demostración:} \\[0,2cm]
-\indent En primer lugar...
+\underline{$(i) \Rightarrow (ii)$} \vspace{2mm}
+
+Supongamos que $\alpha$ está contenida en una esfera.
+De este modo, existen $r \in \mathbb{R}, r > 0$, $c \in \mathbb{R}^3$
+constantes tales que para todo $t \in I$ se verifica:
+$$(\alpha(t) - c) \cdot (\alpha(t) - c) = r^2$$
+Por hipótesis, sabemos que $\alpha$ es birregular,
+luego existe el Triedro de Frenet para todo $t \in I$.
+Veamos cómo expresar el vector $(\alpha(t) - c)$ según esta base:
+
+\newpage
+En general, sea $\{v_1, \dots, v_n\}$ una base ortonormal
+de $\mathbb{R}^n $. Sea $v \in \mathbb{R}^n$, podemos expresar
+$v$ en función de los vectores de la base:
+$v = \lambda_1 v_1 + \dots + \lambda_n v_n$
+Aplicando la ortonormalidad, sea $i \in \{1,\dots n\}$:
+$$
+v \cdot v_i = (\lambda_1 v_1 + \dots + \lambda_n) \cdot v_i
+= \left(\sum_{j=1}^{n}\lambda_j v_j\right) \cdot v_i
+= \sum_{j=1}^{n}\lambda_j \delta_{ij} = \lambda_i
+$$
+\noindent
+Por tanto, para expresar  el vector $(\alpha(t) - c)$ en función de
+$\{T(t), N(t), B(t)\}$ basta ver el producto escalar entre
+dicho vector y los componentes de la base.
+
+\vspace{4mm} \noindent
+Derivando la expresión
+$r^2 = (\alpha(t) - c) \cdot (\alpha(t) - c)$
+obtentemos:
+\begin{equation*}
+    0 = 2\alpha '(t) \cdot \big{(}\alpha(t) - c\big{)}
+    \Rightarrow T(t) \cdot \big{(}\alpha(t) - c\big{)} = 0
+\end{equation*}
+
+\vspace{2mm} \noindent
+Derivando de nuevo:
+\begin{flalign*}
+    0 &= T'(t) \cdot \big(\alpha(t) - c \big) + T(t) \cdot \alpha'(t)
+    = K(t) \cdot \big(\alpha(t) - c \big) + ||T(t)||^2 \Rightarrow &&
+    \\
+    \Rightarrow & -1 = K(t) \cdot \big(\alpha(t) - c\big) = (\kappa(t) N(t)) \cdot \big(\alpha(t) - c \big) &&
+    \\
+    \Rightarrow & N(t) \cdot \big(\alpha(t) - c \big) = -R(t)
+\end{flalign*}
+
+\vspace{2mm} \noindent
+Derivando una vez más, por las ecuaciones de Frenet-Serret:
+\begin{flalign*}
+    -R'&(t) = N'(t) \cdot \big(\alpha(t) - c \big) + N(t) \cdot \alpha'(t)
+    = N'(t) \cdot \big(\alpha(t) - c \big) + N(t) \cdot T(t) =
+    &&\\
+    = & \Big{(} -\kappa(t)T(t) + \tau(t)B(t) \Big{)} \cdot \big(\alpha(t) - c\big)  + 0
+    = -\kappa(t) T(t) \cdot \big(\alpha(t) - c \big)
+    + \tau(t) B(t) \cdot \big{(}\alpha(t) - c \big{)} =
+    && \\
+    = &\hspace{1mm}  0 +  \tau(t)B(t)\big(\alpha(t) - c \big) = -R'(t)
+    \Rightarrow B(t) \cdot \big(\alpha(t) - c \big) = \frac{-R'(t)}{\tau(t)}
+\end{flalign*}
+\\[3mm]
+
+Por todo lo anterior, concluimos que la expresión del vector respecto de la base es:
+$\big(\alpha(t) - c \big) = 0T(t) -R(t)N(t) - \frac{R'(t)}{\tau(t)}B(t)$.
+Multiplicando el vector consigo mismo; en efecto,
+$r^2 = R(t)^2 + \left(\frac{R'(t)}{\tau(t)}\right)^2 > 0$ pues $\alpha$ es birregular
+por hipótesis. Finalmente, despejando concluimos:
+
+\begin{flalign*}
+    r &=  \sqrt{R(t)^2 + \left(\frac{R'(t)}{\tau(t)}\right)^2}
+    &&\\
+    c &=  \alpha(t) + R(t)N(t) + \frac{R'(t)}{\tau(t)}B(t)
+\end{flalign*}
+
+\newpage \noindent
+\underline{$(ii) \Rightarrow (iii)$} 
+\vspace{2mm} \\
+\noindent
+Supongamos que existe $r > 0$ tal que para todo $t \in I$ se cumple:
+$$r^2 = R(t)^2 + \left(\frac{R'(t)}{\tau(t)} \right)^2$$
+
+\noindent
+Derivando en la definición de radio de curvatura, obtenemos: 
+$$R(t) = \frac{1}{\kappa(t)} \Rightarrow R'(t) = \frac{-\kappa'(t)}{\kappa(t)^2}$$
+
+\vspace{3mm} \noindent
+Derivamos ahora la expresión del radio que nos da la hipótesis y sustituimos $R'(t)$ por la expresión anterior:
+\vspace{-3mm}
+\begin{center}
+    \begin{flalign*}
+        2 & R(t) R'(t) + 2 \frac{R'(t)}{\tau(t)} \left(\frac{R'(t)}{\tau(t)} \right)' = 0
+        \Rightarrow  \frac{1}{\kappa(t)} \left(\frac{-\kappa'(t)}{\kappa(t)^2} \right)
+         + \left(\frac{-\kappa'(t)}{\tau(t)\kappa(t)^2} \right) \left(\frac{-\kappa'(t)}{\tau(t)\kappa(t)^2} \right)' = 0\Rightarrow
+        &\\
+        \Rightarrow &\frac{-\kappa'(t)}{\kappa(t)^3}
+         = \left(\frac{-\kappa'(t)}{\tau(t)\kappa(t)^2} \right) \left(\frac{\kappa'(t)}{\tau(t)\kappa(t)^2} \right)'
+        \Rightarrow \frac{-\kappa'(t)}{\kappa(t)^3}  \left(\frac{-\tau(t)\kappa(t)^2}{\kappa'(t)}\right)
+         = \left(\frac{\kappa'(t)}{\tau(t)\kappa(t)^2}\right)' \Rightarrow
+        &\\
+        \Rightarrow & \frac{\tau(t)}{\kappa(t)} = \left(\frac{\kappa'(t)}{\tau(t)\kappa(t)^2}\right)'
+    \end{flalign*}
+\end{center}
+\vspace{3mm}
+\noindent Hemos llegado a la expresión deseada.
+
+
+
+\vspace{2cm}
+
+\noindent \underline{$(iii) \Rightarrow (i)$} \vspace{2mm}
+
+Supongamos que para todo $t \in I$ se verifica la siguiente expresión:
+$$\frac{\tau(t)}{\kappa(t)} = \left(\frac{\kappa'(t)}{\tau(t)\kappa(t)^2}\right)'$$
+
+Buscamos comprobar que la parametrización $\alpha$ se encuentra contenida en una esfera.
+Para ello, debemos demostrar en primer lugar que la expresión de su centro es constante;
+es decir, que la derivada de su función es siempre nula.
+
+$$ c(t) = \alpha(t) + R(t)N(t) + \frac{R'(t)}{\tau(t)}B(t)$$
+$$ c'(t) = T(t) + R'(t)N(t) + R(t)N'(t) + \left(\frac{R'(t)}{\tau(t)}\right)'B(t) + \left(\frac{R'(t)}{\tau(t)}\right)B'(t)$$
+
+\newpage
+\noindent Recordando las ecuaciones de Frenet-Serret:
+$$N'(t) = -\kappa(t) T(t) + \tau(t) B(t)
+\hspace{10mm}
+B'(t) = -\tau(t)N(t)$$
+
+\vspace{6mm}
+\noindent Sustituyendo en la expresión de $c'(t)$ obtenemos:
+\vspace{-6mm}
+\begin{center}
+    \begin{flalign*}
+        c'(t) &= T(t) + R'(t)N(t) + R(t)\big{(}-\kappa(t)T(t) + \tau(t)B(t)\big{)}
+         + \left(\frac{R'(t)}{\tau(t)}\right)'B(t)
+         + \left(\frac{R'(t)}{\tau(t)}\right)\big{(}-\tau(t)N(t)\big{)} =
+        &\\
+        &= T(t) + R'(t)N(t) - \frac{\kappa(t)}{\kappa(t)}T(t)
+         + \frac{\tau(t)}{\kappa(t)} B(t)
+         + \left(\frac{R'(t)}{\tau(t)}\right)'B(t)
+         - R'(t)N(t) =
+        &\\
+        &= \frac{\tau(t)}{\kappa(t)} B(t)
+         + \left(\frac{R'(t)}{\tau(t)}\right)'B(t)
+    \end{flalign*}
+\end{center}
+
+\vspace{6mm}
+Por hipótesis, se cumple
+$\frac{\tau(t)}{\kappa(t)} = \left(\frac{\kappa'(t)}{\tau(t)\kappa(t)^2}\right)'$,
+pero, tal y como vimos en el apartado anterior, sabemos que 
+$\left(\frac{\kappa'(t)}{\tau(t)\kappa(t)^2}\right)'
+= \left(\frac{-R'(t)}{\tau(t)}\right)'$.
+Juntando ambas expresiones:
+$\left(\frac{R`(t)'}{\tau(t)}\right)' = \frac{-\tau(t)}{\kappa(t)}$.
+Sustituyendo en la derivada del centro:
+$$ c'(t) = \frac{\tau(t)}{\kappa(t)} B(t) + \left(\frac{R'(t)}{\tau(t)}\right)'B(t)
+= \frac{\tau(t)}{\kappa(t)} B(t) - \frac{\tau(t)}{\kappa(t)} B(t) = 0$$
+
+\vspace{2mm} \noindent
+Concluimos que la expresión del centro es constante.
+Veamos qué ocurre con la expresión del radio.\\
+
+Por cómo está definido, el radio es positivo para todo $t \in I$.
+Por tanto, basta estudiar si $r^2$ es constante. Podemos manejar así
+una expresión más sencilla de derivar.
+$$ r^2 = \big{(}\alpha(t) - c\big{)} \boldsymbol{\cdot}\big{(}\alpha(t) - c\big{)}
+= \left(-R(t)N(t) - \frac{R'(t)}{\tau(t)}B(t) \right)
+\boldsymbol{\cdot} \left(-R(t)N(t) - \frac{R'(t)}{\tau(t)}B(t) \right)$$
+
+\vspace{2mm} \noindent
+Como el Triedro de Frenet es una base ortonormal en $\mathbb{R}^3$, obtenemos:
+$$r(t)^2 = R(t)^2 + \left(\frac{R'(t)}{\tau(t)}\right)^2$$
+$$r'(t)r(t) = R(t)R'(t) + \left(\frac{R'(t)}{\tau(t)}\right)\left(\frac{R'(t)}{\tau(t)}\right)'$$
+
+\newpage \noindent
+Una vez más, aplicando $R(t) = \frac{1}{\kappa(t)}$ , y  
+$\left(\frac{R'(t)}{\tau(t)}\right)' =\frac{-\tau(t)}{\kappa(t)}$
+obtenemos:
+$$r'(t)r(t) = \frac{-\kappa'(t)}{\kappa(t)^3}
+ + \left(\frac{-\kappa'(t)}{\tau(t)\kappa(t)^2}\right)
+    \left(\frac{-\tau(t)}{\kappa(t)}\right)
+= \frac{-\kappa'(t)}{\kappa(t)^3} + \frac{\kappa'(t)}{\kappa(t)^3} = 0$$
+
+\vspace{4mm}
+\noindent Finalmente $r(t) > 0  \hspace{2mm} \forall t \in I$
+luego $r'(t)r(t) = 0 \Leftrightarrow r'(t) = 0$.
+
+\vspace{10mm}
+Por todo lo anterior, concluimos que tanto la expresión del centro
+como la del radio son constantes. Además, dichas expresiones se corresponden
+con las vistas para la esfera que contiene a $\alpha$ en el apartado $(i)$.
+Se cumple la implicación.
 \end{document}
