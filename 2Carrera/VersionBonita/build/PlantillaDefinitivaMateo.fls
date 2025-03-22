@@ -312,19 +312,20 @@ INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita
 OUTPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\build\PlantillaDefinitivaMateo.out
 INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\uniovi.jpg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\uniovi.jpg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\uniovi.jpg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\uniovi.jpg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\uniovi.jpg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\uniovi.jpg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
-INPUT C:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\descarga.jpeg
+INPUT .\uniovi.jpg
+INPUT .\uniovi.jpg
+INPUT .\uniovi.jpg
+INPUT .\uniovi.jpg
+INPUT .\uniovi.jpg
+INPUT .\uniovi.jpg
+INPUT .\uniovi.jpg
+INPUT .\descarga.jpeg
+INPUT .\descarga.jpeg
+INPUT .\descarga.jpeg
+INPUT .\descarga.jpeg
+INPUT .\descarga.jpeg
+INPUT .\descarga.jpeg
+INPUT .\descarga.jpeg
 INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm

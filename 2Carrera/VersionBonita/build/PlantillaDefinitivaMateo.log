@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.18)  22 MAR 2025 19:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.18)  22 MAR 2025 19:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -732,21 +732,21 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks50
 \inpenc@posthook=\toks51
 )
-<C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi.jpg, id=86, 1284.8pt x 946.53625pt>
-File: C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi.jpg Graphic file (type jpg)
-<use C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi.jpg>
-Package pdftex.def Info: C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi.jpg  used on input line 47.
+<uniovi.jpg, id=86, 1284.8pt x 946.53625pt>
+File: uniovi.jpg Graphic file (type jpg)
+<use uniovi.jpg>
+Package pdftex.def Info: uniovi.jpg  used on input line 47.
 (pdftex.def)             Requested size: 128.0387pt x 94.32698pt.
-<C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg, id=87, 319.1925pt x 159.59625pt>
-File: C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg Graphic file (type jpg)
-<use C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg>
-Package pdftex.def Info: C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg  used on input line 48.
+<descarga.jpeg, id=87, 319.1925pt x 159.59625pt>
+File: descarga.jpeg Graphic file (type jpg)
+<use descarga.jpeg>
+Package pdftex.def Info: descarga.jpeg  used on input line 48.
 (pdftex.def)             Requested size: 128.0387pt x 64.02pt.
 
 
 [1
 
-{C:/Users/Usuario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi.jpg> <C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg>] (c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\build\PlantillaDefinitivaMateo.toc
+{C:/Users/Usuario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./uniovi.jpg> <./descarga.jpeg>] (c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\build\PlantillaDefinitivaMateo.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
@@ -785,10 +785,10 @@ Package rerunfilecheck Info: File `PlantillaDefinitivaMateo.out' has not changed
 (rerunfilecheck)             Checksum: BB6BAAAE6E425118FC2F32D67D07858C;1848.
  ) 
 Here is how much of TeX's memory you used:
- 30830 strings out of 473536
- 625775 string characters out of 5713988
+ 30824 strings out of 473536
+ 624187 string characters out of 5713988
  1121056 words of memory out of 5000000
- 53551 multiletter control sequences out of 15000+600000
+ 53545 multiletter control sequences out of 15000+600000
  565609 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,5n,96p,638b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s

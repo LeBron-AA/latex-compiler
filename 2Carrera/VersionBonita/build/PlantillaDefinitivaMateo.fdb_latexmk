@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1742666993.3112 "c:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/PlantillaDefinitivaMateo.tex" "build/PlantillaDefinitivaMateo.pdf" "PlantillaDefinitivaMateo" 1742666994.57544 0
+["pdflatex"] 1742667277.13726 "c:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/PlantillaDefinitivaMateo.tex" "build/PlantillaDefinitivaMateo.pdf" "PlantillaDefinitivaMateo" 1742667278.40748 0
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1742666237 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1739899367 12014361 21ce0cfad2be430706907cadf55e83fc ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -193,13 +193,13 @@
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/tex/latex/trimspaces/trimspaces.sty" 1253169183 1380 971a51b00a14503ddf754cab24c3f209 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg" 1742666306 7503 d7de90d6ab9c3af0b9f466a4bad1f369 ""
-  "C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi.jpg" 1742666283 109012 dbfb856eaf0114688cdd9d8088030156 ""
-  "PlantillaDefinitivaMateo.tex" 1742666992 4385 174faaee7013ede3b394db0501f936cc ""
-  "build/PlantillaDefinitivaMateo.aux" 1742666994 1748 7cd66ba64b6a1cab4e8f3999cd38b36e "pdflatex"
-  "build/PlantillaDefinitivaMateo.out" 1742666994 1848 bb6baaae6e425118fc2f32d67d07858c "pdflatex"
-  "build/PlantillaDefinitivaMateo.toc" 1742666994 965 8c3d6c50c91c693855d51bcbbbb2ea36 "pdflatex"
-  "c:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/PlantillaDefinitivaMateo.tex" 1742666992 4385 174faaee7013ede3b394db0501f936cc ""
+  "PlantillaDefinitivaMateo.tex" 1742667276 4239 e32ffcf29c51336351bb99ba7991fe36 ""
+  "build/PlantillaDefinitivaMateo.aux" 1742667278 1748 7cd66ba64b6a1cab4e8f3999cd38b36e "pdflatex"
+  "build/PlantillaDefinitivaMateo.out" 1742667278 1848 bb6baaae6e425118fc2f32d67d07858c "pdflatex"
+  "build/PlantillaDefinitivaMateo.toc" 1742667278 965 8c3d6c50c91c693855d51bcbbbb2ea36 "pdflatex"
+  "c:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/PlantillaDefinitivaMateo.tex" 1742667276 4239 e32ffcf29c51336351bb99ba7991fe36 ""
+  "descarga.jpeg" 1742666306 7503 d7de90d6ab9c3af0b9f466a4bad1f369 ""
+  "uniovi.jpg" 1742666283 109012 dbfb856eaf0114688cdd9d8088030156 ""
   (generated)
   "build/PlantillaDefinitivaMateo.aux"
   "build/PlantillaDefinitivaMateo.log"
