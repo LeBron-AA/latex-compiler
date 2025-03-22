@@ -3,7 +3,13 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{enumitem}
+\usepackage{hyperref}
 \usepackage{tikz}
+\usetikzlibrary{3d, perspective}
+
+%Cambiar "Figure" a "Figura"
+\renewcommand{\figurename}{Figura}
+\renewcommand{\figureautorefname}{Figura}
 
 \title{TG II}   
 \author{
@@ -52,21 +58,170 @@ generatriz para posteriormente modelar el proceso de revolución. En este caso,
 la curva generatriz es una circunferencia de centro $(a,0,0)$ y radio $b$
 contenida en el plano $y = 0$.
 
+\begin{figure}[htbp]
 \begin{center}
-    \begin{tikzpicture}[scale=1.5]
+    \begin{tikzpicture}[scale=1.2]
         % Axes
         \draw[->] (0,0) -- (7,0) node[right] {$x$}; % X-axis
         \draw[->] (0,0) -- (0,3) node[left] {$z$}; % Z-axis
-        \draw[->] (0,0) -- (0,-3)
+        \draw[->] (0,0) -- (0,-3);
         
         % Circle with center at (a,0)
-        \draw[thick] (3,0) circle(1.5); % Circumference
-        \filldraw (3,0) circle(2pt);  % Center point
+        \draw[thick] (4,0) circle(1); % Circumference
+        \node[below] at (4,0) {\small{$(a,0,0)$}}; %Labeling the center
         
-        % Labeling the center
-        \node[below] at (3,0) {$(a,0,0)$};
-    \end{tikzpicture}
-    
-\end{center}
+        %Drawing a point of the circumference
+        \draw[red, thick] (4,0) -- ++(45:1); %Radius
+        \filldraw (4,0) circle(2pt);  % Center point
+        \node[left, red] at (4.3, 0.5) {$b$}; %b text
+        \filldraw[red] (4.7071,0.7071) circle(1.5pt); %Dotting the point
+        \node[anchor=south west] at (4.7071,0.7071) {\small{$\big(a + b \cos(u),0,b \sin(u)\big)$}}; %Labeling the point
 
+        %Drawing the angle arch
+        \draw[thick, blue] (4.4,0) arc[start angle=0, end angle=45, radius=0.4];
+        \node[blue, anchor = south west] at (4.4,0) {$u$};
+
+        %Radius
+        \draw[green, <->] (0,0.7071) -- (4.7071,0.7071);
+        \node[green, above] at (2.35355, 0.7071) {$a +b\cos(u)$};
+
+        %Height
+        \draw[cyan,thick, <->] (0.7,0) -- (0.7,0.7071);
+        \node[cyan, right] at (0.7, 0.35) {$b \sin(u)$};
+
+    \end{tikzpicture}
+\end{center}
+\caption{Representación de la circunferencia generatriz en el plano $y = 0$}
+\label{fig1}
+\end{figure}
+
+Hemos utilizado coordenadas polares para parametrizar la circunferencia generatriz.
+En este caso, el radio de la circunferencia es $b$, luego es el coeficiente que
+multiplica al seno y al coseno del ángulo que forma cada punto con el eje $x$. Como la circunferencia
+se encuentra en el plano $y = 0$, la segunda componente tiene valor constante $0$. Finalmente,
+sumamos las coordenadas del centro $(a, 0, 0)$ para obtener la parametrización final de la 
+curva generatriz. \vspace{1mm}
+
+Queda parametrizar ahora el proceso de revolución. Como el eje de giro es el eje $z$, el radio
+de revolución de un punto de la circunferencia será su distancia hasta él; es decir, su componente $x$.
+El resultado final del proceso de revolución tendrá  la misma coordenada $z$ que el punto que lo generó.
+No obstante, las componentes $x$ e $y$ se verán modificadas según el ángulo de giro.
+\vspace{1mm}
+
+Sea $(x_0, 0, z_0)$ un punto cualquiera de la circunferencia generatriz, los puntos del toro resultantes
+de su revolución son los de la circunferencia de centro $(0,0,z_0)$ y radio $x_0$ en el plano $z = z_0$.
+Razonando así para cada punto de la generatriz llegamos a la parametrización final del toro.
+
+Veamos un ejemplo gráfico del proceso de revolución para un punto dado.
+Fijado el punto de la \autoref{fig1}, veamos qué sucede al girarlo sobre el eje $z$.
+La siguiente representación coincide con el escenario supuesto, pues $0 < b < a$ por hipótesis,
+lo que garantiza que la generatriz no corte al eje de giro.
+
+\newcommand{\mycircle}[3] % Círculo tangente al vector x, y, z
+{%
+  \pgfmathsetmacro\vtheta{atan2(#2,#1)}                     % spherical coordinate theta
+  \pgfmathsetmacro\vphi  {acos(#3/sqrt(#1*#1+#2*#2+#3*#3))} % spherical coordinate phi
+  \begin{scope}[rotate around z=\vtheta,rotate around y=\vphi,canvas is xy plane at z=0]
+    \draw (-0.5,-0.5) rectangle (0.5,0.5);
+    \draw[fill=gray,fill opacity=0.2] (0,0) circle (0.5);   % the plane, probably not needed
+  \end{scope}
+}
+
+
+\begin{figure}[h!]
+    \begin{center}
+    \begin{tikzpicture}[scale=2]
+        % Axes
+        \draw[->] (0,0,0) -- (4,0,0) node[right] {$x$};  % x-axis
+        \draw[->] (0,0,0) -- (0,0,4) node[below right] {$y$};  % y-axis
+        \draw[->] (0,0,0) -- (0,2.5,0) node[above] {$z$};  % z-axis
+        \draw[->, dotted] (0,0,0) -- (0,-2.5,0);
+
+        %Generatriz 1
+        \begin{scope}[canvas is xy plane at z=0]
+            \draw (2,0) circle (0.75cm);
+            \filldraw (2,0) circle (1pt);
+          \end{scope}
+
+        %Generatriz 2
+        \begin{scope}[canvas is zy plane at x=0]
+            \draw (2,0) circle (0.75cm);
+            \filldraw (2,0) circle (1pt);
+          \end{scope}
+
+        %Revolución
+        \begin{scope}[canvas is xz plane at y=0]
+            \draw[thick, blue] (2,0) arc[start angle=0, end angle=90, radius=2];
+        \end{scope}
+
+        \begin{scope}[canvas is xz plane at y=0.75]
+        \draw[thick, red] (2,0) arc[start angle=0, end angle=90, radius=2];
+        \end{scope}
+
+        \begin{scope}[canvas is xz plane at y=-0.75]
+        \draw[thick, red] (2,0) arc[start angle=0, end angle=90, radius=2];
+        \end{scope}
+
+        \begin{scope}[canvas is xz plane at y=0]
+        \draw[green] (2.75,0) arc[start angle=0, end angle=90, radius=2.75];
+        \end{scope}
+
+        \begin{scope}[canvas is xz plane at y=0]
+        \draw[dotted,green] (1.25,0) arc[start angle=0, end angle=90, radius=1.25];
+        \end{scope}
+
+
+        %Radios
+        \draw[thick, dotted] (0,0.75,0) -- (2,0.75,0);
+        \draw[thick, dotted] (0,0.75,0) -- (0,0.75,2);
+        \node[above] at (0.9,0.75,0) {$a + b\cos (u)$};
+
+        %Parámetro ángulo
+        \begin{scope}[canvas is xz plane at y=0.75]
+            \draw[dotted, thick] (0.5,0) arc[start angle=0, end angle=90, radius=0.5];
+            \node at (0.5, 0.5) {$v$};
+        \end{scope}
+    \end{tikzpicture}
+\end{center}
+    \caption{Giro sobre el eje $z$ de la generatriz en el primer cuadrante}
+\end{figure}
+
+\vspace{4ex}
+
+\noindent Por todo lo anterior, la parametrización del toro es la siguiente:
+$$
+    \begin{aligned}
+        X:& U= (0,2 \pi) \times(0,2 \pi) \subseteq \mathbb{R}^{2}  \longrightarrow \mathbb{R}^{3} \\
+        (u,& v)  \longmapsto  X(u, v)= \Big(\big(a + b \cos(u)\big)\cos(v),
+                \hspace{1mm} \big(a + b \cos(u)\big)\sin(v),
+                \hspace{1mm}b \sin(u)\Big)
+    \end{aligned}
+$$
+
+\newpage
+
+\subsection{Segundo apartado}
+\hspace{1mm} Veamos cómo definir el toro parametrizado en el apartado anterior con una ecuación cartesiana.
+Es decir, buscamos que no aparezcan los parámetros $u$ y $v$, sino que solo
+intervengan las variables $x,y,z$.
+Planteamos el siquiente sistema para después obtener una única ecuación:
+
+\[
+\hspace{-7cm} % Adjust this value as needed
+\left\{
+\begin{aligned}
+x &= \Big(a + b \cos(u)\Big) \cos(v) \\
+y &= \Big(a + b \cos(u)\Big) \sin(v) \\
+z &= b \sin(u)
+\end{aligned}
+\right.
+\]
+\\
+\noindent Relacionamos las ecuaciones del sistema mediante identidades trigonométricas:
+\begin{flalign}
+    x^2 + y^2 &= \Big(a + b \cos(u)\Big)^2 \cos^2(v)
+    + \Big(a + b \cos(u)\Big)^2 \sin^2(v) =\\
+    = & \Big(a + b \cos(u)\Big)^2 = a^2 + 2ab \cos(u) + b^2 \cos^2(u)
+\end{flalign}
+    
 \end{document}
