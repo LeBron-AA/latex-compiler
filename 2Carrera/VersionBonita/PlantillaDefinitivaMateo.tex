@@ -1,0 +1,129 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts, amssymb, amsthm} % Podemos añadir amssymb, amsthm o bm
+\usepackage{graphicx, tikz, xparse, array}
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} % Este paquete permite modificar los márgenes del documento
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Se indica que los hipervínculos van todos en azul
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{graphicx} % Paquete para incluir imágenes
+\usepackage{fancyhdr} % Paquete para cabeceras y pies de página
+\usepackage{lipsum}   % Para generar texto de ejemplo
+\usepackage[most]{tcolorbox}
+
+\tcbuselibrary{breakable}
+
+
+%Colores
+\definecolor{verdeSuave}{HTML}{6AD58A}
+\definecolor{verdeFuerte}{HTML}{206936}
+\definecolor{blanco}{HTML}{FFFFFF}
+\definecolor{negro}{HTML}{000000}
+\definecolor{azulSuave}{HTML}{6ac9d5}
+\definecolor{naranjaSuave}{HTML}{d5c06a}
+\definecolor{rojoSuave}{HTML}{EF4949}
+\definecolor{amarilloSuave}{HTML}{D8E058}
+
+
+\setstretch{1.2}
+\decimalpoint
+
+
+%\graphicspath{ {images/}}
+
+\title{\textbf{Tema 1: } Teoría de curvas}
+\author{Mateo Rama García}
+
+
+%\date{Fecha}
+
+\begin{document}
+  
+\begin{titlepage}
+  \centering  
+  \vspace*{1cm}  % Espacio opcional antes de la imagen
+  \includegraphics[width=0.3\textwidth]{C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/uniovi} \hspace{2cm}
+  \includegraphics[width=0.3\textwidth]{C:/Users/Usuario/Desktop/Trabajo FCR/latex-compiler/2Carrera/VersionBonita/descarga.jpeg} \\[1cm] 
+  \vspace{\fill}% Imagen centrada arriba
+  \hrule
+  \vspace{0.5cm}
+  {\Huge \bfseries Trabajo en grupo\par}
+  \vspace{0.5cm}
+  {\Large \bfseries Fase I\par}
+  \vspace{0.5cm}
+  \hrule
+  \vspace{1cm}
+  {\bfseries Andrés Fernández-Junquera Fernández UO302806\\[3ex]
+  Bruno Martín Rivera UO302144\\[3ex]
+  Javier Ortín Rodenas UO299855\\[3ex]
+  Mateo Rama García UO300710\par} % Nombres centrados
+  \vspace{\fill}  % Espacio después de los nombres
+  {\Large \textbf{Fundamentos de computadores y redes}\par}
+\end{titlepage}
+
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+\section{Primera parte}
+\subsection{PasswordControl()}
+Parte de Andrés
+\subsection{CountActiveBits()}
+Esta función debe pedir dos números enteros sin singo. Posteriormente, debe contar el número de bits activos
+que hay en cada número entre la posición 5 y la 8, ambos inclusive. Finalmente, en caso de que el 
+número de bits activos entre las posiciones 5 y 8 de los dos números   no sea igual, la función 
+imprimirá 'No coinciden' y llamará a la función exit().
+\begin{itemize}
+  \item Entrada válida: \(a = 352 \text{ y } b = 448\)
+  \item Entrada no válida: \(a = 352 \text{ y } b = 0\)
+\end{itemize}
+\subsection{AsmBasedControl()}
+\hspace{1mm}
+Esta función debe leer tres enteros y pasárselos a IsValidAssembly.
+Según la parametrización original del enunciado, esta segunda función debe comprobar que se
+cumplan las dos condiciones siguientes:
+\begin{itemize}
+    \item El bit 8 del segundo número es igual al bit 5 del tercer número
+    \item El valor de los 2 bits más bajos del primer número interpretados como 
+        binario natural es mayor que 11
+\end{itemize}
+Como la codificación de 11 en binario natural es 1011b, la segunda condición no puede
+ocurrir nunca en estas condiciones. Por tanto, escribimos la función para que tome los 4 bits
+más bajos del primer entero, los interprete como natural, y lo compare con 11.
+\\[3ex]
+\noindent Entrada válida: $a = -3, \hspace{1.5mm} b = 403, \hspace{1.5mm} c = 56$ \\[2ex]
+\noindent Entrada no válida: $a = 1, \hspace{1.5mm} b = 7, \hspace{1.5mm} c = 5$
+
+\subsection{ArrayMinMax()}
+Parte de Bruno
+
+\newpage
+\section{Segunda parte}
+\subsection{Dirección de memoria IsValidAssembly}
+[PLACEHOLDER, CAPTURA DE PANTALLA]
+
+\subsection{Dirección de memoria PasswordControl}
+[PLACEHOLDER, CAPTURA DE PANTALLA]
+
+\subsection{Marco de pila ArrayMinMax}
+[PLACEHOLDER, CAPTURA DE PANTALLA]
+
+\subsection{Acceso de lectura ArrayMinMax}
+[PLACEHOLDER, CAPTURA DE PANTALLA]
+
+\newpage
+
+\section{División del trabajo}
+\hspace{1mm} En primer lugar, dedicamos tiempo a leer el enunciado y repartir las tareas.
+Cada alumno eligió una función para programarla y responder las preguntas sobre ella
+de la segunda fase.
+[PLACEHOLDER ACABAR]
+
+\end{document}
