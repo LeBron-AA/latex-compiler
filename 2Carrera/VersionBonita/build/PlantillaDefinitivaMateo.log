@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.18)  23 MAR 2025 13:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.18)  23 MAR 2025 13:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -768,16 +768,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.73 \newpage
               [1]
+Overfull \hbox (25.39246pt too wide) in paragraph at lines 85--86
+[]\OT1/cmr/m/n/10.95 Entrada v^^Sali-da: $[]$ 
+ []
+
+
 
 [2]
 
 [3]
-<direccionIsValid.PNG, id=121, 672.26157pt x 356.0803pt>
+<direccionIsValid.PNG, id=122, 672.26157pt x 356.0803pt>
 File: direccionIsValid.PNG Graphic file (type png)
 <use direccionIsValid.PNG>
 Package pdftex.def Info: direccionIsValid.PNG  used on input line 141.
 (pdftex.def)             Requested size: 426.79135pt x 226.05959pt.
-<codigomaquina2.png, id=123, 582.67688pt x 563.10374pt>
+<codigomaquina2.png, id=124, 582.67688pt x 563.10374pt>
 File: codigomaquina2.png Graphic file (type png)
 <use codigomaquina2.png>
 Package pdftex.def Info: codigomaquina2.png  used on input line 150.
@@ -785,7 +790,7 @@ Package pdftex.def Info: codigomaquina2.png  used on input line 150.
 
 
 [4 <./direccionIsValid.PNG>]
-<codigomaquina1 (1).png, id=129, 418.56375pt x 383.93437pt>
+<codigomaquina1 (1).png, id=130, 418.56375pt x 383.93437pt>
 File: codigomaquina1 (1).png Graphic file (type png)
 <use codigomaquina1 (1).png>
 Package pdftex.def Info: codigomaquina1 (1).png  used on input line 153.
@@ -793,22 +798,22 @@ Package pdftex.def Info: codigomaquina1 (1).png  used on input line 153.
 
 
 [5 <./codigomaquina2.png> <./codigomaquina1 (1).png>]
-<texto1.png, id=136, 883.80188pt x 341.77687pt>
+<texto1.png, id=137, 883.80188pt x 341.77687pt>
 File: texto1.png Graphic file (type png)
 <use texto1.png>
 Package pdftex.def Info: texto1.png  used on input line 165.
 (pdftex.def)             Requested size: 426.79135pt x 165.0471pt.
-<texto1Memoria.png, id=137, 1412.27625pt x 134.75343pt>
+<texto1Memoria.png, id=138, 1412.27625pt x 134.75343pt>
 File: texto1Memoria.png Graphic file (type png)
 <use texto1Memoria.png>
 Package pdftex.def Info: texto1Memoria.png  used on input line 170.
 (pdftex.def)             Requested size: 426.79135pt x 40.72243pt.
-<texto2.png, id=138, 733.23938pt x 268.75406pt>
+<texto2.png, id=139, 733.23938pt x 268.75406pt>
 File: texto2.png Graphic file (type png)
 <use texto2.png>
 Package pdftex.def Info: texto2.png  used on input line 176.
 (pdftex.def)             Requested size: 426.79135pt x 156.43518pt.
-<texto2Memoria.png, id=139, 1416.04031pt x 109.91063pt>
+<texto2Memoria.png, id=140, 1416.04031pt x 109.91063pt>
 File: texto2Memoria.png Graphic file (type png)
 <use texto2Memoria.png>
 Package pdftex.def Info: texto2Memoria.png  used on input line 179.
@@ -816,17 +821,17 @@ Package pdftex.def Info: texto2Memoria.png  used on input line 179.
 
 
 [6 <./texto1.png> <./texto1Memoria.png> <./texto2.png> <./texto2Memoria.png>]
-<VentanaRegistros.png, id=149, 1292.57906pt x 73.02281pt>
+<VentanaRegistros.png, id=150, 1292.57906pt x 73.02281pt>
 File: VentanaRegistros.png Graphic file (type png)
 <use VentanaRegistros.png>
 Package pdftex.def Info: VentanaRegistros.png  used on input line 191.
 (pdftex.def)             Requested size: 426.79135pt x 24.11096pt.
-<VentanaMemoria.jpg, id=150, 537.50812pt x 115.93312pt>
+<VentanaMemoria.jpg, id=151, 537.50812pt x 115.93312pt>
 File: VentanaMemoria.jpg Graphic file (type jpg)
 <use VentanaMemoria.jpg>
 Package pdftex.def Info: VentanaMemoria.jpg  used on input line 196.
 (pdftex.def)             Requested size: 426.79135pt x 92.05316pt.
-<VentanaDesensamblado.png, id=151, 569.12625pt x 125.71968pt>
+<VentanaDesensamblado.png, id=152, 569.12625pt x 125.71968pt>
 File: VentanaDesensamblado.png Graphic file (type png)
 <use VentanaDesensamblado.png>
 Package pdftex.def Info: VentanaDesensamblado.png  used on input line 209.
@@ -849,17 +854,17 @@ Package rerunfilecheck Info: File `PlantillaDefinitivaMateo.out' has not changed
 (rerunfilecheck)             Checksum: BB6BAAAE6E425118FC2F32D67D07858C;1848.
  ) 
 Here is how much of TeX's memory you used:
- 30912 strings out of 473536
- 626117 string characters out of 5713988
+ 30918 strings out of 473536
+ 626183 string characters out of 5713988
  1125058 words of memory out of 5000000
- 53622 multiletter control sequences out of 15000+600000
- 566230 words of font info for 63 fonts, out of 8000000 for 9000
+ 53626 multiletter control sequences out of 15000+600000
+ 566734 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,5n,96p,638b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on "c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\build\PlantillaDefinitivaMateo.pdf" (10 pages, 635200 bytes).
+<C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on "c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\VersionBonita\build\PlantillaDefinitivaMateo.pdf" (10 pages, 647629 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
+ 205 PDF objects out of 1000 (max. 8388607)
  26 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

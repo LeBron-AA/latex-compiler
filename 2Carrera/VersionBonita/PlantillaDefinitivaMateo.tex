@@ -75,15 +75,15 @@
 
 \section{Primera parte}
 \subsection{PasswordControl()}
-Antes de nada defino una constante maxChars con valor 20 para la longitud de los arrays de caracteres que usemos. Estas cadenas solo podrán contener hasta 19 caracteres útiles debido al espacio necesario para \(\backslash 0\) que indica el final de la cadena.
+Antes de nada defino una constante maxChars con valor 20 para la longitud de los arrays de caracteres que usemos. Estas cadenas solo podrán contener hasta 19 caracteres útiles debido al espacio necesario para \(\backslash \texttt{0}\) que indica el final de la cadena.
 
 Para la primera parte del método, declaro un array de caracteres input1 y almaceno en él la primera entrada del usuario. Luego, uso la función strcmp para comparar la entrada con la contraseña. En caso de que sea distinto de 0 es que son diferentes, y prohíbo la entrada.
 
 Para la segunda parte, guardo la nueva entrada del usuario en el array de caracteres input2. Luego, compruebo si la longitud del array es menor que 15 o si no coinciden los caracteres en las posiciones 8 y 5. En caso de que no se cumplan alguno de estos, aviso de que se ha producido un fallo.
 
 \begin{itemize}
-  \item Entrada válida: \(input1 = \text{''abcdeighijklmnop''}, \hspace{1.5mm} input2 = \text{''aaaaabaabaaaaaa''}\)
-  \item Entrada no válida: \(input1 = \text{''abcd''}, \hspace{1.5mm} input2 = \text{''abcdefghijklmnop''}\)
+  \item Entrada válida: \(\texttt{input1 = \text{''abcdeighijklmnop''}, \hspace{1.5mm} input2 = \text{''aaaaabaabaaaaaa''}}\)
+  \item Entrada no válida: \(\texttt{input1 = \text{''abcd''}, \hspace{1.5mm} input2 = \text{''abcdefghijklmnop''}}\)
 \end{itemize}
 \subsection{CountActiveBits()}
 Esta función debe pedir dos números enteros sin singo. Posteriormente, debe contar el número de bits activos
