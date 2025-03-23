@@ -191,7 +191,7 @@ lo que garantiza que la generatriz no corte al eje de giro.
 \noindent Por todo lo anterior, la parametrización del toro es la siguiente:
 $$
     \begin{aligned}
-        X:& U= (0,2 \pi) \times(0,2 \pi) \subseteq \mathbb{R}^{2}  \longrightarrow \mathbb{R}^{3} \\
+        X: U&= (0,2 \pi) \times(0,2 \pi) \subseteq \mathbb{R}^{2}  \longrightarrow \mathbb{R}^{3} \\
         (u,& v)  \longmapsto  X(u, v)= \Big(\big(a + b \cos(u)\big)\cos(v),
                 \hspace{1mm} \big(a + b \cos(u)\big)\sin(v),
                 \hspace{1mm}b \sin(u)\Big)
@@ -218,10 +218,70 @@ z &= b \sin(u)
 \]
 \\
 \noindent Relacionamos las ecuaciones del sistema mediante identidades trigonométricas:
-\begin{flalign}
+\begin{flalign*}
     x^2 + y^2 &= \Big(a + b \cos(u)\Big)^2 \cos^2(v)
     + \Big(a + b \cos(u)\Big)^2 \sin^2(v) =\\
     = & \Big(a + b \cos(u)\Big)^2 = a^2 + 2ab \cos(u) + b^2 \cos^2(u)
-\end{flalign}
+\end{flalign*}
+
+$$ x^2 + y^2 + z^2 = a^2 + 2ab \cos(u) + b^2 \cos^2(u) + b^2 \sin^2(u) = a^2 + 2ab \cos(u) + b^2$$
+\\
+\noindent Notamos que el coseno sigue presente, de manera similar a cómo ocurría en la expresión de $x^2 + y^2$.
+Buscamos definir el toro a partir de esta correlación.
+
+$$(x^2+y^2+z^2+a^2-b^2)^2 = \left(2a^2 + 2ab \cos(u) \right)^2 = 4a^4 + 4a^3b \cos(u) + 4a^2b^2 \cos^2(u)$$
+\\
+\noindent Finalmente, sacando factor común obtenemos la ecuación cartesiana del toro:
+
+$$ (x^2+y^2+z^2+a^2-b^2)^2 = 4a^2(a^2 + 2ab \cos(u) + b^2\cos^2(u)) = 4a(x^2 + y^2)$$
+\\ \noindent
+Por todo lo anterior, si definimos la siguiente función, podremos escribir el toro como su conjunto de ceros.
+
+$$
+    \begin{aligned}
+        F: \mathbb{R}^3& \longrightarrow \mathbb{R} \\
+        (x,& y, z)  \longmapsto  F(x, y, z)= (x^2+y^2+z^2+a^2-b^2)^2 - 4a(x^2 + y^2)
+    \end{aligned}
+$$
+$$\mathbb{T} = \left\{(x,y,z) \in \mathbb{R}^3 :F(x,y,z) = 0\right\}$$
     
+
+\newpage
+
+\subsection{Tercer apartado}
+\hspace{1mm} Para comprobar que $X$ es una carta de clase $\mathcal{C}^k (k\geq1)$,
+han de verificarse simultáneamente las siguientes condiciones:
+\begin{itemize}
+    \item $X$ es de clase $\mathcal{C}^k$
+    \item $X : U \longrightarrow X(U)$ es un homeomorfismo con la topología heredada
+    \item $d(X)(u,v) $ tiene rango 2 $ \hspace{1.5mm} \forall (u,v) \in U$
+\end{itemize}
+
+\vspace{2mm}
+Veamos que $X$ no es una carta al comprobar que su matriz Jacobiana (y por tanto su diferencial) no siempre
+tiene rango máximo. Para ello, mostraremos un contraejemplo donde la diferencial
+de $X$ no tiene rango 2. Podemos comprobarlo al calcular el determinante de las
+submatrices cuadradas de su matriz Jacobiana.
+
+\[
+J_X(u,v) =
+\begin{pmatrix}
+-b \sin(u) \cos(v) & -\big(a + b\cos(u) \big) \sin(v)\\[2ex]
+-b \sin(u) \sin(v) & \big(a + b \cos(u) \big) \cos(v)\\[2ex]
+b \cos(u) & 0
+\end{pmatrix}
+\]
+\\[2ex]
+\noindent Veamos qué ocurre para el punto $(u,v) = (\pi, \frac{\pi}{2}) \in (0, 2\pi) \times (0, 2\pi) = U$.
+\[
+J_X(\pi,\pi) =
+\begin{pmatrix}
+-b \cos(v) & -a\sin(v)\\[2ex]
+-b\sin(v) & a \cos(v) \\[2ex]
+0 & 0
+\end{pmatrix}
+\]
+En estas condiciones, es evidente que los determinantes de las submatrices cuadradas
+son todos nulos. Por tanto, $r\big(J_X(\pi, \pi)\big) \neq 2$, lo que demuestra que $X$
+no es una carta. 
 \end{document}
