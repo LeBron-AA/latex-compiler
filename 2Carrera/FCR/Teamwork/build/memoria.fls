@@ -1,0 +1,50 @@
+PWD c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork
+INPUT C:\Users\Usuario\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\memoria.tex
+OUTPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.log
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.aux
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.aux
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.aux
+OUTPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.aux
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmssbx10.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmssbx10.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+OUTPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.pdf
+INPUT C:\Users\Usuario\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.toc
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.toc
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.toc
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
+OUTPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.toc
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
+INPUT c:\Users\Usuario\Desktop\Trabajo FCR\latex-compiler\2Carrera\FCR\Teamwork\build\memoria.aux
+INPUT C:\Users\Usuario\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\Usuario\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr12.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmssbx10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\Usuario\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
