@@ -249,20 +249,23 @@ $$\mathbb{T} = \left\{(x,y,z) \in \mathbb{R}^3 :F(x,y,z) = 0\right\}$$
 \newpage
 
 \subsection{Tercer apartado}
-\hspace{1mm} Para comprobar que $X$ es una carta de clase $\mathcal{C}^k (k\geq1)$,
-han de verificarse simultáneamente las siguientes condiciones:
+\hspace{1mm} En vista de la proposición 1.18, para comprobar que $X$ es una carta de clase $\mathcal{C}^k (k\geq1)$,
+podemos comprobar que se verifican simultáneamente las siguientes condiciones:
 \begin{itemize}
     \item $X$ es de clase $\mathcal{C}^k$
-    \item $X : U \longrightarrow X(U)$ es un homeomorfismo con la topología heredada
+    \item $X$ es inyectiva
     \item $d(X)(u,v) $ tiene rango 2 $ \hspace{1.5mm} \forall (u,v) \in U$
 \end{itemize}
 
 \vspace{2mm}
-Veamos que $X$ no es una carta al comprobar que su matriz Jacobiana (y por tanto su diferencial) no siempre
-tiene rango máximo. Para ello, mostraremos un contraejemplo donde la diferencial
-de $X$ no tiene rango 2. Podemos comprobarlo al calcular el determinante de las
-submatrices cuadradas de su matriz Jacobiana.
+En primer lugar, tenemos que $X$ es de clase $\mathcal{C}^\infty$ al
+ser composición y suma de funciones  de clase $\mathcal{C}^\infty$.
 
+\vspace{2mm}
+Veamos que $X$ es una carta al comprobar que su matriz jacobiana (y por tanto su diferencial) siempre
+tiene rango máximo. Para ello, mostraremos que no puede haber un contraejemplo donde la diferencial
+de $X$ no tiene rango 2 por reducción al absurdo. Estudiemos la matriz jacobiana:
+\vspace{1mm}
 \[
 J_X(u,v) =
 \begin{pmatrix}
@@ -271,17 +274,95 @@ J_X(u,v) =
 b \cos(u) & 0
 \end{pmatrix}
 \]
-\\[2ex]
-\noindent Veamos qué ocurre para el punto $(u,v) = (\pi, \frac{\pi}{2}) \in (0, 2\pi) \times (0, 2\pi) = U$.
+
+\vspace{2mm{}}
+De haber un caso $(u, v) \in U$ donde la diferencial de $X$ no tuviese rango
+máximo, tendría que cumplirse necesariamente que las columnas de la matriz
+$J_X(u,v)$ sean proporcionales. En particular, igualando la tercera componente:
+$$X_u(u,v) = \lambda X_v(u,v) \Rightarrow b \cos(u) = 0 \Rightarrow \cos(u) = 0 $$
+\noindent La última igualdad se deduce de que $b > 0$ por hipótesis. \\
+
+Además, el rango de $J_X(u,v)$ es el el mayor rango entre sus submatrices cuadradas
+de orden dos. En caso de no ser máximo, el determinante de todas ellas ha de ser
+necesariamente nulo. Estudiemos el caso de su submatriz superior,
+a la que denotaremos $A$. Como sabemos que $\cos(u) = 0$; para este caso,
+$A$ viene dada por: \\
 \[
-J_X(\pi,\pi) =
+A =
 \begin{pmatrix}
--b \cos(v) & -a\sin(v)\\[2ex]
--b\sin(v) & a \cos(v) \\[2ex]
-0 & 0
+-b \sin(u) \cos(v) & -a \sin(v)\\[2ex]
+-b \sin(u) \sin(v) & a \cos(v)
 \end{pmatrix}
 \]
-En estas condiciones, es evidente que los determinantes de las submatrices cuadradas
-son todos nulos. Por tanto, $r\big(J_X(\pi, \pi)\big) \neq 2$, lo que demuestra que $X$
-no es una carta. 
+\\
+$$
+\det{A} = -ab \sin(u) \cos^2(v) - a b \sin(u)\sin^2(v) = 
+ -a b \sin(u)
+$$
+
+\vspace{2mm}
+En estas condiciones, el determinante de $A$ se anula si y solo
+si $\sin(u) 0$, pero como ha de cumplirse simultáneamente
+$\cos(u) = 0$ llegamos a una contradicción. Hemos demostrado que
+el rango de $J_X(u, v)$ es siempre máximo para todo $(u,v) \in U$.
+
+Queda ver ahora que $X$ es inyectiva. Para ello, supongamos que
+existen $(u_1, v_1), (u_2, v_2) \in U$ tales que $X(u_1, v_1) = X(u_2, v_2)$
+para ver que se cumple necesariamente $(u_1, v_1) = (u_2, v_2)$. Por
+definición de $X$, obtenemos el siguiente sistema de ecuaciones:
+\\
+\[
+\hspace{-2cm} % Adjust this value as needed
+\left\{
+\begin{aligned}
+\big(a + b\cos&(u_1)\big)\cos(v_1) = \big(a + b\cos(u_2)\big)\cos(v_2) \\
+\big(a + b\cos&(u_1)\big)\sin(v_1) = \Big(a + b \cos(u_2)\Big) \sin(v_2) \\
+b \sin(u_1) &= b \sin(u_2)
+\end{aligned}
+\right.
+\]
+\\
+\noindent De la última ecuación se deduce lo siguiente:
+$$ \sin(u_1) = \sin(u_2) \Rightarrow \cos^2(u_1) = \sqrt{1 - \sin^2(u_1)}
+= \sqrt{1 - \sin^2(u_2)} = \cos^2(u_2)$$
+\noindent Si elevamos al cuadrado las dos primeras ecuaciones y las sumamos:
+\begin{flalign*}
+    \big(a +  b\cos(u_1)\big)^2 &=  \big(a + b\cos(u_2)\big)^2 
+    \Rightarrow a^2 + 2ab \cos(u_1) + \cos^2(u_1) = a^2
+     + 2ab \cos(u_2) + \cos^2(u_2) \\
+    \Rightarrow & 2ab\cos(u_1) = 2ab\cos(u_2)
+     \Rightarrow \cos(u_1)= \cos(u_2)
+\end{flalign*}
+Como $X$ está definida sobre $U = (0, 2\pi) \times (0,2\pi)$, que se cumplan
+simultáneamente $\cos(u_1) = \cos(u_2)$ y $\sin(u_1) = \sin(u_2)$ implica $u_1 = u_2$.
+Así, al dividir en las dos primerdas ecuaciones entre 
+$\big(a + b\cos(u_i)\big)$ obtenemos el sistema:
+\[
+\hspace{-8cm} % Adjust this value as needed
+\left\{
+\begin{aligned}
+\cos(v_1) = \cos(v_2) \\
+\sin(v_1) = \sin(v_2) \\
+\end{aligned}
+\right.
+\]
+Razonando análogamente al caso anterior, como $v_1, v_2 \in (0, 2\pi)$,
+tenemos que $v_1 = v_2$. Hemos demostrado
+$(u_1, v_1) = (u_2, v_2)$, luego $X$ es inyectiva. Por todo lo anterior,
+concluimos que $X$ sí es una carta.
+
+\newpage
+\subsection{Cuarto apartado}
+El espacio tangente al toro en un determinado punto $(u,v) \in U$ es un
+espacio vectorial que tiene a las derivadas parciales de $X$ como base.
+Por tanto, el espacio tangente al toro $\mathbb{T}$ en un punto $X(u,v)$
+viene dado por la clausura:
+$$T_{X(u,v)}\mathbb{T} = \mathbb{R} \langle X_u(u,v), X_v(u,v)\rangle$$
+
+Sabemos además por el apartado anterior cuál es la expresión de $J_X(u,v)$,
+que tiene a las derivadas parciales de $X$ en $(u,v)$ como vectores columna.
+Por tanto, el espacio tangente a $\mathbb{T}$ para cada $(u,v)$ es el espacio
+vectorial generado como clausura de los siguientes vectores:
+$$X_u(u,v)= \Big(-b \sin(u) \cos(v), -b \sin(u) \sin(v), b \cos(u)\Big)$$
+$$X_v(u,v) = \Big(\big(-a - b\cos(u)\big) \sin(v), \big(a + b \cos(u) \big) \cos(v), 0\Big)$$
 \end{document}

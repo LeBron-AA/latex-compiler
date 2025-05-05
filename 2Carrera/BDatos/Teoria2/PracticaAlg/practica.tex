@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+
+\title{Relational Algebra Exercises}   
+\author{Javier Ortín Rodenas}
+\begin{document}
+\maketitle
+\noindent
+\newpage
+\section{Database system concepts chapter 6}
+\vspace{2ex}
+\subsection{Exercise}
+Find the name of all instructors in the "Physics" department:
+$$\Pi_{\text{name}}\left(\sigma_{\text{dept\_name = "Physics"}}(\text{instructor})\right)$$
+
+\subsection{Exercise}
+Consider a query to find the set of all courses taught in the Fall 2009 semester, the
+Spring 2010 semester, or both.
+$$\Pi_{\text{course\_id}}\left(
+    \sigma_{\text{
+            (year = 2009} \wedge \text{semester = "Fall")}
+        \vee (
+            \text{year = 2010} \wedge \text{semester = "Spring"}
+        )}(\text{section})\right)$$
+
+\vspace{2ex}
+\noindent
+Alternatively, we could use the set union as follows:
+
+$$\Pi_{\text{course\_id}}\left(
+            \sigma_{\text{year = 2009} \wedge
+            \text{semester = "Fall"}}(\text{section})\right) $$
+            $$\bigcup $$
+            $$\Pi_{\text{course\_id}}\left(
+                \sigma_{\text{year = 2010} \wedge \text{semester = "Spring"}}(\text{section})\right)$$
+
+\vspace{2ex}
+\subsection{Exercise}
+Find all courses of Fall 2009 that were not in Spring 2010:
+$$\Pi_{\text{course\_id}}\left(
+            \sigma_{\text{year = 2009} \wedge
+            \text{semester = "Fall"}}(\text{section})\right) $$
+            $$\boldsymbol{-} $$
+            $$\Pi_{\text{course\_id}}\left(
+                \sigma_{\text{year = 2010} \wedge \text{semester = "Spring"}}(\text{section})\right)$$
+\vspace{2mm}
+\noindent In this case, we use the we use the ser difference instead of the union
+
+\vspace{2ex}
+\subsection{Exercise}
+Find the name of all instructors in the Physics department, along with
+all the courses they have taught.+
+\begin{flalign*}
+    \Pi_{\text{name, course\_id}}(
+        \sigma_{\substack{\text{dept\_name = "Physics"} \wedge \\
+            \text{instructor.instructor\_id = teaches.instructor\_id}}})
+\end{flalign*}
+\end{document}

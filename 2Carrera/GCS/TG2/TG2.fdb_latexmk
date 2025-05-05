@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1742730651 "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.tex" "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.pdf" "TG2" 1742730651
+["pdflatex"] 1742849431 "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.tex" "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.pdf" "TG2" 1745823791
   "/etc/texmf/web2c/texmf.cnf" 1739899456 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -38,6 +38,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1248133631 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1248133631 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1248133631 32716 08e384dc442464e7285e891af9f45947 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb" 1248133631 30212 b6aafa449db0097a6b9b890f66741063 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -162,15 +163,15 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1739899671 4770781 1ed1abab22da9c3e2cc82e4db562318b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1739899694 8256606 b2828f53859eafe6232e26bf4e4b33a0 ""
-  "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.aux" 1742730651 1697 237ac2b39c1e488b44996932ccef929f ""
-  "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.tex" 1742730650 11281 834cf40a13c55ec7154b0fe2cae38fe4 ""
-  "TG2.aux" 1742730651 1697 237ac2b39c1e488b44996932ccef929f "pdflatex"
-  "TG2.out" 1742730651 284 d8cf514836b05ca863bb8260f0600aa3 "pdflatex"
-  "TG2.tex" 1742730650 11281 834cf40a13c55ec7154b0fe2cae38fe4 ""
+  "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.aux" 1742849431 1819 120497c63935f0b592179cc445237af4 ""
+  "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.tex" 1745823790 14722 b9e3328c7877118ab06df261c851b9dd ""
+  "TG2.aux" 1742849431 1819 120497c63935f0b592179cc445237af4 "pdflatex"
+  "TG2.out" 1742849431 348 122059ff220ae6cc77d041e008ee5258 "pdflatex"
+  "TG2.tex" 1745823790 14722 b9e3328c7877118ab06df261c851b9dd ""
   (generated)
-  "TG2.log"
+  "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.log"
+  "TG2.pdf"
   "TG2.out"
   "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.pdf"
-  "/workspaces/latex-compiler/2Carrera/GCS/TG2/TG2.log"
+  "TG2.log"
   "TG2.aux"
-  "TG2.pdf"

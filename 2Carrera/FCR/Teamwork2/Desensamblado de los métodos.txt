@@ -1,0 +1,140 @@
+Stage 1:
+00445D30 55                   push        ebp  
+00445D31 8B EC                mov         ebp,esp  
+00445D33 81 EC EC 03 00 00    sub         esp,3ECh  
+00445D39 C7 45 FC E8 03 00 00 mov         dword ptr [ebp-4],3E8h  
+00445D40 6A 00                push        0  
+00445D42 68 E8 03 00 00       push        3E8h  
+00445D47 8D 85 14 FC FF FF    lea         eax,[ebp-3ECh]  
+00445D4D 50                   push        eax  
+00445D4E B9 A8 1B 55 00       mov         ecx,offset std::cin (0551BA8h)  
+00445D53 E8 48 3D 00 00       call        std::basic_istream<char,std::char_traits<char> >::getline (0449AA0h)  
+00445D58 68 80 2A 52 00       push        522A80h  
+00445D5D 8D 8D 14 FC FF FF    lea         ecx,[ebp-3ECh]  
+00445D63 51                   push        ecx  
+00445D64 E8 B7 15 06 00       call        strcmp (04A7320h)  
+00445D69 83 C4 08             add         esp,8  
+00445D6C 85 C0                test        eax,eax  
+00445D6E 74 07                je          Stage1+47h (0445D77h)  
+00445D70 E8 5B FF FF FF       call        Explode (0445CD0h)  
+00445D75 EB 05                jmp         Stage1+4Ch (0445D7Ch)  
+00445D77 E8 84 FF FF FF       call        Defuse (0445D00h)  
+00445D7C 8B E5                mov         esp,ebp  
+00445D7E 5D                   pop         ebp  
+00445D7F C3                   ret 
+
+
+Stage 2:
+00445D80 55                   push        ebp  
+00445D81 8B EC                mov         ebp,esp  
+00445D83 83 EC 1C             sub         esp,1Ch  
+00445D86 53                   push        ebx  
+00445D87 C7 45 F4 04 00 00 00 mov         dword ptr [ebp-0Ch],4  
+00445D8E C7 45 FC 00 00 00 00 mov         dword ptr [ebp-4],0  
+00445D95 EB 09                jmp         Stage2+20h (0445DA0h)  
+00445D97 8B 45 FC             mov         eax,dword ptr [ebp-4]  
+00445D9A 83 C0 01             add         eax,1  
+00445D9D 89 45 FC             mov         dword ptr [ebp-4],eax  
+00445DA0 83 7D FC 04          cmp         dword ptr [ebp-4],4  
+00445DA4 7D 14                jge         Stage2+3Ah (0445DBAh)  
+00445DA6 8B 4D FC             mov         ecx,dword ptr [ebp-4]  
+00445DA9 8D 54 8D E4          lea         edx,[ebp+ecx*4-1Ch]  
+00445DAD 52                   push        edx  
+00445DAE B9 A8 1B 55 00       mov         ecx,offset std::cin (0551BA8h)  
+00445DB3 E8 38 25 00 00       call        std::basic_istream<char,std::char_traits<char> >::operator>> (04482F0h)  
+00445DB8 EB DD                jmp         Stage2+17h (0445D97h)  
+00445DBA C7 45 F8 01 00 00 00 mov         dword ptr [ebp-8],1  
+00445DC1 8D 5D E4             lea         ebx,[ebp-1Ch]  
+00445DC4 8B 43 04             mov         eax,dword ptr [ebx+4]  
+00445DC7 03 43 08             add         eax,dword ptr [ebx+8]  
+00445DCA 83 F8 F6             cmp         eax,0FFFFFFF6h  
+00445DCD 75 07                jne         Stage2+56h (0445DD6h)  
+00445DCF C7 45 F8 00 00 00 00 mov         dword ptr [ebp-8],0  
+00445DD6 83 7D F8 00          cmp         dword ptr [ebp-8],0  
+00445DDA 74 07                je          Stage2+63h (0445DE3h)  
+00445DDC E8 EF FE FF FF       call        Explode (0445CD0h)  
+00445DE1 EB 05                jmp         Stage2+68h (0445DE8h)  
+00445DE3 E8 18 FF FF FF       call        Defuse (0445D00h)  
+00445DE8 5B                   pop         ebx  
+00445DE9 8B E5                mov         esp,ebp  
+00445DEB 5D                   pop         ebp  
+00445DEC C3                   ret
+
+
+
+Stage 3:
+00445DF0 55                   push        ebp  
+00445DF1 8B EC                mov         ebp,esp  
+00445DF3 83 EC 14             sub         esp,14h  
+00445DF6 8D 45 F8             lea         eax,[ebp-8]  
+00445DF9 50                   push        eax  
+00445DFA 8D 4D FC             lea         ecx,[ebp-4]  
+00445DFD 51                   push        ecx  
+00445DFE B9 A8 1B 55 00       mov         ecx,offset std::cin (0551BA8h)  
+00445E03 E8 E8 24 00 00       call        std::basic_istream<char,std::char_traits<char> >::operator>> (04482F0h)  
+00445E08 8B C8                mov         ecx,eax  
+00445E0A E8 E1 24 00 00       call        std::basic_istream<char,std::char_traits<char> >::operator>> (04482F0h)  
+00445E0F 8B 55 F8             mov         edx,dword ptr [ebp-8]  
+00445E12 83 E2 02             and         edx,2  
+00445E15 D1 FA                sar         edx,1  
+00445E17 89 55 F4             mov         dword ptr [ebp-0Ch],edx  
+00445E1A 8B 45 FC             mov         eax,dword ptr [ebp-4]  
+00445E1D 25 00 08 00 00       and         eax,800h  
+00445E22 C1 F8 0B             sar         eax,0Bh  
+00445E25 89 45 EC             mov         dword ptr [ebp-14h],eax  
+00445E28 8B 4D FC             mov         ecx,dword ptr [ebp-4]  
+00445E2B 81 E1 00 00 00 04    and         ecx,4000000h  
+00445E31 C1 F9 1A             sar         ecx,1Ah  
+00445E34 89 4D F0             mov         dword ptr [ebp-10h],ecx  
+00445E37 8B 55 F4             mov         edx,dword ptr [ebp-0Ch]  
+00445E3A 3B 55 F0             cmp         edx,dword ptr [ebp-10h]  
+00445E3D 75 0D                jne         Stage3+5Ch (0445E4Ch)  
+00445E3F 83 7D EC 01          cmp         dword ptr [ebp-14h],1  
+00445E43 75 07                jne         Stage3+5Ch (0445E4Ch)  
+00445E45 E8 86 FE FF FF       call        Explode (0445CD0h)  
+00445E4A EB 05                jmp         Stage3+61h (0445E51h)  
+00445E4C E8 AF FE FF FF       call        Defuse (0445D00h)  
+00445E51 8B E5                mov         esp,ebp  
+00445E53 5D                   pop         ebp  
+00445E54 C3                   ret  
+
+
+Stage 4:
+00445E60 55                   push        ebp  
+00445E61 8B EC                mov         ebp,esp  
+00445E63 81 EC EC 03 00 00    sub         esp,3ECh  
+00445E69 6A 0A                push        0Ah  
+00445E6B E8 50 40 00 00       call        std::numeric_limits<__int64>::max (0449EC0h)  
+00445E70 52                   push        edx  
+00445E71 50                   push        eax  
+00445E72 B9 A8 1B 55 00       mov         ecx,offset std::cin (0551BA8h)  
+00445E77 E8 B4 3E 00 00       call        std::basic_istream<char,std::char_traits<char> >::ignore (0449D30h)  
+00445E7C C7 45 FC E8 03 00 00 mov         dword ptr [ebp-4],3E8h  
+00445E83 6A 00                push        0  
+00445E85 68 E8 03 00 00       push        3E8h  
+00445E8A 8D 85 14 FC FF FF    lea         eax,[ebp-3ECh]  
+00445E90 50                   push        eax  
+00445E91 B9 A8 1B 55 00       mov         ecx,offset std::cin (0551BA8h)  
+00445E96 E8 05 3C 00 00       call        std::basic_istream<char,std::char_traits<char> >::getline (0449AA0h)  
+00445E9B B9 01 00 00 00       mov         ecx,1  
+00445EA0 6B D1 05             imul        edx,ecx,5  
+00445EA3 0F BE 84 15 14 FC FF FF movsx       eax,byte ptr [ebp+edx-3ECh]  
+00445EAB B9 01 00 00 00       mov         ecx,1  
+00445EB0 C1 E1 00             shl         ecx,0  
+00445EB3 0F BE 94 0D 14 FC FF FF movsx       edx,byte ptr [ebp+ecx-3ECh]  
+00445EBB 3B C2                cmp         eax,edx  
+00445EBD 74 23                je          Stage4+82h (0445EE2h)  
+00445EBF B8 01 00 00 00       mov         eax,1  
+00445EC4 6B C8 03             imul        ecx,eax,3  
+00445EC7 0F BE 94 0D 14 FC FF FF movsx       edx,byte ptr [ebp+ecx-3ECh]  
+00445ECF B8 01 00 00 00       mov         eax,1  
+00445ED4 D1 E0                shl         eax,1  
+00445ED6 0F BE 8C 05 14 FC FF FF movsx       ecx,byte ptr [ebp+eax-3ECh]  
+00445EDE 3B D1                cmp         edx,ecx  
+00445EE0 74 07                je          Stage4+89h (0445EE9h)  
+00445EE2 E8 E9 FD FF FF       call        Explode (0445CD0h)  
+00445EE7 EB 05                jmp         Stage4+8Eh (0445EEEh)  
+00445EE9 E8 12 FE FF FF       call        Defuse (0445D00h)  
+00445EEE 8B E5                mov         esp,ebp  
+00445EF0 5D                   pop         ebp  
+00445EF1 C3                   ret  

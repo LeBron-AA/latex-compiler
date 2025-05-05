@@ -1,0 +1,310 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\title{TG III}   
+\author{
+    \large{Grupo M} \\\\
+    Javier Ortín Rodenas \\
+    Bruno Martín Rivera \\
+    Jorge Gota Ortín \\
+    Alejandra Sánchez Mayo
+}
+\date{}
+\begin{document}
+\maketitle
+\noindent
+\section{Enunciado:}
+\begin{enumerate}
+    \item Dado el paraboloide hiperbólico $z = y^2 - x^2$, halle su imagen esférica.
+        Para el punto $P = (0,0,0)$, halle las curvaturas normales en las direcciones
+        (principales) $v_1 = (1,0,0)$ y $v_2 = (0,1,0)$. ¿El punto $P$ es umbilical?
+        Halle la curvatura de $P$ en la dirección $v_3 = \left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0 \right)$.
+    \item Dada la superficie $z = x^2 + y^3$, clasifique sus puntos en elípticos, hiperbólicos, parabólicos o planos.
+\end{enumerate}
+
+\section{Solución}
+\subsection{Primer apartado}
+\hspace{1mm} En primer lugar, debemos parametrizar el paraboloide hiperbólico en cuestión.
+Nótese que es la gráfica de la siguiente función $f$:
+\begin{align*}
+    f : \mathbb{R}^2 \longrightarrow \mathbb{R} \hspace{3ex}
+    & (x,y) \longmapsto f(x,y) = y^2 - x^2
+\end{align*}
+\noindent
+Por tanto, podemos definir la siguiente parametrización:
+\begin{align*}
+    X : \mathcal{U} = \mathbb{R}^2 \longrightarrow \mathbb{R}^3 \hspace{3ex}
+    & (u,v) \longmapsto X(u,v) = (u,v,v^2 - u^2)
+\end{align*}
+
+\vspace{2mm}
+Para hallar la imagen esférica del paraboloide, es necesario calcular el vector normal a esta
+superficie en cada punto de la misma. Para ello debemos conocer las derivadas parciales de la
+parametrización. Derivando en la expresión de $X$ obtenemos:
+\vspace{2mm}
+$$X_u(u,v) = (1,0,-2u) \hspace{3ex} X_v(u,v) = (0,1,2v)$$
+\newpage
+\noindent Calculemos el producto vectorial de las derivadas según el siguiente falso determinante:
+\vspace{1mm}
+\begin{align*}
+    X_u(u,v) \times X_v(u,v) &= 
+    \begin{vmatrix}
+    e_1 & e_2 & e_3 \\
+    1 & 0 & -2u \\
+    0 & 1 & 2v
+    \end{vmatrix}
+    = (2u, -2v, 1) \\[3ex]
+    ||X_u(u,v) \times X_v(u,v)|| &= \sqrt{(2u)^2 + (-2v)^2 + 1^2} = \sqrt{4u^2+4v^2+1}
+\end{align*} \\
+\noindent Normalizando para que sea un vector unitario:
+$$N(u,v) = \frac{X_u(u,v) \times X_v(u,v)}{||X_u(u,v) \times X_v(u,v)||} 
+= \frac{1}{\sqrt{4u^2+4v^2+1}}\Big(2u,-2v,1\Big)$$
+
+\vspace{3mm}
+La imagen esférica del paraboloide se corresponde con la imagen del conjunto abierto $\mathcal{U}$ que
+lo parametriza por medio de su vector normal. En este caso particular, $\mathcal{U} = \mathbb{R}^2$, luego
+los parámetros $u,v$ pueden tomar cualquier valor real. De este modo, su imagen esférica viene dada por el siguiente conjunto:
+\vspace{1mm}
+$$ \left\{\left(\frac{2u}{\sqrt{4u^2+4v^2+1}}, \frac{-2v}{\sqrt{4u^2+4v^2+1}},
+\frac{1}{\sqrt{4u^2+4v^2+1}}\right) \in \mathbb{R}^3 : u,v \in \mathbb{R}\right\}$$
+\noindent
+Veamos que este conjunto se corresponde con el hemisferio norte de la esfera unidad en $\mathbb{R}^3$:
+$$ \left\{(x,y,z) \in \mathbb{R}^3 : x^2+y^2+z^2 = 1,  z > 0\right\}$$
+Es evidente que la imagen esférica de la superficie está contenido en el hemisferio norte de la esfera
+unidad, pues todos sus puntos son unitarios y tienen tercera componente positiva. Queda ver el otro contenido.
+Para ello, basta ver que todo $(x,y,z)$ del hemisferio norte tiene un $(u,v)$ que lo genere.
+Igualando las ecuaciones, para $D = 4u^2 + 4v^2 + 1$ se tiene:
+\begin{align*}
+x = \frac{2u}{\sqrt{D}} &&
+y = \frac{-2v}{\sqrt{D}} &&
+z = \frac{1}{\sqrt{D}}
+\end{align*}
+\\[2ex]
+Despejando, obtenemos:
+\begin{align*}
+    x = \frac{2u}{\sqrt{D}} = 2uz \Rightarrow u =  \frac{x}{2z} &&
+    y = \frac{-2v}{\sqrt{D}} = -2vz \Rightarrow v =  \frac{-y}{2z} &&
+\end{align*}
+\\[2ex]
+\noindent En efecto, los dos conjuntos coinciden.
+
+\newpage
+Atendiendo ahora a la siguiente pregunta del primer apartado, consideramos el punto $P = (0,0,0)$
+En efecto, se trata de un punto de la superficie, pues cumple su ecuación: $0 = 0^2 - 0^2$.
+En particular, $P = X(0,0)$. Evaluando sus derivadas parciales:
+\begin{align*}
+    X_u(0,0) = (1,0,0) = v_1 &&
+    X_v(0,0) = (0,1,0) = v_2
+\end{align*}
+\noindent Los $v_i$ pertenecen a $T_PS$ y son unitarios, luego tiene sentido calcular $\kappa_n(v_i, p)$.
+En primer lugar, calculemos la curvatura normal respecto de $v_1$. Para ello, utilizaremos una curva $\alpha$
+que cumpla $\alpha(0) = P, \hspace{1.5mm} \alpha'(0) = v_1$. Tomaremos la siguiente curva:
+\begin{align*}
+    \alpha: (-\varepsilon, \varepsilon) \longrightarrow \mathbb{R}^3 &&
+    t \longmapsto X(0 + t, 0) = (t, 0, -t^2)
+\end{align*}
+\noindent De este modo, $\alpha(0) = P = (0,0,0)$, $\alpha'(0) = X_u(0,0) = (1,0,0) = v_1$.
+Además, como $\mathcal{U} = \mathbb{R}^2$, $\alpha$ está bien definida para cualquier $\varepsilon > 0$.
+Veamos qué valor tiene la curvatura normal: \vspace{2mm}
+\begin{align*}
+    &\alpha''(t) =  (0,0,-2) \\
+    &N(0,0) = \frac{1}{\sqrt{4\cdot0^2 + 4\cdot 0^2 + 1}} \Big(2\cdot 0, -2 \cdot 0, 1\Big)
+     = (0,0,1) \\[2ex]
+    & \kappa_n(v_1, P) = \alpha''(0) \boldsymbol{\cdot} N(P) = -2&
+\end{align*}
+
+\vspace{2mm}
+Realicemos el mismo procedimiento para $v_2$ ahora. Para ello, definiremos la siguiente curva para
+un $\varepsilon > 0$ arbitrario.
+\begin{align*}
+    \beta: (-\varepsilon, \varepsilon) \longrightarrow \mathbb{R}^3 &&
+    t \longmapsto X(0, 0 + t) = (0, t, t^2)
+\end{align*}
+\noindent De manera análoga al caso anterior, se cumple
+$\beta(0) = X(0,0) = (0,0,0) = P$,  $\beta'(0) = X_v(0,0) = (0,1,0) = v_2$.
+Veamos qué valor tiene la curvatura normal asociada a $v_2$:
+\begin{align*}
+    \beta''(0) = (0,0,2) &&
+    \kappa_n(v_2, P) = \beta''(0) \cdot N(P) = 2
+\end{align*}
+Por todo lo anterior, podemos afirmar que el punto $P$ no es umbilical, pues
+las curvaturas normales respecto de sus direcciones principales no coinciden.
+
+\vspace{4mm}
+Finalmente, hallemos la curvatura normal en $P$ respecto de la dirección $v_3$.
+Tiene sentido, pues $||v_3|| = 1$,  y  $v_3 \in T_PS$ al ser combinación lineal
+de $v_1$ y $v_2$. En este caso, utilizaremos la segunda forma fundamental.
+Calculando las segundas derivadas:
+\begin{align*}
+    X_{uu}(u,v) = (0,0,-2)&&
+    X_{uv}(u,v) = (0,0,0)&&
+    X_{vv}(u,v) = (0,0,2)
+\end{align*}
+\newpage
+Los coeficientes de la expresión matricial de la segunda forma fundamental
+vienen dados por el producto escalar de las segundas derivadas:
+\vspace{-5mm}
+\begin{multicols}{2}
+    \begin{flalign*}
+        &e = X_{uu}(0,0) \boldsymbol{\cdot} N(0,0)
+        = (0,0,-2) \boldsymbol{\cdot} (0,0,1) = -2 \\
+        &f = X_{uv}(0,0) \boldsymbol{\cdot} N(0,0)
+        = (0,0,0) \boldsymbol{\cdot} (0,0,1) = 0 \\
+        &g = X_{vv}(0,0) \boldsymbol{\cdot} N(0,0)
+        = (0,0,2) \boldsymbol{\cdot} (0,0,1) = 2 \\     
+    \end{flalign*}
+    \columnbreak
+    \\\\
+    \begin{flalign*}
+        \hspace{25mm}
+        \mathrm{II}_P =
+        \begin{pmatrix}
+            e & f \\
+            f & g
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            -2 & 0 \\
+            0 & 2
+        \end{pmatrix}
+    \end{flalign*}
+\end{multicols}
+\vspace{-5mm}
+Esta matriz representa $\mathrm{II}_P$ en $T_PS$ según la base
+ $\{X_u(0,0), X_v(0,0)\}$. Por tanto, es claro que $v_1, v_2$
+son direcciones principales al ser vectores propios. 
+Expresemos $v_3$ en función de esta base:
+$$v_3 =  \left(\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}, 0 \right)
+ = \frac{1}{\sqrt{2}}\big(1,0,0\big) + \frac{1}{\sqrt{2}}\big(0,1,0\big)
+ = \frac{1}{\sqrt{2}} X_u(0,0) + \frac{1}{\sqrt{2}} X_v(0,0)$$
+\vspace{1mm}
+Por tanto, evaluando la segunda forma fundamental en este vector:
+\begin{flalign*}
+    \kappa_n(v_3, P) =& \mathrm{II}_P(v_3) =
+    \begin{pmatrix}
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{pmatrix}
+    \begin{pmatrix}
+        -2 & 0 \\
+        0 & 2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}} 
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \frac{-2}{\sqrt{2}} &
+        \frac{2}{\sqrt{2}}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \frac{1}{\sqrt{2}} \\
+        \frac{1}{\sqrt{2}}
+    \end{pmatrix}
+    = \\
+    &= \frac{-2}{\sqrt{2}} \cdot\frac{1}{\sqrt{2}}
+     + \frac{2}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}
+    = -1 + 1 = 0
+\end{flalign*}
+
+\newpage
+\subsection{Segundo apartado}
+\hspace{1mm}
+Al igual que en el primer apartado, la superficie es la gráfica de una función.
+Por tanto, podemos parametrizarla como sigue:
+\begin{align*}
+    X : \mathcal{U} = \mathbb{R}^2 
+     \longrightarrow \mathbb{R}^3 &&
+    (u,v) \longmapsto X(u,v) = (u,v, u^2 + v^3)
+\end{align*}
+Estudiemos qué aspecto tiene la matriz de la segunda forma fundamental
+para cada punto de la superficie. En primer lugar, hallemos las derivadas
+parciales:
+\begin{align*}
+    X_u(u,v) = (1,0,2u) &&
+    X_v(u,,v) = (0,1,3v^2)
+\end{align*}
+Hallemos el vector normal unitario:
+\begin{align*}
+    &X_u(u,v) \times X_v(u,v) = 
+    \begin{vmatrix}
+    e_1 & e_2 & e_3 \\
+    1 & 0 & 2u \\
+    0 & 1 & 3v^2
+    \end{vmatrix}
+    = (-2u, -3v^2, 1) \\[3ex]
+    &||X_u(u,v) \times X_v(u,v)||
+     = \sqrt{(-2u)^2 + (-3v^2)^2 + 1^2}
+     = \sqrt{4u^2 + 9v^4 + 1}&
+\end{align*}\\[0.5mm]
+$$N(u,v) = \left(
+    \frac{-2u}{\sqrt{4u^2 + 9v^4 + 1}},
+    \frac{-3v^2}{\sqrt{4u^2 + 9v^4 + 1}},
+    \frac{1}{\sqrt{4u^2 + 9v^4 + 1}},
+\right)$$
+\\[2ex]
+
+Vamos a expresar la segunda forma fundamental en función del
+producto escalar entre el vector normal y las segundas derivadas
+de la parametrización. Veamos cuáles son las derivadas de orden
+dos de $X$ en un punto arbitrario:
+\begin{align*}
+    X_{uu}(u,v) = (0,0,2) &&
+    X_{uv}(u,v) = (0,0,0) &&
+    X_{vv}(u,v) = (0,0,6v)
+\end{align*}
+
+\vspace{2mm}
+Para clasificar los puntos en elípticos, hiperbólicos, parabólicos
+o planos, solo es necesario conocer el signo de sus curvaturas normales
+principales. Por tanto, podemos multiplicar las segundas derivadas por
+$X_u \times X_v$ en lugar de por el vector normal, pues no afectará al signo
+del resultado. Por tanto, basta estudiar la matriz dada por:
+\vspace{2mm}
+\begin{flalign*}
+    &\hat{e} = X_{uu}(u,v) \boldsymbol{\cdot} \big(X_u(u,v) \times X_v(u,v)\big)
+    = (0,0,2) \boldsymbol{\cdot} (-2u,-3v^2,1) = 2 \\
+    &\hat{f} = X_{uv}(u,v) \boldsymbol{\cdot} \big(X_u(u,v) \times X_v(u,v)\big)
+    = (0,0,0) \boldsymbol{\cdot} (-2u,-3v^2,1) = 0 \\
+    &\hat{g} = X_{vv}(u,v) \boldsymbol{\cdot} \big(X_u(u,v) \times X_v(u,v)\big)
+    = (0,0,6v) \boldsymbol{\cdot} (-2u,-3v^2,1) = 6v \\     
+\end{flalign*}
+\vspace{-10mm}
+\begin{flalign*}
+    \hat{\mathrm{II}}_P =
+    \begin{pmatrix}
+        \hat{e} & \hat{f} \\
+        \hat{f} & \hat{g}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        2 & 0 \\
+        0 & 6v
+    \end{pmatrix}
+\end{flalign*}
+\newpage
+Esta matriz ya es diagonal, y sus valores propios son
+2 y $6v$ (las curvaturas normales principales).
+Para estudiar el tipo de punto basta estudiar el signo del
+producto de las mismas.
+Nótese que al menos uno de los dos valores es
+siempre distinto de cero, luego la superficie no tiene puntos planos.
+El carácter de $X(u,p)$ viene determinado por $6v$. Comparando el signo de $6v$
+con el signo de 2 se tiene:
+
+\begin{itemize}
+    \item $P = X(u,v)$ es elíptico $\iff 6v > 0 \iff v > 0$
+    \item $P = X(u,v)$ es hiperbólico $\iff 6v < 0 \iff v < 0$
+    \item $P = X(u,v)$ es parabólico $\iff 6v = 0 \iff v = 0$
+\end{itemize}
+Sustituyendo en la parametrización, obtenemos:
+\begin{itemize}
+    \item Puntos elípticos: $\{(u,v,u^2+v^3) \in \mathbb{R}^3 : u \in \mathbb{R}, v \in (0, +\infty)\}$
+    \item Puntos hiperbólicos: $\{(u,v,u^2+v^3) \in \mathbb{R}^3 : u \in \mathbb{R}, v \in (-\infty, 0)\}$
+    \item Puntos parabólicos: $\{(u,0,u^2) \in \mathbb{R}^3 : u \in \mathbb{R}\}$
+\end{itemize}
+\end{document}

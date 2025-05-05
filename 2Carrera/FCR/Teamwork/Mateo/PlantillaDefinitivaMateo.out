@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Primera parte}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{PasswordControl\(\)}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{CountActiveBits\(\)}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{AsmBasedControl\(\)}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{ArrayMinMax\(\)}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Segunda parte}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Direcci\363n de memoria IsValidAssembly}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{Direcci\363n de memoria PasswordControl}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Marco de pila ArrayMinMax}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.4}{Acceso de lectura ArrayMinMax}{section.2}% 10
+\BOOKMARK [1][-]{section.3}{Divisi\363n del trabajo}{}% 11

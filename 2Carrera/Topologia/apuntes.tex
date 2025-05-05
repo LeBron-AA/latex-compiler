@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{xcolor}
+
+% ----- Custom counters and commands -----
+\newcounter{unit}[section]
+\renewcommand{\theunit}{\arabic{unit}}
+
+\newcounter{chapter}[subsection]
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+\newcounter{definicion}[subsubsection]
+\renewcommand{\thedefinicion}{\theunit.\arabic{definicion}}
+
+\newcounter{nota}[subsubsection]
+\renewcommand{\thenota}{\theunit.\arabic{nota}}
+
+\newcounter{lema}[subsubsection]
+\renewcommand{\thelema}{\theunit.\arabic{lema}}
+
+\newcounter{teorema}[subsubsection]
+\renewcommand{\theteorema}{\theunit.\arabic{teorema}}
+
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\hspace{-10mm}\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+
+\newcommand{\definicion}{
+  \refstepcounter{definicion}
+  \subsubsection*{\large{Definición \thedefinicion}}
+  \addcontentsline{toc}{subsubsection}{Definición \thedefinicion}
+}
+
+\newcommand{\nota}{
+  \refstepcounter{nota}
+  \subsubsection*{\large{Nota \thenota}}
+  \addcontentsline{toc}{subsubsection}{Nota \thenota}
+}
+
+\newcommand{\lema}{
+  \refstepcounter{lema}
+  \subsubsection*{\large{Lema \thelema}}
+  \addcontentsline{toc}{subsubsection}{Lema \thelema}
+}
+
+\newcommand{\teorema}[1]{
+  \refstepcounter{teorema}
+  \subsubsection*{\large{Teorema \theteorema \quad \textcolor{red}{#1}}}
+  \addcontentsline{toc}{subsubsection}{Teorema \thelema \quad \textcolor{red}{#1}}
+}
+
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+
+
+% ----------------------------------------
+
+\begin{document}
+
+\vfill
+\begin{center}
+    \Huge{Topología I} \\[3ex] 
+    \huge Apuntes curso 2024 - 2025\\[3ex]
+    \Large{Javier Ortín Rodenas}
+\end{center}
+\vspace{2cm}
+\onehalfspacing
+
+Estos apuntes tienen como objetivo recopilar los conceptos enseñados en la 
+asignatura de Topología I en la Universidad de Oviedo durante el curso 2024-2025.
+El índice de contenidos ha sido compartido por el equipo docente, así como algunas
+de las demostraciones. Otras, en cambio, han sido realizadas por el autor de estos
+apuntes por su cuenta.
+
+\newpage
+\tableofcontents
+\newpage
+
+\unit{Espacios métricos}
+\vspace{3mm}
+
+\chapter{Primeras definiciones}
+\vspace{3mm}
+
+\definicion
+\vspace{1mm}\hspace{1mm}
+Sea $X$ un conjunto no vacío ($X \neq \emptyset$), diremos que una aplicación
+$d : X \times X \longrightarrow \mathbb{R}$ es una métrica (o distancia) definida en $X$
+si cumple los siguientes axiomas:
+\begin{enumerate}[label=D.\arabic*)]
+    \item $d(x,y) \geq 0 \hspace{2mm} \forall x,y \in X$
+    \item $d(x,y) = 0 \iff x = y \hspace{2mm} \forall x,y \in X$
+    \item $d(x,y) = d(y,x) \hspace{2mm} \forall x,y \in X$
+    \item $d(x,z) \leq d(x,y) + d(y,z) \hspace{2mm} \forall x,y,z \in X$
+\end{enumerate}
+
+\vspace{2mm}
+El par $(X, d)$ recibe el nombre de "espacio métrico". El número real $d(x,y)$
+recibe el nombre de "distancia de $x$ a $y$". Es común referirse a D.4) como
+"desigualdad triangular".
+
+\vspace{4ex}
+\definicion
+\vspace{1mm}\hspace{1mm}
+Sean $(X, d_x)$ un espacio métrico, $Y \neq \emptyset $ con $Y \subseteq X$
+un subconjunto. Se considera:
+\begin{align*}
+    d_{X|Y}:Y\times Y \longrightarrow \mathbb{R} &&
+    (y, y') \longmapsto d_{X|Y}(y,y') = d_X(y,y')
+\end{align*}
+
+La aplicación $d_{X|Y}$ es una métrica que recibe el nombre de "métrica
+inducida por $d_X$". El espacio métrico $(Y, d_{X|Y})$ recibe el nombre
+de "subespacio métrico de $(X, d_x)$".
+
+\newpage
+\definicion
+\vspace{1mm}\hspace{1mm}
+Sean $(X, d_x)$ un espacio métrico, $x \in X, \varepsilon \in \mathbb{R}, \varepsilon \geq 0$,
+se define:
+\begin{itemize}
+    \item $B_d(x, \varepsilon) = \{y \in X: d(x,y) < \varepsilon\}$ Bola (abierta) de centro $x$ y radio $\varepsilon$
+    \item $D_d(x, \varepsilon) = \{y \in X: d(x,y) \leq \varepsilon\}$ Disco de centro $x$ y radio $\varepsilon$
+    \item $S_d(x, \varepsilon) = \{y \in X: d(x,y) = \varepsilon\}$ Esfera de centro $x$ y radio $\varepsilon$
+\end{itemize}
+
+\nota
+\vspace{1mm}\hspace{1mm}
+Cuando no haya lugar a confusión, se omitirá el subíndice correspondiente a la métrica
+para denotar a bolas, discos y esferas.
+
+\nota
+\vspace{1mm}\hspace{1mm}
+Sean $(X, d_x)$ un espacio métrico, $x \in X$. Entonces, se cumple:
+\begin{enumerate}[label=-]
+    \item Si $\varepsilon_1, \varepsilon_2 \in \mathbb{R}$ tales que
+        $0\leq \varepsilon_1 \leq \varepsilon_2$, entonces se tiene
+        $B_d(x, \varepsilon_1) \subseteq B_d(x, \varepsilon_2)$
+    \item $S_d(x, \varepsilon) \cap B_d(x, \varepsilon) = \emptyset
+        \hspace{3mm} \forall \varepsilon \in \mathbb{R}: \varepsilon \geq 0$
+    \item $D_d(x, \varepsilon) = S_d(x, \varepsilon) \cup B_d(x, \varepsilon)
+        \hspace{3mm} \forall \varepsilon \in \mathbb{R}: \varepsilon \geq 0$
+\end{enumerate}
+
+\newpage
+\chapter{Estructura topológica de un espacio métrico}
+\vspace{3mm}
+
+\lema
+\vspace{1mm}\hspace{1mm}
+Sea $(X, d)$ un espacio métrico, $x_0 \in X$, $\varepsilon \in \mathbb{R}$
+con  $\varepsilon > 0$, $x \in B_d(x_0, \varepsilon)$. Se verifica que
+$\exists \mu \in \mathbb{R}$ con $\mu > 0$ tal que
+$B_d(x, \mu) \subseteq B_d(x_0, \varepsilon)$. \\[3ex]
+\underline{\textbf{Demostración:}} Nótese la importancia de la desigualdad estricta $\varepsilon, \mu > 0$.
+
+\vspace{2mm} \doublespacing
+Por hipótesis, $x_0 \in X$, $\varepsilon \in \mathbb{R}$ y $\varepsilon > 0$, luego $B_d(x_0, \varepsilon)$
+está bien definida. \\ Además, $x \in B_d(x_0, \varepsilon) \Rightarrow d(x,x_0) < \varepsilon$ por hipótesis
+y por definición de bola. \\ De este modo, podemos definir $\mu = \varepsilon - d(x,x_0) > 0$ por el paso anterior. \\
+Así, $B_d(x, \mu)$ está bien definida. Queda ver que $B_d(x, \mu) \subseteq B_d(x_0, \varepsilon)$.
+
+\vspace{2mm}
+Sea $y \in B_d(x, \mu)$; por definición, $d(x, y) = \mu = \varepsilon - d(x, x_0)$. Por (D.4), \\
+$d(x_0, y) \leq d(x_0, x) + d(x, y) < d(x_0, x) + \mu = d(x_0, x) + \varepsilon - d(x_0, x) = \varepsilon$ \\
+Así, $y \in B_d(x, \mu) \Rightarrow y \in B_d(x_0, \varepsilon)$, luego $B_d(x, \mu) \subseteq B_d(x_0, \varepsilon)$.
+
+\vspace{3mm}
+
+\definicion
+\vspace{1mm}\hspace{1mm}
+Sean $(X,d)$ un espacio métrico, $U \subseteq X$. Se dice que $U$ es un d-abierto si: \vspace{-4mm}
+$$\forall x \in U \hspace{2mm} \exists \mu \in \mathbb{R}, \hspace{2mm} \mu > 0
+\hspace{3mm} \text{tal que} \hspace{3mm} B_d(x, \mu) \subseteq U$$
+
+\nota
+\vspace{1mm}\hspace{1mm}
+En la definición anterior, el valor de $\mu$ depende de cada $x$, no es un valor único.
+
+\newpage
+\teorema{Estructura topológica de un espacio métrico}
+Sea $(X,d)$ un espacio métrico, se verifica que:
+\begin{enumerate}[label=(\arabic*)]
+    \item $X$, $\emptyset$ son d-abiertos
+    \item Sean $\{U_i\}_{i \in I}$ todos d-abiertos. Entonces, $U = \bigcup_{i \in I}U_i$ es también un d-abierto.
+    \item Si $\{U_1, \dots U_n\}$ son d-abiertos; entonces, $U = \bigcap_{i=1}^nU_i$ es un d-abierto.
+\end{enumerate}
+
+\dem \\ \onehalfspacing
+(1) Buscamos demostrar que $X$ es un d-abierto; es decir, buscamos ver: \vspace{-2mm}
+$$\forall x \in X \hspace{2mm} \exists \mu \in \mathbb{R},
+\mu > 0: B_d(x, \mu) \subseteq X$$ \\[-8ex]
+
+Sea $x \in X$ cualquiera y $\mu > 0$ cualquiera,
+$B_d(x, \mu) = \{y \in X: d(x,y) < \mu\}$. \\
+Por contrarrecíproco, $y \notin X \Rightarrow y \notin B_d(x, \mu)$,
+luego $B_d(x, \mu) \subseteq X$. \\
+Tenemos que $X$ es un d-abierto, falta ver $\emptyset$. Para ello, reescribiremos
+la definición de d-abierto de la siguiente forma: \vspace{-5mm}
+$$\emptyset \text{ es un d-abierto} \iff 
+\nexists x\in \emptyset : \forall \mu > 0 : B_d(x,\mu) \nsubseteq \emptyset$$ \\[-5ex]
+Como $\nexists x \in \emptyset$, se cumple trivialmente. Así, $\emptyset$ es un d-abierto.
+\\[6ex]
+\noindent
+(2) Sea $\{U_i\}_{i \in I}$ una colección arbitraria de d-abiertos, si
+$U_i = \emptyset \hspace{2mm} \forall i \in I$, entonces  se tiene $\bigcup_{i \in I}U_i = \emptyset$.
+En tal caso, la unión es un d-abierto como consecuendia del apartado anterior. \vspace{4mm}
+
+Supongamos que $\bigcup_{i\in I}U_i \neq \emptyset$. Así, sea $x \in \bigcup_{i\in I}U_i$
+ por definición, $\exists j \in I: x \in U_j$. \\
+Por hipótesis, $U_j$ es un d-abierto, luego $\exists \mu > 0:$ $B_d(x,\mu) \subseteq U_j \subseteq \bigcup_{i\in I}U_i$.
+\\ De este modo, $\bigcup_{i\in I}U_i$ es también un d-abierto.
+\newpage
+\noindent
+(3) Sea $\{U_1, \dots, U_n\}$ una colección finita de d-abiertos, veamos que su intersección
+$\bigcap_{i = 1}^n U_i$ es también un d-abierto. En caso de ser vacía la intersección, se cumple
+trivialmente.
+
+Supongamos ahora que $\bigcap_{i = 1}^n U_i \neq \emptyset$. Así, podemos tomar $x \in \bigcap_{i = 1}^n U_i$. \\
+Por definición, $x \in U_i$ $\forall i \in \{1, \dots, n\}$. Al ser d-abiertos por hipótesis, se cumple: 
+$$\forall i \in \{1, \dots, n\} \hspace{2mm} \exists \mu_i > 0 : B_d(x, \mu_i) \subseteq U_i$$
+\end{document}

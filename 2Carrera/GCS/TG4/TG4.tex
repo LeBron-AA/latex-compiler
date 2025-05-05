@@ -1,0 +1,183 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\newcommand{\sech}[1]{\operatorname{sech} #1}
+
+
+\title{TG IV}   
+\author{
+    \large{Grupo M} \\\\
+    Javier Ortín Rodenas \\
+    Bruno Martín Rivera \\
+    Jorge Gota Ortín \\
+    Alejandra Sánchez Mayo
+}
+\date{}
+\begin{document}
+\maketitle
+\noindent
+\section{Enunciado:}
+\begin{enumerate}
+    \item Dado $C$ el cilindro $x^2 + y^2 = 1$, considere el difeomorfismo siguiente:
+        \begin{align*}
+            \phi_1 : C \longrightarrow \mathbb{S}^2\backslash\{S, N\} &&
+            (x,y,z) \longmapsto \phi_1(x,y,z) = \left(x \sech{z}, y \sech{z}, \tanh{z}\right)
+        \end{align*}
+        ¿Preserva ángulos? ¿Es una isometría local? ¿Es isoareal?
+        \\
+    \item Dado $C_t$ el cilindro truncado $\{(x,y,z) \in \mathbb{R}^3 : x^2 + y^2 + z^2 = 1, -1<z<1\}$,
+        considere el difeomorfismo $\phi_2$ definido como sigue:
+        \begin{align*}
+            \phi_2 : C_t \longrightarrow \mathbb{S}^2\backslash\{S, N\} &&
+            (x,y,z) \longmapsto \phi_2(x,y,z) = \left(x \sqrt{1-z^2}, y\sqrt{1-z^2} ,z\right)
+        \end{align*}           
+        ¿Preserva áreas? ¿Es una isometría local? ¿Preserva ángulos?
+\end{enumerate}
+
+\section{Solución}
+\subsection{Primer apartado}
+\hspace{1mm} En primer lugar, debemos de parametrizar el cilindro $C$.
+Podemos hacerlo a partir de la siguiente función:
+\begin{align*}
+    X : (0, 2\pi) \times \mathbb{R} \longrightarrow C&&
+    (\theta, z) \longmapsto X(\theta, z) = \left(\cos\theta, \sin\theta, z\right)
+\end{align*}
+\vspace{1mm}
+Veamos qué expresión toma $\bar{X} = (\phi \circ X)$ al componerlas:
+\begin{align*}
+    X : (0, 2\pi) \times \mathbb{R} \longrightarrow \mathbb{S}^2 \backslash \{S,N\}&&
+    (\theta, z) \longmapsto \bar{X}(\theta, z) =
+        \left(\frac{\cos \theta}{\cosh z}, \frac{\sin \theta}{\cosh z}, \tanh z\right)
+\end{align*}
+
+\newpage
+Para comprobar si la aplicación $\phi$ preserva ángulos, tenemos que comprobar si es o no conforme.
+Por tanto, hemos de hallar los coeficientes de la Primera Forma Fundamental de $X$ y de $\bar{X}$
+para intentar definir así una aplicación $\lambda$ adecuada.
+
+\vspace{3mm}
+\noindent Hallemos las derivadas parciales de $X$:
+\begin{align*}
+    X_\theta (\theta, z) = (-\sin \theta, \cos \theta, 0) &&
+    X_z (\theta, z) = (0,0,1)
+\end{align*}
+\noindent De este modo, los coeficientes de la PFF de $X$ vienen dados por:
+\begin{flalign*}
+    E(\theta, x) & = X_\theta (\theta, z) \boldsymbol{\cdot} X_\theta (\theta, z)
+     = (-\sin \theta, \cos \theta, 0) \boldsymbol{\cdot}  (-\sin \theta, \cos \theta, 0)
+     = \sin^2\theta + \cos^2\theta = 1 \\
+    F(\theta, x) &= X_\theta (\theta, z) \boldsymbol{\cdot} X_z (\theta, z)
+     = (-\sin \theta, \cos \theta, 0) \boldsymbol{\cdot}  (0,0,1) = 0 && \\
+    G(\theta, x) &= X_z (\theta, z) \boldsymbol{\cdot} X_z (\theta, z)
+     = (0,0,1) \boldsymbol{\cdot} (0,0,1) = 1
+\end{flalign*}
+
+\vspace{3mm}
+\noindent Veamos qué ocurre con $\bar{X}$. Cabe recordar que $\frac{d}{dx}\cosh x = \sinh x$.
+\begin{align*}
+    \bar{X}_\theta (\theta, x) = \left(\frac{-\sin \theta}{\cosh z}, \frac{\cos \theta}{\cosh z}, 0\right) &&
+    \bar{X}_z (\theta, x) = \left(\frac{-\cos \theta \cdot \sinh z}{\cosh^2z}, \frac{-\sin \theta \sinh z}{\cosh^2 z}, \frac{1}{\cosh^2 z}\right)
+\end{align*}
+
+\vspace{2mm}
+\noindent Calculamos ahora los coeficientes de la PFF de $\bar{X}$:
+\begin{flalign*}
+    \bar{E}(\theta, x) & = \bar{X}_\theta (\theta, z) \boldsymbol{\cdot} \bar{X}_\theta (\theta, z)
+     = \frac{1}{\cosh^2 z} (\sin^2 \theta + \cos^2 \theta)
+     = \frac{1}{\cosh^2 z}\\[2ex]
+    \bar{F}(\theta, x) &= \bar{X}_\theta (\theta, z) \boldsymbol{\cdot} \bar{X}_z (\theta, z)
+     = \frac{\cos \theta \cdot \sin \theta}{\cosh^2 z}(1-1) = 0 && \\[2ex]
+    \bar{G}(\theta, x) &= \bar{X}_z (\theta, z) \boldsymbol{\cdot} \bar{X}_z (\theta, z)
+     = \frac{1}{\cosh^4z} \left(\cos^2\theta \cdot \sinh^2z + \sin^2\theta \cdot \sinh^2z + 1\right) = \\
+     &= \frac{1}{\cosh^4z} \left(\sinh^2z + 1\right) = \frac{1}{\cosh^4z} \left(\cosh^2z\right) = \frac{1}{\cosh^2z}
+\end{flalign*}
+
+\vspace{3mm}
+En vista de lo anterior, es claro que $\phi_1$ preserva ángulos, pues es una aplicación conforme.
+Basta tomar la aplicación $\lambda$ definida como sigue:
+\begin{align*}
+    \lambda : (0,2\pi) \times \mathbb{R} \longrightarrow \mathbb{R} &&
+    (\theta, z) \longmapsto \lambda(\theta, z) = \frac{1}{\cosh^2z}
+\end{align*}
+\begin{align*}
+    \bar{E}(\theta, z) = \lambda(\theta, z)^2 E(\theta, z) &&
+    \bar{F}(\theta, z) = \lambda(\theta, z)^2 F(\theta, z) &&
+    \bar{G}(\theta, z) = \lambda(\theta, z)^2 G(\theta, z)
+\end{align*}
+
+\vspace{2mm}
+\noindent Es evidente que $\lambda$ está bien definida, es diferenciable, y no se anula.
+\newpage
+Por un resultado teórico, sabemos que se cumple lo siguiente:
+$$ \phi_1 \text{ isometría} \iff \phi_1 \text{ conforme e isoareal}$$
+Como sabemos que es conforme, al no ser isometría (pues $E \neq \bar{E}$)
+podemos afirmar que no es isoareal tampoco. Por todo lo anterior, $\phi_1$
+preserva ángulos pero no áreas, luego no es una isometría.
+
+\vspace{10mm}
+\subsection{Segundo apartado}
+El cilindro $C_t$ es un subconjunto del cilindro $C$ del apartado anterior.
+Por tanto, podemos utilizar la misma parametrización restringiendo los valores
+que puede tomar la tercera componente.
+\begin{align*}
+    X : (0, 2\pi) \times (-1,1) \longrightarrow C&&
+    (\theta, z) \longmapsto X(\theta, z) = \left(\cos\theta, \sin\theta, z\right)
+\end{align*}
+Al no haber modificado la expresión de $X$ nos sirve el razonamiento del apartado anterior para deducir:
+\begin{align*}
+    E(\theta, z) = 1 &&
+    F(\theta, z) = 0 &&
+    G(\theta, z) = 1
+\end{align*}
+
+\vspace{2mm} \noindent
+Veamos qué expresión tiene ahora $\bar{X} = (\phi_2 \circ X)$:
+\begin{align*}
+    \bar{X}: (0,2\pi) \times (-1,1) \longrightarrow \mathbb{S}^2 \backslash \{S,N\} &&
+    (\theta, z) \longmapsto \bar{X}(\theta, z) = \left(\cos\theta \sqrt{1-z^2},\sin\theta \sqrt{1-z^2},z\right)
+\end{align*}
+
+\vspace{2mm}
+\noindent Hallemos ahora sus derivadas parciales:
+\begin{align*}
+    \bar{X}_\theta(\theta, z) = \left(-\sin\theta \sqrt{1-z^2},\cos\theta \sqrt{1-z^2},0\right) &&
+    \bar{X}_z(\theta, z) = \left(\frac{-z\cos\theta}{1-z^2},\frac{-z\sin\theta}{1-z^2},1\right)
+\end{align*}
+
+\vspace{2mm}
+\noindent
+De este modo, los coeficientes de la PFF de $\bar{X}$ vienen dados por:
+\begin{flalign*}
+    \bar{E}(\theta, x) & = \bar{X}_\theta (\theta, z) \boldsymbol{\cdot} \bar{X}_\theta (\theta, z)
+     = (1-z^2)(\sin^2 \theta + \cos^2 \theta) = 1-z^2\\[2ex]
+    \bar{F}(\theta, x) &= \bar{X}_\theta (\theta, z) \boldsymbol{\cdot} \bar{X}_z (\theta, z)
+     = \frac{z\cos\theta \cdot \sin\theta}{\sqrt{1-z^2}}(1-1+ 0) = 0 &&\\[1ex]
+    \bar{G}(\theta, x) &= \bar{X}_z (\theta, z) \boldsymbol{\cdot} \bar{X}_z (\theta, z)
+     = \frac{z^2}{1-z^2} \left(\cos^2\theta + \sin^2\theta\right) + 1 = \frac{1}{1-z^2}
+\end{flalign*}
+
+\vspace{2mm}
+Como $E = G$, al ocurrir $\bar{E} \neq \bar{F}$ la aplicación $\phi_2$ no puede ser
+conforme, pues para cualquier función $\lambda$ que escojamos se cumpliría:
+\begin{flalign*}
+    \bar{E}(\theta, z) &= \lambda(\theta, z)^2 E(\theta, z)
+     \Rightarrow \bar{F}(\theta, z) \neq \lambda(\theta, z)^2 F(\theta, z) \\
+    \bar{F}(\theta, z) &= \lambda(\theta, z)^2 F(\theta, z)
+     \Rightarrow \bar{E}(\theta, z) \neq \lambda(\theta, z)^2 E(\theta, z)
+\end{flalign*}
+
+\newpage
+Como consecuencia, al no ser conforme $\phi_2$ no puede ser una isometría. No obstante, sí
+podría preservar áreas. Para comprobarlo basta ver si se cumple $EG-F^2 = \bar{E}\bar{G} - \bar{F}^2$.
+\begin{flalign*}
+    (&EG-F^2)(\theta, z) = 1 \cdot 1 - 0^2 =  1 \\
+    (&\bar{E}\bar{G} - \bar{F}^)(\theta, z) = (1-z^2) \cdot \frac{1}{1-z^2} - 0^2 = 1 &&
+\end{flalign*}
+
+\vspace{2mm} 
+\noindent Por todo lo anterior, $\phi_2$ preserva áreas pero no ángulos, luego no es una isometría.
+\end{document}
