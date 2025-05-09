@@ -54,10 +54,157 @@ $$\Pi_{\text{course\_id}}\left(
 \vspace{2ex}
 \subsection{Exercise}
 Find the name of all instructors in the Physics department, along with
-all the courses they have taught.+
+all the courses they have taught.
 \begin{flalign*}
-    \Pi_{\text{name, course\_id}}(
-        \sigma_{\substack{\text{dept\_name = "Physics"} \wedge \\
-            \text{instructor.instructor\_id = teaches.instructor\_id}}})
+    \Pi_{\text{name, course\_id}}\left(
+        \sigma_{\substack{\text{dept\_name = "Physics"} \\
+        \wedge \\ \text{instructor.id = teaches.id}}} \left(
+            \text{instructor} \times \text{teaches}
+        \right)
+    \right)
 \end{flalign*}
+
+\newpage
+\subsection{Exercise}
+\noindent Find the highest salary in the university.
+    $$\Pi_{\text{salary}}\left(\text{instructor}\right)$$ \\[-7ex]
+    $$\boldsymbol{-}$$ \\[-6ex]
+    $$\Pi_{i_1.\text{salary}}\left(
+        \sigma_{i_1.\text{salary} < i_2.\text{salary}} \left(
+            \rho_{i_1}(instructor) \times \rho_{i_2}(instructor)
+        \right)
+    \right)$$
+
+\vspace{2mm}
+We first calculate the salaries that are not the maximum and then
+remove them from the total set. Hence, we are left with the highest salary in
+the university. 
+
+\vspace{4mm}
+\subsection{Exercise}
+Find the set of courses taught in both Fall 2009 and Spring 2010
+$$\Pi_{\text{course\_id}}\left(
+            \sigma_{\text{year = 2009} \wedge
+            \text{semester = "Fall"}}(\text{section})\right) $$
+$$\bigcap $$
+$$\Pi_{\text{course\_id}}\left(
+    \sigma_{\text{year = 2010} \wedge \text{semester = "Spring"}}(\text{section})\right)$$
+
+\vspace{2mm}
+Even though the intersection of sets is not a fundamental relational algebra
+operation, we can obtain it through the use of union and set difference operations
+as a result of DeMorgan's laws. The $\cap$ notation can be used to simplify this process.
+
+\vspace{4mm}
+\subsection{Exercise}
+\noindent Find the name of all the instructors as well as all the courses they have thougt.
+$$\Pi_{instructor\_ID, course\_ID}(\text{instructor} \Join \text{teaches}) $$
+\vspace{2mm} \noindent Simpler way to solve a previous ecercise using the "natural join" operation.
+
+\vspace{4mm}
+\subsection{Exercise}
+\noindent Find the names of all the structures in the Comp. Sci. department
+together with all the course titles of the courses they have tought.
+$$
+\Pi_{\text{name, title}}\Big(
+    \big(\sigma_{\text{dept\_name = "CompSci"}}(\text{instructor})\big)
+    \Join \text{teaches} \Join \text{course}
+\Big)
+$$
+
+\newpage
+\section{Practice exercises by ChatGPT}
+\subsection{Schema of reference}
+\noindent Following our previous theme, we shall consider the following schema:
+\begin{itemize}
+    \item Student(SID, Name, Major)
+    \item Course(CID, Title, Department)  
+    \item Enrolled(SID, CID, Grade)
+    \item Professor(PID, Name, Department)
+    \item Teaches(PID, CID)
+\end{itemize}
+
+\vspace{4mm}
+\subsection{Exercise}
+\noindent Find the names of students majoring in "Computer Science"
+$$ \Pi_{\text{nme}}\left(
+    \sigma_{\text{major = "CompSci"}}(
+        \text{student})
+\right)$$
+
+\vspace{4mm}
+\subsection{Exercise}
+\noindent List the title of courses taught by professors
+from the "Mathematics" department. \vspace{1mm}
+$$ \Pi_{\text{title}}\Big(
+    \sigma_{\text{department = "Mathematics"}}(
+        \text{professor}) \Join
+    \text{teaches} \Join
+    \text{course}
+\Big) $$
+
+\vspace{4mm}
+\subsection{Exercise}
+\noindent Find the name of students who are enrolled in at least
+one course taught by "Dr. Smith".
+$$ A \hspace{1mm} := \hspace{1mm}
+\Pi_{\text{PID}}\left(
+    \sigma_{\text{name = "Smith"}}(
+        \text{professor})
+\right) $$
+$$ B \hspace{1mm} := \hspace{1mm}
+\Pi_{\text{CID}}\left(
+    \sigma_{\text{PID} \in A}(
+        \text{teaches})
+\right) $$
+$$ \Pi_{\text{name}}\left(
+    \sigma_{\text{CID} \in B}(
+        \text{Enrolled}) \Join
+    \text{Student}
+\right)$$
+
+\vspace{2mm}
+We use the subquery notation to visually
+simplify the query, but this could be done in a single step.
+In this context, A represents Smith's ID (there could theoretically
+be several of them), and B represents the IDs of the subjects taught
+by Smith. 
+
+\newpage
+\subsection{Exercise}
+\noindent Find the names of professors who teach at least one course
+with no enrolled students.
+
+$$A \hspace{1mm} := \hspace{1mm}
+\Pi_{\text{CID}}\left(\text{course}\right)
+\boldsymbol{-}
+\Pi_{\text{CID}}\left(\text{enrolled}\right)$$
+$$ \Pi_{\text{name}}\left(
+    \sigma_{\text{CID} \in A}(
+        \text{teaches}) \Join
+    \text{professor}
+\right)$$
+In a similar fashion to our last exmple, we use the subquery notation.
+We check what courses have no students enrolled and save their CIDs in
+the set A. We then look which professors teach these subjects.
+
+\vspace{4mm}
+\subsection{Exercise}
+\noindent Find the names of students who have taken all courses offered by
+the Physics department.
+
+$$ \Pi_{\text{name}}\left(
+    \sigma_{B \subseteq A_x}(
+        \rho_x(\text{student}))
+\right)$$
+$$ A_x \hspace{1mm} := \hspace{1mm}
+\Pi_{\text{CID}}\left(
+    \sigma_{\text{SID = x.SID}}(
+        \text{enrolled})
+\right)$$
+$$ B \hspace{1mm} := \hspace{1mm}
+\Pi_{\text{CID}}\left(
+    \sigma_{\text{department = "Physics"}}(
+        \text{course})
+\right)$$
 \end{document}
