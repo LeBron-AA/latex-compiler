@@ -10,7 +10,7 @@
 
 \title{TG IV}   
 \author{
-    \large{Grupo M} \\\\
+    \large{Grupo S} \\\\
     Javier Ortín Rodenas \\
     Bruno Martín Rivera \\
     Jorge Gota Ortín \\
@@ -43,13 +43,13 @@
 \hspace{1mm} En primer lugar, debemos de parametrizar el cilindro $C$.
 Podemos hacerlo a partir de la siguiente función:
 \begin{align*}
-    X : (0, 2\pi) \times \mathbb{R} \longrightarrow C&&
+    X : [0, 2\pi) \times \mathbb{R} \longrightarrow C&&
     (\theta, z) \longmapsto X(\theta, z) = \left(\cos\theta, \sin\theta, z\right)
 \end{align*}
 \vspace{1mm}
 Veamos qué expresión toma $\bar{X} = (\phi \circ X)$ al componerlas:
 \begin{align*}
-    X : (0, 2\pi) \times \mathbb{R} \longrightarrow \mathbb{S}^2 \backslash \{S,N\}&&
+    \bar{X} : [0, 2\pi) \times \mathbb{R} \longrightarrow \mathbb{S}^2 \backslash \{S,N\}&&
     (\theta, z) \longmapsto \bar{X}(\theta, z) =
         \left(\frac{\cos \theta}{\cosh z}, \frac{\sin \theta}{\cosh z}, \tanh z\right)
 \end{align*}
@@ -100,31 +100,41 @@ para intentar definir así una aplicación $\lambda$ adecuada.
 En vista de lo anterior, es claro que $\phi_1$ preserva ángulos, pues es una aplicación conforme.
 Basta tomar la aplicación $\lambda$ definida como sigue:
 \begin{align*}
-    \lambda : (0,2\pi) \times \mathbb{R} \longrightarrow \mathbb{R} &&
-    (\theta, z) \longmapsto \lambda(\theta, z) = \frac{1}{\cosh^2z}
-\end{align*}
-\begin{align*}
-    \bar{E}(\theta, z) = \lambda(\theta, z)^2 E(\theta, z) &&
-    \bar{F}(\theta, z) = \lambda(\theta, z)^2 F(\theta, z) &&
-    \bar{G}(\theta, z) = \lambda(\theta, z)^2 G(\theta, z)
+    \lambda : C \longrightarrow \mathbb{R} &&
+    p = X(\theta, z) \longmapsto \lambda(p) = \frac{1}{\cosh z}
+    = \frac{2}{e^x + e^{-x}} \neq 0 \hspace{2ex} \forall z \in \mathbb{R}
 \end{align*}
 
-\vspace{2mm}
-\noindent Es evidente que $\lambda$ está bien definida, es diferenciable, y no se anula.
+Tenemos que $\lambda$ no se anula y es diferenciable al ser composición
+de funciones diferenciables. Además, verifica las siguientes tres ecuaciones:
+\begin{align*}
+    \bar{E} = \lambda(p)^2 E &&
+    \bar{E} = \lambda(p)^2 E &&
+    \bar{E} = \lambda(p)^2 E
+\end{align*}
 \newpage
 Por un resultado teórico, sabemos que se cumple lo siguiente:
-$$ \phi_1 \text{ isometría} \iff \phi_1 \text{ conforme e isoareal}$$
-Como sabemos que es conforme, al no ser isometría (pues $E \neq \bar{E}$)
-podemos afirmar que no es isoareal tampoco. Por todo lo anterior, $\phi_1$
-preserva ángulos pero no áreas, luego no es una isometría.
+$$ \phi_1 \text{ isoareal} \iff EG - F^2 = \bar{E}\bar{G} - \bar{F}$$
+\noindent Veamos si se cumple o no la igualdad:
+\begin{flalign*}
+    &&&EG - F^2 = 1 \cdot 1 - 0^2 = 1 &&&&&&&&&&&&&&\\
+    &&&\bar{E}\bar{G} - \bar{F} = \frac{1}{\cosh^2 z} \cdot \frac{1}{\cosh^2 z} - 0
+    = \frac{1}{\cosh^4 z} = \frac{16}{(e^z + e^{-z})^4}
+\end{flalign*}
 
-\vspace{10mm}
+\vspace{2mm}
+La igualdad no se cumple para $z \neq 1$ luego $\phi_2$ no es isoareal.
+Además, podemos concluir que no es una isometría gracias al siguiente resultado:
+$$ \phi_1 \text{ isometría} \iff \phi_1 \text{ conforme e isoareal}$$
+Al no ser isoareal, no puede ser una isometría como consecuencia de esta caracterización.
+
+\newpage
 \subsection{Segundo apartado}
 El cilindro $C_t$ es un subconjunto del cilindro $C$ del apartado anterior.
 Por tanto, podemos utilizar la misma parametrización restringiendo los valores
 que puede tomar la tercera componente.
 \begin{align*}
-    X : (0, 2\pi) \times (-1,1) \longrightarrow C&&
+    X : [0, 2\pi) \times (-1,1) \longrightarrow C&&
     (\theta, z) \longmapsto X(\theta, z) = \left(\cos\theta, \sin\theta, z\right)
 \end{align*}
 Al no haber modificado la expresión de $X$ nos sirve el razonamiento del apartado anterior para deducir:
@@ -137,7 +147,7 @@ Al no haber modificado la expresión de $X$ nos sirve el razonamiento del aparta
 \vspace{2mm} \noindent
 Veamos qué expresión tiene ahora $\bar{X} = (\phi_2 \circ X)$:
 \begin{align*}
-    \bar{X}: (0,2\pi) \times (-1,1) \longrightarrow \mathbb{S}^2 \backslash \{S,N\} &&
+    \bar{X}: [0,2\pi) \times (-1,1) \longrightarrow \mathbb{S}^2 \backslash \{S,N\} &&
     (\theta, z) \longmapsto \bar{X}(\theta, z) = \left(\cos\theta \sqrt{1-z^2},\sin\theta \sqrt{1-z^2},z\right)
 \end{align*}
 
@@ -161,21 +171,35 @@ De este modo, los coeficientes de la PFF de $\bar{X}$ vienen dados por:
 \end{flalign*}
 
 \vspace{2mm}
-Como $E = G$, al ocurrir $\bar{E} \neq \bar{F}$ la aplicación $\phi_2$ no puede ser
-conforme, pues para cualquier función $\lambda$ que escojamos se cumpliría:
-\begin{flalign*}
-    \bar{E}(\theta, z) &= \lambda(\theta, z)^2 E(\theta, z)
-     \Rightarrow \bar{F}(\theta, z) \neq \lambda(\theta, z)^2 F(\theta, z) \\
-    \bar{F}(\theta, z) &= \lambda(\theta, z)^2 F(\theta, z)
-     \Rightarrow \bar{E}(\theta, z) \neq \lambda(\theta, z)^2 E(\theta, z)
-\end{flalign*}
+Veamos que $\phi_2$ no es conforme por reducción al absurdo. Supongamos que sí lo es; en tal caso,
+existiría una función $\lambda : S_1 \longrightarrow \mathbb{R}$ tal que:
+\begin{align*}
+    \bar{E} = \lambda(p)^2 E &&
+    \bar{F} = \lambda(p)^2 F &&
+    \bar{G} = \lambda(p)^2 G &&
+\end{align*}
 
-\newpage
-Como consecuencia, al no ser conforme $\phi_2$ no puede ser una isometría. No obstante, sí
-podría preservar áreas. Para comprobarlo basta ver si se cumple $EG-F^2 = \bar{E}\bar{G} - \bar{F}^2$.
+
+De este modo, como $\bar{E} = 1 - z^2$ y $E = 1$, necesariamente ha de cumplirse
+$\lambda(p)^2 = 1-z^2$ para satisfacer la condición $\bar{E} = \lambda(p)^2 E$. No
+obstante; esto nos genera un problema, pues al imponer esta restricción puede no cumplirse
+$\bar{G} = \lambda(p)^2 G$, pues $G = 1$ y sabemos $\bar{G} = \frac{1}{1-z^2}$. Por todo lo anterior:
 \begin{flalign*}
-    (&EG-F^2)(\theta, z) = 1 \cdot 1 - 0^2 =  1 \\
-    (&\bar{E}\bar{G} - \bar{F}^)(\theta, z) = (1-z^2) \cdot \frac{1}{1-z^2} - 0^2 = 1 &&
+    \bar{E} = &\lambda(p)^2 E \Rightarrow \lambda(p)^2 = 1 - z^2
+    \Rightarrow \lambda(p)^2 G = (1-z^2) 1 =
+     1 - z^2 \neq \bar{G} = \frac{1}{1-z^2}
+\end{flalign*} 
+Por todo lo anterior, ninguna aplicación $\lambda$ puede satisfacer simultáneamente
+$\bar{E} = \lambda(p)^2 E$ y $\bar{G} = \lambda(p)^2 G$. Hemos llegado a una contradicción,
+luego $\phi_2$ no puede ser conforme.
+
+\vspace{2mm}
+Como consecuencia, al no ser conforme $\phi_2$ no puede ser una isometría (pues ser isometría equivale
+a ser simultáneamente conforme e isoareal). No obstante, sí
+podría preservar áreas. Para comprobarlo basta ver si se cumple la igualdad $EG-F^2 = \bar{E}\bar{G} - \bar{F}^2$.
+\begin{flalign*}
+&&&EG-F^2=  1 \cdot 1 - 0^2 =  1 &&&&&&&&&&&&&&&&\\
+&&&\bar{E}\bar{G} - \bar{F}^2 = (1-z^2) \cdot \frac{1}{1-z^2} - 0^2 = 1
 \end{flalign*}
 
 \vspace{2mm} 

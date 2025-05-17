@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.18)  28 APR 2025 09:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.18)  16 MAY 2025 15:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -224,35 +224,35 @@ Overfull \hbox (4.46199pt too wide) detected at line 97
 []
  []
 
-[2]
-Overfull \hbox (46.44055pt too wide) detected at line 142
+[2] [3]
+Overfull \hbox (45.32944pt too wide) detected at line 152
 []
  []
 
 
-Overfull \hbox (11.18167pt too wide) detected at line 149
+Overfull \hbox (11.18167pt too wide) detected at line 159
 []
  []
 
-[3]
-Overfull \hbox (1.25061pt too wide) in paragraph at lines 182--183
+[4]
+Overfull \hbox (1.25061pt too wide) in paragraph at lines 206--207
 \OT1/cmr/m/n/10 Por todo lo an-te-rior, $\OML/cmm/m/it/10 ^^^[]$ \OT1/cmr/m/n/10 preserva ^^Sareas pero no ^^Sangulos, luego no es una isometr^^S^^Pa. 
  []
 
-[4] (/workspaces/latex-compiler/2Carrera/GCS/TG4/TG4.aux) ) 
+[5] (/workspaces/latex-compiler/2Carrera/GCS/TG4/TG4.aux) ) 
 Here is how much of TeX's memory you used:
  1992 strings out of 481239
  26699 string characters out of 5920377
- 269892 words of memory out of 5000000
+ 273892 words of memory out of 5000000
  17276 multiletter control sequences out of 15000+600000
  542650 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  30i,12n,31p,264b,248s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /workspaces/latex-compiler/2Carrera/GCS/TG4/TG4.pdf (4 pages, 113805 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /workspaces/latex-compiler/2Carrera/GCS/TG4/TG4.pdf (5 pages, 131541 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
+ 72 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
