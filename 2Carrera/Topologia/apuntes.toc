@@ -10,3 +10,6 @@
 \contentsline {subsubsection}{Definición 1.4}{5}{section*.11}%
 \contentsline {subsubsection}{Nota 1.3}{5}{section*.12}%
 \contentsline {subsubsection}{Teorema 1.1\hskip 1em\relax \leavevmode {\color {red}Estructura topológica de un espacio métrico}}{6}{section*.13}%
+\contentsline {subsubsection}{Definición 1.5}{7}{section*.14}%
+\contentsline {subsubsection}{Proposicion 1.1\hskip 1em\relax \leavevmode {\color {red}Caracterización de $d-$abiertos}}{7}{section*.15}%
+\contentsline {subsubsection}{Proposicion 1.2\hskip 1em\relax \leavevmode {\color {red}}}{8}{section*.16}%

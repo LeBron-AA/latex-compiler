@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\newcommand{\sech}[1]{\operatorname{sech} #1}
+\author{Proyección centrada}
+\title{Práctica para el examen}
+\begin{document}
+\maketitle
+\noindent
+\section{Enunciado}
+Buscamos estudiar las propiedades de la proyección cartográfica central. Esta es una aplicación
+que a cada punto (salvo los polos sur y norte) de la esfera $\mathbb{S}^2 \subseteq \mathbb{R}^3$ le asigna un punto en el cilindro
+$x^2 + y^2 = 1$. Para ello, se prolonga el segmento del origen al punto de la esfera hasta que
+interseque al cilindro.
+\section{Desarrollo}
+\subsection{parametrización}
+\hspace{1mm}
+En primer lugar, debemos de parametrizar el la esfera $\mathbb{S}^2$.
+Como no vamos a considerar ni el polo norte (0,0,1) ni el polo sur (0,0,-1) de 
+la esfera, podemos parametrizar esta superficie eliminando ambos puntos al restringir
+las amplitudes de los ángulos $u$ y $v$ en coordenadas esféricas.
+Por tanto, utilizaremos la siguiente parametrización:
+\begin{align*}
+    X : (0,\pi) \times (0, 2\pi) \longrightarrow \mathbb{S}^2 \subseteq \mathbb{R}^3&&
+    (u,v) \longmapsto X(u,v) = \left(\sin{u} \cos{v}, \sin{u} \sin{v}, \cos{u}\right)
+\end{align*}
+\vspace{1mm}
+Veamos cómo formalizar la proyección centrada. Sea $p = (x,y,z) \in \mathbb{S}^{2}$ un punto fijo
+de la esfera, la recta que pasa por $p$ y por el origen es de la forma:
+$$ r(t) = t(x,y,z) : t \in \mathbb{R} $$
+Igualando ahora con la expresión del cilindro:
+$$(tx)^2 + (ty)^2 = 1 = t^2(x^2+y^2)
+\Rightarrow t = \frac{1}{\sqrt{x^2 + y^2}} = \frac{1}{\sqrt{1-z^2}}$$
+Hemos tomado $t > 0$ para considerar la semirrecta desde el origen hasta $p$ en adelante.
+Sustituyendo ahora en la expreión de la recta:
+$$\phi(x,y,z) = (\frac{x}{\sqrt{1-z^2}}, \frac{y}{\sqrt{1-z^2}}, \frac{z}{\sqrt{1-z^2}})$$
+
+\newpage
+Calulemos ahora la expresión de $\bar{X} = \phi \circ X$:
+\begin{flalign*}
+    \bar{X} : (0,\pi) \times (0, 2\pi) \longrightarrow \mathcal{C} \subseteq \mathbb{R}^3&&
+    (u,v) \longmapsto \bar{X}(u,v) = \left(\cos{v}, \sin{v}, \frac{\cos u}{\sin u}\right)
+\end{flalign*}
+
+\vspace{4mm}
+\subsection{Conforme}
+\hspace{3mm}
+En primer lugar, calculamos las derivadas parciales y los coeficientes de la Primera
+Forma Fundamental de la esfera.
+\begin{flalign*}
+    &&X_u (u,v) &= (\cos{u} \cos{v}, \cos{u}\sin{v}, -\sin{u}) &&&&&&&&&&&&&&&&&& \\
+    &&X_v(u,v) &= (-\sin{u}\sin{v}, \sin{u} \cos{v}, 0) \\[2ex]
+%
+    &&E = X_u \boldsymbol{\cdot}  &X_u = \cos^2{u} \cos^2{v}+\cos^2{u} \sin^2{v} +\sin^2{u}
+        = \cos^2{u} + \sin^2{u} = 1 \\
+    &&F = X_u \boldsymbol{\cdot}  &X_v = -\sin{u}\sin{v}\cos{u}\cos{v}
+        + \sin{u}\sin{v}\cos{u}\cos{v} + 0 = 0 \\
+    &&G = X_v \boldsymbol{\cdot}  &X_v = \sin^2{u} \sin^2{v}+\sin^2{u} \cos^2{v} +0
+        = \sin^2{u}
+\end{flalign*}
+Haremos ahora lo mismo con $\bar{X}$:
+\begin{flalign*}
+    &&\bar{X_u} (u,v) &= \left(0,0, \frac{-1}{\sin^2{u}}\right) &&&&&&&&&&&&&&&&&& \\[2mm]
+    &&\bar{X_v}(u,v) &= (-\sin{v}, \cos{v}, 0) \\[2ex]
+%
+    &&\bar{E} = \bar{X_u} \boldsymbol{\cdot}  &\bar{X_u} = (\sin{u})^{-4} \\
+    &&\bar{F} = \bar{X_u} \boldsymbol{\cdot}  &\bar{X_v} = 0 + 0 + 0 = 0 \\
+    &&\bar{G} = \bar{X_v} \boldsymbol{\cdot}  &\bar{X_v} = \sin^2{v} + \cos^2{v} + 0 =  1
+\end{flalign*}
+
+Veamos que no es una aplicación conforme por reducción al absurdo. Si lo fuese, existiría
+una aplicaicón diferenciable no nula tal que $\bar{E} = \lambda(p)^2 E$, luego tendríamos:
+$$\bar{E} = (\sin u)^{-4} = \lambda(p)^2 \cdot E = \lambda(p)^2 \cdot 1 = \lambda(p)^2$$
+Además, por definición de aplicación conforme, la aplicación $\lambda$ necesariamente tendría
+que cumplir también $\bar{G} = \lambda(p)^2 G$, pero este requisito no puede cumplirse
+a la vez que el anterior:
+$$\bar{G} = 1 \hspace{1mm} \neq \hspace{1mm} \lambda(p)^2 \cdot G = 
+ \lambda(p)^2 \cdot\sin^2 u = \sin^{-4}u \cdot \sin^2 u
+ = (\sin u)^{-2} $$
+
+Hemos llegado a una contradicción, luego $\phi$ no puede ser una aplicación conforme.
+Además, como ser isometría equivale a ser isoareal y conforme, no puede ser una isometría.
+Sí podría ser, en cambio, una aplicación isoareal; hemos de comprobarlo.
+
+\newpage
+\subsection{Isoareal}
+Para ver si es isoareal basta comprobar si las PFF tienen el mismo determinante;
+es decir, $EG - F^2 = \bar{E} \bar{G} - \bar{F}^2$.
+\begin{flalign*}
+    &&EG - F^2 &= 1 \cdot \sin^2 u - 0^2 = \sin^2 u &&&&&&&&&&&&&&&&&&&&&&&&&\\
+    &&\bar{E} \bar{G} - \bar{F}^2 &= (\sin u)^{-4} \cdot 1 - 0^2 = (\sin u)^{-4}
+\end{flalign*}
+No se cumple la igualdad, luego no es isoareal. Puede comprobar digitalmente
+cómo funciona \href{https://www.desmos.com/3d/j5vzyp07ib?lang=es}{esta proyección}.
+\end{document}

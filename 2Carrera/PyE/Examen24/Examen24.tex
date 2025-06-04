@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\title{Examen anterior}   
+\author{Mayo PyE 2024}
+\date{}
+\begin{document}
+\maketitle
+\noindent
+\section{Primera pregunta}
+\subsection{Enunciado}
+Un arquero realiza $n$ disparos a una diana circular de radio desconocido $\theta$.
+Sabemos que existe la misma probabilidad de acertar en todas los puntos
+que se encuentran a la misma distancia del centro, siendo ellas
+$r_1 \dots r_n$. Suponiendo que el arquero da al disco en cada disparo y
+que la densidad es proporcional a la distancia al centro, responde a las siguientes
+preguntas.
+
+\subsection{Planteamiento del problema}
+\hspace{3mm}
+En primer lugar, al tratarse $\theta$ de un radio, ha de ser positivo. Por tanto,
+el espacio paramétrico vendrá dado por $\Theta = (0, +\infty)$.
+
+\vspace{2mm}
+Además, sabemos que la probabilidad de acertar puede reducirse simplemente
+a estudiar la distancia de cada disparo al centro de la diana. Por tanto, trabajaremos con la variable
+aleatoria $R$ que mide la distancia de un disparo dado al centro de la diana. Veamos qué
+podemos deducir sobre ella a partir del enunciado.
+
+\vspace{2mm}
+Por hipótesis, el arquero siempre acierta, luego la probabilidad de $R > \theta$
+ha de ser nula. Lo mismo ocurre para distancia $R < 0$, pues es físicamente imposible.
+Además, sabemos que la densidad es proporcional a la distancia; es decir,
+existe $k > 0$ tal que:
+\begin{flalign*}
+    f_R(r) =
+    \begin{cases}
+        k \hspace{1mm}  r &\text{ si } x \in [0, \theta) \\
+        0 & \text{ en otro caso}
+    \end{cases}
+\end{flalign*}
+Al ser $f_R$ función de densidad es necesario que su integral en $\mathbb{R}$
+tenga valor 1. o, podemos hallar el valor de k como sigue:
+\begin{flalign*}
+    1 = \int_{-\infty}^\infty f_R(r) dr
+    = \int_0^\theta kr \hspace{1mm} dr
+    = k \left[\frac{r^2}{2}\right]_0^\theta
+    = k \frac{\theta^2}{2}
+    \Rightarrow k = \frac{2}{\theta^2}
+\end{flalign*}
+
+Los resultados de los disparos $r_1, \dots r_n$ constituyen los valores muestrales
+de una muestra aleatoria simple $R_1, \dots R_n$ de esta variable aleatoria $R$.
+
+\newpage
+\subsection{Estimador máximo verosímil}
+Buscamos maximizar en función de $\theta$ la función de verosimilitud dada por:
+\begin{flalign*}
+    L(r_1, \dots, r_n; \theta)
+     = f_{R_1}(r_1; \theta) \cdot \ldots \cdot f_{R_n}(r_n,; \theta)
+     = \left(\frac{2 \hspace{1mm} r_1}{\theta^2}\right) \cdot \dotsc \cdot \left(\frac{2 \hspace{1mm}r_n}{\theta^2}\right)
+\end{flalign*}
+
+Como la función $\log$ es creciente en $\mathbb{R}$, basta maximizar el logaritmo neperiano
+de la función de verosimilitud, simplificando así el proceso. Aplicando las propiedades de los
+logaritmos, se tiene:
+\begin{flalign*}
+    \log L(r_1,& \ldots r_n; \theta) = 
+        \sum_{i=1}^{n} \log\left(\frac{2 \hspace{1mm} r_i}{\theta^2}\right)
+    \Rightarrow \frac{\partial}{\partial \theta} L(r_1, \ldots r_n; \theta)
+     = \sum_{i=1}^{n} \frac{\partial}{\partial \theta} 
+        \log{\frac{2 \hspace{1mm} r_i}{\theta^2}}
+     = \sum_{i=1}^{n} \frac{-2}{\theta}
+\end{flalign*}
+No podemos maximizar la función de verosimilitud de este modo, pues el conjunto de valores que
+toma la variable $R$ depende del parámetro.
+
+\vspace{2mm}
+Como ya hemos mencionado en el apartado anterio, el enunciado afira que el arquero siempre atina al disco,
+luego $\forall i \in \{1,\ldots,n\} : r_i \leq \theta$, lo que equivale a que el máximo de los $r_i$ sea
+menor o igual que $\theta$. De este modo, una vez conocida la muestra tenemos información
+sobre el espacio parámetrico:
+\begin{align*}
+    \Theta|_{r_1,\ldots,r_n} = [r_0, +\infty) &&
+    \text{  para } r_0 := \max\left\{r_i : i \in \{1,\ldots, n\}\right\}
+\end{align*}
+Maximicemos ahora la función de verosimilitud gracias a esta información:
+\begin{flalign*}
+    \log L(r_1,& \ldots r_n; \theta) = 
+        \sum_{i=1}^{n} \log\left(\frac{2 \hspace{1mm} r_i}{\theta^2}\right)
+\end{flalign*}
+
+Basta maximizar los términos del sumatorio. Para ello es necesario tomar el menor valor
+posible de $\theta$; que, como sabemos ahora, vendrá dado por el máximo de los $r_i$.
+Por todo lo anterior, hemos hallado el estimador máximo verosímil:
+$$ \hat{\theta}(r_1, \ldots r_n) = \max\left\{r_i : i \in \{1,\ldots, n\}\right\}$$
+
+\vspace{2mm}
+Se trata en efecto de un estimador, pues toma valores en $\Theta = (0, +\infty)$ y
+no depende de información desconocida.
+
+\vspace{4mm}
+\subsection{¿Es un estimador centrado?}
+Veamos qué distribución tiene el estimador a partir de la de $R$ que calculamos en el
+primer apartado.
+\begin{flalign*}
+    P(\hat{\theta} \leq t) &= P(R_1 \leq t \cap \ldots \cap R_n \leq t)
+     = P (R_1 \leq t) \ldots P(R_n \leq t) = \big(P(R \leq t)\big)^n \\[1ex]
+    F_{\hat{\theta}}(t) &= 
+    \begin{cases}
+        0 & \text{ si } t < 0 \\
+        \frac{t^{2n}}{\theta^{2n}} &
+            \text{ si } 0 \leq t < \theta \\
+        1 & \text{ si } t \geq \theta
+    \end{cases}
+    \hspace{15mm}
+    f_{\hat{\theta}}(t) = 
+    \begin{cases}
+        \frac{2n t^{2n-1}}{\theta^{2n}} &
+            \text{ si } r \in [0, \theta) \\
+        0 & \text{ en otro caso}
+    \end{cases}
+\end{flalign*}
+Hallemos ahora la esperanza del estimador:
+\begin{flalign*}
+    E(\hat{\theta}) =& \int_\mathbb{R} t \hspace{1mm} f_{\hat{\theta}}(t) \hspace{1mm} dt
+    = \int_0^\theta \frac{2nt^{2n}}{\theta^{2n}}
+    = \frac{2n}{\theta^{2n}} \int_0^\theta t^{2n} \hspace{1mm} dt =\\
+    =& \frac{2n}{\theta^{2n}} \left[\frac{t^{2n+1}}{2n+1}\right]_0^\theta
+    = \frac{2n \theta^{2n+1}}{\theta^{2n}(2n+1)} = \frac{2n \theta}{2n +1}
+\end{flalign*}
+El estimador no es centrado, pero es asintóticamente centrado.
+
+\vspace{6mm}
+\subsection{¿Es eficiente?¿Es suficiente?}
+\hspace{2mm}
+No tiene sentido hablar de eficiencia en este contexto, pues no se cumplen
+las condiciones de regularidad FCR al depender los valores que toma $R$
+(y por tanto el estimador $\hat{\theta}$) de $\theta$.
+
+\vspace{2mm}
+Para comprobar la suficiencia, recurriremos a la factorización de Fisher-Neyman.
+En este caso, la función $g$ que depende del estimador ha de ser la propia función
+de densidad, pues los valores del mismo dependen del parámetro.
+Será suficiente si y solo si se cumple la siguiente igualdad:
+$$f(r_1, \ldots, r_n; \theta) = f_T(r_1, \ldots, r_n; \theta) \cdot h(r_1, \ldots, r_n)$$
+Por los apartados anteriores, conocemos las expresiones:
+\begin{flalign*}
+    f(r_1, \ldots, r_n; \theta) =&
+        \prod_{i=1}^n \left(\frac{2 \hspace{1mm} r_i}{\theta^2}
+         \cdot 1_{(0, \theta)}(r_i) \right) &&\\
+    f_T(r_1, \ldots, r_n; \theta) =&
+         \frac{2n \hspace{1mm} T(r_1, \ldots, r_n)^{2n-1}}{\theta^{2n}}
+            \cdot 1_{(0,\theta)}\big(T(r_1, \ldots, r_n)\big)
+\end{flalign*}
+Además, como ya hemos mencionado anteriormente, se cumple:
+\begin{flalign*}
+    r_i \in (0, \theta) \hspace{2mm} \forall i \in \{1, \ldots, n\}
+    \iff 
+    \begin{cases}
+        \max \big\{r_i : i \in \{1, \ldots, n\}\big\} \in (0, \theta) \\
+        r_i \in (0, +\infty) \hspace{2mm} \forall i \in \{1, \ldots, n\}
+    \end{cases}
+\end{flalign*}
+Basta tomar la siguiente función $h$ no negativa para ver que es suficiente:
+\begin{flalign*}
+    h(r_1, \ldots, r_n) = \frac{1}{2n \max\{r_i : 1 \leq i \leq n\}^{2n-1}}
+        \prod_{i = 1}^n \left(2r_i \cdot 1_{(0, +\infty)}(r_i) \right)
+\end{flalign*}
+
+\vspace{6mm}
+\subsection{¿Es asintóticamente insesgado o eficiente?}
+\hspace{3mm}
+Hemos mencionado ya que no tiene sentido hablar de eficiencia en este contexto. Además, 
+ya comentamos que el estimador es asintóticamente insesgado, pues se cumple:
+\begin{flalign*}
+    \lim\limits_{n\to \infty} E(\hat{\theta})
+    = \lim\limits_{n\to \infty} \frac{2n \theta}{2n+1} = \theta
+\end{flalign*}
+\end{document}

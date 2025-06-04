@@ -4,11 +4,15 @@
 \usepackage{amssymb}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{etoolbox} % For \csdef
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{setspace}
+\usepackage{tcolorbox}
 \usepackage{xcolor}
+
+\tcbuselibrary{skins, breakable}
 
 % ----- Custom counters and commands -----
 \newcounter{unit}[section]
@@ -28,6 +32,10 @@
 
 \newcounter{teorema}[subsubsection]
 \renewcommand{\theteorema}{\theunit.\arabic{teorema}}
+
+\newcounter{proposicion}[subsubsection]
+\renewcommand{\theproposicion}{\theunit.\arabic{proposicion}}
+
 
 \newcommand{\unit}[1]{
     \refstepcounter{unit}
@@ -62,13 +70,32 @@
 \newcommand{\teorema}[1]{
   \refstepcounter{teorema}
   \subsubsection*{\large{Teorema \theteorema \quad \textcolor{red}{#1}}}
-  \addcontentsline{toc}{subsubsection}{Teorema \thelema \quad \textcolor{red}{#1}}
+  \addcontentsline{toc}{subsubsection}{Teorema \theteorema \quad \textcolor{red}{#1}}
+}
+
+\newcommand{\proposicion}[1]{
+  \refstepcounter{proposicion}
+  \subsubsection*{\large{Proposicion \theproposicion \quad \textcolor{red}{#1}}}
+  \addcontentsline{toc}{subsubsection}{Proposicion \theproposicion \quad \textcolor{red}{#1}}
 }
 
 \newcommand{\dem}{
     \noindent \underline{\textbf{Demostración:}}
 }
 
+
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
 
 % ----------------------------------------
 
@@ -164,6 +191,7 @@ Sean $(X, d_x)$ un espacio métrico, $x \in X$. Entonces, se cumple:
 \vspace{3mm}
 
 \lema
+\label{lema1.1}
 \vspace{1mm}\hspace{1mm}
 Sea $(X, d)$ un espacio métrico, $x_0 \in X$, $\varepsilon \in \mathbb{R}$
 con  $\varepsilon > 0$, $x \in B_d(x_0, \varepsilon)$. Se verifica que
@@ -236,4 +264,91 @@ trivialmente.
 Supongamos ahora que $\bigcap_{i = 1}^n U_i \neq \emptyset$. Así, podemos tomar $x \in \bigcap_{i = 1}^n U_i$. \\
 Por definición, $x \in U_i$ $\forall i \in \{1, \dots, n\}$. Al ser d-abiertos por hipótesis, se cumple: 
 $$\forall i \in \{1, \dots, n\} \hspace{2mm} \exists \mu_i > 0 : B_d(x, \mu_i) \subseteq U_i$$
+
+\vspace{4mm}
+\definicion
+\hspace{2mm}
+Sea $(X, d)$ un espacio métrico. Sea, $x \in X, \hspace{1mm} V \subseteq X$
+con $x \in V$. Se dice que $V$ es un entorno de de $x$ si existe $\mu \in \mathbb{R}, \mu > 0$ tal
+que $x \in B_d(x, \mu) \subseteq V$.
+
+\vspace{4mm}
+\proposicion{Caracterización de $d-$abiertos}
+\hspace{3mm}
+Sea $(X, d)$ un espacio métrico. Sea $U \in \mathcal{P}(X)$. Las siguientes
+afirmaciones son equivalentes:
+\begin{enumerate}[label=\roman*)]
+    \item $U$ es un $d-$abierto
+    \item $\exists \{x_i\}_{i\in I} \subseteq X,
+    \{\mu_{x_i}\}_{i \in I} \subseteq \mathbb{R}$
+    con $\mu_{x_i} > 0 \hspace{1mm} \forall i \in I$ \hspace{1mm}
+    tales que $U = \displaystyle\bigcup_{i \in I} B_d(x_i, \mu_{x_i})$
+\end{enumerate}
+\dem Veamos que se cumplen ambas implicaciones:
+\vspace{1mm}
+
+\begin{tcolorbox}[Implication-number]
+$\text{i)} \Rightarrow \text{ii)}$
+\hspace{4mm} Supongamos que $U$ es un $d$-abierto.
+Por definición, se cumple:
+\end{tcolorbox}
+\vspace{-8mm}
+$$ \forall x \in U \hspace{1mm} \exists \mu_x > 0 \text{ tal que }
+B_d(x, \mu_x) \subseteq U$$ 
+\vspace{3mm}
+Así, bastaría expresar $U$ como $U = \displaystyle\bigcup_{x \in U} B_d(x, \mu_{x})$.
+
+Se cumple la igualdad, pues todo $x \in U$ está contenido en su respectiva bola, y cada una
+de ellas está completamente contenida en $U$, luego su unión lo estará también.
+
+\newpage
+\begin{tcolorbox}[Implication-number]
+$\text{ii)} \Rightarrow \text{i)}$
+\hspace{4mm} Supongamos $U = \displaystyle\bigcup_{i \in I} B_d(x_i, \mu_{x_i})$
+para ver que $U$ es un $d-$abierto.
+\end{tcolorbox}
+Sea $x_0 \in U$ cualquiera pero fijo, tenemos que $U =\displaystyle\bigcup_{i \in I} B_d(x_i, \mu_{x_i})$
+luego existe $j \in I$ tal que $x_0 \in B_d(x_j, \mu_{x_j})$. Por el \nameref{lema1.1}, sabemos que
+existe $\mu_0 > 0$ tal que:
+$$x_0 \in B_d(x_0, \mu_0) \subseteq B_d(x_j, \mu_{x_j}) \subseteq U$$
+
+Como el $x_0$ fijado es arbitrario, se cumple para cualquier elemento de $U$. Por todo lo
+anterior, concluimos que $U$ es un $d$-abierto.
+
+\vspace{4mm}
+\proposicion{}
+\hspace{3mm}
+Sea $(X, d_x)$ un espacio métrico. Sea $Y \subseteq X$ un subconjunto no vacío.
+Las siguientes afirmaciones son equivalentes:
+\begin{enumerate}[label=\roman*)]
+    \item $U^* d_{X|_Y}$-abierto
+    \item $U^* = U \cap Y$ para cierto $U d_X$-abierto
+\end{enumerate}
+\dem Veamos que se cumplen ambas implicaciones
+\begin{tcolorbox}[Implication-number]
+$\text{i)} \Rightarrow \text{ii)}$
+\hspace{4mm} Supongamos que $U*$ es un $d_{X|_Y}$-abierto.
+Por definición, se cumple:
+\end{tcolorbox} \vspace{-8mm}
+$$\forall y \in U^* \hspace{1mm}\exists \mu_y > 0
+\text{ tal que } B_{d_{X|_Y}}(y, \mu_y) \subseteq U^*$$
+
+Basta tomar el $d_X$-abierto $U$ definido como sigue:
+$ U := \displaystyle\bigcup_{y \in U^*}B_{d_X}(y, \mu_y)$
+
+\vspace{3mm}
+\begin{tcolorbox}[Implication-number]
+$\text{ii)} \Rightarrow \text{i)}$
+\hspace{4mm} Supongamos que $U^* = U \cap Y$ para ver que es $d_{X|_y}$-abierto.
+\end{tcolorbox}
+Al ser $U$ $d_X$-abierto, se tiene por definición que: \vspace{-3mm}
+$\forall x \in U \hspace{1mm} \exists \mu_x > 0 : 
+B_{d_X}(x, \mu_x) \subseteq U $ \\[3ex]
+Intersecando con $Y$, \hspace{2mm}
+$\forall y \in U^* \hspace{1mm} \exists \mu_y >0 :
+B_{d_X}(y, \mu_y) \cap Y \subseteq U^*$ \\[1ex]
+Pero por definición, $B_{d_X}(y, \mu_y) \cap Y 
+ = B_{d_X|_Y}(y, \mu_y)$. \\[1ex]
+Comparando con la definición, concluimos que $U*$ es
+$d_{X|_Y}$-abierto.
 \end{document}

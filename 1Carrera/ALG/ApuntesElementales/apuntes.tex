@@ -1,0 +1,377 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{titlesec}
+
+
+% ----- Custom counters and commands -----
+\newcounter{unit}[section]
+\renewcommand{\theunit}{\arabic{unit}}
+
+\newcounter{chapter}[subsection]
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+\renewcommand{\thesubsubsection}{\theunit.\arabic{subsubsection}}
+
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\longrightsquigarrow}{%
+  \mathrel{\tikz[baseline=-0.5ex] \draw[->,decorate,decoration={snake,amplitude=.7mm,segment length=2.5mm,post length=1mm}] (0,0) -- (1.7,0);}}
+
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+
+\titleformat{\subsubsection}
+  {\normalfont\large\bfseries} % mismo tamaño que \subsection
+  {\thesubsubsection}{1em}{}
+
+% ----------------------------------------
+
+\begin{document}
+
+\vfill
+\begin{center}
+    \Huge{Álgebra Lineal y Geometría I} \\[3ex] 
+    \Large Apuntes elementales introductorios\\[3ex]
+    \large{Javier Ortín Rodenas}
+\end{center}
+\vspace{2cm}
+\onehalfspacing
+
+Estos apuntes han sido confeccionados por el alumno un año después de haber cursado
+la asignatura a la que hacen referencia, pero no recrean los apuntes originales del profesorado.
+Este documento ha sido escrito desde cero sin consultal el material del equipo docente y sirve
+como un ejercicio del autor para reflexionar sobre los conocimientos abordados entonces.
+
+\newpage
+\tableofcontents
+\newpage
+
+\unit{Espacios vectoriales}
+
+\chapter{Cuerpos}
+
+\subsubsection{Definición de operación binaria interna}
+\hspace{3mm}
+Sea $K$ un conjunto no vacío, una operación binaria interna es una función que toma dos
+argumentos de entrada en $K$ y tiene salida también en $K$. Es decir, diremos que $*$ es una
+operación binaria interna en $K$ si puede ser definida como:
+\begin{align*}
+    * : K \times K \longrightarrow K &&
+    k_1, k_2 \rightsquigarrow k_1 * k_2
+\end{align*}
+
+\subsubsection{Definición de cuerpo}
+\hspace{3mm}
+Sea $K$ un conjunto no vacío. Sean $+$ (suma) y $\cdot*$ (multiplicación) dos operaciones
+binarias internas en $K$. Diremos que $(K,+,\cdot)$ tiene estructura de cuerpo si cumple
+todos los siguientes requisitos:
+\begin{enumerate}[label=\roman*)]
+    \item Existe un elemento neutro para la suma; es decir, al sumarlo a cualquier elemento de $K$ no altera el resultado: \vspace{-4mm}
+        $$\exists \hspace{1mm} 0_K \in K : k + 0_K = k \hspace{3mm} \forall k \in K$$
+
+    \item Todo elemento de $K$ tiene un opuesto para la suma: \vspace{-4mm}
+        $$\forall k \in K \hspace{3mm} \exists  \hspace{1mm}-k \in K
+        \hspace{2mm} : \hspace{2mm} k + (-k) = 0_K$$
+
+    \item Existe un elemento neutro para la multiplicación: \vspace{-4mm}
+        $$\exists \hspace{1mm} 1_K \in K : k \cdot 1_K = k \hspace{3mm} \forall k \in K$$
+
+    \item Para todo elemento de $K$ salvo $0_K$ existe un inverso para la multiplicación:
+        $$\forall k \in K\backslash\{0_K\} \hspace{3mm} \exists \hspace{1mm} k^{-1}
+        : k \cdot k^{-1} = 1_K$$
+
+    \item La suma y la multiplicación son conmutativas:
+        \begin{align*}
+            \forall k_1, k_2 \in K \text{ se verifica: } &&
+            k_1 + k_2 = k_2 + k_1 &&
+            k_1 \cdot k_2 = k_2 = k_1
+        \end{align*}
+    
+    \item La multiplicación es distributiva respecto de la suma:
+        $$\forall k_1,k_2,k_3 \in K : \hspace{2mm}
+        k_1 \cdot (k_2 + k_3) =
+        k_1 \cdot k_2 + k_1 \cdot k_3 $$
+\end{enumerate}
+
+En vista de esta definición, es claro que ($\mathbb{R}, +, \cdot \hspace{1mm})$
+forma un cuerpo para la suma y multiplicación usuales para los números reales.
+Estas mismas operaciones definen también un cuerpo para los números complejos $\mathbb{C}$.
+Veamos algunos ejemplos y contraejemplos de esta definición.
+
+
+\subsubsection{Números racionales}
+\hspace{3mm}
+Consideramos la suma y el producto usual en el conjunto de los números racionales $\mathbb{Q}$.
+Cabe preguntarse si tiene estructura de cuerpo. Veamos que en efecto es así:
+
+\vspace{2mm}
+Por definición, $\mathbb{Q}$ está formado por divisiones de números enteros, luego podemos expresarlo
+de la siguiente forma:
+$$\mathbb{Q} = \left\{\frac{p}{q} : p,q \in \mathbb{Z}\right\}$$
+
+Sea $a \in \mathbb{Q}$ cualquiera, podemos reescribir $a = \frac{p}{q}$ para $p, q \in \mathbb{Z}$.
+Para hallar el opuesto a $a$ basta tomar $-a = \frac{-p}{q}$ pues se cumple:
+$$a + (-a) = \frac{p}{q} + \frac{-p}{q} = \frac{p-p}{q} = 0$$
+
+Además, es claro que $-a \in \mathbb{Q}$ pues se cumple:
+$$a = \frac{p}{q} \in \mathbb{Q} \rightarrow
+ p,q \in \mathbb{Z} \Rightarrow -p,q \in \mathbb{Z}
+ \Rightarrow -a = \frac{-p}{q} \in \mathbb{Q}$$
+
+Supongamos ahora que $a \neq 0$; de este modo, $p \neq 0$.
+Así, bastaría tomar $a^{-1} = \frac{q}{p}$ inverso de $a$ bien
+definido.
+$$ a \cdot a^{-1} = \frac{p}{q} \cdot \frac{q}{p}
+ = \frac{p \cdot q}{p \cdot q} = 1 \hspace{6mm}
+ \text{ Es en efecto su inverso}$$
+Además, al ser $a$ un número racional, $p$ y $q$ han de ser números enteros
+luego $a^{-1}$ ha de ser también racional por definición.
+
+\vspace{2mm}
+Por todo lo anterior, $\mathbb{Q}$ cuenta con opuestos e inversos dentro del propio
+conjunto. La conmutatividad y la distributivad son propiedades triviales
+del producto y la suma usual. Concluimos que tiene estructura de cuerpo.
+
+\subsubsection{Núeros naturales y enteros}
+\hspace{3mm}
+Los números naturales no forman un cuerpo, pues no tienen opuesto para la suma.
+Por ejemplo, el opuesto del natural $5$ es el número $-5$, que no pertenece
+a $\mathbb{N}$.
+
+\vspace{2mm}
+Aunque sí existen los opuestos para la suma en $\mathbb{Z}$, no 
+es posible hallar inversos para el producto usual. Por ejemplo, el inverso
+del entero 2 es $\frac{1}{2}$, que no pertenece al conjunto de los números enteros.
+
+\subsubsection{Conjuntos de matrices}
+\textbf{Ejercicio:} Halla un conjunto de matrices que tenga estructura de cuerpo
+
+\vspace{2mm} \hspace{3mm}
+El conjunto de matrices cualesquiera de números reales no es un cuerpo, pues no es posible
+sumar matrices de distinta dimensión (entendiendo por suma de matrices la suma término a término).
+Por tanto, si buscamos encontrar un conjunto de matrices que sí sea un cuerpo va a ser necesario
+considerar un conjunto en el que todas ellas tengan una misma dimensión dada.
+
+\vspace{2mm}
+No obstante, esto no es suficiente para que el conjunto sea un cuerpo, pues la multiplicación usual de matrices
+exige que el número de columnas de la primera matriz sea igual al número de columnas de la segunda. Al imponer también esta condición,
+es claro que el conjunto de matrices que buscamos ha de ser (como máximo) el de las matrices cuadradas de un cierto tamaño cualquiera.
+
+\vspace{2mm}
+Sea $n \in \mathbb{N}$ cualquiera, introducimos la siguiente notación:
+$$M_n(\mathbb{R}) = \{A : A\text{ es una matriz } n \times n \text{ con coeficientes en } \mathbb{R}\}$$
+Este conjunto no tiene estructura de cuerpo pues no todas las matrices cuadradas son invertibles. Para que así fuera,
+tendríamos que exigir que fuesen invertibles; es decir, que tengan determinante no nulo. Nótese que
+es necesario hacer una excepción para la matriz nula y poder tener así un elemento neutro de la suma.
+
+\vspace{2mm}
+Incluso habiendo exigido todas estas restricciones contamos aún con problemas. La multiplicación de matrices puede
+no ser conmutativa. Veamos un contraejemplo:
+\begin{align*}
+    A =
+    \begin{pmatrix}
+        1 & 1\\
+        1 & 2
+    \end{pmatrix} &&
+    B = 
+    \begin{pmatrix}
+        2 & 0\\
+        0 & 3
+    \end{pmatrix}&&
+    AB = 
+    \begin{pmatrix}
+        2 & 3\\
+        2 & 6
+    \end{pmatrix} &&
+    BA = 
+    \begin{pmatrix}
+        2 & 2\\
+        3 & 6
+    \end{pmatrix}
+\end{align*}
+
+Un ejemplo de matrices que conmutan y son cerradas para el producto y la suma son las matrices diagonales. No obstante,
+si queremos que el conjunto tenga también determinante no nulo pueden ocurrir complicaciones:
+\begin{align*}
+    \begin{pmatrix}2&0\\0&1\end{pmatrix} +
+    \begin{pmatrix}5&0\\0&-1 \end{pmatrix} =
+    \begin{pmatrix}7&0\\0&0\end{pmatrix}
+\end{align*}
+Las dos matrices sumando tienen determinante no nulo, pero no es el caso de la tercera.
+Esto ocurre al aparecer filas nulas en un resultado que no es la matriz nula (elemento neutro de la suma).
+Para solventar este problema, podemos exigir que todos los escalares de la diagonal deban de valer lo mismo.
+De este modo, si apareciese alguna fila nula al sumar o multiplicar matrices, el resultado ha de ser necesariamente
+la matriz nula (que sí está "permitida").
+
+\newpage
+Por todo lo anterior, concluimos que el conjunto de matrices diagonales $n\times n$ con coeficientes reales idénticos tiene estructura de cuerpo:
+$$ \left\{\lambda \hspace{1mm} \text{Id}_n : \hspace{2mm}\lambda \in \mathbb{R} \right\}
+= \left\{\begin{pmatrix}
+    \lambda \hspace{3mm} \ldots \hspace{3mm} 0 \\
+    \vdots \hspace{3mm} \ddots \hspace{3mm} \vdots \\
+    0 \hspace{3mm} \ldots \hspace{3mm} \lambda
+\end{pmatrix}\hspace{4mm} : \lambda \in \mathbb{R} \right\}$$
+De hecho, como hemos comprobado anteriormente que $\mathbb{Q}$ es un cuerpo, podemos considerar también
+las matrices con coeficientes diagonales idénticos en $\mathbb{Q}$ (o en cualquier otro cuerpo $K$).
+
+\vspace{2mm}
+\subsubsection{Proposición: Unicidad del elemento neutro}
+\hspace{3mm}
+Sea $(K, +, \cdot \hspace{1mm})$ un cuerpo cualquiera. Los elementos neutros $0_K$ y $1_K$ son únicos.
+
+\vspace{2mm}
+\dem Supongamos que existe más de uno para ver que son iguales
+
+\vspace{2mm}
+Veamos que el elemeneto neutro de la suma es único (el procedimiento para la multiplicación es análogo).
+Supongamos que existen dos elementos neutros de la suma en $K$: $0_k$ y $\hat{0}_K$.
+
+\vspace{2mm}
+Por ser $\hat{0}_K$ elemento neutro, $0_K = 0_K + \hat{0}_K$
+
+\vspace{2mm}
+Como $0_K$ es también elemento neutro, $\hat{0}_K = \hat{0}_K + 0_K$
+
+\vspace{2mm}
+Finalmente, como la suma ha de ser conmutativa pues $K$ es un cuerpo, se tiene: \vspace{-3mm}
+$$0_K = 0_K + \hat{0}_K = \hat{0}_K + 0_K = \hat{0}_K$$
+
+\noindent
+Por todo lo anterior, concluimos que el elemento neutro es único.
+
+\newpage
+\chapter{Introducción a los espacios vectoriales}
+\subsubsection{Definición de espacio vectorial}
+\hspace{3mm}
+El concepto de espacio vectorial depende del de cuerpo, pues todo espacio vectorial
+está asociado a un cuerpo determinado. Sea $(K, + \hspace{1mm}\cdot \hspace{1mm})$
+un cuerpo cualquiera, sea $V$ un conjunto no vacío. Para que $V$ sea un $K$-espacio vectorial
+ha de ser cerrado respecto de la suma de vectores y respecto del producto por escalares; es decir:
+\begin{enumerate}[label=\roman*)]
+    \item Cerrado para la suma de vectores: $\forall v, w \in V \hspace{1mm} : v + w \in V$
+    \item Cerrado para el producto por escalares: $\forall v \in V \hspace{1mm} \forall \lambda \in K
+      \hspace{1mm} \lambda v \in V$
+\end{enumerate}
+Como alternativa, basta comprobar únicamente que se cumpla la siguiente condición:
+\begin{enumerate}[label=$\hat{\roman*)}$]
+    \item $\forall v,w \in V \hspace{3mm}
+        \forall \alpha, \beta \in K \hspace{1mm} :
+        \hspace{2mm}\alpha v + \beta w \in V$
+\end{enumerate}
+
+\vspace{2mm}
+Finalmente, las operaciones de suma de vectores y producto por escalares han de cumplir los ocho siguientes axiomas:
+\begin{enumerate}[label = E.\arabic*)]
+    \item La suma es conmutativa: \hspace{2mm}
+        $v + w = w + v \hspace{4mm} \forall v,w \in V$
+    \item La suma es asociativa: \hspace{2mm}
+        $u + (v + w) = (u + v) + w \hspace{4mm} \forall u,v,w \in V$
+    \item Existencia del elemento neutro: \hspace{2mm}
+        $\exists 0_V \in V : v + 0_V = v \hspace{4mm} \forall v \in V$
+    \item Existencia de los opuestos: \hspace{2mm}
+        $\forall v \in V \hspace{2mm} \exists -v \in V : 
+            v + (-v) = 0_V$
+    \item El producto por escalares es asociativo: \hspace{1mm}
+        $\alpha \cdot (\beta \cdot v) = (\alpha \cdot  \beta) \cdot v
+            \hspace{2mm} \forall \alpha, \beta \in K
+            \hspace{2mm} \forall v \in V$
+    \item Elemento neutro del producto por escalares: \hspace{2mm}
+        $\exists \hspace{1mm} e \in K : e v = v \hspace{3mm} \forall v \in V$   
+    \item Distributividad respecto de la suma vectorial:\\
+        $\lambda(v + w) = \lambda v + \lambda w \hspace{3mm}
+            \forall \lambda \in K \hspace{3mm} \forall v,w \in V$
+    \item Distributividad respecto de la suma escalar: \\
+        $(\alpha + \beta)v = \alpha v + \beta v \hspace{3mm}
+            \forall \alpha, \beta \in K \hspace{3mm} \forall v \in V$
+\end{enumerate}
+
+En los ejercicios prácticos de esta asignatura los ocho axiomas suelen cumplirse trivialmente, por lo que
+basta comprobar que $V$ sea cerrado para la suma y para el producto por escalares, además de ser un
+conjunto no vacío.
+
+\vspace{2mm}
+Nótese que con los contenidos vistos hasta ahora los vectores no se multiplican entre sí, sino que únicamente
+se suman vectores cuantificados por escalares (estos últimos actúan como "pesos" o "coeficientes"
+de los primeros).
+
+\vspace{2mm}
+Por las definiciones de cuerpo y de espacio vectorial es evidente que 
+todo cuerpo es un espacio vectorial sobre sí mismo. Veamos otros ejemplos no tan triviales.
+
+\vspace{2mm}
+
+\vspace{4mm}
+\subsubsection{Matrices como espacio vectorial}
+\hspace{3mm}
+Sea $K$ un cuerpo, sean $n, m \in \mathbb{N}$ cualesquiera, el conjunto de matrices $n \times m$ con coeficientes
+en $K$ es un $K$-espacio vectorial. Introducimos la siguiente notación: \vspace{-2mm}
+$$M_{n,m}(K) = \{A : A\text{ es un matriz } n\times m \text{ con coeficientes en }K\}$$
+En este caso, los escalares serían los elementos de $K$, mientras que los vectores serían las matrices
+de $M_{n,m}(K)$. Veamos que es en efecto un espacio vectorial.
+
+\vspace{2mm}
+En primer lugar, consideramos la suma de matrices como la suma término a término. Al haber fijado
+la dimensión $n \times m$, esta operación está bien definida. Además, la suma de matrices $n\times m$
+da luegar también a una matriz $n \times m$. Finalemnte, como $K$ es un cuerpo, la suma de elementos de $K$
+es también un elemento de $K$. Por tanto, el resultado de sumar dos matrices de $M_{n,m}(K)$ es también una matriz
+de $M_{n,m}(K)$.
+
+\vspace{2mm}
+De manera simlar, el producto por escalares no afecta a la dimensión del resultado, y al ser
+$K$ un cuerpo el producto es una operación binaria interna. De este modo, $M_{n,m}(K)$ es cerrado
+respecto del producto por escalares de $K$. Por todo lo anterior, $M_{n,m}(K)$ es un $K$-espacio vectorial.
+
+\newpage
+\subsubsection{Polinomios como espacio vectorial}
+\hspace{3mm}
+Sea $K$ un cuerpo, sea $K[X]$ el conjunto de polinomios en la variable $X$ con coeficientes en $K$, veamos que es un $K$-espacio vectorial.
+Sean $p, q \in P[K]$, supongamos que $p$ es de grado $n$ y $q$ de grado $m$ para ciertos $n,m\in \mathbb{N}$. Por tanto,
+podemos expresarlos de la siguiente forma para ciertos $a_i, b_i \in K$: \vspace{-3mm}
+\begin{flalign*}
+    &&p &= a_n X^n + a_{n-1} X^{n-1} + \ldots + a_1X + a_0  &&&&&&&&&&&&&\\
+    &&q &= b_m X^m + b_{m-1} X^{m-1} + \ldots + b_1X + b_0
+\end{flalign*}
+En este caso, realizaremos una única comprobación. Sean $\alpha, \beta \in K$,
+definimos $N := \max\{n,m\}$. De este modo: \vspace{-3mm}
+\begin{flalign*}
+    \alpha p& + \beta q = (\alpha a_N + \beta b_N)X^N + \ldots (\alpha a_1 + \beta b_1)X + (\alpha a_0 + \beta b_0) = \\
+     &=  c_N X^N + \ldots + c_1 X + c_0  \hspace{4mm}\text{ para } c_i = \alpha a_i + \beta b_i
+\end{flalign*}
+Como $K$ es un cuerpo y $\alpha, \beta, a_i, b_i \in K$, los $c_i$ también pertenecen a $K$.
+Por tanto, tenemos que $\hspace{1mm}\alpha p + \beta q \in K[X]\hspace{1mm}$ luego $K[X]$ es un $K$-espacio vectorial.
+Cabe preguntarse si existen subconjuntos de $K[X]$ que sean también espacios vectoriales. 
+
+\vspace{2mm} Sea $n \in \mathbb{N}$ cualquiera, consideremos el conjunto de polinomios de $K[X]$ de grado
+mayor o igual que $n$. Este conjunto no es un espacio vectorial, pues no es cerrado para la suma. Por ejemplo,
+para $n = 3$ y $K = \mathbb{R}$ tenemos: \vspace{-3mm}
+$$(X^4 + 2X^3 + 3X) + (-X^4 -2X^3 + 2) =  3X + 2
+\hspace{3mm} \text{ que tiene grado } 1 < 3$$ 
+Además, este conjunto no cumple con el axioma E.3) de la definición de espacio vectorial, pues
+el elemento neutro de la suma es el polinomio nulo, que no pertenece a este conjunto al tener grado 0.
+
+\vspace{2mm}
+El cojnunto de polinomios de $K[X]$ con grado menor o igual que $n$ sí es un espacio vectorial, y se denota
+$K_n[X]$. La demostración es idéntica a la vista para $K[X]$ notando que los polinomios $p$ y $q$ serían ambos
+de grado menor o igual que $n$ luego bastaría tomar $N = n$.
+
+\newpage
+\subsubsection{Funciones como espacio vectorial}
+\end{document}
