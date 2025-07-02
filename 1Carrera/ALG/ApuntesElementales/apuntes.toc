@@ -3,11 +3,26 @@
 \contentsline {subsubsection}{\numberline {1.1}Definición de operación binaria interna}{3}{subsubsection.0.0.1}%
 \contentsline {subsubsection}{\numberline {1.2}Definición de cuerpo}{3}{subsubsection.0.0.2}%
 \contentsline {subsubsection}{\numberline {1.3}Números racionales}{4}{subsubsection.0.0.3}%
-\contentsline {subsubsection}{\numberline {1.4}Núeros naturales y enteros}{5}{subsubsection.0.0.4}%
+\contentsline {subsubsection}{\numberline {1.4}Números naturales y enteros}{5}{subsubsection.0.0.4}%
 \contentsline {subsubsection}{\numberline {1.5}Conjuntos de matrices}{5}{subsubsection.0.0.5}%
 \contentsline {subsubsection}{\numberline {1.6}Proposición: Unicidad del elemento neutro}{7}{subsubsection.0.0.6}%
 \contentsline {subsection}{2. Introducción a los espacios vectoriales}{8}{chapter.0.0.2}%
 \contentsline {subsubsection}{\numberline {1.7}Definición de espacio vectorial}{8}{subsubsection.0.0.7}%
-\contentsline {subsubsection}{\numberline {1.8}Matrices como espacio vectorial}{9}{subsubsection.0.0.8}%
-\contentsline {subsubsection}{\numberline {1.9}Polinomios como espacio vectorial}{10}{subsubsection.0.0.9}%
-\contentsline {subsubsection}{\numberline {1.10}Funciones como espacio vectorial}{11}{subsubsection.0.0.10}%
+\contentsline {subsubsection}{\numberline {1.8}Subespacios vectoriales}{9}{subsubsection.0.0.8}%
+\contentsline {subsubsection}{\numberline {1.9}Matrices como espacio vectorial}{9}{subsubsection.0.0.9}%
+\contentsline {subsubsection}{\numberline {1.10}Polinomios como espacio vectorial}{10}{subsubsection.0.0.10}%
+\contentsline {subsubsection}{\numberline {1.11}Funciones como espacio vectorial}{11}{subsubsection.0.0.11}%
+\contentsline {subsubsection}{\numberline {1.12}Subespacio intersección}{12}{subsubsection.0.0.12}%
+\contentsline {subsubsection}{\numberline {1.13}Subespacio suma}{12}{subsubsection.0.0.13}%
+\contentsline {subsubsection}{\numberline {1.14}Ejemplo de suma e intersección de polinomios}{14}{subsubsection.0.0.14}%
+\contentsline {subsection}{3. Sistemas de vectores}{16}{chapter.0.0.3}%
+\contentsline {subsubsection}{\numberline {1.15}Definición de sistema}{16}{subsubsection.0.0.15}%
+\contentsline {subsubsection}{\numberline {1.16}Sistemas libres y ligados}{16}{subsubsection.0.0.16}%
+\contentsline {subsubsection}{\numberline {1.17}Clausura de una familia, sistema generador}{17}{subsubsection.0.0.17}%
+\contentsline {subsection}{4. Bases y dimensiones}{19}{chapter.0.0.4}%
+\contentsline {subsubsection}{\numberline {1.18}Definición de base}{19}{subsubsection.0.0.18}%
+\contentsline {subsubsection}{\numberline {1.19}Tamaño de las bases}{19}{subsubsection.0.0.19}%
+\contentsline {subsubsection}{\numberline {1.20}Concepto de dimensión}{20}{subsubsection.0.0.20}%
+\contentsline {subsubsection}{\numberline {1.21}Base del espacio de polinomios}{21}{subsubsection.0.0.21}%
+\contentsline {subsubsection}{\numberline {1.22}Dimensión según cuerpo}{21}{subsubsection.0.0.22}%
+\contentsline {subsubsection}{\numberline {1.23}Dimensión máxima de un subespacio}{22}{subsubsection.0.0.23}%

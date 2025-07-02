@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.18)  4 JUN 2025 07:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.18)  28 JUN 2025 23:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -325,30 +325,45 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write4
 \openout4 = `apuntes.toc'.
 
- [2] [3] [4] [5] [6] [7] [8] [9] [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 377.
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 377.
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
+
+ []
+
+[17] [18] [19]
+Overfull \hbox (13.2404pt too wide) in paragraph at lines 672--675
+\OT1/cmr/m/n/12 clausura ha de es-tar con-tenida en el pro-pio $\OML/cmm/m/it/12 V$\OT1/cmr/m/n/12 . Por tanto, $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 v[]; w[]; [] w[]; w[]; [] ; w[]\OMS/cmsy/m/n/12 g$
+ []
+
+
+Overfull \hbox (7.48125pt too wide) in paragraph at lines 687--691
+\OT1/cmr/m/n/12 hemos supuesto (hip^^Sotesis del ab-surdo) $\OML/cmm/m/it/12 n > m$\OT1/cmr/m/n/12 , ten-emos que los vec-tores $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 v[]; [] ; v[]\OMS/cmsy/m/n/12 g$
+ []
+
+[20] [21]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 775.
+ [22]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 775.
  (/workspaces/latex-compiler/1Carrera/ALG/ApuntesElementales/apuntes.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 377.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 377.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 775.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 775.
 Package rerunfilecheck Info: File `apuntes.out' has not changed.
-(rerunfilecheck)             Checksum: 1A06AFA9EFFC9C3C24502666150A824E;1103.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 377.
+(rerunfilecheck)             Checksum: 5B9B300AC5CFF9F217D02F0F6BD168DB;2391.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 775.
  ) 
 Here is how much of TeX's memory you used:
- 6734 strings out of 481239
- 100445 string characters out of 5920377
- 371656 words of memory out of 5000000
- 21857 multiletter control sequences out of 15000+600000
+ 6785 strings out of 481239
+ 101265 string characters out of 5920377
+ 372852 words of memory out of 5000000
+ 21875 multiletter control sequences out of 15000+600000
  539447 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,14n,34p,282b,458s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb>
-Output written on /workspaces/latex-compiler/1Carrera/ALG/ApuntesElementales/apuntes.pdf (11 pages, 145683 bytes).
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb>
+Output written on /workspaces/latex-compiler/1Carrera/ALG/ApuntesElementales/apuntes.pdf (22 pages, 192393 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 170 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

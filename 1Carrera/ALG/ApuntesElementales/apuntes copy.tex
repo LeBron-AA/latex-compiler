@@ -57,7 +57,7 @@
 
 Estos apuntes han sido confeccionados por el alumno un año después de haber cursado
 la asignatura a la que hacen referencia, pero no recrean los apuntes originales del profesorado.
-Este documento ha sido escrito desde cero sin consultar el material del equipo docente y sirve
+Este documento ha sido escrito desde cero sin consultal el material del equipo docente y sirve
 como un ejercicio del autor para reflexionar sobre los conocimientos abordados entonces.
 
 \newpage
@@ -102,7 +102,7 @@ todos los siguientes requisitos:
         \begin{align*}
             \forall k_1, k_2 \in K \text{ se verifica: } &&
             k_1 + k_2 = k_2 + k_1 &&
-            k_1 \cdot k_2 = k_2 \cdot k_1
+            k_1 \cdot k_2 = k_2 = k_1
         \end{align*}
     
     \item La multiplicación es distributiva respecto de la suma:
@@ -150,7 +150,7 @@ Por todo lo anterior, $\mathbb{Q}$ cuenta con opuestos e inversos dentro del pro
 conjunto. La conmutatividad y la distributivad son propiedades triviales
 del producto y la suma usual. Concluimos que tiene estructura de cuerpo.
 
-\subsubsection{Números naturales y enteros}
+\subsubsection{Núeros naturales y enteros}
 \hspace{3mm}
 Los números naturales no forman un cuerpo, pues no tienen opuesto para la suma.
 Por ejemplo, el opuesto del natural $5$ es el número $-5$, que no pertenece
@@ -215,7 +215,7 @@ si queremos que el conjunto tenga también determinante no nulo pueden ocurrir c
     \begin{pmatrix}5&0\\0&-1 \end{pmatrix} =
     \begin{pmatrix}7&0\\0&0\end{pmatrix}
 \end{align*}
-Las dos matrices sumandos tienen determinante no nulo, pero no es el caso de la tercera.
+Las dos matrices sumando tienen determinante no nulo, pero no es el caso de la tercera.
 Esto ocurre al aparecer filas nulas en un resultado que no es la matriz nula (elemento neutro de la suma).
 Para solventar este problema, podemos exigir que todos los escalares de la diagonal deban de valer lo mismo.
 De este modo, si apareciese alguna fila nula al sumar o multiplicar matrices, el resultado ha de ser necesariamente
@@ -317,21 +317,7 @@ de los primeros).
 Por las definiciones de cuerpo y de espacio vectorial es evidente que 
 todo cuerpo es un espacio vectorial sobre sí mismo. Veamos otros ejemplos no tan triviales.
 
-\vspace{4mm}
-\subsubsection{Subespacios vectoriales}
-\label{subespacio-vectorial}
-\hspace{3mm}
-Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial, sea $W \subseteq V$ con $0_V \in W$.
-Diremos que $W$ es un subespacio vectorial de $V$ si se cumple:
-\begin{enumerate}[label=\roman*)]
-    \item $v + w \in W \hspace{3mm} \forall v,w \in W$
-    \item $\lambda v \in W \hspace{3mm} \forall \lambda \in K, \hspace{2mm} \forall v \in W$
-\end{enumerate}
-O alternativamente, si se cumple:
-\begin{enumerate}[label=$\hat{\roman*})$]
-    \item $\alpha v + \beta w \in W \hspace{3mm}\forall \alpha,\beta \in K, \hspace{2mm} \forall v, w \in W$
-\end{enumerate}
-En tal caso, $W$ es un $K$-espacio vectorial contenido en $V$, y se denota $W < V$.
+\vspace{2mm}
 
 \vspace{4mm}
 \subsubsection{Matrices como espacio vectorial}
@@ -340,12 +326,12 @@ Sea $K$ un cuerpo, sean $n, m \in \mathbb{N}$ cualesquiera, el conjunto de matri
 en $K$ es un $K$-espacio vectorial. Introducimos la siguiente notación: \vspace{-2mm}
 $$M_{n,m}(K) = \{A : A\text{ es un matriz } n\times m \text{ con coeficientes en }K\}$$
 En este caso, los escalares serían los elementos de $K$, mientras que los vectores serían las matrices
-de $M_{n,m}(K)$. Veamos que es, en efecto, un espacio vectorial.
+de $M_{n,m}(K)$. Veamos que es en efecto un espacio vectorial.
 
 \vspace{2mm}
 En primer lugar, consideramos la suma de matrices como la suma término a término. Al haber fijado
 la dimensión $n \times m$, esta operación está bien definida. Además, la suma de matrices $n\times m$
-da luegar también a una matriz $n \times m$. Finalmente, como $K$ es un cuerpo, la suma de elementos de $K$
+da luegar también a una matriz $n \times m$. Finalemnte, como $K$ es un cuerpo, la suma de elementos de $K$
 es también un elemento de $K$. Por tanto, el resultado de sumar dos matrices de $M_{n,m}(K)$ es también una matriz
 de $M_{n,m}(K)$.
 
@@ -354,6 +340,7 @@ De manera simlar, el producto por escalares no afecta a la dimensión del result
 $K$ un cuerpo el producto es una operación binaria interna. De este modo, $M_{n,m}(K)$ es cerrado
 respecto del producto por escalares de $K$. Por todo lo anterior, $M_{n,m}(K)$ es un $K$-espacio vectorial.
 
+\newpage
 \subsubsection{Polinomios como espacio vectorial}
 \label{polinomios-espacio-vectorial}
 \hspace{3mm}
@@ -372,10 +359,8 @@ definimos $N := \max\{n,m\}$. De este modo: \vspace{-3mm}
 \end{flalign*}
 Como $K$ es un cuerpo y $\alpha, \beta, a_i, b_i \in K$, los $c_i$ también pertenecen a $K$.
 Por tanto, tenemos que $\hspace{1mm}\alpha p + \beta q \in K[X]\hspace{1mm}$ luego $K[X]$ es un $K$-espacio vectorial.
-Cabe preguntarse si existen subconjuntos de $K[X]$ que sean también espacios vectoriales (es decir, que sean subespacios 
-vectoriales de $K[X$]).
+Cabe preguntarse si existen subconjuntos de $K[X]$ que sean también espacios vectoriales. 
 
-\newpage
 \vspace{2mm} Sea $n \in \mathbb{N}$ cualquiera, consideremos el conjunto de polinomios de $K[X]$ de grado
 mayor o igual que $n$. Este conjunto no es un espacio vectorial, pues no es cerrado para la suma. Por ejemplo,
 para $n = 3$ y $K = \mathbb{R}$ tenemos: \vspace{-3mm}
@@ -385,10 +370,11 @@ Además, este conjunto no cumple con el axioma E.3) de la definición de espacio
 el elemento neutro de la suma es el polinomio nulo, que no pertenece a este conjunto al tener grado 0.
 
 \vspace{2mm}
-El conjunto de polinomios de $K[X]$ con grado menor o igual que $n$ sí es un espacio vectorial, y se denota
+El cojnunto de polinomios de $K[X]$ con grado menor o igual que $n$ sí es un espacio vectorial, y se denota
 $K_n[X]$. La demostración es idéntica a la vista para $K[X]$ notando que los polinomios $p$ y $q$ serían ambos
 de grado menor o igual que $n$ luego bastaría tomar $N = n$.
 
+\newpage
 \subsubsection{Funciones como espacio vectorial}
 \hspace{3mm}
 Sea $A$ un conjunto no vacío cualquiera. Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial. Consideramos el conjunto de funciones
@@ -401,147 +387,9 @@ Del mismo modo, sea $\lambda \in K$ cualquiera, por ser $V$ un $K$-espacio vecto
 $$\forall x \in A : f(x) \in A \Rightarrow \lambda \hspace{1mm} f(x) = (\lambda f)(x) \in V$$
 Es claro que es un espacio vectorial al ser cerrado para la suma y para el producto por escalares. Además, el subconjunto
 $\{f : A \longrightarrow V \text{ tal que }f \text{ es continua}\}$ es también un espacio vectorial, pues la suma de dos funciones
-continuas es también una función continua, y lo mismo ocurre con el producto por escalares (sería un subespacio vectorial del caso anterior).
+continuas es también una función continua, y lo mismo ocurre con el producto por escalares.
 
-\subsubsection{Subespacio intersección}
-\hspace{3mm}
-Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial. Sean $U, W$ subespacios
-vectoriales de $V$, definmos el subespacio intersección de $U$ y $W$, $U\cap W$ como: \vspace{-3mm}
-$$U\cap W := \{v \in V : v \in U \text{ y } v \in W\} $$ \\[-5ex]
-Veamos que el subespacio intersección $U\cap W$ es el mayor subespacio contenido
-simultáneamente en $V$ y $W$.
-
-\vspace{2mm}
-\dem En primer lugar, veamos que es un subespacio vectorial.
-
-\vspace{2mm}
-Al ser $U, W$ subespacios de $V$, tenemos $0_V \in U, \hspace{2mm} 0_V \in W$ luego
-$0_V \in U\cap W$. Veamos que es un subespacio por la \hyperref[subespacio-vectorial]{definición}.
-Para ello, comprobemos que es cerrado para la suma de vectores. Sean $v, w \in U\cap W$, al ser
-$U$ y $W$ subespacios vectoriales de $V$: \vspace{-3mm}
-\begin{align*}
-    v, w \in U \Rightarrow v + w \in U &&
-    v, w \in W \Rightarrow v + w \in W
-\end{align*} \\[-5ex]
-Por tanto, es claro que $v + w \in U\cap W$. Veamos ahora que es cerrado para
-el producto por escalares. Del mismo modo, sea $\lambda \in K$ sea $v \in U \cap W$, se tiene: \vspace{-3mm}
-\begin{align*}
-    v \in U \Rightarrow \lambda v \in U &&
-    v \in W \Rightarrow \lambda v \in W
-\end{align*}\\[-5ex]
-Hemos comprobado que $U \cap W$ es un subespacio vectorial de $U$ y de $W$ (luego de $V$ también).
-Queda ver que es el mayor subespacio que contiene a $U$ y a $W$.
-
-\vspace{2mm}
-Supongamos que existe $T$ subespacio de $V$ tal que $T \subseteq U, T \subseteq W$.
-Veamos que $T \subseteq U \cap W$. Sea $t \in T$ cualquiera, se tiene $t \in U$, $t \in W$.
-Por tanto, ha de cumplirse $t \in U \cap W$; luego $T \subseteq  U\cap W$.
-
-\subsubsection{Subespacio suma}
-\hspace{3mm}
-Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial. Sean $U, W$ subespacios
-de $V$. Definimos el subespacio suma de $U$ y $W$, $U+W$ como: \vspace{-3mm}
-$$U+w := \{u + w : u \in U, w \in W\}$$ \\[-5ex]
-Veamos que $U+W$ es el menor subespacio de $V$ que contiene a $U$ y a $W$.
-
-\dem En primer lugar, veamos que es un subespacio vectorial.
-
-\vspace{2mm}
-Al ser $U, W$ subespacios vectoriales tenemos $0_V \in U$, $0_V \in W$, luego
-basta tomar $u = 0_V = w$ para ver $u + v = 0_V + 0_V \in U+W$.
-Veamos ahora que es cerrado para la suma de vectores.
-Sean $v_1, v_2 \in U+W$, por definición, podemos expresarlos como: \vspace{-3mm}
-\begin{align*}
-    v_1 = u_1 + w_1&&
-    v_2 = u_2 + w_2&&
-    \text{para ciertos } u_1,u_2 \in U \hspace{2mm} w_1, w_2 \in W
-\end{align*}\\[-3ex]
-Al ser $U$ y $W$ subespacios de $V$, se tiene: \vspace{-3mm}
-\begin{align*}
-    u_1, u_2 \in U \Rightarrow u_1 + u_2 \in U &&
-    w_1, w_2 \in U \Rightarrow w_1 + w_2 \in W &&
-\end{align*}\\[-5ex]
-\vspace{-5mm}
-$$v_1 + v_2 = (u_1 + u_2) + (w_1 + w_2) \in U+W$$\\[-2ex]
-Comprobemos que es cerrado para el producto por escalares.
-Sea $v = u + w \in U+W$ con $u \in U, w \in W$ cualquiera,
-sea $\lambda \in K$ cualquiera. Tenemos: \vspace{-3mm}
-\begin{align*}
-    u \in U \Rightarrow \lambda u \in U &&
-    w \in W \Rightarrow \lambda w \in W &&
-    \lambda v = (\lambda u) + (\lambda w) \in U+W
-\end{align*}
-
-Finalemnte, queda por ver que $U+W$ es el menor subespacio de $V$
-que contiene a $U$ y a $W$. Supongamos $T$ subespacio de $V$ con
-$U \subseteq T$, $W \subseteq T$ para ver $U+W \subseteq T$.
-Sea $v \in U+W$ cualquiera, podemos escribirlo como $v = u + w$
-para ciertos $u\in U$, $w \in W$. Por tanto, se tiene: \vspace{-3mm}
-\begin{align*}
-    u \in U \subseteq T \Rightarrow u \in T &&
-    w \in W \subseteq T \Rightarrow w \in T
-\end{align*}\\[-3ex]
-Además, al ser $T$ subespacio vectorial de $V$ por hipótesis, ha de ser
-cerrado respecto de la suma de vectores. Por tanto, se cumple $v = u + w \in T$.
-Como el $v$ elegido es arbitrario, concluimos que $U+W \subseteq T$.
-
-\subsubsection{Ejemplo de suma e intersección de polinomios}
-\hspace{3mm}
-Considere el $\mathbb{R}$-espacio vectorial $\mathbb{R}_3[X]$. Demuestre que los siguientes
-subconjuntos $S$ y $T$ son subespacios vectoriales. Halle una base de $T\cap S$ y otra de $T + S$.
-\begin{align*}
-    S &:= \big\{p \in \mathbb{R}_2[X] : p(0) = 0\big\} \\
-    T &:= \big\{p \in \mathbb{R}_3[X] : \text{ los coeficientes de grado par de } p \text{ son nulos} \big\} &&
-\end{align*}
-\noindent \underline{\textbf{Solución:}} Veamos que son espacios vectoriales. En primer lugar, observemos que $0_V \in S, 0_V \in T$.
-Queda ver que ambos son cerrados respecto de la suma de vectores y respecto del producto por escalares. Comencemos por $S$.
-
-\vspace{2mm}
-Como al sustituir la variable $X$ por $0$ en un polinomio $p$ cualquiera de $\mathbb{R}[X]$ los términos de grado mayor que cero se anulan,
-el resultado de $p(0)$ será el término independiente del polinomio $p$. Como consecuencia, los polinomios de $S$ seran aquellos polinomios
-con grado menor o igual a dos cuyo término independiente es nulo.
-Así, sean $\alpha, \beta \in \mathbb{R}$, sean $p, q \in S$,
-podemos expresar la siguiente suma como: \vspace{-2mm}
-$$ \alpha p + \beta q = \alpha\left(aX^2 + bX\right) + \beta \left(cX^2 + dX\right)
-= (\alpha a + \beta c) X^2 + (\alpha c + \beta d) X $$\\[-5ex]
-Es evidente que $\big(\alpha p + \beta q\big)(0) = 0$ y que tal polinomio tiene grado menor o igual que 2, luego $S$ es un espacio vectorial.
-Pasemos ahora a $T$.
-
-
-\vspace{4mm}
-Sean $p, q \in T$ y $\alpha, \beta \in \mathbb{R}$, por definición de $T$ existen $ a,b,c,d \in \mathbb{R}$ tales que:
-\begin{align*}
-    p = aX^3 + 0X^2 + bX + 0 &&
-    q = cX^3 + 0X^2 + dX + 0 
-\end{align*} \\[-4ex]
-Por tanto, podemos comprobar que $T$ es un espacio vectorial al verificar:
-\vspace{-3mm}
-$$\alpha p + \beta q = (a+c)X^3 + 0X^2 + (b+d)X + 0 \in T$$
-
-\vspace{4mm}
-Veamos ahora qué expresión tiene $T \cap S$. Para ello, veamos qué expresión tendría un
-elemento común a ambos subespacios. En primer lugar, al ser parte de $S$, sus términos
-de grado 3 y 0 han de ser necesariamente nulos. Además, al pertenecer a $T$ tendría que anularse
-también su término de grado 2. Como $S$ y $T$ son subespacios de $\mathbb{R}_3[X]$, esto solo nos deja
-el término de grado 1. Por tanto, la familia $\{X\}$ es sistema generador de $S\cap T$. Al estar formada
-únicamente por un único vector no nulo es trivialmente libre, luego es una base.
-
-\vspace{4mm}
-Queda hallar una base de $S + T$. Ya hemos razonado qué expresión podrían tener los elementos de cada uno de ellos. Veamos
-cómo podría ser la suma de ambos. Sean $p \in S$, $q \in T$, podemos escribirlos como:
-\begin{align*}
-    p = aX^2 + b^X &&
-    q = cX^3 + dX &&
-    \text{ para ciertos } a,b,c,d \in \mathbb{R}
-\end{align*}
-La expresión de su suma será por tanto:
-\vspace{-3mm}
-$$p + q = cX^3 + aX^2 + (b+d)X = \alpha X^3 + \beta X^2 + \gamma X $$\\[-5ex]
-En vista de la última expresión, es claro que la familia $\{X^3, X^2, X\}$ genera el subespacio $S + T$ entero.
-Además, es evidente que es libre (de hecho es un subconjunto de la base canónica de $\mathbb{R}_3[X]$ luego ha de serlo).
-Por tanto, este sistema es una base de $S + T$.
-
-\newpage
+\vspace{6mm}
 \chapter{Sistemas de vectores}
 \subsubsection{Definición de sistema}
 \hspace{3mm}
@@ -553,9 +401,10 @@ Diremos que un sistema de vectores es "libre" si todos los vectores que lo forma
 independientes entre sí. Esto quiere decir que ningún vector del sistema puede ser expresado como
 combinación lineal de los demás.
 
-\vspace{2mm}
-Por el contrario, si el sistema no es libre diremos que es "ligado". En tal caso, (negando la definición de sistema libre)
-existe al menos un vector del sistema que puede ser expresado como combinación lineal de los demás.
+\newpage
+Por el contrario, si el sistema no es libre diremos que es "ligado". En tal caso, todos los elementos
+del sistema pueden ser expresados como combinación lineal de los demás (basta expresar uno en función del
+resto y despejar en tal expresión para obtener la del resto).
 
 \vspace{2mm}
 Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial, sea $\{v_1, \ldots, v_n\}$ un sistema
@@ -579,7 +428,7 @@ Sea $v \in V$ cualquiera, veamos que $0_K v = 0_V$: \vspace{-3mm}
 $$0_V = v + (-v) = 1_K v + 1_K(-v) = 1_K v + (-1_K)v = (1_K-1_K)v = 0_K v$$ \\[-5ex]
 Por tanto, cualquier sistema con el $0_V$ en él va a ser ligado, pues siempre va a
 poder ser expresado como combinación lineal del resto de vectores al tomar $0_K$ como
-coeficientes para todos los escalares. El sistema $\{0_V\}$ también se considera ligado.
+coeficiente para el resto de vectores. El sistema $\{0_V\}$ también se considera ligado.
 
 \vspace{2mm} \noindent
 Por todo lo anterior, concluimos que las dos siguientes afirmaciones son equivalentes:
@@ -589,7 +438,6 @@ Por todo lo anterior, concluimos que las dos siguientes afirmaciones son equival
         \Rightarrow \lambda_i = 0_K \hspace{2mm} \forall i \in \{1,\ldots,n\}$
 \end{enumerate}
 
-\vspace{2mm}
 \subsubsection{Clausura de una familia, sistema generador}
 \hspace{3mm}
 Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial. Sea $\{v_1, \ldots, v_n\} $ un
@@ -616,7 +464,6 @@ Sean $\alpha, \beta \in K$, veamos que $\alpha u + \beta w \in K\left<v_1, \ldot
      + \beta \gamma_1 v_1 + \ldots + \beta \gamma_n v_n = \\ 
     &= (\alpha \lambda_1 + \beta \gamma_1)v_1 + \ldots + (\alpha \lambda_n + \beta \gamma_n)v_n
 \end{flalign*} \\[-4ex]
-\newpage
 Al ser $K$ un cuerpo, como $\alpha,\beta,\lambda_i,\beta_i \in K \Rightarrow (\alpha \lambda_i + \beta \gamma_i) \in K \hspace{2mm}\forall i \in \{1, \ldots, n\}$.
 De este modo, es claro que $\alpha u + \beta w \in K\left<v_1, \ldots, v_n \right>$, luego la clausura es un espacio vectorial.
 Queda ver que es el menor espacio vectorial que contiene a $\{v_1, \ldots, v_n\} $.
@@ -626,7 +473,7 @@ Supongamos que exite $T$ un $K$-espacio vectorial tal que $\{v_1, \ldots, v_n\} 
 de los $v_i$ está contenida en $T$. Sea $u \in K\left<v_1, \ldots, v_n \right>$ cualquiera, podemos expresarlo como
 $\displaystyle{u = \sum_{i=1}^n} \lambda_i v_i$.
 
-Como $T$ es un espacio vectorial y $\{v_1, \ldots, v_n\} \subseteq T$ por hipótesis, tenemos que $\forall i \in \{1, \ldots, n\} $
+Como $T$ es un espacio vcectorial y $\{v_1, \ldots, v_n\} \subseteq T$ por hipótesis, tenemos que $\forall i \in \{1, \ldots, n\} $
 se tiene $\lambda_i v_i \in T$ (pues es cerrado respecto del producto por escalares). Además, como es cerrado respecto de la suma de vectores
 se tiene $u = \lambda_1 v_1 + \ldots + \lambda_n v_v \in T$. Hemos llegado al resultado que buscábamos.
 
@@ -711,65 +558,11 @@ sistema generador de $K[X]$.
 \vspace{2mm}
 Sea $n \in \mathbb{N}$ cualquiera pero fijo, podemos tomar el sistema $\{1,X,X^2, \ldots, X^n\}$.
 Es evidente que este sistema es libre, pues ningún vector de él puede ser expresado como combinación
-lineal del resto. No obstante, no es sistema generador de $K[X]$, pues el polinomio $X^{n+1}$ no
+lineal del resto. No obstante, no es sistema generador de $K[X]$, peus el polinomio $X^{n+1}$ no
 pertenece a la clausura de esta familia, pero sí a $K[X]$. Finalemnte, como el $n$ escogido es arbitrario,
 podemos hacerlo tan grande como queramos, pero la familia resultante no será nunca un sistema generador.
 
 \vspace{2mm}
 Al restringirnos a $K_n[X]$ sí es posible dar una base, pues bastaría considerar el sistema
 $\{1,X,\ldots,X^n\}$. Como consecuencia, $K_n[X]$ es un $K$-espacio vectorial de dimensión $n+1$.
-
-\subsubsection{Dimensión según cuerpo}
-\hspace{3mm}
-Sean dos cuerpos $K_1$ y $K_2$, sea $V$ un conjunto que tiene estructura tanto de
-$K_1$-espacio vectorial como de $K_2$-espacio vectorial. Podríamos pensar que la
-dimensión de $V$ tendría que ser la misma en ambos casos, pero no tiene por qué ser así;
-es decir, la dimensión está ligada al cuerpo asociado. Veamos un ejemplo para ilustrar
-esta situación.
-
-\vspace{2mm}
-Los números complejos se definen como $\mathbb{C} := \{a + bi : a,b \in \mathbb{R}\}$.
-En vista de esta definición, es claro que $\mathbb{R}\left<1, i \right> = \mathbb{C}$,
-y como $\{1, i\}$ es un sistema libre, concluimos que es base de $\mathbb{C}$ como
-$\mathbb{R}$-espacio vectorial (su dimensión sería 2).
-
-No obstante, tenemos que
-$\mathbb{C}\left<1\right> = \mathbb{C}$, luego $\{1\}$ es base de $\mathbb{C}$ como
-$\mathbb{C}$-espacio vectorial (su dimensión en este caso sería 1).
-
-\vspace{2mm}
-En general, todo cuerpo $K$ es un $K$-espacio vectorial de dimensión 1, pues
-basta tomar $\{1_K\}$ como base. No obstante, podría ser posible expresar $K$
-como espacio vectorial según otro cuerpo como es el caso de los complejos según los reales.
-
-\subsubsection{Dimensión máxima de un subespacio}
-\hspace{3mm}
-Sea $K$ un cuerpo, sea $V$ un $K$-espacio vectorial.
-Sea $S$ un subespacio de $V$ tal que $\dim S = \dim V = n$.
-Entonces, $S = V$
-
-\dem
-
-\vspace{2mm}
-Como $S$ es un subespacio de $V$, se cumple $S \subseteq V$ trivialmente.
-Queda ver $V \subseteq S$. 
-Sea $B_V = \{v_1, \ldots, v_n\} $ una base de $V$, sea $B_S=\{s_1, \ldots, s_n\}$ una base de $S$.
-Como $s_1 \in K\left<v_1,\ldots, v_n\right> = V$, podemos expresar $s_1$ como combinación
-lineal de los vectores de la base de $V$. Al ser $B_S$ un sistema libre, $s_1 \neq 0_V$ luego:
-\vspace{-3mm}$$s_1 = \lambda^1_1 v_1 + \ldots + \lambda_{j1}^1 v_{j1}+ \ldots + \lambda_n^1 v_n 
-\hspace{2mm}\text{ para } \lambda_{j1} \neq 0_K$$\\[-5ex]
-De este modo, esta bien definido el inverso de $\lambda_{j1}$ y podemos despejar como sigue: \vspace{-3mm}
-$$v_{j1} = (\lambda^1_{j1})^{-1} \big(\lambda^1_1 v_1 + \ldots -s_1 \ldots + \lambda_n^1 v_n \big) $$\\[-5ex]
-De este modo, es claro que $v_{j1} \in K\left<s_1, v_1, \overset{\neq j1}{\ldots}, v_n\right>$ luego la clausura
-de este sistema ha de ser $V$. Siguiendo este mismo razonamiento para $s_2$, tenemos: \vspace{-3mm}
-$$s_2 = \lambda_{j1}^2 s_1 + \lambda^2_1 v_1 + \overset{\neq j1}{\ldots} + \lambda_{j2}^2 v_{j2}+ \overset{\neq j1}{\ldots} + \lambda_n^2 v_n 
-\hspace{2mm}\text{ para } \lambda_{j2} \neq 0_K$$\\[-5ex]
-Por tanto, como en el caso anterior, se tiene: \vspace{-3mm}
-$$v_{j_2} = (\lambda_{j_2}^2)^{-1} \big(
-    -s_2 + \lambda_{j1}^2 s_1 + \lambda^2_1 v_1 +
-    \overset{\neq j_1, \neq j_2}{\ldots} + \lambda_{j2}^2 v_{j2}+
-    \lambda_n^2 v_n \big) $$\\[-5ex]
-Por tanto, se cumple que $v_{j_2} \in K \left<s_1,s_2,v_1,\overset{\neq j_1, \neq j_2}{\ldots},v_n \right>$.
-Reiterando, concluimos que la clausura de $B_S$ es la misma que la de $B_V$; es decir, $V$.
-De este modo, $V \subseteq S$ y por ello $S = V$.
 \end{document}
