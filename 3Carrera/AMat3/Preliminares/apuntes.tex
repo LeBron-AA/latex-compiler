@@ -1,0 +1,325 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{extpfeil}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tikz} % core TikZ
+\usetikzlibrary{matrix}
+\usepackage{xcolor}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+% ----- Custom counters and commands -----
+\newcounter{unit}[section]
+\renewcommand{\theunit}{\arabic{unit}}
+\newcounter{chapter}[subsection]
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\theunit.\arabic{subsubsection}}
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+\newcommand{\longrightsquigarrow}{%
+  \xrsquigarrow{}
+}
+
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+% ----------------------------------------
+
+\title{Análisis Matemático III}
+\author{Javier Ortín Rodenas}
+\date{Curso 2025-2026}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section*{\Huge{Introducción de la asignatura}}
+\hspace{3mm}
+\onehalfspacing
+La materia será la misma que en años anteriores, aunque habrá un cambio en la metodología de enseñanza: no habrá tutorías grupales. No obstante, sí habrá evaluación continua. Su funcionamiento se explicará posteriormente.
+
+%TODO: placeholder for evaluación continua
+
+\newpage
+
+\section*{\Huge{Preliminares}}
+En la sección de preliminares se tratarán los siguientes temas:
+\begin{itemize}
+    \item Cardinalidad de conjuntos
+    \item Descomposición de abiertos de $\R^N$ en unión de cubos diádicos
+    \item Series dobles
+\end{itemize}
+
+\vspace{2mm}
+
+\chapter{Cardinalidad de conjuntos}
+
+\vspace{2mm}
+
+\subsubsection{Definición de cardinalidad, tipos de cardinalidad}
+\hspace{3mm}
+Intuitivamente, podemos definir la cardinalidad de un conjunto como el número de elementos que tiene. Además, es lógico plantear la distinción entre conjuntos finitos e infinitos. Veamos cómo formalizar esta idea.
+
+\vspace{2mm}
+
+Sea $A$ un conjunto no vacío, diremos que $A$ es un conjunto finito de cardinalidad $n \in \N = \{1,2,\ldots\}$ si existe una aplicación biyectiva $\varphi : \{1,2,\ldots,n\} \to A$.
+
+\noindent Se considera que el conjunto vacío $\varnothing$ es finito con cardinal $0$.
+
+\vspace{4mm}
+
+Sea $A$ un conjunto cualquiera, diremos que es un conjunto infinito si existe cierta aplicación inyectiva $\varphi : \N \to A$. Dentro de esta clasificación, diremos que $A$ es infinito numerable si existe una aplicación $\varphi : \N \to A$ biyectiva. Si esto último no fuese posible, diremos que $A$ es infinito no numerable.
+
+\vspace{4mm}
+
+Aunque no entra dentro de los objetivos de esta asignatura, es interesante contemplar la siguiente observación: Si un conjunto no es un conjunto finito, podemos afirmar simplemente que es un conjunto "no finito". Si además incluimos el axioma de elección, sí podremos afirmar que tal conjunto es infinito. Dentro de los conjuntos infinitos, todos son o bien numerables o bien no numerables, sin intersección entre ambas categorías.
+
+\vspace{4mm}
+
+\subsubsection{Ejemplos de conjuntos numerables}
+
+$\bullet$ $\N$: trivial, basta considerar la aplicación identidad. \\
+
+\noindent
+$\bullet$ $\Z$: basta considerar la siguiente aplicación biyectiva:
+
+%Function definition and mapping side by side
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\varphi(n) =
+\begin{cases}
+\frac{n}{2}, & \text{si } n \text{ es par} \\
+-\frac{n-1}{2}, & \text{si } n \text{ es impar}
+\end{cases}
+\end{align*}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\begin{align*}
+\begin{array}{cccccc}
+1 & 2 & 3 & 4 & 5 & \cdots \\
+\downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \\
+0 & 1 & -1 & 2 & -2 & \cdots
+\end{array}
+\end{align*}
+\end{minipage}
+
+\vspace{7mm}
+
+\noindent $\bullet$ $\Q := \left\{\frac{z}{n} : z \in \Z, n \in \N \right\}$. Denotaremos por $\hat{Q}$ al conjunto $\left\{\frac{z}{n} : z,n \in \N\right\}$. Como hemos visto en el apartado anterior, al ser $\Z$ numerable, $\hat{Q}$ y $\Q$ han de tener necesariamente la misma cardinalidad. Por tanto, basta con demostrar que $\hat{Q}$ es numerable, lo que haremos a continuación por medio de una doble desigualdad.
+
+\vspace{2mm}
+
+\phantomsection \label{racionales-numerables}
+Representaremos los elementos de $\hat{Q}$ en una tabla infinita que recorreremos diagonalmente:
+\begin{center}
+    \scalebox{0.9}{ %downscale the tikzpicture
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+    % Draw the table with extra space for lines
+    \matrix (m) [matrix of math nodes, nodes in empty cells, row sep=8mm, column sep=10mm, ampersand replacement=\&, cells={nodes={minimum width=1.5em, minimum height=2.5ex, anchor=center, text height=1.5ex, text depth=.25ex}} ]{
+    {} \& 1 \& 2 \& 3 \& 4 \& \ldots \\
+    1 \& \frac{1}{1} \& \frac{2}{1} \& \frac{3}{1} \& \frac{4}{1} \& \ldots \\
+    2 \& \frac{1}{2} \& \frac{2}{2} \& \frac{3}{2} \& \frac{4}{2} \& \ldots \\
+    3 \& \frac{1}{3} \& \frac{2}{3} \& \frac{3}{3} \& \frac{4}{3} \& \ldots \\
+    4 \& \frac{1}{4} \& \frac{2}{4} \& \frac{3}{4} \& \frac{4}{4} \& \ldots \\
+    \vdots \& \vdots \& \vdots \& \vdots \& \vdots \& \ddots \\
+    };
+    % Draw horizontal line below header row
+    \draw[thick] ([xshift=-4mm, yshift=-2mm]m-1-1.south west) -- ([xshift=7mm, yshift = -2mm]m-1-6.south east);
+    % Draw vertical line after header column
+    \draw[thick] ([xshift =4mm ,yshift=5mm]m-1-1.north east) -- ([xshift=4mm, yshift=-5mm]m-6-1.south east);
+
+    % Draw diagonal arrows
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-2.north east) -- (m-2-2) -- ([xshift=-2mm, yshift=-2mm]m-2-2.south west); % 1st diagonal (1/1
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-3.north east) --(m-2-3) -- (m-3-2) -- ([xshift=-2mm, yshift=-2mm]m-3-2.south west); % 2nd diagonal (2/1 to 1/2)
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-4.north east) --(m-2-4) -- (m-3-3) -- (m-4-2) -- ([xshift=-2mm, yshift=-2mm]m-4-2.south west) ; % 3rd diagonal (3/1 to 1/3)
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-5.north east) -- (m-2-5) -- (m-3-4) -- (m-4-3) -- (m-5-2)-- ([xshift=-2mm, yshift=-2mm]m-5-2.south west); % 4th diagonal (4/1 to 1/4)
+
+    % Add more diagonals if needed
+    \end{tikzpicture}
+    }
+\end{center}
+Por tanto, obtenemos como resultado la siguiente aplicación
+$\varphi : \N \to \hat{Q}$ con
+$$\varphi(1) = \frac{1}{1}, \hspace{4mm} \varphi(2) = \frac{2}{1}, \hspace{4mm}
+\varphi(3) = \frac{1}{2},  \hspace{4mm} \varphi(4) = \frac{3}{1}, \hspace{4mm}
+\varphi(5) = \frac{2}{2},  \hspace{4mm} \varphi(6) = \frac{1}{3}\ldots$$
+
+Aunque esta aplicación no es inyectiva (por ejemplo $\varphi(1) = \varphi(5)$), sí es suprayectiva.
+Por tanto, $\card\N \leq \card\hat{Q}$. Además, como $\N \subseteq \hat{Q}$, es evidente que $\card\N \geq \card\hat{Q}$.
+En consecuencia, $\card\N = \card\hat{Q}$; es decir, $\hat{Q}$ es numerable y por tanto también lo es $\Q$.
+
+\vspace{2mm}
+\subsubsection{Ejemplos de conjuntos no numerables}
+\hspace{3mm}
+Vemos que $\R$ es no numerable por reducción al absurdo. Supongamos que existe una aplicación biyectiva $\varphi : \N \to \R$.
+Así, ha de cumplirse $\varphi(\N) = \R$. Definiremos una sucesión de intervalos encajados como sigue:
+\begin{itemize}
+    \item Tomamos $a_1, b_1$ cualesquiera tales que $a_1 < b_1$ y $\varphi(1) \notin [a_1, b_1]$
+    \item Para $n > 1$, tomamos $a_n, b_n$ tales que  $a_n < b_n$, $[a_n, b_n] \subset (a_{n-1}, b_{n-1})$ y $\varphi(n) \notin [a_n, b_n]$
+\end{itemize}
+De este modo, obtenemos una sucesión de intervalos cerrados encajados tales que $\varphi(n) \notin [a_n, b_n] \hspace{1mm} \forall n \in \N$.
+Denotando $I_i = [a_i, b_i]$, se cumple:
+\begin{enumerate}
+    \item $I_1$ es compacto por el teorema de Heine-Borel
+    \item $\{I_n : n \in \N\}$ verifica la propiedad de la intersección finita
+\end{enumerate}
+Al ser una sucesión de intervalos cerrados encajados, juntando las dos nociones anteriores, podemos
+afirmar que se satisface la propiedad de la intersección infinita. Por tanto, se tiene:
+\\[-2ex]
+$$\exists \hspace{2mm} x_0 \in \bigcap_{n=1}^{\infty} I_n
+\Rightarrow x_0 \in \R \backslash \varphi(\N)
+\Rightarrow \varphi(\N) \neq \R
+\Rightarrow \varphi \text{ no es biyectiva}$$
+Se contradice la hipótesis de partida. Por todo lo anterior, concluimos que $\R$ es no numerable.
+
+\vspace{6mm}
+La aplicación $\tan : (-\frac{\pi}{2}, \frac{\pi}{2}) \longrightarrow \R$ es biyectiva, luego el intervalo
+$(-\frac{\pi}{2}, \frac{\pi}{2})$ es no numerable. Por otro lado, podemos establecer una biyección entre
+este intervalo y cualquier otro invervalo abierto. Así, cualquier intervalo es no numerable.
+
+\subsubsection{Procesos que dan lugar a conjuntos numerables}
+\hspace{3mm}
+Sea $A$ un conjunto finito, sea $B$ un conjunto infitnito numerable. Entonces,
+$A \cup B$ y $A \times B$ son conjuntos infinitos numerables (o vacíos).
+
+\vspace{4mm}
+\dem Distinguiremos dos casos:
+
+\vspace{2mm}
+Si $A = \varnothing$, entonces $A \cup B = B$ que es infinito numerable por hipótesis.
+Además, $A \times B = \varnothing$ que es finito por definición.
+
+\vspace{4mm}
+Si $A \neq \varnothing$, como $A$ es finito podemos afimar que $A\backslash B = \{a_1, a_2, \ldots, a_{n_1}\}$
+para cierto $n_1 \in \N \cup \{0\}$. Por ser $B$ infinito numerable, existe una aplicación biyectiva $\varphi : \N \to B$.
+Para ver que $A \cup B$ es infinito numerable, basta considerar la siguiente biyección:
+\begin{align*}
+    \hat{\varphi} (n) = \begin{cases}
+    a_n, & \text{si } n \leq n \leq n_1 \\
+    \varphi(n - n_1), & \text{si } n > n_1
+    \end{cases}
+\end{align*}
+Esta biyección $\hat{\varphi}$ enumera primero todos los elementos de $A \backslash B$ (de haberlos)
+para luego enumerar todos los elementos de $B$ en el orden original de $\varphi$.
+
+\vspace{4mm}
+Al ser $A$ finito, podemos escribir $A = \{a_1, a_2, \ldots, a_{n_2}\}$ para cierto $n_2 \in \N$.
+Para ver que $A \times B$ es infinito numerable, podemos enumerar sus elementos de la siguiente forma:
+\begin{center}
+\begin{tabular}{c|cccc}
+    & 1 & 2 & \ldots & $n_2$ \\
+    \hline
+    1 & $(a_1, \varphi(1))$ & $(a_2, \varphi(1))$ & $\ldots$ & $(a_{n_2}, \varphi(1))$ \\
+    2 & $(a_1, \varphi(2))$ & $(a_2, \varphi(2))$ & $\ldots$ & $(a_{n_2}, \varphi(2))$ \\
+    3 & $(a_1, \varphi(3))$ & $(a_2, \varphi(3))$ & $\ldots$ & $(a_{n_2}, \varphi(3))$ \\
+    $\vdots$ & $\vdots$ & $\vdots$ & & $\vdots$ \\
+\end{tabular}
+\end{center}
+\vspace{2mm}
+Basta enumerar los elementos de $A \times B$ recorriendo la tabla de izquierda a derecha y de arriba a abajo,
+pues cada fila tiene $n_2$ elementos y hay tantas filas como naturales.
+
+\subsubsection{Más procesos que dan lugar a conjuntos numerables}
+\hspace{3mm}
+Sean $A, B$ conjuntos infinitos numerables con $A \cap B = \varnothing$.
+Entonces, $A \cup B$ y $A \times B$ son conjuntos infinitos numerables.
+
+\vspace{4mm}
+\dem Al ser $A$ y $B$ infinitos numerables por hipótesis, podemos afirmar que existen ciertas
+aplicaciones biyectivas \hspace{1mm} $\varphi_A : \N \to A$ \hspace{1mm} y \hspace{1mm} $\varphi_B : \N \to B$.
+
+\vspace{2mm} \noindent
+Para ver que $A \cup B$ es infinito numerable, basta considerar la siguiente biyección:
+\\[-4ex]
+\begin{align*}
+    \varphi_{A \cup B} (n) =
+    \begin{cases}
+        \varphi_A\left(\frac{n+1}{2}\right), & \text{si } n \text{ es impar} \\
+        \varphi_B\left(\frac{n}{2}\right), & \text{si } n \text{ es par}
+    \end{cases}
+\end{align*}
+Así, se enumeran alternativamente los elementos de $A$ y $B$. Al ser $A \cap B = \varnothing$,
+es seguro que esta aplicación es biyectiva.
+
+\vspace{4mm}
+Finalmente, para ver que $A \times B$ es infinito numerable, podemos representar sus elementos de forma matricial
+utilizando un razonamiento diagonal análogo al empleado para ver que \hyperref[racionales-numerables]{$\Q$ es numerable}.
+
+\vspace{6mm}
+\nota Aunque en esta demostración hemos supuesto que $A \cap B = \varnothing$, el resultado puede aplicarse también para conjuntos
+de intersección no vacía. Nótese que como $A$ y $B$ son infinito numerables, entonces $A \cap B, \hspace{1mm} A \backslash B$ y $B \backslash A$
+han de ser necesariamente conjuntos finitos o infinitos numerables. Finalmente, basta ver que
+$A \cup B =\big((A\backslash B) \cup (B \backslash A) \big) \cup (A \cap B)$, unión de conjuntos disjuntos.
+Como para el caso del producto cartesiano no se ha usado la hipótesis
+de que $A \cap B = \varnothing$, el resultado es válido en cualquier caso.
+%TODO: union numerable de conjuntos numerables
+
+\vspace{6mm}
+\subsubsection{Definición de conjunto de partes}
+\hspace{3mm}
+Sea $A$ un conjunto cualquiera, se denomina "conjunto de partes de $A$" y se denota como $\mathcal{P}(A)$
+al conjunto cuyos elementos son todos los subconjuntos de $A$. En particular, siemrpe se cumple
+que $\varnothing, A \in \mathcal{P}(A)$.
+
+\vspace{2mm} \noindent
+Por ejemplo, para $A = \{1,2\}$, se tiene que $\mathcal{P}(A) = \big\{\varnothing, \{1\}, \{2\}, \{1,2\} \big\}$.
+
+\subsubsection{Cardinal de partes de un conjunto finito}
+\hspace{3mm}
+Sea $A$ un conjunto finito, entonces $\card \mathcal{P}(A) = 2^{\text{} \card A} \in \N$.
+
+\vspace{4mm}
+\dem Distinguiremos dos casos:
+
+\vspace{2mm} \noindent
+Para $A = \varnothing$, se tiene que $\mathcal{P}(A) = \{\varnothing\}$, luego $\card \mathcal{P}(A) = 1 = 2^0 = 2^{\text{} \card A}$.
+
+\vspace{4mm}
+Si $A \neq \varnothing$, sea $n := \card A \in \N$, podemos identificar cada subconjunto de $A$ según la presencia o ausencia de cada uno de sus $n$ elementos.
+Definimos el conjunto de las tuplas de ceros y unos de longitud $n$ como sigue:
+\vspace{-1ex}
+$$C := \big\{(\varepsilon_1 , \ldots, \varepsilon_n) : \varepsilon_i \in \{0,1\} \hspace{2mm} \forall i \in \{1,\ldots,n\}\big\}$$
+Así, denotando $A = \{a_1, \ldots, a_n\}$, cada tupla de $C$ puede asociarse biunívocamente a un subconjunto de $A$ al indicar cada
+$\varepsilon_i$ si el elemento $a_i$ pertenece o no al subconjunto. Por tanto, la siguiente aplicación es biyectiva:
+\begin{align*}
+    \varphi : \mathcal{P}(A) &\longrightarrow C \\
+    B & \prod_{i=1}^{n} f_i(B)
+\end{align*}
+\end{document}

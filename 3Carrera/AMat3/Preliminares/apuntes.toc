@@ -1,0 +1,8 @@
+\contentsline {subsection}{1. Cardinalidad de conjuntos}{4}{chapter.0.0.1}%
+\contentsline {subsubsection}{\numberline {0.1}Definición de cardinalidad, tipos de cardinalidad}{4}{subsubsection.0.0.1}%
+\contentsline {subsubsection}{\numberline {0.2}Ejemplos de conjuntos numerables}{5}{subsubsection.0.0.2}%
+\contentsline {subsubsection}{\numberline {0.3}Ejemplos de conjuntos no numerables}{6}{subsubsection.0.0.3}%
+\contentsline {subsubsection}{\numberline {0.4}Procesos que dan lugar a conjuntos numerables}{7}{subsubsection.0.0.4}%
+\contentsline {subsubsection}{\numberline {0.5}Más procesos que dan lugar a conjuntos numerables}{8}{subsubsection.0.0.5}%
+\contentsline {subsubsection}{\numberline {0.6}Definición de conjunto de partes}{8}{subsubsection.0.0.6}%
+\contentsline {subsubsection}{\numberline {0.7}Cardinal de partes de un conjunto finito}{9}{subsubsection.0.0.7}%
