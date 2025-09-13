@@ -30,8 +30,8 @@
 
 % ----- Custom counters and commands -----
 \newcounter{unit}[section]
-\renewcommand{\theunit}{\arabic{unit}}
 \newcounter{chapter}[subsection]
+\renewcommand{\theunit}{\arabic{unit}}
 \renewcommand{\thechapter}{\arabic{chapter}}
 \renewcommand{\thesubsubsection}{\theunit.\arabic{subsubsection}}
 \newcommand{\chapter}[1]{
@@ -50,10 +50,10 @@
 \newcommand{\nota}{
     \noindent \underline{\textbf{Nota:}}
 }
-\newcommand{\longrightsquigarrow}{%
-  \xrsquigarrow{}
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{subsubsection:\thesubsubsection}%
 }
-
 \titleformat{\subsubsection}
     {\normalfont\large\bfseries} % mismo tamaño que \subsection
     {\thesubsubsection}{1em}{}
@@ -317,9 +317,63 @@ Definimos el conjunto de las tuplas de ceros y unos de longitud $n$ como sigue:
 \vspace{-1ex}
 $$C := \big\{(\varepsilon_1 , \ldots, \varepsilon_n) : \varepsilon_i \in \{0,1\} \hspace{2mm} \forall i \in \{1,\ldots,n\}\big\}$$
 Así, denotando $A = \{a_1, \ldots, a_n\}$, cada tupla de $C$ puede asociarse biunívocamente a un subconjunto de $A$ al indicar cada
-$\varepsilon_i$ si el elemento $a_i$ pertenece o no al subconjunto. Por tanto, la siguiente aplicación es biyectiva:
-\begin{align*}
-    \varphi : \mathcal{P}(A) &\longrightarrow C \\
-    B & \prod_{i=1}^{n} f_i(B)
-\end{align*}
+$\varepsilon_i$ si el elemento $a_i$ pertenece o no al subconjunto. Por tanto, la siguiente aplicación $\varphi$ es biyectiva:
+\[
+\begin{aligned}
+    &\varphi : \mathcal{P}(A) \longrightarrow C \\
+    &\hspace{6mm} B \longmapsto \prod_{i=1}^{n} f_i(B)
+\end{aligned}
+\hspace{10mm}
+\text{donde}
+\hspace{10mm}
+\begin{aligned}
+    &f_i : \mathcal{P}(A) \longrightarrow \{0,1\} \\
+    &\hspace{6mm} B \longmapsto
+    \begin{cases}
+        1, & \text{si } a_i \in B \\
+        0, & \text{si } a_i \notin B
+    \end{cases}
+\end{aligned}
+\]
+
+\vspace{6mm}
+\subsubsection{El conjunto de partes incrementa la cardinalidad}
+\hspace{3mm}
+Sea $A$ un conjunto cualquiera. Entonces, $\card A < \card \mathcal{P}(A)$.
+
+\vspace{4mm}
+\dem Para todo conjunto $A$ se cumple que $\card A \leq \card \mathcal{P}(A)$,
+pues $a \in A \Rightarrow \{a\} \in \mathcal{P}(A)$. Veamos ahora que no puede darse
+la igualdad por reducción al absurdo.
+
+\vspace{2mm}
+Supongamos que existe un conjunto $A$ tal que $\card \mathcal{P}(A) = \card A$.
+En tal caso, ha de existir una aplicación biyectiva $\varphi : A \to \mathcal{P}(A)$.
+A partir de ella definimos el siguiente conjunto auxiliar: $B := \{a \in A : a \notin \varphi(a)\}$.
+Por construcción, $B$ es un subconjunto de $A$, luego $B \in \mathcal{P}(A)$. Al ser $\varphi$ biyectiva,
+existe cierto $z \in A$ tal que $\varphi(z) = B$.
+
+\noindent
+Pueden darse dos casos:
+\begin{enumerate}[label=\arabic*.)]
+    \item $z \in B = \varphi(z) \Rightarrow z \notin \varphi(z) = B$, contradicción.
+    \item $z \notin B = \varphi(z) \Rightarrow z \in B = \varphi(z)$, contradicción
+\end{enumerate}
+En cualquiera de ellos se llega a una contradicción. Por todo lo anterior, concluimos que $\card A < \card \mathcal{P}(A)$.
+
+\vspace{6mm}
+\subsubsection{Cardinalidad de \texorpdfstring{$\mathcal{P}(\N)$}{P(N)}}
+\hspace{3mm} De manera similar a \hyperref[subsubsection:0.7]{como hicimos para ver el cardinal de un conjunto finito}, podemos identificar cada
+subconjunto de $\N$ en base a la presencia o ausencia de cada número natural en tal conjunto. Así, sabemos que existe una biyección entre los subconjuntos
+de $\N$ y las sucesiones formadas por ceros y unos:
+$$\varphi : \mathcal{P}(\N) \longrightarrow \big\{0,1\big\}^\N = \Big\{(\varepsilon_n)_{n \in \N} : \varepsilon_i \in \{0,1\} \hspace{2mm}  \forall i \in \N\Big\}$$
+Ademnás, podemos asociar cada sucesión de ceros y unos a la expresión en base 2 de un núero real del intervalo $[0,1]$. Aplicando lo visto en los
+resultados \hyperref[subsubsection:0.3]{0.3} y \hyperref[subsubsection:0.4]{0.4}, tal intervalo tiene la misma cardinalidad que $\R$.
+
+\vspace{6mm}
+\subsubsection{Jerarquía de cardinalidades}
+\hspace{3mm}    
+En vista de los resultados anteriores, podemos establecer una jerarquía de cardinalidades. En primer lugar, está el conjunto vacío (de cardinal cero).
+A continuación, los conjuntos finitos de cardinal natural. Pasando ahora a los conjuntos infinitos, la menor cardinalidad posible es la de los conjuntos
+infinitos numerables, dneotada por $\aleph_0$. Como consecuencia del resultado \hyperref[subsubsection:0.8]{0.8}, la cardinalidad del conjunto de partes de $\N$ es estrictamente mayor que $\aleph_0$.
 \end{document}
