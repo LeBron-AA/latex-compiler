@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.11)  13 SEP 2025 11:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.11)  13 SEP 2025 11:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -631,18 +631,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 268--271
 
  []
 
-[8] [9]
-
-LaTeX Warning: Hyper reference `subsubsection:0.8' on page 10 undefined on input line 378.
-
-[10] (./apuntes.aux)
+[8] [9] [10] (./apuntes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `apuntes.out' has not changed.
 (rerunfilecheck)             Checksum: B7799BF78782991E2CF5B2C195F0274A;2897.
@@ -656,10 +652,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  84i,19n,93p,595b,943s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on apuntes.pdf (10 pages, 161101 bytes).
+Output written on apuntes.pdf (10 pages, 161155 bytes).
 PDF statistics:
- 191 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 192 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
  27 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
