@@ -12,7 +12,7 @@
 \usepackage{titlesec}
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
-\usepackage{xcolor}
+\usepackage[x11names]{xcolor}
 
 % Margins
 %\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
@@ -292,6 +292,61 @@ de que $A \cap B = \varnothing$, el resultado es válido en cualquier caso.
 %TODO: union numerable de conjuntos numerables
 
 \vspace{6mm}
+\result{Unión numerable de conjuntos numerables}
+\hspace{3mm}
+Sea $\{A_n : n \in \N\}$ una colección de conjuntos numerables, entonces su unión
+es también un conjunto numerable.
+
+\vspace{4mm}
+\dem Utilizaremos también un argumento diagonal.
+\newpage
+
+De manera similar a la demostración anterior, expresaremos la unión $\bigcup_{n \in \N} A_n$ a partir de conjuntos
+auxiliares disjuntos para simplificar el trato de los elementos duplicados:
+\vspace{-2mm}
+\begin{itemize}
+    \item Para $n = 1$, definimos $B_1 := A_1$
+    \item Para $n > 1$, definimos $B_n := A_n \backslash \left(\bigcup_{k=1}^{n-1}A_k\right) = A_n \backslash B_{n-1}$
+\end{itemize}
+De este modo, los $B_i$ son disjuntos entre sí. Además, todos los $A_i$ son numerables por hipótesis, cada $B_i$ 
+ha de ser finito o numerable. Según el carácter de cada uno de ellos, introducimos la siguiente notación:
+\begin{align*}
+    \text{Caso finito: } B_i = \big\{b^i_1, b^i_2, \ldots, b^i_{n_i} \big\} &&
+    \text{Caso numerable: } B_j = \bigcup_{n \in \N}b^j_n
+\end{align*}
+Con esta notación, expresaremos los elementos de cada $B_i$ tabularmente:
+\begin{center}
+    \scalebox{0.9}{ %downscale the tikzpicture
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+    % Draw the table with extra space for lines
+    \matrix (m) [matrix of math nodes, nodes in empty cells, row sep=8mm, column sep=10mm, ampersand replacement=\&, cells={nodes={minimum width=1.5em, minimum height=2.5ex, anchor=center, text height=1.5ex, text depth=.25ex}} ]{
+    {} \& B_1 \& B_2 \& B_3 \& B_4 \& \ldots \\
+    1 \& b^1_1 \& b^2_1 \& b^3_1 \& b^4_1 \& \ldots \\
+    2 \& b^1_2 \&       \& b^3_2 \& b^4_2 \& \ldots \\
+    3 \& b^1_3 \&       \& b^3_3 \& b^4_3 \& \ldots \\
+    4 \& b^1_4 \&       \& b^3_4 \& b^4_4 \& \ldots \\
+    \vdots \& \vdots \&  \& \vdots \& \vdots \& \ddots \\
+    };
+    % Draw horizontal line below header row
+    \draw[thick] ([xshift=-4mm, yshift=-2mm]m-1-1.south west) -- ([xshift=7mm, yshift = -2mm]m-1-6.south east);
+    % Draw vertical line after header column
+    \draw[thick] ([xshift =4mm ,yshift=5mm]m-1-1.north east) -- ([xshift=4mm, yshift=-5mm]m-6-1.south east);
+
+    % Draw diagonal arrows
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-2.north east) -- (m-2-2) -- ([xshift=-2mm, yshift=-2mm]m-2-2.south west); % 1st diagonal (1/1
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-3.north east) --(m-2-3) -- (m-3-2) -- ([xshift=-2mm, yshift=-2mm]m-3-2.south west); % 2nd diagonal (2/1 to 1/2)
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-4.north east) --(m-2-4) -- (m-4-2) -- ([xshift=-2mm, yshift=-2mm]m-4-2.south west) ; % 3rd diagonal (3/1 to 1/3)
+    \draw[->, thick, red] ([xshift=2mm, yshift=2mm]m-2-5.north east) -- (m-2-5) -- (m-3-4) -- (m-5-2)-- ([xshift=-2mm, yshift=-2mm]m-5-2.south west); % 4th diagonal (4/1 to 1/4)
+
+    % Add more diagonals if needed
+    \end{tikzpicture}
+    }
+\end{center}
+Recorremos diagonalmente la matriz, saltando las celdas vacías en caso de haberlas (ocurriría en caso de que algún $B_i$ fuese finito).
+Por ejemplo, el $B_2$ de la figura tiene tan solo un único elemento. Como hemos tomado $B_1 = A_1$, hay infinitos elementos al ser $A_1$
+infinito numerable por hipótesis (no pueden ser finitos todos los $B_i$).
+
+\vspace{6mm}
 \result{Definición de conjunto de partes}
 \hspace{3mm}
 Sea $A$ un conjunto cualquiera, se denomina "conjunto de partes de $A$" y se denota como $\mathcal{P}(A)$
@@ -301,6 +356,7 @@ que $\varnothing, A \in \mathcal{P}(A)$.
 \vspace{2mm} \noindent
 Por ejemplo, para $A = \{1,2\}$, se tiene que $\mathcal{P}(A) = \big\{\varnothing, \{1\}, \{2\}, \{1,2\} \big\}$.
 
+\vspace{6mm}
 \result{Cardinal de partes de un conjunto finito}
 \hspace{3mm}
 Sea $A$ un conjunto finito, entonces $\card \mathcal{P}(A) = 2^{\text{} \card A} \in \N$.
@@ -363,17 +419,139 @@ En cualquiera de ellos se llega a una contradicción. Por todo lo anterior, conc
 
 \vspace{6mm}
 \result{Cardinalidad de \texorpdfstring{$\mathcal{P}(\N)$}{P(N)}}
-\hspace{3mm} De manera similar a \hyperref[subsubsection:0.7]{como hicimos para ver el cardinal de un conjunto finito}, podemos identificar cada
+\hspace{3mm} De manera similar a \hyperref[racionales-numerables]{como hicimos para ver el cardinal de un conjunto finito}, podemos identificar cada
 subconjunto de $\N$ en base a la presencia o ausencia de cada número natural en tal conjunto. Así, sabemos que existe una biyección entre los subconjuntos
 de $\N$ y las sucesiones formadas por ceros y unos:
 $$\varphi : \mathcal{P}(\N) \longrightarrow \big\{0,1\big\}^\N = \Big\{(\varepsilon_n)_{n \in \N} : \varepsilon_i \in \{0,1\} \hspace{2mm}  \forall i \in \N\Big\}$$
 Ademnás, podemos asociar cada sucesión de ceros y unos a la expresión en base 2 de un núero real del intervalo $[0,1]$. Aplicando lo visto en los
-resultados \hyperref[subsubsection:0.3]{0.3} y \hyperref[subsubsection:0.4]{0.4}, tal intervalo tiene la misma cardinalidad que $\R$.
+resultados \hyperref[subsubsection:0.3]{0.3} y \hyperref[subsubsection:0.4]{0.4}, tal intervalo tiene la misma cardinalidad que $\R$; es decir, $2^{\aleph_0}$.
 
 \vspace{6mm}
 \result{Jerarquía de cardinalidades}
 \hspace{3mm}    
 En vista de los resultados anteriores, podemos establecer una jerarquía de cardinalidades. En primer lugar, está el conjunto vacío (de cardinal cero).
 A continuación, los conjuntos finitos de cardinal natural. Pasando ahora a los conjuntos infinitos, la menor cardinalidad posible es la de los conjuntos
-infinitos numerables, dneotada por $\aleph_0$. Como consecuencia del resultado \hyperref[subsubsection:0.8]{0.8}, la cardinalidad del conjunto de partes de $\N$ es estrictamente mayor que $\aleph_0$.
+infinitos numerables, denotada por $\aleph_0$. Como consecuencia del resultado \hyperref[subsubsection:0.9]{0.9}, sabemos que podemos encontrar conjuntos
+de cardinalidad cada vez mayor al considerar el conjunto de partes de la iteración anterior.
+
+\vspace{2mm}
+Cabe preguntarse si existe algún tipo de cardinalidad intermedia entre los infinitos de esta escala. Esta cuestión es la conocida como
+Hipótesis del Continuo (CH), y se sabe que no puede ser probada ni refutada a partir de los axiomas habituales de la teoría de conjuntos (ZFC). 
+Por tanto, debe considerarse como un axioma adicional independiente de ZFC: el axioma del continuo.
+
+\vspace{10mm}
+\chapter{Descomposición de subconjuntos abiertos de \texorpdfstring{$\R^N$}{R\^N} en cubos diádicos}
+\vspace{4mm}
+\result{Definición de intervalo diádico}
+\hspace{3mm}
+Se llama "intervalo diádico de orden $n$" con $n \in \N$ a cualquier intervalo
+real de la forma $\Big[\frac{j-1}{2^n}, \frac{j}{2^n}\Big)$ con $j \in \Z$.
+
+\vspace{4mm}
+\result{Propiedades de los intervalos diádicos}
+\hspace{3mm}
+Fijado $n \in \N$ cualquiera, se tiene que la colección de todos los intervalos diádicos de orden $n$
+es numerable (pues hay uno por cada $j \in \Z$) y recubre $\R$:
+$$\bigcup_{j \in \Z} \Big[\frac{j-1}{2^n}, \hspace{1mm}  \frac{j}{2^n}\Big) = \R$$
+Además, dos intervalos diádicos cualesquiera son disjuntos o bien coinciden:
+$$i \neq j \Rightarrow \Big[\frac{i-1}{2^n}, \frac{i}{2^n} \Big) 
+\bigcap \Big[\frac{j-1}{2^n}, \frac{j}{2^n}\Big) = \varnothing $$
+
+Las dos propiedades anteriores pueden visualizarse en la siguiente figura:
+\vspace{2mm}
+\begin{center}
+    \begin{tikzpicture}
+        % Draw the number line
+        \draw[thick,<->] (-5,0) -- (5,0) node[anchor=north west] {$\R$};
+
+        % Draw the dyadic intervals of order n=3
+        \foreach \j in {-4,...,3} {
+            % Draw interval [
+            \draw[-, red, thick] (\j+0.1, -0.2) -- (\j+0.1, 0.2);
+            \draw[-, red, thick] (\j+0.1, -0.2) -- (\j+0.25, -0.2);
+            \draw[-, red, thick] (\j+0.1, 0.2) -- (\j+0.25, 0.2);
+
+            %Draw interval )
+            \draw[-, blue, thick] (\j+0.96, 0.25) arc [start angle =40, end angle = -40, radius=0.4];
+        }
+
+        % Label the intervals
+        \node at (0,-1.3) {Para $n \in \N$ fijo, son disjuntos y cubren $\R$};
+    \end{tikzpicture}
+\end{center}
+
+\vspace{2mm}
+Si $I$ es un intervalo diádico de orden $n$ y $J$ es un intervalo diádico
+de orden $m \in \N$ con $m \leq n$: entonces se cumple:
+\begin{align*}
+    \bullet \hspace{2mm} \text{O bien } I \subsetneq J &&
+    \bullet \hspace{2mm} \text{O bien } I \cap J = \varnothing
+\end{align*}
+La siguiente figura ilustra este hecho:
+\vspace{2mm}
+\begin{center}
+    \begin{tikzpicture}
+        % Draw the number line
+        \draw[thick,<->] (-5,0) -- (5,0) node[anchor=north west] {$\R$};
+
+        % Draw the dyadic intervals of order n=3
+        \foreach \j in {-4,...,3} {
+            % Draw interval [
+            \draw[-, LightSalmon1, thick] (\j+0.01, -0.2) -- (\j+0.01, 0.2);
+            \draw[-, LightSalmon1, thick] (\j+0.01, -0.2) -- (\j+0.15, -0.2);
+            \draw[-, LightSalmon1, thick] (\j+0.01, 0.2) -- (\j+0.15, 0.2);
+
+            %Draw interval )
+            \draw[-, SteelBlue1, thick] (\j+0.86, 0.2) arc [start angle =68, end angle = -68, radius=0.2];
+        }
+
+        \foreach \j in {-4, -2, 0, 2} {
+            % Draw interval [
+            \draw[-, Red3, thick] (\j, -0.4) -- (\j, 0.4);
+            \draw[-, Red3, thick] (\j, -0.4) -- (\j+0.3, -0.4);
+            \draw[-, Red3, thick] (\j, 0.4) -- (\j+0.3, 0.4);
+
+            %Draw interval )
+            \draw[-, Blue3, thick] (\j+1.85, 0.4) arc [start angle =40, end angle = -40, radius=0.6222];
+        }
+        
+
+        % Label the intervals
+        \node at (0,-1.3) {Intervalos diádicos de orden $n$ y $n+1$};
+    \end{tikzpicture}
+\end{center}
+
+\vspace{6mm}
+\result{Definición de cubo diádico}
+\hspace{3mm}
+Llamamos "cubo diádico de $\R^N$ de orden $n$" con $n, N \in \N$ a cualquier conjunto de
+la forma $I_1, \times I_2 \times \ldots \times I_N$ donde cada $I_i$ es un intervalo diádico de orden $n$.
+
+\vspace{2mm} \noindent
+Denotaremos por $\mathcal{F}_n$ al conjunto de todos los cubos diádicos de orden $n$ en $\R^N$.
+
+\vspace{4mm}
+\result{Propiedades de los cubos diádicos}
+\hspace{3mm} Los cubos diádicos de orned $n$ son numerables (consecuencia de la definición y de los resultados anteriores).
+Además, son disjuntos o coinciden; es decir:
+\begin{align*}
+    \left.
+    \begin{array}{l}
+        C \in \mathcal{F}_n \\
+        D \in \mathcal{F}_n \\
+        C \neq D
+    \end{array}
+    \right\}
+    \Rightarrow C \cap D = \varnothing
+\end{align*}
+Como $C,D \in \mathcal{F}_m$, han de ser de la siguiente forma:
+\vspace{-2mm}
+\begin{align*}
+    C = I_1 \times \ldots \times I_n &&
+    D = J_1 \times \ldots \times J_n
+\end{align*} \\[-5ex]
+donde los $I_i$ y los $J_j$ son intervalos diádicos de orden $n$.
+Por hipótesis, $C \neq D$ luego ha de existir cierto $k \in \{1, \ldots, n\}$
+tal que $I_k \neq J_k$. Por las \hyperref[subsubsection:0.13]{propiedades de los intervalos diádicos},
+sabemos que esto implica que $I_k \cap J_k = \varnothing$. Esto a su vez implica que $C \cap D = \varnothing $.
 \end{document}

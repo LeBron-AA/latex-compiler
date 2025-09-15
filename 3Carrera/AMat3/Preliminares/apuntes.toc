@@ -4,8 +4,14 @@
 \contentsline {subsubsection}{\numberline {0.3}Ejemplos de conjuntos no numerables}{6}{subsubsection.0.0.3}%
 \contentsline {subsubsection}{\numberline {0.4}Procesos que dan lugar a conjuntos numerables}{7}{subsubsection.0.0.4}%
 \contentsline {subsubsection}{\numberline {0.5}Más procesos que dan lugar a conjuntos numerables}{8}{subsubsection.0.0.5}%
-\contentsline {subsubsection}{\numberline {0.6}Definición de conjunto de partes}{8}{subsubsection.0.0.6}%
-\contentsline {subsubsection}{\numberline {0.7}Cardinal de partes de un conjunto finito}{9}{subsubsection.0.0.7}%
-\contentsline {subsubsection}{\numberline {0.8}El conjunto de partes incrementa la cardinalidad}{9}{subsubsection.0.0.8}%
-\contentsline {subsubsection}{\numberline {0.9}Cardinalidad de $\mathcal {P}(\mathbb {N})$}{10}{subsubsection.0.0.9}%
-\contentsline {subsubsection}{\numberline {0.10}Jerarquía de cardinalidades}{10}{subsubsection.0.0.10}%
+\contentsline {subsubsection}{\numberline {0.6}Unión numerable de conjuntos numerables}{8}{subsubsection.0.0.6}%
+\contentsline {subsubsection}{\numberline {0.7}Definición de conjunto de partes}{10}{subsubsection.0.0.7}%
+\contentsline {subsubsection}{\numberline {0.8}Cardinal de partes de un conjunto finito}{10}{subsubsection.0.0.8}%
+\contentsline {subsubsection}{\numberline {0.9}El conjunto de partes incrementa la cardinalidad}{10}{subsubsection.0.0.9}%
+\contentsline {subsubsection}{\numberline {0.10}Cardinalidad de $\mathcal {P}(\mathbb {N})$}{11}{subsubsection.0.0.10}%
+\contentsline {subsubsection}{\numberline {0.11}Jerarquía de cardinalidades}{11}{subsubsection.0.0.11}%
+\contentsline {subsection}{2. Descomposición de subconjuntos abiertos de $\mathbb {R}^N$ en cubos diádicos}{12}{chapter.0.0.2}%
+\contentsline {subsubsection}{\numberline {0.12}Definición de intervalo diádico}{12}{subsubsection.0.0.12}%
+\contentsline {subsubsection}{\numberline {0.13}Propiedades de los intervalos diádicos}{12}{subsubsection.0.0.13}%
+\contentsline {subsubsection}{\numberline {0.14}Definición de cubo diádico}{13}{subsubsection.0.0.14}%
+\contentsline {subsubsection}{\numberline {0.15}Propiedades de los cubos diádicos}{13}{subsubsection.0.0.15}%
