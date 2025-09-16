@@ -15,3 +15,4 @@
 \contentsline {subsubsection}{\numberline {0.13}Propiedades de los intervalos diádicos}{12}{subsubsection.0.0.13}%
 \contentsline {subsubsection}{\numberline {0.14}Definición de cubo diádico}{13}{subsubsection.0.0.14}%
 \contentsline {subsubsection}{\numberline {0.15}Propiedades de los cubos diádicos}{13}{subsubsection.0.0.15}%
+\contentsline {subsubsection}{\numberline {0.16}Teorema de descomposición de abiertos en cubos diádicos}{14}{subsubsection.0.0.16}%

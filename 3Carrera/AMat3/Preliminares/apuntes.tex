@@ -6,9 +6,11 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
-\usepackage{extpfeil}
+\usepackage{etoolbox}
 \usepackage{graphicx}
 \usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
 \usepackage{titlesec}
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
@@ -19,6 +21,33 @@
 
 % Custom operators
 \newcommand{\card}{\operatorname{card}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
 
 % Useful commands
 \renewcommand{\contentsname}{Contenidos}
@@ -122,22 +151,22 @@ $\bullet$ $\Z$: basta considerar la siguiente aplicación biyectiva:
 
 %Function definition and mapping side by side
 \begin{minipage}{0.5\textwidth}
-\begin{align*}
-\varphi(n) =
-\begin{cases}
-\frac{n}{2}, & \text{si } n \text{ es par} \\
--\frac{n-1}{2}, & \text{si } n \text{ es impar}
-\end{cases}
-\end{align*}
+    \begin{align*}
+    \varphi(n) =
+    \begin{cases}
+    \frac{n}{2}, & \text{si } n \text{ es par} \\
+    -\frac{n-1}{2}, & \text{si } n \text{ es impar}
+    \end{cases}
+    \end{align*}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
-\begin{align*}
-\begin{array}{cccccc}
-1 & 2 & 3 & 4 & 5 & \cdots \\
-\downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \\
-0 & 1 & -1 & 2 & -2 & \cdots
-\end{array}
-\end{align*}
+    \begin{align*}
+    \begin{array}{cccccc}
+    1 & 2 & 3 & 4 & 5 & \cdots \\
+    \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \downarrow\!\varphi & \\
+    0 & 1 & -1 & 2 & -2 & \cdots
+    \end{array}
+    \end{align*}
 \end{minipage}
 
 \vspace{7mm}
@@ -532,7 +561,7 @@ Denotaremos por $\mathcal{F}_n$ al conjunto de todos los cubos diádicos de orde
 
 \vspace{4mm}
 \result{Propiedades de los cubos diádicos}
-\hspace{3mm} Los cubos diádicos de orned $n$ son numerables (consecuencia de la definición y de los resultados anteriores).
+\hspace{3mm} Los cubos diádicos de orden $n$ son numerables y recubren $R^N$ (consecuencia de la definición y de los resultados anteriores).
 Además, son disjuntos o coinciden; es decir:
 \begin{align*}
     \left.
@@ -547,11 +576,168 @@ Además, son disjuntos o coinciden; es decir:
 Como $C,D \in \mathcal{F}_m$, han de ser de la siguiente forma:
 \vspace{-2mm}
 \begin{align*}
-    C = I_1 \times \ldots \times I_n &&
-    D = J_1 \times \ldots \times J_n
+    C = I_1 \times \ldots \times I_N &&
+    D = J_1 \times \ldots \times J_N
 \end{align*} \\[-5ex]
 donde los $I_i$ y los $J_j$ son intervalos diádicos de orden $n$.
 Por hipótesis, $C \neq D$ luego ha de existir cierto $k \in \{1, \ldots, n\}$
 tal que $I_k \neq J_k$. Por las \hyperref[subsubsection:0.13]{propiedades de los intervalos diádicos},
 sabemos que esto implica que $I_k \cap J_k = \varnothing$. Esto a su vez implica que $C \cap D = \varnothing $.
+
+\vspace{4mm}
+De manera similar, si $C \in \mathcal{F}_n, D \in \mathcal{F}_m$ con $m \leq n$. Entonces o bien
+$C \subsetneq D$ o bien $C \cap D = \varnothing$. Por definición de $\mathcal{F}_n$ y $\mathcal{F}_m$,
+podemos afirmar que:
+\begin{align*}
+    C = I_1 \times \ldots \times I_N  &&
+    D = J_1 \times \ldots \times J_N
+\end{align*}
+Donde los $I_i$ y los $J_j$ son intervalos diádicos de orden $n$ y $m$, respectivamente. Por las
+\hyperref[subsubsection:0.13]{propiedades de los intervalos diádicos}, para cada $k \in \{1, \ldots, N\}$ se tiene
+que o bien $I_k \subsetneq J_k$ o bien $I_k \cap J_k = \varnothing$. Si $\exists k_0 \in \{1, \ldots, N\}$ tal que
+$I_{k_0} \cap J_{k_0} = \varnothing$, entonces $C \cap D = \varnothing$. En caso contrario, $C \subsetneq D$.
+
+\vspace{8mm}
+\result{Teorema de descomposición de abiertos en cubos diádicos}
+\hspace{3mm}
+Para todo subconjunto no vacío y abierto en $\left(\R^N, \tau_{R^N}(d)\right)$, $O$, existe una colección numerable
+de cubos diádicos (posiblemente de órdenes distintos) de $\R^N$, $\left\{C_n : n \in \N\right\}$, tales que:
+\begin{enumerate}[label=\arabic*.)]
+    \item $O$ = $\displaystyle \bigcup_{n \in \N} C_n$
+    \item $\overline{C_n} \subseteq O \hspace{2mm} \forall n \in \N$
+    \item $i \neq j \Rightarrow C_i \cap C_j = \varnothing$
+\end{enumerate}
+
+\vspace{4mm}
+\dem Definiremos varios conjuntos auxiliares.
+
+\vspace{2mm}
+Definimos $\mathcal{G}_n := \left\{C \in \mathcal{F}_n : \overline{C} \subseteq O\right\}$. Cada una de estas colecciones de conjuntos
+es finita o numerable al serlo $\mathcal{F}_n$.
+
+\vspace{2mm}
+A partir de los $\mathcal{G}_n$ definiremos otra colección de conjuntos.
+Para $n = 1$, tomamos $\mathcal{H}_1 := \mathcal{G}_1$.
+Para $n >1$, definimos
+$$\mathcal{H}_n := \left\{C \in \mathcal{G}_n : C \nsubseteq \displaystyle \bigcup_{k=1}^{n-1}\mathcal{H}_k \right\}
+= \left\{C \in \mathcal{G}_n : C \cap \left[\hspace{1mm} \bigcup_{k=1}^{n-1} \hspace{1mm} \bigcup_{D \in \mathcal{H}_k} D_k\right] = \varnothing \right\}$$
+La última igualdad se deduce de las \hyperref[subsubsection:0.15]{propiedades de los cubos diádicos}.
+Por construcción, los $\mathcal{H}_n$ son numerables y disjuntos entre sí.
+
+\vspace{2mm}
+Intuitivamente, $\mathcal{G}_n$ modela los cubos 
+de un cierto orden que ``caben" en $O$. El paso a los $\mathcal{H}_n$ hace que solo se empiecen a usar cubos ``más pequeños" en las zonas donde no ``cabrían"
+cubos de un orden inferior (``más grandes").
+\\[5ex]
+%G_1
+\begin{minipage}{0.50\textwidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.6, blend group = normal]
+        \draw[-, black, dashed] (0,0) circle (3.5);
+        \foreach \i in {-2,0} {
+            \foreach \j in {-2,0} {
+                \draw[-, red] (\i,\j) rectangle (\i+2, \j+2);
+            }
+        }
+    \end{tikzpicture}
+    \\
+    $\mathcal{G}_1$
+    \end{center}
+\end{minipage}
+%G_2
+\begin{minipage}{0.50\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.6]
+            \draw[-, black, dashed] (0,0) circle (3.5);
+            \path[draw=blue]
+            \foreach \i in {-2,...,1} {
+                \foreach \j in {-2,...,1} {
+                    (\i,\j) rectangle (\i+1,\j+1)
+                }
+            }
+            \foreach \i in {-1,0} {
+                \foreach \j in {-3,2} {
+                    (\i,\j) rectangle (\i+1,\j+1)
+                    (\j,\i) rectangle (\j+1,\i+1)
+                }
+            };
+        \end{tikzpicture} \\
+        $\mathcal{G}_2$
+    \end{center}
+\end{minipage}
+\\[5ex]
+%H_1
+\begin{minipage}{0.33\textwidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.6]
+        \draw[-, black, dashed] (0,0) circle (3.5);
+        \foreach \i in {-2,0} {
+            \foreach \j in {-2,0} {
+                \draw[-, red] (\i,\j) rectangle (\i+2, \j+2);
+            }
+        }
+    \end{tikzpicture}
+    $\mathcal{H}_1 = \mathcal{G}_1$
+    \end{center}
+\end{minipage}
+%H_2
+\begin{minipage}{0.33\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.6]
+            \draw[-, black, dashed] (0,0) circle (3.5);
+            \foreach \i in {-1,0} {
+                \foreach \j in {-3,2} {
+                    \draw[-, blue] (\i,\j) rectangle (\i+1, \j+1);
+                    \draw[-, blue] (\j,\i) rectangle (\j+1, \i+1);
+                }
+            }
+        \end{tikzpicture}
+        $\mathcal{H}_2$
+    \end{center}
+\end{minipage}
+%H_1 \cup H_2
+\begin{minipage}{0.33\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.6]
+            \draw[-, black, dashed] (0,0) circle (3.5);
+            \foreach \i in {-2,0} {
+                \foreach \j in {-2,0} {
+                    \draw[-, red] (\i,\j) rectangle (\i+2, \j+2);
+                }        
+            }
+            \foreach \i in {-1,0} {
+                \foreach \j in {-3,2} {
+                    \draw[-, blue] (\i,\j) rectangle (\i+1, \j+1);
+                    \draw[-, blue] (\j,\i) rectangle (\j+1, \i+1);
+                }
+            }
+        \end{tikzpicture}
+        $\mathcal{H}_1 \cup \mathcal{H}_2$
+    \end{center}
+\end{minipage}
+\\[6ex]
+Probaremos que \hspace{1mm}
+$O = \displaystyle \bigcup_{n \in \N} \hspace{1mm} \bigcup_{C \in \mathcal{H}_n} \hspace{-1mm} C$
+\hspace{1mm} por doble contenido.
+
+\begin{tcolorbox}[Subset-contingency]
+    $\supseteq$ \hspace{4mm} Por definición de $\mathcal{H}_n$, \hspace{2mm}
+    $\forall n \in \N$ se tiene $C \in \mathcal{H}_n \Rightarrow C \subsetneq \overline{C} \subsetneq  O$
+\end{tcolorbox}
+\begin{tcolorbox}[Subset-contingency]
+    $\subseteq $ \hspace{4mm}
+    Sea $x_0 \in O \subseteq \R^N$ cualquiera, podemos expresarlo como $x_0 = (x_1, \ldots, x_N)$.
+\end{tcolorbox}
+Al ser $O$ abierto en $(\R^N, \tau_{\R^N}(d))$, existe $n_0 \in \N$ que verifica:
+$$x_0 \in \prod_{i=1}^N \left(x_i - \frac{1}{2^{n_0}},\hspace{1mm}  x_i + \frac{1}{2^{n_0}}\right) \subset \prod_{i=1}^N \left[x_i - \frac{1}{2^{n_0}}, \hspace{1mm} x_i + \frac{1}{2^{n_0}}\right] \subset O$$
+Además, para cada coordenada $1 \leq i \leq N$ tienemos que $\exists ! j_i \in \Z : x_i \in \left[\frac{j_i -1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right)$.
+Así, para cada $i \in {1, \ldots, N}$ se tiene que:
+\begin{align*}
+    \left. \begin{array}{l}
+        \frac{j_i - 1}{2^{n_0}} \leq x_i \Rightarrow \frac{j_i}{2^{n_0}} \leq x_i + \frac{1}{2^{n_0}} \\
+        x_i < \frac{j_i}{2^{n_0}} \Rightarrow x_i - \frac{1}{2^{n_0}} < \frac{j_i - 1}{2^{n_0}}
+    \end{array} \right\} \textstyle
+    \Rightarrow \left[\frac{j_i -1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right) \subset \left(x_i - \frac{1}{2^{n_0}}, x_i + \frac{1}{2^{n_0}} \right)
+\end{align*}
+De este modo, $C := \displaystyle \prod_{i=1}^{N}\left[\frac{j_i-1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right) \subset \prod_{i=1}^{N}\left[x_i - \frac{1}{2^{n_0}}, x_i + \frac{1}{2^{n_0}} \right] \subset O$.
 \end{document}
