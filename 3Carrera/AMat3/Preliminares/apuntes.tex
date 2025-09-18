@@ -241,11 +241,11 @@ Se contradice la hipótesis de partida. Por todo lo anterior, concluimos que $\R
 \vspace{6mm}
 La aplicación $\tan : (-\frac{\pi}{2}, \frac{\pi}{2}) \longrightarrow \R$ es biyectiva, luego el intervalo
 $(-\frac{\pi}{2}, \frac{\pi}{2})$ es no numerable. Por otro lado, podemos establecer una biyección entre
-este intervalo y cualquier otro invervalo abierto. Así, cualquier intervalo es no numerable.
+este intervalo y cualquier otro intervalo abierto. Así, cualquier intervalo es no numerable.
 
 \result{Procesos que dan lugar a conjuntos numerables}
 \hspace{3mm}
-Sea $A$ un conjunto finito, sea $B$ un conjunto infitnito numerable. Entonces,
+Sea $A$ un conjunto finito, sea $B$ un conjunto infinito numerable. Entonces,
 $A \cup B$ y $A \times B$ son conjuntos infinitos numerables (o vacíos).
 
 \vspace{4mm}
@@ -256,7 +256,7 @@ Si $A = \varnothing$, entonces $A \cup B = B$ que es infinito numerable por hip�
 Además, $A \times B = \varnothing$ que es finito por definición.
 
 \vspace{4mm}
-Si $A \neq \varnothing$, como $A$ es finito podemos afimar que $A\backslash B = \{a_1, a_2, \ldots, a_{n_1}\}$
+Si $A \neq \varnothing$, como $A$ es finito podemos afirmar que $A\backslash B = \{a_1, a_2, \ldots, a_{n_1}\}$
 para cierto $n_1 \in \N \cup \{0\}$. Por ser $B$ infinito numerable, existe una aplicación biyectiva $\varphi : \N \to B$.
 Para ver que $A \cup B$ es infinito numerable, basta considerar la siguiente biyección:
 \begin{align*}
@@ -379,7 +379,7 @@ infinito numerable por hipótesis (no pueden ser finitos todos los $B_i$).
 \result{Definición de conjunto de partes}
 \hspace{3mm}
 Sea $A$ un conjunto cualquiera, se denomina "conjunto de partes de $A$" y se denota como $\mathcal{P}(A)$
-al conjunto cuyos elementos son todos los subconjuntos de $A$. En particular, siemrpe se cumple
+al conjunto cuyos elementos son todos los subconjuntos de $A$. En particular, siempre se cumple
 que $\varnothing, A \in \mathcal{P}(A)$.
 
 \vspace{2mm} \noindent
@@ -452,7 +452,7 @@ En cualquiera de ellos se llega a una contradicción. Por todo lo anterior, conc
 subconjunto de $\N$ en base a la presencia o ausencia de cada número natural en tal conjunto. Así, sabemos que existe una biyección entre los subconjuntos
 de $\N$ y las sucesiones formadas por ceros y unos:
 $$\varphi : \mathcal{P}(\N) \longrightarrow \big\{0,1\big\}^\N = \Big\{(\varepsilon_n)_{n \in \N} : \varepsilon_i \in \{0,1\} \hspace{2mm}  \forall i \in \N\Big\}$$
-Ademnás, podemos asociar cada sucesión de ceros y unos a la expresión en base 2 de un núero real del intervalo $[0,1]$. Aplicando lo visto en los
+Además, podemos asociar cada sucesión de ceros y unos a la expresión en base 2 de un número real del intervalo $[0,1]$. Aplicando lo visto en los
 resultados \hyperref[subsubsection:0.3]{0.3} y \hyperref[subsubsection:0.4]{0.4}, tal intervalo tiene la misma cardinalidad que $\R$; es decir, $2^{\aleph_0}$.
 
 \vspace{6mm}
@@ -622,7 +622,8 @@ Para $n >1$, definimos
 $$\mathcal{H}_n := \left\{C \in \mathcal{G}_n : C \nsubseteq \displaystyle \bigcup_{k=1}^{n-1}\mathcal{H}_k \right\}
 = \left\{C \in \mathcal{G}_n : C \cap \left[\hspace{1mm} \bigcup_{k=1}^{n-1} \hspace{1mm} \bigcup_{D \in \mathcal{H}_k} D_k\right] = \varnothing \right\}$$
 La última igualdad se deduce de las \hyperref[subsubsection:0.15]{propiedades de los cubos diádicos}.
-Por construcción, los $\mathcal{H}_n$ son numerables y disjuntos entre sí.
+Por construcción, los $\mathcal{H}_n$ son numerables y disjuntos entre sí. Además, por construcción, la clausura de sus cubos
+está contenida en $O$. Queda probar el punto (1).
 
 \vspace{2mm}
 Intuitivamente, $\mathcal{G}_n$ modela los cubos 
@@ -730,7 +731,7 @@ $O = \displaystyle \bigcup_{n \in \N} \hspace{1mm} \bigcup_{C \in \mathcal{H}_n}
 \end{tcolorbox}
 Al ser $O$ abierto en $(\R^N, \tau_{\R^N}(d))$, existe $n_0 \in \N$ que verifica:
 $$x_0 \in \prod_{i=1}^N \left(x_i - \frac{1}{2^{n_0}},\hspace{1mm}  x_i + \frac{1}{2^{n_0}}\right) \subset \prod_{i=1}^N \left[x_i - \frac{1}{2^{n_0}}, \hspace{1mm} x_i + \frac{1}{2^{n_0}}\right] \subset O$$
-Además, para cada coordenada $1 \leq i \leq N$ tienemos que $\exists ! j_i \in \Z : x_i \in \left[\frac{j_i -1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right)$.
+Además, para cada coordenada $1 \leq i \leq N$ tenemos que $\exists ! j_i \in \Z : x_i \in \left[\frac{j_i -1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right)$.
 Así, para cada $i \in {1, \ldots, N}$ se tiene que:
 \begin{align*}
     \left. \begin{array}{l}
@@ -739,5 +740,143 @@ Así, para cada $i \in {1, \ldots, N}$ se tiene que:
     \end{array} \right\} \textstyle
     \Rightarrow \left[\frac{j_i -1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right) \subset \left(x_i - \frac{1}{2^{n_0}}, x_i + \frac{1}{2^{n_0}} \right)
 \end{align*}
-De este modo, $C := \displaystyle \prod_{i=1}^{N}\left[\frac{j_i-1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right) \subset \prod_{i=1}^{N}\left[x_i - \frac{1}{2^{n_0}}, x_i + \frac{1}{2^{n_0}} \right] \subset O$.
+De este modo, $D_0 := \displaystyle \prod_{i=1}^{N}\left[\frac{j_i-1}{2^{n_0}}, \frac{j_i}{2^{n_0}} \right) \subsetneq \prod_{i=1}^{N}\left[x_i - \frac{1}{2^{n_0}}, x_i + \frac{1}{2^{n_0}} \right] \subsetneq O$.
+
+\vspace{3mm} \noindent
+Y por tanto, $x_0 \in D_0 \subsetneq \overline{D_0} \subsetneq O$. A su vez, como $D_0 \in \mathcal{G}_{n_0}$, hemos demostrado también
+que el siguiente conjunto es no vacío: \\[-2.5ex]
+$$\mathcal{A}_{x_0} := \Big\{n \in \N : \exists \hspace{1mm} C \in \mathcal{G}_n \text{ tal que } x_0 \in C\Big\} $$
+
+\vspace{4mm}
+Al ser $A_{x_0}$ un subconjunto no vacío de $\N$, podemos afirmar que tiene mínimo, al que denotaremos $m_0$. Así, ha de existir $C_0 \in \mathcal{G}_{m_0}$ tal que $x_0 \in C_0$, veamos
+que $C_0 \in \mathcal{H}_{m_0}$. Por definición de $\mathcal{H}_{m_0}$, $C_0 \notin \mathcal{H}_{m_0} \Rightarrow C_0 \in \mathcal{G}_n$ para cierto $n < m_0$. Esto contradice
+que $m_0$ sea el mínimo de $\mathcal{A}_{x_0}$. Hemos demostrado que $C_0 \in \mathcal{H}_{m_0}$.
+
+\newpage
+\chapter{Series dobles}
+El álgebra contempla únicamente la suma como operación binaria. Por la propiedad asociativa, es posible expresar cualquier suma finita como sumas binarias sucesivas.
+Para No obstante, el álgebra por sí misma no nos basta para sumar series.
+
+\vspace{4mm}
+\result{Definición de sucesión doble}
+\hspace{3mm} Llamamos ``sucesión doble'' a cualquier aplicación
+\begin{flalign*}
+    \hspace{2mm} \gamma : \N \times \N &\longrightarrow \overline{\R} = \R \cup \{+\infty -\infty\} &&\\
+    \hspace{2mm} n, m &\longmapsto \gamma(n,m) = a_{nm} &&
+\end{flalign*} \\[-5ex]
+Diremos que $a_{nm}$ es el término general de la sucesión.
+
+\vspace{4mm}
+\result{Definición de serie doble}
+\hspace{3mm} Dada una sucesión doble de término general $a_{nm}$, llamamos ``serie doble de término general $a_{nm}$''
+a la expresión $\displaystyle \sum_{n,m} a_{nm}$ (que equivale a $\displaystyle \sum_{\substack{n = 1\\m=1}}a_{nm}$ \hspace{2mm}).
+
+\vspace{4mm}
+Diremos que $\sum_{n,m}a_{nm}$ es convergente si sus sumas parciales convergen a un número real. Es decir, si:
+$\exists s \in \R $ que verifica: \\[-4ex]
+$$ \forall\hspace{1mm}\varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in \N \text{ tal que }\hspace{2mm}  n,m \geq n_0 \Rightarrow
+\left|s - \sum_{\substack{1\leq i \leq n\\1\leq j \leq n}}a_{ij}\right| < \varepsilon$$
+En este caso, diremos que este $s$ es el ``valor de la suma de la serie''.
+
+\vspace{4mm}
+Diremos que $\sum_{n,m} a_{nm}$ es divergente a $+\infty (-\infty)$ si $\forall \hspace{1mm} \in \R$
+$\exists \hspace{1mm} n_0  \in \N$ tal que dados $n, m \geq n_0$ se cumple: \\[-5ex]
+\begin{align*}
+    \sum_{\substack{1\leq i \leq n\\1 \leq j \leq m}}a_{ij} > K &&
+    \left(\sum_{\substack{1\leq i \leq n\\1 \leq j \leq m}}a_{ij} < K\right)
+\end{align*}
+En este caso, diremos que el valor de la suma de la sucesión es $+\infty (-\infty)$.
+
+Es importante distinguir la igualdad de series como sucesiones y como valores. Veamos un ejemplo
+con series simples: \\[-5ex]
+\begin{align*}
+    \sum_{n=1}^\infty a_n = 1 +0+0+0+\ldots &&
+    \sum_{n=1}^\infty b_n = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \ldots
+\end{align*} \\[-4ex]
+Es claro que las series no tienen el mismo término general (no son iguales como series), pero sí tienen el mismo valor de suma (que es 1).
+
+\vspace{6mm}
+\result{Teorema de series dobles no negativas}
+\hspace{3mm} Dada una sucesión doble $\gamma : \N \times \N \longrightarrow [0, +\infty]$ de término general $a_{nm}$,
+dada una biyección cualquiera $g : \N \longrightarrow \N \times \N$, se cumple:
+\begin{align*}
+    \sum_{n,m} a_{nm} = \sum_{n = 1}^{\infty}a_{g(n)} = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}a_{nm} = \sum_{m=1}^{\infty}\sum_{n=1}^{\infty}a_{nm} \in[0, +\infty]
+\end{align*}
+\dem Probaremos primero la igualdad respecto de la reordenación y después respecto de las series anidadas.
+
+\vspace{2mm}
+Si existe algún término $a_{n_0m_0} = +\infty$, entonces la igualdad se cumple trivialmente al estar las sumas bien definidas ($\gamma(\N \times \N) \subseteq[0, +\infty])$.
+Supongamos entonces que todos los términos son finitos, veamos qué casos pueden darse:
+
+\vspace{5mm}
+$\bullet$ Primer caso: Supongamos que $\displaystyle{\sum_{n=1}^{\infty}a_{g(n)}} = s \in \R$.
+
+\noindent
+Por definición, $\forall \varepsilon > 0 \hspace{1mm} \exists \hspace{1mm} n_0 \in \N : \hspace{2mm} s - \displaystyle{\sum_{k=1}^{n}a_{g(k)}} < \varepsilon \hspace{2mm} \forall n \geq n_0$.
+Sea $\varepsilon > 0$ cualquiera pero fijo, fijamos también el $n_0$ asociado.
+Como $g$ es biyectiva, $\exists \hspace{1mm} m_0 \in \N$ tal que $g(\{1,\ldots,n_0\}) \subseteq \{1,\ldots, m_0\} \times \{1,\ldots,m_0\}$.
+Al tratarse de series de términos no negativos, dados $n,m \in \N$ con $n\geq n_0, m\geq n_0$, se cumple:
+$$\sum_{k=1}^{n_0}a_{g(k)} \leq \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}}a_{ij}
+\Rightarrow 0 \overset{(*)}{\leq} s -  \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}}a_{ij} \leq s - \sum_{k=1}^{n_0}a_{g(k)} < \varepsilon$$
+(*) La desigualdad se deduce de que la suma parcial de la serie doble es una reordenación de la suma parcial de la serie simple, siendo esta última absolutamente convergente.
+Como podemos hacer $\varepsilon$ arbitrariamente pequeño, concluimos que las dos series tienen el mismo límite.
+
+\vspace{4mm}
+$\bullet$ Segundo caso: $\sum_{n=1}\infty a_{g(n)} = +\infty$.
+
+\vspace{2mm}
+Sea $K \in \R$, por definición, $\exists \hspace{1mm} n_0 \in \N \text{ tal que } \sum_{k=1}^{n} a_{g(k)} > K \hspace{2mm} \forall \hspace{1mm} n \geq n_0$.
+AL ser $g$ biyectiva, $\exists \hspace{1mm} m_0 \in \N \text{ tal que } g({1,\ldots,n_0}) \subseteq \{1,\ldots, m_0\} \times \{1,\ldots,m_0\}$. Así, dados $n \geq m_0, m\geq m_0$ se tiene:
+\\[-3ex] $$K < \sum_{k=1}^{n_0} a_{g(k)} \leq \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}} a_{ij}$$
+Es claro que la serie doble diverge a $+\infty$.
+
+\vspace{4mm}
+Queda probar la igualdad entre la serie doble y las series anidadas cuando todos los términos son finitos. Veamos qué ocurre según el carácter de la serie doble.
+
+\vspace{4mm}
+$\bullet$ Primer caso: $\sum_{n,m}a_{nm} = s \in [0,+\infty)$.
+
+\vspace{2mm}
+Sea $\varepsilon > 0$. Por definición de convergencia, sabemos que
+$\exists \hspace{1mm} n_0 \in \N \text{ tal que dados } n\geq n_0, m\geq n_0$ se tiene:
+$$\left|\hspace{1mm} s - \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}} a_{ij} \hspace{1mm} \right| < \varepsilon$$
+\\[1mm]
+Nótese que debido a las propiedades algebraicas de la suma, en el caso finito se da la igualdad; es decir:
+\\[-3.5ex]
+$$\sum_{\substack{1\leq i \leq n\\1\leq j \leq m}} a_{ij} = \sum_{i=1}^n\sum_{j=1}^m a_{ij} = \sum_{j=1}^m\sum_{i=1}^n a_{ij}$$
+De este modo, sustituyendo en la definición de convergencia, dados $n \geq n_0, m\geq n_0$ obtenemos:
+\begin{flalign*}
+    \left|\hspace{1mm}s- \sum_{j=1}^m\sum_{i=1}^n a_{ij} \hspace{1mm}\right| < \varepsilon
+    \Rightarrow \varepsilon \geq \lim_n \left|\hspace{1mm} s - \sum_{j=1}^m\sum_{i=1}^n a_{ij} \hspace{1mm}\right|
+    = \left|\hspace{1mm} s - \sum_{j=1}^m \lim_n \left( \sum_{i=1}^n a_{ij} \right)\hspace{1mm}\right|
+\end{flalign*}
+La igualdad se debe a aplicar las propiedades del límite con funciones continuas. Como la serie doble converge por hipótesis,
+también han de hacerlo las series de filas y columnas. Es por ello que podemos afirmar que el último límite existe.
+
+\vspace{2mm}
+La igualdad anterior se cumple para cualquier $\varepsilon > 0$ y para cualquier $m \geq n_0$. Haciendo $\varepsilon$
+arbitrariamente pequeño y tomando límites en $m$ llegamos al resultado. El razonamiento para la otra serie anidada es análogo; así, concluimos:
+\begin{flalign*}
+    \sum_{m=1}^\infty\sum_{n=1}^\infty a_{nm} = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}a_{nm} = \sum_{n,m}a_{nm}
+\end{flalign*}
+
+\vspace{4mm}
+$\bullet$ Segundo caso: $\sum_{n,m}a_{nm} = +\infty$. Si hubiese algún $n\in \N$ verificando $\sum_{m=1}^\infty a_{nm} = +\infty$ 
+o si existiese algún $m \in \N$ tal que $\sum_{n=1}^{\infty}a_{nm} = +\infty$, las series anidadas divergerían trivialmente.
+Supongamos que no es el caso para ver que también se cumple el resultado.
+
+\vspace{2mm}
+Sea $K \in \R$ cualquiera, por definición de divergencia se cumple:
+\begin{flalign*}
+    \exists \hspace{1mm} n_0 \in \N \text{ tal que } \forall \hspace{1mm} n \geq n_0, \forall m \geq n_0 \text{ se cumple } \sum_{j=1}^{m}\sum_{i=1}^n a_{ij} > K
+\end{flalign*}
+Nótese que hemos utilizado la igualdad entre la serie doble y las series anidadas para el caso finito. Además, dados $n \geq n_0, m \geq n_0$, se cumple:
+\begin{flalign*}
+    \sum_{j=1}^{m}\sum_{i=1}^{n} a_{ij} > K
+    \Rightarrow K \leq \lim_n \sum_{j=1}^{m}\sum_{i=1}^{n} a_{ij}
+    = \sum_{j=1}^{m} \left( \sum_{i=1}^{\infty} a_{ij}\right)
+\end{flalign*}
+Las series de suma de filas y columnas existen por hipótesis, luego la igualdad se cumple para todo $m \geq n_0$. Tomando límites en $m$ podemos observar que
+$\sum_{m=1}^\infty \sum_{n=1}^\infty a_{nm} \geq K$. Como el $K$ escogido fue arbitrario, se cumple para cualquier $K$ real.
+Así, las series anidadas divergen a $+\infty$ (análogo para la otra serie anidada).
 \end{document}

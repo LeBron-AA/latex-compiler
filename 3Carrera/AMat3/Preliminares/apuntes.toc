@@ -16,3 +16,7 @@
 \contentsline {subsubsection}{\numberline {0.14}Definición de cubo diádico}{13}{subsubsection.0.0.14}%
 \contentsline {subsubsection}{\numberline {0.15}Propiedades de los cubos diádicos}{13}{subsubsection.0.0.15}%
 \contentsline {subsubsection}{\numberline {0.16}Teorema de descomposición de abiertos en cubos diádicos}{14}{subsubsection.0.0.16}%
+\contentsline {subsection}{3. Series dobles}{17}{chapter.0.0.3}%
+\contentsline {subsubsection}{\numberline {0.17}Definición de sucesión doble}{17}{subsubsection.0.0.17}%
+\contentsline {subsubsection}{\numberline {0.18}Definición de serie doble}{17}{subsubsection.0.0.18}%
+\contentsline {subsubsection}{\numberline {0.19}Teorema de series dobles no negativas}{18}{subsubsection.0.0.19}%

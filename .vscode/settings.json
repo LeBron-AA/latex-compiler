@@ -1,5 +1,4 @@
 {
-  "latex-workshop.linting.todo.enabled": true,
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.latex.outDir": "./out",
   "latex-workshop.view.pdf.viewer": "tab",
@@ -19,5 +18,21 @@
         "%DOC%"
       ]
     }
+  ],
+  "latex-workshop.log": false,
+
+  "cSpell.language": "es-ES, en",
+  "cSpell.words": [
+    "biunívocamente",
+    "biyección",
+    "biyectiva",
+    "biyectivas",
+    "Borel",
+    "cardinalidad",
+    "cardinalidades",
+    "diádico",
+    "diádicos",
+    "suprayectiva",
+    "tabularmente"
   ]
 }
