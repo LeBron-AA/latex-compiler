@@ -51,18 +51,31 @@
 
 % Useful commands
 \renewcommand{\contentsname}{Contenidos}
+
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 
-% ----- Custom counters and commands -----
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
 \newcounter{unit}[section]
-\newcounter{chapter}[subsection]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
 \renewcommand{\theunit}{\arabic{unit}}
 \renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\thesubsubsection}{\theunit.\arabic{subsubsection}}
+\renewcommand{\thesubsubsection}{\theunit.\thechapter.\arabic{subsubsection}}
+
+% Custom content hierarchy behavior
 \newcommand{\chapter}[1]{
     \refstepcounter{chapter}
     \subsection*{\Large{\S \thechapter. #1}}
@@ -73,19 +86,23 @@
     \section*{\Huge{\Roman{unit} #1}}
     \addcontentsline{toc}{section}{\Roman{unit} #1}
 }
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
 \newcommand{\dem}{
     \noindent \underline{\textbf{Demostración:}}
 }
 \newcommand{\nota}{
     \noindent \underline{\textbf{Nota:}}
 }
-\newcommand{\result}[1]{%
-  \subsubsection{#1}%
-  \label{subsubsection:\thesubsubsection}%
-}
-\titleformat{\subsubsection}
-    {\normalfont\large\bfseries} % mismo tamaño que \subsection
-    {\thesubsubsection}{1em}{}
 % ----------------------------------------
 
 \title{Análisis Matemático III}
@@ -109,6 +126,7 @@ La materia será la misma que en años anteriores, aunque habrá un cambio en la
 \newpage
 
 \section*{\Huge{Preliminares}}
+\phantomsection \addcontentsline{toc}{section}{Preliminares}
 En la sección de preliminares se tratarán los siguientes temas:
 \begin{itemize}
     \item Cardinalidad de conjuntos
@@ -453,14 +471,14 @@ subconjunto de $\N$ en base a la presencia o ausencia de cada número natural en
 de $\N$ y las sucesiones formadas por ceros y unos:
 $$\varphi : \mathcal{P}(\N) \longrightarrow \big\{0,1\big\}^\N = \Big\{(\varepsilon_n)_{n \in \N} : \varepsilon_i \in \{0,1\} \hspace{2mm}  \forall i \in \N\Big\}$$
 Además, podemos asociar cada sucesión de ceros y unos a la expresión en base 2 de un número real del intervalo $[0,1]$. Aplicando lo visto en los
-resultados \hyperref[subsubsection:0.3]{0.3} y \hyperref[subsubsection:0.4]{0.4}, tal intervalo tiene la misma cardinalidad que $\R$; es decir, $2^{\aleph_0}$.
+resultados \hyperref[result:0.1.3]{0.1.3} y \hyperref[result:0.1.4]{0.1.4}, tal intervalo tiene la misma cardinalidad que $\R$; es decir, $2^{\aleph_0}$.
 
 \vspace{6mm}
 \result{Jerarquía de cardinalidades}
 \hspace{3mm}    
 En vista de los resultados anteriores, podemos establecer una jerarquía de cardinalidades. En primer lugar, está el conjunto vacío (de cardinal cero).
 A continuación, los conjuntos finitos de cardinal natural. Pasando ahora a los conjuntos infinitos, la menor cardinalidad posible es la de los conjuntos
-infinitos numerables, denotada por $\aleph_0$. Como consecuencia del resultado \hyperref[subsubsection:0.9]{0.9}, sabemos que podemos encontrar conjuntos
+infinitos numerables, denotada por $\aleph_0$. Como consecuencia del resultado \hyperref[result:0.1.9]{0.1.9}, sabemos que podemos encontrar conjuntos
 de cardinalidad cada vez mayor al considerar el conjunto de partes de la iteración anterior.
 
 \vspace{2mm}
@@ -581,7 +599,7 @@ Como $C,D \in \mathcal{F}_m$, han de ser de la siguiente forma:
 \end{align*} \\[-5ex]
 donde los $I_i$ y los $J_j$ son intervalos diádicos de orden $n$.
 Por hipótesis, $C \neq D$ luego ha de existir cierto $k \in \{1, \ldots, n\}$
-tal que $I_k \neq J_k$. Por las \hyperref[subsubsection:0.13]{propiedades de los intervalos diádicos},
+tal que $I_k \neq J_k$. Por las \hyperref[result:0.2.2]{propiedades de los intervalos diádicos},
 sabemos que esto implica que $I_k \cap J_k = \varnothing$. Esto a su vez implica que $C \cap D = \varnothing $.
 
 \vspace{4mm}
@@ -593,7 +611,7 @@ podemos afirmar que:
     D = J_1 \times \ldots \times J_N
 \end{align*}
 Donde los $I_i$ y los $J_j$ son intervalos diádicos de orden $n$ y $m$, respectivamente. Por las
-\hyperref[subsubsection:0.13]{propiedades de los intervalos diádicos}, para cada $k \in \{1, \ldots, N\}$ se tiene
+\hyperref[result:0.2.2]{propiedades de los intervalos diádicos}, para cada $k \in \{1, \ldots, N\}$ se tiene
 que o bien $I_k \subsetneq J_k$ o bien $I_k \cap J_k = \varnothing$. Si $\exists k_0 \in \{1, \ldots, N\}$ tal que
 $I_{k_0} \cap J_{k_0} = \varnothing$, entonces $C \cap D = \varnothing$. En caso contrario, $C \subsetneq D$.
 
@@ -621,7 +639,7 @@ Para $n = 1$, tomamos $\mathcal{H}_1 := \mathcal{G}_1$.
 Para $n >1$, definimos
 $$\mathcal{H}_n := \left\{C \in \mathcal{G}_n : C \nsubseteq \displaystyle \bigcup_{k=1}^{n-1}\mathcal{H}_k \right\}
 = \left\{C \in \mathcal{G}_n : C \cap \left[\hspace{1mm} \bigcup_{k=1}^{n-1} \hspace{1mm} \bigcup_{D \in \mathcal{H}_k} D_k\right] = \varnothing \right\}$$
-La última igualdad se deduce de las \hyperref[subsubsection:0.15]{propiedades de los cubos diádicos}.
+La última igualdad se deduce de las \hyperref[result:0.2.4]{propiedades de los cubos diádicos}.
 Por construcción, los $\mathcal{H}_n$ son numerables y disjuntos entre sí. Además, por construcción, la clausura de sus cubos
 está contenida en $O$. Queda probar el punto (1).
 
@@ -879,4 +897,162 @@ Nótese que hemos utilizado la igualdad entre la serie doble y las series anidad
 Las series de suma de filas y columnas existen por hipótesis, luego la igualdad se cumple para todo $m \geq n_0$. Tomando límites en $m$ podemos observar que
 $\sum_{m=1}^\infty \sum_{n=1}^\infty a_{nm} \geq K$. Como el $K$ escogido fue arbitrario, se cumple para cualquier $K$ real.
 Así, las series anidadas divergen a $+\infty$ (análogo para la otra serie anidada).
+
+\newpage
+\unit{Teoría de la medida}
+
+\vspace{2mm}
+\chapter{Espacios de medida}
+\result{Definición de \texorpdfstring{$\sigma$}{s}-álgebra}
+\hspace{3mm} Sea $X$ un conjunto cualquiera, diremos que $\Sigma \subseteq \mathcal{P}(X)$ es una $\sigma$-álgebra si cumple las siguientes propiedades:
+\begin{enumerate}[label=S.\arabic*)]
+    \item $\varnothing \in \Sigma$
+    \item $\left\{E_i : i\in \N\right\} \subseteq \Sigma \Rightarrow \displaystyle{\bigcup_{i \in \N}{E_i}} \in \Sigma$
+    \item $E \in \Sigma \Rightarrow E^c := X \backslash E \in \Sigma$
+\end{enumerate}
+Nótese que no es necesario exigir que $X$ tenga ningún tipo de estructura (ni topológica, ni algebraica...).
+
+\vspace{4mm}
+\result{Propiedades de las \texorpdfstring{$\sigma$}{s}-álgebras}
+\hspace{3mm} Sea $X$ un conjunto, sea $\Sigma$ una $\sigma$-álgebra de $X$.
+Sea $\{E_i : i \in \N\} \subseteq \Sigma$, y $E,F \in \Sigma$. Entonces, se cumple:
+\begin{enumerate}[label=\roman*)]
+    \item $\displaystyle{\bigcap_{i\in\N}{E_i}} \in \Sigma$
+    \item $E\cup F \in \Sigma$
+    \item $E \cap F \in \Sigma$
+    \item $E \backslash F \in \Sigma$
+\end{enumerate}
+
+\vspace{2mm} \dem
+
+\vspace{2mm}
+$\romannumeral 1)$ Por la propiedad $(S.3)$ y la involución del complementario, un conjunto pertenece a una $\sigma$-álgebra si y solo si su complementario pertenece a ella.
+Por tanto, basta ver que: \hspace{2mm}
+$X \setminus \left(\bigcap_{i\in\N}{E_i}\right)
+= \displaystyle{\bigcup_{i\in\N}{\left(X \setminus E_i\right)}} \in \Sigma$.
+
+Por la propiedad $(S.3)$, para cada $i \in \N$ tenemos que $X\setminus E_i \in \Sigma$, pues $E_i \in \Sigma$ por hipótesis.
+Finalmente, aplicando $(S.1)$ tenemos que su unión numerable se encuentra en $\Sigma$.
+
+\vspace{4mm}
+$\romannumeral 2)$ Reescribiremos $E\cup F$ para hacer uso del resultado que acabamos de probar.
+Por $(S.1)$ sabemos que $\varnothing \in \Sigma$ luego podemos considerar la colección numerable de conjuntos de $\Sigma$,
+$\{A_i : i \in \N\}$ donde $A_1 = E, \hspace{2mm} A_2 = F$, y $ A_n = \varnothing  \hspace{2mm} \forall \hspace{1mm} n > 2$.
+
+\vspace{2mm} \noindent
+De este modo, $E \cup F = E \cup F \cup \varnothing  \cup \varnothing \cup \ldots = \displaystyle{\bigcup_{i \in \N}{A_i}} \in \Sigma$.
+
+\vspace{4mm}
+$\romannumeral 3)$ Como consecuencia de $(S.1)$ y de $(S.3)$, sabemos que $X \in \Sigma$.
+Así, basta considerar $B_1 = E,$ $B_2 = F$, $B_n = X \hspace{2mm} \forall \hspace{1mm} n > 2$.
+
+\vspace{2mm} \noindent
+Aplicando el apartado $(\romannumeral 1)$, $E \cap F = E \cap F \cap X \cap X \cap \ldots
+= \displaystyle{\bigcap_{i \in \N}{B_i}} \in \Sigma$.
+
+\vspace{4mm}
+$\romannumeral 4)$ Por definición de complementario, $E\setminus F = E \cap (X \setminus F)$.
+Por hipótesis, $E,F\in \Sigma$. Aplicando $(S.3)$, $(X\setminus F)\in \Sigma$.
+Finalmente, aplicando el apartado $(\romannumeral 3)$, $E \cap (X \setminus F) \in \Sigma$.
+
+\vspace{6mm}
+\result{Definición de espacio de medida}
+\hspace{3mm} Sea $X$ un conjunto cualquiera y $\Sigma$ una $\sigma$-álgebra de $X$, diremos que
+$\mu : \Sigma \longrightarrow [0,+\infty]$ es una medida sobre $\Sigma$ si verifica las siguientes propiedades:
+\begin{enumerate}[label=M.\arabic*)]
+    \item $\mu(\varnothing) = 0$
+    \item Sean $\{E_i : i\in \N\} \subseteq \Sigma$ tales que $i \neq j \Rightarrow E_i \cap E_j = \varnothing $; entonces,
+    $$\mu\left(\bigcup_{i\in \N} E_i\right) = \sum_{i\in \N} \mu(E_i)$$
+\end{enumerate}
+
+\vspace{2mm}
+A la tríada $(X, \Sigma, \mu)$ se la denomina ``espacio de medida'', y a los conjuntos
+de $\Sigma$ se los llama ``conjuntos ($\mu$-medibles) de $X$''.
+
+\result{Propiedades de los espacios de medida}
+\hspace{3mm} Sea $(X,\Sigma,\mu)$ un espacio de medida, se cumple:
+\begin{enumerate}[label=\roman*)]
+    \item Sean $E,F\in \Sigma$ con $F \subseteq E$, se cumple $\mu(F) \leq \mu(E)$.
+    \newline \noindent
+    Si además se tiene que $\mu(F) < +\infty$, entonces $\mu(E \setminus F) = \mu(E) - \mu(F)$.
+    
+    \item Sean $\{E_i : i \in \N\} \subseteq \Sigma$ tales que $E_i \subseteq E_{i+1} \hspace{2mm}\forall \hspace{1mm} i \in \N$.
+    \newline\noindent
+    Entonces, $\mu (\smallcup_{i \in \N}{E_i}) = \displaystyle{\lim_n \mu(E_n)}$.
+    
+    \item Sean $\{E_i : i \in \N\} \subseteq \Sigma$ tales que $E_{i+1} \subseteq E_{i} \hspace{2mm}\forall \hspace{1mm} i \in \N$, y $\mu(E_1) < +\infty$.
+    \newline \noindent
+    Entonces, $\mu(\smallcap_{i\in\N}E_i) = \mlim{n} \hspace{1mm} \mu(E_n)$.
+\end{enumerate}
+
+\vspace{2mm} \dem
+
+\vspace{2mm}
+$\romannumeral 1)$ Reescribiendo como unión numerable
+de conjuntos disjuntos de $\Sigma$, \\[-5ex]
+\begin{flalign*}
+    E = (E \setminus F) \cup F \cup \varnothing \cup \varnothing \cup\ldots 
+\end{flalign*}
+\\[-5ex]
+Aplicando $(M.3)$ y evaluando $\mu$ a ambos lados obtenemos:
+\\[-5ex]
+\begin{flalign*}
+    \mu(E) = \mu(E \setminus F) + \mu(F) + \mu(\varnothing) + \mu(\varnothing) + \ldots    
+\end{flalign*}
+Aplicando $(M.1)$ se deduce que $\mu(E) = \mu(E \setminus F) + \mu(F)$.
+Por la no negatividad de $\mu$, se tiene que $\hspace{1mm} \mu(E \setminus F) \geq 0 \Rightarrow \mu(F) \leq \mu(F)$.
+
+\vspace{2mm} \noindent
+Si además $\mu(F) < +\infty$, podemos despejar sin que ocurran indeterminaciones; así, $\mu(E \setminus F) = \mu(E) - \mu(F)$.
+
+\vspace{8mm}
+$\romannumeral 2)$ Una vez más, reescribimos el conjunto a partir de uniones disjuntas:
+$$\bigcup_{i\in \N} E_i = E_1 \cup \Big(E_2 \setminus E_1\Big) \cup \Big(E_3 \setminus (E_2 \cup E_1)\Big)
+\cup \Big(E_4 \setminus (E_1 \cup E_2 \cup E_3)\Big) \cup \ldots$$
+Como $E_i \subseteq E_{i+1}$ por hipótesis, podemos simplificar esta expresión: \\[-3ex]
+$$\bigcup_{i\in \N}E_i = E_1 \cup (E_2 \setminus E_1) \cup (E_3 \setminus E_2)
+\cup (E_4 \setminus E_3)\cup \ldots = E_1 \cup \left(\bigcup_{i \in \N}(E_{i+1}\setminus E_i)\right)$$
+Así, $\hspace{2mm} \displaystyle \mu\left(\bigcup_{i\in\N}E_i\right)= \mu(E_1) + \sum_{i=2}^{\infty}\mu(E_{i}\setminus E_{i-1}) = (*)$.
+
+\noindent
+Distinguimos dos casos en función de la medida de los $E_i$:
+
+\vspace{2mm}
+$\romannumeral 2.a)$ Existe cierto $j \in \N$ tal que $\mu(E_j) = +\infty$.
+Como $E_j \subseteq E_n \hspace{2mm} \forall \hspace{1mm} n \geq j$, aplicando \hyperref[result:1.4.4]{las propiedad $(i)$ de la medida},
+se tiene que $\mu(E_n) = +\infty \hspace{2mm} \forall \hspace{1mm} n \geq j$,
+luego ha de cumplirse $\mlim{n} \hspace{1mm}\mu(E_n) = +\infty$.
+Por otro lado, como $E_j \subseteq \smallcup_{i\in \N} E_i$, se tiene que
+$+\infty = \mu(E_j) \leq \mu(\smallcup_{i\in\N}E_i)$,
+luego, $\mlim{n} \hspace{1mm} \mu(E_n) = \mu(\smallcup_{i\in\N}E_i) = +\infty$.
+
+\vspace{4mm}
+$\romannumeral 2.b)$ En caso contrario al anterior, $\mu(E_i) < +\infty \hspace{2mm} \forall \hspace{1mm} i \in \N$. Desarrollando en $(*)$,
+\begin{flalign*}
+    \mu\Big(\smallcup_{i\in\N} &E_i\Big) = \mu(E_1) + \sum_{i=2}^{\infty}\mu(E_{i}\setminus E_{i-1})
+    = \mu(1) + \lim_n \sum_{i=2}^{n}\mu(E_i \setminus E_{i-1}) = \\
+    &= \lim_n \Big(\mu(E_1) + \mu(E_2 \setminus E_1) + \mu(E_3 \setminus E_2) + \ldots + \mu(E_{n} \setminus E_{n-1}) \Big) = \\
+    &= \lim_n \Big(\mu(E_1) + \big(\mu(E_2) - \mu(E_1)\big) + \ldots + \big(\mu(E_n) - \mu(E_{n-1})\big)\Big) = \\
+    &= \lim_n \mu(E_n)
+\end{flalign*}
+Hemos podido simplificar porque todas las medidas son finitas; de lo contrario, podrían producirse indeterminaciones.
+
+\vspace{8mm}
+$\romannumeral 3)$ Por hipótesis, $E_{i+1} \subseteq E_i \hspace{2mm} \forall \hspace{1mm} i \in \N$, y $\mu(E_1) < +\infty$.
+De este modo, como todos los $E_i$ son subconjuntos de $E_1$ han de tener medida finita también (\hyperref[result:1.1.4]{propiedad $(i)$ de la medida}).
+Expresamos la intersección según el complementario respecto de $E_1$ como sigue:
+$\hspace{2mm} E_1 \setminus \big(\smallcap_{i\in\N}E_i\big) = \smallcup_{i\in\N}\big(E_1 \setminus E_i\big)$.
+
+\vspace{4mm} \noindent
+Por hipótesis, $E_{i+1} \subseteq E_i \Rightarrow (E_1 \setminus E_i) \subseteq (E_1\setminus E_{i+1})$.
+Como consecuencia, aplicando los apartados anteriores de este resultado,
+\begin{flalign*}
+    \mu(E_1) - \mu\Big(\smallcap_{i\in\N}E_i\Big)
+    &=\mu\Big(E_1 \setminus\big(\smallcap_{i\in\N}E_i\big)\Big)
+    = \mu\Big(\smallcup_{i\in\N}(E_1 \setminus E_i)\Big) =\\[1ex]
+    &= \lim_n \mu(E_1 \setminus E_n)
+    = \mu(E_1) - \lim_n \mu(E_n)
+\end{flalign*}
+Como todas las medidas son finitas, podemos despejar sin indeterminaciones: 
+$$\mu\Big(\smallcap_{i\in\N}E_i\Big) = \lim_n \mu(E_n)$$
 \end{document}

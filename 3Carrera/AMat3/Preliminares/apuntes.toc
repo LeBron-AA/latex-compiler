@@ -1,22 +1,29 @@
+\contentsline {section}{Preliminares}{4}{section*.1}%
 \contentsline {subsection}{1. Cardinalidad de conjuntos}{4}{chapter.0.0.1}%
-\contentsline {subsubsection}{\numberline {0.1}Definición de cardinalidad, tipos de cardinalidad}{4}{subsubsection.0.0.1}%
-\contentsline {subsubsection}{\numberline {0.2}Ejemplos de conjuntos numerables}{5}{subsubsection.0.0.2}%
-\contentsline {subsubsection}{\numberline {0.3}Ejemplos de conjuntos no numerables}{6}{subsubsection.0.0.3}%
-\contentsline {subsubsection}{\numberline {0.4}Procesos que dan lugar a conjuntos numerables}{7}{subsubsection.0.0.4}%
-\contentsline {subsubsection}{\numberline {0.5}Más procesos que dan lugar a conjuntos numerables}{8}{subsubsection.0.0.5}%
-\contentsline {subsubsection}{\numberline {0.6}Unión numerable de conjuntos numerables}{8}{subsubsection.0.0.6}%
-\contentsline {subsubsection}{\numberline {0.7}Definición de conjunto de partes}{10}{subsubsection.0.0.7}%
-\contentsline {subsubsection}{\numberline {0.8}Cardinal de partes de un conjunto finito}{10}{subsubsection.0.0.8}%
-\contentsline {subsubsection}{\numberline {0.9}El conjunto de partes incrementa la cardinalidad}{10}{subsubsection.0.0.9}%
-\contentsline {subsubsection}{\numberline {0.10}Cardinalidad de $\mathcal {P}(\mathbb {N})$}{11}{subsubsection.0.0.10}%
-\contentsline {subsubsection}{\numberline {0.11}Jerarquía de cardinalidades}{11}{subsubsection.0.0.11}%
+\contentsline {subsubsection}{\numberline {0.1.1}Definición de cardinalidad, tipos de cardinalidad}{4}{subsubsection.0.0.1.1}%
+\contentsline {subsubsection}{\numberline {0.1.2}Ejemplos de conjuntos numerables}{5}{subsubsection.0.0.1.2}%
+\contentsline {subsubsection}{\numberline {0.1.3}Ejemplos de conjuntos no numerables}{6}{subsubsection.0.0.1.3}%
+\contentsline {subsubsection}{\numberline {0.1.4}Procesos que dan lugar a conjuntos numerables}{7}{subsubsection.0.0.1.4}%
+\contentsline {subsubsection}{\numberline {0.1.5}Más procesos que dan lugar a conjuntos numerables}{8}{subsubsection.0.0.1.5}%
+\contentsline {subsubsection}{\numberline {0.1.6}Unión numerable de conjuntos numerables}{8}{subsubsection.0.0.1.6}%
+\contentsline {subsubsection}{\numberline {0.1.7}Definición de conjunto de partes}{10}{subsubsection.0.0.1.7}%
+\contentsline {subsubsection}{\numberline {0.1.8}Cardinal de partes de un conjunto finito}{10}{subsubsection.0.0.1.8}%
+\contentsline {subsubsection}{\numberline {0.1.9}El conjunto de partes incrementa la cardinalidad}{10}{subsubsection.0.0.1.9}%
+\contentsline {subsubsection}{\numberline {0.1.10}Cardinalidad de $\mathcal {P}(\mathbb {N})$}{11}{subsubsection.0.0.1.10}%
+\contentsline {subsubsection}{\numberline {0.1.11}Jerarquía de cardinalidades}{11}{subsubsection.0.0.1.11}%
 \contentsline {subsection}{2. Descomposición de subconjuntos abiertos de $\mathbb {R}^N$ en cubos diádicos}{12}{chapter.0.0.2}%
-\contentsline {subsubsection}{\numberline {0.12}Definición de intervalo diádico}{12}{subsubsection.0.0.12}%
-\contentsline {subsubsection}{\numberline {0.13}Propiedades de los intervalos diádicos}{12}{subsubsection.0.0.13}%
-\contentsline {subsubsection}{\numberline {0.14}Definición de cubo diádico}{13}{subsubsection.0.0.14}%
-\contentsline {subsubsection}{\numberline {0.15}Propiedades de los cubos diádicos}{13}{subsubsection.0.0.15}%
-\contentsline {subsubsection}{\numberline {0.16}Teorema de descomposición de abiertos en cubos diádicos}{14}{subsubsection.0.0.16}%
+\contentsline {subsubsection}{\numberline {0.2.1}Definición de intervalo diádico}{12}{subsubsection.0.0.2.1}%
+\contentsline {subsubsection}{\numberline {0.2.2}Propiedades de los intervalos diádicos}{12}{subsubsection.0.0.2.2}%
+\contentsline {subsubsection}{\numberline {0.2.3}Definición de cubo diádico}{13}{subsubsection.0.0.2.3}%
+\contentsline {subsubsection}{\numberline {0.2.4}Propiedades de los cubos diádicos}{13}{subsubsection.0.0.2.4}%
+\contentsline {subsubsection}{\numberline {0.2.5}Teorema de descomposición de abiertos en cubos diádicos}{14}{subsubsection.0.0.2.5}%
 \contentsline {subsection}{3. Series dobles}{17}{chapter.0.0.3}%
-\contentsline {subsubsection}{\numberline {0.17}Definición de sucesión doble}{17}{subsubsection.0.0.17}%
-\contentsline {subsubsection}{\numberline {0.18}Definición de serie doble}{17}{subsubsection.0.0.18}%
-\contentsline {subsubsection}{\numberline {0.19}Teorema de series dobles no negativas}{18}{subsubsection.0.0.19}%
+\contentsline {subsubsection}{\numberline {0.3.1}Definición de sucesión doble}{17}{subsubsection.0.0.3.1}%
+\contentsline {subsubsection}{\numberline {0.3.2}Definición de serie doble}{17}{subsubsection.0.0.3.2}%
+\contentsline {subsubsection}{\numberline {0.3.3}Teorema de series dobles no negativas}{18}{subsubsection.0.0.3.3}%
+\contentsline {section}{I Teoría de la medida}{21}{unit.0.1}%
+\contentsline {subsection}{1. Espacios de medida}{21}{chapter.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Definición de $\sigma $-álgebra}{21}{subsubsection.0.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Propiedades de las $\sigma $-álgebras}{21}{subsubsection.0.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Definición de espacio de medida}{22}{subsubsection.0.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Propiedades de los espacios de medida}{23}{subsubsection.0.1.1.4}%
