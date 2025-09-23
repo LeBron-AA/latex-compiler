@@ -3,6 +3,7 @@
 % Paquetes básicos
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb, amsthm}
+\usepackage{changepage}
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
@@ -1150,7 +1151,7 @@ Por definición de $\mathcal{A}_{x_0}$
     \Rightarrow x_0 \in F_{m_0} \subseteq \smallcup_{i\in\N} F_i
 \end{flalign*}
 \vspace{2mm}
-Volviendo al problema de la subatividad, se cumple: \\[-6ex]
+Volviendo al problema de la subaditividad, se cumple: \\[-6ex]
 \begin{flalign*}
     \mu(\smallcup_{i\in\N}E_i) = \mu(\smallcup_{i\in\N}F_i) = \mu(F_1) + \mu(F_2) + \ldots
     \leq \mu(E_1) + \mu(E_2) + \ldots = \smallsum_{i\in\N} \mu(E_i)
@@ -1166,4 +1167,100 @@ La desigualdad se debe a que $\forall \hspace{1mm} i \in \N, F_i \subseteq F_i \
     \hspace{2mm} \forall \hspace{1mm} A \subseteq B \text{ se tiene que } A \in \Sigma
     \text{ y por tanto } \mu(A) = 0
 \end{flalign*}
+
+\vspace{6mm}
+\result{Compleción de un espacio de medida}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida cualquiera. Existe una $\sigma$-álgebra $\tilde{\Sigma}$ de $X$ con $\Sigma \subseteq \tilde{\Sigma}$.
+y una medida $\tilde{\mu}$ sobre $\tilde{\Sigma}$ tales que $\tilde{\mu}_{|\Sigma} = \mu$
+\hspace{1mm} y \hspace{1mm} $(X, \tilde{\Sigma},\tilde{\mu})$ es completo.
+
+\vspace{2mm}
+De hecho, podemos hallar $\tilde{\Sigma}$ y $\tilde{\mu}$ para que $(X, \tilde{\Sigma}, \tilde{\mu})$ sea el
+menor espacio completo que contiene a $(X, \Sigma, \mu)$. Es decir, sea $(X, \Omega, \nu)$ un espacio de medida completo
+tal que $\Sigma \subseteq \Omega$ \hspace{1mm} y \hspace{1mm} $\nu_{|\Sigma} = \mu$; entonces, $\tilde{\Sigma} \subseteq \Omega$.
+
+\vspace{2mm} \noindent
+En tal caso, diremos que $(X, \tilde{\Sigma}, \tilde{\mu})$ es la ``compleción de $(X, \Sigma, \mu)$''.
+
+\newpage
+\dem Definiremos el siguiente conjunto auxiliar: \\[-3ex]
+$$\mathcal{N} := \{N \in \mathcal{P}(X) : \exists \hspace{1mm} B \in \Sigma \text{ tal que } N \subseteq B \text{ y } \mu(B) = 0\} $$
+\\[-4ex]
+Intuitivamente, $\mathcal{N}$ contiene todos los conjuntos que podrían faltarle a $\Sigma$ para que $(X, \Sigma, \mu)$ fuese un espacio de medida completo.
+Veamos cómo expandir $\Sigma$ incluyendo estos conjuntos sin introducir otros nuevos que necesitemos completar.
+
+\vspace{2mm} \noindent
+Basta considerar la siguiente definición de $\tilde{\Sigma}$: \\[-2.5ex]
+$$\tilde{\Sigma} := \{A \cup N : A \in \Sigma, N \in \mathcal{N}\}$$
+
+Para verificar que $\tilde{\Sigma}$ cumple las propiedades que deseamos, introduciremos la siguiente observación:
+Sean $A \in \Sigma, N \in \mathcal{N}$. Existen $N_0 \in \mathcal{N}$, $M \in \Sigma$ tales que:
+\\[-5ex]
+\begin{flalign*}
+    A \cup N = A \cup N_0 &&
+    N_0 \subseteq M &&
+    \mu(M) = 0 &&
+    A \cap M = \varnothing
+\end{flalign*}
+\\[-6ex]
+Veamos la demostración:
+%Observación dentro de una demostración mayor
+\begin{adjustwidth}{0.10\textwidth}{}
+    Al considerar $N_0 := N \setminus A$ es claro que $A \cup N = A \cup (N \setminus A) = A \cup N_0$.
+    \newline
+    Como $N\in \mathcal{N}$, se tiene que $\exists \hspace{1mm} B \in \Sigma$ con $N \subseteq B$ y $\mu(B) = 0$. 
+    \newline
+    Así, tomando $M := B \setminus A \in \Sigma$ se cumple $A \cap M = \varnothing$.
+    \newline
+    Además, $N \subseteq B \Rightarrow N_0 = N \setminus A \subseteq B \setminus A = M$.
+    \newline
+    Finalmente, $M \subseteq B \Rightarrow 0 \leq \mu(M) \leq \mu(B) = 0 \Rightarrow \mu(M) = 0$.
+\end{adjustwidth}
+\vspace{4mm}
+Comprobemos ahora que $\tilde{\Sigma}$ es en efecto una $\sigma$-álgebra de $X$.
+
+\vspace{4mm} \noindent
+$(S.1)$ Buscamos $\varnothing \in \tilde{\Sigma}$
+\begin{adjustwidth}{0.10\textwidth}{}
+    Para ello hay que expresar $\varnothing = A \cup N$ con $A \in \Sigma$, $N \in \mathcal{N}$.
+    \newline \noindent
+    Tenemos que $\varnothing \in \Sigma$ por ser $\Sigma$ una $\sigma$-álgebra.
+    \newline \noindent
+    Además, $\varnothing \subseteq \varnothing$ con $\varnothing \in \Sigma$ y $\mu(\varnothing) = 0$.
+    \newline \noindent
+    Por tanto, tenemos que $\varnothing \in \mathcal{N}$ al tomar $B = \varnothing$ en la definición de $\mathcal{N}$.
+    \newline \noindent
+    Así, tomando $A = N = \varnothing$, \hspace{1mm}$\varnothing = A \cup N= \varnothing \cup \varnothing \in \tilde{\Sigma}$.
+\end{adjustwidth}
+\vspace{4mm}\noindent
+$(S.2)$ Sean $\{E_i : i \in \N\} \subseteq \tilde{\Sigma}$, buscamos $\smallcup_{i\in\N}E_i \in \tilde{\Sigma}$.
+\begin{adjustwidth}{0.1\textwidth}{}
+    Por definición de $\tilde{\Sigma}$, $\forall \hspace{1mm} j \in \N :$ $E_j = A_j \cup N_j$ con $A_j \in \Sigma$, $N_j \in \mathcal{N}$.
+    \vspace{2mm}\newline\noindent
+    Entonces, \hspace{1mm} $\smallcup_{i \in \N}E_i = \smallcup_{i\in\N}(A_i \cup N_i) = \big(\smallcup_{i\in\N}A_i\big)\cup\big(\smallcup_{i\in\N}N_i\big)$.
+    \vspace{3mm} \newline \noindent
+    Se tiene $\smallcup_{i\in\N}A_i \in \Sigma$. Queda ver $\smallcup_{i\in\N}N_i \in \mathcal{N}$ para llegar al resultado.
+    \newpage \noindent
+    Por definición de $\mathcal{N}$, $\forall \hspace{1mm} j \in \N :$  $\exists \hspace{1mm} B_j \in \Sigma$ con $N_j \subseteq B_j$ y $\mu(B_j) = 0$.
+    \vspace{3mm} \newline \noindent
+    Así, $\smallcup_{i\in\N}N_i \subseteq \smallcup_{i\in\N}M_i$ y $0 \leq \mu(\smallcup_{i\in\N}B_i) \leq \smallsum_{i\in\N}\mu(B_i) = 0$ por subaditividad.
+    \vspace{2mm} \newline \noindent
+    Por todo lo anterior, $\smallcup_{i\in\N}N_i \in \mathcal{N} \Rightarrow \smallcup_{i\in\N}E_i \in \tilde{\Sigma}$.
+\end{adjustwidth}
+
+\vspace{4mm} \noindent
+$(S.3)$ Sea $E \in \tilde{\Sigma}$, buscamos $E^c = X \setminus E \in \tilde{\Sigma}$.
+\begin{adjustwidth}{0.1\textwidth}{}
+    Razonando como antes, $E = A \cup N$ con $A \in \Sigma, N \in \mathcal{N}$.
+    \newline
+    Por la observación anterior, sabemos que:
+    $\exists \hspace{1mm} M \in \Sigma$, $N_0 \in \mathcal{N}$ tales que:
+    \\[-5ex]\begin{align*}
+        E = A \cup N = A \cup N_0 &&
+        N_0 \subseteq M &&
+        M \cap A = \varnothing &&
+        \mu(M) = 0
+    \end{align*}
+    Así, $E = A \cup N_0 = A \cup (M\cap N_0) = (A \cup M)\cap (A \cup N_0)$.
+\end{adjustwidth}
 \end{document}
