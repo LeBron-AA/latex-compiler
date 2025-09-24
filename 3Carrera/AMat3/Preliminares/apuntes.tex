@@ -62,6 +62,7 @@
 \newcommand{\smallcup}{\mathop{\cup}\limits}
 \newcommand{\smallcap}{\mathop{\cap}\limits}
 \newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
 
 \newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
 
@@ -1262,5 +1263,127 @@ $(S.3)$ Sea $E \in \tilde{\Sigma}$, buscamos $E^c = X \setminus E \in \tilde{\Si
         \mu(M) = 0
     \end{align*}
     Así, $E = A \cup N_0 = A \cup (M\cap N_0) = (A \cup M)\cap (A \cup N_0)$.
+
+    Aplicando las leyes de De Morgan, $E^c = (A \cup M)^c \cup (A \cup N_0)^c$.
+
+    Centrándonos en este segundo término, como $N_0 \subseteq M$, se tiene:
+    \vspace{-2.5ex}
+    \begin{flalign*}
+        (A \cup N_0)^c &= A^c \cap N_0^c = A^c \cap \big((M \setminus N) \cup M^c\big) = \\
+        &= \big(A^c \cap (M \setminus N_0)\big) \cup (A^c \cap M^c) = (M \setminus N_0) \cup (A \cup M)^c
+    \end{flalign*}
+    De este modo, $E^c = (A \cup M)^c \cup (M \setminus N_0)$.
+    \vspace{1mm} \newline
+    Como $(A \cup M)^c \in \Sigma$, y $(M \setminus N_0) \in \mathcal{N}$, se tiene que $E^c \in \tilde{\Sigma}$.
 \end{adjustwidth}
+\vspace{6mm}
+Veamos ahora cómo extender $\mu$ a $\tilde{\mu}$ para que abarque $\tilde{\Sigma}$.
+\\[-4ex]
+\begin{align*}
+    \tilde{\mu} : \tilde{\Sigma} : \longrightarrow [0, + \infty] &&
+    E \longmapsto \tilde{\mu}(E) := \mu(A) \text{ donde } E = A \cup N \text{ con } A \in \Sigma, N \in \mathcal{N}
+\end{align*}
+
+Veamos en primer lugar que $\tilde{\mu}$ está bien definida. Es decir, un mismo conjunto $E \in \tilde{\Sigma}$ tiene siempre
+la misma medida sin importar la descomposición que consideremos. Sea $E = A_1 \cup N_1 = A_2 \cup N_2 \in \tilde{\Sigma}$ con
+$A_1, A_2 \in \Sigma$, $N_1, N_2 \in \mathcal{N}$, buscamos comprobar que $\mu(A_1) = \mu(A_2)$.
+\vspace{2mm}
+\begin{adjustwidth}{0.1\textwidth}{}
+    Para cada $i=1,2$ $N_i \in \mathcal{N} \Rightarrow \exists \hspace{1mm} B_i \in \Sigma$ tal que $N_i \subseteq B_i$ y $\mu(B) = 0$.
+    \newline
+    Así, $A_1 \subseteq A_1 \cup N_1 = A_2 \cup N_2 \subseteq A_2 \cup B_2$.
+    \newline
+    Por tanto, $\mu(A_1) \leq \mu(A_2 \cup B_2) \leq \mu(A_2) + \mu(B_2) = \mu(A_2)$.
+    \newline
+    Análogamente, $\mu(A_2) \leq \mu(A_1)$ luego $\mu(A_1) = \mu(A_2)$.
+\end{adjustwidth}
+
+\vspace{4mm}
+Veamos ahora que $\tilde{\mu}$ es en efecto una medida.
+
+\vspace{2mm}
+$(M.1)$ Buscamos $\tilde{\mu}(\varnothing) = 0$.
+\begin{adjustwidth}{0.1\textwidth}{}
+    Basta ver tomar $A = N = \varnothing$ en la definición de $\tilde{\Sigma}$.
+    \newline
+    Aplicando $(M.1)$ en $\mu$, $\tilde{\mu}(\varnothing) = \mu(\varnothing) = 0$.
+\end{adjustwidth}
+
+\vspace{5mm}
+$(M.2)$ Sean $\{E_i : i \in \N\} \subseteq \tilde{\Sigma}$ disjuntos, buscamos $\tilde{\mu}(\smallcup_{i\in\N}E_i) = \smallsum_{i\in\N}\tilde{\mu}E_i$.
+\begin{adjustwidth}{0.1\textwidth}{}
+    \vspace{1mm}
+    Para cada $i \in \N$, existen $A_i\in \Sigma$, $N_i \in \mathcal{N}$ tales que $E_i = A_i \cup N_i$.
+    \vspace{1mm}\newline
+    Así, aplicando la definición de $\tilde{\mu}$ y aplicando $(M.2)$ en $\mu$,
+    \\[-3ex]
+    $$\tilde{\mu}(\smallcup_{i\in\N}E_i) = \tilde{\mu}(\smallcup_{i\in\N}A_i \cup N_i) = \mu(\smallcup_{i\in\N}A_i) = \smallsum_{i\in\N}\mu(A_i) = \smallsum_{i\in\N}\tilde{\mu}(E_i)$$
+\end{adjustwidth}
+
+\vspace{4mm}
+Es claro que $\tilde{\mu}_{|\Sigma} = \mu$ pues se cumple:
+\\[-3ex]
+$$ A \in \Sigma \Rightarrow A = A \cup \varnothing \text{ con } \mu(\varnothing) = 0 \text{ luego } \tilde{\mu}(A) = \mu(A)$$
+
+\vspace{2mm}
+Comprobemos ahora que $(X, \tilde{\Sigma}, \tilde{\mu})$ es un espacio de medida completo.
+Sean $E \subseteq F \in \tilde{\Sigma}$ con $\tilde{\mu}(F) = 0$, buscamos $E \in \tilde{\Sigma}$.
+\begin{adjustwidth}{0.1\textwidth}{}
+    \vspace{1mm}
+    Por definición, $F = A \cup N$ para ciertos $A \in \Sigma, N \in \mathcal{N}$.
+    \newline
+    Además, $N \in \mathcal{N} \Rightarrow \exists \hspace{1mm} B \in \Sigma$ tal que $N \subseteq B$ y $\mu(B) = 0$.
+    \newline
+    Por hipótesis, $\tilde{\mu}(F) := \mu(A) = 0$.
+    \newline
+    Así, $E \subseteq F = A \cup N \subseteq A \cup B$, \hspace{1mm} y \hspace{1mm} $\mu(A\cup B) \leq \mu(A) + \mu(B) = 0$.
+    \newline
+    Por tanto, $E \in \mathcal{N} \subseteq \tilde{\Sigma}$.
+\end{adjustwidth}
+
+\vspace{6mm}
+Por último, queda comprobar que la compleción es el mínimo espacio de medida completo que contiene al original. Sea $(X, \Omega, \nu)$ un espacio de medida completo tal que $\Sigma \subseteq \Omega$ y $\nu_{|\Sigma} = \mu$. Entonces, $\tilde{\Sigma} \subseteq \Omega$.
+\begin{adjustwidth}{0.1\textwidth}{}
+    Por ser $(X, \Omega, \nu)$ completo, $\mathcal{N} \subseteq \Omega$.
+    \newline
+    Además, $\Sigma \subseteq \Omega$ por hipótesis.
+    \newline
+    De este modo, se cumple:
+    \begin{flalign*}
+        \left. \begin{array}{l}
+            A \in \Sigma \\ N \in \mathcal{N}
+        \end{array}\right\} A \cup N \in \Omega \text{ aplicando }(S.2) \text{ en } \Omega
+    \end{flalign*}
+    Concluimos que $\tilde{\Sigma} \subseteq \Omega$.
+\end{adjustwidth}
+\vspace{2mm}
+Hemos demostrado que se cumplen todas las hipótesis.
+
+\newpage
+\chapter{El espacio de medida de Lebesgue \texorpdfstring{$(R^N, \mathfrak{M}_N, \mu_N)$}{(R\^N, M\_N, mu\_n))}}
+\result{Definiciones de intervalos y cubos}
+\hspace{3mm} Llamaremos ``intervalo degenerado'' a cualquier conjunto vacío o unitario (unipuntual). Por ejemplo $\varnothing = (2, -1=$), $\{a\} = [a,a] \hspace{2mm} \forall \hspace{1mm} a \in \R$.
+
+\vspace{2mm}
+Denominamos ``cubo de $\R^N$'' a cualquier conjunto $C = I_1 \times \ldots \times I_N$ donde $I_i$ es un intervalo $\hspace{2mm} \forall \hspace{1mm} i \in \{1,\ldots, N\}$.
+Si al menos uno de los intervalos que forman el cubo es degenerado, diremos que es un ``cubo degenerado de $\R^N$''.
+
+\vspace{4mm}
+\result{Definición del volumen de un cubo}
+Sea $C = I_1 \times \ldots \times I_N$ un cubo de $\R^N$ con $a_j, b_j \in \overline{\R}$ los extremos de cada intervalo $I_j$. Llamaremos ``volumen de $C$'' a su imagen por la siguiente función:
+\begin{flalign*}
+    v(C) := \begin{cases}
+        0 &\text{ si } C \text{ es degenerado} \\
+        \smallprod_{i = 1}^{N} |b_i - a_i| &\text{ en caso contrario}
+    \end{cases}
+\end{flalign*}
+
+\vspace{4mm}
+\result{Definición de medida exterior}
+\hspace{3mm} Sea $A$ un subconjunto cualquiera de $\R^N$, se define su medida exterior como el número dado por:
+$$\mu_N^* (A) := \inf \left\{\sum_{i=1}^{\infty}v_N(I_i) : \{I_i : i \in \N\} \text{ cubos abiertos que recubren }A\right\} \in [0, +\infty]$$
+Donde $v_N$ es la el \hyperref[result:1.2.2]{volumen de los cubos anterior}.
+
+\vspace{1mm}
+\nota A pesar de su nombre, la medida exterior no es una medida.
 \end{document}
