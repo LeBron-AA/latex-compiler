@@ -1,0 +1,20 @@
+/* Estilo para el despliegue del visor de PDF */
+embed {
+    width: 100%;
+    height: 100vh; /* 90% de la altura de la ventana */
+    border: none;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Estilo de los hipervínculos sin seleccionar */
+a {
+    color: #2271c0;
+    text-decoration: none;
+}
+
+/* Estilo de los hipervínculos cuando está el ratón encima */
+a:hover {
+    color: #1ecae0;
+    text-decoration: underline;
+}
