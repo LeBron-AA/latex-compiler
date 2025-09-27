@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  24 SEP 2025 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  27 SEP 2025 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,11 +620,11 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 LaTeX Font Info:    Trying to load font information for U+euf on input line 35.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-))
+) [2])
 \tf@toc=\write5
 \openout5 = `apuntes.toc'.
 
- [2] [3] [4]
+ [3] [4]
 Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
@@ -784,27 +784,42 @@ Overfull \hbox (1.94246pt too wide) detected at line 1384
 \OML/cmm/m/it/12 ^^V[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A\OT1/cmr/m/n/12 ) := [] [] \OMS/cmsy/m/n/12 2 \OT1/cmr/m/n/12 [0\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 +\OMS/cmsy/m/n/12 1\OT1/cmr/m/n/12 ]
  []
 
-[32] (./apuntes.aux)
+[32] [33]
+
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 1454.
+
+
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 1454.
+
+Missing character: There is no º in font cmr8!
+
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 1454.
+
+
+LaTeX Warning: Command \textordmasculine invalid in math mode on input line 1454.
+
+Missing character: There is no º in font cmr8!
+[34] (./apuntes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `apuntes.out' has not changed.
-(rerunfilecheck)             Checksum: B77ADAE7831DC8E28799891AB747F49B;9452.
+(rerunfilecheck)             Checksum: FC95969ED03A1340CF3C69A50A17E79A;10240.
  ) 
 Here is how much of TeX's memory you used:
- 25921 strings out of 476182
- 508047 string characters out of 5795595
+ 25937 strings out of 476182
+ 508283 string characters out of 5795595
  1953975 words of memory out of 5000000
- 47434 multiletter control sequences out of 15000+600000
+ 47442 multiletter control sequences out of 15000+600000
  570715 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,20n,93p,595b,948s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/codespace/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1728.600pk> </home/codespace/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on apuntes.pdf (32 pages, 236208 bytes).
+ </home/codespace/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1728.600pk> </home/codespace/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on apuntes.pdf (34 pages, 252271 bytes).
 PDF statistics:
- 470 PDF objects out of 1000 (max. 8388607)
- 402 compressed objects within 5 object streams
- 91 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 504 PDF objects out of 1000 (max. 8388607)
+ 432 compressed objects within 5 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 347 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1384,6 +1384,75 @@ Sea $C = I_1 \times \ldots \times I_N$ un cubo de $\R^N$ con $a_j, b_j \in \over
 $$\mu_N^* (A) := \inf \left\{\sum_{i=1}^{\infty}v_N(I_i) : \{I_i : i \in \N\} \text{ cubos abiertos que recubren }A\right\} \in [0, +\infty]$$
 Donde $v_N$ es la el \hyperref[result:1.2.2]{volumen de los cubos anterior}.
 
-\vspace{1mm}
+\vspace{3mm}
 \nota A pesar de su nombre, la medida exterior no es una medida.
+
+\newpage
+\result{Corolario de la definición anterior}
+\hspace{3mm} Sea $A$ un conjunto cualquiera, introducimos la siguiente notación:
+$$\mathcal{M}(A) := \left\{\sum_{i=1}^{\infty}v_N(I_i) : \{I_i : i \in \N\} \text{ cubos abiertos que recubren }A\right\}$$
+
+Por definición, $\mu^*_N(A) := \inf \mathcal{M}(A)$. Así, sean $\{I_i : i \in\N\}$ cubos abiertos tales que $A \subseteq \smallcup_{i\in\N}I_i$;
+entonces $\smallsum_{i=1}^\infty v_N(I_i) \in \mathcal{M}(A)$ luego $\mu^*_N(A) \leq \smallsum_{i=1}^\infty(I_i)$ por definición de ínfimo.
+
+\vspace{2mm} De manera similar, sea $\varepsilon > 0$, si $\mu^*_N(A) < \infty$, podemos encontrar $\{I_i : i\in\N\}$ cubos abiertos con $A \subseteq \smallcup_{i\in\N}I_i$
+tales que $\smallsum_{i=1}^\infty v_N(I_i) < \mu^*_N(A) + \varepsilon$.
+De no ser así, se contradiría la definición de ínfimo. Si $\mu^*_N(A) = +\infty$, la desigualdad ha de ser no estricta.
+
+\vspace{6mm}
+\result{Ejemplos básicos de medida exterior}
+$\romannumeral 1)$ $\mu^*_N(\varnothing) = 0 \hspace{1mm}$  pues $\varnothing \subseteq \varnothing \cup \varnothing \cup \ldots \hspace{2mm}$
+Así, $0 \leq \mu^*_N(\varnothing) \leq \smallsum_{i=1}^{\infty}v_N(\varnothing) = 0$.
+
+\vspace{4mm} \noindent
+$\romannumeral 2)$ Sea $C = I_1 \times \ldots \times I_N$ un cubo degenerado acotado; entonces $\mu^*_N(C) = 0$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Si $C = \varnothing$ ya se tiene por el apartado anterior.
+    \newline En caso contrario, $\exists \hspace{1mm} j \in \{1,\ldots,N\}$ tal que $I_j$ = $\{a\}$ para cierto $a \in \R$.
+    \newline Supongamos $j=1$ por simplicidad (el resto de casos son análogos).
+    \newline Para cada $I_k$ denotamos $a_k$ y $b_k$ a sus extremos izquierdo y derecho.
+    \newline Sea $\varepsilon > 0$, $C \subseteq C_\varepsilon := (a - \varepsilon, a + \varepsilon) \times (a_2 - \varepsilon, b_2 + \varepsilon) \times \ldots \times (a_N - \varepsilon, b_N + \varepsilon)$.
+    \newline Así, $0 \leq \mu^*_N(C) \leq v_N(C\varepsilon) = 2\varepsilon \cdot (b_2 -a_2 +2\varepsilon)  \cdot \ldots \cdot (b_N - a_N + 2\varepsilon) \xrightarrow{\varepsilon \to 0}0$
+\end{adjustwidth}
+
+\vspace{4mm} \noindent
+$\romannumeral 4)$ Sea $A$ numerable (puede ser no acotado); entonces, $\mu^*_N(A) = 0$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Por ser $A$ numerable, es de la forma $A = \{a_n : n \in \N\}$.
+    \newline Sea $\varepsilon > 0$ cualquiera pero fijo, se cumple: $\varepsilon = \frac{\varepsilon}{2} + \frac{\varepsilon}{4} + \ldots = \smallsum_{n=1}^{\infty}\frac{\varepsilon}{2^n}$.
+    \newline Para cada $a_n$ tomamos un cubo abierto $I_n$ de volumen $\frac{\varepsilon}{2^n}$ tal que $a_n \in I_n$.
+    \newline Así, $0 \leq \mu^*_N(A) \leq \smallsum_{i=1}^{\infty}v_N(I_i) = \smallsum_{n=1}^{\infty}\frac{\varepsilon}{2^n} = \varepsilon \xrightarrow{\varepsilon \to 0}0$.
+\end{adjustwidth}
+
+\newpage
+\result{Proposición de propiedades de \texorpdfstring{$\mu^*_N$}{mu\^*\_N}}
+\hspace{1mm} $\mu^*_N$ cumple las siguientes propiedades:
+\begin{enumerate}[label=\roman*)]
+    \item Monotonía: Sean $A \subseteq B \subseteq \R^N$. Entonces, $\mu^*_N(A) \leq \mu^*_N(B)$.
+    \item Subaditividad: $\{A_i : i \in \N\} \subseteq \mathcal{P}(\R^N) \Rightarrow \mu^*_N(\smallcup_{i\in\N}A_i) \leq \smallsum_{i=1}^{\infty}\mu^*_M(A_i)$
+    \item Para todo cubo compacto de $\R^N$, $C$, $\mu^*_N(C) = v_N(C) = v_N(C^\circ) = \mu^*_N(C^\circ)$.
+\end{enumerate}
+
+\vspace{3mm} \dem
+
+\vspace{2mm} \noindent
+$\romannumeral 1)$ Seguiremos la notación del \hyperref[result:1.2.4]{corolario 1.2.4}.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Como $A \subseteq B$ por hipótesis, todo recubrimiento por cubos abiertos de $B$ es un recubrimiento de $A$ también.
+    \newline De este modo, $\mathcal{M}(B) \subseteq \mathcal{M}(A)$.
+    \newline Por tanto, $\mu^*_N(A) = \inf \mathcal{M}(A) \leq \inf \mathcal{M}(B) = \mu^*_N(B)$.
+\end{adjustwidth}
+\vspace{4mm} $\romannumeral 2)$ Veamos que se cumple la subaditividad.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Sea $\varepsilon > 0$ cualquiera pero fijo, $\varepsilon = \smallsum_{n=1}^{\infty} \frac{\varepsilon}{2^n} = \smallsum_{n=1}^{\infty}\varepsilon_n$.
+    \vspace{2mm} \newline Para cada $A_n$ y cada $\varepsilon_n$, aplicando el \hyperref[result:1.2.4]{colorario 1.2.4} $\exists \hspace{1mm} \{I_{n,i} : i \in \N\}$ cubos abiertos tales que $A_n \subseteq \smallcup_{i\in\N}I_{n,i}$ y $\smallsum_{i=1}^{\infty}v_N(I_{n,i}) \leq \mu^*_N(A_N) + \varepsilon_n$.
+    \vspace{1mm} \newline Se cumple $\smallcup_{n\in\N}A_n \subseteq \smallcup_{n\in\N}\smallcup_{i\in\N}I_{n,i} \hspace{1mm}$ con $\hspace{1mm} \{I_{n,i} : n,i \in \N\}$ numerable.
+    \newline Por todo lo anterior,
+    \begin{flalign*}
+        \mu^*_N(A_n) &\leq \smallsum_{n,i}I_{n,i} \overset{(*_1)}{=} \smallsum_{n=1}^\infty \smallsum_{i=1}^\infty v_N(I_{n,i}) \leq \smallsum_{n=1}^\infty \mu^*_N(A_n) + \varepsilon_n \overset{(*_2)}{=}\\
+        &\overset{(*_2)}{=} \sum_{n=1}^{\infty} \mu^*_N(A_n) + \sum_{n=1}^{\infty}\varepsilon_n = \varepsilon + \sum_{n=1}^{\infty} \mu^*_N(A_n) \xrightarrow{\varepsilon \to 0} \sum_{n=1º}^{\infty}\mu^*_N(A_n)
+    \end{flalign*}
+    $(*_1)$ Se debe a la no negatividad de los términos sumados.
+    \newline $(*_2)$ Al ser no negativas, las series o convergen o divergen, luego podemos descomponer en dos sumatorios distintos.
+\end{adjustwidth}
 \end{document}
