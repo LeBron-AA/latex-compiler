@@ -1481,5 +1481,65 @@ Sea $\varepsilon > 0$ cualquiera pero fijo, \hyperref[result:1.2.4]{por (1.2.4)}
 Por ser $C$ compacto, podemos fijar $n \in \N$ tal que $C \subseteq \smallcup_{i=1}^n I_i$. Por ser acotados, cada $I_k$  con $k \in \{1,\ldots,n\}$ va a ser de la forma $(a_k, b_k)$. El conjunto de extremos de estos intervalos es finito, luego el siguiente conjunto también lo será:
 $$\mathcal{A} := [a,b] \cap \left(\Big\{a_k,b_k : k \in \{1,\ldots, n\} \Big\} \cup \{a,b\}\right) $$
 
-Este conjunto contiene los extremos del intervalo $C$ original, así como los extremos de los $I_k$ que se encuentren dentro de $C$.
+Este conjunto contiene los extremos del intervalo $C$ original, así como los extremos de los $I_k$ que se encuentren dentro de $C$. Como $\mathcal{A}$ es finito, fijamos $m\in\N$ tal que $\card{\mathcal{A}} = m+1$.
+Podemos ordenar este conjunto; es decir, podemos renombrar sus elementos para que se cumpla:
+\begin{align*}
+    \mathcal{A} = \Big\{x_i : i \in \{0,1,\ldots,m\} \Big\} &&
+    \text{ donde } a = x_0 < x_1 < x_2 <\ldots < x_{m-1} < x_m = b
+\end{align*}
+
+Sea $j \in \{1,\dots,m\}$ cualquiera pero fijo, $(x_{j-1}, x_j) \subseteq C \subseteq \smallcup_{i=1}^n I_i$, luego $\exists k \in \{1,\ldots,n\}$ tal que $I_k \cap (x_{j-1}, x_j) \neq \varnothing$. Veamos que $(x_{j-1}, x_j) \subseteq I_k$.
+
+\noindent
+Ambos conjuntos son conexos y abiertos, luego su intersección ha de serlo también:
+\\[-4ex]
+\begin{align*}
+    (x_{j-1}, x_j) \cap I_k = (u,v) &&
+    \text{ donde } \hspace{2mm} u = \max\{x_{j-1}, a_k\}, \hspace{1mm} v = \min\{x_j, b_k\}
+\end{align*}
+\begin{enumerate}
+    \item Si $u = a_k$, se tiene que $x_{j-1} < a_k \Rightarrow a_k \in (x_{j-1}, x_j)$.
+    \item Si $v = b_k$, se tiene que $x_j > b_k \Rightarrow b_k \in (x_{j-1}, x_j)$.
+\end{enumerate}
+En cualquier caso, se tiene que hay un extremo de $I_k$ en $(x_{j-1}, x_j)$, lo que contradice la definición de $\mathcal{A}$.
+Por tanto, $u = x_{j-1}$,$v = x_j$ y $(x_{j-1}, x_j) \subseteq I_k$. Veamos una ilustración de cómo se obtienen los elementos de $\mathcal{A}$
+a partir de los $I_k$:
+
+\vspace{6mm}
+\begin{center}
+\begin{tikzpicture}
+    { %Bloque con variables locales
+        %Definición de variables locales
+        \def\radioC{5}
+        \def\radioR{7}
+
+        %Dibujamos la recta real
+        \draw[<->,black,dashed] (-\radioR,0) -- (\radioR,0);
+        % Dibujamos C = (a,b)
+        \draw[-,black,thick] (-\radioC,0) -- (\radioC,0);
+        \draw[-, black, thick] (0.1403733-\radioC, -0.38567) arc [start angle = 40, end angle = -40, radius=-0.6] node[anchor = north, yshift=-8mm] {$a$};
+        \draw[-, black, thick] (-0.1403733 +\radioC, 0.38567) arc [start angle = 40, end angle = -40, radius=0.6] node [anchor=south, yshift =-6mm] {$b$};
+        
+    
+    
+        %Colores del bucle
+        \def\cdraw{DarkOliveGreen4}
+        \def\cdrawL{DodgerBlue2}
+        \def\cdrawR{HotPink2}
+        %Dibujamos los intervalos como izq/der/altura
+        \foreach \lbound/\rbound/\dheight in {-6/-4/3, -4.5/-2/2, -3/0/3, -1/1.5/2, 1/2.5/3, 2.3/4/2, 3.5/6/3} {
+            \draw[-, \cdraw] (\lbound, \dheight) -- (\rbound, \dheight);
+            \draw[-, thick, \cdrawL] (0.0935822 + \lbound, -0.25711 + \dheight) arc [start angle = 40, end angle = -40, radius=-0.4];
+            \draw[-, thick, \cdrawR] (-0.0935822 +\rbound, 0.25711 + \dheight) arc [start angle = 40, end angle = -40, radius=0.4];
+
+            \ifdim \lbound pt > -\radioC pt
+                \draw[-, \cdrawL, dashed] (\lbound, \dheight) -- (\lbound, 0);
+            \fi
+            \ifdim \rbound pt < \radioC pt
+                \draw[-, \cdrawR, dashed] (\rbound, \dheight) -- (\rbound, 0);
+            \fi
+        }
+    } %Fin del bloque de variables locales
+\end{tikzpicture}
+\end{center}
 \end{document}
