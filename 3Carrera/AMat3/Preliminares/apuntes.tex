@@ -1372,7 +1372,7 @@ Si al menos uno de los intervalos que forman el cubo es degenerado, diremos que 
 \result{Definición del volumen de un cubo}
 Sea $C = I_1 \times \ldots \times I_N$ un cubo de $\R^N$ con $a_j, b_j \in \overline{\R}$ los extremos de cada intervalo $I_j$. Llamaremos ``volumen de $C$'' a su imagen por la siguiente función:
 \begin{flalign*}
-    v(C) := \begin{cases}
+    v_N(C) := \begin{cases}
         0 &\text{ si } C \text{ es degenerado} \\
         \smallprod_{i = 1}^{N} |b_i - a_i| &\text{ en caso contrario}
     \end{cases}
@@ -1416,7 +1416,7 @@ $\romannumeral 2)$ Sea $C = I_1 \times \ldots \times I_N$ un cubo degenerado aco
 \end{adjustwidth}
 
 \vspace{4mm} \noindent
-$\romannumeral 4)$ Sea $A$ numerable (puede ser no acotado); entonces, $\mu^*_N(A) = 0$.
+$\romannumeral 3)$ Sea $A$ numerable (puede ser no acotado); entonces, $\mu^*_N(A) = 0$.
 \begin{adjustwidth}{0.07\textwidth}{}
     Por ser $A$ numerable, es de la forma $A = \{a_n : n \in \N\}$.
     \newline Sea $\varepsilon > 0$ cualquiera pero fijo, se cumple: $\varepsilon = \frac{\varepsilon}{2} + \frac{\varepsilon}{4} + \ldots = \smallsum_{n=1}^{\infty}\frac{\varepsilon}{2^n}$.
@@ -1430,7 +1430,6 @@ $\romannumeral 4)$ Sea $A$ numerable (puede ser no acotado); entonces, $\mu^*_N(
 \begin{enumerate}[label=\roman*)]
     \item Monotonía: Sean $A \subseteq B \subseteq \R^N$. Entonces, $\mu^*_N(A) \leq \mu^*_N(B)$.
     \item Subaditividad: $\{A_i : i \in \N\} \subseteq \mathcal{P}(\R^N) \Rightarrow \mu^*_N(\smallcup_{i\in\N}A_i) \leq \smallsum_{i=1}^{\infty}\mu^*_M(A_i)$
-    \item Para todo cubo compacto de $\R^N$, $C$, $\mu^*_N(C) = v_N(C) = v_N(C^\circ) = \mu^*_N(C^\circ)$.
 \end{enumerate}
 
 \vspace{3mm} \dem
@@ -1450,9 +1449,37 @@ $\romannumeral 1)$ Seguiremos la notación del \hyperref[result:1.2.4]{corolario
     \newline Por todo lo anterior,
     \begin{flalign*}
         \mu^*_N(A_n) &\leq \smallsum_{n,i}I_{n,i} \overset{(*_1)}{=} \smallsum_{n=1}^\infty \smallsum_{i=1}^\infty v_N(I_{n,i}) \leq \smallsum_{n=1}^\infty \mu^*_N(A_n) + \varepsilon_n \overset{(*_2)}{=}\\
-        &\overset{(*_2)}{=} \sum_{n=1}^{\infty} \mu^*_N(A_n) + \sum_{n=1}^{\infty}\varepsilon_n = \varepsilon + \sum_{n=1}^{\infty} \mu^*_N(A_n) \xrightarrow{\varepsilon \to 0} \sum_{n=1º}^{\infty}\mu^*_N(A_n)
+        &\overset{(*_2)}{=} \sum_{n=1}^{\infty} \mu^*_N(A_n) + \sum_{n=1}^{\infty}\varepsilon_n = \varepsilon + \sum_{n=1}^{\infty} \mu^*_N(A_n) \xrightarrow{\varepsilon \to 0} \sum_{n=1}^{\infty}\mu^*_N(A_n)
     \end{flalign*}
     $(*_1)$ Se debe a la no negatividad de los términos sumados.
     \newline $(*_2)$ Al ser no negativas, las series o convergen o divergen, luego podemos descomponer en dos sumatorios distintos.
 \end{adjustwidth}
+
+\newpage
+\result{Volumen de un intervalo real}
+\hspace{3mm} Sea $C = [a,b]$ con $a\leq b$ un intervalo real compacto. Entonces, se cumple:
+\\[-2ex]
+$$\mu^*(C) = v(C) = v(\mathring{C}) = \mu^*(\mathring{C})$$
+Donde $v = v_1$, $\mu^* = \mu^*_1$, y $\mathring{C} = \operatorname{int} C = (a,b)$.
+
+\vspace{4mm}
+\dem Vemos el caso $N = 1$ aunque el resto son análogos.
+
+\vspace{2mm}
+Por definición, $v(C) =b-a= v(\mathring{C})$. Veamos que $\mu^*(C) = \mu^*(\mathring{C})$. Por la \hyperref[result:1.2.6]{monotonía}, $\mathring{C} \subseteq C \Rightarrow$.
+Aplicando la \hyperref[result:1.2.6]{subaditividad}: \\[-4ex]
+\begin{flalign*}
+    \mu^*(\mathring{C}) \leq \mu^*(C) = \mu^*(\mathring{C} \cup \{a,b\}) \leq \mu^*(\mathring{C}) + \mu^*(\{a,b\})) = \mu^*(\mathring{C}) + 0
+\end{flalign*}
+\\[-5ex]
+Queda ver que $v(C) = \mu^*(C)$ para llegar a la conclusión deseada. Sabemos que $\mu^*(C) \leq v(C)$ por el \hyperref[result:1.2.4]{colorario 1.2.4}, luego basta ver que $\mu^*(C) \geq v(C)$.
+
+\vspace{4mm}
+Sea $\varepsilon > 0$ cualquiera pero fijo, \hyperref[result:1.2.4]{por (1.2.4)} existen $\{I_i : i\in\N\}$ intervalos abiertos tales que $C \subseteq \smallcup_{i\in\N}I_i$ y $\mu^*(C) + \varepsilon \geq \smallsum_{i=1}^\infty v(I_i)$. Nótese que debido a esta última condición han de ser todos acotados.
+
+\vspace{4mm}
+Por ser $C$ compacto, podemos fijar $n \in \N$ tal que $C \subseteq \smallcup_{i=1}^n I_i$. Por ser acotados, cada $I_k$  con $k \in \{1,\ldots,n\}$ va a ser de la forma $(a_k, b_k)$. El conjunto de extremos de estos intervalos es finito, luego el siguiente conjunto también lo será:
+$$\mathcal{A} := [a,b] \cap \left(\Big\{a_k,b_k : k \in \{1,\ldots, n\} \Big\} \cup \{a,b\}\right) $$
+
+Este conjunto contiene los extremos del intervalo $C$ original, así como los extremos de los $I_k$ que se encuentren dentro de $C$.
 \end{document}
