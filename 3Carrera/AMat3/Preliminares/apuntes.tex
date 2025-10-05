@@ -1505,10 +1505,15 @@ En cualquier caso, se tiene que hay un extremo de $I_k$ en $(x_{j-1}, x_j)$, lo 
 Por tanto, $u = x_{j-1}$,$v = x_j$ y $(x_{j-1}, x_j) \subseteq I_k$. Veamos una ilustración de cómo se obtienen los elementos de $\mathcal{A}$
 a partir de los $I_k$:
 
+{%Bloque con variables locales
+%Colores del bucle
+\def\cdraw{DarkOliveGreen4}
+\def\cdrawL{DodgerBlue2}
+\def\cdrawR{HotPink2}
 \vspace{6mm}
 \begin{center}
 \begin{tikzpicture}
-    { %Bloque con variables locales
+     
         %Definición de variables locales
         \def\radioC{5}
         \def\radioR{7}
@@ -1522,10 +1527,7 @@ a partir de los $I_k$:
         
     
     
-        %Colores del bucle
-        \def\cdraw{DarkOliveGreen4}
-        \def\cdrawL{DodgerBlue2}
-        \def\cdrawR{HotPink2}
+        
         %Dibujamos los intervalos como izq/der/altura
         \foreach \lbound/\rbound/\dheight in {-6/-4/3, -4.5/-2/2, -3/0/3, -1/1.5/2, 1/2.5/3, 2.3/4/2, 3.5/6/3} {
             \draw[-, \cdraw] (\lbound, \dheight) -- (\rbound, \dheight);
@@ -1539,7 +1541,203 @@ a partir de los $I_k$:
                 \draw[-, \cdrawR, dashed] (\rbound, \dheight) -- (\rbound, 0);
             \fi
         }
-    } %Fin del bloque de variables locales
 \end{tikzpicture}
 \end{center}
+Los elementos de $\mathcal{A}$ son los extremos \textcolor{\cdrawL}{izquierdos} y \textcolor{\cdrawR}{derechos} de los \textcolor{\cdraw}{intervalos $I_k$} que se encuentren dentro de $C = (a,b)$. Gráficamente, podemos obtenerlos "proyectando" como en la figura anterior.
+} %Fin del bloque de variables locales
+
+
+\vspace{4mm} \noindent
+De este modo, se cumple: \\[-2ex]
+$$v(C) =  v([a,b]) = \sum_{i=1}^{m}x_i - x_{i-1} \leq \sum_{k=1}^n v(I_k) \leq \sum_{k=1}^{\infty}v(I_k)  \leq \mu^*(C) + \varepsilon \xrightarrow{\varepsilon\to 0}\mu^*(C)$$
+
+\vspace{6mm} %TODO actualizar referencia
+\nota Esta demostración puede extenderse análogamente para cubos compactos de dimensión $N$ finita arbitrariamente grande. Alternativamente, un resultado de la hoja de ejercicios permite extender esta proposición habiendo demostrado únicamente el caso $N=1$.
+
+\newpage
+\result{Definición de conjunto medible Lebesgue}
+\hspace{3mm}
+Diremos que $E \subseteq \R^N$ es un conjunto medible Lebesgue si para todo cubo abierto acotado $C$ se cumple 
+$ V_N(C) = \mu^*_N(C \cap E) + \mu^*_N(C \cap E^c)$.
+
+\vspace{4mm}
+Como $v_N(C) = \mu^*_N (C) \leq \mu^*(C \cap E) + \mu^*(C \cap E^c)$ por la subaditividad, bastaría comprobar que $v_N(C) \geq \mu^*(C \cap E) + \mu^*(C\cap E^c)$.
+
+\vspace{4mm} \noindent
+A la colección de todos los conjuntos medibles de $\R^N$ la denotamos $\mathfrak{M}_N$.
+
+\vspace{6mm}
+\result{Definición de semiespacio de \texorpdfstring{$\R^N$}{R\^N}}
+\hspace{3mm}
+Diremos que $S = I_1 \times \ldots \times I_N \subseteq \R^N$ es un semiespacio si $\exists j \in \{1,\ldots,N\}$ tal que $k \neq j \Rightarrow I_k = \R$
+y además $I_j$ es de la forma $(-\infty, a)$, $(-\infty, a]$, $[a, +\infty)$, o $\hspace{1mm} (a, +\infty)$, para cierto $a \in \R$.
+
+\vspace{6mm}
+\result{Conjuntos que pertenecen a \texorpdfstring{$\mathfrak{M}_N$}{M\_N}}
+\begin{enumerate}[label=\roman*)]
+    \item $\mu^*_N(E) = 0 \Rightarrow E \in \mathfrak{M}_N$. En particular, $\varnothing \in \mathfrak{M}_N$.
+    \item $E \in \mathfrak{M}_N \Rightarrow E^c \in \mathfrak{M}_N$
+    \item Todo semiespacio abierto en $\R^N$ es medible Lebesgue.
+\end{enumerate}
+\dem
+
+\vspace{2mm}
+$\romannumeral 1)$ Sea $E \subseteq \R^N$ con $\mu^*_N(E) = 0$, sea $C$ un cubo abierto acotado de $\R^N$.
+Se tiene que $C \cap E \subseteq E$ luego este conjunto es también de medida exterior nula. Así, vemos que se cumple la definición aplicando la subaditividad: \\[-2ex]
+$$\mu^*_N(C \cap C) + \mu^*_N(C \cap E^c) = \mu^*_N(C \cap E^C) \leq \mu^*_N(C) = v_N(C)$$
+
+\vspace{4mm}
+$\romannumeral 2)$ Sea $E \in \mathfrak{M}_N$, sea $C$ cubo abierto y acotado de $\R^N$, se cumple: \\[-3ex]
+$$v_N(C) \overset{E \in \mathfrak{M}_N}{=} \mu^*_N(C \cap E) + \mu^*_N \big(C \cap E^c\big) = \mu^*_N(C \cap E^c) + \mu^*_N(C \cap (E^c)^c)$$
+\\[-4ex]Tenemos que $E^c \in \mathfrak{M}_N$ por definición.
+
+$\romannumeral 3)$ Sea $H = (a, +\inf) \times \R \overset{N-1}{\ldots} \times \R$ un semiespacio abierto  de $\R^N$ (el resto de casos son análogos).
+Sea $C = (a_1, b_1) \times \ldots \times (a_N,b_N)$ un cubo abierto acotado cualquiera. Se tiene:
+
+\vspace{-2mm}
+\begin{minipage}{0.5\textwidth}
+    $$C \cap H = I_1 \times (a_2, b_2) \times (a_N, b_N)$$
+    \\[-10ex]
+    \begin{flalign*}
+        \text{ donde } I_1 =
+        \begin{cases}
+            (a_1, b_1)  &\text{ si } a \leq a_1\\
+            (a, b_1)    &\text{ si } a_1 < a < b_1\\
+            \varnothing &\text{ si } a \geq b_1
+        \end{cases}&&
+    \end{flalign*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    $$C \cap H^c = I_1 \times (a_2, b_2) \times (a_N, b_N)$$
+    \\[-10ex]
+    \begin{flalign*}
+        \text{ donde } J_1 =
+        \begin{cases}
+            \varnothing  &\text{ si } a \leq a_1\\
+            (a_1, a]    &\text{ si } a_1 < a < b_1\\
+            (a_1, b_1) &\text{ si } a \geq b_1
+        \end{cases}&&
+    \end{flalign*}
+\end{minipage}
+\\[2ex]
+De los tres posibles casos, solo $a_1 < a <b_1$ es no trivial. En tal caso,
+$\mu^*_N(C \cap H) = v_N(C\cap H)$, $\mu^*_N(C \cap H^c) = v_N(C \cap H^c)$. Por tanto:
+\begin{flalign*}
+    \mu^*_N(C \cap H)& + \mu^*_N(C \cap H^c) = (b_2 - a_2) \cdot \ldots \cdot (b_N - a_N) \cdot (b_1 - a + a - a_1) =\\
+    =& (b_1 - a_1) \cdot (b_2 - a_2) \cdot \ldots \cdot (b_N - a_N) = v_N(C)
+\end{flalign*}
+Tenemos que $H \in \mathfrak{M}_N$ por definición.
+
+\vspace{6mm}
+\result{Caracterización de \texorpdfstring{$\mathfrak{M}_N$}{M\_n} por conjuntos cualesquiera}
+\hspace{3mm} Dado $E \subseteq \R^N$, los siguientes enunciados son equivalentes:
+\begin{enumerate}[label=\roman*)]
+    \item $E \in \mathfrak{M}_N$
+    \item $\forall A \subseteq \R^N$ se cumple $\mu^*_N(A) = \mu^*_N(A \cap E) + \mu^*_N(A \cap E^c)$
+    \item $\forall A \subseteq \R^N$ se cumple $\mu^*_N(A) \geq \mu^*_N(A \cap E)+ \mu^*_N(A \cap E^c)$
+\end{enumerate}
+\vspace{2mm}
+\dem Se tiene que $(\romannumeral 2)$ y $(\romannumeral 3)$ son equivalentes por la subaditividad.
+
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 1 \Rightarrow \romannumeral 2$ \hspace{3mm}
+    Si $\mu^*_N(A) = +\infty$ se cumple trivialmente. Veamos el caso finito.
+\end{tcolorbox}
+Si $\mu^*_N(A)<+\infty$, dado $\varepsilon > 0$, existen $\{I_i\}_{i \in \N}$ cubos abiertos tales que $A \subseteq \smallcup_{i\in\N}I_i$ y $\smallsum_{i=1}^{\infty}v_N(I_i) < \mu^*_N(A) + \varepsilon$.
+Esta segunda condición garantiza que los $I_i$ son todos acotados. Además, como $E \in \mathfrak{M}_N$, podemos reescribir la expresión como:
+\\[-3ex]
+\begin{align*}
+    \mu^*_N(&A) + \varepsilon \geq \sum_{i=1}^{\infty}v_N(I_i) \overset{E \in \mathfrak{M}_N}{=} \sum_{i=1}^{\infty}\mu^*_N(I_i \cap E) + \mu^*_N(I_i \cap E^c) \geq\\
+    &\geq \mu^*_N\left(\smallcup_{i\in\N}(I_i \cap E)\right) + \mu^*_N\left(\smallcup_{i\in\N}(I_i \cap E^c)\right) = \mu^*_N\left((\smallcup_{i\in\N} I_i) \cap E\right) + \mu^*_N\left((\smallcup_{i\in\N}I_i) \cap E^c\right) \geq \\
+    &\geq \mu^*_N(A \cap E) + \mu^*_N(A \cap E^c)
+\end{align*}
+Hemos utilizado la subaditividad y la monotonía para deducir las desigualdades. Para ver el resultado basta tomar límite cuando $\varepsilon \to 0$.
+
+\vspace{4mm}
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 2 \Rightarrow \romannumeral 1$ \hspace{3mm} Se cumple trivialmente.
+\end{tcolorbox}
+
+\vspace{6mm}
+\result{Propiedades de \texorpdfstring{$\mathfrak{M}_N$}{M\_N}}
+\hspace{3mm} Sean $E, F \in \mathfrak{M}_N$, entonces se cumple:
+\begin{align*}
+    \romannumeral 1) E \cup F \in \mathfrak{M}_N &&
+    \romannumeral 2) E \cap F \in \mathfrak{M}_N &&
+    \romannumeral 3) E \setminus F \in \mathfrak{M}_N
+\end{align*}
+
+\dem
+
+\vspace{2mm}
+$\romannumeral 1)$ Sea $A \subseteq \R^N$ cualquiera, aplicaremos la \hyperref[result:1.2.11]{caracterización anterior}.
+Como $E \in \mathfrak{M}_N$ por hipótesis, 
+$\mu^*_N(A) = \mu^*_N(A \cap E) + \mu^*_N(A \cap E^c)$. Como $F \in \mathfrak{M}_N$ también, aplicamos la \hyperref[result:1.2.11]{caracterización} en $A \cap E^c$ como sigue:
+\begin{flalign*}
+    \mu^*_N(A) &= \mu^*_N(A \cap E) + \mu^*_N\big(A \cap (E^c \cap F)\big) + \mu^*_N\big(A \cap (E^c \cap F^c)\big) =\\
+    &= \mu^*_N(A \cap E) + \mu^*_N\big(A \cap (F \setminus E)\big) + \mu^*_N\big(A \cap (E \cup F)^c\big) \geq \\
+    &\geq \mu^*_N\big(A \cap (E \cup F \setminus E)\big) + \mu^*_N\big(A \cap (E \cup F)^c\big) = \\
+    &= \mu^*_N\big(A \cap (E\cup F)\big) + \mu^*_N\big(A \cap (E \cup F)^c\big)
+\end{flalign*}
+Las desigualdades se deducen de la subaditividad y la monotonía de la medida exterior.
+
+\vspace{4mm}
+$\romannumeral 2)$ Como sabemos que $\mathfrak{M}_N$ es \hyperref[result:1.2.10]{cerrado respecto del complementario}, se tiene
+$E \cap F \in \mathfrak{M}_N \iff (E \cap F)^c = E^c \cup F^c \in \mathfrak{M}_N$. Aplicando este mismo resultado, se tiene:
+\vspace{-3ex}
+\begin{align*}
+    E \in \mathfrak{M}_N \Rightarrow E^c \in \mathfrak{M}_N &&
+    F \in \mathfrak{M}_N \Rightarrow F^c \in \mathfrak{M}_N
+\end{align*}
+\\[-4ex]
+Finalmente, aplicando el apartado anterior llegamos al resultado.
+
+\vspace{4mm}
+$\romannumeral 3)$ De manera similar, tenemos $E \setminus F = E \cap F^c$.
+Así, $F \in \mathfrak{M}_N \Rightarrow F^c \in \mathfrak{M}_N$. Aplicando el apartado inmediatamente anterior llegamos al resultado.
+
+\vspace{6mm}
+\result{Aditividad finita de conjuntos en \texorpdfstring{$\mathfrak{M}_N$}{M\_N} disjuntos}
+\hspace{3mm}
+Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$ tales que $i \neq j \Rightarrow E_i \cap E_j = \varnothing$. Sea $A \subseteq \R^N$ cualquiera.
+Entonces, para cada $n \in \N$ se cumple $\mu^*_N\big(A \cap (\smallcup_{i=1}^n E_i)\big) = \smallsum_{i=1}^{n}\mu^*_N(A \cap E_i)$.
+
+\vspace{4mm} \dem Lo demostraremos por inducción. Para $n = 1$ es trivial.
+
+\vspace{2mm} 
+Supongamos que se cumple para $n$ y probemos que se cumple para $n+1$.
+Como $E_{n+1} \in \mathfrak{M}_N$ por hipótesis, se tiene que:
+$$\mu^*_N\big(A \cap \smallcup_{i=1}^{n+1}E_i \big) = \mu^*_N\big(A \cap \smallcup_{i=1}^{n+1}E_i \cap E_{n+1}\big) + \mu^*_N\big(A \cap \smallcup_{i=1}^{n+1}E_i \cap E_{n+1}^{\hspace{1mm} c}\big)$$
+
+\vspace{2mm}
+Sabemos además que $i \neq j \Rightarrow E_i \cap E_j = \varnothing$ por hipótesis, luego se tiene que:
+\begin{flalign*}
+    \mu^*_N\big(& A \cap \smallcup_{i=1}^{n+1}E_i \big) = \mu^*_N(A \cap E_{n+1}) + \mu^*_N\Big(A \cap \smallcup_{i=1}^nE_i\Big) =\\
+    &= \mu^*_N(A \cap E_{n+1}) + \smallsum_{i=1}^n \mu^*_N(A \cap E_i) = \smallsum_{i=1}^{n+1} \mu^*_N(A \cap E_i)
+\end{flalign*}
+La segunda igualdad se deduce de aplicar la hipótesis de inducción.
+
+\newpage
+\result{Teorema del espacio de medida de Lebesgue}
+\hspace{3mm} Para $\mu_N := \mu^*_{N|\mathfrak{M}_N}$ se tiene que $(\R^N, \mathfrak{M}_N, \mu_N)$ es un espacio de medida completo.
+Además, $\tau_{\R^N} \subseteq \mathfrak{M}_N$ y $\mu_N(C) = v_N(C)$ para todo cubo abierto C.
+
+\vspace{4mm} \dem
+
+\vspace{2mm} En primer lugar, veamos que $\mathfrak{M}_N$ es una $\sigma$-álgebra. Sabemos que cumple $(S.1)$ y $(S.3)$ gracias al \hyperref[result:1.2.10]{resultado 1.2.10}, luego queda comprobar $(S.2)$.
+Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$, buscamos $\smallcup_{i\in\N}E_i \in \mathfrak{M}_N$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Disjuntificamos: $F_1 := E_1$, $F_{n+1} := E_{n+1}\setminus \smallcup_{i=1}^nE_i$.
+    \newline De este modo, se tiene que $\smallcup_{i=1}^n E_i = \smallcup_{i=1}F_i \hspace{2mm} \forall \hspace{1mm} n \in \N$, luego $\smallcup_{i\in\N}E_i = \smallcup_{i\in\N}F_i$.
+    \newline Sea $A \subseteq \R^N$ cualquiera, $\smallcup_{i=1}^n E_i \in \mathfrak{M}_N \hspace{2mm} \forall \hspace{1mm} n \in \N$. Por tanto,
+    \begin{flalign*}
+        \mu^*_N(A) &= \mu^*_N(A \cap \smallcup_{i=1}^n E_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^n E_i)^c\big) \geq \\
+        &\geq \mu^*_N(A \cap \smallcup_{i=1}^n F_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big) \overset{\hyperref[result:1.2.13]{1.2.13}}{=} \\
+        &= \sum_{i = 1}^{n} \mu^*_N(A \cap F_i) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)\big) \xrightarrow{n \to \infty}\\
+        &\xrightarrow{n \to \infty} \sum_{i=1}^\infty \mu^*_N(A \cap F_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big) \geq \\
+        &\geq \mu^*_N\big(A \cap \smallcup_{i\in\N}F_i\big) \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big) = \mu^*_N\big(A \cap \smallcup_{i\in\N}E_i\big) + \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big)&&
+    \end{flalign*}
+    Llegamos a la conclusión deseada.
+\end{adjustwidth}
+Hemos visto que $\mathfrak{M}_N$ es una $\sigma$-álgebra de $\R^N$. Veamos que $\mu_N$ es una medida.
 \end{document}
