@@ -2,7 +2,7 @@
 
 % Paquetes básicos
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools, amssymb, amsthm}
 \usepackage{changepage}
 \usepackage{geometry}
 \usepackage{hyperref}
@@ -34,6 +34,19 @@
   underlay={
     \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
     \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
   }
 }}
 
@@ -1773,6 +1786,41 @@ Hemos comprobado que es un espacio métrico completo. Veamos que pertenecen a é
 Queda únicamente por comprobar que la medida de todo cubo abierto $C$ coincide con su volumen. Se cumple trivialmente, pues $\mu_N(C) = \mu^*_N(C) = v_N(C)$ por definición y por el \hyperref[result:1.2.7]{resultado 1.2.7}.
 
 \vspace{6mm}
+\result{\texorpdfstring{$\sigma$}{s}-álgebra de Borel en \texorpdfstring{$\R^N$}{R\^N}}
+\hspace{3mm} Sea $\mathcal{S}$ el conjunto de todas las $\sigma$-álgebras de $\R^N$ que contienen a todos los abiertos de la topología usual; es decir,
+\\[-3ex]
+$$ \mathcal{S} := \{\Sigma : \tau_{\R^N} \subseteq \Sigma \text{ con } \Sigma \hspace{2mm} \sigma\text{-álgebra de } \R^N\} $$
+Definimos la $\sigma$-álgebra de Borel en $\R^N$ como $\mathfrak{B}_N := \smallcap_{\Sigma \in \mathcal{S}} \Sigma$. Veamos que $\mathfrak{B}_N$ es la menor $\sigma$-álgebra de $\R^N$ que contiene a $\tau_{\R^N}$.
+
+\vspace{4mm} \dem Veamos en primer lugar que $\mathfrak{B}_N$ es una $\sigma$-álgebra de $\R^N$.
+
+\noindent
+$(S.1)$ Buscamos ver que $\varnothing \in \mathfrak{B}_N$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Para cada $\Sigma$ in $\mathcal{S}$, tenemos que $\varnothing \in \Sigma$ aplicando $(S.1)$ en $\Sigma$.
+    \newline Por tanto, $\varnothing \in \smallcap_{\Sigma \in \mathcal{S}} \Sigma = \mathfrak{B}_N$.
+\end{adjustwidth}
+
+\newpage
+\noindent $(S.2)$ Sean $\{E_i\}_{i \in \N} \subseteq \mathfrak{B}_N$, buscamos $\smallcup_{i\in\N}E_i \in \mathfrak{B}_N$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{1mm} Para cada $i \in \N$, $E_i \in \mathfrak{B}_N = \smallcap_{\Sigma \in \mathcal{S}} \Sigma \Rightarrow E_i \in \Sigma \hspace{2mm} \forall \hspace{1mm} \Sigma \in \mathcal{S}$.
+    \vspace{1mm} \newline Sea $\Sigma \in \mathcal{S}$ cualquiera, aplicando $(S.2)$, $\{E_i \}_{i \in \N} \subseteq \Sigma \Rightarrow \smallcup_{i\in\N}E_i \in \Sigma$.
+    \vspace{1mm} \newline Por tanto, $\smallcup_{i\in\N} E_i \in \Sigma \hspace{2mm} \forall \hspace{1mm} \Sigma \in \mathcal{S} \Rightarrow \smallcup_{i\in\N} E_i \in \mathfrak{B}_N$.
+\end{adjustwidth}
+
+\vspace{3mm}
+\noindent $(S.3)$ Sea $E \in \mathfrak{B}_N$, buscamos $E^c \in \mathfrak{B}_N$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Para cualquier $\Sigma \in \mathcal{S}$ se tiene $E \in \Sigma \Rightarrow E^c \in \Sigma$ \hspace{1mm} por $(S.3)$.
+    \newline Así, $E^c \in \Sigma \hspace{2mm} \forall \hspace{1mm} \Sigma \in \mathcal{S} \Rightarrow E^c \in \mathfrak{B}_N$.
+\end{adjustwidth}
+
+\vspace{4mm}
+Hemos comprobado que $\mathfrak{B}_N$ es, en efecto, una $\sigma$-álgebra de $\R^N$. Queda comprobar que es la menor que contiene a $\tau_{\R^N}$. Sea $\mathcal{D}$ una $\sigma$-álgebra de $\R^N$ tal que $\tau_{\R^N} \subseteq \mathcal{D}$, veamos que $\mathfrak{B}_N \subseteq \mathcal{D}$.
+Para ello, basta notar que $\mathcal{D} \in \mathcal{S}$ por definición, luego $\mathfrak{B}_N \subseteq \mathcal{D}$ por definición.
+
+\vspace{6mm}
 \result{Teorema de caracterización topológica de \texorpdfstring{$\mathfrak{M}_N$}{M\_N}}
 \hspace{3mm} Sea $E \subseteq \R^N$, los siguientes enunciados son equivalentes:
 \begin{enumerate}[label=\roman*)]
@@ -1782,7 +1830,7 @@ Queda únicamente por comprobar que la medida de todo cubo abierto $C$ coincide 
     \item $\forall \hspace{1mm} \varepsilon > 0$ $\exists \hspace{1mm} O \subseteq \R^N$ abierto $\exists \hspace{1mm} C \subseteq \R^N$ cerrado, tales que $C \subseteq E \subseteq O$ y además $\mu_N(O\setminus E) < \varepsilon$.
 \end{enumerate}
 
-\newpage \dem
+\vspace{3mm} \dem
 
 \vspace{2mm}
 \begin{tcolorbox}[Implication-number]
@@ -1865,5 +1913,87 @@ Definimos $D_n := \smallcup_{i=1}^n C_i$, luego $D_n \subseteq D_{n+1} \subseteq
 \end{align*}
 Donde $N := G \setminus E$ y $M := E \setminus D$ según la notación de la demostración anterior (ambos con medida exterior nula).
 
+\vspace{2mm}
 Nótese que $(G_n)_n$ es una sucesión de abiertos decreciente y que su intersección numerable es un boreliano. Análogamente, $(D_n)_n$ es una sucesión creciente de cerrados cuya unión numerable es un conjunto boreliano.
+
+\newpage
+\result{Relación por compleción entre \texorpdfstring{$\mathfrak{B}_N$}{B\_N} y \texorpdfstring{$\mathfrak{M}_N$}{M\_N}}
+\hspace{3mm} Considerando la misma medida (la medida de Lebesgue), se tiene que el espacio de medida de Lebesgue es la compleción del espacio de medida boreliano; es decir,
+$$\Big(\R^N, \mathfrak{M}_N, \mu_N\Big) = \left(\R^N, \overset{\sim}{\mathfrak{B}_N}, \widetilde{\mu_{N|\mathfrak{B}_N}}\right) $$
+
+\dem Basta comprobar que $\mathfrak{M}_N = \overset{\sim}{\mathfrak{B}_N}$ por doble contenido.
+
+\vspace{2mm} Recordando la notación del \hyperref[result:1.1.9]{resultado 1.1.9} para este caso, consideramos:
+$$\mathcal{N} := \big\{M \in \mathcal{P}(\R^N) : \hspace{1mm} \exists \hspace{1mm} B \in \mathfrak{B}_N \hspace{1mm} \text{ tal que } M \subseteq B \text{  y } \mu_{N|\mathfrak{B}_N}(B) = 0 \big\}$$
+
+\begin{tcolorbox}[Subset-contingency]
+    $\supseteq$ \hspace{3mm} Sea $E \in \overset{\sim}{\mathfrak{B}_N}$ cualquiera, podemos expresarlo como $E = A \cup M$
+\end{tcolorbox} \vspace{-2ex}
+para ciertos $A \in \mathfrak{B}_N$, $M \in \mathcal{N}$ (se comprobó en el \hyperref[result:1.1.9]{resultado 1.1.9}).
+
+\vspace{2mm}
+Al tener medida nula, $M \in \mathfrak{M}_N$. Además, $A \in \mathfrak{B}_N \subseteq \mathfrak{M}_N$ por la definición de $\mathfrak{B}_N$ pues $\tau_{\R^N} \subseteq \mathfrak{M}_N$. De este modo, $E = A \cup M \in \mathfrak{M}_N$.
+
+\vspace{4mm}
+\begin{tcolorbox}[Subset-contingency]
+    $\subseteq$ \hspace{3mm} Sea $E \in \mathfrak{M}_N$, por la \hyperref[result:1.2.17]{observación anterior}, podemos expresarlo como
+\end{tcolorbox} \vspace{-2ex}
+$E = D \cup M$, para ciertos $D \in \mathfrak{B}_N$ y $\mu_N(M) = 0$.
+
+\vspace{2mm} Como $\mu_N(M) = 0$, existe una secuencia de abiertos $\{O_i\}_{i\in\N}$ tales que $\forall \hspace{1mm} n \in \N$  se cumple $M \subseteq O_{n+1} \subseteq O_n$ y $\mu_N(O_n) = \frac{1}{n}$.
+Al ser abiertos, $O_n \in \mathfrak{B}_N \hspace{2mm} \forall \hspace{1mm} n \in \N$. Por tanto, el siguiente conjunto a definir es boreliano también: $G := \smallcap_{i\in\N} O_i \in \mathfrak{M}_N$ y cumple $M \subseteq G$. Dado $n \in \N$ cualquiera, se tiene:
+\begin{flalign*}
+    G \subseteq O_n \Rightarrow \mu_N(G) \leq \mu_N(O_n) = \frac{1}{n} \xrightarrow{n \to \infty} 0
+\end{flalign*} \indent
+De este modo, $M \subseteq G$ con $G \in \mathfrak{B}_N$ tal que $\mu_N(G) = 0$ luego $M \in \mathcal{N}$ por definición. Al estar trabajando con la compleción, $\mathcal{N} \subseteq \overset{\sim}{\mathfrak{B}_N}$.
+Por todo lo anterior, $$E = \underbracket{\hspace{1mm} D \hspace{1mm} }_{\in \mathfrak{B}_N} \cup \underbracket{\hspace{1mm} M \hspace{1mm}}_{\in \mathfrak{B}_N} \in \mathfrak{B}_N$$
+
+\newpage
+\chapter{Funciones medibles}
+\vspace{2mm}
+\result{Definición de función medible}
+\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$ y una función $f : X \longrightarrow \overline{\R}$. Diremos que $f$ es medible si cumple cualquiera de las siguientes afirmaciones (son equivalentes):
+
+\vspace{5mm}
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[leftmargin=0mm, label=\roman*)]
+        \item $\forall \hspace{1mm} \alpha \in \R : \{x \in X : f(x) < \alpha \} \in \Sigma$
+        \item $\forall \hspace{1mm} \alpha \in \R : \{x \in X : f(x) \leq \alpha \} \in \Sigma$
+        \item $\forall \hspace{1mm} \alpha \in \R : \{x \in X : f(x) > \alpha \} \in \Sigma$
+        \item $\forall \hspace{1mm} \alpha \in \R : \{x \in X : f(x) \geq \alpha \} \in \Sigma$
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[leftmargin=6mm, label=\roman*')]
+        \item $\forall \hspace{1mm} \beta \in \overline{\R} : \{x \in X : f(x) < \alpha \} \in \Sigma$
+        \item $\forall \hspace{1mm} \beta \in \overline{\R} : \{x \in X : f(x) \leq \alpha \} \in \Sigma$
+        \item $\forall \hspace{1mm} \beta \in \overline{\R} : \{x \in X : f(x) > \alpha \} \in \Sigma$
+        \item $\forall \hspace{1mm} \beta \in \overline{\R} : \{x \in X : f(x) \geq \alpha \} \in \Sigma$
+    \end{enumerate}
+\end{minipage}
+
+\vspace{8mm}
+\dem Sean $\alpha\in \R$, $\beta \in \overline{\R}$ fijos.
+
+\vspace{2mm}
+\begin{tcolorbox}[Implication-number-ds]
+    $\romannumeral 1 \Rightarrow \romannumeral 2$ \hspace{3mm} $\left\{x \in X : f(x) \leq \alpha \right\} = \displaystyle \bigcap_{n \in \N} \left\{x \in X : f(x) < \alpha  + \frac{1}{n}\right\} \in \Sigma$
+\end{tcolorbox}
+
+
+\vspace{1mm}
+\begin{tcolorbox}[Implication-number]
+    \hspace{-5mm} $\romannumeral 2 \Rightarrow \romannumeral 3$ \hspace{3mm} $\left\{x \in X : f(x) > \alpha \right\} = \Big(\{x \in X : f(X) \leq \alpha\}\Big)^c  \in \Sigma$
+\end{tcolorbox}
+
+\vspace{1mm}
+\begin{tcolorbox}[Implication-number-ds]
+   \hspace{-6mm} $\romannumeral 3 \Rightarrow \romannumeral 4$ \hspace{3mm} $\left\{x \in X : f(x) \geq \alpha \right\} = \displaystyle \bigcap_{n \in \N} \left\{x \in X : f(x) > \alpha  - \frac{1}{n}\right\} \in \Sigma$
+\end{tcolorbox}
+
+\vspace{1mm}
+\begin{tcolorbox}[Implication-number]
+    \hspace{-4mm} $\romannumeral 4 \Rightarrow \romannumeral 1$ \hspace{3mm} $\left\{x \in X : f(x) < \alpha \right\} = \Big(\{x \in X : f(X) \geq \alpha\}\Big)^c \in \Sigma$
+\end{tcolorbox}
+
 \end{document}

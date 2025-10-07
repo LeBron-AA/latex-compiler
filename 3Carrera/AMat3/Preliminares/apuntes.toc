@@ -47,5 +47,9 @@
 \contentsline {subsubsection}{\numberline {1.2.12}Propiedades de $\mathfrak {M}_N$}{39}{subsubsection.0.1.2.12}%
 \contentsline {subsubsection}{\numberline {1.2.13}Aditividad finita de conjuntos en $\mathfrak {M}_N$ disjuntos}{40}{subsubsection.0.1.2.13}%
 \contentsline {subsubsection}{\numberline {1.2.14}Teorema del espacio de medida de Lebesgue}{41}{subsubsection.0.1.2.14}%
-\contentsline {subsubsection}{\numberline {1.2.15}Teorema de caracterización topológica de $\mathfrak {M}_N$}{42}{subsubsection.0.1.2.15}%
-\contentsline {subsubsection}{\numberline {1.2.16}Observación sobre cómo expresar conjuntos de $\mathfrak {M}_N$}{45}{subsubsection.0.1.2.16}%
+\contentsline {subsubsection}{\numberline {1.2.15}$\sigma $-álgebra de Borel en $\mathbb {R}^N$}{42}{subsubsection.0.1.2.15}%
+\contentsline {subsubsection}{\numberline {1.2.16}Teorema de caracterización topológica de $\mathfrak {M}_N$}{43}{subsubsection.0.1.2.16}%
+\contentsline {subsubsection}{\numberline {1.2.17}Observación sobre cómo expresar conjuntos de $\mathfrak {M}_N$}{45}{subsubsection.0.1.2.17}%
+\contentsline {subsubsection}{\numberline {1.2.18}Relación por compleción entre $\mathfrak {B}_N$ y $\mathfrak {M}_N$}{46}{subsubsection.0.1.2.18}%
+\contentsline {subsection}{3. Funciones medibles}{47}{chapter.0.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Definición de función medible}{47}{subsubsection.0.1.3.1}%
