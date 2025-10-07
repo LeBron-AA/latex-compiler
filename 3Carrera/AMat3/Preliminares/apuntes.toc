@@ -47,3 +47,5 @@
 \contentsline {subsubsection}{\numberline {1.2.12}Propiedades de $\mathfrak {M}_N$}{39}{subsubsection.0.1.2.12}%
 \contentsline {subsubsection}{\numberline {1.2.13}Aditividad finita de conjuntos en $\mathfrak {M}_N$ disjuntos}{40}{subsubsection.0.1.2.13}%
 \contentsline {subsubsection}{\numberline {1.2.14}Teorema del espacio de medida de Lebesgue}{41}{subsubsection.0.1.2.14}%
+\contentsline {subsubsection}{\numberline {1.2.15}Teorema de caracterización topológica de $\mathfrak {M}_N$}{42}{subsubsection.0.1.2.15}%
+\contentsline {subsubsection}{\numberline {1.2.16}Observación sobre cómo expresar conjuntos de $\mathfrak {M}_N$}{45}{subsubsection.0.1.2.16}%

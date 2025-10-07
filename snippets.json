@@ -1,0 +1,169 @@
+{
+	"Computer text": {
+	  "prefix": "ttt",
+	  "body": [
+		"\\texttt{$1}"
+	  ],
+	  "description": "Insert \\texttt{}"
+	},
+	"Align*": {
+		"prefix": "aln",
+		"body": [
+			"\\begin{align*}",
+			"    $0",
+			"\\end{align*}"
+		],
+		"description": "Align without number"
+	},
+	"Real numbers": {
+		"prefix": "reals",
+		"body": "\\mathbb{R}$0",
+		"description": "\\mathbb{R}"
+	},
+	"Vertical space": {
+		"prefix": "vs",
+		"body": "\\vspace{${1:space}}$0",
+		"description": "Align without number"
+	},
+	"Horizontal space": {
+		"prefix": "hs",
+		"body": "\\hspace{${1:space}}$0",
+		"description": "Align without number"
+	},
+	"Flalign*": {
+		"prefix": "flal",
+		"body": [
+			"\\begin{flalign*}",
+			"    $0",
+			"\\end{flalign*}"
+		],
+		"description": "Flalign without number"
+	},
+	"Inner product": {
+		"prefix": "bdot",
+		"body": "\\boldsymbol{\\cdot}$0",
+		"description": "Bold inner product dot"
+	},
+	"BORRAR": {
+		"prefix": "tz",
+		"body": "(\\theta, z)$0",
+		"description": "Bold inner product dot"
+	},
+	"Bold text": {
+		"prefix": "boldt",
+		"body": "\\textbf{$1}$0",
+		"description": "Bold math text"
+	},
+	"Math caligraphy": {
+		"prefix": "mcal",
+		"body": "\\mathcal{${1:letter}}$0",
+		"description": "Math caligraphy"
+	},
+	"Partial derivative fractions": {
+		"prefix": "pard",
+		"body": "\\frac{\\partial}{\\partial ${1:letter}}$0",
+		"description": "Partial derivative fractions"
+	},
+	"Sphere sets": {
+		"prefix": "sph",
+		"body": "\\mathbb{S}^{${1:dimension}}$0",
+		"description": "Set of elements that have unit norm"
+	},
+	"Subset equal": {
+		"prefix": "seq",
+		"body": "\\subseteq$0",
+		"description": "Nonstrict subset of a given set"
+	},
+	"Family of vectors": {
+		"prefix": "fam",
+		"body": "\\{v_1, \\ldots, v_n\\\\}$0",
+		"description": "Family of vectors"
+	},
+	"Set of indices": {
+		"prefix": "inds",
+		"body": "\\{1, \\ldots, n\\\\}$0",
+		"description": "Enumerates a set of finite indices"
+	},
+	"Enumeration": {
+		"prefix": "enum",
+		"body":[
+			"\\begin{enumerate}[label=\\roman*)]",
+			"    \\item $0",
+			"\\end{enumerate}"
+		]
+	},
+	"Empty set": {
+		"prefix": "eset",
+		"body": "\\varnothing$0",
+		"description": "Empty set"
+	},
+	"Set difference": {
+		"prefix": "setm",
+		"body": "\\setminus$0",
+		"description": "Set difference symbol"
+	},
+	"Parts set":{
+		"prefix": "parts",
+		"body": "\\mathcal{P}(${1:set})$0",
+		"description": "Set of all subsets of a set"
+	},
+	"Ref label" : {
+		"prefix": "refl",
+		"body": "\\label{subsubsection:\\thesubsubsection}$0",
+		"description": "Insert a label to be referenced later"
+	},
+	"Subset not equal" : {
+		"prefix": "sneq",
+		"body": "\\subsetneq$0",
+		"description": "Strict subset of a given set"
+	},
+	"Display style sum" : {
+		"prefix": "sum",
+		"body" : "\\displaystyle{\\sum_{${1:min}}^{${2:max}}${3:content}}}$0"
+	},
+	"Display style set union" : {
+		"prefix": "dscup",
+		"body" : "\\displaystyle{\\bigcup_{${1:min}}{${2:content}}}$0"
+	},
+	"Sigma-albgebra" : {
+		"prefix": "sigm",
+		"body" : "$\\sigma$-álgebra$0"
+	},
+	"Indentation environment" : {
+		"prefix": "indent",
+		"body" : [
+			"\\begin{adjustwidth}{0.07\\textwidth}{}",
+			"    $0",
+			"\\end{adjustwidth}"
+		]
+	},
+	"Small cup" : {
+		"prefix": "scup",
+		"body": "\\smallcup_{i\\in\\N}$0"
+	},
+	"Small sum" : {
+		"prefix": "ssum",
+		"body": "\\smallsum_{i=1}^{\\infty}$0"
+	},
+	"Math ring" : {
+		"prefix": "mring",
+		"body" : "\\mathring{${1:set}}$0"
+	},
+	"Hypertext reference" : {
+		"prefix": "href",
+		"body": "\\hyperref[${1:label}]{${2:text}}$0"
+	},
+	"Lebesgue-measureable sets" : {
+		"prefix": "lebm",
+		"body": "\\mathfrak{M}_N$0"
+	},
+	"Exterior mu in R^N" : {
+		"prefix": "exmu",
+		"body": "\\mu^*_N(${1:set})$0"
+	},
+	"Epsilon" : {
+		"prefix": "eps",
+		"body": "\\varepsilon"
+	}
+  }
+  

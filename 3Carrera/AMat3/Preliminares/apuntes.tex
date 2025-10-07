@@ -340,7 +340,6 @@ han de ser necesariamente conjuntos finitos o infinitos numerables. Finalmente, 
 $A \cup B =\big((A\backslash B) \cup (B \backslash A) \big) \cup (A \cap B)$, unión de conjuntos disjuntos.
 Como para el caso del producto cartesiano no se ha usado la hipótesis
 de que $A \cap B = \varnothing$, el resultado es válido en cualquier caso.
-%TODO: union numerable de conjuntos numerables
 
 \vspace{6mm}
 \result{Unión numerable de conjuntos numerables}
@@ -1724,9 +1723,9 @@ Además, $\tau_{\R^N} \subseteq \mathfrak{M}_N$ y $\mu_N(C) = v_N(C)$ para todo 
 
 \vspace{4mm} \dem
 
-\vspace{2mm} En primer lugar, veamos que $\mathfrak{M}_N$ es una $\sigma$-álgebra. Sabemos que cumple $(S.1)$ y $(S.3)$ gracias al \hyperref[result:1.2.10]{resultado 1.2.10}, luego queda comprobar $(S.2)$.
+\vspace{2mm} En primer lugar, veamos que $\mathfrak{M}_N$ es una $\sigma$-álgebra. Sabemos que cumple $(S.1)$ y $(S.3)$ gracias al \hyperref[result:1.2.10]{resultado 1.2.10}, luego queda comprobar que cumple $(S.2)$.
 Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$, buscamos $\smallcup_{i\in\N}E_i \in \mathfrak{M}_N$.
-\begin{adjustwidth}{0.07\textwidth}{}
+\begin{adjustwidth}{0.07\textwidth}{} %TODO: añadir explicaciones a la derecha
     Disjuntificamos: $F_1 := E_1$, $F_{n+1} := E_{n+1}\setminus \smallcup_{i=1}^nE_i$.
     \newline De este modo, se tiene que $\smallcup_{i=1}^n E_i = \smallcup_{i=1}F_i \hspace{2mm} \forall \hspace{1mm} n \in \N$, luego $\smallcup_{i\in\N}E_i = \smallcup_{i\in\N}F_i$.
     \newline Sea $A \subseteq \R^N$ cualquiera, $\smallcup_{i=1}^n E_i \in \mathfrak{M}_N \hspace{2mm} \forall \hspace{1mm} n \in \N$. Por tanto,
@@ -1739,5 +1738,132 @@ Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$, buscamos $\smallcup_{i\in\N}E_
     \end{flalign*}
     Llegamos a la conclusión deseada.
 \end{adjustwidth}
+
+\vspace{2mm}
 Hemos visto que $\mathfrak{M}_N$ es una $\sigma$-álgebra de $\R^N$. Veamos que $\mu_N$ es una medida.
+Sabemos que se cumple $(M.1)$ por el resultado $\hyperref[result:1.2.10]{1.2.10}$, luego falta probar que cumple $(M.2)$.
+Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$ tales que $i\neq j \Rightarrow E_i \cap E_j = \varnothing$, buscamos $\mu_N(\smallcup_{i\in\N}E_i) = \smallsum_{i=1}^{\infty}\mu_N(E_i)$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{2mm} Aplicando el \hyperref[result:1.2.13]{resultado anterior}, sea $n \in \N$, se cumple:
+    \begin{flalign*}
+        \sum_{i=1}^{n}\mu_N(E_i) \overset{\hyperref[result:1.2.13]{1.2.13}}{=} \mu_N(\smallcup_{i=1}^n E_i) \overset{\text{Monotonía}}{\leq} \mu_N(\smallcup_{i\in\N}E_i) \overset{\text{Subaditividad}}{\leq} \sum_{i = 1}^{\infty} \mu_N(E_i)
+    \end{flalign*}
+\end{adjustwidth}
+
+Tomando límite cuando $n \to \infty$ podemos deducir que $\mu_N$ es, en efecto, una medida. Veamos que $(\R^N, \mathfrak{M}_N, \mu_N)$ es un espacio de medida completo.
+Sea $E \in \mathfrak{M}_N$ tal que $\mu_N(E) = 0$, sea $F \subseteq E$. Buscamos $F \in \mathfrak{M}_N$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Por monotonía, $F \subseteq E \Rightarrow 0 \leq \mu^*_N(F) \leq \mu^*_N(E) = 0$.
+    \newline Al ser un conjunto de medida exterior nula, \hyperref[result:1.2.10]{sabemos que} $F \in \mathfrak{M}_N$.
+\end{adjustwidth}
+
+\vspace{4mm}
+Hemos comprobado que es un espacio métrico completo. Veamos que pertenecen a él todos los conjuntos abiertos; es decir, $\tau_{\R^N} \subseteq \mathfrak{M}_N$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    Todo cubo abierto $C$ es intersección finita de \hyperref[result:1.2.9]{semiespacios abiertos de $\R^N$}.
+    \newline Como \hyperref[result:1.2.10]{estos son medibles Lebesgue}, $C \in \mathfrak{M}_N$.
+    \newline Definimos $\mathcal{A} := \big\{(p_1,q_1) \times \ldots \times (p_N, q_N) : p_i, q_i \in \Q \hspace{2mm} \forall i \in \{1,\ldots,N\}\big\}$.
+    \newline Se tiene que $\mathcal{A}$ es una base numerable de $\tau_{\R^N}$.
+    \newline Por tanto, todo abierto $O \in \tau_{\R^N}$ es unión numerable de elementos de $\mathcal{A}$.
+    \newline Además $\mathcal{A} \subseteq \mathfrak{M}_N$ al estar formada por cubos abiertos.
+    \newline Aplicando las propiedades de $\sigma$-álgebra, $\tau_{\R^N} \subseteq \mathfrak{M}_N$.
+\end{adjustwidth}
+
+\vspace{4mm} %TODO actualizar referencia
+Queda únicamente por comprobar que la medida de todo cubo abierto $C$ coincide con su volumen. Se cumple trivialmente, pues $\mu_N(C) = \mu^*_N(C) = v_N(C)$ por definición y por el \hyperref[result:1.2.7]{resultado 1.2.7}.
+
+\vspace{6mm}
+\result{Teorema de caracterización topológica de \texorpdfstring{$\mathfrak{M}_N$}{M\_N}}
+\hspace{3mm} Sea $E \subseteq \R^N$, los siguientes enunciados son equivalentes:
+\begin{enumerate}[label=\roman*)]
+    \item $E \in \mathfrak{M}_N$
+    \item $\forall \hspace{1mm} \varepsilon > 0$ $\exists \hspace{1mm} O \subseteq \R^N$ abierto tal que $E \subseteq O$ y $\mu_N^*(O \setminus E) < \varepsilon$.
+    \item $\forall \hspace{1mm} \varepsilon > 0$ $\exists \hspace{1mm} C \subseteq \R^N$ cerrado tal que $C \subseteq E$ y $\mu_N^*(E \setminus C) < \varepsilon$.
+    \item $\forall \hspace{1mm} \varepsilon > 0$ $\exists \hspace{1mm} O \subseteq \R^N$ abierto $\exists \hspace{1mm} C \subseteq \R^N$ cerrado, tales que $C \subseteq E \subseteq O$ y además $\mu_N(O\setminus E) < \varepsilon$.
+\end{enumerate}
+
+\newpage \dem
+
+\vspace{2mm}
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 1 \Rightarrow \romannumeral 2$ \hspace{3mm} Sea $E \in \mathfrak{M}_N$, $\forall \hspace{1mm} \varepsilon > 0$ $\exists \hspace{1mm} \{I_i\}_{i\in\N}$ colección de cubos abiertos tales que
+\end{tcolorbox}
+$E \subseteq \smallcup_{i\in\N} I_i \hspace{1mm}$ y $ \hspace{1mm}\smallsum_{i=1}^{\infty} v_N(I_i) \leq \mu_N(E) + \varepsilon$.
+
+\vspace{2mm}
+Definimos $O := \smallcup_{i\in\N} I_i$. Se tiene $E \subseteq O$ con $O \in \tau_{\R^N}$. Según el valor de $\mu_N(E)$ podemos distinguir dos casos.
+
+\vspace{2mm}
+$\bullet$ Si $\mu_N(E) < +\infty$, se cumple: \\[-3ex]
+$$\mu_N(O \setminus E) = \mu_N(O) - \mu_N(E) \leq \mu_N(E) + \varepsilon - \mu_N(E) = \varepsilon$$
+
+\vspace{2mm}
+$\bullet$ Si $\mu_N(E) = +\infty$, consideramos los cubos $C_n := [-n,n]^N$ con $n \in \N$.
+\newline Definimos $D_1 := C_1$, $D_{n+1} = C_{n+1} \setminus C_n$, \hspace{1mm} luego $\{D_i\}_{i \in \N} \subseteq \mathfrak{M}_N$.
+\newline Además, se tiene $i \neq j \Rightarrow D_i \cap D_j = \varnothing$, \hspace{1mm} y \hspace{1mm} $\mu_N(D_i) < +\infty \hspace{2mm} \forall i \in \N$.
+\newline Para cada $n \in \N$ definimos $E_n := E \cap D_n \in \mathfrak{M}_N$. Por tanto, verifican: \\[-5ex]
+\begin{align*}
+    E = \smallcup_{i\in\N} E_i && i \neq j \Rightarrow E_i \cap E_j = \varnothing && \mu_N(E_i) < +\infty \hspace{2mm} \forall \hspace{1mm} \in \N
+\end{align*}
+
+Fijado $\varepsilon > 0 $ cualquiera, aplicando el caso anterior, tenemos que para cada $E_n$ existe un abierto $O_n$ tal que $E_n \subseteq O_n$ y $\mu_N(O_n \setminus E_n) < \frac{\varepsilon}{2^n}$.
+Sea $O := \smallcup_{i\in\N} O_i$, se cumple $E \subseteq O$ y además: \\[-5ex]
+\begin{flalign*}
+    \mu_N(O \setminus E) = \mu_N \Big(\smallcup_{i\in\N} O_i \setminus \smallcup_{i\in\N} E_i\Big) \leq \sum_{i=i}^{\infty} \mu_N (O_i \setminus E_i) < \sum_{n=1}^\infty \frac{\varepsilon}{2^n} = \varepsilon
+\end{flalign*}
+
+\vspace{4mm}
+\begin{tcolorbox}[Implication-number]
+    $\hspace{-2mm} \romannumeral 1 \Rightarrow \romannumeral 3$ \hspace{3mm} Sea $E \in \mathfrak{M}_N$, sea $\varepsilon >0$, sabemos que $E^c \in \mathfrak{M}_N$ y que $(\romannumeral 1 \Rightarrow \romannumeral 2)$, luego
+\end{tcolorbox}
+existe $O \in \tau_{\R^N}$ tal que $E^c \subseteq O$ y además $\mu_N(O \setminus E^c) < \varepsilon$.
+\newline Sea $C := O^c$ cerrado, se tiene $E^c \subseteq O \Rightarrow O^c = C \subseteq (E^c)^c = E$.
+\newline Finalmente, $\varepsilon > \mu_N(O \setminus E^c) = \mu_N\big(O \cap (E^c)^c\big) = \mu_N(E \cap C^c) = \mu_N(E \setminus C)$.
+
+\vspace{4mm}    
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 1 \Rightarrow \romannumeral 4$ \hspace{3mm} Sea $E \in \mathfrak{M}_N$, sea $\varepsilon > 0$. Aplicando $(\romannumeral 1 \Rightarrow \romannumeral 2)$ y $(\romannumeral 1 \Rightarrow \romannumeral 3)$, se tiene:
+\end{tcolorbox}
+$\exists \hspace{1mm} O$ abierto, $\exists \hspace{1mm} C$ cerrado tales que $C \subseteq E \subseteq O$ y $\mu_N(O \setminus E) < \frac{\varepsilon}{2}$ y $\mu(E \setminus C) < \frac{\varepsilon}{2}$.
+\newline Así, $\mu_N(O \setminus C) \leq \mu_N\Big((O \setminus E) \cup (E \setminus C)\Big) \leq  \mu_N(O \setminus E) + \mu_N(E \setminus C) < \varepsilon$.
+
+\vspace{6mm}
+\begin{tcolorbox}[Implication-number]
+   \hspace{-3mm} $\romannumeral 4 \Rightarrow \substack{\romannumeral 2\\\romannumeral 3}$ \hspace{3mm} Por hipótesis, dado $\varepsilon > 0$, $\exists \hspace{1mm} O \subseteq \R^N$ abierto, $\exists \hspace{1mm} C \subseteq \R^N$ cerrado 
+\end{tcolorbox}
+\hspace{-3mm} con $C \subseteq E \subseteq O$ tales que $\mu_N(O \setminus C) < \varepsilon$.
+
+\vspace{2mm}
+Entonces, $E \subseteq O \Rightarrow (E \setminus C) \subseteq (O \subseteq C) \Rightarrow \mu_N(E \setminus C) \leq \mu_N(O \setminus C) < \varepsilon$.
+\newline Del mismo modo, $C \subseteq E \Rightarrow (O \setminus E) \subseteq (O \setminus C) \Rightarrow \mu_N(O \setminus E) \leq \mu_N(O \setminus C) < \varepsilon$.
+
+\vspace{6mm}
+\begin{tcolorbox}[Implication-number]
+    \hspace{-2mm} $\romannumeral 2 \Rightarrow \romannumeral 1$ \hspace{1mm} Por hipótesis, $\forall \hspace{1mm} n \in \N$ existe $O_n$ abierto con $E \subseteq O_n$ y $\mu^*_N(O_n \setminus E) < \frac{1}{n}$.
+\end{tcolorbox}
+Consideramos los abiertos $G_n := \smallcap_{i=1}^n O_i$, luego $G_{n+1} \subseteq G_n$ y $E \subseteq G_n$ $\forall \hspace{1mm} n \in \N$.
+\vspace{1mm} \newline Además, $\mu^*_N(G_n \setminus E) \leq \mu^*_N(O_n \setminus E) < \frac{1}{n}$.
+\vspace{1mm} \newline Sea $G := \smallcap_{i\in\N} G_i$, se tiene que $G \in \mathfrak{M}_N$ y $E \subseteq G$. Veamos que $G \setminus E \in \mathfrak{M}_N$.
+\vspace{1mm} \newline $\mu^*_N(G \setminus E) \leq \mu^*_N(G_n \setminus E) < \frac{1}{n} \xrightarrow{n \to \infty} 0$. Así, $G \setminus E \in \mathfrak{M}_N$ al tener medida nula.
+\vspace{1mm} \newline De este modo, $E = G \setminus (G \setminus E) \in \mathfrak{M}_N$ por ser diferencia de conjuntos de $\mathfrak{M}_N$.
+
+\vspace{6mm}
+\begin{tcolorbox}[Implication-number]
+    \hspace{-4mm} $\romannumeral 3 \Rightarrow \romannumeral 1$ \hspace{2mm} Por hipótesis, $\forall \hspace{1mm}  n \in \N$
+    $\exists \hspace{1mm} C_n$ cerrado con $C_n \subseteq E$ tal que $\mu^*_N(E \setminus C) < \frac{1}{n}$.
+\end{tcolorbox}
+Definimos $D_n := \smallcup_{i=1}^n C_i$, luego $D_n \subseteq D_{n+1} \subseteq E$ y $\mu_N(E \setminus D_n) < \frac{1}{n} \hspace{2mm} \forall \hspace{1mm} n \in \N$.
+\vspace{1mm} \newline Consideramos $D:= \smallcup_{i\in\N} D_i$ luego $D \subseteq E$ y $D \in \mathfrak{M}_N$ al estar $C_n \in \mathfrak{M}_N \hspace{2mm} \forall \hspace{1mm} n \in \N$.
+\vspace{1mm} \newline Se cumple $\mu^*_N(E \setminus D) \leq \mu^*_N(E \setminus D_n) < \frac{1}{n} \xrightarrow{n \to \infty} 0$, luego $E \setminus D \in \mathfrak{M}_N$.
+\vspace{1mm} \newline Finalmente, $E = D \cup (E \setminus D) \in \mathfrak{M}_N$ al ser unión de conjuntos de $\mathfrak{M}_N$.
+
+\vspace{6mm}
+\result{Observación sobre cómo expresar conjuntos de \texorpdfstring{$\mathfrak{M}_N$}{M\_n}}
+\hspace{3mm} En vista de la demostración anterior, sabemos que es posible expresar todo $E \in \mathfrak{M}_N$ de las siguientes formas:
+\begin{align*}
+    E = \left(\bigcup_{n=1}^\infty G_n\right) \setminus N && E = \left(\bigcup_{n=1}^\infty D_n\right) \cup M
+\end{align*}
+Donde $N := G \setminus E$ y $M := E \setminus D$ según la notación de la demostración anterior (ambos con medida exterior nula).
+
+Nótese que $(G_n)_n$ es una sucesión de abiertos decreciente y que su intersección numerable es un boreliano. Análogamente, $(D_n)_n$ es una sucesión creciente de cerrados cuya unión numerable es un conjunto boreliano.
 \end{document}
