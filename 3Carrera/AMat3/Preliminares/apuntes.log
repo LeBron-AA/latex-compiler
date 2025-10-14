@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  14 OCT 2025 12:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.9.24)  14 OCT 2025 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -917,32 +917,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 2039--2040
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `apuntes.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `apuntes.out':
-(rerunfilecheck)             Before: 5388CFC96F8994F7F8EEC7FC996A1557;14129
-(rerunfilecheck)             After:  770DCD92EA0339E391CDD564760C7236;14423.
+Package rerunfilecheck Info: File `apuntes.out' has not changed.
+(rerunfilecheck)             Checksum: 770DCD92EA0339E391CDD564760C7236;14423.
  ) 
 Here is how much of TeX's memory you used:
- 26723 strings out of 476182
- 522318 string characters out of 5795595
+ 26724 strings out of 476182
+ 522341 string characters out of 5795595
  1953975 words of memory out of 5000000
- 48163 multiletter control sequences out of 15000+600000
+ 48164 multiletter control sequences out of 15000+600000
  570715 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,20n,93p,595b,943s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/codespace/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1728.600pk> </home/codespace/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on apuntes.pdf (49 pages, 306873 bytes).
+Output written on apuntes.pdf (49 pages, 306604 bytes).
 PDF statistics:
- 704 PDF objects out of 1000 (max. 8388607)
- 613 compressed objects within 7 object streams
+ 708 PDF objects out of 1000 (max. 8388607)
+ 617 compressed objects within 7 object streams
  154 named destinations out of 1000 (max. 500000)
- 467 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 words of extra memory for PDF output out of 10000 (max. 10000000)
 
