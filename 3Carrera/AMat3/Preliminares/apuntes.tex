@@ -1998,5 +1998,67 @@ Por todo lo anterior, $$E = \underbracket{\hspace{1mm} D \hspace{1mm} }_{\in \ma
 \vspace{4mm} \noindent
 Como $ R \subseteq\overline{\R}$, basta considerar $\beta \in \overline{\R}\setminus \R = \{+\infty, -\infty\}$ para los siguientes casos.
 
-%TODO acabar
+\begin{tcolorbox}[Implication-number]
+    \hspace{-2mm} $\romannumeral 1 \Rightarrow \romannumeral 1'$ \hspace{3mm} $\{x \in X : f(x) < +\infty\} = \smallcup_{n\in\N} \{x \in X : f(x) < n\} \in \Sigma$ 
+\end{tcolorbox}
+$\{x \in X : f(x) < - \infty\} = \varnothing \in \Sigma$
+
+\begin{tcolorbox}[Implication-number]   
+    $\hspace{-2mm} \romannumeral 1' \Rightarrow \romannumeral 2'$ \hspace{3mm} $\{x \in X : f(x) \leq \infty\} = X \in \Sigma$  
+\end{tcolorbox}
+$\{x \in X : f(x) \leq - \infty\} = \smallcup_{n\in\N} \{x \in X : f(x) < -n\}$
+
+\vspace{2mm}
+\begin{tcolorbox}[Implication-number]   
+    $\hspace{-5mm} \romannumeral 2' \Rightarrow \romannumeral 3'$ \hspace{3mm} $\{x \in X : f(x) > \beta\} = \Big(\{x \in X : f(x) \leq \beta\}\Big)^c \in \Sigma$  
+\end{tcolorbox}
+
+\vspace{2mm}
+\begin{tcolorbox}[Implication-number]   
+    $\hspace{-5mm} \romannumeral 3' \Rightarrow \romannumeral 4'$ \hspace{3mm} $\{x \in X : f(x) \geq \infty\} = \smallcup_{n\in\N} \{x \in X : f(x) > n\} \in \Sigma$  
+\end{tcolorbox}
+$\{x \in X : f(x) \geq -\infty\} = X \in \Sigma$
+
+\vspace{4mm}
+\begin{tcolorbox}[Implication-number]   
+    $\hspace{-5mm} \romannumeral 4' \Rightarrow \romannumeral 1'$ \hspace{3mm} $\{x \in X : f(x) < \beta\} = \Big(\{x \in X : f(x) \geq \beta\}\Big)^c \in \Sigma$  
+\end{tcolorbox}
+
+\vspace{6mm}
+\result{Ejemplos de funciones medibles}
+\begin{enumerate}[label=\roman*)]
+    \item Toda función $f : X \rightarrow \overline{\R}$ es medible en $(X, \mathcal{P}(X), \mu)$.
+    \item Toda función continua $f: \R^N \longrightarrow \R$ es medible en $(\R^N, \mathfrak{M}_N, \mu_N)$ y en $(\R^N, \mathfrak{B}_N, \mu_{N|\mathfrak{B}_N})$.
+    \item Si $f: X \longrightarrow \overline{\R}$ es medible en $(X, \Sigma, \mu)$; entonces, $f_{|A}$ es medible en $(A, \Sigma(A), \mu_{|\Sigma(A)})$ para $A \in \Sigma$ cualquiera.
+\end{enumerate}
+
+\vspace{2mm} \dem
+
+\vspace{1mm} $\romannumeral 1)$ Se cumple trivialmente por ser la $\sigma$-álgebra $\mathcal{P}(X)$.
+
+\vspace{4mm} $\romannumeral 2)$ Sea $\alpha \in \R$ cualquiera, por continuidad de $f$ sabemos que
+\\[-2ex] $$f^{-1}\bigg((-\infty, \alpha)\bigg) = \{x \in \R^N : f(x) < \alpha\} \in \tau_{\R^N} \subseteq \mathfrak{B}_N \subseteq \mathfrak{M}_N$$ \\[-3ex]
+Tenemos que $f$ es medible en ambos espacios de medida por definición.
+
+\newpage
+$\romannumeral 3)$ Sea $\alpha \in \R$ cualquiera, sabemos que $\{x \in X : f(x) < \alpha\} \in \Sigma$ al ser $f$ medible en $(X, \Sigma, \mu)$.
+Sea $A \in \Sigma$ cualquiera, se tiene:
+$$f_{|A}^{-1}\bigg((-\infty, \alpha)\bigg) = \{a \in A : f_{|A}(a) < \alpha\} = \underbracket{\{x \in X : f(x) < \alpha\}}_{\in \Sigma} \cap A \in \Sigma(A)$$
+El conjunto está en la $\sigma$-álgebra inducida por \hyperref[result:1.1.5]{definición}.
+
+\vspace{6mm}
+\result{Medibilidad por imagen inversa de abiertos}
+\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$. Dada una función $f : X \longrightarrow \overline{\R}$. Las siguientes afirmaciones son equivalentes:
+\begin{enumerate}[label=\roman*)]
+    \item $f$ es medible
+    \item Para todo $O \in \tau_{\overline{\R}}$ se cumple $f^{-1}(O) \in \Sigma$
+\end{enumerate}
+\dem
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 2 \Rightarrow \romannumeral 1$ \hspace{3mm} Trivial, basta tomar $O = [-\infty, alpha)$ abierto de $\overline{\R}$ con $\alpha \in \R$.
+\end{tcolorbox}
+\vspace{2mm}
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 1 \Rightarrow \romannumeral 2$ %TODO acabar
+\end{tcolorbox}
 \end{document}
