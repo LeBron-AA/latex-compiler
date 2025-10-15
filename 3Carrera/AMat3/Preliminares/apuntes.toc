@@ -55,3 +55,5 @@
 \contentsline {subsubsection}{\numberline {1.3.1}Definición de función medible}{47}{subsubsection.0.1.3.1}%
 \contentsline {subsubsection}{\numberline {1.3.2}Ejemplos de funciones medibles}{48}{subsubsection.0.1.3.2}%
 \contentsline {subsubsection}{\numberline {1.3.3}Medibilidad por imagen inversa de abiertos}{49}{subsubsection.0.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Medibilidad de máximo, mínimo, supremo e ínfimo}{50}{subsubsection.0.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.5}Suma, producto por escalares y cuadrado de funciones medibles}{51}{subsubsection.0.1.3.5}%

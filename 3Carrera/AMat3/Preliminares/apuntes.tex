@@ -77,6 +77,8 @@
 \newcommand{\smallsum}{\mathop{\sum}\limits}
 \newcommand{\smallprod}{\mathop{\prod}\limits}
 
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+
 \newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
 
 
@@ -2059,6 +2061,88 @@ El conjunto está en la $\sigma$-álgebra inducida por \hyperref[result:1.1.5]{d
 \end{tcolorbox}
 \vspace{2mm}
 \begin{tcolorbox}[Implication-number]
-    $\romannumeral 1 \Rightarrow \romannumeral 2$ %TODO acabar
+    $\romannumeral 1 \Rightarrow \romannumeral 2$ \hspace{3mm} Sea $O$ un abierto cualquiera de $\overline{\R}$, sabemos que es unión de sus
 \end{tcolorbox}
+\noindent
+componentes conexas, habiendo un número a lo sumo numerable (pues hay una base numerable y son abiertas) de ellas. Así, tenemos $O = \smallcup_{i\in I} J_i$ con $I \subseteq \N$.
+Además, $i \neq j \Rightarrow J_i \cap J_j = \varnothing$ por ser disjuntas las componentes conexas. En $\overline{R}$, los conjuntos conexos son precisamente los intervalos, luego $\forall \hspace{1mm} i \in I$ $J_i$ ha de ser de una de las siguientes formas:
+\begin{flalign*}
+    J_i = \overline{\R} && J_i = [-\infty, \beta_i) &&  J_i = (\alpha_i, \infty] && J_i = (\alpha_i, \beta_i) = [-\infty, \beta_i) \cap (\alpha_i, \infty]
+\end{flalign*}
+Donde $-\infty \leq \alpha_i < \beta_i \leq \infty$. En cualquier caso, se tiene $f^{-1}(J_i) \in \Sigma$ por ser $f$ medible por definición de medible.
+
+\vspace{2mm}
+\noindent Por tanto, $f^{-1}(O) = f^{-1}\Big(\smallcup_{i\in I}J_i\Big) = \smallcup_{i\in I} \underbracket{f^{-1}(J_i)}_{\in\Sigma} \in \Sigma$.
+
+\result{Medibilidad de máximo, mínimo, supremo e ínfimo}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $\{f_n : X \to \overline{\R}\}_{n\in\N}$ una sucesión de funciones medibles en él. Entonces, se cumple:
+\begin{enumerate}[label=\roman*)]
+    \item $\max \{f_1, \ldots, f_n\}$ es medible $\hspace{2mm} \forall \hspace{1mm} n \in \N$.
+    \item $\min \{f_1, \ldots, f_n\}$ es medible $\hspace{2mm} \forall \hspace{1mm} n \in \N$.
+    \item $\sup \{f_i : i \in \N\}$ es medible.
+    \item $\inf \{f_i : i \in \N\}$ es medible.
+    \item $\linf{n} \{f_n : n \in \N\} := \liminf_n \{f_n : n \in \N\}$ es medible.
+    \item $\displaystyle \overline{\lim_n} \{f_n : n \in \N\} := \limsup_n \{f_n : n \in \N\}$ es medible.
+    \item Si $\exists \hspace{1mm} \mlim{n} f_n(x)  \hspace{2mm} \forall \hspace{1mm} x \in X$; entonces, $\mlim{n} f_n$ es medible.
+\end{enumerate}
+
+\dem Fijamos $\alpha \in \R$ cualquiera.
+
+\vspace{2mm}
+$\romannumeral 1)$ Sea $n \in \N$ cualquiera, podemos expresar la preimagen como:
+\\[-2ex] $$ \Big\{x \in X : \max \{f_1(x), \ldots , f_n(x)\} < \alpha \Big\} = \bigcap_{i=1}^n \underbracket{\{x  \in X : f_i(x) < \alpha\}}_{\in \Sigma} \in \Sigma$$
+
+\vspace{2mm}
+$\romannumeral 2)$ Del mismo modo, sea $n \in \N$ cualquiera,
+\\[-2ex] $$ \Big\{x \in X : \min \{f_1(x), \ldots , f_n(x)\} > \alpha \Big\} = \bigcap_{i=1}^n \underbracket{\{x  \in X : f_i(x) > \alpha\}}_{\in \Sigma} \in \Sigma$$
+
+\vspace{2mm}
+$\romannumeral 3)$ Utilizando desigualdades no estrictas (importante), te tiene:
+\\[-2ex] $$ \Big\{x \in X : \sup \{f_i(x) : i \in \N\} \leq \alpha \Big\} = \bigcap_{i \in \N} \underbracket{\{x  \in X : f_i(x) \leq \alpha\}}_{\in \Sigma} \in \Sigma$$
+
+\vspace{2mm}
+$\romannumeral 4)$ Análogamente,
+\\[-2ex] $$ \Big\{x \in X : \inf \{f_i(x) : i \in \N\} \geq \alpha \Big\} = \bigcap_{i \in \N} \underbracket{\{x  \in X : f_i(x) \geq \alpha\}}_{\in \Sigma} \in \Sigma$$
+
+\newpage
+$\romannumeral 5)$ Por definición, $\linf{n}f_n(x) = \sup_{n\in\N} \inf_{k \geq n} f_k(x) = \sup_{n\in\N} g_n(x)$ para $g_n (x)= \inf_{k \geq n} f_k(x)$, que es medible por el apartado anterior. Aplicando el apartado $(\romannumeral 4)$ respecto de las $g_n$ llegamos al resultado.
+
+\vspace{4mm}
+$\romannumeral 6)$ Análogamente, $\overline{\mlim{n}} f_n = \inf_{n\in\N} \sup_{k \geq n} f_k(x)$.
+
+\vspace{4mm}
+$\romannumeral 7$) Si existe, el límite coincide con los límites superior e inferior, que son funciones medibles.
+
+\vspace{6mm}
+\result{Suma, producto por escalares y cuadrado de funciones medibles}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida, sean $f, g : X \longrightarrow \overline{\R}$ funciones medibles en él. Se cumplen los siguientes enunciados:
+\begin{enumerate}[label=\roman*)]
+    \item $f + g$ es medible (si está bien definida para todo $x \in X$).
+    \item $\lambda \in \R \Rightarrow \lambda \hspace{1mm} f$ es medible (si está bien definida).
+    \item $f^2$ es medible (siempre está bien definida).
+\end{enumerate}
+
+\dem Fijamos $\alpha \in \R$ cualquiera.
+\vspace{2mm}    
+
+$\romannumeral 1)$ Se cumple (importante utilizar desigualdad estricta):
+\begin{flalign*}
+    \{x &\in X : (f+g)(x) < \alpha \} = \{x \in X : f(x) < \alpha - g(x)\} = && \Q \text{ es denso en } \R \\
+    &= \bigcup_{q \in \Q} \{x \in X : f(x) < q < \alpha - g(x)\} = \\
+    &= \bigcup_{q\in\Q}\Big(\{x \in X : f(x) < q\} \cap \{x \in X : q < \alpha - g(x)\} \Big) \in \Sigma && \Q \text{ numerable}
+\end{flalign*}
+
+\vspace{2mm}
+$\romannumeral 2)$ Si $\lambda = 0$, $\lambda \hspace{0.5mm} f \equiv 0$ es medible trivialmente.
+\begin{itemize}
+    \item Si $\lambda > 0$, $\{x \in X : \lambda \hspace{0.5mm} f(x) < \alpha\} = \{x \in X : f(x) < \frac{\alpha}{\lambda}\} \in \Sigma$.
+    \item Si $\lambda > 0$, $\{x \in X : \lambda \hspace{0.5mm} f(x) < \alpha\} = \{x \in X : f(x) > \frac{\alpha}{\lambda}\} \in \Sigma$.
+\end{itemize}
+
+$\romannumeral 3)$ Distinguimos dos casos:
+\begin{itemize}
+    \item \hspace{-3mm}  Si $\alpha \leq 0$, $\{x \in X : f^2(x) < \alpha\} = \varnothing \in \Sigma$.
+    \item Si $\alpha > 0$, entonces se cumple:
+\end{itemize}
+\\[-4ex]$$\{x \in X : f^2(X) < \alpha\} = \underbracket{\{x \in X : f(x) < \sqrt{\alpha}\}}_{\in \Sigma} \cap \underbracket{\{x \in X : f(x) > - \sqrt{\alpha}\}}_{\in \Sigma} \in \Sigma$$
 \end{document}
