@@ -2235,14 +2235,38 @@ Tenemos que $X_A$ es medible si y solo si $X_A^{-1}\Big([\alpha, \infty]\Big) \i
 \result{Definición de función simple}
 \hspace{3mm} Llamamos ``función simple'' $s : X \longrightarrow \overline{\R}$ a cualquier función cuya imagen es un conjunto finito.
 
-\vspace{2mm} Denotando $s(X) = \{\lambda_1 < \ldots < \lambda_n\}$ con $n \in \N$ fijo, llamaremos ``expresión cámbrica'' de $s$ a la siguiente expresión:
+\vspace{2mm} Denotando $s(X) = \{\lambda_1 < \ldots < \lambda_n\}$ con $n \in \N$ fijo, llamaremos ``expresión canónica'' de $s$ a la siguiente expresión:
 \begin{align*}
     s = \sum_{i=1}^n \lambda_i \cdot X_{A_i} && \text{ donde } A_i = s^{-1}\Big(\{\lambda_i\}\Big) \hspace{2mm} \forall \hspace{1mm} i \in \{1,\ldots,n\}
 \end{align*}
 Nótese que $X = \smallcup_{i=1}^n A_i$ y que $i \neq j \Rightarrow A_i \cap A_j = \varnothing$.
 
-%TODO: reestructurar
-\newpage
+\vspace{6mm}    
+\result{Medibilidad de funciones simples}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $s: X \longrightarrow \overline{\R}$ una función simple tal que $s(X) = \{\lambda_i\}_{i=1}^n$ con $\lambda_1 < \ldots < \lambda_n$. Entonces, los siguientes enunciados son equivalentes:
+\begin{enumerate}[label=\roman*)]
+    \item $s$ es medible
+    \item $A_i := s^{-1}(\{\lambda_i\}) \in \Sigma \hspace{2mm} \forall \hspace{1mm} i \in \{1,\ldots,n\}$
+\end{enumerate}
+\vspace{2mm} \dem
+\begin{tcolorbox}[Implication-number]
+    $\romannumeral 2 \Rightarrow \romannumeral 1$ \hspace{3mm} como los $A_i$ son medibles por hipótesis, aplicando el \hyperref[result:1.3.12]{resultado 1.3.12},
+\end{tcolorbox}
+\noindent tenemos que las funciones características $X_{A_i}$ son medibles. Aplicando ahora el \hyperref[result:1.3.5]{resultado 1.3.5}, concluimos que:
+\vspace{-2ex}$$s = \sum_{i=1}^n \lambda_i \cdot X_{A_i}  \hspace{2mm} \text{ es medible}$$
+
+\begin{tcolorbox}[Implication-number]
+    $\hspace{-7mm} \lnot \romannumeral 2 \Rightarrow \lnot \romannumeral 1)$ \hspace{1mm} Por hipótesis, $\exists \hspace{1mm} j \in \{1,\ldots,n\}$ tal que $A_j \notin \Sigma$.
+\end{tcolorbox}
+\noindent Veamos que $s$ no es medible.
+En caso de serlo, se cumpliría: $$\underbracket{s^{-1}\Big([-\infty, \lambda_j]\Big)}_{\in \Sigma} \cap \underbracket{s^{-1}\Big([\lambda_j, +\infty]\Big)}_{\in \Sigma} \in \Sigma$$
+Como la preimagen respeta la intersección, se tiene:
+$$s^{-1}\Big([-\infty, \lambda_j]\Big) \cap s^{-1}\Big([\lambda_j, +\infty]\Big) = s^{-1}\Big([-\infty, \lambda_j] \cap [\lambda_j, +\infty]\Big) = s^{-1}(\{\lambda_j\}) = A_j \in \Sigma $$
+
+\noindent Hemos llegado a una contradicción. Por tanto, $s$ no puede ser medible. 
+
+
+\vspace{6mm}
 \result{Producto de funciones medibles}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $f,g : X \longrightarrow \overline{\R}$ medibles. Si $f \cdot g$ está bien definida para todo $x \in X$; entonces, es medible.
 
@@ -2269,7 +2293,132 @@ Nótese que $X = \smallcup_{i=1}^n A_i$ y que $i \neq j \Rightarrow A_i \cap A_j
 \end{minipage}
 
 \vspace{4mm}
-Es evidente que $(f \cdot g)_{|A_i} \equiv +\infty$ y que $(f \cdot g)_{|A_j} \equiv -\infty$ para $i \in \{2,3,6,7\}$, y para $j \in \{1,4,5,8\}$. Así, al ser constantes, las restricciones son medibles en $(A_k, \Sigma(A_k), \mu_{|A_k})$ con $k \in \{1,\ldots,8\}$.
+Es evidente que $(f \cdot g)_{|A_i} \equiv +\infty$ y que $(f \cdot g)_{|A_j} \equiv -\infty$ para $i \in \{2,3,6,7\}$, y para $j \in \{1,4,5,8\}$. Así, al ser constantes, las restricciones son medibles en $(A_k, \Sigma(A_k), \mu_{|\Sigma(A_k)})$ con $k \in \{1,\ldots,8\}$.
 
-%TODO acabar y reestructurar para cuando se hayan visto funciones simples
+\vspace{3mm} Por tanto, para cada $i \in \{0,1,\ldots, 8\}$ tenemos que $(f\cdot g)_{|A_i}$ es medible en $(A_i, \Sigma(A_i), \mu_{|\Sigma(A_i)})$. Esto equivale a que $f \cdot g \cdot X_{A_i}$ es medible en $(X, \Sigma, \mu)$.
+Finalmente, se cumple:
+$$ f \cdot g = \sum_{k=0}^8 f \cdot g \cdot X_{A_k} \hspace{3mm} \text{ es medible}$$
+Al ser disjuntos los $A_i$ la función está bien definida. Además, es medible en $(X, \Sigma, \mu)$ al ser suma de funciones medibles en este espacio.
+
+\vspace{6mm}
+\result{Definición de parte positiva y negativa}
+\hspace{3mm} Dada una función $f : X \longrightarrow \overline{\R}$, llamaremos ``parte positiva de $f$'' y ``parte negativa de $f$'', respectivamente, a las siguientes funciones:
+\begin{align*}
+    f^+(x) = \max \{0, f(x)\} \text{ con }x \in X && f^-(x) = \max\{0, -f(x)\} \text{ con } x \in X
+\end{align*}
+De este modo, $f = f^+ - f^-$ \hspace{1mm} y \hspace{1mm} $|f| = f^+ + f^-$. Además, para cada $x_0 \in X$, al menos un valor $f^+(x_0)$ ó $f^-(x_0)$ ha de ser nulo. Si $f$ es medible, entonces lo son también $f^+$ y $f^-$.
+\vspace{-3ex}
+\begin{flalign*}
+    (f^+)^{-1}\Big([-\infty, \alpha)\Big) = 
+    \begin{cases}
+        \varnothing &\text{ si } \alpha \leq 0 \\
+        f^{-1}\Big([-\infty, \alpha)\cap [-\infty, 0]\Big) &\text{ si } \alpha > 0
+    \end{cases}  
+\end{flalign*}
+En cualquier caso, el resultado pertenece a $\Sigma$ al ser $f$ medible. Análogo para $f^-$.
+
+\result{Funciones medibles como límite de simples}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $f: X \longrightarrow [0, \infty]$ una función medible en él. Entonces existe una sucesión de funciones simples medibles $s_n : X \longrightarrow [0,+\infty]$ tales que para todo $x \in X$ se cumple:
+\begin{enumerate}[label=\roman*)]
+    \item $\forall \hspace{2mm} n \in \N : s_n(x) \leq s_{n+1}$
+    \item $\exists \hspace{1mm} \mlim{n} s_n(x) = f(x)$
+\end{enumerate}
+\nota Este teorema afirma la existencia de una sucesión creciente de funciones (primer apartado) pero las funciones de la sucesión no tienen por qué ser crecientes.
+
+\vspace{2mm} \dem Para cada $n \in \N$ consideramos los siguientes conjuntos:
+\begin{flalign*}
+    \indent E_n &:= f^{-1}\Big([n, +\infty]\Big) \in \Sigma \\
+    \indent E_{n,i} &:= f^{-1} \left(\left[\frac{i-1}{2^n}, \frac{i}{2^n}\right)\right) \in \Sigma \hspace{2mm}  \text{ con } i \in \{1,\ldots, n \cdot 2^n\} &&
+\end{flalign*}
+Así, para $n$ fijo, $i \neq j \Rightarrow E_{n,i} \cap E_{n,j} = \varnothing$. Además, definiremos la siguiente función:
+$$s_n(x) = n \cdot X_{E_n}(x) + \sum_{i = 1}^{n \cdot 2^n}\left( \frac{i-1}{2^n} \cdot X_{E_{n,i}}(x) \right)$$
+Esta función asigna a cada $x \in X$ el mínimo del conjunto $E_n$ ó $E_{n,i}$ donde se encuentra $x$. Al tomar un conjunto finito de valores, es una función simple. Además, al ser medibles las preimágenes de sus valores, \hyperref[result:1.3.14]{tenemos que} $s_n$ es también medible.
+
+\vspace{9mm} \noindent
+\begin{minipage}{0.5\textwidth}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        \def\cdraw{Cyan4}
+        \def\ddraw{Firebrick4}
+        \def\bound{7}
+        \def\n{1}
+        \def\radius{0.25}
+        \def\avlen{0.2}
+        \pgfmathparse{\n * 2^\n}
+        \let\maxi\pgfmathresult
+        \pgfmathparse{\radius / sin(40)}
+        \let\circr\pgfmathresult
+        \pgfmathparse{\circr * cos(40)}
+        \let\circx\pgfmathresult
+
+        \draw[<->, black, thick] (-1,0) -- (\bound,0);
+        \node at (0, -\radius -0.4) {$0$};
+        \foreach \i in {1,...,\maxi} {
+            \pgfmathparse{2*(\i -1)/(2^\n)}
+            \let\lbound\pgfmathresult
+            \pgfmathparse{2*(\i)/(2^\n)}
+            \let\rbound\pgfmathresult
+            
+            
+            \draw[-, \cdraw] (\lbound, -\radius) -- (\lbound, \radius);
+            \draw[-, \cdraw] (\lbound, \radius) -- (\lbound + \avlen, \radius);           
+            \draw[-, \cdraw] (\lbound, -\radius) -- (\lbound + \avlen, -\radius);
+            
+            \draw[-, \ddraw, thick] (\rbound - \circr + \circx - 0.05, \radius) arc [start angle =40, end angle = -40, radius=\circr];
+        }
+        \draw[-, \cdraw] (2*\n, -\radius) -- (2*\n, \radius);
+        \draw[-, \cdraw] (2*\n, \radius) -- (2*\n + \avlen, \radius);           
+        \draw[-, \cdraw] (2*\n, -\radius) -- (2*\n + \avlen, -\radius);
+        \draw[-, \ddraw] (\bound, -\radius) -- (\bound, \radius);
+        \draw[-, \ddraw] (\bound, \radius) -- (\bound - \avlen, \radius);           
+        \draw[-, \ddraw] (\bound, -\radius) -- (\bound - \avlen, -\radius);
+        \node at (2*\n, -\radius -0.4) {$n=\n$};
+        \node at (\bound, -\radius -0.4) {$\infty$};
+    \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \def\cdraw{Cyan4}
+    \def\ddraw{Firebrick4}
+    \def\bound{7}
+    \def\n{2}
+    \def\radius{0.25}
+    \def\avlen{0.2}
+    \pgfmathparse{\n * 2^\n}
+    \let\maxi\pgfmathresult
+    \pgfmathparse{\radius / sin(40)}
+    \let\circr\pgfmathresult
+    \pgfmathparse{\circr * cos(40)}
+    \let\circx\pgfmathresult
+
+    \draw[<->, black, thick] (-1,0) -- (\bound,0);
+    \node at (0, -\radius -0.4) {$0$};
+    \foreach \i in {1,...,\maxi} {
+        \pgfmathparse{2*(\i -1)/(2^\n)}
+        \let\lbound\pgfmathresult
+        \pgfmathparse{2*(\i)/(2^\n)}
+        \let\rbound\pgfmathresult
+        
+        
+        \draw[-, \cdraw] (\lbound, -\radius) -- (\lbound, \radius);
+        \draw[-, \cdraw] (\lbound, \radius) -- (\lbound + \avlen, \radius);           
+        \draw[-, \cdraw] (\lbound, -\radius) -- (\lbound + \avlen, -\radius);
+        
+        \draw[-, \ddraw, thick] (\rbound - \circr + \circx - 0.05, \radius) arc [start angle =40, end angle = -40, radius=\circr];
+    }
+    \draw[-, \cdraw] (2*\n, -\radius) -- (2*\n, \radius);
+    \draw[-, \cdraw] (2*\n, \radius) -- (2*\n + \avlen, \radius);           
+    \draw[-, \cdraw] (2*\n, -\radius) -- (2*\n + \avlen, -\radius);
+    \draw[-, \ddraw] (\bound, -\radius) -- (\bound, \radius);
+    \draw[-, \ddraw] (\bound, \radius) -- (\bound - \avlen, \radius);           
+    \draw[-, \ddraw] (\bound, -\radius) -- (\bound - \avlen, -\radius);
+    \node at (2*\n, -\radius -0.4) {$n=\n$};
+    \node at (\bound, -\radius -0.4) {$\infty$};
+\end{tikzpicture}
+\end{center}
+\end{minipage}
+\\[5mm]
+Conjuntos inducidos para los casos $n=1$ y $n = 2$.
 \end{document}
