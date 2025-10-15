@@ -2086,6 +2086,7 @@ Donde $-\infty \leq \alpha_i < \beta_i \leq \infty$. En cualquier caso, se tiene
     \item Si $\exists \hspace{1mm} \mlim{n} f_n(x)  \hspace{2mm} \forall \hspace{1mm} x \in X$; entonces, $\mlim{n} f_n$ es medible.
 \end{enumerate}
 
+\vspace{2mm}
 \dem Fijamos $\alpha \in \R$ cualquiera.
 
 \vspace{2mm}
@@ -2144,5 +2145,131 @@ $\romannumeral 3)$ Distinguimos dos casos:
     \item \hspace{-3mm}  Si $\alpha \leq 0$, $\{x \in X : f^2(x) < \alpha\} = \varnothing \in \Sigma$.
     \item Si $\alpha > 0$, entonces se cumple:
 \end{itemize}
-\\[-4ex]$$\{x \in X : f^2(X) < \alpha\} = \underbracket{\{x \in X : f(x) < \sqrt{\alpha}\}}_{\in \Sigma} \cap \underbracket{\{x \in X : f(x) > - \sqrt{\alpha}\}}_{\in \Sigma} \in \Sigma$$
+\vspace{-1ex}
+$$\{x \in X : f^2(X) < \alpha\} = \underbracket{\{x \in X : f(x) < \sqrt{\alpha}\}}_{\in \Sigma} \cap \underbracket{\{x \in X : f(x) > - \sqrt{\alpha}\}}_{\in \Sigma} \in \Sigma$$
+
+\vspace{6mm}    
+\result{Medibilidad del límite cuando no existe}
+Sea $(X, \Sigma, \mu)$ un espacio de medida, sea ${f_n : X \to \overline{\R}}_{n\in\N}$ una sucesión de funciones medibles en él.
+Definimos $A := \{x \in X : \nexists \hspace{1mm} \mlim{n}f_n(x)\}$. Se tiene que $A$ es medible.
+
+\vspace{2mm} \dem
+
+\vspace{2mm} Por el \hyperref[result:1.3.4]{resultado 1.3.4}, sabemos que $\linf{n} f_n$ y que $\overline{\mlim{n}}f_n$ son funciones medibles.
+Así, aplicando el \hyperref[result:1.3.5]{resultado anterior}, tenemos que $g := \linf{n} f_n - \overline{\mlim{m}}f_m$ es también medible.
+
+\vspace{2mm} Para ver $A \in \Sigma$ basta ver $A^c \in \Sigma$. El límite existe si y solo si los límites superior e inferior coinciden. Por tanto, se cumple: \vspace{-2ex}
+$$A^c = g^{-1}(\{0\}) = \underbracket{\{x \in X : g(x) \leq 0\}}_{\in \Sigma} \cap \underbracket{\{x \in X : g(x) \geq 0\}}_{\in \Sigma} \in \Sigma$$
+
+\vspace{6mm}
+\result{Composición de funciones medibles}
+\hspace{3mm} En general, no siempre tiene sentido hablar de medibilidad respecto de funciones compuestas. No obstante, existen casos donde sí lo tiene. Por ejemplo, existen funciones medibles en $(\R^N, \mathfrak{M}_N, \mu_N)$ cuya composición no es medible en este espacio, aunque en ocasiones la composición sí puede respetar la medibilidad.
+
+\vspace{2mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $f : X \longrightarrow A \subseteq \overline{\R}$ una función medible. Sea $g : A \longrightarrow \overline{\R}$ continua. Entonces, $(g \circ f)$ es medible.
+
+\newpage \dem Sea $\alpha \in \R$ cualquiera; entonces,
+$$(g \circ f)^{-1}\Big([-\infty, \alpha)\Big) = f^{-1}\bigg(\underbracket{g^{-1}\Big([-\infty, \alpha)\Big)}_{\in \hspace{1mm} \tau_{\hspace{0.5mm} \overline{\R}}}\bigg) \in \Sigma$$
+\indent Por continuidad de $g$, la preimagen del abierto $[-\infty, \alpha)$ de $\overline{\R}$ es también un abierto. Aplicando ahora el \hyperref[result:1.3.3]{resultado 1.3.3.}, por ser $f$ medible, tenemos que la preimagen de este abierto por $f$ pertenece a $\Sigma$.
+
+\vspace{6mm}
+\result{Operaciones en \texorpdfstring{$\overline{\R}$}{R}}
+Sea $k \in \R$, se cumple,  $+\infty + k = +\infty$, \hspace{1mm}$-\infty + k = -\infty$. \hspace{1mm} Además,
+\begin{align*}
+    +\infty \cdot k = +\infty &\text{ si } k \in (0, +\infty] & 
+    +\infty \cdot k = -\infty &\text{ si } k \in [-\infty, 0) \\
+    -\infty \cdot k = -\infty &\text{ si } k \in (0, +\infty] & 
+    -\infty \cdot k = +\infty &\text{ si } k \in [-\infty, 0)    
+\end{align*}
+Las operaciones $0 \cdot +\infty$ y $0 \cdot -\infty$ no están definidas. Nótese que $\overline{\R}$ no es un cuerpo.
+
+\vspace{6mm}
+\result{Cociente de una función medible}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $f: X \longrightarrow \overline{\R}\setminus\{0\}$ medible. Entonces, $\frac{1}{f}$ es también medible.
+
+\vspace{4mm} \dem Consecuencia directa del \hyperref[result:1.3.7]{resultado 1.3.7}. Se tiene $\frac{1}{f} = g \circ f$ con $g : \overline{\R}\setminus\{0\} \longrightarrow \overline{\R}$ continua.
+
+\vspace{6mm} \result{Composición de funciones medibles en \texorpdfstring{$\mathfrak{B}_1$}{B\_1}}
+\hspace{3mm} Sean $f,g : \R \longrightarrow \R$ medibles en $(\R, \mathfrak{B}_1, \mu_1)$. Entonces, $g \circ f$ es también medible en este espacio de medida.
+\newpage \dem Definimos el siguiente conjunto $\mathcal{A}$. Veamos que $\tau_{\R} \subseteq \mathcal{A}$.
+$$\mathcal{A} := \{B \in \mathfrak{B}_1 : f^{-1}(B) \in \mathfrak{B}_1\}$$
+Sea $O \in \tau_{\R}$; por ser $f$ medible \hyperref[result:1.3.5]{sabemos} $f^{-1}(O) \in \mathfrak{B}_1$, luego $O \in \mathcal{A}$ por definición.
+\vspace{2mm} Veamos que $\mathcal{A}$ es una $\sigma$-álgebra:
+\newline \indent $(S.1)$ $\varnothing = f^{-1}(\varnothing)$ con $\varnothing \in \mathfrak{B}_1$, luego $\varnothing \in \mathcal{A}$.
+\vspace{3mm}\newline \indent $(S.2)$ Sean $\{E_i\}_{i\in\N} \subseteq \mathcal{A}$, \hspace{1mm}$f^{-1}\Big(\smallcup_{i\in\N} E_i\Big) = \smallcup_{i\in\N} \underbracket{f^{-1}(E_i)}_{\in \mathfrak{B}_1} \in \mathfrak{B}_1$.
+\vspace{1mm} \newline \indent $(S.3)$ Sea $E \in \mathcal{A}$, $f^{-1}(E^c) = \big(f^{-1}(E)\big)^c \in \mathfrak{B}_1$.
+
+\vspace{4mm} Por tanto, tenemos que $\mathcal{A}$ es una $\sigma$-álgebra de $\R$ con $\tau_{\R} \subseteq \mathcal{A}$. Por definición de $\mathfrak{B}_1$, se cumple $\mathfrak{B}_1 \subseteq \mathcal{A}$. Por definición de $\mathcal{A}$, se tiene además $\mathcal{A} \subseteq \mathfrak{B}_1$ luego se cumple la igualdad. Por tanto, sea $O \in \tau_{\R}$ cualquiera, sea cumple:
+$$(g \circ f)^{-1}(O) = f^{-1} \Big(\underbracket{g^{-1}(O)}_{\in \mathfrak{B}_1}\Big) \in \mathfrak{B}_N$$
+
+\nota Esta caracterización de medibilidad funciona para $\mathfrak{B}_1$, pero no para $\mathfrak{M}_N$.
+
+\vspace{6mm}
+\result{Definición de función característica}
+\hspace{3mm} Dado un conjunto cualquiera $X$, sea $A \subseteq X$ cualquiera. Llamaremos ``función característica de $A$ en $X$'' (o ``indicadora'') a la siguiente función (se denota por $1_A$ o $X_A$):
+\begin{align*}
+    1_A, X_A : X \longrightarrow \overline{\R} &&
+    x \longmapsto 1_A(x) = X_A(x) :=
+    \begin{cases}
+        1 &\text{ si } x \in A \\
+        0 &\text{ si } x \notin A
+    \end{cases}
+\end{align*}
+
+\newpage
+\result{Medibilidad según función característica}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida, sea $A \subseteq X$. Se cumple:
+$$ X_A \text{ es medible} \iff A \in \Sigma$$
+
+\vspace{2mm} \dem
+\begin{align*}
+    X_A^{-1}\Big([\alpha, \infty]\Big) = 
+    \begin{cases}
+        X &\text{ si } \alpha < 0  \hspace{2mm} \text{ siempre en } \Sigma \\
+        A &\text{ si } \alpha \in [0,1] \\
+        \varnothing &\text{ si } \alpha > 1 \hspace{2mm} \text{ siempre en } \Sigma 
+    \end{cases}
+\end{align*}
+Tenemos que $X_A$ es medible si y solo si $X_A^{-1}\Big([\alpha, \infty]\Big) \in \Sigma \hspace{2mm} \forall \hspace{1mm} \alpha \in [0,1]$, lo que a su vez equivale a exigir $A \in \Sigma$.
+
+\vspace{6mm}
+\result{Definición de función simple}
+\hspace{3mm} Llamamos ``función simple'' $s : X \longrightarrow \overline{\R}$ a cualquier función cuya imagen es un conjunto finito.
+
+\vspace{2mm} Denotando $s(X) = \{\lambda_1 < \ldots < \lambda_n\}$ con $n \in \N$ fijo, llamaremos ``expresión cámbrica'' de $s$ a la siguiente expresión:
+\begin{align*}
+    s = \sum_{i=1}^n \lambda_i \cdot X_{A_i} && \text{ donde } A_i = s^{-1}\Big(\{\lambda_i\}\Big) \hspace{2mm} \forall \hspace{1mm} i \in \{1,\ldots,n\}
+\end{align*}
+Nótese que $X = \smallcup_{i=1}^n A_i$ y que $i \neq j \Rightarrow A_i \cap A_j = \varnothing$.
+
+%TODO: reestructurar
+\newpage
+\result{Producto de funciones medibles}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $f,g : X \longrightarrow \overline{\R}$ medibles. Si $f \cdot g$ está bien definida para todo $x \in X$; entonces, es medible.
+
+\vspace{2mm} \dem Hemos de considerar varios casos.
+
+\vspace{2mm} Si $f+g$ está bien definida, se cumple: $f \cdot g = \frac{1}{2} \Big((f+g)^2 -f^2 -g^2\Big)$. En esta región, a la que denotaremos $A_0$, $f \cdot g$ es medible como consecuencia del \hyperref[result:1.3.5]{resultado 1.3.5}. La expresión anterior no está definida para los $x$ pertenecientes a los siguientes conjuntos:
+
+\newpage
+\begin{minipage}{0.5\textwidth}
+    \begin{flalign*}
+        &A_1 := f^{-1}\big(\{+\infty\}\big) \cap g^{-1}\Big([-\infty, 0)\Big) \\
+        &A_2 := f^{-1}\big(\{+\infty\}\big) \cap g^{-1}\Big((0, +\infty]\Big) \\
+        &A_3 := f^{-1}\big(\{-\infty\}\big) \cap g^{-1}\Big([-\infty, 0)\Big) \\
+        &A_4 := f^{-1}\big(\{-\infty\}\big) \cap g^{-1}\Big((0, +\infty]\Big)
+    \end{flalign*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{flalign*}
+        &A_5 := g^{-1}\big(\{+\infty\}\big) \cap f^{-1}\Big((-\infty, 0)\Big) \\
+        &A_6 := g^{-1}\big(\{+\infty\}\big) \cap f^{-1}\Big((0, +\infty)\Big) \\
+        &A_7 := g^{-1}\big(\{-\infty\}\big) \cap f^{-1}\Big((-\infty, 0)\Big) \\
+        &A_8 := g^{-1}\big(\{-\infty\}\big) \cap f^{-1}\Big((0, +\infty)\Big)
+    \end{flalign*}
+\end{minipage}
+
+\vspace{4mm}
+Es evidente que $(f \cdot g)_{|A_i} \equiv +\infty$ y que $(f \cdot g)_{|A_j} \equiv -\infty$ para $i \in \{2,3,6,7\}$, y para $j \in \{1,4,5,8\}$. Así, al ser constantes, las restricciones son medibles en $(A_k, \Sigma(A_k), \mu_{|A_k})$ con $k \in \{1,\ldots,8\}$.
+
+%TODO acabar y reestructurar para cuando se hayan visto funciones simples
 \end{document}

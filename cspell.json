@@ -18,5 +18,6 @@
         "unipuntual"
     ],
     "ignoreWords": [],
-    "import": []
+    "import": [],
+    "language": "en,es-ES"
 }
