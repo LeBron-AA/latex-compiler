@@ -1,26 +1,4 @@
 {
-  "latex-workshop.latex.autoBuild.run": "onSave",
-  "latex-workshop.latex.outDir": "./out",
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "pdflatex",
-      "tools": ["pdflatex"]
-    }
-  ],
-  "latex-workshop.latex.tools": [
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-interaction=nonstopmode",
-        "-synctex=1",
-        "%DOC%"
-      ]
-    }
-  ],
-  "latex-workshop.log": false,
-
   "cSpell.language": "en",
   "cSpell.words": [
     "biunívocamente",
@@ -34,5 +12,20 @@
     "diádicos",
     "suprayectiva",
     "tabularmente"
-  ]
+  ],
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Echo DOC",
+      "tools": ["echo-doc"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "echo-doc",
+      "command": "${workspaceFolder}\\echo-doc.bat",
+      "args": ["%DOC%"]
+    }
+  ],
+  "latex-workshop.latex.build.onSave.enabled": true
 }
