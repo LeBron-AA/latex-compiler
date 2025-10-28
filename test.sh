@@ -1,0 +1,1 @@
+curl -X POST -F "file=@apuntes.tex" https://latexonline.cc/compile > output.pdf

@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 
 % Paquetes básicos
+\usepackage[x11names]{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools, amssymb, amsthm}
 \usepackage{changepage}
@@ -15,7 +16,6 @@
 \usepackage{titlesec}
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
-\usepackage[x11names]{xcolor}
 
 % Margins
 %\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
@@ -2451,4 +2451,18 @@ Tomando límites cuando $n \to \infty$, concluimos que $l \leq f(x_0) \leq l$.
 $$s_n = n \cdot X_{E_n} + \sum_{i = 1}^{n \cdot 2^n} \left(\frac{i-1}{2^n} \cdot X_{E_{n,i}}\right)$$
 Al suponer que $f$ está estrictamente acotada por $1$, el primer sumando es siempre nulo. Por tanto, para todo $n \in \N$ se cumple $E_n = f^{-1}\Big([n, +\infty]\Big) = \varnothing$, $\forall \hspace{1mm} x \in X : f(x) \in \left[\frac{i_{n,x}-1}{2^n}, \frac{i_{n,x}}{2^n}\right)$ para cierto $i_{n,x} \in \{1,\ldots, n\cdot 2^n\}$. De este modo,
 $$\left|s_n(x) - f(x)\right| \leq \frac{1}{2^n} \xrightarrow{n\to\infty} 0 \hspace{2mm} \text{ uniformemente para cualquier } x \in X$$
+
+\newpage
+\unit{Integral de Lebesgue}
+\chapter{Integral de Lebesgue para funciones no negativas}
+\result{Convenio \texorpdfstring{$0 \cdot \infty$}{0 · infty}}
+\hspace{3mm} Consideramos $0 \cdot \infty = 0$ siempre y cuando al menos uno de los dos factores represente la medida de algún conjunto.
+
+\hspace{4mm}
+\result{Definición de integral de funciones simples}
+\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$ y una función simple medible
+\begin{flalign*}
+    s: X \longrightarrow [0, +\infty) && \text{ con expresión canónica } s = \sum_{i = 1}^n \lambda_i X_{A_i}
+\end{flalign*}
+
 \end{document}

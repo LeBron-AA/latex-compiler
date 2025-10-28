@@ -70,3 +70,7 @@
 \contentsline {subsubsection}{\numberline {1.3.16}Definición de parte positiva y negativa}{57}{subsubsection.0.1.3.16}%
 \contentsline {subsubsection}{\numberline {1.3.17}Funciones medibles como límite de simples}{58}{subsubsection.0.1.3.17}%
 \contentsline {subsubsection}{\numberline {1.3.18}Convergencia uniforme para funciones acotadas}{59}{subsubsection.0.1.3.18}%
+\contentsline {section}{II Integral de Lebesgue}{61}{unit.0.2}%
+\contentsline {subsection}{1. Integral de Lebesgue para funciones no negativas}{61}{chapter.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Convenio $0 \cdot \infty $}{61}{subsubsection.0.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Definición de integral de funciones simples}{61}{subsubsection.0.2.1.2}%
