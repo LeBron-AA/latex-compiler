@@ -248,7 +248,7 @@ $$\varphi(1) = \frac{1}{1}, \hspace{4mm} \varphi(2) = \frac{2}{1}, \hspace{4mm}
 \varphi(5) = \frac{2}{2},  \hspace{4mm} \varphi(6) = \frac{1}{3}\ldots$$
 
 Aunque esta aplicación no es inyectiva (por ejemplo $\varphi(1) = \varphi(5)$), sí es suprayectiva.
-Por tanto, $\card\N \leq \card\hat{Q}$. Además, como $\N \subseteq \hat{Q}$, es evidente que $\card\N \geq \card\hat{Q}$.
+Por tanto, $\card\N \geq \card\hat{Q}$. Además, como $\N \subseteq \hat{Q}$, es evidente que $\card\N \leq \card\hat{Q}$.
 En consecuencia, $\card\N = \card\hat{Q}$; es decir, $\hat{Q}$ es numerable y por tanto también lo es $\Q$.
 
 \vspace{2mm}
@@ -815,7 +815,7 @@ $$ \forall\hspace{1mm}\varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in 
 En este caso, diremos que este $s$ es el ``valor de la suma de la serie''.
 
 \vspace{4mm}
-Diremos que $\sum_{n,m} a_{nm}$ es divergente a $+\infty (-\infty)$ si $\forall \hspace{1mm} \in \R$
+Diremos que $\sum_{n,m} a_{nm}$ es divergente a $+\infty (-\infty)$ si $\forall K\hspace{1mm} \in \R$
 $\exists \hspace{1mm} n_0  \in \N$ tal que dados $n, m \geq n_0$ se cumple: \\[-5ex]
 \begin{align*}
     \sum_{\substack{1\leq i \leq n\\1 \leq j \leq m}}a_{ij} > K &&
@@ -1137,14 +1137,14 @@ a sus complementarios (luego todos los cerrados). Sin embargo, como veremos más
 \result{Subaditividad en espacios de medida}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida, sean $\{E_i : i \in \N\} \subseteq \Sigma$.
 Entonces, se cumple: \\[-3ex]
-$$\mu(\smallcup_{i \ \N} E_i) \leq \smallsum_{i \in\N}\mu(E_i)$$
+$$\mu(\smallcup_{i \in \N} E_i) \leq \smallsum_{i \in\N}\mu(E_i)$$
 
 \vspace{4mm}
 \dem Expresaremos $\smallcup_{i\in\N}E_i$ como unión de conjuntos disjuntos.
 
 \vspace{4mm}
 Definimos $F_1 := E_1 \in \Sigma$. Para todo $n \in \N$, $E_1 \cup E_2 \cup \ldots \cup E_n \in \Sigma$.
-Así, $F_{n+1} := E_n \setminus (E_1 \cup \ldots \cup E_n) \in \Sigma$.
+Así, $F_{n+1} := E_{n+1} \setminus (E_1 \cup \ldots \cup E_n) \in \Sigma$.
 Veamos que $\smallcup_{i\in\N}F_i = \smallcup_{i\in\N}E_i$ por doble contenido.
 
 \vspace{4mm}
@@ -1155,7 +1155,7 @@ Veamos que $\smallcup_{i\in\N}F_i = \smallcup_{i\in\N}E_i$ por doble contenido.
     $\supseteq$ \hspace{3mm} Sea $x_0 \in \smallcup_{i\in\N} E_i$; por definición, $\exists \hspace{1mm} i_0 \in \N$ tal que $x_0 \in E_{i_0}$.
 \end{tcolorbox}
 Por tanto, el siguiente conjunto $\mathcal{A}_{x_0}$ es no vacío:
-$ \mathcal{A}_{x_0} := \left\{n \in \N : x_0 \in E_n\right\} \subseteq \N$.
+$ \mathcal{A}_{x_0} := \left\{n \in \N : x_0 \in E_n\right\}$.
 Al ser un subconjunto no vacío de $\N$, podemos afirmar que existe $m_0 := \min \mathcal{A}_{x_0}$.
 Por definición de $\mathcal{A}_{x_0}$
 \begin{flalign*}
@@ -1502,7 +1502,7 @@ Podemos ordenar este conjunto; es decir, podemos renombrar sus elementos para qu
     \text{ donde } a = x_0 < x_1 < x_2 <\ldots < x_{m-1} < x_m = b
 \end{align*}
 
-Sea $j \in \{1,\dots,m\}$ cualquiera pero fijo, $(x_{j-1}, x_j) \subseteq C \subseteq \smallcup_{i=1}^n I_i$, luego $\exists k \in \{1,\ldots,n\}$ tal que $I_k \cap (x_{j-1}, x_j) \neq \varnothing$. Veamos que $(x_{j-1}, x_j) \subseteq I_k$.
+Sea $j \in \{1,\dots,m\}$ cualquiera pero fijo, $x_j \in C \subseteq \smallcup_{i=1}^n I_i$, luego $\exists k \in \{1,\ldots,n\}$ tal que $x_j \in I_k$. Veamos que $(x_{j-1}, x_j) \subseteq I_k$.
 
 \noindent
 Ambos conjuntos son conexos y abiertos, luego su intersección ha de serlo también:
@@ -1512,11 +1512,11 @@ Ambos conjuntos son conexos y abiertos, luego su intersección ha de serlo tambi
     \text{ donde } \hspace{2mm} u = \max\{x_{j-1}, a_k\}, \hspace{1mm} v = \min\{x_j, b_k\}
 \end{align*}
 \begin{enumerate}
-    \item Si $u = a_k$, se tiene que $x_{j-1} < a_k \Rightarrow a_k \in (x_{j-1}, x_j)$.
-    \item Si $v = b_k$, se tiene que $x_j > b_k \Rightarrow b_k \in (x_{j-1}, x_j)$.
+    \item Como $x_j \in I_k = (a_k, b_k)$, tenemos necesariamente $v = x_j < b_k$.
+    \item Si $u = a_k$, se tiene que $x_{j-1} < a_k < x_j$ siendo los tres extremos de intervalos.
 \end{enumerate}
-En cualquier caso, se tiene que hay un extremo de $I_k$ en $(x_{j-1}, x_j)$, lo que contradice la definición de $\mathcal{A}$.
-Por tanto, $u = x_{j-1}$,$v = x_j$ y $(x_{j-1}, x_j) \subseteq I_k$. Veamos una ilustración de cómo se obtienen los elementos de $\mathcal{A}$
+En vista del segundo punto, se tiene que hay un extremo de $I_k$ en $(x_{j-1}, x_j)$, lo que contradice la definición de $\mathcal{A}$.
+Por tanto, $x_{j-1}, x_j \in I_k \Rightarrow (x_{j-1}, x_j) \subseteq I_k$. Veamos una ilustración de cómo se obtienen los elementos de $\mathcal{A}$
 a partir de los $I_k$:
 
 {%Bloque con variables locales
