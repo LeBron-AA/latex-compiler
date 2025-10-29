@@ -8,8 +8,10 @@ if errorlevel 1 (
     cls
     copy "D:\UNIOVI\latex-compiler\3Carrera\AMat3\apuntes.tex" "%cd%\comp.tex"
     call "C:\Program Files\Git\bin\bash.exe" -c "cd D:/UNIOVI/latex-compiler; ls;./laton -d https://latexonline.cc ./3Carrera/AMat3/apuntes.tex"
-    timeout /t 10 > nul
+    copy "%cd%\apuntes.pdf" "D:\UNIOVI\latex-compiler\3Carrera\AMat3\apuntes.pdf"
     echo Compilado
+) else (
+    timeout /t 5 > nul
 )
 
 goto :loop

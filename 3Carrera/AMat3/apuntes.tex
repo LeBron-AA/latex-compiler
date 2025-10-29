@@ -78,9 +78,10 @@
 \newcommand{\smallprod}{\mathop{\prod}\limits}
 
 \newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
-
 \newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
 
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
 
 % ----- Custom counters and counter commands -----
 % Custom counter hierarchy
@@ -2465,7 +2466,7 @@ $$\left|s_n(x) - f(x)\right| \leq \frac{1}{2^n} \xrightarrow{n\to\infty} 0 \hspa
     s: X \longrightarrow [0, +\infty) && \text{ con expresión canónica } s = \sum_{i = 1}^n \lambda_i X_{A_i}
 \end{align*}
 Definimos la integral de Lebesgue de $s$ sobre $X$ como el número:
-$$\widehat{\int}_X s \,d\mu = \sum_{i=1}^{n} \lambda_i \cdot \mu(A_i)$$
+$$\lbint_X s \,d\mu = \sum_{i=1}^{n} \lambda_i \cdot \mu(A_i)$$
 
 \nota Implícitamente, ya está definida la integral de $s$ sobre $\Sigma(E) \hspace{2mm } \forall \hspace{1mm} E \in \Sigma$:
 $$\widehat{\int_E}s \,d \mu = \widehat{\int_X} s_{|E} \,d\mu = \sum_{i=1}^{n}\lambda_i \cdot \mu(E \cap A_i)$$
@@ -2473,19 +2474,19 @@ $$\widehat{\int_E}s \,d \mu = \widehat{\int_X} s_{|E} \,d\mu = \sum_{i=1}^{n}\la
 \newpage
 \result{Linealidad del integrando}
 \hspace{3mm} Dado un spacio de medida $(X, \Sigma, \mu)$. Sea $s: X \longrightarrow [0, \infty)$ una función simple y medible. Sean $\{E_i\}_{i\in\N}$ con $i \neq j \Rightarrow E_i \cap E_j = \varnothing$. Entonces, se cumple:
-$$\widehat{\int}_{\smallcup_{i\in\N}E_i} s \, d\mu = \sum_{i=1}^\infty \widehat{\int}_{E_i}s\,d\mu$$
+$$\lbint_{\smallcup_{i\in\N}E_i} s \, d\mu = \sum_{i=1}^\infty \lbint_{E_i}s\,d\mu$$
 
 \vspace{3mm}
 \dem Sea $s = \displaystyle \sum_{i=1}^{n} \lambda_i \cdot X_{A_i}$ la expresión canónica de $s$. Entonces,
 \begin{flalign*}
-    &\widehat{\int}_{\smallcup_{i\in\N}E_i}s\,d\mu = \sum_{i=1}^{n} \lambda_i \cdot \mu\big(A_i \cap \smallcup_{i\in\N}E_i\big) = \sum_{i=1}^n \lambda_i \sum_{j=1}^\infty \mu(A_i \cap E_j) = \\
-    &= \sum_{i=1}^n \left(\sum_{j=1}^\infty \lambda_i \cdot \mu(A_i \cap E_j) \right) = \sum_{j=i}^\infty \sum_{i=1}^n \lambda_i \cdot \mu(A_i \cap E_j) = \sum_{j=1}^{\infty} \widehat{\int}_{E_j}s\,d\mu
+    &\lbint_{\smallcup_{i\in\N}E_i}s\,d\mu = \sum_{i=1}^{n} \lambda_i \cdot \mu\big(A_i \cap \smallcup_{i\in\N}E_i\big) = \sum_{i=1}^n \lambda_i \sum_{j=1}^\infty \mu(A_i \cap E_j) = \\
+    &= \sum_{i=1}^n \left(\sum_{j=1}^\infty \lambda_i \cdot \mu(A_i \cap E_j) \right) = \sum_{j=i}^\infty \sum_{i=1}^n \lambda_i \cdot \mu(A_i \cap E_j) = \sum_{j=1}^{\infty} \lbint_{E_j}s\,d\mu
 \end{flalign*}
 
 \vspace{6mm}
 \result{Linealidad parcial}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s,t : X \leftarrow [0, \infty)$ funciones simples y medibles. Entonces, se cumple:
-$$\widehat{\int}_{X}s + t\,d\mu = \widehat{\int}_{X}s\,d\mu + \widehat{\int}_{X}t\,d\mu$$
+$$\lbint_{X}s + t\,d\mu = \lbint_{X}s\,d\mu + \lbint_{X}t\,d\mu$$
 
 \vspace{2mm} \dem Sean sus expresiones canónicas las siguientes:
 \begin{align*}
@@ -2493,20 +2494,22 @@ $$\widehat{\int}_{X}s + t\,d\mu = \widehat{\int}_{X}s\,d\mu + \widehat{\int}_{X}
 \end{align*}
 Entonces, como $\{A_i\}_{i=1}^n$ y $\{B_j\}_{j=1}^m$ son recubrimientos disjuntos de $X$, se tiene:
 \begin{flalign*}
-    \widehat{\int}_{X}s\,d\mu = \sum_{i=1}^n \alpha_i \sum_{j=1}^{m} \mu(A_i \cap B_j) = \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} \alpha_i \cdot \mu(A_i \cap B_j) \\
-    \widehat{\int}_{X}t\,d\mu = \sum_{j=1}^m \beta_j \sum_{i=1}^{n} \mu(A_i \cap B_j) = \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} \beta_j \cdot \mu(A_i \cap B_j)
+    \lbint_{X}s\,d\mu = \sum_{i=1}^n \alpha_i \sum_{j=1}^{m} \mu(A_i \cap B_j) = \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} \alpha_i \cdot \mu(A_i \cap B_j) \\
+    \lbint_{X}t\,d\mu = \sum_{j=1}^m \beta_j \sum_{i=1}^{n} \mu(A_i \cap B_j) = \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} \beta_j \cdot \mu(A_i \cap B_j)
 \end{flalign*}
 Sumando ambas expresiones obtenemos:
 \begin{flalign*}
-    \widehat{\int}_{X}&s\,d\mu + \widehat{\int}_{X}t\,d\mu = \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} (\alpha_i + \beta_j) \cdot \mu(A_i \cap B_j) = \\
-    &= \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} \widehat{\int}_{A_i \cap B_j}s + t\,d\mu = \widehat{\int}_{X}s+t\,d\mu
+    \lbint_{X}&s\,d\mu + \lbint_{X}t\,d\mu = \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} (\alpha_i + \beta_j) \cdot \mu(A_i \cap B_j) = \\
+    &= \sum_{\substack{1\leq i \leq n \\ 1 \leq j \leq m}} \lbint_{A_i \cap B_j}s + t\,d\mu = \lbint_{X}s+t\,d\mu
 \end{flalign*}
 La última igualdad se deduce de la \hyperref[result:2.1.3]{linealidad del integrando}.
 
 \hspace{4mm}
 \result{Monotonía de la integral simple}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s, t: X \longrightarrow [0, \infty)$ funciones medibles simples tales que $s(x) \leq t(x) \forall x \in X$. Entonces, se cumple:
-$$\widehat{\int}_{X}s\,d\mu \leq \widehat{\int}_{X}t\,d\mu$$
+$$\lbint_{X}s\,d\mu \leq \lbint_{X}t\,d\mu$$
 
 \vspace{2mm} \dem
+$$\lbint f \, d\mu$$
+Entonces...
 \end{document}
