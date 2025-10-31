@@ -10,6 +10,15 @@
       "language" : "es"
     },
     {
+      "title": "Ejercicios hechos",
+      "description": "De momento hay pocos...",
+      "pdfPath": "3Carrera/AMat3/Ejercicios/ejercicios.pdf",
+      "subject": "Análisis Matemático III",
+      "grade": 3,
+      "semester": 2,
+      "language" : "es"
+    },
+    {
       "title": "Consultas SQL",
       "description" : "Ejercicios para practicar el examen teórico de consultas",
       "pdfPath" : "2Carrera/BDatos/Teoria2/PracticaSQL/practica.pdf",
