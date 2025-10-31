@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+body {
+  font-family:
+    "Source Sans 3", sans-serif;
+}
+
+header {
+    background-color: #0a4875;
+}
+h1 {
+    font-size : 3rem;
+    color: #FFFF;
+}
+
+body {
+    background-color: #e9e9d3;
+}
+
+section {
+    background-color: #FFFF;
+}
+
+a, a:visited {
+    color: #0a4875;
+}

@@ -1,0 +1,49 @@
+{
+  "notes": [
+    {
+      "title": "Apuntes de teoría",
+      "description": "Apuntes con los resultados vistos en clase",
+      "pdfPath": "3Carrera/AMat3/apuntes.pdf",
+      "subject": "Análisis Matemático III",
+      "grade": 3,
+      "semester": 2,
+      "language" : "es"
+    },
+    {
+      "title": "Consultas SQL",
+      "description" : "Ejercicios para practicar el examen teórico de consultas",
+      "pdfPath" : "2Carrera/BDatos/Teoria2/PracticaSQL/practica.pdf",
+      "subject" : "Bases de Datos",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "en"
+    },
+    {
+      "title": "Álgebra Relacional",
+      "description" : "Ejercicios para practicar el examen teórico de consultas",
+      "pdfPath" : "2Carrera/BDatos/Teoria2/PracticaALG/practica.pdf",
+      "subject" : "Bases de Datos",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "en"
+    },
+    {
+      "title": "Pregunta larga del control 2024-2025",
+      "description" : "Resolución del ejercicio del último control curso 2024-2025",
+      "pdfPath" : "2Carrera/PyE/Ejercicio-Control2/Control2.pdf",
+      "subject" : "Probabilidades y Estadística",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
+    },
+    {
+      "title": "Control mayo PyE 2024",
+      "description" : "Resolución de un ejercicio del examen de convocatoria ordinaria de 2024",
+      "pdfPath" : "2Carrera/PyE/Examen24/Examen24.pdf",
+      "subject" : "Probabilidades y Estadística",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
+    }
+  ]
+}
