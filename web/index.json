@@ -53,6 +53,51 @@
       "grade" : 2,
       "semester" : 2,
       "language" : "es"
+    },
+    {
+      "title": "Proyección central",
+      "description" : "Ejercicio analizando las características de la proyección cartográfica central",
+      "pdfPath" : "2Carrera/GCS/ProyeccionCentral/ProyeccionCentral.pdf",
+      "subject" : "Geometría de Curvas y Superficies",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
+    },
+    {
+      "title": "Primera tutoría grupal",
+      "description" : "Resolución de la primera tutoría grupal",
+      "pdfPath" : "2Carrera/GCS/TG1/TG1.pdf",
+      "subject" : "Geometría de Curvas y Superficies",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
+    },
+    {
+      "title": "Segunda tutoría grupal",
+      "description" : "Resolución de la segunda tutoría grupal",
+      "pdfPath" : "2Carrera/GCS/TG2/TG2.pdf",
+      "subject" : "Geometría de Curvas y Superficies",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
+    },
+    {
+      "title": "Tercera tutoría grupal",
+      "description" : "Resolución de la tercera tutoría grupal",
+      "pdfPath" : "2Carrera/GCS/TG3/TG3.pdf",
+      "subject" : "Geometría de Curvas y Superficies",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
+    },
+    {
+      "title": "Cuarta tutoría grupal",
+      "description" : "Resolución de la cuarta tutoría grupal",
+      "pdfPath" : "2Carrera/GCS/TG4/TG4.pdf",
+      "subject" : "Geometría de Curvas y Superficies",
+      "grade" : 2,
+      "semester" : 2,
+      "language" : "es"
     }
   ]
 }

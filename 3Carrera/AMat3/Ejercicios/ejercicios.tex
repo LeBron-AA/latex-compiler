@@ -171,8 +171,8 @@ Así, sea $(t_n)_n$ una sucesión que tiende al origen, ha de "atravesar" todos 
 \vspace{4mm}
 Sean $s,t \in \R^N$ cualesquiera, se cumple:
 \begin{flalign*}
-    \varphi(t) &= \sup_{x\in\R^N} |f(x+t) - f(x)| \leq \sup_{x\in\R^N} |f(x+t) - f(x+s)|+ |f(x+s) + f(x)| \leq\\
-    &\leq \sup_{x\in\R^N}|f(x + t) - f(x)| + \sup_{y\in\R^N}|f(y+s) - f(y)| \overset{z = x + s}{=} \sup_{z\in\R^N}| f\big(z + (t-s) \big)- f(z)| + \varphi(s)
+    \varphi(t) &= \sup_{x\in\R^N} |f(x+t) - f(x)| \leq \sup_{x\in\R^N} |f(x+t) - f(x+s)|+ |f(x+s) - f(x)| \leq\\
+    &\leq \sup_{x\in\R^N}|f(x + t) - f(x + s)| + \sup_{y\in\R^N}|f(y+s) - f(y)| \overset{z = x + s}{=} \sup_{z\in\R^N}| f\big(z + (t-s) \big)- f(z)| + \varphi(s)
 \end{flalign*}
 Despejando, obtenemos $0 \leq \varphi(t) - \varphi(s) \leq \varphi(t-s) \xrightarrow{s\to t} \varphi(0) = 0$.
 
