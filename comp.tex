@@ -812,7 +812,7 @@ a la expresión $\displaystyle \sum_{n,m} a_{nm}$ (que equivale a $\displaystyle
 Diremos que $\sum_{n,m}a_{nm}$ es convergente si sus sumas parciales convergen a un número real. Es decir, si:
 $\exists s \in \R $ que verifica: \\[-4ex]
 $$ \forall\hspace{1mm}\varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in \N \text{ tal que }\hspace{2mm}  n,m \geq n_0 \Rightarrow
-\left|s - \sum_{\substack{1\leq i \leq n\\1\leq j \leq n}}a_{ij}\right| < \varepsilon$$
+\left|s - \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}}a_{ij}\right| < \varepsilon$$
 En este caso, diremos que este $s$ es el ``valor de la suma de la serie''.
 
 \vspace{4mm}
@@ -976,7 +976,7 @@ Finalmente, aplicando el apartado $(\romannumeral 3)$, $E \cap (X \setminus F) \
 
 \vspace{6mm}
 \result{Definición de espacio de medida}
-\hspace{3mm} Sea $X$ un conjunto cualquiera y $\Sigma$ una $\sigma$-álgebra de $X$, diremos que
+\hspace{3mm} Sea $X$ un conjunto cualquiera y $\Sigma$ una $\sigma$-álgebra de $X$, diremos que \newline
 $\mu : \Sigma \longrightarrow [0,+\infty]$ es una medida sobre $\Sigma$ si verifica las siguientes propiedades:
 \begin{enumerate}[label=M.\arabic*)]
     \item $\mu(\varnothing) = 0$
@@ -1377,7 +1377,7 @@ Hemos demostrado que se cumplen todas las hipótesis.
 \newpage
 \chapter{El espacio de medida de Lebesgue \texorpdfstring{$(R^N, \mathfrak{M}_N, \mu_N)$}{(R\^N, M\_N, mu\_n))}}
 \result{Definiciones de intervalos y cubos}
-\hspace{3mm} Llamaremos ``intervalo degenerado'' a cualquier conjunto vacío o unitario (unipuntual). Por ejemplo $\varnothing = (2, -1=$), $\{a\} = [a,a] \hspace{2mm} \forall \hspace{1mm} a \in \R$.
+\hspace{3mm} Llamaremos ``intervalo degenerado'' a cualquier conjunto vacío o unitario (unipuntual). Por ejemplo $\varnothing = (2, -1)$, $\{a\} = [a,a] \hspace{2mm} \forall \hspace{1mm} a \in \R$.
 
 \vspace{2mm}
 Denominamos ``cubo de $\R^N$'' a cualquier conjunto $C = I_1 \times \ldots \times I_N$ donde $I_i$ es un intervalo $\hspace{2mm} \forall \hspace{1mm} i \in \{1,\ldots, N\}$.
@@ -1444,7 +1444,7 @@ $\romannumeral 3)$ Sea $A$ numerable (puede ser no acotado); entonces, $\mu^*_N(
 \hspace{1mm} $\mu^*_N$ cumple las siguientes propiedades:
 \begin{enumerate}[label=\roman*)]
     \item Monotonía: Sean $A \subseteq B \subseteq \R^N$. Entonces, $\mu^*_N(A) \leq \mu^*_N(B)$.
-    \item Subaditividad: $\{A_i : i \in \N\} \subseteq \mathcal{P}(\R^N) \Rightarrow \mu^*_N(\smallcup_{i\in\N}A_i) \leq \smallsum_{i=1}^{\infty}\mu^*_M(A_i)$
+    \item Subaditividad: $\{A_i : i \in \N\} \subseteq \mathcal{P}(\R^N) \Rightarrow \mu^*_N(\smallcup_{i\in\N}A_i) \leq \smallsum_{i=1}^{\infty}\mu^*_N(A_i)$
 \end{enumerate}
 
 \vspace{3mm} \dem
@@ -1463,7 +1463,7 @@ $\romannumeral 1)$ Seguiremos la notación del \hyperref[result:1.2.4]{corolario
     \vspace{1mm} \newline Se cumple $\smallcup_{n\in\N}A_n \subseteq \smallcup_{n\in\N}\smallcup_{i\in\N}I_{n,i} \hspace{1mm}$ con $\hspace{1mm} \{I_{n,i} : n,i \in \N\}$ numerable.
     \newline Por todo lo anterior,
     \begin{flalign*}
-        \mu^*_N(A_n) &\leq \smallsum_{n,i}I_{n,i} \overset{(*_1)}{=} \smallsum_{n=1}^\infty \smallsum_{i=1}^\infty v_N(I_{n,i}) \leq \smallsum_{n=1}^\infty \mu^*_N(A_n) + \varepsilon_n \overset{(*_2)}{=}\\
+        \mu^*_N(A_n) &\leq \smallsum_{n,i}\mu^*_N(I_{n,i}) \overset{(*_1)}{=} \smallsum_{n=1}^\infty \smallsum_{i=1}^\infty v_N(I_{n,i}) \leq \smallsum_{n=1}^\infty \mu^*_N(A_n) + \varepsilon_n \overset{(*_2)}{=}\\
         &\overset{(*_2)}{=} \sum_{n=1}^{\infty} \mu^*_N(A_n) + \sum_{n=1}^{\infty}\varepsilon_n = \varepsilon + \sum_{n=1}^{\infty} \mu^*_N(A_n) \xrightarrow{\varepsilon \to 0} \sum_{n=1}^{\infty}\mu^*_N(A_n)
     \end{flalign*}
     $(*_1)$ Se debe a la no negatividad de los términos sumados.
@@ -1599,14 +1599,14 @@ y además $I_j$ es de la forma $(-\infty, a)$, $(-\infty, a]$, $[a, +\infty)$, o
 \vspace{2mm}
 $\romannumeral 1)$ Sea $E \subseteq \R^N$ con $\mu^*_N(E) = 0$, sea $C$ un cubo abierto acotado de $\R^N$.
 Se tiene que $C \cap E \subseteq E$ luego este conjunto es también de medida exterior nula. Así, vemos que se cumple la definición aplicando la subaditividad: \\[-2ex]
-$$\mu^*_N(C \cap C) + \mu^*_N(C \cap E^c) = \mu^*_N(C \cap E^C) \leq \mu^*_N(C) = v_N(C)$$
+$$\mu^*_N(C \cap E) + \mu^*_N(C \cap E^c) = \mu^*_N(C \cap E^C) \leq \mu^*_N(C) = v_N(C)$$
 
 \vspace{4mm}
 $\romannumeral 2)$ Sea $E \in \mathfrak{M}_N$, sea $C$ cubo abierto y acotado de $\R^N$, se cumple: \\[-3ex]
 $$v_N(C) \overset{E \in \mathfrak{M}_N}{=} \mu^*_N(C \cap E) + \mu^*_N \big(C \cap E^c\big) = \mu^*_N(C \cap E^c) + \mu^*_N(C \cap (E^c)^c)$$
 \\[-4ex]Tenemos que $E^c \in \mathfrak{M}_N$ por definición.
 
-$\romannumeral 3)$ Sea $H = (a, +\inf) \times \R \overset{N-1}{\ldots} \times \R$ un semiespacio abierto  de $\R^N$ (el resto de casos son análogos).
+$\romannumeral 3)$ Sea $H = (a, +\infty) \times \R \times\overset{N-1}{\ldots} \times \R$ un semiespacio abierto  de $\R^N$ (el resto de casos son análogos).
 Sea $C = (a_1, b_1) \times \ldots \times (a_N,b_N)$ un cubo abierto acotado cualquiera. Se tiene:
 
 \vspace{-2mm}
@@ -1747,10 +1747,10 @@ Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$, buscamos $\smallcup_{i\in\N}E_
     \newline Sea $A \subseteq \R^N$ cualquiera, $\smallcup_{i=1}^n E_i \in \mathfrak{M}_N \hspace{2mm} \forall \hspace{1mm} n \in \N$. Por tanto,
     \begin{flalign*}
         \mu^*_N(A) &= \mu^*_N(A \cap \smallcup_{i=1}^n E_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^n E_i)^c\big) \geq \\
-        &\geq \mu^*_N(A \cap \smallcup_{i=1}^n F_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big) \overset{\hyperref[result:1.2.13]{1.2.13}}{=} \\
-        &= \sum_{i = 1}^{n} \mu^*_N(A \cap F_i) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)\big) \xrightarrow{n \to \infty}\\
-        &\xrightarrow{n \to \infty} \sum_{i=1}^\infty \mu^*_N(A \cap F_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big) \geq \\
-        &\geq \mu^*_N\big(A \cap \smallcup_{i\in\N}F_i\big) \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big) = \mu^*_N\big(A \cap \smallcup_{i\in\N}E_i\big) + \mu^*_N\big(A \cap (\smallcup_{i=1}^\infty E_i)^c\big)&&
+        &\geq \mu^*_N(A \cap \smallcup_{i=1}^n F_i) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)^c\big) \overset{\hyperref[result:1.2.13]{1.2.13}}{=} \\
+        &= \sum_{i = 1}^{n} \mu^*_N(A \cap F_i) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)^c\big) \xrightarrow{n \to \infty}\\
+        &\xrightarrow{n \to \infty} \sum_{i=1}^\infty \mu^*_N(A \cap F_i) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)^c\big) \geq \\
+        &\geq \mu^*_N\big(A \cap \smallcup_{i\in\N}F_i\big) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)^c\big) = \mu^*_N\big(A \cap \smallcup_{i\in\N}E_i\big) + \mu^*_N\big(A \cap (\smallcup_{i\in\N} E_i)^c\big)&&
     \end{flalign*}
     Llegamos a la conclusión deseada.
 \end{adjustwidth}
@@ -1949,7 +1949,7 @@ Al ser abiertos, $O_n \in \mathfrak{B}_N \hspace{2mm} \forall \hspace{1mm} n \in
     G \subseteq O_n \Rightarrow \mu_N(G) \leq \mu_N(O_n) = \frac{1}{n} \xrightarrow{n \to \infty} 0
 \end{flalign*} \indent
 De este modo, $M \subseteq G$ con $G \in \mathfrak{B}_N$ tal que $\mu_N(G) = 0$ luego $M \in \mathcal{N}$ por definición. Al estar trabajando con la compleción, $\mathcal{N} \subseteq \overset{\sim}{\mathfrak{B}_N}$.
-Por todo lo anterior, $$E = \underbracket{\hspace{1mm} D \hspace{1mm} }_{\in \mathfrak{B}_N} \cup \underbracket{\hspace{1mm} M \hspace{1mm}}_{\in \mathfrak{B}_N} \in \mathfrak{B}_N$$
+Por todo lo anterior, $$E = \underbracket{\hspace{1mm} D \hspace{1mm} }_{\in \mathfrak{B}_N} \cup \underbracket{\hspace{1mm} M \hspace{1mm}}_{\in \widetilde{\mathfrak{B}_N}} \in \widetilde{\mathfrak{B}}_N$$
 
 \newpage
 \chapter{Funciones medibles}
