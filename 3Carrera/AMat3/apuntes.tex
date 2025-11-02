@@ -2009,7 +2009,7 @@ $\{x \in X : f(x) < - \infty\} = \varnothing \in \Sigma$
 \begin{tcolorbox}[Implication-number]   
     $\hspace{-2mm} \romannumeral 1' \Rightarrow \romannumeral 2'$ \hspace{3mm} $\{x \in X : f(x) \leq \infty\} = X \in \Sigma$  
 \end{tcolorbox}
-$\{x \in X : f(x) \leq - \infty\} = \smallcup_{n\in\N} \{x \in X : f(x) < -n\}$
+$\{x \in X : f(x) \leq - \infty\} = \smallcup_{n\in\N} \{x \in X : f(x) < -n\} \in \Sigma$
 
 \vspace{2mm}
 \begin{tcolorbox}[Implication-number]   
@@ -2110,7 +2110,7 @@ $\romannumeral 4)$ Análogamente,
 $\romannumeral 5)$ Por definición, $\linf{n}f_n(x) = \sup_{n\in\N} \inf_{k \geq n} f_k(x) = \sup_{n\in\N} g_n(x)$ para $g_n (x)= \inf_{k \geq n} f_k(x)$, que es medible por el apartado anterior. Aplicando el apartado $(\romannumeral 4)$ respecto de las $g_n$ llegamos al resultado.
 
 \vspace{4mm}
-$\romannumeral 6)$ Análogamente, $\overline{\mlim{n}} f_n = \inf_{n\in\N} \sup_{k \geq n} f_k(x)$.
+$\romannumeral 6)$ Análogamente, $\displaystyle \overline{\mlim{n}} f_n = \inf_{n\in\N} \sup_{k \geq n} f_k(x)$.
 
 \vspace{4mm}
 $\romannumeral 7$) Si existe, el límite coincide con los límites superior e inferior, que son funciones medibles.
@@ -2251,7 +2251,7 @@ Nótese que $X = \smallcup_{i=1}^n A_i$ y que $i \neq j \Rightarrow A_i \cap A_j
 \end{enumerate}
 \vspace{2mm} \dem
 \begin{tcolorbox}[Implication-number]
-    $\romannumeral 2 \Rightarrow \romannumeral 1$ \hspace{3mm} como los $A_i$ son medibles por hipótesis, aplicando el \hyperref[result:1.3.12]{resultado 1.3.12},
+    $\romannumeral 2 \Rightarrow \romannumeral 1$ \hspace{3mm} Como los $A_i$ son medibles por hipótesis, aplicando el \hyperref[result:1.3.12]{resultado 1.3.12},
 \end{tcolorbox}
 \noindent tenemos que las funciones características $X_{A_i}$ son medibles. Aplicando ahora el \hyperref[result:1.3.5]{resultado 1.3.5}, concluimos que:
 \vspace{-2ex}$$s = \sum_{i=1}^n \lambda_i \cdot X_{A_i}  \hspace{2mm} \text{ es medible}$$
@@ -2321,7 +2321,7 @@ En cualquier caso, el resultado pertenece a $\Sigma$ al ser $f$ medible. Análog
 \result{Funciones medibles como límite de simples}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $f: X \longrightarrow [0, \infty]$ una función medible en él. Entonces existe una sucesión de funciones simples medibles $s_n : X \longrightarrow [0,+\infty]$ tales que para todo $x \in X$ se cumple:
 \begin{enumerate}[label=\roman*)]
-    \item $\forall \hspace{2mm} n \in \N : s_n(x) \leq s_{n+1}$
+    \item $\forall \hspace{2mm} n \in \N : s_n(x) \leq s_{n+1}(x) \hspace{2mm} \forall \hspace{1mm} x \in X$
     \item $\exists \hspace{1mm} \mlim{n} s_n(x) = f(x)$
 \end{enumerate}
 \nota Este teorema afirma la existencia de una sucesión creciente de funciones (primer apartado) pero las funciones de la sucesión no tienen por qué ser crecientes.
@@ -2427,7 +2427,7 @@ Conjuntos inducidos para los casos $n=1$ y $n = 2$.
 
 \vspace{2mm} $\bullet$ Si $f(x_0) = +\infty$, $f(x_0) \in [n, +\infty]$ $\hspace{1mm} \forall \hspace{1mm} n \in \N$, luego $s_n(x_0) = n \xrightarrow{n\to\infty} \infty = f(x_0)$ de manera creciente.
 
-\newpage $\bullet$ Si $f(x_0) \in (0, +\infty)$, podemos tomar $m := \{n \in \N : n > f(x_0)\}$.
+\newpage $\bullet$ Si $f(x_0) \in (0, +\infty)$, podemos tomar $m := \min\{n \in \N : n > f(x_0)\}$.
 Así, se cumple $s_1(x_0) = 1 < s_2(x_0) = 2 < \ldots < s_{m-1}(x_0) = m-1 < s_m(x_0) < m$.
 
 \vspace{4mm} Para $n \geq m$, tenemos que $ \exists ! i_n \in \{1,\ldots, n\cdot 2^n\}$ que verifica: $$f(x_0) \in \left[\frac{i_n-1}{2^n}, \frac{i_n}{2^n}\right) = \left[\frac{2i_n-2}{2^{n+1}}, \frac{2i_n-1}{2^{n+1}}\right) \cup \left[\frac{2i_n-1}{2^{n+1}}, \frac{2i_n}{2^{n+1}}\right)$$
