@@ -137,6 +137,33 @@
 \tableofcontents
 \newpage
 \unit{Teoría de la medida e Integral de Lebesgue}
+\chapter{Medida exterior en \texorpdfstring{$\R^N$}{R\^N}}
+\result{Ejercicio 5}
+a) Sea $A = \Q \cap [0,1]$, demuestra que todo cubrimiento finito de $A$ formado por intervalos abiertos tiene longitud total mayor o igual a 1.
+
+\vspace{2mm}
+\dem 
+Sea $\{I_i\}_{i=1}^n$ un recubrimiento por intervalos abiertos de $A$, con cada $I_i = (a_i, b_i)$ con $a_i < b_i$. Definimos el siguiente conjunto auxiliar:
+$$\mathcal{A} := \{0,1\} \cup \Big([0,1]\cap \big\{a_i,b_i : i \in \{1,\ldots,n\}\big\}\Big) $$
+Este conjunto contiene a los extremos de los $I_i$ que se encuentren entre $0$ y $1$. Al haber un número finito de intervalos, tenemos que $\mathcal{A}$ es finito, pudiendo ordenarlo como sigue:
+\begin{align*}
+    \mathcal{A} = \{x_j\}_{j=0}^m &&
+    x_0 = a < x_1 < \ldots < x_m = b &&
+    \text{ para cierto } m \in \N
+\end{align*}
+
+Al estar en un caso finito, la unión de las clausuras es la clausura de las uniones. Por contención de las clausuras, se tiene:
+\begin{flalign*}
+    A \subseteq \bigcup_{i=1}^n I_i \Rightarrow \overline{A} = [0, 1] \cap \overline{\Q} = [0,1] \subseteq \overline{\bigcup_{i=1}^n I_i} = \bigcup_{i=1}^n \overline{I_i}
+\end{flalign*}
+Sea $j \in \{1,\ldots, m\}$ cualquiera, tenemos que $x_j \in [0,1] \subseteq \smallcup_{i=1}^n \overline{I_i}$ luego $\exists k \in \{1,\ldots,n\}$ tal que $x_j \in [a_k, b_k]$. Veamos que $[x_{j-1}, x_j] \subseteq [a_k, b_k]$ también.
+Ambos conjuntos son cerrados y conexos con intersección no vacía. Por tanto, su intersección ha de ser conexa, cerrada y no vacía (es decir, un intervalo cerrado). Será de la forma $[u, x_j]$ con $u = \min \{a_k, x_{j-1}\}$. De tenerse $u \neq x_{j-1}$, se cumpliría $x_{j-1} < a_k < x_{j}$, lo que contradice la ordenación establecida para $\mathcal{A}$.
+
+De este modo, como $v_1(I_i) = v_1(\overline{I_i}) \hspace{2mm} \forall i \in \{1,\ldots, n\}$, se cumple:
+\begin{flalign*}
+    1 = v_1([0,1]) = \sum_{j=1}^m v_1 (x_{j-1}, x_j) \leq \sum_{i=1}^n v_1(\overline{I_i}) = \sum_{i=1}^n v_1(I_i)
+\end{flalign*}
+\newpage
 \chapter{Funciones medibles}
 \vspace{2mm}
 \result{Ejercicio 5}
@@ -147,7 +174,7 @@
 \end{align*}
 
 \vspace{5mm}
-\dem 
+\dem
 
 \vspace{2mm} Por ser $f$ acotada, tenemos que $\exists \hspace{1mm} M \in \R : |f(x)|\leq M \forall x \in \R^N$. De este modo, sean $x, y \in \R^N$, tenemos:
 $$|f(x) - f(y) | \leq |f(x)| + |f(y)| \leq M + M = 2M$$
