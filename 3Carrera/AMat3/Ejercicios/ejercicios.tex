@@ -241,6 +241,25 @@ Considerando $O = (0,1)\setminus C$ para $C$ la intersección de todas las itera
 \vspace{2mm}
 $\romannumeral 4)$ Falso: basta considerar $\R \setminus \Q$.
 
+\vspace{4mm}
+\result{Ejercicio 5}
+Demuestra que para cada $A \in \mathfrak{M}_1$ con $\mu(A) < \infty$ y cada $\varepsilon > 0$ existe una colección finita de intervalos disjuntos y abiertos $\{I_i\}_{i=1}^m$ tales que:
+\begin{align*}
+    \mu\left(A \Delta \smallcup_{i=1}^m I_i\right) < \varepsilon && \text{ con } A \Delta B = (A \setminus B) \cup (B \setminus A)
+\end{align*}
+\vspace{2mm} \dem \newline \vspace{2mm} \indent Por ser $A$ un conjunto medible, es de la forma $A = (\smallcap_{i\in\N} G_i) \cup M$ para $(G_i)_{i\in\N}$ una sucesión decreciente de abiertos de $\R^N$ y $M$ un conjunto de medida nula.
+\vspace{2mm} \newline \indent Como $M$ no interfiere en la medida, tenemos que $\mu(A) = \lim_n \mu(G_n) < \infty$. Por definición de límite, $\exists \hspace{1mm} n_0 \in \N$ tal que $\mu(G_{n_0} \setminus A) = \mu(G_{n_0}) - \mu(A) < \frac{\varepsilon}{2}$. Hemos podido pasar a la medida de la diferencia de conjuntos al estar en el caso de medida finita. Por simplicidad, denotaremos $G = G_{n_0}$.
+\vspace{2mm} \newline Al ser $G$ abierto, podemos expresarlo como unión numerable de bolas abiertas $\{J_i\}_{i\in\N}$. Para cada $n \in \N$ tomamos $O_n = \smallcup_{i=1}^n J_i$. Tenemos que $(O_n) _n$ es una sucesión de conjuntos crecientes cuya unión es igual a $G$. Razonando como en el caso anterior:
+\begin{align*}
+    \mu(G) = \mu(\smallcup_{i\in\N} O_i) = \lim_n \mu(O_n) \Rightarrow \exists \hspace{1mm} n_1 \in \N : \mu(G \setminus O_n) < \frac{\varepsilon}{2}
+\end{align*}
+\indent Tomamos como $\{I_i\}_{i=1}^n$ las componentes conexas de $\{J_i\}_{i=1}^{n_1}$, que son disjuntas e intervalos (en $\R$ los conjuntos conexos son precisamente los intervalos). Además, hay un número finito de ellas (en el peor de los casos, cada $J_i$ sería una componente conexa). De este modo, aplicando la monotonía de la medida:
+\begin{flalign*}
+    \mu\left(A \setminus \smallcup_{i=1}^n I_i\right) \leq \mu\left(G \setminus \smallcup_{i=1}^n I_i\right) < \frac{\varepsilon}{2} \\[2ex]
+    \mu\left(\smallcup_{i=1}^n I_i \setminus A \right) \leq \mu\left(G \setminus A\right) < \frac{\varepsilon}{2}
+\end{flalign*}
+Sumando se llega al resultado.
+
 %CAMBIO DE HOJA
 \newpage
 \chapter{Funciones medibles}
