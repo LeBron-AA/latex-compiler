@@ -163,6 +163,33 @@ De este modo, como $v_1(I_i) = v_1(\overline{I_i}) \hspace{2mm} \forall i \in \{
 \begin{flalign*}
     1 = v_1([0,1]) = \sum_{j=1}^m v_1 (x_{j-1}, x_j) \leq \sum_{i=1}^n v_1(\overline{I_i}) = \sum_{i=1}^n v_1(I_i)
 \end{flalign*}
+
+\vspace{4mm}
+b) Deduce del apartado anterior que $A$ no es compacto.
+
+\vspace{2mm}
+\dem Veamos que hay un recubrimiento de $A$ del que no se puede extraer un subrecubrimiento finito. Para ello basta dar un recubrimiento de $A$ por intervalos abiertos tales que la suma de sus medidas sea menor a $1$. Como $\Q$ es numerable, $A$ también lo es. Sea $(a_n)_{n\in\N}$ una enumeración cualquiera de $A$, definimos los siguientes intervalos:
+\begin{align*}
+    I_n = (a_n - \frac{1}{2^{n+2}}, a_n + \frac{1}{2^{n+2}}) &&
+    \text{ luego } A \subseteq \smallcup_{i\in\N}I_i \text{ con } \sum_{i=1}^\infty v_1(I_i) = \sum_{n=1}^{\infty} \frac{1}{2^{n+1}} = \frac{1}{2}
+\end{align*}
+
+\hspace{4mm} \noindent
+c) Demuestra que la siguiente aplicación $m$ definida sobre $\mathfrak{B}_N$ no es una medida:
+$$ m(A) = \inf \left\{\sum{i=1}^n v(I_i) : \smallcup_{i=1}^n I_i \supseteq A \hspace{1mm} \text{ con cada } I_i \text{ cubo abierto en} \R^N \right\}$$
+
+\vspace{2mm}
+\dem \newline \noindent En caso de serlo, para $\{E_i\}_{i\in\N} \subseteq \mathfrak{B}_N$ con $i \neq j \Rightarrow E_i \cap E_j = \varnothing$ se cumpliría:
+$$ m\left(\smallcup_{i\in\N} E_i\right) = \sum_{i\in\N} \mu(E_i)$$
+Todo conjunto unipuntual ${a}$ con $a \in \R^N$ está en $\mathfrak{B}_N$ pues se puede expresar como un intervalo cerrado degenerado. Por tando, todo conjunto numerable está también en $\mathfrak{B}_N$. Consideramos el conjunto $A^N \subseteq [0,1]^N \in \mathfrak{B}_N$. Razonando como en el apartado anterior, todo cubrimiento finito de $A^N$ por cubos ha de tener suma de volúmenes mayor o igual a $1$, luego $m(A^N) = 1$. No obstante, podemos expresar $A^N$ como unión numerable de conjuntos unipuntuales disjuntos, teniendo cada uno de ellos $m(\{b_n\}) = 0$ para $(b_n)_n$ una enumeración de $A^N$.
+
+\vspace{4mm}
+\textbf{6)} Demuestra que existe un conjunto abierto $O$ en $\R$ y un $\varepsilon > 0$ tal que para cualquier recubrimiento finito de $O$ formado por intervalos abiertos, $\{J_i\}_{i=1}^m$ se cumple $\mu(\smallcup_{i=1}^n J_i \setminus O) > \varepsilon$.
+\vspace{2mm}
+\dem \newline \indent Para cada $n \in \N$ tomamos $I_n = (n - \frac{1}{3}, n + \frac{1}{3})$. Consideramos el abierto $O = \smallcup_{i\in\N} I_i$. Sea $\{J_i\}_{i=1}^m$ un recubrimiento finito de $O$ por intervalos abiertos. Al ser $O$ no acotado, tiene que haber cierto $k \in \{1, \ldots, m\}$ tal que $J_k$ contiene a infinitos intervalos $I_n$. Dados dos de estos intervalos consecutivos, la distancia entre el extremo derecho del primero y el extremo izquierdo del segundo viene dada por:
+$$(n+1 - \frac{1}{3}) - (n + \frac{1}{3}) = 1 - \frac{2}{3} = \frac{1}{3}$$
+Por tanto, $J_k \setminus O$ ha de contener infinitos intervalos disjuntos de longitud $\frac{1}{3}$ luego tiene medida infinita. Se cumple el resultado para $\varepsilon > 0$ cualquiera.
+%CAMBIO DE HOJA
 \newpage
 \chapter{Funciones medibles}
 \vspace{2mm}
