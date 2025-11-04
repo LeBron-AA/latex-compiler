@@ -125,7 +125,7 @@
 }
 % ----------------------------------------
 
-\title{Análisis Matemático II}
+\title{Análisis Matemático III}
 \author{Javier Ortín Rodenas}
 \date{Hoja de ejercicios}
 
@@ -186,7 +186,8 @@ Todo conjunto unipuntual ${a}$ con $a \in \R^N$ está en $\mathfrak{B}_N$ pues s
 \vspace{4mm}
 \result{Ejercicio 6}
 Demuestra que existe un conjunto abierto $O$ en $\R$ y un $\varepsilon > 0$ tal que para cualquier recubrimiento finito de $O$ formado por intervalos abiertos, $\{J_i\}_{i=1}^m$ se cumple $\mu(\smallcup_{i=1}^n J_i \setminus O) > \varepsilon$.
-\vspace{2mm}
+\vspace{4mm}
+
 \dem \newline \indent Para cada $n \in \N$ tomamos $I_n = (n - \frac{1}{3}, n + \frac{1}{3})$. Consideramos el abierto $O = \smallcup_{i\in\N} I_i$. Sea $\{J_i\}_{i=1}^m$ un recubrimiento finito de $O$ por intervalos abiertos. Al ser $O$ no acotado, tiene que haber cierto $k \in \{1, \ldots, m\}$ tal que $J_k$ contiene a infinitos intervalos $I_n$. Dados dos de estos intervalos consecutivos, la distancia entre el extremo derecho del primero y el extremo izquierdo del segundo viene dada por:
 $$\left(n+1 - \frac{1}{3}\right) - \left(n + \frac{1}{3}\right) = 1 - \frac{2}{3} = \frac{1}{3}$$
 Por tanto, $J_k \setminus O$ ha de contener infinitos intervalos disjuntos de longitud $\frac{1}{3}$ luego tiene medida infinita. Se cumple el resultado para $\varepsilon > 0$ cualquiera.

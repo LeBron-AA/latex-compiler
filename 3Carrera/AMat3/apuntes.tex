@@ -2469,7 +2469,7 @@ Definimos la integral de Lebesgue de $s$ sobre $X$ como el número:
 $$\lbint_X s \,d\mu = \sum_{i=1}^{n} \lambda_i \cdot \mu(A_i)$$
 
 \nota Implícitamente, ya está definida la integral de $s$ sobre $\Sigma(E) \hspace{2mm } \forall \hspace{1mm} E \in \Sigma$:
-$$\widehat{\int_E}s \,d \mu = \widehat{\int_X} s_{|E} \,d\mu = \sum_{i=1}^{n}\lambda_i \cdot \mu(E \cap A_i)$$
+$$\lbint_E s \,d \mu = \lbint_X s_{|E} \,d\mu = \sum_{i=1}^{n}\lambda_i \cdot \mu(E \cap A_i)$$
 
 \newpage
 \result{Linealidad del integrando}
@@ -2485,7 +2485,7 @@ $$\lbint_{\smallcup_{i\in\N}E_i} s \, d\mu = \sum_{i=1}^\infty \lbint_{E_i}s\,d\
 
 \vspace{6mm}
 \result{Linealidad parcial}
-\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s,t : X \leftarrow [0, \infty)$ funciones simples y medibles. Entonces, se cumple:
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s,t : X \longrightarrow [0, \infty)$ funciones simples y medibles. Entonces, se cumple:
 $$\lbint_{X}s + t\,d\mu = \lbint_{X}s\,d\mu + \lbint_{X}t\,d\mu$$
 
 \vspace{2mm} \dem Sean sus expresiones canónicas las siguientes:
@@ -2509,7 +2509,41 @@ La última igualdad se deduce de la \hyperref[result:2.1.3]{linealidad del integ
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s, t: X \longrightarrow [0, \infty)$ funciones medibles simples tales que $s(x) \leq t(x) \forall x \in X$. Entonces, se cumple:
 $$\lbint_{X}s\,d\mu \leq \lbint_{X}t\,d\mu$$
 
-\vspace{2mm} \dem
-$$\lbint f \, d\mu$$
-Entonces...
+\vspace{2mm} \dem Sean sus expresiones canónicas: $\displaystyle s= \sum_{i=1}^n \alpha_i \cdot X_{A_i} \hspace{3mm} t = \sum_{j=1}^m \beta_j \cdot X_{B_j}$.
+\begin{align*}
+    \lbint_{X}s\,d\mu = \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}} \alpha_i \mu(A_i \cap B_j) &&
+    \lbint_{X}t\,d\mu = \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}} \beta_j \mu(A_i \cap B_j)
+\end{align*}
+\indent Por hipótesis, tenemos que $s(x) \leq t(x)$ para todo $x\in X$. De este modo; sean $i \in \{1,\ldots,n\}, j \in \{1,\ldots, m\}$ cualesquiera, tenemos que o bien $\alpha_i \leq \beta_j$ o bien $A_i \cap B_j = \varnothing \Rightarrow \mu(A_i \cap B_j) = 0$. Por tanto, cada sumando del sumatorio de la izquierda va a ser menor o igual que el término de mismos índices del sumatorio de la derecha, hemos demostrado el resultado.
+
+\vspace{6mm}
+\result{Linealidad de la integral simple por constantes}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $\displaystyle s = \sum_{i=1}^n \lambda_i \cdot X_{A_i}$ una función simple, medible y no negativa. Entonces:
+$$\lbint_{X}c \cdot s\,d\mu = c \cdot \lbint_{X}s\,d\mu \hspace{4mm} \forall c \in \R$$
+\vspace{2mm} \dem Distinguimos dos casos:
+\begin{itemize}
+    \item Si $c = 0$, entonces $s \cdot c \equiv 0$ y se cumple:
+    $$\lbint_{X}c \cdot s\,d\mu = \lbint_{X}0\,d\mu = 0 \cdot \mu(X) = 0 = 0 \cdot \lbint_{X}s\,d\mu$$
+    \item Si $c \neq 0$, entonces:
+    $$\lbint_{X}c\cdot s\,d\mu = \sum_{i=1}^{n} c \cdot \lambda_i \cdot X_{a_i} = c \cdot \sum_{i=1}^n \lambda_i \cdot \mu(X_{A_i}) = c \cdot \sum_{i=1}^n \lambda_i \cdot \mu(A_i) = c \cdot \lbint_{X}s\,d\mu $$
+\end{itemize}
+
+\vspace{6mm}
+\result{Integral de funciones medibles no negativas}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $f : X \longrightarrow [0, +\infty]$ medible. Se define la integral de Lebesgue de $f$ sobre $X$ como:
+$$\int_{X}f\,d\mu = \sup\left\{\lbint_{X}s\,d\mu \hspace{2mm} \text{ con } 0 \leq s \leq s, \hspace{1mm} s \text{ función simple medible}\right\} $$
+Nótese que el conjunto anterior no es vacío, pues $s \equiv 0$ está en él. Además, se puede extender la definición anterior a cualquier subconjunto medible de $X$.
+
+\vspace{6mm}
+\result{Ejemplos de integrales}
+\hspace{3mm} $\romannumeral 1)$ Función de Dirichlet: $X_\Q$. \newline Consideramos el espacio de medida $\big([0,1], \mathfrak{M}_1([0,1]), \mu_1\big)$. Esta función no es integrable en el sentido de Riemann, pues las sumas inferiores son siempre nulas y las superiores toman valor $1$ (se debe a la densidad de los racionales y los irracionales). Veamos que $X_\Q$ sí es integrable en el sentido de Lebesgue.
+\newline \vspace{4mm} \indent Tenemos que $X_\Q$ es una función simple, pues toma el valor $1$ en $[0,1]\cap \Q$, que es numerable, y el valor $0$ en $[0,1]\setminus \Q$, que es medible al ser el complementario del conjunto anterior en este espacio de medida. Su integral viene dada por:
+$$\lbint_{[0,1]}X_\Q\,d\mu = 1 \cdot \mu([0,1] \cap \Q) + 0 \cdot \mu([0,1] \setminus \Q) = 1 \cdot 0 + 0 \cdot 1 = 0$$
+\vspace{4mm} \indent $\romannumeral 2)$ Consideramos el mismo espacio de medida que en el caso anterior. Veamos que la función de Thomae es integrable. Se define como sigue:
+$$f(x) = \begin{cases}
+    0 &\text{ si } x \in \Q\cap[0,1] \cup \{0\} \\
+    \frac{1}{q} &\text{ si } x = \frac{p}{q} \text{ para }p,q \text{ naturales primos entre sí}
+\end{cases} $$
+\indent Sabemos por Análisis Matemático II que esta función es integrable-Riemann en $[0,1]$ con valor de su integral igual a $0$. Veamos que ocurre lo mismo con la integral de Lebesgue. Sea $s$ una función simple medible tal que $0 \leq s \leq f$. Se cumple $M := \max s([0,1]) \leq 1$. Los puntos donde $s$ toma valores positivos son a lo sumo numerables,
+%TODO acabar (continúa al final de la línea anterior)
 \end{document}
