@@ -2,8 +2,8 @@
 setlocal EnableDelayedExpansion
 
 :: CONFIG
-set "FOLDER=3Carrera\AMat3"
-set "FILENAME=apuntes"
+set "FOLDER=3Carrera\AMat3\Tema2"
+set "FILENAME=tema2"
 set "COMP_FILE=comp.tex"
 
 :: PROGRAM

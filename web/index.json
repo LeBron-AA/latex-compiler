@@ -10,6 +10,15 @@
       "language" : "es"
     },
     {
+      "title": "Apuntes del tema 2",
+      "description": "Posteriormente se unificarán con los demás",
+      "pdfPath": "3Carrera/AMat3/Tema2/tema2.pdf",
+      "subject": "Análisis Matemático III",
+      "grade": 3,
+      "semester": 2,
+      "language" : "es"
+    },
+    {
       "title": "Ejercicios hechos",
       "description": "De momento hay pocos...",
       "pdfPath": "3Carrera/AMat3/Ejercicios/ejercicios.pdf",
