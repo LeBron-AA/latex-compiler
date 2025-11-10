@@ -6,7 +6,7 @@
 \usepackage{mathtools, amssymb, amsthm}
 \usepackage{changepage}
 \usepackage{geometry}
-\usepackage{hyperref}
+\usepackage[colorlinks=true]{hyperref}
 \usepackage{enumitem}
 \usepackage{etoolbox}
 \usepackage{graphicx}
@@ -146,7 +146,9 @@
 
 \maketitle
 \newpage
+\hypersetup{linkcolor=black}
 \tableofcontents
+\hypersetup{linkcolor=Ivory4}
 \newpage
 \setcounter{unit}{1}
 \unit{Integral de Lebesgue}
@@ -578,4 +580,55 @@ De este modo, $s \overset{\mu-a.e.}{=} f \overset{\mu-a.e.}{=}t$ luego al estar 
     &\underline{S}(f,P_n) \xrightarrow{n\to\infty} \int_a^b f \\
     &\underline{S}(f,P_n) = \int_{[a,b]}t_n\,d\mu \overset{\hyperref[result:2.2.7]{TCD}}{=} \int_{[a,b]}t\,d\mu = \int_{[a,b]}f\,d\mu
 \end{flalign*}
+
+\vspace{6mm}
+\result{Definición de función localmente integrable}
+\hspace{3mm} Sea $f: A \subseteq \R \longrightarrow \R$. Diremos que ``$f$ es localmente integrable en $A$'' si $f \in \mathcal{R}([a,b])$ para todo $[a,b] \subseteq A$. En tal caso, lo denotaremos como $f \in \mathcal{R}^l (A)$.
+\vspace{2mm} \newline Sean $-\infty < a < b < +\infty$, hay cuatro casos básicos:
+\begin{align*}
+    f \in \mathcal{R}\big([a,+\infty)\big) &&
+    f \in \mathcal{R}\big((-\infty,b]\big) &&
+    f \in \mathcal{R}\big([a,b)\big) &&
+    f \in \mathcal{R}\big((a,b]\big)
+\end{align*}
+Por ejemplo, para el primer caso, diremos que $\int_a^\infty f$ es\dots
+\begin{enumerate}[label=\roman*)]
+    \item Convergente, si $\exists \hspace{1mm} \mlim{x \to \infty} \int_a^x f = l \in \R$.
+    \item Divergente, si $\exists \hspace{1mm} \mlim{x \to \infty} \int_a^x f \in\{+\infty, -\infty\}$.
+    \item Oscilante, si Convergente, si $\nexists \hspace{1mm} \mlim{x \to \infty} \int_a^x f$.
+\end{enumerate}
+Podemos extender estas definiciones para el resto de casos de manera análoga.
+
+\vspace{6mm}
+\result{Medibilidad de funciones localmente integrables}
+\hspace{3mm} Sea $f \in \mathcal{R}\big([a,+\infty)\big)$ (o cualquier \hyperref[result:2.3.2]{caso anterior}); entonces, $f$ es $\mu_1$-medible.
+\vspace{2mm}\newline\dem \vspace{2mm} \newline \indent Por hipótesis, $\forall \hspace{1mm} n \in \N$ tenemos que $f \in \mathcal{R}\big([a,a+n]\big)$. Aplicando el \hyperref[result:2.3.1]{resultado 2.3.1}, tenemos que $f$ es medible en $\Big([a,a+n], \mathfrak{M}_1([a,+n]), \mu_{1|\mathfrak{M}_1([a,a+n])}\Big)$. Esto a su vez equivale a $f \cdot X_{[a,a+n]}$ medible en $(\R, \mathfrak{M}_1, \mu_1)$. Finalmente, como el límite puntual respeta la medibilidad, basta ver que:
+$$ f \cdot X_{[a,a+n]} \xrightarrow{n\to\infty} f \cdot X_{[a,+\infty)}$$
+
+\vspace{6mm}
+\result{Integral de Lebesgue e integral impropia de Riemann}
+\hspace{3mm} En las siguientes condiciones, la integral de Lebesgue es equivalente a la integral impropia de Riemann:
+\begin{enumerate}[label=\roman*)]
+    \item $f \geq 0 \Rightarrow \int_a^\infty f = \int_{[a,+\infty)}f\,d\mu_1$.
+    \item $\int_a^\infty |f| < \infty \Rightarrow \int_a^\infty f = \int_{[a,+\infty)}f\,d\mu_1$.
+\end{enumerate}
+\vspace{2mm} \dem
+\vspace{2mm} \newline $\romannumeral 1)$ Al ser $f \geq 0$, podemos garantizar $\exists \hspace{1mm} \mlim{x\to\infty} \int_a^x f \in [0,+\infty]$ pues no puede oscilar. Aplicando la caracterización sucesional del límite, tenemos:
+\begin{flalign*}
+    \int_a^\infty& f = \lim_n \int_a^x f = \lim_n \int_a^{a+n} f \overset{\hyperref[result:2.3.1]{2.3.1}}{=} \lim_n \mathop{\int}_{[a,a+n]}f\,d\mu_1 = \lim_n \mathop{\int}_{[a,+\infty)}f \cdot X_{[a,a+n]}\,d\mu_1 \overset{\hyperref[result:2.1.10]{TCM}}{=} \\
+    &= \int_{[a,+\infty)}\lim_n f \cdot X_{[a,a`n']}\,d\mu_1 = \int_{[a,+\infty)}f\,d\mu_1
+\end{flalign*}
+\vspace{8mm} $\romannumeral 2)$ Supongamos que $\exists \hspace{1mm} \int_{a}^\infty f < \infty \Rightarrow \exists \hspace{1mm} \int_a^\infty f < \infty$. Aplicando el apartado anterior,
+$$\exists \hspace{1mm} \int_{[a,+\infty]}|f|\,d\mu_1 = \int_a^\infty |f| < \infty \Rightarrow |f|, f \in \mathcal{L}_1 \big([a,+\infty)\big)$$
+Por definición de $\mathcal{L}_1 \big([a,+\infty)\big)$, $\exists$  $\int_{[a,\infty)}f\,d\mu_1 \in \R$. Ahora, aplicando la caracterización sucesional del límite y el Teorema de la Convergencia Dominada:
+\begin{flalign*}
+    \int_a^\infty& f = \lim_{x\to\infty} \int_a^x f = \lim_{n\to\infty} \int_a^{a+n} f \overset{\hyperref[result:2.3.1]{2.3.1}}{=} \lim_{n\to\infty}\mathop{\int}_{[a,a+n]}f\,d\mu_1 = \lim_{n\to\infty} \int_{[a,+\infty)}f \cdot X_{[a,a+n]}\,d\mu_1 \overset{\hyperref[result:2.2.7]{TCMD}}{=} \\
+    &= \int_{[a,+\infty]}\lim_{n\to\infty} f \cdot X_{a,a+n}\,d\mu_1 = \int_{[a,+\infty)}f\,d\mu_1
+\end{flalign*}
+
+\vspace{6mm}
+\result{Ejemplo de no equivalencia}
+\hspace{3mm} Veamos que no siempre se da la equivalencia. Por ejemplo, para la siguiente función $f$:
+$$f(x) = \sum_{n=1}^\infty (-1)^{n+1} \cdot \frac{1}{n} \cdot X_{[n-1, n)}(x)$$
+Veamos que $f$ no cumple ninguna de las hipótesis del \hyperref[result:2.3.4]{resultado anterior}:
 \end{document}
