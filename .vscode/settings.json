@@ -12,20 +12,5 @@
     "diádicos",
     "suprayectiva",
     "tabularmente"
-  ],
-  "latex-workshop.latex.autoBuild.run": "never",
-  "latex-workshop.latex.recipes": [
-    {
-      "name": "Echo DOC",
-      "tools": ["echo-doc"]
-    }
-  ],
-  "latex-workshop.latex.tools": [
-    {
-      "name": "echo-doc",
-      "command": "${workspaceFolder}\\echo-doc.bat",
-      "args": ["%DOC%"]
-    }
-  ],
-  "latex-workshop.latex.build.onSave.enabled": true
+  ]
 }

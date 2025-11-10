@@ -509,7 +509,7 @@ Restando $\int_{X}2g\,d\mu$ en ambos lados:
 
 \vspace{4mm} $\romannumeral 3)$ Por el apartado anterior, sabemos que $\hspace{2mm} \forall \hspace{1mm} \varepsilon > 0 $ $\exists \hspace{1mm} n_0 \in\N$ tal que que $\forall \hspace{1mm} n \geq n_0$ se cumple:
 $$\left|\int_{X}f_n \,d\mu - \int_{X}f\,d\mu\right| \overset{(*)}{=} \left|\int_{X}f - f_n\,d\mu\right| \overset{\hyperref[result:2.2.2]{2.2.2}}{\leq} \int_{X}|f_n - f|\,d\mu < \varepsilon$$
-(*) Hemos aplicado la \hyperref[result:2.24]{linealidad de la integral en $\mathcal{L}_1$} pues $f, f_n \in \mathcal{L}_1 $.
+(*) Hemos aplicado la \hyperref[result:2.2.4]{linealidad de la integral en $\mathcal{L}_1$} pues $f, f_n \in \mathcal{L}_1 $.
 
 
 \newpage
@@ -631,4 +631,83 @@ Por definición de $\mathcal{L}_1 \big([a,+\infty)\big)$, $\exists$  $\int_{[a,\
 \hspace{3mm} Veamos que no siempre se da la equivalencia. Por ejemplo, para la siguiente función $f$:
 $$f(x) = \sum_{n=1}^\infty (-1)^{n+1} \cdot \frac{1}{n} \cdot X_{[n-1, n)}(x)$$
 Veamos que $f$ no cumple ninguna de las hipótesis del \hyperref[result:2.3.4]{resultado anterior}:
+\begin{flalign*}
+    \int_0^\infty f = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} < \infty &&
+    \int_0^\infty |f| = \sum_{n=1}^\infty \frac{1}{n} = \infty
+\end{flalign*}
+Tenemos que $f$ no es no negativa, y que $|f|\notin \mathcal{L}_1 $. Veamos que $f$ no es integrable Lebesgue a pesar de sí ser integrable Riemann (impropiamente):
+\begin{align*}
+    \int_0^\infty f^+ = \sum_{n=1}^\infty \frac{1}{2n-1} = \infty &&
+    \int_0^\infty f^- = \sum_{n=1}^\infty \frac{1}{2n} = \infty
+\end{align*}
+
+\vspace{6mm}
+\result{Definición de integral impropia de Lebesgue}
+\hspace{3mm} Si $f : [a, +\infty) \longrightarrow \overline{\R}$ cumple $f\notin \mathcal{L}_1\big([(]a,+\infty)\big)$ pero $f \in \mathcal{L}_1 \big([a,x]\big)$ $\forall \hspace{1mm} \in (a,\infty)$. Entonces, $f$ es medible en $[a,\infty)$. Se dice que $f$ es impropiamente integrable en el sentido de Lebesgue sobre $[a,\infty)$ si:
+\begin{align*}
+    \exists \hspace{1mm} \lim_{x\to \infty} \int_{[a,x]}f\,d\mu_1 = l \in \overline{\R} &&
+    \text{ en tal caso, se denota } \int_{[a,+\infty)}f\,d\mu_1 = l
+\end{align*}
+En el \hyperref[result:2.3.6]{ejemplo anterior}, $f$ no es integrable en el sentido usual. Veamos que sí lo es en el impropio:
+
+
+\vspace{6mm}
+\result{Derivación bajo el signo integral}
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $E \in \Sigma$. Sea $f : E \times I \longrightarrow \R$ una función con $I \subseteq \R$ un intervalo tal que $\forall \hspace{1mm} t \in I$ $f(\cdot, t) \in \mathcal{L}_1(E)$ para:
+\begin{align*}
+    f(\cdot, t) : E \longrightarrow \R && x \longmapsto f(\cdot, t)(x) = f(x,t)
+\end{align*}
+Si existe $\frac{\partial f}{\partial t} : E \times I \longrightarrow \R$ y además existe también $\phi \in \mathcal{L}_1(E)$ tal que
+$$\left|\frac{\partial f}{\partial t}(x,t)\right| \leq \varphi(x) \hspace{2mm} \forall \hspace{1mm} (x,t) \in (E,I)$$
+Entonces, sea $t_0 \in I$, se cumple:
+$$\exists \hspace{1mm} \frac{d f}{d t} \int_{E}f(\cdot, t_0)(x)\,d\mu(x) = \int_{E}\frac{\partial f}{\partial t} (x,t_0)\,d\mu(x)$$
+
+\vspace{2mm} \underline{\textbf{Notación:}} Cuando operemos con una función que tenga como argumento más de una variable, integrando una de ellas y dejando las demás constantes, usaremos $d\mu(x)$ para referirnos a la variable sobre la que integramos. Por ejemplo, en $\int_{E}g(x,t)\,d\nu(x)$ se integra solo sobre $x$, dejando $t$ fija.
+\vspace{4mm} \newline \dem
+\vspace{2mm} \newline \indent Fijamos $t_0 \in I$ cualquiera. Por definición de derivada, sea $(t_n)_{n\in\N} \subseteq I \setminus \{t_0\}$ con $t_n \xrightarrow{n\to\infty} t_0$, se tiene:
+\begin{flalign*}
+    \lim_{n\to\infty}& \frac{\int_{E}f(x, t_n)\,d\mu(x) - \int_{E}f(x, t_0)\,d\mu(x)}{t_n - t_0} = \lim_{n\to\infty} \int_{E}\frac{f(x, t_n)-f(x, t_0)}{t_n - t_0} = (*)
+\end{flalign*}
+Aplicamos el Teorema del Valor Medio de derivación a $I_{t_n, t_0}$ (intervalo de extremos $t_n$ y $t_0$). Como consecuencia, $\exists \hspace{1mm} \xi_n \in I_{t_n, t_0} \subseteq I$ tal que:
+$$ (*) = \lim_{n\to \infty} \int_{E}\frac{\partial f}{\partial t}(x, \xi_n)\,d\mu$$
+Por hipótesis, sabemos que:
+$$\forall \hspace{1mm} x \in E : \left|\frac{f(x, t_n) - f(x, t_0)}{t_n - t_0}\right| = \left|\frac{\partial f}{\partial t}(x, \xi_n)\right| \leq \varphi(x)$$
+Luego estamos en condiciones de aplicar el \hyperref[result:2.2.7]{Teorema de la Convergencia Dominada}:
+$$(*) = \lim_{n\to\infty} \int_{E}\frac{f(x, t_n)-f(x, t_0)}{t_n - t_0}\,d\mu(x) = \mathop{\int}_{E}\lim_{n\to\infty} \frac{f(x, t_n) - f(x, t_0)}{t_n - t_0}\,d\mu = \int_{E}\frac{\partial f}{\partial t}(x, t_0)\,d\mu(x)$$
+
+\vspace{6mm}
+\result{Integrales de funciones de componentes en \texorpdfstring{$\R^2$}{R\^2}}
+\hspace{3mm} Sea $\Omega \subseteq \R^2$ un abierto. Sea $f : \Omega \longrightarrow \R$ con $f \in \mathcal{C}^1(\Omega)$. Sea $I \subseteq \R$ un intervalo no degenerado. Sean $a,b : I \longrightarrow \R$ funciones derivables en $I$ tales que $\forall \hspace{1mm} t \in I$ se cumplen las dos siguientes condiciones:
+\begin{align*}
+    a(t) \leq b(t) && \{t\} \times \big[a(t), b(t)\big] \subseteq \Omega
+\end{align*}
+Definimos la siguiente función: \\[-3ex]
+\begin{align*}
+    F : I \longrightarrow \overline{\R} && t \longmapsto F(t) = \int_{a(t)}^{b(t)} f(t, x) dx
+\end{align*}
+Entonces, para todo $t \in I$ se cumple:
+$$\exists F'(t) = f\big(t, b(t)\big) \cdot b'(t) - f\big(t, a(t)\big) \cdot a'(t) + \int_{a(t)}^{b(t)}\frac{\partial f}{\partial t}(t,x) dx$$
+\\[2ex] \dem Comencemos ilustrando lo que estamos haciendo:
+\begin{center}
+    \begin{tikzpicture}[scale=0.9]
+        \def\omgr{3.5}
+        \def\omgm{0.75}
+        \def\dom{-\omgr + 1: \omgr - 1}
+        \def\b(#1){1.1+0.5 * sin((#1) r)}
+        \def\a(#1){-(0.001*(#1-5.4)^2 +0.002*(#1-5.4)^3)-1.6}
+        \filldraw[fill=Coral1!30, draw=red, dashed, thick] (0,0) circle (\omgr);
+        \node at (\omgr * 1.2 * 0.7071, \omgr * 1.2 * 0.7071) {$\Omega$};
+        \draw[blue, thick, domain=\dom, samples=100] plot (\x,{\b(\x)});
+        \draw[blue, thick, domain=\dom, samples=100] plot (\x,{\a(\x)});
+        \draw[<->, thick] (-\omgr - 2 *\omgm,-\omgm - \omgr) -- (\omgr + \omgm,-\omgm - \omgr) node[right] {$t$};
+        \draw[<->, thick] (-\omgr - \omgm, -2 * \omgm - \omgr) -- (-\omgm - \omgr,\omgr + \omgm) node[above] {$x$};
+        \node at (0, 0.5*\omgr) {$b(t)$};
+        \node at (0, -0.5*\omgr) {$a(t)$};
+        \draw[-, dashed, black] (-\omgr + 1, {\b(-\omgr + 1)}) -- (-\omgr + 1, -\omgr - 2*\omgm);
+        \draw[-, dashed, black] (\omgr - 1, {\b(\omgr - 1)}) -- (\omgr - 1, -\omgr - 2*\omgm);
+        \draw[<->, black] (-\omgr + 1, -\omgr - \omgm) -- (\omgr - 1, -\omgr - \omgm);
+        \node at (0, -\omgr - 1.5*\omgm) {$I$};
+    \end{tikzpicture}
+\end{center}
+Fijamos $t_0 \in I$ cualquiera. La función $F(t)$ ``recorre'' la variable $x$ integrando $f$ entre $a(t_0)$ y $b(t_0)$
 \end{document}
