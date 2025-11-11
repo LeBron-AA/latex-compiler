@@ -137,7 +137,11 @@
     \noindent \underline{\textbf{Nota:}}
 }
 % ----------------------------------------
-
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+%------------------------------
 \title{Análisis Matemático III}
 \author{Javier Ortín Rodenas}
 \date{Curso 2025-2026}
@@ -709,5 +713,17 @@ $$\exists F'(t) = f\big(t, b(t)\big) \cdot b'(t) - f\big(t, a(t)\big) \cdot a'(t
         \node at (0, -\omgr - 1.5*\omgm) {$I$};
     \end{tikzpicture}
 \end{center}
-Fijamos $t_0 \in I$ cualquiera. La función $F(t)$ ``recorre'' la variable $x$ integrando $f$ entre $a(t_0)$ y $b(t_0)$
+Fijamos $t_0 \in I$ cualquiera. La función $F(t)$ ``recorre'' la variable $x$ integrando $f$ entre $a(t_0)$ y $b(t_0)$. Comencemos con la demostración.
+\vspace{2mm} \newline \indent Sea $(t_n)_{n\in\N} \subseteq I \setminus \{t_0\}$ con $t_n \xrightarrow{n\to\infty} t_0$. Escribiremos la expresión de $F'(t_0)$ sin llegar todavía a tomar límites:
+\begin{flalign*}
+    &\frac{F(t_n) - F(t_0)}{t_n - t_0} = \frac{1}{t_n - t_0}\left(\int_{a(t_n)}^{b(t_n)}f(t_n, x)dx - \int_{a(t_0)}^{b(t_0)}f(t_0, x)dx\right) = \\[2ex]
+    &\hspace{1mm} = \frac{1}{t_n - t_0} \left(\int_{a(t_n)}^{b(t_n)}f(t_n, x)dx - \int_{a(t_n)}^{b(t_0)}f(t_n, x)dx + \int_{a(t_n)}^{b(t_0)}f(t_n, x)dx - \right.\\[2ex]
+    &\hspace{5ex} \left. - \int_{a(t_0)}^{b(t_0)}f(t_n, x)dx + \int_{a(t_0)}^{b(t_0)}f(t_n, x)dx - \int_{a(t_0)}^{b(t_0)}f(t_0, x)dx\right) = \\[2ex]
+    &\hspace{1mm} = \frac{1}{t_n - t_0} \left(\int_{b(t_0)}^{b(t_n)}f(t_n,x)\,dx - \int_{a(t_0)}^{a(t_0)}f(t_n, x)\,dx - \int_{a(t_0)}^{b(t_0)}f(t_n,x)-f(t_0, x)\,dx\right) = (*)
+\end{flalign*}
+\vspace{2mm} Aplicando el Teorema del Valor Medio de Integración, existen $\xi_n \in I_{b(t_n), b(t_0)}$ y $\zeta_n \in I_{a(t_n), a(t_0)}$ tales que:
+$$(*)= f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} + \int_{a(t_0)}^{b(t_0)}\frac{f(t_n, x) - f(t_0, x)}{t_n - t_0}$$
+\vspace{2mm} Por ser $a$  y $b$ derivables, tomando límites en los dos primeros sumandos:
+$$\lim_{n\to\infty} f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} = f\big(t_0, b(t_0)\big) \cdot b'(t_0) - f\big(t_0, a(t_0)\big) \cdot a'(t_0)$$
+\vspace{2mm} Por el Teorema del Valor Medio de Derivación, existe $\theta_n \in I_{t_n, t_0}$ tal que 
 \end{document}

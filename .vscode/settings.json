@@ -1,4 +1,22 @@
 {
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "PDFLaTeX",
+      "tools": ["pdflatex"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "C:/MikTex/texmfs/install/miktex/bin/x64/pdflatex.exe",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
   "cSpell.language": "es",
   "cSpell.words": [
     "biunívocamente",
