@@ -8,7 +8,8 @@
   "latex-workshop.latex.tools": [
     {
       "name": "pdflatex",
-      "command": "C:/Program Files/MiKTeX/miktex/bin/x64/pdflatex.exe",
+      //"command": "C:/Program Files/MiKTeX/miktex/bin/x64/pdflatex.exe",
+      "command": "C:/MikTex/texmfs/install/miktex/bin/x64/pdflatex.exe",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",

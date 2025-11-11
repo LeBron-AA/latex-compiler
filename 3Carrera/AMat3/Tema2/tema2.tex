@@ -722,7 +722,7 @@ Fijamos $t_0 \in I$ cualquiera. La función $F(t)$ ``recorre'' la variable $x$ i
     &\hspace{1mm} = \frac{1}{t_n - t_0} \left(\int_{b(t_0)}^{b(t_n)}f(t_n,x)\,dx - \int_{a(t_0)}^{a(t_0)}f(t_n, x)\,dx - \int_{a(t_0)}^{b(t_0)}f(t_n,x)-f(t_0, x)\,dx\right) = (*)
 \end{flalign*}
 \vspace{2mm} Aplicando el Teorema del Valor Medio de Integración, existen $\xi_n \in I_{b(t_n), b(t_0)}$ y $\zeta_n \in I_{a(t_n), a(t_0)}$ tales que:
-$$(*)= f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} + \int_{a(t_0)}^{b(t_0)}\frac{f(t_n, x) - f(t_0, x)}{t_n - t_0}$$
+$$(*)= f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} + \int_{a(t_0)}^{b(t_0)}\frac{f(t_n, x) - f(t_0, x)}{t_n - t_0} \,dx$$
 \vspace{2mm} Por ser $a$  y $b$ derivables, tomando límites en los dos primeros sumandos:
 $$\lim_{n\to\infty} f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} = f\big(t_0, b(t_0)\big) \cdot b'(t_0) - f\big(t_0, a(t_0)\big) \cdot a'(t_0)$$
 \vspace{2mm} Por el Teorema del Valor Medio de Derivación, sabemos que existe $\theta_n \in I_{t_n, t_0}$ tal que $\frac{f(t_n, x)- f(t_0, x)}{t_n - t_0} = \frac{\partial f}{\partial t}(\theta_n , x)$. Además, por ser $\Omega$ un abierto con $f$ continua en él, podemos afirmar que existen $\varepsilon > 0$, $\delta > 0$ tales que:
@@ -792,4 +792,246 @@ Así, sea $t \in [t_0 - \delta, t_0 + \delta]$, tenemos que $a(t) \in [a(t_0) - 
 \end{minipage}
 \vspace{6mm} \newline \indent Tenemos que $M$ es compacto por definición. Además, como $f \in \mathcal{C}^1(\Omega)$ por hipótesis, podemos garantizar que:
 $$\exists \hspace{1mm} m := \max \left\{\left|\frac{\partial f}{\partial t}(x, t)\right| : (x,t) \in M\right\} $$
+De este modo, estamos en condiciones de aplicar el \hyperref[result:2.2.7]{Teorema de la Convergencia Dominada}. Por todo lo anterior,
+\begin{flalign*}
+    \lim_{n\to\infty}& f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} + \int_{a(t_0)}^{b(t_0)}\frac{f(t_n, x) - f(t_0, x)}{t_n - t_0}\,dx = \\[2ex]
+    &= f\big(t_0, b(t_0)\big) \cdot b'(t_0) - f\big(t_0, a(t_0)\big) \cdot a'(t_0) + \int_{a(t_0)}^{b(t_0)} \frac{\partial f}{\partial t}(x, t_0) \,dx
+\end{flalign*}
+
+\newpage
+\chapter{Cálculo de la integral de Lebesgue en \texorpdfstring{$\R^N$}{R\^N}}
+\result{Notación y conceptos iniciales}
+\hspace{3mm} $\R^{p+q} = \R^p \times \R^q$ con $p,q\in\N$. Así, si $x \in \R^p$ con $y \in \R^q$; entonces, $(x,y) \in \R^{p+q}$.
+\newline \indent Sea $E \subseteq \R^{p+q}$, sea $x \in \R^p$. Definimos la sección de $E$ por $x$ como el conjunto:
+$$E_x = \Big\{y \in \R^q : (x,y) \in E\Big\}$$
+De manera similar, sea $y \in \R^{q}$, definimos la sección de $E$ por $y$ como:
+$$E_y = \Big\{x \in \R^p : (x,y) \in E\Big\}$$
+\indent Sea $f: \R^{p+q} \longrightarrow \overline{\R}$ \hspace{1mm} $(x,y) \longmapsto f(x,y)$. Definimos la sección de $f$ por $x \in \R^p$ y la sección de $f$ por $y \in \R^q$ (respectivamente) como las dos siguientes funciones: \\[-2.5ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{flalign*}
+        f_x :& \R^q \longrightarrow \overline{\R}\\
+        &x \longmapsto f(x,y)
+    \end{flalign*}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{flalign*}
+        f_y :& \R^p \longrightarrow \overline{\R}\\
+        &y \longmapsto f(x,y)
+    \end{flalign*}
+\end{minipage}
+
+\vspace{6mm} \result{Propiedades de las secciones}
+\hspace{3mm} Sea $f : \R{p+q} \longrightarrow \overline{\R}$. Sean $\{E\}\cup\{E^i\}_{i\in\N} \subseteq \R^{p+q}$. Sean $x \in \R^p, y \in \R^q$. Entonces, se cumplen los siguientes enunciados:
+\\[2ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[label=\roman*)]
+        \item $(f^+)_x = (f_x)^+$
+        \item $(f^-)_x = (f_x)^-$
+        \item $(\smallcup_{i\in\N}E^i)_x = \smallcup_{i\in\N}E^i_x$
+        \item $(\smallcap_{i\in\N}E^i)_x = \smallcap_{i\in\N}E^i_x$
+        \item $(\R^{p+q}\setminus E)_x = \R^q \setminus E_x$.
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[label=\roman*')]
+        \item $(f^+)_y = (f_y)^+$
+        \item $(f^-)_y = (f_y)^-$
+        \item $(\smallcup_{i\in\N}E^i)_y = \smallcup_{i\in\N}E^i_y$
+        \item $(\smallcap_{i\in\N}E^i)_y = \smallcap_{i\in\N}E^i_y$
+        \item $(\R^{p+q}\setminus E)_y = \R^p \setminus E_y$.
+    \end{enumerate}
+\end{minipage}
+\\[4ex] \dem Las demostraciones $(*')$ son análogas al resto.
+\vspace{2mm} \newline $\romannumeral 1)$ $(f_x)^+(y) = \max\{f_x(y),0\} = \max\{f(x,y), 0\} = f^+(x,y) = (f^+)_x(y)$.
+\vspace{2mm} \newline $\romannumeral 2)$ $(f_x)^-(y) = \max\{-f_x(y),0\} = \max\{-f(x,y), 0\} = f^-(x,y) = (f^-)_x(y)$.
+\vspace{6mm} \newline $\romannumeral 3)$ Veamos que $(\smallcup_{i\in\N}E^i)_y = \smallcup_{i\in\N}E^i_y$ por doble contenido:
+\begin{tcolorbox}[Subset-contingency]
+    $\subseteq$ \hspace{2mm} Si $y \in (\smallcup_{i\in\N}E^i)_x$, tenemos $(x,y) \in \smallcup_{i\in\N}E^n$ luego $\exists \hspace{1mm} j \in \N$ tal que $(x,y) \in E_j$. 
+\end{tcolorbox}
+Por tanto, $y \in E^j_x \subseteq \smallcup_{i\in\N}E^i_x$.
+\vspace{2mm}
+\begin{tcolorbox}[Subset-contingency]
+    $\supseteq$ \hspace{2mm} Si $y \in \smallcup_{i\in\N}E^i_x$, tenemos $\exists \hspace{1mm} j \in \N$ tal que $y \in E^j_x$. Así, $(x,y) \in E^j \subseteq \smallcup_{i\in\N} E^i$.
+\end{tcolorbox}
+Por tanto, $y \in (\smallcup_{i\in\N} E^i)_x$.
+
+\vspace{8mm} $\romannumeral 4)$ Lo veremos por la definición del conjunto. Como $y$ es un punto fijo de $\R^q$ (dado por el enunciado), usaremos $z$ como variable genérica de $\R^q$.
+\begin{flalign*}
+    (\smallcap_{i\in\N}E^i)_x = \Big\{z \in \R^q : (x,z) \in \smallcap_{i\in\N}E^i\Big\} = \bigcap_{i\in\N}\Big\{z \in \R^q : (x,z) \in E^i\Big\} = \smallcap_{i\in\N}E^i_x
+\end{flalign*}
+
+\vspace{8mm} \noindent $\romannumeral 5)$ Veamos que $(\R^{p+q}\setminus E)_x = \R^q \setminus E_x$ por doble contenido:
+\begin{tcolorbox}[Subset-contingency]
+    $\subseteq$ \hspace{2mm} Si $y \in (\R^{p+q}\setminus E)_x$, tenemos $(x,y) \in \R^{p+q} \setminus E$ luego $(x,y) \notin E$. 
+\end{tcolorbox}
+Por tanto, $y \notin \{z \in \R^q : (x,z) \in E\} = E_x$ luego $y \in \R^q \setminus E_x$.
+\vspace{2mm}
+\begin{tcolorbox}[Subset-contingency]
+    $\subseteq$ \hspace{2mm} Si $y \in \R^{q}\setminus E_x$, tenemos $y \notin \{z \in \R^q : (x,y) \in E\} = E_x$. 
+\end{tcolorbox}
+Por tanto, $(x,y) \notin E$ luego $(x,y) \in \R^{p+q} \setminus E$ y por tanto $y \in (\R^{p+q} \setminus E)_x$.
+
+\vspace{6mm} \noindent $\nota$ A partir de los apartados $(iii)$, $(iv)$, $(iii')$ y $(iv')$ se deducen los siguientes para $E, F \in \R^{p+q}$ cualesquiera:
+\begin{align*}
+    v) \hspace{2mm}(E \setminus F)_x = E_x \setminus F_x &&
+    v') \hspace{2mm}  (E \setminus F)_y = E_y \setminus F_y
+\end{align*}
+
+\newpage
+\result{Teorema de anomalías de conjuntos medibles}
+\hspace{3mm} Sea $E \in \mathfrak{M}_{p+q}$. Se cumplen los siguientes enunciados: \\[4ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[leftmargin=0mm, label=\alph*)]
+        \item $\exists \hspace{1mm} A \in \mathfrak{M}_p$ con $\mu_p(A) = 0$ que verifica: \\[-3ex]
+        $$\forall \hspace{1mm} x \in \R^p \setminus A : E_x \in \mathfrak{M}_q$$
+        \item La siguiente función es $\mu_p$-medible: \\[-6ex]
+        \begin{align*}
+            \varphi : \R^p \setminus A \to \R&& x \mapsto \varphi(x) = \mu_q(E_x)
+        \end{align*}
+        \item Medida por secciones en $x$: \\[-2ex]
+        $$\int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \mu_{p+q}(E)$$
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[leftmargin=7mm, rightmargin=0mm, label=\alph*')]
+        \item $\exists \hspace{1mm} B \in \mathfrak{M}_q$ con $\mu_p(A) = 0$ que verifica: \\[-3ex]
+        $$\forall \hspace{1mm} y \in \R^q \setminus B : E_y \in \mathfrak{M}_p$$
+        \item La siguiente función es $\mu_q$-medible: \\[-6ex]
+        \begin{align*}
+            \psi : \R^q \setminus B \to \R&& y \mapsto \psi(y) = \mu_p(E_y)
+        \end{align*}
+        \item Medida por secciones en $y$: \\[-2ex]
+        $$\int_{\R^q \setminus B}\psi(y)\,d\mu_q(y) = \mu_{p+q}(E)$$
+    \end{enumerate}
+\end{minipage}
+\\[6ex] \dem Veremos solo los tres primeros apartados (los apartados' son análogos). Iremos estructurando la demostración por casos de complejidad incremental.
+
+\vspace{6mm} $\romannumeral 1)$ Para $E$ un cubo acotado. Podemos expresar $E = I \times J$ con $I, J$ cubos acotados de $\R^p$ y $\R^q$, respectivamente.
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-3ex}
+    \begin{flalign*}
+        \text{a) Sea } x\in\R^p, E_x = \begin{cases}
+            J &\text{si } x \in I \\
+            \varnothing &\text{si } x \notin I
+        \end{cases} \hspace{4mm} \text{ En cualquier caso, }E_x \in \mathfrak{M}_q&&
+    \end{flalign*}
+    \\[-3ex]
+    \begin{flalign*}
+        \text{b) }\varphi(x) = \left.\begin{cases}
+        \mu_q(J) &\text{ si } x \in I\\
+        \mu_q(\varnothing) &\text{ si } x \notin I
+        \end{cases}\right\} = \mu_q(J) \cdot X_I(x) \hspace{2mm} \text{ que es } \mu_p\text{-medible}.&&
+    \end{flalign*}
+    \begin{flalign*}
+        \text{c) } \int_{\R^p}\varphi(x)\,d\mu_p(x) = \mu_q(J) \cdot \int_{\R^p}X_I(x)\,d\mu_p(x) = \mu_p(I) \cdot \mu_q(J) = \mu_{p+q}(E)&&
+    \end{flalign*}
+\end{adjustwidth}
+
+\vspace{6mm} $\romannumeral 2)$ Para $E$ un abierto acotado. Sabemos que podemos expresar $E = \smallcup_{n\in\N}I^n$ donde los $I_n$ son cubos diádicos disjuntos. Aplicando el apartado anterior a cada uno de ellos, sabemos que para $x \in \R^p$ cualquiera, se tiene:
+\\[-3ex]  %TODO referenciar resultado cubos diádicos
+\begin{align*}
+    I^n_x \in \mathfrak{M}_q &&
+    \varphi_n(x) = \mu_q(I_x^n) \hspace{2mm} \mu_p\text{-medible} &&
+    \int_{\R^p}\varphi_n(x)\,d\mu_p(x) = \mu_{p+q}(I^n)
+\end{align*}
+Veamos cómo demostrar el apartado $(\romannumeral 2)$ en base a esta información:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-5ex}
+    \begin{flalign*}
+        \text{a) }E_x = (\smallcup_{n\in\N}I^n)_x \overset{\hyperref[result:2.4.2]{2.4.2}}{=} \smallcup_{n\in\N} I^n_x \in \mathfrak{M}_q \hspace{4ex} \text{ Consideramos } A = \varnothing.&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        %TODO referenciar resultado de límite medible
+        \text{b) }\varphi(x) = \mu_q(E_x) =\mu_q \big(\smallcup_{n\in\N}I^n_x\big)  =\sum_{n=1}^{\infty}\mu_q(I^n_x) = \lim_{n\to \infty} \sum_{k=1}^{n}\varphi_k(x) \hspace{2ex} \mu_q\text{-medible}.&&
+    \end{flalign*}
+    \\[-6ex]
+    \begin{flalign*}
+        \text{c) }& \int_{\R^p}\varphi(x)\,d\mu_p(x) = \int_{\R^p}\sum_{n=1}^{^\infty}\varphi_n(x)\,d\mu_p(x) \overset{\hyperref[result:2.1.10]{TCM}}{=} \sum_{n=1}^{\infty} \int_{\R^p}\varphi_n\,d\mu_p(x) =&& \\
+        &= \sum_{n=1}^{\infty} \mu_{p+q}(I^n) = \mu_{p+q}\big(\smallcup_{n\in\N}I^n\big) = \mu_{p+q}(E)
+    \end{flalign*}
+\end{adjustwidth}
+
+\vspace{6mm} $\romannumeral 3)$ Para $E = \smallcap_{n\in\N}O^n$ intersección de abiertos decrecientes. Aplicando el apartado anterior, sabemos que para $x \in \R^p$ cualquiera se cumple:
+\begin{align*}
+    O^n_x \in \mathfrak{M}_q &&
+    \varphi_n(x) = \mu_q(O_x^n) \hspace{2mm} \mu_p\text{-medible} &&
+    \int_{\R^p}\varphi_n(x)\,d\mu_p(x) = \mu_{p+q}(O^n)
+\end{align*}
+Demostraremos el apartado $(\romannumeral 3)$ con esta información:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-5ex}
+    \begin{flalign*}
+        \text{a) }E_x = (\smallcap_{n\in\N}O^n)_x \overset{\hyperref[result:2.4.2]{2.4.2}}{=} \smallcap_{n\in\N} O^n_x \in \mathfrak{M}_q \hspace{4ex} \text{ Consideramos } A = \varnothing.&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        %TODO referenciar resultado de límite por abajo de la medida
+        \text{b) }\varphi(x) = \mu_q(E_x) =\mu_q \big(\smallcap_{n\in\N}O^n_x\big)  = \lim_{n\to\infty}\mu_q(O^n_x) = \lim_{n\to\infty}\varphi_n(x) \hspace{4mm} \mu_q\text{-medible}&&
+    \end{flalign*}
+    \\[-6ex]
+    \begin{flalign*}
+        \text{c) }& \int_{\R^p}\varphi(x)\,d\mu_p(x) = \int_{\R^p}\lim_{n\to\infty}\varphi_n(x)\,d\mu_p(x) \overset{\hyperref[result:2.2.7]{TCD \hspace{1mm}\varphi_1}}{=} \lim_{n\to\infty} \int_{\R^p}\varphi_n\,d\mu_p(x) =&& \\
+        &= \lim_{n\to\infty}\mu_{p+q}(O^n) = \mu_{p+q}(E)
+    \end{flalign*}
+\end{adjustwidth}
+
+%TODO referenciar
+\vspace{6mm} $\romannumeral 4) \hspace{2mm} E \in \mathfrak{M}_{p+q}$ con $\mu_{p+q}(E) = 0$. Por la caracterización topológica de los conjuntos medibles, sabemos que existen $\{O^n\}_{n\in\N} \subseteq \tau_{\R^{p+q}}$ con $E \subseteq O^{n+1} \subseteq O^n$ y tales que $\mu_{p+q}(O^n) \xrightarrow{n\to\infty}0$. De este modo, tenemos $E \subseteq N:= \smallcap_{n\in\N}O^n \in \mathfrak{M}_{p+q}$. Aplicando el apartado anterior a $N$, tenemos que para $x\in\R^p$ se cumple:
+\vspace{-1.5ex}
+\begin{align*}
+    N_x \in \mathfrak{M}_q &&
+    \varphi_1(x) = \mu_q(N_x) \hspace{2mm} \mu_p\text{-medible} &&
+    \int_{\R^p}\varphi_1(x)\,d\mu_p(x) = \mu_{p+q}(N) = 0
+\end{align*}
+
+%TODO referenciar integral nula de función no negativa
+\vspace{-1.5ex} \noindent Al ser $\varphi_1$ no negativa con integral nula, sabemos que $\varphi_1 \overset{\mu-a.e.}{=} 0$ luego $\exists \hspace{1mm} A \in \mathfrak{M}_p$ con $\mu_p(A) = 0$ tal que $\{x \in \R^p : \varphi_1(x) \neq 0\} \subseteq A$. Sea este el conjunto de anomalías para este apartado, dado $x \in \R^p \setminus A$, se cumple:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-5ex}
+    \begin{flalign*}
+        \text{a) }E_x \subseteq N_x \text{ con } \mu_q(E_x) \leq \mu_q(N_x) = \varphi_1(x) = 0 \text{ luego } E_x \in \mathfrak{M}_q.&&
+    \end{flalign*}
+    \\[-10ex]
+    \begin{flalign*}
+        \text{b) }\varphi(x) = \mu_q(E_x) =0 \hspace{4mm} \mu_q\text{-medible trivialmente}.&&
+    \end{flalign*}
+    \\[-9ex]
+    \begin{flalign*}
+        \text{c) }& \int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}0\,d\mu_p(x) = 0 = \mu_{p+q}(E)&&
+    \end{flalign*}
+\end{adjustwidth}
+
+%TODO referenciar expresión de medibles Lebesgue según borelianos
+\vspace{6mm} $\romannumeral 5)$ Para $E \in \mathfrak{M}_{p+q}$ acotado. Por ser medible, $E = G\setminus N$, donde $G$ es una intersección de abiertos decrecientes y $N$ es un conjunto de medida nula. Al ser $E$ acotado, también ha de serlo $G$, luego estamos en condiciones de aplicarle el apartado $(\romannumeral 3)$. Así, para $x \in \R^p$ se cumple:
+\vspace{-2ex}
+\begin{align*}
+    G_x \in \mathfrak{M}_q &&
+    \varphi_1(x) = \mu_q(G_x) \hspace{2mm} \mu_p\text{-medible} &&
+    \int_{\R^p}\varphi_1(x)\,d\mu_p(x) = \mu_{p+q}(G)
+\end{align*}
+
+\vspace{-1.5ex} \noindent Aplicando ahora el apartado $(\romannumeral 4)$ a $N$, para $x \in \R^p \setminus A$ se tiene:
+\vspace{-1ex}
+\begin{align*}
+    N_x \in \mathfrak{M}_q &&
+    \varphi_2(x) = \mu_q(N_x) \hspace{2mm} \mu_p\text{-medible} &&
+    \int_{\R^p}\varphi_2(x)\,d\mu_p(x) = \mu_{p+q}(N)
+\end{align*}
+
+\vspace{-1.5ex} \noindent Consideramos este conjunto $A$. Así, dado $x \in \R^p \setminus A$, tenemos:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-5ex}
+    \begin{flalign*}
+        \text{a) }E_x \subseteq N_x \text{ con } \mu_q(E_x) \leq \mu_q(N_x) = \varphi_1(x) = 0 \text{ luego } E_x \in \mathfrak{M}_q.&&
+    \end{flalign*}
+    \\[-10ex]
+    \begin{flalign*}
+        \text{b) }\varphi(x) = \mu_q(E_x) =0 \hspace{4mm} \mu_q\text{-medible trivialmente}.&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        \text{c) }& \int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}0\,d\mu_p(x) = 0 = \mu_{p+q}(E)&&
+    \end{flalign*}
+\end{adjustwidth}
 \end{document}
