@@ -725,5 +725,71 @@ Fijamos $t_0 \in I$ cualquiera. La función $F(t)$ ``recorre'' la variable $x$ i
 $$(*)= f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} + \int_{a(t_0)}^{b(t_0)}\frac{f(t_n, x) - f(t_0, x)}{t_n - t_0}$$
 \vspace{2mm} Por ser $a$  y $b$ derivables, tomando límites en los dos primeros sumandos:
 $$\lim_{n\to\infty} f(t_n, \xi_n) \cdot \frac{b(t_n)-b(t_0)}{t_n - t_0} - f(t_n, \zeta_n)\cdot \frac{a(t_n) - a(t_0)}{t_n - t_0} = f\big(t_0, b(t_0)\big) \cdot b'(t_0) - f\big(t_0, a(t_0)\big) \cdot a'(t_0)$$
-\vspace{2mm} Por el Teorema del Valor Medio de Derivación, existe $\theta_n \in I_{t_n, t_0}$ tal que 
+\vspace{2mm} Por el Teorema del Valor Medio de Derivación, sabemos que existe $\theta_n \in I_{t_n, t_0}$ tal que $\frac{f(t_n, x)- f(t_0, x)}{t_n - t_0} = \frac{\partial f}{\partial t}(\theta_n , x)$. Además, por ser $\Omega$ un abierto con $f$ continua en él, podemos afirmar que existen $\varepsilon > 0$, $\delta > 0$ tales que:
+\begin{flalign*}
+    &J := [t_0 - \delta, t_0 + \delta] \times [a(t_0) - \varepsilon, a(t_0) + \varepsilon] \subseteq \Omega \\
+    &K := [t_0 - \delta, t_0 + \delta] \times [b(t_0) - \varepsilon, b(t_0) + \varepsilon] \subseteq \Omega
+\end{flalign*}
+Así, sea $t \in [t_0 - \delta, t_0 + \delta]$, tenemos que $a(t) \in [a(t_0) - \varepsilon, a(t_0) + \varepsilon]$ y $b(t) \in [b(t_0) - \varepsilon, b(t_0) + \varepsilon]$. Definimos $M := [t_0 - \delta, t_0 + \delta] \times [a(t_0) - \varepsilon, b_(t_0) + \varepsilon]$. Veamos qué papel juegan estos conjuntos en nuestro esquema anterior:
+\vspace{6mm} \newline
+\begin{minipage}{0.5\textwidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.65]
+            \def\omgr{3.5}
+            \def\omgm{0.75}
+            \def\dom{-\omgr + 1: \omgr - 1}
+            \def\t0{0.5*\omgr}
+            \def\eps{0.5}
+            \def\delt{0.35}
+            \def\b(#1){1.1+0.5 * sin((#1) r)}
+            \def\a(#1){-(0.001*(#1-5.4)^2 +0.002*(#1-5.4)^3)-1.6}
+            \draw[<->, thick] (-\omgr - 2 *\omgm,-\omgm - \omgr) -- (\omgr + \omgm,-\omgm - \omgr) node[right] {$t$};
+            \draw[<->, thick] (-\omgr - \omgm, -2 * \omgm - \omgr) -- (-\omgm - \omgr,\omgr + \omgm) node[above] {$x$};
+            \filldraw[fill=Coral1!30, draw=red, dashed, thick] (0,0) circle (\omgr);
+            \node[above, text=black] at (0, \omgr) {$\Omega$};        
+            \filldraw[green!50] ({\t0 - \delt}, {\b(\t0) - \eps}) rectangle ({\t0 + \delt}, {\b(\t0) + \eps}) node[anchor=north west] {$\textcolor{black}{J}$};
+            \filldraw[green!50] ({\t0 - \delt}, {\a(\t0) - \eps}) rectangle ({\t0 + \delt}, {\a(\t0) + \eps}) node[anchor=north west] {$\textcolor{black}{K}$};
+            \filldraw[black] ({\t0}, {\b(\t0)}) circle (2pt);
+            \filldraw[black] ({\t0}, {\a(\t0)}) circle (2pt);
+            \draw[blue, thick, domain=\dom, samples=100] plot (\x,{\b(\x)});
+            \draw[blue, thick, domain=\dom, samples=100] plot (\x,{\a(\x)});
+            \draw[dashed] ({\t0 + \delt}, {\b(\t0) - \eps}) -- ({\t0 + \delt}, {\a(\t0) + \eps});
+            \draw[dashed] ({\t0 - \delt}, {\b(\t0) - \eps}) -- ({\t0 - \delt}, {\a(\t0) + \eps});
+            \draw[<->] ({\t0 - \delt},{0.5*(\b(\t0) + \a(\t0))}) -- ({\t0 + \delt},{0.5*(\b(\t0) + \a(\t0))}) node[midway,above] {$2\delta$};
+            \draw[dashed] ({\t0 - \delt}, {\b(\t0) - \eps}) -- ({\t0 - 8*\delt}, {\b(\t0) - \eps});
+            \draw[dashed] ({\t0 - \delt}, {\b(\t0) + \eps}) -- ({\t0 - 8*\delt}, {\b(\t0) + \eps});
+            \draw[<->] ({\t0 - 7* \delt},{\b(\t0) + \eps}) -- ({\t0 - 7 *\delt},{\b(\t0) - \eps}) node[midway,left] {$2\varepsilon$};
+            \draw[dashed] ({\t0 - \delt}, {\a(\t0) - \eps}) -- ({\t0 - 8*\delt}, {\a(\t0) - \eps});
+            \draw[dashed] ({\t0 - \delt}, {\a(\t0) + \eps}) -- ({\t0 - 8*\delt}, {\a(\t0) + \eps});
+            \draw[<->] ({\t0 - 7* \delt},{\a(\t0) + \eps}) -- ({\t0 - 7 *\delt},{\a(\t0) - \eps}) node[midway,left] {$2\varepsilon$};
+            \draw[-] (\t0, -\omgr - \omgm + \delt) -- (\t0, -\omgr - \omgm - \delt) node[below] {$t_0$};
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}    
+    \begin{center}
+    \begin{tikzpicture}[scale=0.65]
+        \def\omgr{3.5}
+        \def\omgm{0.75}
+        \def\dom{-\omgr + 1: \omgr - 1}
+        \def\t0{0.5*\omgr}
+        \def\eps{0.5}
+        \def\delt{0.35}
+        \def\b(#1){1.1+0.5 * sin((#1) r)}
+        \def\a(#1){-(0.001*(#1-5.4)^2 +0.002*(#1-5.4)^3)-1.6}
+        \draw[<->, thick] (-\omgr - 2 *\omgm,-\omgm - \omgr) -- (\omgr + \omgm,-\omgm - \omgr) node[right] {$t$};
+        \draw[<->, thick] (-\omgr - \omgm, -2 * \omgm - \omgr) -- (-\omgm - \omgr,\omgr + \omgm) node[above] {$x$};
+        \filldraw[fill=Coral1!30, draw=red, dashed, thick] (0,0) circle (\omgr);
+        \node[above, text=black] at (0, \omgr) {$\Omega$};        
+        \filldraw[Orchid2!70] ({\t0 - \delt}, {\a(\t0) - \eps}) rectangle ({\t0 + \delt}, {\b(\t0) + \eps}) node[midway, right, xshift={20*\delt}] {$\textcolor{black}{M}$};
+        \filldraw[black] ({\t0}, {\b(\t0)}) circle (2pt);
+        \filldraw[black] ({\t0}, {\a(\t0)}) circle (2pt);
+        \draw[blue, thick, domain=\dom, samples=100] plot (\x,{\b(\x)});
+        \draw[blue, thick, domain=\dom, samples=100] plot (\x,{\a(\x)});       
+        \draw[-] (\t0, -\omgr - \omgm + \delt) -- (\t0, -\omgr - \omgm - \delt) node[below] {$t_0$};
+    \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\vspace{6mm} \newline \indent Tenemos que $M$ es compacto por definición. Además, como $f \in \mathcal{C}^1(\Omega)$ por hipótesis, podemos garantizar que:
+$$\exists \hspace{1mm} m := \max \left\{\left|\frac{\partial f}{\partial t}(x, t)\right| : (x,t) \in M\right\} $$
 \end{document}
