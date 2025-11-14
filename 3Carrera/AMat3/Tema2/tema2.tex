@@ -1016,7 +1016,7 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
 \begin{align*}
     N_x \in \mathfrak{M}_q &&
     \varphi_2(x) = \mu_q(N_x) \hspace{2mm} \mu_p\text{-medible} &&
-    \int_{\R^p}\varphi_2(x)\,d\mu_p(x) = \mu_{p+q}(N)
+    \int_{\R^p \setminus A}\varphi_2(x)\,d\mu_p(x) = \mu_{p+q}(N)
 \end{align*}
 
 \vspace{-1.5ex} \noindent Consideramos este conjunto $A$. Así, dado $x \in \R^p \setminus A$, tenemos:
@@ -1027,11 +1027,83 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
     \end{flalign*}
     \\[-10ex]
     \begin{flalign*}
-        \text{b) }\varphi(x) = \mu_q(E_x) =0 \hspace{4mm} \mu_q\text{-medible trivialmente}.&&
+        \text{b) }\varphi(x) = \mu_q(E_x) = \mu_q(G_x) - \mu_q(N_x) = \varphi_1(x) - \varphi_2(x) \hspace{4mm} \mu_q\text{-medible}.&&
     \end{flalign*}
     \\[-8ex]
     \begin{flalign*}
         \text{c) }& \int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}0\,d\mu_p(x) = 0 = \mu_{p+q}(E)&&
+    \end{flalign*}
+\end{adjustwidth}
+
+%TODO referenciar conjuntos medibles según borelianos
+\vspace{6mm} $\romannumeral 6)$ $E \in \mathfrak{M}_{p+q}$ (caso general). Definimos $E^n = E \cap [-n,n]^N$. De este modo, es claro que $E = \smallcup_{n\in\N}E^n$ y que todos los $E^n$ son acotados. Aplicando el apartado ($\romannumeral 5$) a cada uno de ellos, tenemos que para $x \in \R^p \setminus A^n$ se cumple:
+\begin{align*}
+    E^n_x \in \mathfrak{M}_q &&
+    \varphi_n(x) = \mu_q(E^n_x) \hspace{2mm} \mu_p\text{-medible} &&
+    \int_{\R^p \setminus A^n}\varphi_1(x)\,d\mu_p(x) = \mu_{p+q}(E^n)
+\end{align*}
+Consideramos el conjunto de anomalías $A := \smallcup_{n\in\N} A^n$ aplicando la subaditividad de la medida, es claro que $\mu_{p+q}(A) = 0$. Sea $x \in R^p \setminus A$, se cumple:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-5ex}
+    \begin{flalign*}
+        \text{a) }E_x = \smallcup_{i\in\N}\underbracket{E^n_x}_{\in \mathfrak{M}_q} \in \mathfrak{M}_q &&
+    \end{flalign*}
+    \\[-10ex]
+    \begin{flalign*}
+        \text{b) }\varphi(x) = \mu_q(E_x) =  \lim_{n\to\infty}\mu_q(E^n_x) = \lim_{n\to\infty}\varphi_n(x)\hspace{4mm} \mu_q\text{-medible}.&&
+    \end{flalign*}
+    \\[-9ex]
+    \begin{flalign*}
+        \text{c) }& \int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A} \lim_{n\to\infty}\varphi_n(x)\,d\mu_p(x) \overset{\hyperref[result:2.1.10]{TCM}}{=} \lim_{n\to\infty} \int_{R^p \setminus A}\varphi_n(x)\,d\mu = &&\\[2ex]
+         &= \lim_{n \to \infty} \mu_{p+q}(E^n) = \mu_{p+q}(E)
+    \end{flalign*}
+\end{adjustwidth}
+
+\vspace{6mm}
+\result{Teorema de Tonelli}
+\hspace{3mm} Sea $f : \R^{p+q} \longrightarrow [0,+\infty]$ una función $\mu_{p+q}$-medible. Tenemos:
+\\[3ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[leftmargin=0mm, label=\alph*)]
+        \item $\exists A \in \mathfrak{M}_q$ con $\mu_p(A)=0$ que verifica: \\[-3ex] 
+        $$\forall \hspace{1mm} x \in \R^p \setminus A \hspace{1mm} f_x \text{ es } \mu_q\text{-medible}$$
+        \item La siguiente función $\varphi : \R^p \setminus A \to [0,+\infty]$ \\[-6ex]
+        \begin{align*}
+            x \mapsto \int_{\R^q}f_x(y)\,d\mu_q(y) && \text{ es }\mu_q\text{-medible}
+        \end{align*}
+        \item Integración por secciones: \\[-2.5ex]
+        $$\hspace{-5ex} \int_{\R^p \setminus A} \hspace{-3mm} \varphi(x)\,d\mu_p(x) = \int_{\R^{p+q}} \hspace{-3mm} f(x,y)\,d\mu_{p+q}(x,y)$$
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+    \begin{enumerate}[leftmargin=8mm, rightmargin=-2mm, label=\alph*')]
+        \item $\exists B \in \mathfrak{M}_p$ con $\mu_p(B)=0$ que verifica: \\[-3ex] 
+        $$\forall \hspace{1mm} y \in \R^q \setminus B \hspace{1mm} f_y \text{ es } \mu_p\text{-medible}$$
+        \item La siguiente función $\psi : \R^q \setminus B \to [0,+\infty]$ \\[-6ex]
+        \begin{align*}
+            y \mapsto \int_{\R^p}f_y(x)\,d\mu_p(x) && \text{ es }\mu_p\text{-medible}
+        \end{align*}
+        \item Integración por secciones: \\[-2.5ex]
+        $$\int_{\R^q \setminus B} \hspace{-3mm} \varphi(y)\,d\mu_q(y) = \int_{\R^{p+q}} \hspace{-3mm} f(x,y)\,d\mu_{p+q}(x,y)$$
+    \end{enumerate}
+\end{minipage}
+Por tanto, ha de cumplirse:
+$$ \int_{\R^p}\left(\int_{\R^q}f(x,y)\,d\mu_q(y)\right)\,d\mu_p(x) = \int_{\R^{p+q}} \hspace{-4mm} f(x,y)\,d\mu_{p+q}(x,y) = \int_{\R^q}\left(\int_{\R^p}f(x,y)\,d\mu_p(x)\right)\,d\mu_q(y)$$
+
+\vspace{2mm} \dem Al igual que con el caso anterior; dividiremos la demostración en casos, y no se demostrarán los apartados' al ser análogos.
+\vspace{2mm} \newline $\romannumeral 1)$ Consideramos $f = X_E$ para cierto $E \in \mathfrak{M}_{p+q}$. Se corresponde con el \hyperref[result:2.4.3]{teorema anterior}. Así, para el correspondiente conjunto de anomalías $A \in \mathfrak{M}_{p+q}$ con $\mu_{p+q}(A) = 0$ fijado, tenemos:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-4ex}
+    \begin{flalign*}
+        \text{a) }f_x = (X_E)_x = x_{E_x} \mu_q\text{-medible al ser }E_x \in \mathfrak{M}_q&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        \text{b) }\varphi(x) = \int_{\R^q}X_{E_x}(y)\,d\mu_q(y) = \mu_q(E_x) \text{ medible por el \hyperref[result:2.4.3]{teorema anterior}}&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        \text{c) }\int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \mu_{p+q}(E) = \int_{\R^{p+q}}\underbrace{X_{E}(x,y)}_{f(x,y)}\,d\mu_{p+q}(x,y) &&
     \end{flalign*}
 \end{adjustwidth}
 \end{document}
