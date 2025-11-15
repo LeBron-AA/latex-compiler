@@ -1106,4 +1106,132 @@ $$ \int_{\R^p}\left(\int_{\R^q}f(x,y)\,d\mu_q(y)\right)\,d\mu_p(x) = \int_{\R^{p
         \text{c) }\int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \mu_{p+q}(E) = \int_{\R^{p+q}}\underbrace{X_{E}(x,y)}_{f(x,y)}\,d\mu_{p+q}(x,y) &&
     \end{flalign*}
 \end{adjustwidth}
+
+\vspace{6mm} \indent $\romannumeral 2)$ Sea $f = \displaystyle \sum_{i=1}^{k} \lambda_i \cdot X_{E^i}$ función simple y medible dada por su expresión canónica. Aplicando el apartado anterior a cada $E^i$, tenemos que $\exists \hspace{1mm} A_i \in \mathfrak{M}_{p+q}$ con $\mu_{p+q}(A_i) = 0$ tal que $\forall \hspace{1mm} x \in \R^p \setminus A_i$ se cumple:
+\begin{align*}
+    (X_{E^i})_x \hspace{1mm} \mu_q\text{-medible} &&
+    \varphi_i(x) = \int_{\R^q}X_{E^i_x}(y)\,d\mu_q(y) \text{ es }\mu_q\text{-medible}
+\end{align*}
+$$\int_{\R^p \setminus A_i}\varphi_i(x)\,d\mu_p(x) = \int_{\R^{p+q}}X_{E^i}(x,y)\,d\mu_{p+q}(x,y)$$
+
+\vspace{4mm} Consideramos $A = \smallcup_{i\in\N}A_i \in \mathfrak{M}_{p}$, que cumple $\mu_p(A) = 0$ por subaditividad. Así, dado $x \in \R^p \setminus A$, se cumple:
+\vspace{-5ex}
+\begin{adjustwidth}{0.07\textwidth}{}
+    \begin{flalign*}
+        \text{a) } f_x = \sum_{i=1}^{k} \lambda_i \cdot \underbracket{X_{E^i}}_{\mu_q\text{-medible}} \hspace{1mm} \mu_q \text{-medible}&&
+    \end{flalign*}
+    \\[-6ex]
+    \begin{flalign*}
+        \text{b) } \varphi(x)& = \int_{\R^q}\sum_{i=1}^{k}\lambda_i \cdot X_{E^i_x}(y)\,d\mu_q(y)  = \sum_{i=1}^{k}\lambda_i \cdot \left(\int_{\R^q}X_{E^i_x}(y)\,d\mu_q(y)\right) =&& \\[1ex]
+        &= \sum_{i=1}^k \lambda_i \cdot \underbracket{\varphi_i(x)}_{\mu_p \text{-medible}} \hspace{2mm} \mu_p \text{-medible}
+    \end{flalign*}
+    \\[-6ex]
+    \begin{flalign*}
+        \text{c) } \int_{\R^p \setminus A}&\varphi(x)\,d\mu_p(x) = \sum_{i=1}^{k} \lambda_i \cdot \int_{\R^p \setminus A}\varphi_i(x)\,d\mu_p(x) = \sum_{i=1}^{k}\lambda_i \cdot \int_{\R^p \setminus A_i}\varphi_i(x)\,d\mu_p(x) =&&\\
+        =& \sum_{i=1}^k \lambda_i \cdot \mu_{p+q}(E^i) = \int_{\R^{p+q}}f(x,y)\,d\mu_{p+q}(x,y)
+    \end{flalign*}
+\end{adjustwidth}
+
+%TODO referenciar funciones medibles como límite de simples
+\vspace{6mm} $\romannumeral 3)$ $f \mu_{p+q}$-medible (caso general). Sabemos que existe una sucesión de funciones medibles y simples $(s_n)_{n\in\N}$ tales que $0\leq s_n \leq s_{n+1} \leq f$ que converge puntualmente a $f$. Aplicando el apartado anterior a cada $s_n$, tenemos que $\exists A_n \in \mathfrak{M}_p$ con $\mu_p(A_n) = 0$ tal que para cualquier $x \in \R^p \setminus A_n$ se cumple:
+\begin{align*}
+    (s_n)_x \hspace{1mm} \mu_q\text{-medible} &&
+    \varphi_n(x) = \int_{\R^q}s_{n_x}(y)\,d\mu_q(y) \text{ es }\mu_q\text{-medible}
+\end{align*}
+$$\int_{\R^p \setminus A_n}\varphi_n(x)\,d\mu_p(x) = \int_{\R^{p+q}}s_n(x,y)\,d\mu_{p+q}(x,y)$$
+
+\vspace{4mm} Consideramos $A = \smallcup_{n\in\N}A_n \in \mathfrak{M}_{p}$, que cumple $\mu_p(A) = 0$ por subaditividad. Así, dado $x \in \R^p \setminus A$, se cumple:
+\vspace{-5ex}
+\begin{adjustwidth}{0.07\textwidth}{}
+    \begin{flalign*}
+        \text{a) } f_x = \lim_{n\to\infty} \underbracket{s_{n_x}}_{\mu_q\text{-medible}} \hspace{1mm} \mu_q \text{-medible}&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        \text{b) } \varphi(x)& = \int_{\R^q}\lim_{n\to\infty} s_{n_x}(y)\,d\mu_q(y) \overset{\hyperref[result:2.1.10]{TCM}}{=} \underbracket{\lim_{n\to\infty} \int_{\R^q}s_{n_x}(y)\,d\mu_q(y)}_{\varphi_n(x) \hspace{1mm} \mu_p \text{-medible}}  \hspace{2mm} \mu_p \text{-medible}&&
+    \end{flalign*}
+    \\[-8ex]
+    \begin{flalign*}
+        \text{c) } \int_{\R^p \setminus A}&\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}\lim_{n\to\infty}\varphi_n(x)\,d\mu_p(x) \overset{\hyperref[result:2.1.10]{TCM}}{=} \lim_{n\to\infty} \int_{\R^p  \setminus A}\varphi_n(x)\,d\mu_p(x) = &&
+    \end{flalign*}
+    
+    \begin{flalign*}
+        =& \lim_{n\to\infty} \int_{\R^p \setminus A_n}\varphi_n(x)\,d\mu_p(x) = \lim_{n \to \infty} \int_{\R^{p+q}}s_n(x,y)\,d\mu_{p+q}(x,y) \overset{\hyperref[result:2.1.10]{TCM}}{=}&&\\[1ex]
+        =& \int_{\R^{p+q}}\lim_{n\to\infty}s_n(x,y)\,d\mu_{p+q}(x,y) = \int_{\R^{p+q}}f(x,y)\,d\mu_{p+q}(x,y)
+    \end{flalign*}
+\end{adjustwidth}
+
+\vspace{6mm}
+\result{Teorema de Fubini}
+\hspace{3mm} Dada cualquier función $f \in \mathcal{L}_1 (\R^{p+q})$, se cumplen los siguientes enunciados:
+\\[4ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{enumerate}[leftmargin=0mm, label=\alph*)]
+        \item $\exists \hspace{1mm} A \in \mathfrak{M}_p$ con $\mu_p(A) = 0$ que verifica \\[-3ex]
+        $$\forall \hspace{1mm} x \in \R^p \setminus A : f_x \in \mathcal{L}_1(\R^q)$$
+        \item La siguiente función $\varphi : \R^p \setminus A \to [0,+\infty]$ \\[-6ex]
+        \begin{align*}
+            x \mapsto \int_{\R^q}f_x(y)\,d\mu_q(y) && \text{ es }\mu_p\text{-sumable}
+        \end{align*}
+        \item Integración por secciones: \\[-2.5ex]
+        $$\hspace{-5ex} \int_{\R^p \setminus A} \hspace{-3mm} \varphi(x)\,d\mu_p(x) = \int_{\R^{p+q}} \hspace{-3mm} f(x,y)\,d\mu_{p+q}(x,y)$$
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+    \begin{enumerate}[leftmargin=7mm, rightmargin=0mm, label=\alph*')]
+        \item $\exists \hspace{1mm} B \in \mathfrak{M}_q$ con $\mu_q(B) = 0$ que verifica \\[-3ex]
+        $$\forall \hspace{1mm} y \in \R^q \setminus B : f_y \in \mathcal{L}_1(\R^p)$$
+        \item La siguiente función $\psi : \R^q \setminus B \to [0,+\infty]$ \\[-6ex]
+        \begin{align*}
+            y \mapsto \int_{\R^p}f_y(x)\,d\mu_p(x) && \text{ es }\mu_q\text{-sumable}
+        \end{align*}
+        \item Integración por secciones: \\[-2.5ex]
+        $$\int_{\R^q \setminus B} \hspace{-3mm} \varphi(y)\,d\mu_q(y) = \int_{\R^{p+q}} \hspace{-3mm} f(x,y)\,d\mu_{p+q}(x,y)$$
+    \end{enumerate}
+\end{minipage}
+
+\vspace{8mm} \noindent Por tanto, ha de cumplirse:
+$$\hspace{-4mm} \int_{\R^p}\left(\int_{\R^q}f(x,y)\,d\mu_q(y)\right)\,d\mu_p(x) = \int_{\R^{p+q}} \hspace{-4mm} f(x,y)\,d\mu_{p+q}(x,y) = \int_{\R^q}\left(\int_{\R^p}f(x,y)\,d\mu_p(x)\right)\,d\mu_q(y)$$
+
+\vspace{6mm} \dem Los apartados' son análogos.
+\vspace{3mm} \newline \indent En primer lugar, nótese que para $x \in \R^p$ cualquiera se cumple:
+$$f_x = (f_x)^+ - (f_x)^- \hyperref[result:2.4.2]{=} (f^+)_x - (f^-)_x \overset{\text{notación}}{=} f^+_x - f^-_x$$
+\newpage \noindent Aplicando el \hyperref[result:2.4.4]{Teorema de Tonelli} a $f^+$, obtenemos:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{1mm} $\exists A_1 \in \mathfrak{M}_p$ con $\mu_p(A_1) = 0$ tal que $\forall x \hspace{1mm} \in \R^p \setminus A_1$, $f_x^+$ es $\mu_q$-medible.
+    \vspace{1.5mm} \newline $\varphi_1 : \R^p \setminus A_1 \to [0,+\infty]$ dada por $x \mapsto \int_{\R^q}f_x^+(y)\,d\mu_q(y)$ es $\mu_p$-medible.
+    \vspace{1.5mm} \newline $\int_{\R^p \setminus A_1}\varphi_1(x)\,d\mu_p(x) = \int_{\R^{p+q}}f^+(x,y)\,d\mu_{p+q}$.
+\end{adjustwidth}
+\vspace{4mm} Aplicamos ahora el \hyperref[result:2.4.4]{Teorema de Tonelli} a $f^.$ y obtenemos:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{1mm}$\exists A_2 \in \mathfrak{M}_p$ con $\mu_p(A_2) = 0$ tal que $\forall x \hspace{1mm} \in \R^p \setminus A_2$, $f_x^-$ es $\mu_q$-medible.
+    \vspace{1.5mm} \newline $\varphi_2 : \R^p \setminus A_2 \to [0,+\infty]$ dada por $x \mapsto \int_{\R^q}f_x^-(y)\,d\mu_q(y)$ es $\mu_p$-medible.
+    \vspace{1.5mm} \newline $\int_{\R^p \setminus A_2}\varphi_2(x)\,d\mu_p(x) = \int_{\R^{p+q}}f^-(x,y)\,d\mu_{p+q}$.
+\end{adjustwidth}
+
+\vspace{5mm} Por hipótesis, $f \in \mathcal{L}_1 (\R^{p+q})$, luego $f^+, f^- \in \mathcal{L}_1 (\R^{p+q})$ también. Por tanto, los siguientes conjuntos han de ser de medida nula: \\[-5ex]
+\begin{align*}
+    A_3 := \{x \in \R^p \setminus A_1 : \varphi_1(x) = +\infty\} &&
+    A_4 := \{x \in \R^p \setminus A_2 : \varphi_2(x) = +\infty\}
+\end{align*}
+Veamos cómo demostrar el teorema a partir de esta información:
+
+\vspace{4mm} a) Definimos $A := A_1 \cup A_2 \cup A_3 \cup A_4 \in \mathfrak{M}_p$ con $\mu_p(A) = 0$.
+\vspace{1mm} \newline Así, sea $x \in \R^p \setminus A$, se cumple $\varphi_1(x) < \infty$.
+\vspace{1mm} \newline Por definición, $\varphi_1(x) = \int_{\R^q}f^+_x(y)\,d\mu_q(y) < \infty$. Así, $f^+_x \in \mathcal{L}_1(\R^q)$ por definición.
+\vspace{1mm} \newline Del mismo modo, $\infty > \varphi_2(x) = \int_{\R^q}f_x^-(y)\,d\mu_q(y)$ luego $f^-_x \in \mathcal{L}_1 (\R^q)$.
+\vspace{1mm} \newline Al ser $\mathcal{L}_1 (\R^q)$ un \hyperref[result:2.2.4]{espacio vectorial}, tenemos que $f_x = f^+_x - f^-_x \in \mathcal{L}_1(\R^q)$.
+
+\vspace{6mm} b) Sea $x \in \R^p \setminus A$, tenemos que \\[-5ex]
+\begin{flalign*}
+    \hspace{6ex} \varphi(x)& = \int_{\R^q}f_x(y)\,d\mu_q(y) = \int_{\R^q}f^+_x(y)\,d\mu_q(y) - \int_{\R^q}f_x^-(y)\,d\mu_q(y) = &&\\
+    &= \underbracket{\varphi_1(x)}_{\in \mathcal{L}_1 (\R^p \setminus A)} - \underbracket{\varphi_2(x)}_{\in \mathcal{L}_1(\R^p \setminus A)} \in \mathcal{L}_1 (\R^p \setminus A)
+\end{flalign*}
+
+\begin{flalign*}
+    \hspace{3mm} \text{c) } \int_{\R^p \setminus A}&\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}\varphi_1(x)\,d\mu_p(x) - \int_{\R^p \setminus A}\varphi_2(x)\,d\mu_p(x) = &&
+\end{flalign*}
+\begin{flalign*}
+    \hspace{10mm} =\int_{\R^{p+q}}f^+(x,y)\,d\mu_{p+q}(x,y) + \int_{\R^{p+q}}f^-(x,y)\,d\mu_{p+q}(x,y) = \int_{\R^{p+q}}f(x,y)\,d\mu_{p+q}(x,y) &&
+\end{flalign*}
 \end{document}
