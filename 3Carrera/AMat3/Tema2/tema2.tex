@@ -1234,4 +1234,34 @@ Veamos cómo demostrar el teorema a partir de esta información:
 \begin{flalign*}
     \hspace{10mm} =\int_{\R^{p+q}}f^+(x,y)\,d\mu_{p+q}(x,y) + \int_{\R^{p+q}}f^-(x,y)\,d\mu_{p+q}(x,y) = \int_{\R^{p+q}}f(x,y)\,d\mu_{p+q}(x,y) &&
 \end{flalign*}
+
+\vspace{6mm}
+\result{Teorema de Cambio de Variable}
+\hspace{3mm} Sea $\Omega$ un abierto de $\R^N$. Sea $T:\Omega \longrightarrow \R^N$ un difeomorfismo de clase $\mathcal{C}^1(\Omega)$. Sea $f \in \mathcal{L}_1 \big(T(\Omega)\big)$ (alternativamente, $f: T(\Omega) \longrightarrow [0,\infty]$ medible, pudiendo darse ambas). Entonces, se cumple:
+$$\int_{T(\Omega)}f(y)\,d\mu_N(y) = \int_{\Omega}(f \circ T)(x) \cdot |\det J_T(x)|\,d\mu_N(x) $$
+Con $(f \circ T) \cdot |\det J_T| \in \mathcal{L}_1 (\Omega)$ (alternativamente, no negativa y medible).
+
+\vspace{6mm} \noindent \underline{\textbf{Idea:}} No se verá la demostración formal al ser demasiado larga.
+\vspace{2mm} \newline \indent Por ser $T : \Omega \longrightarrow [0,+\infty]$ un difeomorfismo de clase $\mathcal{C}^1(\Omega)$ con $\Omega$ abierto, las derivadas parciales de orden $1$ de $T$ son continuas. Además, $T$ es inyectiva, y para todo $x \in \Omega$ se cumple $\det J_T(x) \neq 0$. De este modo, estamos en condiciones de aplicar el Teorema de la Función Inversa. Así, \\[-4ex]
+\begin{align*}
+    T(\Omega) \text{ abierto de }\R^N &&
+    T^{-1}:T(\Omega) \longrightarrow \Omega \text{ difeomorfismo } \mathcal{C}^1 \big(T(\Omega)\big)
+\end{align*}
+Consideraremos la siguiente notación: \\[-4ex]
+\begin{align*}
+    \Omega \xrightarrow{T} T(\Omega) && x = (x_1, x_2, \ldots, x_N) \overset{T}{\longmapsto} Tx = T(x) = (y_1, y_2, \ldots, y_N)
+\end{align*}
+\\[-11ex]
+\begin{align*}
+    Tx = \big(y_1(x), \ldots, y_N(x) \big) && y_k = y_k(x_1, \ldots, x_N) = \Pi_k(T(x)) \text{ k-ésima componente}
+\end{align*}
+Como regla mnemotécnica, podemos considerar esta ilustración (no es para nada formal, simplemente es una práctica sugerida) para recordar de qué transformación es el jacobiano y sobre qué variables se debe integrar:
+\begin{flalign*}
+    \int_{T(\Omega)} f(y_1, \ldots,y_N)\,d\mu_N(y_1,\ldots,y_N) = &&
+\end{flalign*}
+\\[-11ex]
+\begin{flalign*}
+    \int_{\Omega} \big(f\circ \underbracket{T\big)(x_1,\ldots,x_N)}_{y_1,\ldots,y_N} \cdot \Bigg| \hspace{.05mm}\underbracket{\frac{d(x_1,\ldots,x_N)}{d(y_1,\ldots,y_N)}}_{\frac{\partial y_k}{\partial x_j}} \hspace{0.5mm} \Bigg| \,d\mu_N(x_1,\ldots,x_N) &&
+\end{flalign*}
+Buscamos que los diferenciales ``se simplifiquen''.
 \end{document}

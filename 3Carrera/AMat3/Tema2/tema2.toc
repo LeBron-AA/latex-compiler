@@ -40,3 +40,4 @@
 \contentsline {subsubsection}{\numberline {2.4.3}Teorema de anomalías de conjuntos medibles}{32}{subsubsection.0.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Teorema de Tonelli}{35}{subsubsection.0.2.4.4}%
 \contentsline {subsubsection}{\numberline {2.4.5}Teorema de Fubini}{38}{subsubsection.0.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Teorema de Cambio de Variable}{40}{subsubsection.0.2.4.6}%
