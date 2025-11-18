@@ -1,76 +1,115 @@
-\contentsline {section}{Preliminares}{5}{section*.1}%
-\contentsline {subsection}{1. Cardinalidad de conjuntos}{5}{chapter.0.0.1}%
-\contentsline {subsubsection}{\numberline {0.1.1}Definición de cardinalidad, tipos de cardinalidad}{5}{subsubsection.0.0.1.1}%
-\contentsline {subsubsection}{\numberline {0.1.2}Ejemplos de conjuntos numerables}{6}{subsubsection.0.0.1.2}%
-\contentsline {subsubsection}{\numberline {0.1.3}Ejemplos de conjuntos no numerables}{7}{subsubsection.0.0.1.3}%
-\contentsline {subsubsection}{\numberline {0.1.4}Procesos que dan lugar a conjuntos numerables}{8}{subsubsection.0.0.1.4}%
-\contentsline {subsubsection}{\numberline {0.1.5}Más procesos que dan lugar a conjuntos numerables}{9}{subsubsection.0.0.1.5}%
-\contentsline {subsubsection}{\numberline {0.1.6}Unión numerable de conjuntos numerables}{9}{subsubsection.0.0.1.6}%
-\contentsline {subsubsection}{\numberline {0.1.7}Definición de conjunto de partes}{11}{subsubsection.0.0.1.7}%
-\contentsline {subsubsection}{\numberline {0.1.8}Cardinal de partes de un conjunto finito}{11}{subsubsection.0.0.1.8}%
-\contentsline {subsubsection}{\numberline {0.1.9}El conjunto de partes incrementa la cardinalidad}{11}{subsubsection.0.0.1.9}%
-\contentsline {subsubsection}{\numberline {0.1.10}Cardinalidad de $\mathcal {P}(\mathbb {N})$}{12}{subsubsection.0.0.1.10}%
-\contentsline {subsubsection}{\numberline {0.1.11}Jerarquía de cardinalidades}{12}{subsubsection.0.0.1.11}%
-\contentsline {subsection}{2. Descomposición de subconjuntos abiertos de $\mathbb {R}^N$ en cubos diádicos}{13}{chapter.0.0.2}%
-\contentsline {subsubsection}{\numberline {0.2.1}Definición de intervalo diádico}{13}{subsubsection.0.0.2.1}%
-\contentsline {subsubsection}{\numberline {0.2.2}Propiedades de los intervalos diádicos}{13}{subsubsection.0.0.2.2}%
-\contentsline {subsubsection}{\numberline {0.2.3}Definición de cubo diádico}{14}{subsubsection.0.0.2.3}%
-\contentsline {subsubsection}{\numberline {0.2.4}Propiedades de los cubos diádicos}{14}{subsubsection.0.0.2.4}%
-\contentsline {subsubsection}{\numberline {0.2.5}Teorema de descomposición de abiertos en cubos diádicos}{15}{subsubsection.0.0.2.5}%
-\contentsline {subsection}{3. Series dobles}{18}{chapter.0.0.3}%
-\contentsline {subsubsection}{\numberline {0.3.1}Definición de sucesión doble}{18}{subsubsection.0.0.3.1}%
-\contentsline {subsubsection}{\numberline {0.3.2}Definición de serie doble}{18}{subsubsection.0.0.3.2}%
-\contentsline {subsubsection}{\numberline {0.3.3}Teorema de series dobles no negativas}{19}{subsubsection.0.0.3.3}%
-\contentsline {section}{I Teoría de la medida}{22}{unit.0.1}%
-\contentsline {subsection}{1. Espacios de medida}{22}{chapter.0.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Definición de $\sigma $-álgebra}{22}{subsubsection.0.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Propiedades de las $\sigma $-álgebras}{22}{subsubsection.0.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Definición de espacio de medida}{23}{subsubsection.0.1.1.3}%
-\contentsline {subsubsection}{\numberline {1.1.4}Propiedades de los espacios de medida}{24}{subsubsection.0.1.1.4}%
-\contentsline {subsubsection}{\numberline {1.1.5}Espacio de medida inducido}{26}{subsubsection.0.1.1.5}%
-\contentsline {subsubsection}{\numberline {1.1.6}Medida de contar}{27}{subsubsection.0.1.1.6}%
-\contentsline {subsubsection}{\numberline {1.1.7}Subaditividad en espacios de medida}{27}{subsubsection.0.1.1.7}%
-\contentsline {subsubsection}{\numberline {1.1.8}Definición de espacio de medida completo}{28}{subsubsection.0.1.1.8}%
-\contentsline {subsubsection}{\numberline {1.1.9}Compleción de un espacio de medida}{28}{subsubsection.0.1.1.9}%
-\contentsline {subsection}{2. El espacio de medida de Lebesgue $(R^N, \mathfrak {M}_N, \mu _N)$}{32}{chapter.0.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}Definiciones de intervalos y cubos}{32}{subsubsection.0.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Definición del volumen de un cubo}{32}{subsubsection.0.1.2.2}%
-\contentsline {subsubsection}{\numberline {1.2.3}Definición de medida exterior}{32}{subsubsection.0.1.2.3}%
-\contentsline {subsubsection}{\numberline {1.2.4}Corolario de la definición anterior}{33}{subsubsection.0.1.2.4}%
-\contentsline {subsubsection}{\numberline {1.2.5}Ejemplos básicos de medida exterior}{33}{subsubsection.0.1.2.5}%
-\contentsline {subsubsection}{\numberline {1.2.6}Proposición de propiedades de $\mu ^*_N$}{34}{subsubsection.0.1.2.6}%
-\contentsline {subsubsection}{\numberline {1.2.7}Volumen de un intervalo real}{35}{subsubsection.0.1.2.7}%
-\contentsline {subsubsection}{\numberline {1.2.8}Definición de conjunto medible Lebesgue}{37}{subsubsection.0.1.2.8}%
-\contentsline {subsubsection}{\numberline {1.2.9}Definición de semiespacio de $\mathbb {R}^N$}{37}{subsubsection.0.1.2.9}%
-\contentsline {subsubsection}{\numberline {1.2.10}Conjuntos que pertenecen a $\mathfrak {M}_N$}{37}{subsubsection.0.1.2.10}%
-\contentsline {subsubsection}{\numberline {1.2.11}Caracterización de $\mathfrak {M}_N$ por conjuntos cualesquiera}{38}{subsubsection.0.1.2.11}%
-\contentsline {subsubsection}{\numberline {1.2.12}Propiedades de $\mathfrak {M}_N$}{39}{subsubsection.0.1.2.12}%
-\contentsline {subsubsection}{\numberline {1.2.13}Aditividad finita de conjuntos en $\mathfrak {M}_N$ disjuntos}{40}{subsubsection.0.1.2.13}%
-\contentsline {subsubsection}{\numberline {1.2.14}Teorema del espacio de medida de Lebesgue}{41}{subsubsection.0.1.2.14}%
-\contentsline {subsubsection}{\numberline {1.2.15}$\sigma $-álgebra de Borel en $\mathbb {R}^N$}{42}{subsubsection.0.1.2.15}%
-\contentsline {subsubsection}{\numberline {1.2.16}Teorema de caracterización topológica de $\mathfrak {M}_N$}{43}{subsubsection.0.1.2.16}%
-\contentsline {subsubsection}{\numberline {1.2.17}Observación sobre cómo expresar conjuntos de $\mathfrak {M}_N$}{45}{subsubsection.0.1.2.17}%
-\contentsline {subsubsection}{\numberline {1.2.18}Relación por compleción entre $\mathfrak {B}_N$ y $\mathfrak {M}_N$}{46}{subsubsection.0.1.2.18}%
-\contentsline {subsection}{3. Funciones medibles}{47}{chapter.0.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Definición de función medible}{47}{subsubsection.0.1.3.1}%
-\contentsline {subsubsection}{\numberline {1.3.2}Ejemplos de funciones medibles}{48}{subsubsection.0.1.3.2}%
-\contentsline {subsubsection}{\numberline {1.3.3}Medibilidad por imagen inversa de abiertos}{49}{subsubsection.0.1.3.3}%
-\contentsline {subsubsection}{\numberline {1.3.4}Medibilidad de máximo, mínimo, supremo e ínfimo}{50}{subsubsection.0.1.3.4}%
-\contentsline {subsubsection}{\numberline {1.3.5}Suma, producto por escalares y cuadrado de funciones medibles}{51}{subsubsection.0.1.3.5}%
-\contentsline {subsubsection}{\numberline {1.3.6}Medibilidad del límite cuando no existe}{52}{subsubsection.0.1.3.6}%
-\contentsline {subsubsection}{\numberline {1.3.7}Composición de funciones medibles}{52}{subsubsection.0.1.3.7}%
-\contentsline {subsubsection}{\numberline {1.3.8}Operaciones en $\overline {\mathbb {R}}$}{53}{subsubsection.0.1.3.8}%
-\contentsline {subsubsection}{\numberline {1.3.9}Cociente de una función medible}{53}{subsubsection.0.1.3.9}%
-\contentsline {subsubsection}{\numberline {1.3.10}Composición de funciones medibles en $\mathfrak {B}_1$}{53}{subsubsection.0.1.3.10}%
-\contentsline {subsubsection}{\numberline {1.3.11}Definición de función característica}{54}{subsubsection.0.1.3.11}%
-\contentsline {subsubsection}{\numberline {1.3.12}Medibilidad según función característica}{55}{subsubsection.0.1.3.12}%
-\contentsline {subsubsection}{\numberline {1.3.13}Definición de función simple}{55}{subsubsection.0.1.3.13}%
-\contentsline {subsubsection}{\numberline {1.3.14}Medibilidad de funciones simples}{55}{subsubsection.0.1.3.14}%
-\contentsline {subsubsection}{\numberline {1.3.15}Producto de funciones medibles}{56}{subsubsection.0.1.3.15}%
-\contentsline {subsubsection}{\numberline {1.3.16}Definición de parte positiva y negativa}{57}{subsubsection.0.1.3.16}%
-\contentsline {subsubsection}{\numberline {1.3.17}Funciones medibles como límite de simples}{58}{subsubsection.0.1.3.17}%
-\contentsline {subsubsection}{\numberline {1.3.18}Convergencia uniforme para funciones acotadas}{59}{subsubsection.0.1.3.18}%
-\contentsline {section}{II Integral de Lebesgue}{61}{unit.0.2}%
-\contentsline {subsection}{1. Integral de Lebesgue para funciones no negativas}{61}{chapter.0.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Convenio $0 \cdot \infty $}{61}{subsubsection.0.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Definición de integral de funciones simples}{61}{subsubsection.0.2.1.2}%
+\contentsline {section}{Preliminares}{6}{section*.1}%
+\contentsline {subsection}{1. Cardinalidad de conjuntos}{6}{chapter.0.0.1}%
+\contentsline {subsubsection}{\numberline {0.1.1}Definición de cardinalidad, tipos de cardinalidad}{6}{subsubsection.0.0.1.1}%
+\contentsline {subsubsection}{\numberline {0.1.2}Ejemplos de conjuntos numerables}{7}{subsubsection.0.0.1.2}%
+\contentsline {subsubsection}{\numberline {0.1.3}Ejemplos de conjuntos no numerables}{8}{subsubsection.0.0.1.3}%
+\contentsline {subsubsection}{\numberline {0.1.4}Procesos que dan lugar a conjuntos numerables}{9}{subsubsection.0.0.1.4}%
+\contentsline {subsubsection}{\numberline {0.1.5}Más procesos que dan lugar a conjuntos numerables}{10}{subsubsection.0.0.1.5}%
+\contentsline {subsubsection}{\numberline {0.1.6}Unión numerable de conjuntos numerables}{10}{subsubsection.0.0.1.6}%
+\contentsline {subsubsection}{\numberline {0.1.7}Definición de conjunto de partes}{12}{subsubsection.0.0.1.7}%
+\contentsline {subsubsection}{\numberline {0.1.8}Cardinal de partes de un conjunto finito}{12}{subsubsection.0.0.1.8}%
+\contentsline {subsubsection}{\numberline {0.1.9}El conjunto de partes incrementa la cardinalidad}{12}{subsubsection.0.0.1.9}%
+\contentsline {subsubsection}{\numberline {0.1.10}Cardinalidad de $\mathcal {P}(\mathbb {N})$}{13}{subsubsection.0.0.1.10}%
+\contentsline {subsubsection}{\numberline {0.1.11}Jerarquía de cardinalidades}{13}{subsubsection.0.0.1.11}%
+\contentsline {subsection}{2. Descomposición de subconjuntos abiertos de $\mathbb {R}^N$ en cubos diádicos}{14}{chapter.0.0.2}%
+\contentsline {subsubsection}{\numberline {0.2.1}Definición de intervalo diádico}{14}{subsubsection.0.0.2.1}%
+\contentsline {subsubsection}{\numberline {0.2.2}Propiedades de los intervalos diádicos}{14}{subsubsection.0.0.2.2}%
+\contentsline {subsubsection}{\numberline {0.2.3}Definición de cubo diádico}{15}{subsubsection.0.0.2.3}%
+\contentsline {subsubsection}{\numberline {0.2.4}Propiedades de los cubos diádicos}{15}{subsubsection.0.0.2.4}%
+\contentsline {subsubsection}{\numberline {0.2.5}Teorema de descomposición de abiertos en cubos diádicos}{16}{subsubsection.0.0.2.5}%
+\contentsline {subsection}{3. Series dobles}{19}{chapter.0.0.3}%
+\contentsline {subsubsection}{\numberline {0.3.1}Definición de sucesión doble}{19}{subsubsection.0.0.3.1}%
+\contentsline {subsubsection}{\numberline {0.3.2}Definición de serie doble}{19}{subsubsection.0.0.3.2}%
+\contentsline {subsubsection}{\numberline {0.3.3}Teorema de series dobles no negativas}{20}{subsubsection.0.0.3.3}%
+\contentsline {section}{I Teoría de la medida}{23}{unit.0.1}%
+\contentsline {subsection}{1. Espacios de medida}{23}{chapter.0.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Definición de $\sigma $-álgebra}{23}{subsubsection.0.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Propiedades de las $\sigma $-álgebras}{23}{subsubsection.0.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Definición de espacio de medida}{24}{subsubsection.0.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Propiedades de los espacios de medida}{25}{subsubsection.0.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Espacio de medida inducido}{27}{subsubsection.0.1.1.5}%
+\contentsline {subsubsection}{\numberline {1.1.6}Medida de contar}{28}{subsubsection.0.1.1.6}%
+\contentsline {subsubsection}{\numberline {1.1.7}Subaditividad en espacios de medida}{28}{subsubsection.0.1.1.7}%
+\contentsline {subsubsection}{\numberline {1.1.8}Definición de espacio de medida completo}{29}{subsubsection.0.1.1.8}%
+\contentsline {subsubsection}{\numberline {1.1.9}Compleción de un espacio de medida}{29}{subsubsection.0.1.1.9}%
+\contentsline {subsection}{2. El espacio de medida de Lebesgue $(R^N, \mathfrak {M}_N, \mu _N)$}{33}{chapter.0.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Definiciones de intervalos y cubos}{33}{subsubsection.0.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Definición del volumen de un cubo}{33}{subsubsection.0.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Definición de medida exterior}{33}{subsubsection.0.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Corolario de la definición anterior}{34}{subsubsection.0.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Ejemplos básicos de medida exterior}{34}{subsubsection.0.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Proposición de propiedades de $\mu ^*_N$}{35}{subsubsection.0.1.2.6}%
+\contentsline {subsubsection}{\numberline {1.2.7}Volumen de un intervalo real}{36}{subsubsection.0.1.2.7}%
+\contentsline {subsubsection}{\numberline {1.2.8}Definición de conjunto medible Lebesgue}{38}{subsubsection.0.1.2.8}%
+\contentsline {subsubsection}{\numberline {1.2.9}Definición de semiespacio de $\mathbb {R}^N$}{38}{subsubsection.0.1.2.9}%
+\contentsline {subsubsection}{\numberline {1.2.10}Conjuntos que pertenecen a $\mathfrak {M}_N$}{38}{subsubsection.0.1.2.10}%
+\contentsline {subsubsection}{\numberline {1.2.11}Caracterización de $\mathfrak {M}_N$ por conjuntos cualesquiera}{39}{subsubsection.0.1.2.11}%
+\contentsline {subsubsection}{\numberline {1.2.12}Propiedades de $\mathfrak {M}_N$}{40}{subsubsection.0.1.2.12}%
+\contentsline {subsubsection}{\numberline {1.2.13}Aditividad finita de conjuntos en $\mathfrak {M}_N$ disjuntos}{41}{subsubsection.0.1.2.13}%
+\contentsline {subsubsection}{\numberline {1.2.14}Teorema del espacio de medida de Lebesgue}{42}{subsubsection.0.1.2.14}%
+\contentsline {subsubsection}{\numberline {1.2.15}$\sigma $-álgebra de Borel en $\mathbb {R}^N$}{43}{subsubsection.0.1.2.15}%
+\contentsline {subsubsection}{\numberline {1.2.16}Teorema de caracterización topológica de $\mathfrak {M}_N$}{44}{subsubsection.0.1.2.16}%
+\contentsline {subsubsection}{\numberline {1.2.17}Observación sobre cómo expresar conjuntos de $\mathfrak {M}_N$}{46}{subsubsection.0.1.2.17}%
+\contentsline {subsubsection}{\numberline {1.2.18}Relación por compleción entre $\mathfrak {B}_N$ y $\mathfrak {M}_N$}{47}{subsubsection.0.1.2.18}%
+\contentsline {subsection}{3. Funciones medibles}{48}{chapter.0.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Definición de función medible}{48}{subsubsection.0.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Ejemplos de funciones medibles}{49}{subsubsection.0.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Medibilidad por imagen inversa de abiertos}{50}{subsubsection.0.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Medibilidad de máximo, mínimo, supremo e ínfimo}{51}{subsubsection.0.1.3.4}%
+\contentsline {subsubsection}{\numberline {1.3.5}Suma, producto por escalares y cuadrado de funciones medibles}{52}{subsubsection.0.1.3.5}%
+\contentsline {subsubsection}{\numberline {1.3.6}Medibilidad del límite cuando no existe}{53}{subsubsection.0.1.3.6}%
+\contentsline {subsubsection}{\numberline {1.3.7}Composición de funciones medibles}{53}{subsubsection.0.1.3.7}%
+\contentsline {subsubsection}{\numberline {1.3.8}Operaciones en $\overline {\mathbb {R}}$}{54}{subsubsection.0.1.3.8}%
+\contentsline {subsubsection}{\numberline {1.3.9}Cociente de una función medible}{54}{subsubsection.0.1.3.9}%
+\contentsline {subsubsection}{\numberline {1.3.10}Composición de funciones medibles en $\mathfrak {B}_1$}{54}{subsubsection.0.1.3.10}%
+\contentsline {subsubsection}{\numberline {1.3.11}Definición de función característica}{55}{subsubsection.0.1.3.11}%
+\contentsline {subsubsection}{\numberline {1.3.12}Medibilidad según función característica}{56}{subsubsection.0.1.3.12}%
+\contentsline {subsubsection}{\numberline {1.3.13}Definición de función simple}{56}{subsubsection.0.1.3.13}%
+\contentsline {subsubsection}{\numberline {1.3.14}Medibilidad de funciones simples}{56}{subsubsection.0.1.3.14}%
+\contentsline {subsubsection}{\numberline {1.3.15}Producto de funciones medibles}{57}{subsubsection.0.1.3.15}%
+\contentsline {subsubsection}{\numberline {1.3.16}Definición de parte positiva y negativa}{58}{subsubsection.0.1.3.16}%
+\contentsline {subsubsection}{\numberline {1.3.17}Funciones medibles como límite de simples}{59}{subsubsection.0.1.3.17}%
+\contentsline {subsubsection}{\numberline {1.3.18}Convergencia uniforme para funciones acotadas}{60}{subsubsection.0.1.3.18}%
+\contentsline {section}{II Integral de Lebesgue}{62}{unit.0.2}%
+\contentsline {subsection}{1. Integral de Lebesgue para funciones no negativas}{62}{chapter.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Convenio $0 \cdot \infty $}{62}{subsubsection.0.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Definición de integral de funciones simples}{62}{subsubsection.0.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Linealidad del integrando}{63}{subsubsection.0.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Linealidad parcial}{63}{subsubsection.0.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Monotonía de la integral simple}{64}{subsubsection.0.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}Linealidad de la integral simple por constantes}{65}{subsubsection.0.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Integral de funciones medibles no negativas}{66}{subsubsection.0.2.1.7}%
+\contentsline {subsubsection}{\numberline {2.1.8}Ejemplos de integrales}{66}{subsubsection.0.2.1.8}%
+\contentsline {subsubsection}{\numberline {2.1.9}Propiedades básicas}{67}{subsubsection.0.2.1.9}%
+\contentsline {subsubsection}{\numberline {2.1.10}Teorema de la convergencia monótona}{69}{subsubsection.0.2.1.10}%
+\contentsline {subsubsection}{\numberline {2.1.11}Integral de la suma}{71}{subsubsection.0.2.1.11}%
+\contentsline {subsubsection}{\numberline {2.1.12}Integrales en conjuntos disjuntos}{71}{subsubsection.0.2.1.12}%
+\contentsline {subsubsection}{\numberline {2.1.13}Lema de Fatou}{72}{subsubsection.0.2.1.13}%
+\contentsline {subsubsection}{\numberline {2.1.14}Definición de igualdad en casi todo punto}{72}{subsubsection.0.2.1.14}%
+\contentsline {subsubsection}{\numberline {2.1.15}Medibilidad de funciones iguales en casi todo punto}{73}{subsubsection.0.2.1.15}%
+\contentsline {subsubsection}{\numberline {2.1.16}Integral de funciones iguales en casi todo punto}{73}{subsubsection.0.2.1.16}%
+\contentsline {subsubsection}{\numberline {2.1.17}Integral de funciones nulas en casi todo punto}{74}{subsubsection.0.2.1.17}%
+\contentsline {subsection}{2. Integral de Lebesgue para funciones $f:x \DOTSB \relbar \joinrel \rightarrow \overline {\mathbb {R}}$}{75}{chapter.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Funciones integrables y sumables}{75}{subsubsection.0.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Desigualdad triangular}{75}{subsubsection.0.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Definición de conjunto de funciones sumables}{76}{subsubsection.0.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Teorema de estructura de $\mathcal {L}_1$}{76}{subsubsection.0.2.2.4}%
+\contentsline {subsubsection}{\numberline {2.2.5}Integral de funciones sumables en conjuntos disjuntos}{78}{subsubsection.0.2.2.5}%
+\contentsline {subsubsection}{\numberline {2.2.6}Funciones $\mu $-a.e. a sumables en $\mathcal {L}_1 $}{78}{subsubsection.0.2.2.6}%
+\contentsline {subsubsection}{\numberline {2.2.7}Teorema de Convergencia Dominada}{79}{subsubsection.0.2.2.7}%
+\contentsline {subsection}{3. Cálculo de la integral de Lebesgue en $\mathbb {R}$}{81}{chapter.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Equivalencia de las integrales de Riemann y Lebesgue}{81}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Definición de función localmente integrable}{83}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Medibilidad de funciones localmente integrables}{84}{subsubsection.0.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Integral de Lebesgue e integral impropia de Riemann}{84}{subsubsection.0.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.5}Ejemplo de no equivalencia}{85}{subsubsection.0.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Definición de integral impropia de Lebesgue}{86}{subsubsection.0.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.7}Derivación bajo el signo integral}{86}{subsubsection.0.2.3.7}%
+\contentsline {subsubsection}{\numberline {2.3.8}Integrales de funciones de componentes en $\mathbb {R}^2$}{88}{subsubsection.0.2.3.8}%
+\contentsline {subsection}{4. Cálculo de la integral de Lebesgue en $\mathbb {R}^N$}{91}{chapter.0.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Notación y conceptos iniciales}{91}{subsubsection.0.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Propiedades de las secciones}{91}{subsubsection.0.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Teorema de anomalías de conjuntos medibles}{93}{subsubsection.0.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Teorema de Tonelli}{96}{subsubsection.0.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Teorema de Fubini}{99}{subsubsection.0.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Teorema de Cambio de Variable}{101}{subsubsection.0.2.4.6}%
