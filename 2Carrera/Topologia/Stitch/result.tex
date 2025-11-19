@@ -1,0 +1,154 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+
+\newtheorem{definicion}{Definición}[section]
+\newtheorem{proposicion}[definicion]{Proposición}
+\newtheorem{teorema}[definicion]{Teorema}
+\newtheorem{lema}[definicion]{Lema}
+\newtheorem{observacion}[definicion]{Observación}
+
+\begin{document}
+
+\section*{I Espacios métricos}
+
+En próximas secciones estudiaremos sistemas de distancia que generalizan la distancia habitual en la recta real y en los espacios euclídeos. Un espacio métrico es un conjunto junto con una función que mide la distancia entre pares de puntos y satisface ciertas propiedades básicas (positividad, simetría y desigualdad triangular). A partir de una métrica se define una estructura topológica mediante las bolas abiertas, y se estudian conceptos de convergencia, continuidad, completitud, etc.
+
+\section{Primeras definiciones}
+
+\begin{definicion}[Métrica]\label{def:1.1}
+Sea \(X\) un conjunto. Una aplicación \(d:X\times X\to\mathbb{R}\) se llama \emph{métrica} en \(X\) si para todo \(x,y,z\in X\) se cumplen:
+\begin{enumerate}[label=(D.\arabic*)]
+\item \(d(x,y)\ge 0\) (positividad).
+\item \(d(x,y)=0\) si y sólo si \(x=y\).
+\item \(d(x,y)=d(y,x)\) (simetría).
+\item \(d(x,z)\le d(x,y)+d(y,z)\) (desigualdad triangular).
+\end{enumerate}
+El par \((X,d)\) se llama \emph{espacio métrico}.
+\end{definicion}
+
+\begin{definicion}\label{def:1.2}
+Si \((X,d)\) es un espacio métrico y \(Y\subset X\) es un subconjunto, al restringir \(d\) a \(Y\times Y\) obtenemos una métrica en \(Y\), llamada la métrica inducida o submétrica.
+\end{definicion}
+
+\begin{definicion}\label{def:1.3}
+Ejemplos de métricas:
+\begin{enumerate}
+\item En \(\mathbb{R}\), la métrica usual \(d(x,y)=|x-y|\).
+\item En \(\mathbb{R}^n\), la métrica euclídea \(d(x,y)=\|x-y\|_2\).
+\item Métrica discreta: \(d(x,y)=0\) si \(x=y\), \(d(x,y)=1\) si \(x\neq y\).
+\item Métricas derivadas de normas en espacios vectoriales (p. ej. \(\ell^p\)-normas y sus métricas asociadas).
+\end{enumerate}
+\end{definicion}
+
+\subsection{Bolas, abiertos y cerrados}
+
+\begin{definicion}
+Sea \((X,d)\) un espacio métrico. Para \(x\in X\) y \(r>0\) se define la \emph{bola abierta} de centro \(x\) y radio \(r\) como
+\[
+B(x,r)=\{y\in X:\ d(x,y)<r\},
+\]
+y la \emph{bola cerrada}
+\[
+\overline{B}(x,r)=\{y\in X:\ d(x,y)\le r\}.
+\]
+\end{definicion}
+
+\begin{definicion}
+Un conjunto \(U\subset X\) es \emph{abierto} si para todo \(x\in U\) existe \(r>0\) tal que \(B(x,r)\subset U\). Un conjunto \(F\subset X\) es \emph{cerrado} si su complemento \(X\setminus F\) es abierto.
+\end{definicion}
+
+\begin{proposicion}\label{prop:bolasabiertas}
+En un espacio métrico \((X,d)\):
+\begin{enumerate}
+\item Toda bola abierta \(B(x,r)\) es un conjunto abierto.
+\item Una unión arbitraria de conjuntos abiertos es abierta.
+\item Una intersección finita de conjuntos abiertos es abierta.
+\end{enumerate}
+\end{proposicion}
+
+\begin{observacion}
+A partir de las bolas abiertas se obtiene una \emph{topología} en \(X\), denominada la topología inducida por la métrica \(d\). Denotaremos por \(\tau_d\) la colección de conjuntos abiertos respecto a \(d\).
+\end{observacion}
+
+\begin{definicion}
+Dado \(A\subset X\), la \emph{clausura} de \(A\) (denotada \(\overline{A}\)) es la intersección de todos los cerrados que contienen \(A\). El \emph{interior} de \(A\) (denotado \(\operatorname{int}A\)) es la unión de todos los abiertos contenidos en \(A\). El \emph{frontera} o límite \(\partial A\) se define como \(\partial A=\overline{A}\setminus\operatorname{int}A\).
+\end{definicion}
+
+\section{Estructura topológica de un espacio métrico}
+
+\begin{definicion}
+La topología \(\tau_d\) inducida por la métrica \(d\) es
+\[
+\tau_d=\{U\subset X:\ \forall x\in U\ \exists r>0\text{ tal que }B(x,r)\subset U\}.
+\]
+\end{definicion}
+
+\begin{proposicion}
+Sea \((X,d)\) un espacio métrico. Entonces:
+\begin{enumerate}
+\item \((X,\tau_d)\) es un espacio topológico.
+\item \((X,\tau_d)\) es Hausdorff: dados \(x\neq y\) existen bolas disjuntas que los separan.
+\item \((X,\tau_d)\) es de primera numerabilidad: para cada \(x\in X\) la colección \(\{B(x,1/n):n\in\mathbb{N}\}\) es una base local numerable en \(x\).
+\end{enumerate}
+\end{proposicion}
+
+\begin{observacion}
+La unicidad del límite de sucesiones es consecuencia de la propiedad Hausdorff: si \(x_n\to x\) y \(x_n\to y\) entonces \(x=y\).
+\end{observacion}
+
+\section{Convergencia, continuidad y Cauchy}
+
+\begin{definicion}
+Una sucesión \((x_n)\subset X\) converge a \(x\in X\) si \(d(x_n,x)\to 0\) cuando \(n\to\infty\). Denotamos \(x_n\to x\).
+\end{definicion}
+
+\begin{definicion}
+Una función \(f:(X,d_X)\to (Y,d_Y)\) entre espacios métricos es \emph{continua} en \(x\in X\) si para todo \(\varepsilon>0\) existe \(\delta>0\) tal que \(d_X(x,y)<\delta\) implica \(d_Y(f(x),f(y))<\varepsilon\). Equivalente: la preimagen de todo abierto es abierto.
+\end{definicion}
+
+\begin{definicion}[Sucesión de Cauchy y completitud]
+Una sucesión \((x_n)\) en \((X,d)\) es de Cauchy si para todo \(\varepsilon>0\) existe \(N\) tal que \(m,n\ge N\) implica \(d(x_m,x_n)<\varepsilon\). El espacio métrico \(X\) es \emph{completo} si toda sucesión de Cauchy converge en \(X\).
+\end{definicion}
+
+\begin{proposicion}
+En un espacio métrico, toda sucesión convergente es de Cauchy. La recíproca no siempre es cierta; cuando sí lo es decimos que el espacio es completo.
+\end{proposicion}
+
+\begin{proposicion}
+Sea \(Y\) un subespacio de \(X\). Si \(X\) es completo y \(Y\) es cerrado en \(X\), entonces \(Y\) es completo con la métrica inducida. Reversamente, todo subespacio completo de \(X\) es cerrado en \(X\).
+\end{proposicion}
+
+\section{Equivalencias de métricas}
+
+\begin{definicion}
+Se dice que dos métricas \(d\) y \(d'\) en el mismo conjunto \(X\) son \emph{topológicamente equivalentes} si inducen la misma topología, es decir \(\tau_d=\tau_{d'}\).
+\end{definicion}
+
+\begin{definicion}
+Las métricas \(d\) y \(d'\) son \emph{fuertemente equivalentes} (o \emph{bi-Lipschitz equivalentes}) si existen constantes positivas \(a,b>0\) tales que para todo \(x,y\in X\)
+\[
+a\,d(x,y)\le d'(x,y)\le b\,d(x,y).
+\]
+En tal caso inducen la misma topología y conservan propiedades métricas más rígidas.
+\end{definicion}
+
+\section{Espacios métricos acotados y normalizaciones}
+
+\begin{definicion}
+Un espacio métrico \((X,d)\) es \emph{acotado} si existe \(M>0\) tal que \(d(x,y)\le M\) para todo \(x,y\in X\). Dada una métrica \(d\), se puede definir una métrica equivalente acotada por ejemplo
+\[
+d'(x,y)=\frac{d(x,y)}{1+d(x,y)},
+\]
+que induce la misma topología que \(d\).
+\end{definicion}
+
+\section{Observaciones finales}
+
+Las nociones básicas introducidas: bolas, abiertos, clausuras, convergencia, continuidad, completitud y equivalencia de métricas conforman la base del estudio de espacios métricos. A partir de aquí se desarrollan conceptos más avanzados como compacidad, completación, espacios de funciones con métricas inducidas por normas, y aplicaciones en análisis y geometría.
+
+\end{document}

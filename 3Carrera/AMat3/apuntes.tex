@@ -22,6 +22,7 @@
 
 % Custom operators
 \newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
 
 % Implication box setup
 \tcbset{Implication-number/.style={
@@ -2830,7 +2831,7 @@ Restando $\int_{X}2g\,d\mu$ en ambos lados:
 \end{flalign*}
 %TODO acabar
 
-\vspace{4mm} $\romannumeral 3)$ Por el apartado anterior, sabemos que $\hspace{2mm} \forall \hspace{1mm} \varepsilon > 0 $ $\exists \hspace{1mm} n_0 \in\N$ tal que que $\forall \hspace{1mm} n \geq n_0$ se cumple:
+\vspace{4mm} $\romannumeral 3)$ Por el apartado anterior, sabemos que $\hspace{2mm} \forall \hspace{1mm} \varepsilon > 0 $ $\exists \hspace{1mm} n_0 \in\N$ tal que $\forall \hspace{1mm} n \geq n_0$ se cumple:
 $$\left|\int_{X}f_n \,d\mu - \int_{X}f\,d\mu\right| \overset{(*)}{=} \left|\int_{X}f - f_n\,d\mu\right| \overset{\hyperref[result:2.2.2]{2.2.2}}{\leq} \int_{X}|f_n - f|\,d\mu < \varepsilon$$
 (*) Hemos aplicado la \hyperref[result:2.2.4]{linealidad de la integral en $\mathcal{L}_1$} pues $f, f_n \in \mathcal{L}_1 $.
 
@@ -3583,4 +3584,51 @@ Como regla mnemotécnica, podemos considerar esta ilustración (no es para nada 
     \int_{\Omega} \big(f\circ \underbracket{T\big)(x_1,\ldots,x_N)}_{y_1,\ldots,y_N} \cdot \Bigg| \hspace{.05mm}\underbracket{\frac{d(x_1,\ldots,x_N)}{d(y_1,\ldots,y_N)}}_{\frac{\partial y_k}{\partial x_j}} \hspace{0.5mm} \Bigg| \,d\mu_N(x_1,\ldots,x_N) &&
 \end{flalign*}
 Buscamos que los diferenciales ``se simplifiquen''.
+
+% Cambio de unidad
+\newpage
+\unit{Espacios \texorpdfstring{$L_p$}{Lp} con \texorpdfstring{$1 \leq p \leq \infty$}{1 <= p <= infty}}
+\hspace{3mm} A lo largo de esta unidad, consideraremos $(X, \Sigma, mu)$ como un espacio de medida genérico.
+\chapter{Primeras definiciones}
+\vspace{2mm} \result{Definición de \texorpdfstring{$\mathcal{L}_p$}{Lp}}
+\hspace{3mm} Para $1 \leq p < \infty$, denotaremos como $\mathcal{L}_p(X)$ o como $\mathcal{L}_p(X, \Sigma, \mu)$ al conjunto de funciones medibles $f : X \longrightarrow \R$ para las que se cumple
+$$\int_{X}|f|^p\,d\mu < \infty$$
+Asociada a cada $f \in \mathcal{L}_p(X)$, tenemos la siguiente cantidad numérica:
+$$||f||_p := \left(\int_{X}|f|^p\,d\mu\right)^{\frac{1}{p}} $$
+Nótese que para el caso $p = 1$ se corresponde con la \hyperref[result:2.2.3]{definición ya estudiada}.
+
+\vspace{6mm}
+\result{Definición de \texorpdfstring{$\mathcal{L}_\infty$}{L\_infty}}
+\hspace{3mm} Para $p=\infty$, $\mathcal{L}_\infty(X) = \mathcal{L}_\infty(X, \Sigma, \mu)$ denota el conjunto de todas las funciones medibles $f : X \longrightarrow \R$ para las que existe $\alpha \in [0, +\infty)$ que verifica:
+$$\mu\Big(\{x \in X : f(x) > \alpha \}\Big) = 0$$
+Esta condición equivale a su vez a las dos siguientes:
+\begin{align*}
+    \mu\Big(X \setminus \{x \in X : f(x) > \alpha\} \Big) = 0 &&
+    \{x \in X : f(x) > \alpha\} \overset{\mu-a.e.}{=} X
+\end{align*}
+
+\vspace{6mm}
+\result{Funciones sumables y funciones de \texorpdfstring{$\mathcal{L}_p(X)$}{Lp(X)}}
+\hspace{3mm} Si $f : X \longrightarrow \overline{\R}$ es medible, y $\int_{X}|f|^p\,d\mu < \infty$ (para $p < \infty$). Entonces, existe una función $g \in \mathcal{L}_p(X)$  tal que $f \overset{\mu-a.e.}{=} g$. Como consecuencia, si $p < \infty$,
+$$\left(\int_{X}|f|^p\,d\mu\right)^\frac{1}{p} = ||g||_p $$
+\vspace{2mm} \dem Extendemos lo visto en el \hyperref[result:2.2.6]{resultado 2.2.6}.
+\vspace{2mm} \newline \indent Definimos los siguientes conjuntos auxiliares: \\[-4ex]
+\begin{align*}
+    A = \{x \in X : f(x) = +\infty\} && B = \{x \in X : f(x) = -\infty\}
+\end{align*}
+Ambos conjuntos han de ser de medida nula, o de lo contrario $\int_{X}|f|^p\,d\mu = \infty$. Así, basta considerar la siguiente función:
+\begin{flalign*}
+    g(x) = f(x) \cdot X_{X \setminus (A \cup B)}(x) =
+    \begin{cases}
+        f(x) &\text{si }x \notin A \cup B \\
+        0 &\text{si } x \in A \cup B
+    \end{cases}
+\end{flalign*}
+Como $\mu(A) = \mu(B) = 0$, tenemos que $f \overset{\mu-a.e.}{=} g$.
+
+\vspace{6mm}
+\result{Definición de supremo esencial}
+\hspace{3mm} Para cada $f \in \mathcal{L}_\infty(X)$ definimos el siguiente conjunto:
+$$A_f := \Big\{\alpha \in [0,\infty) : \mu\big(\{x \in X : f(x) > \alpha\}\big) = 0 \Big\} $$
+A partir de él, definimos $||f||_p := \inf A_f$. Esta cantidad recibe el nombre de ``supremo esencial''.
 \end{document}
