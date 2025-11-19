@@ -3631,4 +3631,14 @@ Como $\mu(A) = \mu(B) = 0$, tenemos que $f \overset{\mu-a.e.}{=} g$.
 \hspace{3mm} Para cada $f \in \mathcal{L}_\infty(X)$ definimos el siguiente conjunto:
 $$A_f := \Big\{\alpha \in [0,\infty) : \mu\big(\{x \in X : f(x) > \alpha\}\big) = 0 \Big\} $$
 A partir de él, definimos $||f||_p := \inf A_f$. Esta cantidad recibe el nombre de ``supremo esencial''.
+
+\vspace{6mm}
+\result{Mínimo esencial}
+\hspace{3mm} El supremo esencial es en realidad un mínimo. Es decir; sea $f \in \mathcal{L}_\infty(X)$, se cumple:
+$$||f||_\infty \in \Big\{f(x) : x \in X\}  \text{ o equivalentemente } ||f||_\infty = \min A_f$$
+\dem \newline \vspace{2mm} Denotemos $\beta := \inf A_f$. Consideramos $(\beta_n)_{n\in\N} \subseteq A_f$ sucesión decreciente que verifica $\lim_{n\to\infty} \beta_n = \beta$. Para cada $n \in\N$ definimos el siguiente conjunto auxiliar:
+$$B_n := \Big\{x \in X : |f(x)| \leq \beta_n \Big\}$$
+\indent De este modo,  $\forall n \in \N$, $B_{n+1} \subseteq B_n$ y $B_n \in \Sigma$. Además, por ser $f \in \mathcal{L}_\infty(X)$ por hipótesis, tenemos que $B_n = X \setminus M_n$ con $M_n \in \Sigma$ tal que $\mu(M_n) = 0$. Por tanto, se cumple: \\[-3ex]
+$$\{x \in X : |f(x)| \leq \beta\} = \smallcap_{n\in\N} B_n = \smallcap_ {n\in \N}(X \setminus M_n) = X \setminus (\smallcup_{n\in\N}M_n)$$
+Por subaditividad, $\mu\big(\smallcup_{n\in\N} M_n\big) = 0$, luego $\beta \in A_f$ por definición.
 \end{document}
