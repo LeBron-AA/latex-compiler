@@ -3641,4 +3641,48 @@ $$B_n := \Big\{x \in X : |f(x)| \leq \beta_n \Big\}$$
 \indent De este modo,  $\forall n \in \N$, $B_{n+1} \subseteq B_n$ y $B_n \in \Sigma$. Además, por ser $f \in \mathcal{L}_\infty(X)$ por hipótesis, tenemos que $B_n = X \setminus M_n$ con $M_n \in \Sigma$ tal que $\mu(M_n) = 0$. Por tanto, se cumple: \\[-3ex]
 $$\{x \in X : |f(x)| \leq \beta\} = \smallcap_{n\in\N} B_n = \smallcap_ {n\in \N}(X \setminus M_n) = X \setminus (\smallcup_{n\in\N}M_n)$$
 Por subaditividad, $\mu\big(\smallcup_{n\in\N} M_n\big) = 0$, luego $\beta \in A_f$ por definición.
+
+\newpage
+\chapter{Estructura de los \texorpdfstring{$\mathcal{L}_p$}{L\_p}}
+\result{Concepto de convexidad}
+\hspace{3mm} Una combinación convexa de puntos de un espacio afín es aquella combinación lineal de los mismos cuyos pesos sean no negativos y sumen $1$. Para el caso de dos puntos, $a$ y $b$, podemos expresar su combinación convexa como:
+\begin{align*}
+    \lambda a + (1-\lambda) b && \text{ con } \lambda \in [0,1]
+\end{align*}
+Nótese que conforme $\lambda$ va aumentando, se recorre el segmento en línea recta desde $a$ hasta $b$.
+\vspace{4mm}\newline \indent Sea $A$ un conjunto de un espacio afín, diremos que es convexo si dados $a, b \in A$, tenemos que cualquier combinación conexa de ambos está también en $A$. Es decir,
+$$A \text{ es convexo } \iff \hspace{2mm}\forall \hspace{1mm} a,b \in A, \hspace{2mm} \forall \hspace{1mm}\lambda \in [0,1] : \lambda a + (1-\lambda) b \in A  $$
+Intuitivamente, se corresponde con que todo segmento que une dos puntos de $A$ está contenido al completo en $A$.
+\\[3ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{center}
+        \def\p{0.3}
+        \def\delt{0.75}
+        \begin{tikzpicture}[scale=2]
+            \filldraw[HotPink2!40, thick]
+            plot[domain=0:360, samples=400] 
+            ({ sign(cos(\x)) * abs(cos(\x))^(1/\p) },
+            { sign(sin(\x)) * abs(sin(\x))^(1/\p) });
+            \filldraw[black] (-\delt,0) circle (0.5pt);
+            \filldraw[black] (0,\delt) circle (0.5pt);
+            \draw[-] (-\delt, 0) -- (0,\delt);
+        \end{tikzpicture}
+        \newline \noindent Conjunto no convexo
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{center}
+        \def\p{0.3}
+        \def\delt{0.75}
+        \begin{tikzpicture}[scale=2]
+            \filldraw[DarkSeaGreen2!40, thick]
+            plot[domain=0:360, samples=400] 
+            ({cos(\x)},{sin(\x)});
+            \filldraw[black] (-\delt,0) circle (0.5pt);
+            \filldraw[black] (0,\delt) circle (0.5pt);
+            \draw[-] (-\delt, 0) -- (0,\delt);
+        \end{tikzpicture}
+        \newline \noindent Conjunto convexo
+    \end{center}
+\end{minipage}
 \end{document}
