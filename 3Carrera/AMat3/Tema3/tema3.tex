@@ -1,0 +1,406 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{titlesec}
+\usepackage{tikz} % core TikZ
+\usetikzlibrary{matrix}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Indent-subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm+0.07\textwidth]frame.north east) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea vertical
+  }
+}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
+
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
+
+% TODO: añadir
+\newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\theunit.\thechapter.\arabic{subsubsection}}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+%------------------------------
+\title{Análisis Matemático III}
+\author{Javier Ortín Rodenas}
+\date{Curso 2025-2026}
+
+\begin{document}
+
+\maketitle
+\newpage
+\hypersetup{linkcolor=black}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+\setcounter{unit}{2}
+\unit{Espacios \texorpdfstring{$L_p$}{Lp} con \texorpdfstring{$1 \leq p \leq \infty$}{1 <= p <= infty}}
+\hspace{3mm} A lo largo de esta unidad, consideraremos $(X, \Sigma, mu)$ como un espacio de medida genérico.
+\chapter{Primeras definiciones}
+\vspace{2mm} \result{Definición de \texorpdfstring{$\mathcal{L}_p$}{Lp}}
+\hspace{3mm} Para $1 \leq p < \infty$, denotaremos como $\mathcal{L}_p(X)$ o como $\mathcal{L}_p(X, \Sigma, \mu)$ al conjunto de funciones medibles $f : X \longrightarrow \R$ para las que se cumple
+$$\int_{X}|f|^p\,d\mu < \infty$$
+Asociada a cada $f \in \mathcal{L}_p(X)$, tenemos la siguiente cantidad numérica:
+$$||f||_p := \left(\int_{X}|f|^p\,d\mu\right)^{\frac{1}{p}} $$
+Nótese que para el caso $p = 1$ se corresponde con la \hyperref[result:2.2.3]{definición ya estudiada}.
+
+\vspace{6mm}
+\result{Definición de \texorpdfstring{$\mathcal{L}_\infty$}{L\_infty}}
+\hspace{3mm} Para $p=\infty$, $\mathcal{L}_\infty(X) = \mathcal{L}_\infty(X, \Sigma, \mu)$ denota el conjunto de todas las funciones medibles $f : X \longrightarrow \R$ para las que existe $\alpha \in [0, +\infty)$ que verifica:
+$$\mu\Big(\{x \in X : f(x) > \alpha \}\Big) = 0$$
+Esta condición equivale a su vez a las dos siguientes:
+\begin{align*}
+    \mu\Big(X \setminus \{x \in X : f(x) > \alpha\} \Big) = 0 &&
+    \{x \in X : f(x) > \alpha\} \overset{\mu-a.e.}{=} X
+\end{align*}
+
+\vspace{6mm}
+\result{Funciones sumables y funciones de \texorpdfstring{$\mathcal{L}_p(X)$}{Lp(X)}}
+\hspace{3mm} Si $f : X \longrightarrow \overline{\R}$ es medible, y $\int_{X}|f|^p\,d\mu < \infty$ (para $p < \infty$). Entonces, existe una función $g \in \mathcal{L}_p(X)$  tal que $f \overset{\mu-a.e.}{=} g$. Como consecuencia, si $p < \infty$,
+$$\left(\int_{X}|f|^p\,d\mu\right)^\frac{1}{p} = ||g||_p $$
+\vspace{2mm} \dem Extendemos lo visto en el \hyperref[result:2.2.6]{resultado 2.2.6}.
+\vspace{2mm} \newline \indent Definimos los siguientes conjuntos auxiliares: \\[-4ex]
+\begin{align*}
+    A = \{x \in X : f(x) = +\infty\} && B = \{x \in X : f(x) = -\infty\}
+\end{align*}
+Ambos conjuntos han de ser de medida nula, o de lo contrario $\int_{X}|f|^p\,d\mu = \infty$. Así, basta considerar la siguiente función:
+\begin{flalign*}
+    g(x) = f(x) \cdot X_{X \setminus (A \cup B)}(x) =
+    \begin{cases}
+        f(x) &\text{si }x \notin A \cup B \\
+        0 &\text{si } x \in A \cup B
+    \end{cases}
+\end{flalign*}
+Como $\mu(A) = \mu(B) = 0$, tenemos que $f \overset{\mu-a.e.}{=} g$.
+
+\vspace{6mm}
+\result{Definición de supremo esencial}
+\hspace{3mm} Para cada $f \in \mathcal{L}_\infty(X)$ definimos el siguiente conjunto:
+$$A_f := \Big\{\alpha \in [0,\infty) : \mu\big(\{x \in X : f(x) > \alpha\}\big) = 0 \Big\} $$
+A partir de él, definimos $||f||_p := \inf A_f$. Esta cantidad recibe el nombre de ``supremo esencial''.
+
+\vspace{6mm}
+\result{Mínimo esencial}
+\hspace{3mm} El supremo esencial es en realidad un mínimo. Es decir; sea $f \in \mathcal{L}_\infty(X)$, se cumple:
+$$||f||_\infty \in \Big\{f(x) : x \in X\}  \text{ o equivalentemente } ||f||_\infty = \min A_f$$
+\dem \newline \vspace{2mm} Denotemos $\beta := \inf A_f$. Consideramos $(\beta_n)_{n\in\N} \subseteq A_f$ sucesión decreciente que verifica $\lim_{n\to\infty} \beta_n = \beta$. Para cada $n \in\N$ definimos el siguiente conjunto auxiliar:
+$$B_n := \Big\{x \in X : |f(x)| \leq \beta_n \Big\}$$
+\indent De este modo,  $\forall n \in \N$, $B_{n+1} \subseteq B_n$ y $B_n \in \Sigma$. Además, por ser $f \in \mathcal{L}_\infty(X)$ por hipótesis, tenemos que $B_n = X \setminus M_n$ con $M_n \in \Sigma$ tal que $\mu(M_n) = 0$. Por tanto, se cumple: \\[-3ex]
+$$\{x \in X : |f(x)| \leq \beta\} = \smallcap_{n\in\N} B_n = \smallcap_ {n\in \N}(X \setminus M_n) = X \setminus (\smallcup_{n\in\N}M_n)$$
+Por subaditividad, $\mu\big(\smallcup_{n\in\N} M_n\big) = 0$, luego $\beta \in A_f$ por definición.
+
+\newpage
+\chapter{Estructura de los \texorpdfstring{$\mathcal{L}_p$}{L\_p}}
+\result{Concepto de convexidad}
+\hspace{3mm} Una combinación convexa de puntos de un espacio afín es aquella combinación lineal de los mismos cuyos pesos sean no negativos y sumen $1$. Para el caso de dos puntos, $a$ y $b$, podemos expresar su combinación convexa como:
+\begin{align*}
+    \lambda a + (1-\lambda) b && \text{ con } \lambda \in [0,1]
+\end{align*}
+Nótese que conforme $\lambda$ va aumentando, se recorre el segmento en línea recta desde $a$ hasta $b$.
+\vspace{4mm}\newline \indent Sea $A$ un conjunto de un espacio afín, diremos que es convexo si dados $a, b \in A$, tenemos que cualquier combinación conexa de ambos está también en $A$. Es decir,
+$$A \text{ es convexo } \iff \hspace{2mm}\forall \hspace{1mm} a,b \in A, \hspace{2mm} \forall \hspace{1mm}\lambda \in [0,1] : \lambda a + (1-\lambda) b \in A  $$
+Intuitivamente, se corresponde con que todo segmento que une dos puntos de $A$ está contenido al completo en $A$.
+\\[3ex]
+\begin{minipage}{0.5\textwidth}
+    \begin{center}
+        \def\p{0.3}
+        \def\delt{0.75}
+        \begin{tikzpicture}[scale=2]
+            \filldraw[HotPink2!40, thick]
+            plot[domain=0:360, samples=400] 
+            ({ sign(cos(\x)) * abs(cos(\x))^(1/\p) },
+            { sign(sin(\x)) * abs(sin(\x))^(1/\p) });
+            \filldraw[black] (-\delt,0) circle (0.5pt);
+            \filldraw[black] (0,\delt) circle (0.5pt);
+            \draw[-] (-\delt, 0) -- (0,\delt);
+        \end{tikzpicture}
+        
+        \noindent Conjunto no convexo
+    \end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{center}
+        \def\p{0.3}
+        \def\delt{0.75}
+        \begin{tikzpicture}[scale=2]
+            \filldraw[DarkSeaGreen2!40, thick]
+            plot[domain=0:360, samples=400] 
+            ({cos(\x)},{sin(\x)});
+            \filldraw[black] (-\delt,0) circle (0.5pt);
+            \filldraw[black] (0,\delt) circle (0.5pt);
+            \draw[-] (-\delt, 0) -- (0,\delt);
+        \end{tikzpicture}
+        
+        \noindent Conjunto convexo
+    \end{center}
+\end{minipage}
+
+\vspace{9ex} Veamos ahora cómo se traduce este concepto a funciones.
+\newpage Diremos que una función $f : \R \longrightarrow \R$ es convexa en un intervalo $I$ si el segmento que une dos puntos cualesquiera de su grafo en $I$ queda por encima del propio grafo. Es decir, si verifica:
+$$\forall x_1, x_2 \in I : f\big(\lambda x_1 + (1-\lambda)x_2\big) < \lambda f(x_1) + (1-\lambda)f(x_2) \hspace{6mm} \forall \lambda \in [0,1]$$
+Esto a su vez equivale a exigir que el siguiente conjunto (epigrafo de $f$) sea convexo:
+$$\{(x,y) : x \in I, y > f(x)\} $$
+Podemos extender la definición de convexidad de funciones al estudiar conjuntos convexos más generales y no solo intervalos.
+
+\begin{center}
+\begin{tikzpicture}
+    % interval
+    \def\xstart{0.63}
+    \def\xend{5.5}
+    \pgfmathdeclarefunction{f}{1}{%
+    \pgfmathparse{1 + exp(sin(1.2 * #1 r))}%
+    }
+    \pgfmathparse{f(\xstart)} \let\fstart\pgfmathresult
+    \pgfmathparse{f(\xend)}   \let\fend\pgfmathresult
+    \pgfmathsetmacro{\m}{(\fend-\fstart)/(\xend-\xstart)}
+    % (optional) declare g(x) if you want to call it
+    \pgfmathdeclarefunction{g}{1}{%
+    \pgfmathparse{\m*(#1-\xstart) + \fstart}%
+    }
+
+    \def\maxX{7}
+    \def\maxY{5}
+    \draw[<->, thick] (-1,0) -- (\maxX+1,0);
+    \draw[<->, thick] (0,-1) -- (0,\maxY+0.2);
+    \foreach \i in {1,...,7} {
+    \draw (\i,0.08) -- (\i,-0.08) node[below] {\small $\i$};
+    }
+    \fill[DeepSkyBlue3!20] 
+    (\xstart,\fstart)
+    plot[domain=\xstart:\xend, samples=240, smooth] (\x,{f(\x)})
+    -- (\xstart,\fstart) -- cycle;
+
+    \draw[thick, DeepSkyBlue3] 
+    plot[domain=-0.5:\maxX+0.5, samples=600, smooth] (\x,{f(\x)});
+    %Bounding line
+    \draw[dashed, thick] (\xstart,\fstart) -- (\xend,\fend);
+
+    \foreach \i in {0.63, 2.09484, 5.5} {
+      \fill (\i,{f(\i)}) circle (1.8pt);
+    }
+
+\end{tikzpicture}
+
+\noindent La función no es convexa en $[0,6]$, pero sí en $[2,6]$.
+\end{center}
+
+\vspace{4mm} Podemos considerar definiciones distintas de convexidad según exijamos o no que la desigualdad sea estricta.
+
+\vspace{6mm}
+\result{Los \texorpdfstring{$\mathcal{L}_p(X)$}{L\_p(X)} son espacios vectoriales}
+\hspace{3mm} Para $1 \leq p \leq \infty$, $\mathcal{L}_p(X)$ es un espacio vectorial.
+\vspace{6mm} \newline \dem Distinguiremos varios casos:
+\vspace{2mm} \newline \noindent $\bullet$ Caso $p=1$: \hyperref[result:2.2.4]{ya se ha demostrado}.
+\vspace{2mm} \newline \noindent $\bullet$ Caso $p= \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-4mm} Sea $f \in \mathcal{L}_\infty(X)$, sea $\lambda \in \R$. Veamos $\lambda f \in \mathcal{L}_\infty(X)$.
+    \vspace{2mm} \newline Si $\lambda = 0$, $\lambda f \equiv 0 \in \mathcal{L}_\infty(X)$.
+    \vspace{2mm} \newline Sea $\lambda \in \R \setminus \{0\}$. Como $f \in \mathcal{L}_\infty(X)$, $\exists$ $M \in \Sigma$ con $\mu(M) = 0$ tal que:
+    $$X \setminus M = \{x \in X : |f(x)|\leq ||f||_\infty\} = \{x \in X : |\lambda f(x)|\leq |\lambda|\cdot ||f||_\infty\}$$
+    Tenemos que $\lambda f \in \mathcal{L}_\infty(X)$ por definición.
+
+    \vspace{5mm} Sean $f,g\in \elep{\infty}{X}$, veamos que $f+g\in \elep{\infty}{X}$:
+    \vspace{2mm} \newline Por definición, $\exists \hspace{1mm} M,N \in \Sigma$ con $\mu(M) = \mu(N) = 0$ tales que: \\[-3ex]
+    \begin{align*}
+        X \setminus M = \{x \in X : |f(x)| \leq ||f||_\infty\} &&
+        X \setminus N = \{x \in X : |g(x)| \leq ||g||_\infty\} 
+    \end{align*}
+    Entonces, dado $x \in X \setminus(M \cup N)$ cualquiera, se cumple:
+    $$|f(x) + g(x) | \leq |f(x)| + |g(x)| \leq ||f||_{\infty} + ||g||_{\infty} < \infty $$
+    Como $\mu(M \cup N) = 0$, tenemos $f+g\in \elep{\infty}{X}$ por definición.
+\end{adjustwidth}
+\vspace{6mm} \noindent $\bullet$ Caso $1 < p < \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    Sean $\lambda \in \R, f \in \elep{p}{X}$. Veamos que $\lambda f \in \elep{\infty}{X}$.
+    $$\int_{X}|\lambda f(x)|^p\,d\mu(x) = |\lambda|^p \cdot \int_{X}|f(x)|^p\,d\mu(x) = |\lambda|^p \cdot ||f||_p^p < \infty$$
+    Se cumple por definición.
+
+    \vspace{4mm} Sean $f,g \in \elep{p}{X}$. Veamos que $f+g\in \elep{p}{X}$:
+    \begin{flalign*}
+        \int_{X}&|f(x)+p(x)|\,d\mu(x) = \int_{X} \Big|\hspace{1mm} \underbrace{\frac{1}{2}}_\lambda\cdot 2 \cdot f(x)+ \underbrace{\frac{1}{2}}_{1-\lambda}\cdot 2 \cdot g(x)\hspace{1mm} \Big|^p\,d\mu(x) = (*)
+    \end{flalign*}
+    La función $h(t) = |t|^p$ es convexa en $[0,+\infty]$ para $p > 1$. Por tanto,
+    \begin{flalign*}
+        (*) &\leq \int_{X}\frac{1}{2}\left|2f(x)\right|^p + \frac{1}{2} |2g(x)|^p\,d\mu(x) = 2^{p-1}\cdot \int_{X}|f(x)|^p\,d\mu(x) + 2^{p-1} \cdot \int_{X}|g(x)|^{p}\,d\mu(x) = &&\\
+        &= 2^{p-1}\left(\int_{X}|f(x)|^p\,d\mu(x) + \int_{X}|g(x)|^p\,d\mu\right) = 2^{p-1}\big(||f||_p^p + ||g||_p^p\big) < \infty
+    \end{flalign*}
+    Se cumple por definición.
+\end{adjustwidth}
+
+\vspace{6mm}
+\result{Conjugado \texorpdfstring{$p^*$}{p*}}
+\hspace{3mm} Para cada $p \in [1, +\infty]$, denotaremos como $p^*$ al único número en $\overline{\R}$ que verifica:
+$$\frac{1}{p} + \frac{1}{p^*} = 1$$
+Solo hay un único número en todo $\overline{\R}$ que verifica esto, pero ha de estar necesariamente en $(1, \infty)$:
+$$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = \frac{p}{p-1} \overset{p\in[1,\infty]}{\in} (1, \infty)$$
+\indent Estas son algunas de las propiedades de este conjugado (claras por la definición):
+\begin{align*}
+    (p^*)^* = p && p + p^* = p\cdot p^* && p\cdot p^* - p^*p && p^* = \frac{p}{p-1} && p^*(p-1) = p
+\end{align*}
+
+\vspace{6mm}
+\result{Desigualdad de Hölder}
+\hspace{3mm} Sean $f \in \elep{p}{X}$, $g \in \elep{p^*}{X}$. Entonces, se cumple:
+\begin{align*}
+    f\cdot g \in \elep{1}{X} && ||f\cdot g||_1 \leq ||f||_p \cdot ||g||_{p^*}
+\end{align*}
+\vspace{3mm} \dem
+\vspace{2mm} \newline $\bullet$ Caso $p = 1, p^* = \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{2mm} Como $g \in \elep{\infty}{X}$, $\exists$ $M \in \Sigma$ con $\mu(M) = 0$ tal que
+    $$X \setminus M = \{x \in X : |g(x)| \leq ||g||_\infty\}$$
+    Por tanto, ha de cumplirse:
+    \begin{flalign*}
+      \int_{X}&=|f\cdot g|\,d\mu = \int_{X \setminus M}|f(x)| \cdot |g(x)|\,d\mu(x) \leq \int_{X \setminus M}|f(x)| \cdot ||g||_\infty\,d\mu = &&\\
+      &= ||g||_\infty \cdot \int_{X \setminus M}|f(x)|\,d\mu(x) = ||g||_\infty \cdot ||f||_1 < \infty
+    \end{flalign*}
+    Se cumple por definición.    
+\end{adjustwidth}
+
+\vspace{6mm} \noindent $\bullet$ Caso $1 < p < \infty$. Hay que estudiar dos posibles escenarios:
+\vspace{2mm} \newline \indent a) Si $||f||_p = 0$ ó $||g||_{p^*} = 0$ (pudiendo darse ambas). Supongamos sin pérdida de generalidad que $||f||_p = 0$:
+\newpage
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{2mm} $||f||_p = 0 \Rightarrow = \int_{X}|f|^p\,d\mu(x) = 0 \overset{\hyperref[result:2.1.17]{2.1.17}}{\Rightarrow} |f|^p \muae 0 \Rightarrow f \muae 0$.
+    \vspace{2mm} \newline De este modo, $f \cdot g \muae 0 \Rightarrow |f\cdot g| = 0 \overset{\hyperref[result:2.1.17]{2.1.17}}{\Rightarrow} 0 = \int_{X}\,|f\cdot g|d\mu = ||f\cdot g||_1$.
+\end{adjustwidth}
+
+\vspace{6mm} b) \noindent Supongamos ahora que $||f||_p \neq 0 \neq ||g||_{p^*}$. Así,
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{3mm} Definimos los siguientes conjuntos auxiliares: \\[-3ex]
+    \begin{align*}
+        A := \{x \in X : f(x) = 0\} \in \Sigma &&  B := \{x \in X : g(X) = 0\} \in \Sigma
+    \end{align*}
+    Por cómo los hemos definido,
+    $$\int_{X}\frac{|f(x)|}{||f||_p}\cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) = \int_{X \setminus(A\cup B)}\frac{|f(x)|}{||f||_p} \cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) $$
+    Al tratarse de cantidades positivas, para cada $x \in X \setminus (A\cup B)$, existen $\xi_x, \zeta_x \in (0, \infty)$ tales que:
+    \begin{align*}
+      \frac{|f(x)|}{||f||_p} = e^{\frac{\xi_x}{p}} = \exp\left(\frac{\xi_x}{p}\right) &&\frac{|g(x)|}{||g||_{p^*}} = e^{\frac{\zeta_x}{p^*}} = \exp\left(\frac{\zeta_x}{p^*}\right)
+    \end{align*}
+  \end{adjustwidth}
+\end{document}

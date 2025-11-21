@@ -16,6 +16,9 @@
 \usepackage{titlesec}
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
 
 % Margins
 %\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
@@ -3667,7 +3670,8 @@ Intuitivamente, se corresponde con que todo segmento que une dos puntos de $A$ e
             \filldraw[black] (0,\delt) circle (0.5pt);
             \draw[-] (-\delt, 0) -- (0,\delt);
         \end{tikzpicture}
-        \newline \noindent Conjunto no convexo
+        
+        \noindent Conjunto no convexo
     \end{center}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -3682,7 +3686,27 @@ Intuitivamente, se corresponde con que todo segmento que une dos puntos de $A$ e
             \filldraw[black] (0,\delt) circle (0.5pt);
             \draw[-] (-\delt, 0) -- (0,\delt);
         \end{tikzpicture}
-        \newline \noindent Conjunto convexo
+        
+        \noindent Conjunto convexo
     \end{center}
 \end{minipage}
+
+\vspace{9ex} Veamos ahora cómo se traduce este concepto a funciones.
+\newpage Diremos que una función $f : \R \longrightarrow \R$ es convexa en un intervalo $I$ si el segmento que une dos puntos cualesquiera de su grafo en $I$ queda por encima del propio grafo. Es decir, si verifica:
+$$\forall x_1, x_2 \in I : f\big(\lambda x_1 + (1-\lambda)x_2\big) < \lambda f(x_1) + (1-\lambda)f(x_2) \hspace{6mm} \forall \lambda \in [0,1]$$
+Esto a su vez equivale a exigir que el siguiente conjunto (epigrafo de $f$) sea convexo:
+$$\{(x,y) : x \in I, y > f(x)\} $$
+Podemos extender la definición de convexidad de funciones al estudiar conjuntos convexos más generales y no solo intervalos.
+
+\begin{center}
+\begin{tikzpicture}
+    \def\maxX{7}
+    \def\maxY{5}
+    \draw[<->, thick] (-1,0) -- (\maxX+1,0);
+    \draw[<->, thick] (0,-1) -- (0,\maxY);
+    \def\f(#1){exp(sin(1.2*#1 r))}
+    \draw[domain=-1:\maxX+1, samples=200, smooth, thick, DeepSkyBlue3]
+        plot (\x, {\f(\x)});
+\end{tikzpicture}
+\end{center}
 \end{document}
