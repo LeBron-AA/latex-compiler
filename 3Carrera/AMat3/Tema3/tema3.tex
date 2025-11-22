@@ -397,10 +397,76 @@ $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = 
         A := \{x \in X : f(x) = 0\} \in \Sigma &&  B := \{x \in X : g(X) = 0\} \in \Sigma
     \end{align*}
     Por cómo los hemos definido,
-    $$\int_{X}\frac{|f(x)|}{||f||_p}\cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) = \int_{X \setminus(A\cup B)}\frac{|f(x)|}{||f||_p} \cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) $$
+    $$\int_{X}\frac{|f(x)|}{||f||_p}\cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) = \int_{X \setminus(A\cup B)}\frac{|f(x)|}{||f||_p} \cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) = (*_1)$$
     Al tratarse de cantidades positivas, para cada $x \in X \setminus (A\cup B)$, existen $\xi_x, \zeta_x \in (0, \infty)$ tales que:
     \begin{align*}
       \frac{|f(x)|}{||f||_p} = e^{\frac{\xi_x}{p}} = \exp\left(\frac{\xi_x}{p}\right) &&\frac{|g(x)|}{||g||_{p^*}} = e^{\frac{\zeta_x}{p^*}} = \exp\left(\frac{\zeta_x}{p^*}\right)
     \end{align*}
-  \end{adjustwidth}
+    Sustituyendo en la expresión anterior:
+    \begin{flalign*}
+        (*_1) = \int_{X \setminus (A\cup B)}\hspace{-3mm} \exp\left(\frac{\xi_x}{p}\right) \cdot \exp\left(\frac{\zeta_x}{p^*}\right)\,d\mu(x) = \int_{X \setminus(A \cup B)}\hspace{-3mm} \exp\left(\frac{1}{p}\xi_x + \frac{1}{p^*}\zeta_x\right)\,d\mu(x)
+    \end{flalign*}
+    La función exponencial es convexa. Tomando $\lambda = \frac{1}{p}$, $1-\lambda = \frac{1}{p^*}$, tenemos:
+    \begin{flalign*}
+        (*_1) \leq \hspace{-3mm} \mathop{\int}_{X\setminus(A\cup B)}\hspace{-3mm} \frac{1}{p}\exp(\xi_x) + \frac{1}{p^*}\exp(\zeta_x)\,d\mu(x) = \frac{1}{p} \hspace{-5mm} \mathop{\int}_{X \setminus(A \cup B)}\hspace{-5mm} \exp(\xi_x)\,d\mu(x) + \frac{1}{p^*} \hspace{-5mm} \mathop{\int}_{X \setminus (A\cup B)}\hspace{-5mm} \exp(\zeta_x)\,d\mu(x) = (*_2)
+    \end{flalign*}
+    Deshacemos el cambio de variable y comparamos con la definición de $||\cdot||_p$ y de $||\cdot||_{p^*}$,
+    \begin{flalign*}
+        (*_2) &= \frac{1}{p} \hspace{-5mm}\mathop{\int}_{X \setminus(A\cup B)}\hspace{-3mm} \frac{|f(x)|^p}{||f||_p^p}\,d\mu(x) + \frac{1}{p^*} \hspace{-5mm} \mathop{\int}_{X \setminus(A \cup B)}\hspace{-3mm} \frac{|g(x)|^{p^*}}{||g||^{p^*}_{p^*}}\,d\mu(x) \leq &&\\
+        &\leq \frac{1}{p \cdot ||f||^p_p} \cdot {\int}_{X}|f(x)|^p\,d\mu(x) + \frac{1}{p^* \cdot ||g||^{p^*}_{p^*}} \cdot {\int}_{X} \hspace{2mm} |g(x)|^{p^*}\,d\mu(x) = \\
+        &= \frac{1}{p \cdot ||f||^p_p} \cdot ||f||^p_p + \frac{1}{p^* \cdot ||g||^{p^*}_{p^*}} \cdot ||g||^{p^*}_{p^*} = \frac{1}{p} + \frac{1}{p^*} = 1
+    \end{flalign*}
+    \newpage \noindent Sustituimos para resolver el problema inicial:
+    \begin{flalign*}
+        \int_{X}\frac{|f(x)|}{||f||_p}\cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x)
+        \Rightarrow \int_{X}|f(x) \cdot g(x)|\,d\mu(x) \leq ||f||_p \cdot ||g||_{p^*} < \infty
+    \end{flalign*}
+\end{adjustwidth}
+
+\vspace{6mm} \result{Desigualdad de Minkowski}
+\hspace{3mm} Sea $1 \leq p \leq \infty$. Sean $f,g \in \elep{p}{X}$. Entonces, $||f+g||p \leq ||f||_p + ||g||_p$.
+\vspace{4mm} \newline \dem Hemos de distinguir tres casos.
+\vspace{2mm} \newline $\bullet$ Caso $p=1$: \hyperref[result:2.1.9]{ya ha sido probado}.
+\vspace{2mm} \newline $\bullet$ Caso $p=\infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{2mm} Por ser $f,g \in \elep{\infty}{X}$, sabemos $\exists$ $M,N \in \Sigma$ con $\mu(M) = \mu(N) = 0$ tales que: \\[-3ex]
+    \begin{align*}
+        X \setminus M = \{x \in X : |f(x)| \leq ||f||_\infty\} && X \setminus N = \{x \in X : |g(x)| \leq ||g||_\infty\}
+    \end{align*}
+    Entonces, dado $x \in X \setminus (M \cup N)$, se cumple:
+    $$|f(x) + g(x)| \leq |f(x)| + |g(x)| \leq ||f||_\infty + ||g||_\infty $$
+    Como $\mu(M\cup N) = 0$. Recordando la (\hyperref[result:3.1.4]{notación 3.1.4}), tenemos:
+    $$||f||_\infty + ||g||_\infty \in A_{f+g} \Rightarrow ||f+g||_\infty = \min A_{f+g} \leq ||f||_\infty + ||g||_\infty$$
+\end{adjustwidth}
+\vspace{4mm} $\bullet$ Caso $1 < p < \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{-4ex}
+    \begin{flalign*}
+        &||f+p||_p^p = \int_{X}|f+g|^p\,d\mu = \int_{X}|f+g| \cdot |f+g|^{p-1}\,d\mu \leq &&\\[2ex]
+        &= \hspace{2mm} \int_{X}\underbracket{\hspace{0.5mm} |f| \hspace{0.5mm}}_{\elep{p}{X}} \cdot \underbracket{\hspace{0.5mm}|f+g|^{p-1} \hspace{0.5mm}}_{\elep{p^*}{X}}\,d\mu
+            + \int_{X}\underbracket{\hspace{0.5mm} |g| \hspace{0.5mm}}_{\elep{p}{X}} \cdot \underbracket{\hspace{0.5mm}|f+g|^{p-1} \hspace{0.5mm}}_{\elep{p^*}{X}}\,d\mu = (*)
+    \end{flalign*}
+    Por las \hyperref[result:3.2.3]{propiedades de $p^*$}, tenemos que:
+    $$\int_{X}\left(|f + g|^{p-1}\right)^{p^*}\,d\mu = \int_{X}|f + g|^{p^*(p-1)}\,d\mu = \int_{X}|f+g|^p\,d\mu = ||f+g||_p^p < \infty$$
+    Podemos aplicar la \hyperref[result:3.2.4]{Desigualdad de Hölder} a ambos sumandos: \newpage
+    \begin{flalign*}
+        (*) &\leq ||f||_p \cdot \Big| \Big| |f+g|^{p-1} \Big| \Big{|}_{p^*} + ||g||_p \cdot \Big| \Big| |f+g|^{p-1} \Big| \Big{|}_{p^*} = (||f||_p + ||g||_p) \cdot \Big| \Big| |f+g|^{p-1} \Big| \Big{|}_{p^*} = &&\\[2ex]
+        &= (||f||_p + ||g||_p) \cdot \left(\int_{X}|f+g|^{p^*(p-1)}\,d\mu\right)^\frac{1}{p^*} = (||f||_p + ||g||_p) \cdot \left(||f+g||_p^p\right)^\frac{1}{p^*} = \\[2ex]
+        &= (||f||_p + ||g||_p) \cdot ||f+g||_p^{p-1}
+    \end{flalign*}
+
+    \vspace{2mm} \noindent Así, $||f+g||_p^p \leq (*) \leq (||f||_p + ||g||_p) \cdot ||f+g||_p^{p-1}$. Despejando,
+    $$||f+g||_p^{p-(p-1)} = ||f+g||_p \leq ||f||_p + ||g||_p $$
+\end{adjustwidth}
+
+\vspace{6mm}
+\result{Definición de espacio vectorial seminormado}
+\hspace{3mm} Un $K$-espacio vectorial $V$ se dice ``seminormado'' si existe una aplicación $||\cdot|| : V \longrightarrow\R$ (llamada ``seminorma de $V$'') que cumple las siguientes condiciones:
+\begin{enumerate}[label=\roman*)]
+    \item $||\lambda v|| = |\lambda| \cdot ||v||$ $\forall \hspace{1mm} \lambda \in K$ $\forall \hspace{1mm} v \in V$.
+    \item $||x+y|| \leq ||x|| + ||y||$ $\forall \hspace{1mm} x,y \in V$.
+\end{enumerate}
+Nótese que como consecuencia de $(i)$ se cumple $||0_V|| = 0$.
+
+\vspace{4mm} En vista del \hyperref[result:3.2.5]{resultado anterior}, es claro que los $\elep{p}{X}$ son espacios vectoriales seminormados para $1 \leq p \leq \infty$.
 \end{document}

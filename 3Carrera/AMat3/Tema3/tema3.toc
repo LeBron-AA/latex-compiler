@@ -10,3 +10,5 @@
 \contentsline {subsubsection}{\numberline {3.2.2}Los $\mathcal {L}_p(X)$ son espacios vectoriales}{6}{subsubsection.0.3.2.2}%
 \contentsline {subsubsection}{\numberline {3.2.3}Conjugado $p^*$}{8}{subsubsection.0.3.2.3}%
 \contentsline {subsubsection}{\numberline {3.2.4}Desigualdad de Hölder}{8}{subsubsection.0.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Desigualdad de Minkowski}{10}{subsubsection.0.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Definición de espacio vectorial seminormado}{11}{subsubsection.0.3.2.6}%
