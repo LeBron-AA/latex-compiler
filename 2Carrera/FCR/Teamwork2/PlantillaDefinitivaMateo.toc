@@ -1,4 +1,4 @@
-\babel@toc {spanish}{}
+\babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Descifrar entradas válidas}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Stage1()}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Stage2()}{4}{subsection.1.2}%

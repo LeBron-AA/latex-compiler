@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts, amssymb, amsthm}
+\usepackage{graphicx, tikz, xparse, array}
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry} % Este paquete permite modificar los márgenes del documento
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} % Se indica que los hipervínculos van todos en azul
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\usepackage[most]{tcolorbox}
+
+\tcbuselibrary{breakable}
+
+
+%Colores
+\definecolor{verdeSuave}{HTML}{6AD58A}
+\definecolor{verdeFuerte}{HTML}{206936}
+\definecolor{blanco}{HTML}{FFFFFF}
+\definecolor{negro}{HTML}{000000}
+\definecolor{azulSuave}{HTML}{6ac9d5}
+\definecolor{naranjaSuave}{HTML}{d5c06a}
+\definecolor{rojoSuave}{HTML}{EF4949}
+\definecolor{amarilloSuave}{HTML}{D8E058}
+
+
+\setstretch{1.2}
+\decimalpoint
+
+\begin{document}
+  
+\begin{titlepage}
+  \centering  
+  \vspace*{1cm}  % Espacio opcional antes de la imagen
+  \includegraphics[width=0.3\textwidth]{uniovi.jpg} \hspace{2cm}
+  \includegraphics[width=0.3\textwidth]{descarga.jpeg} \\[1cm] 
+  \vspace{\fill}% Imagen centrada arriba
+  \hrule
+  \vspace{0.5cm}
+  {\Huge \bfseries Arquitectura de Computadores\par}
+  \vspace{0.5cm}
+  {\Large \bfseries Trabajo en grupo\par}
+  \vspace{0.5cm}
+
+  \hrule
+  \vspace{1cm}
+  {\bfseries PL1-A \\ [4ex]
+  Alejandro Jarillo García UO999999\\[3ex]
+  Jorge Gota Ortín UO301023\\[3ex]
+  Javier Ortín Rodenas UO299855\\[3ex]
+  Andrés Fernández-Junquera Fernández UO302086\par} % Nombres centrados
+  \vspace{\fill}  % Espacio después de los nombres
+
+\end{titlepage}
+
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\section{Algoritmo a aplicar a la imagen}
+\hspace{3mm} En nuestro caso, el algoritmo a implementar es el número 3. Tiene como entrada una única imagen y genera como salida una versión de la misma en blanco y negro. Sean $(R,G,B)$ las componentes de un píxel de la entrada, las componentes $(R',G',B')$ del píxel equivalente en la imagen de salida vienen dadas por:
+\begin{flalign*}
+    R' = G' = B' = 255 - (0.3 \cdot R + 0.59 \cdot G + 0.11 \cdot B)
+\end{flalign*}
+Matemáticamente, los valores de la imagen destino deberían estar comprendidos siempre entre $0$ y $255$. No obstante, los píxeles muy claros o muy oscuros podrían dar problemas por errores de redondeo a la hora de implementar el algoritmo. Por tanto, es necesario comprobar la saturación antes de asignar el valor de los píxeles a la imagen destino.
+
+
+\end{document}

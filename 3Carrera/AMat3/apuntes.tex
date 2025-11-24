@@ -2766,7 +2766,7 @@ $\romannumeral 2)$ Sean $\lambda \in \R, f \in \mathcal{L}_1$. Veamos que $\int_
 \vspace{2mm} \newline \indent $\bullet$ Si $\lambda = 0$, $\int_{X}\lambda \cdot f\,d\mu = \int_{X}0\,d\mu = 0 = 0 \cdot \int_{X}f\,d\mu$.
 \vspace{4mm} \newline \indent $\bullet$ Si $\lambda > 0$, entonces $(\lambda f)^+ = \lambda \cdot f^+$ y $(\lambda f)^- = \lambda \cdot f^-$. Por tanto,
 \begin{flalign*}
-    \int_{X}&\lambda f\,d\mu = \int_{X}(\lambda f)^+\,d\mu + \int_{X}(\lambda f)^-\,d\mu =  \lambda \int_{X}f^+\,d\mu - \lambda \int_{X}f^-\,d\mu = \\
+    \int_{X}&\lambda f\,d\mu = \int_{X}(\lambda f)^+\,d\mu - \int_{X}(\lambda f)^-\,d\mu =  \lambda \int_{X}f^+\,d\mu - \lambda \int_{X}f^-\,d\mu = \\
     &= \lambda \left(\int_{X}f^+\,d\mu - \int_{X}f^-\,d\mu\right) = \lambda \int_{X}f\,d\mu
 \end{flalign*}
 \\[3ex] \indent $\bullet$ Si $\lambda < 0$, entonces $(\lambda f)^+ = -\lambda \cdot f^-$ y $(\lambda f)^- = -\lambda \cdot f^+$. Por tanto,
@@ -2797,7 +2797,7 @@ Hemos necesitado la hipótesis de $f$ sumable para poder agrupar los dos sumator
 
 \vspace{6mm}
 \result{Funciones \texorpdfstring{$\mu$}{mu}-a.e. a sumables en \texorpdfstring{$\mathcal{L}_1 $}{L\_1}}
-\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$. Sea $f : X \longrightarrow \overline{\R}$ con $f \in \mathcal{L}_1 $. Entonces existe una función $g \in \mathcal{L}_1 $ tal que $f \overset{\mu-a.e.}{=}g$.
+\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$. Sea $f : X \longrightarrow \overline{\R}$ con $f$ sumable. Entonces existe una función $g \in \mathcal{L}_1 $ tal que $f \overset{\mu-a.e.}{=}g$.
 \vspace{2mm} \newline \dem Comencemos por aclarar la diferencia entre sumable y $\mathcal{L}_1 $.
 \vspace{2mm} \newline Toda función $\mathcal{L}_1 $ es sumable, pero no al revés. No podemos garantizar que $f$ sea $\mathcal{L}_1 $, pues su codominio es $\overline{\R}$ y no $\R$. Por tanto, buscamos una función $g : X \longrightarrow \R$ sumable tal que $f \overset{\mu-a.e.}{=} g$.
 \vspace{2mm} \newline Por ser $f$ sumable, los dos siguientes conjuntos tienen medida nula (de no ser así tendríamos que $\int_{A}f^+\,d\mu = \infty$ ó $\int_{B}f^-\,d\mu = -\infty$):
@@ -2987,7 +2987,7 @@ En el \hyperref[result:2.3.6]{ejemplo anterior}, $f$ no es integrable en el sent
 Si existe $\frac{\partial f}{\partial t} : E \times I \longrightarrow \R$ y además existe también $\phi \in \mathcal{L}_1(E)$ tal que
 $$\left|\frac{\partial f}{\partial t}(x,t)\right| \leq \varphi(x) \hspace{2mm} \forall \hspace{1mm} (x,t) \in (E,I)$$
 Entonces, sea $t_0 \in I$, se cumple:
-$$\exists \hspace{1mm} \frac{d f}{d t} \int_{E}f(\cdot, t_0)(x)\,d\mu(x) = \int_{E}\frac{\partial f}{\partial t} (x,t_0)\,d\mu(x)$$
+$$\exists \hspace{1mm} \frac{d}{d t} \int_{E}f(\cdot, t_0)(x)\,d\mu(x) = \int_{E}\frac{\partial f}{\partial t} (x,t_0)\,d\mu(x)$$
 
 \vspace{2mm} \underline{\textbf{Notación:}} Cuando operemos con una función que tenga como argumento más de una variable, integrando una de ellas y dejando las demás constantes, usaremos $d\mu(x)$ para referirnos a la variable sobre la que integramos. Por ejemplo, en $\int_{E}g(x,t)\,d\nu(x)$ se integra solo sobre $x$, dejando $t$ fija.
 \vspace{4mm} \newline \dem
@@ -3133,13 +3133,13 @@ $$E_y = \Big\{x \in \R^p : (x,y) \in E\Big\}$$
 \begin{minipage}{0.5\textwidth}
     \begin{flalign*}
         f_x :& \R^q \longrightarrow \overline{\R}\\
-        &x \longmapsto f(x,y)
+        &y \longmapsto f(x,y)
     \end{flalign*}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
     \begin{flalign*}
         f_y :& \R^p \longrightarrow \overline{\R}\\
-        &y \longmapsto f(x,y)
+        &x \longmapsto f(x,y)
     \end{flalign*}
 \end{minipage}
 

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  24 NOV 2025 20:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  24 NOV 2025 21:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/UNIOVI/latex-compiler/2Carrera/FCR/Teamwork2/PlantillaDefinitivaMateo.tex
-(d:/UNIOVI/latex-compiler/2Carrera/FCR/Teamwork2/PlantillaDefinitivaMateo.tex
+**d:/UNIOVI/latex-compiler/3Carrera/AC/Teamwork/memoria.tex
+(d:/UNIOVI/latex-compiler/3Carrera/AC/Teamwork/memoria.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\MikTex\texmfs\install\tex/latex/base\article.cls
@@ -797,34 +797,33 @@ File: tikzlibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgflibraryfadings.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.2.0'
-)) (PlantillaDefinitivaMateo.aux
-LaTeX Info: Redefining \. on input line 24.
-LaTeX Info: Redefining \% on input line 24.
+)) (memoria.aux
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
 )
-\openout1 = `PlantillaDefinitivaMateo.aux'.
+\openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Info: Redefining \. on input line 42.
-LaTeX Info: Redefining \% on input line 42.
-
-(C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Info: Redefining \. on input line 33.
+LaTeX Info: Redefining \% on input line 33.
+ (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count335
 \scratchdimen=\dimen289
@@ -879,10 +878,10 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 42.
-(PlantillaDefinitivaMateo.out) (PlantillaDefinitivaMateo.out)
+Package hyperref Info: Link coloring ON on input line 33.
+(memoria.out) (memoria.out)
 \@outlinefile=\write4
-\openout4 = `PlantillaDefinitivaMateo.out'.
+\openout4 = `memoria.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -894,213 +893,44 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks50
 \inpenc@posthook=\toks51
 )
-<uniovi.jpg, id=70, 1284.8pt x 946.53625pt>
+<uniovi.jpg, id=46, 1284.8pt x 946.53625pt>
 File: uniovi.jpg Graphic file (type jpg)
 <use uniovi.jpg>
-Package pdftex.def Info: uniovi.jpg  used on input line 47.
+Package pdftex.def Info: uniovi.jpg  used on input line 38.
 (pdftex.def)             Requested size: 128.0387pt x 94.32698pt.
-<descarga.jpeg, id=71, 319.1925pt x 159.59625pt>
+<descarga.jpeg, id=47, 319.1925pt x 159.59625pt>
 File: descarga.jpeg Graphic file (type jpg)
 <use descarga.jpeg>
-Package pdftex.def Info: descarga.jpeg  used on input line 48.
+Package pdftex.def Info: descarga.jpeg  used on input line 39.
 (pdftex.def)             Requested size: 128.0387pt x 64.02pt.
  [1
 
 {C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map} <./uniovi.jpg> <./descarga.
-jpeg>]
-(PlantillaDefinitivaMateo.toc
+jpeg>] (memoria.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
-
-(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
-
-(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
 \tf@toc=\write5
-\openout5 = `PlantillaDefinitivaMateo.toc'.
+\openout5 = `memoria.toc'.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.73 \newpage
+l.65 \newpage
               [1]
-<Stage1/Stage1.png, id=91, 773.13844pt x 352.31625pt>
-File: Stage1/Stage1.png Graphic file (type png)
-<use Stage1/Stage1.png>
-Package pdftex.def Info: Stage1/Stage1.png  used on input line 93.
-(pdftex.def)             Requested size: 426.79135pt x 194.48952pt.
-<Stage1/SaltoStage1.png, id=93, 761.84625pt x 197.98969pt>
-File: Stage1/SaltoStage1.png Graphic file (type png)
-<use Stage1/SaltoStage1.png>
-Package pdftex.def Info: Stage1/SaltoStage1.png  used on input line 107.
-(pdftex.def)             Requested size: 426.79135pt x 110.91273pt.
- [2 <./Stage1/Stage1.png> <./Stage1/SaltoStage1.png>]
-<Stage1/cadenaStage1.png, id=101, 237.88875pt x 12.7978pt>
-File: Stage1/cadenaStage1.png Graphic file (type png)
-<use Stage1/cadenaStage1.png>
-Package pdftex.def Info: Stage1/cadenaStage1.png  used on input line 143.
-(pdftex.def)             Requested size: 426.79135pt x 22.96141pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 1
-47.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
 
-(C:\MikTex\texmfs\install\tex/latex/base\omscmr.fd
-File: omscmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+ (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 147.
-<Stage1/Stage1Correcto.png, id=102, 173.89969pt x 67.0003pt>
-File: Stage1/Stage1Correcto.png Graphic file (type png)
-<use Stage1/Stage1Correcto.png>
-Package pdftex.def Info: Stage1/Stage1Correcto.png  used on input line 155.
-(pdftex.def)             Requested size: 128.0387pt x 49.33304pt.
- [3 <./Stage1/cadenaStage1.png> <./Stage1/Stage1Correcto.png>]
-<Stage 2/codigoStage2.png, id=110, 590.95781pt x 392.21532pt>
-File: Stage 2/codigoStage2.png Graphic file (type png)
-<use Stage 2/codigoStage2.png>
-Package pdftex.def Info: Stage 2/codigoStage2.png  used on input line 164.
-(pdftex.def)             Requested size: 426.79135pt x 283.26259pt.
-<Stage 2/ultimoStage2.png, id=111, 337.26pt x 114.4275pt>
-File: Stage 2/ultimoStage2.png Graphic file (type png)
-<use Stage 2/ultimoStage2.png>
-Package pdftex.def Info: Stage 2/ultimoStage2.png  used on input line 188.
-(pdftex.def)             Requested size: 426.79135pt x 144.80797pt.
- [4 <./Stage 2/codigoStage2.png>]
-<Stage 2/Stage2Correcto.png, id=117, 114.4275pt x 86.57344pt>
-File: Stage 2/Stage2Correcto.png Graphic file (type png)
-<use Stage 2/Stage2Correcto.png>
-Package pdftex.def Info: Stage 2/Stage2Correcto.png  used on input line 203.
-(pdftex.def)             Requested size: 128.0387pt x 96.8757pt.
-<Stage 2/explode.png, id=118, 223.58531pt x 73.77562pt>
-File: Stage 2/explode.png Graphic file (type png)
-<use Stage 2/explode.png>
-Package pdftex.def Info: Stage 2/explode.png  used on input line 212.
-(pdftex.def)             Requested size: 170.71393pt x 56.3312pt.
- [5 <./Stage 2/ultimoStage2.png> <./Stage 2/Stage2Correcto.png> <./Stage 2/expl
-ode.png>]
-<Stage3/img1.png, id=125, 426.84468pt x 323.70938pt>
-File: Stage3/img1.png Graphic file (type png)
-<use Stage3/img1.png>
-Package pdftex.def Info: Stage3/img1.png  used on input line 221.
-(pdftex.def)             Requested size: 426.79135pt x 323.68883pt.
-<Stage3/img2.png, id=126, 426.84468pt x 81.30376pt>
-File: Stage3/img2.png Graphic file (type png)
-<use Stage3/img2.png>
-Package pdftex.def Info: Stage3/img2.png  used on input line 232.
-(pdftex.def)             Requested size: 426.79135pt x 81.29857pt.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
 
-[6 <./Stage3/img1.png> <./Stage3/img2.png>]
-<Stage3/img4.png, id=134, 340.27126pt x 62.48344pt>
-File: Stage3/img4.png Graphic file (type png)
-<use Stage3/img4.png>
-Package pdftex.def Info: Stage3/img4.png  used on input line 253.
-(pdftex.def)             Requested size: 426.79135pt x 78.37486pt.
-<Stage3/img5.png, id=135, 345.54094pt x 63.98906pt>
-File: Stage3/img5.png Graphic file (type png)
-<use Stage3/img5.png>
-Package pdftex.def Info: Stage3/img5.png  used on input line 262.
-(pdftex.def)             Requested size: 426.79135pt x 79.03705pt.
-<Stage3/img6.png, id=136, 325.215pt x 94.10156pt>
-File: Stage3/img6.png Graphic file (type png)
-<use Stage3/img6.png>
-Package pdftex.def Info: Stage3/img6.png  used on input line 271.
-(pdftex.def)             Requested size: 426.79135pt x 123.50223pt.
- [7 <./Stage3/img4.png> <./Stage3/img5.png> <./Stage3/img6.png>]
-<Stage4/img1.png, id=144, 520.94624pt x 395.97937pt>
-File: Stage4/img1.png Graphic file (type png)
-<use Stage4/img1.png>
-Package pdftex.def Info: Stage4/img1.png  used on input line 285.
-(pdftex.def)             Requested size: 426.79135pt x 324.41516pt.
-<Stage4/img2.png, id=145, 517.935pt x 94.85437pt>
-File: Stage4/img2.png Graphic file (type png)
-<use Stage4/img2.png>
-Package pdftex.def Info: Stage4/img2.png  used on input line 295.
-(pdftex.def)             Requested size: 426.79135pt x 78.16606pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 298--304
-
- []
-
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-308.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 308.
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 308.
-
-[8 <./Stage4/img1.png> <./Stage4/img2.png>]
-<Stage4/img3.png, id=150, 521.69907pt x 71.51718pt>
-File: Stage4/img3.png Graphic file (type png)
-<use Stage4/img3.png>
-Package pdftex.def Info: Stage4/img3.png  used on input line 311.
-(pdftex.def)             Requested size: 426.79135pt x 58.50696pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 314--321
-
- []
-
-<Stage4/img4.png, id=151, 341.77687pt x 82.80937pt>
-File: Stage4/img4.png Graphic file (type png)
-<use Stage4/img4.png>
-Package pdftex.def Info: Stage4/img4.png  used on input line 322.
-(pdftex.def)             Requested size: 426.79135pt x 103.4154pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 326--334
-
- []
-
-<Stage4/img5.png, id=152, 341.77687pt x 146.79843pt>
-File: Stage4/img5.png Graphic file (type png)
-<use Stage4/img5.png>
-Package pdftex.def Info: Stage4/img5.png  used on input line 336.
-(pdftex.def)             Requested size: 426.79135pt x 183.32733pt.
-[9 <./Stage4/img3.png> <./Stage4/img4.png> <./Stage4/img5.png>]
-<Stage4/img6.png, id=157, 112.16907pt x 42.1575pt>
-File: Stage4/img6.png Graphic file (type png)
-<use Stage4/img6.png>
-Package pdftex.def Info: Stage4/img6.png  used on input line 355.
-(pdftex.def)             Requested size: 112.16878pt x 42.15738pt.
-<Stage4/img7.png, id=158, 223.58531pt x 29.35968pt>
-File: Stage4/img7.png Graphic file (type png)
-<use Stage4/img7.png>
-Package pdftex.def Info: Stage4/img7.png  used on input line 361.
-(pdftex.def)             Requested size: 223.58475pt x 29.35959pt.
- [10 <./Stage4/img6.png> <./Stage4/img7.png>]
-<Modificacion/img1.png, id=163, 426.99525pt x 131.2905pt>
-File: Modificacion/img1.png Graphic file (type png)
-<use Modificacion/img1.png>
-Package pdftex.def Info: Modificacion/img1.png  used on input line 375.
-(pdftex.def)             Requested size: 426.79135pt x 131.23405pt.
-<Modificacion/img2.png, id=164, 296.307pt x 211.992pt>
-File: Modificacion/img2.png Graphic file (type png)
-<use Modificacion/img2.png>
-Package pdftex.def Info: Modificacion/img2.png  used on input line 386.
-(pdftex.def)             Requested size: 426.79135pt x 305.37173pt.
-<Modificacion/img3.png, id=165, 426.99525pt x 225.2415pt>
-File: Modificacion/img3.png Graphic file (type png)
-<use Modificacion/img3.png>
-Package pdftex.def Info: Modificacion/img3.png  used on input line 393.
-(pdftex.def)             Requested size: 426.79135pt x 225.1447pt.
- [11 <./Modificacion/img1.png> <./Modificacion/img2.png>]
-<Modificacion/img4.png, id=172, 426.99525pt x 261.3765pt>
-File: Modificacion/img4.png Graphic file (type png)
-<use Modificacion/img4.png>
-Package pdftex.def Info: Modificacion/img4.png  used on input line 399.
-(pdftex.def)             Requested size: 426.79135pt x 261.26416pt.
-<Modificacion/img5.png, id=173, 426.84468pt x 225.09094pt>
-File: Modificacion/img5.png Graphic file (type png)
-<use Modificacion/img5.png>
-Package pdftex.def Info: Modificacion/img5.png  used on input line 406.
-(pdftex.def)             Requested size: 426.79135pt x 225.07663pt.
- [12 <./Modificacion/img3.png> <./Modificacion/img4.png>] [13 <./Modificacion/i
-mg5.png>] [14] (PlantillaDefinitivaMateo.aux
+(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [2] (memoria.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -1108,36 +938,26 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-Package rerunfilecheck Warning: File `PlantillaDefinitivaMateo.out' has changed
-.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `PlantillaDefinitivaMateo.out':
-(rerunfilecheck)             Before: 8A32641A1FCA4B0CCBFAAF40835BA18A;438
-(rerunfilecheck)             After:  364874D97D4092F0F16B9F95AE9FB72F;976.
+Package rerunfilecheck Info: File `memoria.out' has not changed.
+(rerunfilecheck)             Checksum: 491D7D4CFC2ED2A1AE89A3F99441D39C;213.
  ) 
 Here is how much of TeX's memory you used:
- 31125 strings out of 474486
- 621071 string characters out of 5753176
- 1934542 words of memory out of 5000000
- 52897 multiletter control sequences out of 15000+600000
- 565009 words of font info for 62 fonts, out of 8000000 for 9000
+ 30887 strings out of 474486
+ 615328 string characters out of 5753176
+ 1929542 words of memory out of 5000000
+ 52681 multiletter control sequences out of 15000+600000
+ 564236 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,96p,609b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,96p,590b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MikTe
 x/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/in
-stall/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
-c/amsfonts/cm/cmtt10.pfb>
-Output written on PlantillaDefinitivaMateo.pdf (15 pages, 1255139 bytes).
+stall/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
+cm/cmsy8.pfb>
+Output written on memoria.pdf (3 pages, 207624 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
- 348 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 96 PDF objects out of 1000 (max. 8388607)
+ 5 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
