@@ -2662,8 +2662,16 @@ Tomando límites llegamos al resultado:
 \result{Lema de Fatou}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea una sucesión de funciones medibles $\{f_n : X \longrightarrow [0, +\infty]\}_{n\in\N}$. Entonces, se cumple:
 $$\int_{X}\linf{n} f_n\,d\mu \leq \linf{n} \int_{X}f_n\,d\mu$$
-\vspace{2mm} \dem \vspace{2mm} \newline \indent Por definición, $\linf{n} f_n = \mlim{n} \inf_{k \geq n} f_k(x) = \mlim{n} g_n(x)$ Para $g_n$ medible. Además, $g_n \leq g_{n+1}$. De este modo
-%TODO acabar
+\vspace{2mm} \dem \vspace{2mm} \newline \indent Por definición, $\linf{n} f_n = \mlim{n} \inf_{k \geq n} f_k(x) = \mlim{n} g_n(x)$ Para $g_n$ medible. Además, $g_n \leq g_{n+1}$. De este modo, estamos en condiciones de aplicar el \hyperref[result:2.1.10]{Teorema de la Convergencia Monótona}:
+\begin{flalign*}
+    \int_{X} \linf{n} f_n\, d\mu
+    = \int_{X} \lim_{n} g_n\, d\mu
+    = \lim_{n} \int_{X} g_n\, d\mu
+    \overset{(*)}{\leq} \linf{n} \int_{X} f_n\, d\mu
+\end{flalign*}
+(*) Como $g_n \leq f_n$, tenemos que $g_{k_n} \leq f_{k_n}$ (y por tanto $\int_{X}g_{k_n}\,d\mu \leq \int_{X}f_{k_n}\,d\mu$) para cualquier subsucesión; en particular, para la sucesión que tiene como límite el límite inferior.
+
+\vspace{2mm}
 \nota En general, la igualdad no tiene por qué cumplirse:
 \begin{align*}
     f_n = X_{[n, +\infty)} &&
@@ -2695,7 +2703,7 @@ $$ f \overset{\mu-a.e.}{=} g \Rightarrow \int_{X}f\,d\mu = \int_{X}g\,d\mu$$
     \int_{X}&f\,d\mu = \int_{X \setminus A}f\,d\mu + \int_{A}f\,d\mu = \int_{X \setminus A}f\,d\mu + 0 = \\
     &= \int_{X \setminus A}g\,d\mu + 0 = \int_{X \setminus A}g\,d\mu + \int_{A}g\,d\mu = \int_{X}g\,d\mu
 \end{flalign*}
-\nota Al definir la integral de Lebesgue para funciones cualesquiera, este resultado será también válido.
+\nota Este resultado será también válido para funciones de signo variable.
 
 \vspace{6mm}
 \result{Integral de funciones nulas en casi todo punto}
