@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  27 NOV 2025 20:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  27 NOV 2025 21:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -661,23 +661,21 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \f@nch@widthR=\skip72
 \@temptokenb=\toks44
 )
-(C:\MikTex\texmfs\install\tex/latex/lipsum\lipsum.sty
-(C:\MikTex\texmfs\install\tex/latex/l3packages/l3keys2e\l3keys2e.sty
-Package: l3keys2e 2023-10-10 LaTeX2e option processing using LaTeX3 keys
+(C:\MikTex\texmfs\install\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count315
+\float@exts=\toks45
+\float@box=\box67
+\@float@everytoks=\toks46
+\@floatcapt=\box68
 )
-Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count315
-\l__lipsum_a_int=\count316
-\l__lipsum_b_int=\count317
-
-(C:\MikTex\texmfs\install\tex/latex/lipsum\lipsum.ltd.tex))
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
 
 (C:\MikTex\texmfs\install\tex/latex/tools\verbatim.sty
 Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks45
-\verbatim@line=\toks46
+\every@verbatim=\toks47
+\verbatim@line=\toks48
 \verbatim@in@stream=\read4
 )
 (C:\MikTex\texmfs\install\tex/latex/environ\environ.sty
@@ -686,26 +684,26 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (C:\MikTex\texmfs\install\tex/latex/trimspaces\trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box67
-\tcb@upperbox=\box68
-\tcb@lowerbox=\box69
-\tcb@phantombox=\box70
-\c@tcbbreakpart=\count318
-\c@tcblayer=\count319
-\c@tcolorbox@number=\count320
-\l__tcobox_tmpa_box=\box71
+\tcb@titlebox=\box69
+\tcb@upperbox=\box70
+\tcb@lowerbox=\box71
+\tcb@phantombox=\box72
+\c@tcbbreakpart=\count316
+\c@tcblayer=\count317
+\c@tcolorbox@number=\count318
+\l__tcobox_tmpa_box=\box73
 \l__tcobox_tmpa_dim=\dimen281
-\tcb@temp=\box72
-\tcb@temp=\box73
 \tcb@temp=\box74
 \tcb@temp=\box75
+\tcb@temp=\box76
+\tcb@temp=\box77
 
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbraster.code.tex
 Library (tcolorbox): 'tcbraster.code.tex' version '6.2.0'
-\c@tcbrastercolumn=\count321
-\c@tcbrasterrow=\count322
-\c@tcbrasternum=\count323
-\c@tcbraster=\count324
+\c@tcbrastercolumn=\count319
+\c@tcbrasterrow=\count320
+\c@tcbrasternum=\count321
+\c@tcbraster=\count322
 ) (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/tikzfill\tikzfill.image.sty
@@ -716,7 +714,7 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 )
 (C:\MikTex\texmfs\install\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box76
+\l__tikzfill_img_box=\box78
 ))
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
@@ -726,9 +724,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box77
-\tcb@totalupperbox=\box78
-\tcb@totallowerbox=\box79
+\tcb@testbox=\box79
+\tcb@totalupperbox=\box80
+\tcb@totallowerbox=\box81
 )
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbhooks.code.tex
 Library (tcolorbox): 'tcbhooks.code.tex' version '6.2.0'
@@ -739,30 +737,30 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
 \tcbfitdim=\dimen282
 \tcb@lowerfitdim=\dimen283
 \tcb@upperfitdim=\dimen284
-\tcb@cur@hbadness=\count325
+\tcb@cur@hbadness=\count323
 ) (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcblistingsutf8.code.tex
 Library (tcolorbox): 'tcblistingsutf8.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/listings\listings.sty
-\lst@mode=\count326
-\lst@gtempboxa=\box80
-\lst@token=\toks47
-\lst@length=\count327
+\lst@mode=\count324
+\lst@gtempboxa=\box82
+\lst@token=\toks49
+\lst@length=\count325
 \lst@currlwidth=\dimen285
-\lst@column=\count328
-\lst@pos=\count329
+\lst@column=\count326
+\lst@pos=\count327
 \lst@lostspace=\dimen286
 \lst@width=\dimen287
-\lst@newlines=\count330
-\lst@lineno=\count331
+\lst@newlines=\count328
+\lst@lineno=\count329
 \lst@maxwidth=\dimen288
 
 (C:\MikTex\texmfs\install\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count332
-\lst@skipnumbers=\count333
-\lst@framebox=\box81
+\c@lstnumber=\count330
+\lst@skipnumbers=\count331
+\lst@framebox=\box83
 )
 (C:\MikTex\texmfs\install\tex/latex/listings\listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -774,7 +772,7 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
 )
-\c@tcblisting=\count334
+\c@tcblisting=\count332
 )) (C:\MikTex\texmfs\install\tex/latex/listingsutf8\listingsutf8.sty
 Package: listingsutf8 2019-12-10 v1.5 Allow UTF-8 in listings input (HO)
 
@@ -825,17 +823,17 @@ LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
  (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count335
+\scratchcounter=\count333
 \scratchdimen=\dimen289
-\scratchbox=\box82
-\nofMPsegments=\count336
-\nofMParguments=\count337
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count338
+\scratchbox=\box84
+\nofMPsegments=\count334
+\nofMParguments=\count335
+\everyMPshowfont=\toks50
+\MPscratchCnt=\count336
 \MPscratchDim=\dimen290
-\MPnumerator=\count339
-\makeMPintoPDFobject=\count340
-\everyMPtoPDFconversion=\toks49
+\MPnumerator=\count337
+\makeMPintoPDFobject=\count338
+\everyMPtoPDFconversion=\toks51
 ) (C:\MikTex\texmfs\install\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -884,14 +882,15 @@ Package hyperref Info: Link coloring ON on input line 33.
 \openout4 = `memoria.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count341
+\c@lstlisting=\count339
 
 (C:\MikTex\texmfs\install\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
-\inpenc@prehook=\toks50
-\inpenc@posthook=\toks51
+\inpenc@prehook=\toks52
+\inpenc@posthook=\toks53
 )
 <uniovi.jpg, id=54, 1284.8pt x 946.53625pt>
 File: uniovi.jpg Graphic file (type jpg)
@@ -928,7 +927,14 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.65 \newpage
-              [1] [2] (memoria.aux
+              [1]
+<media/algoritmos/monohilo/main.png, id=71, 461.47406pt x 392.96812pt>
+File: media/algoritmos/monohilo/main.png Graphic file (type png)
+<use media/algoritmos/monohilo/main.png>
+Package pdftex.def Info: media/algoritmos/monohilo/main.png  used on input line
+ 82.
+(pdftex.def)             Requested size: 384.1096pt x 327.08685pt.
+ [2 <./media/algoritmos/monohilo/main.png>] [3] (memoria.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -937,25 +943,26 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: DD4A002597D792FE4EAEC12534BF2C73;554.
+(rerunfilecheck)             Checksum: 95955E1AAFE3B9E08609378B2B82BAE1;688.
  ) 
 Here is how much of TeX's memory you used:
- 30893 strings out of 474486
- 615417 string characters out of 5753176
- 1930542 words of memory out of 5000000
- 52685 multiletter control sequences out of 15000+600000
- 564841 words of font info for 61 fonts, out of 8000000 for 9000
+ 30553 strings out of 474486
+ 606845 string characters out of 5753176
+ 1931542 words of memory out of 5000000
+ 52350 multiletter control sequences out of 15000+600000
+ 565009 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,96p,590b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,96p,648b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MikTe
 x/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/in
 stall/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts
 /type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
-cm/cmsy8.pfb>
-Output written on memoria.pdf (3 pages, 210821 bytes).
+cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b>
+Output written on memoria.pdf (4 pages, 268455 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 191 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 9 named destinations out of 1000 (max. 500000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
