@@ -48,10 +48,10 @@
   \hrule
   \vspace{1cm}
   {\bfseries PL1-A \\ [4ex]
-  Alejandro Jarillo García UO999999\\[3ex]
   Jorge Gota Ortín UO301023\\[3ex]
   Javier Ortín Rodenas UO299855\\[3ex]
-  Andrés Fernández-Junquera Fernández UO302086\par} % Nombres centrados
+  Andrés Fernández-Junquera Fernández UO302086\\[3ex]
+  Alejandro Jarillo Pineda UO302394\par} % Nombres centrados  
   \vspace{\fill}  % Espacio después de los nombres
 
 \end{titlepage}
@@ -64,11 +64,16 @@
 
 \newpage
 \section{Algoritmo a aplicar a la imagen}
+\subsection{Algoritmo matemático}
 \hspace{3mm} En nuestro caso, el algoritmo a implementar es el número 3. Tiene como entrada una única imagen y genera como salida una versión de la misma en blanco y negro. Sean $(R,G,B)$ las componentes de un píxel de la entrada, las componentes $(R',G',B')$ del píxel equivalente en la imagen de salida vienen dadas por:
 \begin{flalign*}
     R' = G' = B' = 255 - (0.3 \cdot R + 0.59 \cdot G + 0.11 \cdot B)
 \end{flalign*}
-Matemáticamente, los valores de la imagen destino deberían estar comprendidos siempre entre $0$ y $255$. No obstante, los píxeles muy claros o muy oscuros podrían dar problemas por errores de redondeo a la hora de implementar el algoritmo. Por tanto, es necesario comprobar la saturación antes de asignar el valor de los píxeles a la imagen destino.
+Se pasa a escala de grises con la siguiente media ponderada:
+$$L = 0.3 \cdot R + 0.59 \cdot G + 0.11 \cdot B$$
+A continuación, se invierte al hacer $R' = G' = B' = 255 - L$, de ahí el nombre de ``inversión en blanco y negro''.
+\vspace{2mm}  \newline Matemáticamente, los valores de la imagen destino deberían estar comprendidos siempre entre $0$ y $255$. Debido a la sencillez de este algoritmo, no será sencillo saturar, pues el resultado de las operaciones tendrá un valor adecuado siempre.
 
-
+\vspace{8mm}  
+\subsection{Implementación monohilo}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  24 NOV 2025 21:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  27 NOV 2025 20:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -920,12 +920,12 @@ been already used, duplicate ignored
                    \relax 
 l.65 \newpage
               [1]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
 
  (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
 
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
@@ -938,15 +938,22 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 491D7D4CFC2ED2A1AE89A3F99441D39C;213.
+
+
+Package rerunfilecheck Warning: File `memoria.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `memoria.out':
+(rerunfilecheck)             Before: 491D7D4CFC2ED2A1AE89A3F99441D39C;213
+(rerunfilecheck)             After:  DD4A002597D792FE4EAEC12534BF2C73;554.
  ) 
 Here is how much of TeX's memory you used:
- 30887 strings out of 474486
- 615328 string characters out of 5753176
- 1929542 words of memory out of 5000000
- 52681 multiletter control sequences out of 15000+600000
- 564236 words of font info for 59 fonts, out of 8000000 for 9000
+ 30891 strings out of 474486
+ 615385 string characters out of 5753176
+ 1930542 words of memory out of 5000000
+ 52683 multiletter control sequences out of 15000+600000
+ 564841 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,8n,96p,590b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MikTe
@@ -955,9 +962,9 @@ stall/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts
 /type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb>
-Output written on memoria.pdf (3 pages, 207624 bytes).
+Output written on memoria.pdf (3 pages, 209460 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 7 named destinations out of 1000 (max. 500000)
  175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
