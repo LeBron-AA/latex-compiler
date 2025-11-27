@@ -4,10 +4,10 @@
 \usepackage{amsmath,amsfonts, amssymb, amsthm}
 \usepackage{graphicx, tikz, xparse, array}
 \usepackage[top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[colorlinks=true]{hyperref}
 \usepackage{setspace}
 \usepackage{caption}
-\usepackage{xcolor}
+\usepackage[x11names]{xcolor}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{float}
@@ -60,11 +60,14 @@
 
 \newpage
 
+\hypersetup{linkcolor=black}
 \tableofcontents
+\hypersetup{linkcolor=DeepSkyBlue3}
 
 \newpage
 \section{Algoritmo a aplicar a la imagen}
 \subsection{Algoritmo matemático}
+\label{result:1.1}
 \hspace{3mm} En nuestro caso, el algoritmo a implementar es el número 3. Tiene como entrada una única imagen y genera como salida una versión de la misma en blanco y negro. Sean $(R,G,B)$ las componentes de un píxel de la entrada, las componentes $(R',G',B')$ del píxel equivalente en la imagen de salida vienen dadas por:
 \begin{flalign*}
     R' = G' = B' = 255 - (0.3 \cdot R + 0.59 \cdot G + 0.11 \cdot B)
@@ -85,6 +88,11 @@ Comencemos analizando la función \texttt{main} y el funcionamiento general del 
 
 \vspace{2mm} En primer lugar, cargamos la imagen teniendo en cuenta la posibilidad de que esta pueda no existir y manejando el error en tal caso. A continuación, iniciamos las variables necesarias, deteniendo la ejecución si no fuese posible asignar memoria adecuadamente. Una vez hecho esto, medimos el tiempo que tarda en ejecutarse el algoritmo 100 veces (para que tarde el tiempo mínimo deseado), manejando los errores de cronometrado en caso de haberlos. Finalmente, se muestra el tiempo transcurrido así como la imagen destino.
 
-\vspace{4mm} Veamos ahora cómo se estructura el algoritmo del filtro:
+\vspace{4mm} \noindent Veamos ahora cómo se estructura el algoritmo del filtro:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{media/algoritmos/monohilo/filter.png}
+\end{figure}
 
+El algoritmo recorre los píxeles de la imagen, aplicando para cada uno de ellos el \hyperref[result:1.1]{algoritmo matemático} visto. 
 \end{document}
