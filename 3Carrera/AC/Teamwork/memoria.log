@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  27 NOV 2025 21:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  27 NOV 2025 21:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -895,12 +895,12 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks52
 \inpenc@posthook=\toks53
 )
-<uniovi.jpg, id=54, 1284.8pt x 946.53625pt>
+<uniovi.jpg, id=58, 1284.8pt x 946.53625pt>
 File: uniovi.jpg Graphic file (type jpg)
 <use uniovi.jpg>
 Package pdftex.def Info: uniovi.jpg  used on input line 38.
 (pdftex.def)             Requested size: 128.0387pt x 94.32698pt.
-<descarga.jpeg, id=55, 319.1925pt x 159.59625pt>
+<descarga.jpeg, id=59, 319.1925pt x 159.59625pt>
 File: descarga.jpeg Graphic file (type jpg)
 <use descarga.jpeg>
 Package pdftex.def Info: descarga.jpeg  used on input line 39.
@@ -931,20 +931,34 @@ been already used, duplicate ignored
                    \relax 
 l.67 \newpage
               [1]
-<media/algoritmos/monohilo/main.png, id=71, 461.47406pt x 392.96812pt>
+<media/algoritmos/monohilo/main.png, id=76, 461.47406pt x 392.96812pt>
 File: media/algoritmos/monohilo/main.png Graphic file (type png)
 <use media/algoritmos/monohilo/main.png>
 Package pdftex.def Info: media/algoritmos/monohilo/main.png  used on input line
  85.
 (pdftex.def)             Requested size: 384.1096pt x 327.08685pt.
  [2 <./media/algoritmos/monohilo/main.png>]
-<media/algoritmos/monohilo/filter.png, id=83, 1005.00468pt x 273.27094pt>
+<media/algoritmos/monohilo/filter.png, id=88, 1005.00468pt x 273.27094pt>
 File: media/algoritmos/monohilo/filter.png Graphic file (type png)
 <use media/algoritmos/monohilo/filter.png>
 Package pdftex.def Info: media/algoritmos/monohilo/filter.png  used on input li
 ne 94.
 (pdftex.def)             Requested size: 384.1096pt x 104.44029pt.
- [3 <./media/algoritmos/monohilo/filter.png>] (memoria.aux
+<media/algoritmos/multihilo/struct.png, id=90, 778.40813pt x 326.72063pt>
+File: media/algoritmos/multihilo/struct.png Graphic file (type png)
+<use media/algoritmos/multihilo/struct.png>
+Package pdftex.def Info: media/algoritmos/multihilo/struct.png  used on input l
+ine 105.
+(pdftex.def)             Requested size: 384.1096pt x 161.22617pt.
+<media/algoritmos/multihilo/distribution.png, id=91, 607.51968pt x 541.27219pt>
+
+File: media/algoritmos/multihilo/distribution.png Graphic file (type png)
+<use media/algoritmos/multihilo/distribution.png>
+Package pdftex.def Info: media/algoritmos/multihilo/distribution.png  used on i
+nput line 110.
+(pdftex.def)             Requested size: 384.1096pt x 342.23389pt.
+ [3 <./media/algoritmos/monohilo/filter.png> <./media/algoritmos/multihilo/stru
+ct.png>] [4 <./media/algoritmos/multihilo/distribution.png>] (memoria.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -953,16 +967,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 95955E1AAFE3B9E08609378B2B82BAE1;688.
+(rerunfilecheck)             Checksum: C17A5C8ED039150611D3E5E643AAEE55;881.
  ) 
 Here is how much of TeX's memory you used:
- 30886 strings out of 474486
- 612553 string characters out of 5753176
+ 30906 strings out of 474486
+ 613305 string characters out of 5753176
  1931542 words of memory out of 5000000
- 52679 multiletter control sequences out of 15000+600000
+ 52695 multiletter control sequences out of 15000+600000
  565009 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,96p,648b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,96p,673b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/MikTe
 x/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/in
 stall/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts
@@ -970,9 +984,9 @@ stall/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts
 c/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pf
 b>
-Output written on memoria.pdf (4 pages, 314848 bytes).
+Output written on memoria.pdf (5 pages, 472959 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
- 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 219 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -95,4 +95,20 @@ Comencemos analizando la función \texttt{main} y el funcionamiento general del 
 \end{figure}
 
 El algoritmo recorre los píxeles de la imagen, aplicando para cada uno de ellos el \hyperref[result:1.1]{algoritmo matemático} visto. 
+
+\vspace{8mm}
+\subsubsection{Implementación multihilo}
+\hspace{3mm} El funcionamiento general del programa es el mismo. Por tanto, nos centraremos únicamente en las modificaciones necesarias para implementar la funcionalidad multihilo.
+\vspace{2mm} \newline \indent En esta versión, se asignará un \texttt{filter\_args\_t} a cada hilo para que itere sobre los píxeles que le sean asignados. Por tanto, hemos modificado el \texttt{struct} para que almacene también los píxeles inicial y final que ha de recorrer:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{media/algoritmos/multihilo/struct.png}
+\end{figure}
+\vspace{2mm} Veamos cómo se distribuye el trabajo entre los hilos:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{media/algoritmos/multihilo/distribution.png}
+\end{figure}
+\indent El parámetro \texttt{shared\_args} contiene la información común a todos los hilos, que ha sido agrupada en forma de \texttt{filter\_args\_t} para facilitar su manejo. A partir de él se inician los campos del resto de \texttt{structs} de este tipo.
+\vspace{2mm} \newline \indent Más aún, en este bucle se asignan los píxeles de inicio y final. Para ello, se calculan primero los píxeles base (\texttt{baseWorkPerThread}) de cada hilo, a los que se puede sumar un píxel extra en función del resto de la división. De este modo, nos aseguramos de que se procesen todos los píxeles de la imagen aunque el número total de ellos no sea múltiplo del número de hilos. Además, este sistema distribuye la carga de manera uniforme entre los hilos, en lugar de asignar todos los píxeles restantes (\texttt{remaining}) a un solo hilo.
 \end{document}
