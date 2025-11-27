@@ -893,12 +893,12 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks50
 \inpenc@posthook=\toks51
 )
-<uniovi.jpg, id=46, 1284.8pt x 946.53625pt>
+<uniovi.jpg, id=54, 1284.8pt x 946.53625pt>
 File: uniovi.jpg Graphic file (type jpg)
 <use uniovi.jpg>
 Package pdftex.def Info: uniovi.jpg  used on input line 38.
 (pdftex.def)             Requested size: 128.0387pt x 94.32698pt.
-<descarga.jpeg, id=47, 319.1925pt x 159.59625pt>
+<descarga.jpeg, id=55, 319.1925pt x 159.59625pt>
 File: descarga.jpeg Graphic file (type jpg)
 <use descarga.jpeg>
 Package pdftex.def Info: descarga.jpeg  used on input line 39.
@@ -909,7 +909,16 @@ Package pdftex.def Info: descarga.jpeg  used on input line 39.
 jpeg>] (memoria.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write5
 \openout5 = `memoria.toc'.
 
@@ -919,18 +928,7 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.65 \newpage
-              [1]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 68.
-
- (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 68.
-
-
-(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2] (memoria.aux
+              [1] [2] (memoria.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -938,21 +936,14 @@ LaTeX Info: Redefining \% on input line 11.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-Package rerunfilecheck Warning: File `memoria.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `memoria.out':
-(rerunfilecheck)             Before: 491D7D4CFC2ED2A1AE89A3F99441D39C;213
-(rerunfilecheck)             After:  DD4A002597D792FE4EAEC12534BF2C73;554.
+Package rerunfilecheck Info: File `memoria.out' has not changed.
+(rerunfilecheck)             Checksum: DD4A002597D792FE4EAEC12534BF2C73;554.
  ) 
 Here is how much of TeX's memory you used:
- 30891 strings out of 474486
- 615385 string characters out of 5753176
+ 30893 strings out of 474486
+ 615417 string characters out of 5753176
  1930542 words of memory out of 5000000
- 52683 multiletter control sequences out of 15000+600000
+ 52685 multiletter control sequences out of 15000+600000
  564841 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,8n,96p,590b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -962,9 +953,9 @@ stall/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts
 /type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb>
-Output written on memoria.pdf (3 pages, 209460 bytes).
+Output written on memoria.pdf (3 pages, 210821 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 108 PDF objects out of 1000 (max. 8388607)
  7 named destinations out of 1000 (max. 500000)
- 175 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 
