@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  26 NOV 2025 21:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  27 NOV 2025 10:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -937,222 +937,46 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
 [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66]
 [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
-[82] [83] [84] [85] [86] [87] [88] [89]
+[82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96]
+[97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108]
+(apuntes.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+ ***********
+Package rerunfilecheck Info: File `apuntes.out' has not changed.
+(rerunfilecheck)             Checksum: 699F9153D1801699BEB8C766E590A135;31411.
+ ) 
+Here is how much of TeX's memory you used:
+ 38772 strings out of 474486
+ 906272 string characters out of 5753176
+ 1955542 words of memory out of 5000000
+ 60136 multiletter control sequences out of 15000+600000
+ 574948 words of font info for 101 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 83i,21n,87p,770b,969s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk> <C:\M
+ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/MikTex/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install
+/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fonts/type
+1/public/amsfonts/cmextra/cmex8.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
+cm/cmmi12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/MikTex
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/texmfs/inst
+all/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/ty
+pe1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmr6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+r8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
+MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/MikTex/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fo
+nts/type1/public/amsfonts/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/p
+ublic/amsfonts/euler/eufm10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts
+/symbols/msbm7.pfb>
+Output written on apuntes.pdf (108 pages, 703536 bytes).
+PDF statistics:
+ 1488 PDF objects out of 1728 (max. 8388607)
+ 346 named destinations out of 1000 (max. 500000)
+ 1011 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: LaTeX Error: Somethin
-g's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: LaTeX Error: Somethin
-g's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Missing number, treat
-ed as zero.
-<to be read again> 
-                   \unskip 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Illegal unit of measu
-re (pt inserted).
-<to be read again> 
-                   \unskip 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: LaTeX Error: Somethin
-g's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Extra \else.
-\pgfmath@parse@@number ...rator \fi \fi \fi \else 
-                                                  \global \pgfmathunitsdecla...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-I'm ignoring this; it doesn't match any \if.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Missing number, treat
-ed as zero.
-<to be read again> 
-                   \unskip 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Illegal unit of measu
-re (pt inserted).
-<to be read again> 
-                   \unskip 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Missing \endcsname in
-serted.
-<to be read again> 
-                   \unskip 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Missing \endcsname in
-serted.
-<to be read again> 
-                   \unskip 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Extra \endcsname.
-\pgfmath@operation@process ...ecials@#1\endcsname 
-                                                  \relax \pgfmath@stack@push...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-I'm ignoring this, since I wasn't doing a \csname.
-
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: LaTeX Error: There's 
-no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-Missing character: There is no 0 in font nullfont!
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Undefined control seq
-uence.
-\pgfmath@parse@@number ...r \ifcat \pgfmath@token 
-                                                  \relax \expandafter \ifx \...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Undefined control seq
-uence.
-\pgfmath@parse@@number ... \string \pgfmath@token 
-                                                  \endcsname \relax \expanda...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Missing \endcsname in
-serted.
-<to be read again> 
-                   \relax 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Undefined control seq
-uence.
-\pgfmath@parse@@number ...ter \ifx \pgfmath@token 
-                                                  \numexpr \let \pgfmath@par...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Undefined control seq
-uence.
-\pgfmath@parse@@number ...ter \ifx \pgfmath@token 
-                                                  \muexpr \let \pgfmath@pars...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Undefined control seq
-uence.
-\pgfmath@parse@@number ... \string \pgfmath@token 
-                                                  \endcsname \relax \expanda...
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Missing \endcsname in
-serted.
-<to be read again> 
-                   \relax 
-l.3094 ...[dashed] ({\t0 - \delt}, {\\t0) + \eps})
-                                                   -- ({\t0 - 8*\delt}, {\a(...
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
-
-d:/UNIOVI/latex-compiler/3Carrera/AMat3/apuntes.tex:3094: Undefined control seq
-uence.
-\pgfmath@parse@@number ...h@dimen@ \pgfmath@token 
-                       

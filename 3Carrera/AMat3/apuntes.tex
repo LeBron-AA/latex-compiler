@@ -2497,7 +2497,7 @@ $$\lbint_E s \,d \mu = \lbint_X s_{|E} \,d\mu = \sum_{i=1}^{n}\lambda_i \cdot \m
 
 \newpage
 \result{Linealidad del integrando}
-\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$. Sea $s: X \longrightarrow [0, \infty)$ una función simple y medible. Sean $\{E_i\}_{i\in\N}$ con $i \neq j \Rightarrow E_i \cap E_j = \varnothing$. Entonces, se cumple:
+\hspace{3mm} Dado un espacio de medida $(X, \Sigma, \mu)$. Sea $s: X \longrightarrow [0, \infty)$ una función simple y medible. Sean $\{E_i\}_{i\in\N} \subseteq \Sigma$ con $i \neq j \Rightarrow E_i \cap E_j = \varnothing$. Entonces, se cumple:
 $$\lbint_{\smallcup_{i\in\N}E_i} s \, d\mu = \sum_{i=1}^\infty \lbint_{E_i}s\,d\mu$$
 
 \vspace{3mm}
@@ -2530,7 +2530,7 @@ La última igualdad se deduce de la \hyperref[result:2.1.3]{linealidad del integ
 
 \hspace{4mm}
 \result{Monotonía de la integral simple}
-\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s, t: X \longrightarrow [0, \infty)$ funciones medibles simples tales que $s(x) \leq t(x) \forall x \in X$. Entonces, se cumple:
+\hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $s, t: X \longrightarrow [0, \infty)$ funciones medibles simples tales que $s(x) \leq t(x) \hspace{2mm} \forall x \in X$. Entonces, se cumple:
 $$\lbint_{X}s\,d\mu \leq \lbint_{X}t\,d\mu$$
 
 \vspace{2mm} \dem Sean sus expresiones canónicas: $\displaystyle s= \sum_{i=1}^n \alpha_i \cdot X_{A_i} \hspace{3mm} t = \sum_{j=1}^m \beta_j \cdot X_{B_j}$.
@@ -2555,7 +2555,7 @@ $$\lbint_{X}c \cdot s\,d\mu = c \cdot \lbint_{X}s\,d\mu \hspace{4mm} \forall c \
 \vspace{6mm}
 \result{Integral de funciones medibles no negativas}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sea $f : X \longrightarrow [0, +\infty]$ medible. Se define la integral de Lebesgue de $f$ sobre $X$ como:
-$$\int_{X}f\,d\mu = \sup\left\{\lbint_{X}s\,d\mu \hspace{2mm} \text{ con } 0 \leq s \leq s, \hspace{1mm} s \text{ función simple medible}\right\} = \sup \mathcal{S}_X(f)$$
+$$\int_{X}f\,d\mu = \sup\left\{\lbint_{X}s\,d\mu \hspace{2mm} \text{ con } 0 \leq s \leq f, \hspace{1mm} s \text{ función simple medible}\right\} = \sup \mathcal{S}_X(f)$$
 Nótese que el conjunto anterior no es vacío, pues $s \equiv 0$ está en él. Además, se puede extender la definición anterior a cualquier subconjunto medible de $X$.
 
 \vspace{6mm}
@@ -2569,17 +2569,17 @@ $$f(x) = \begin{cases}
     \frac{1}{q} &\text{ si } x = \frac{p}{q} \text{ para }p,q \text{ naturales primos entre sí}
 \end{cases} $$
 \indent Sabemos por Análisis Matemático II que esta función es integrable-Riemann en $[0,1]$ con valor de su integral igual a $0$. Veamos que ocurre lo mismo con la integral de Lebesgue. Sea $s$ una función simple medible tal que $0 \leq s \leq f$. Se cumple $M := \max s([0,1]) \leq 1$. Los puntos donde $s$ toma valores positivos son a lo sumo numerables, pues se cumple:
-$$f^{-1}\big((0, +\infty)\big) = \bigcup_{n\in\N} \bigcup_{i=1}^n \frac{i}{n}$$
+$$f^{-1}\big((0, +\infty)\big) = \bigcup_{n\in\N} \hspace{1mm}\bigcup_{i=1}^n \frac{i}{n}$$
 Los puntos donde $s$ toma valores positivos han de estar contenidos en el conjunto anterior, que es numerable y tiene por tanto medida nula. De este modo, tenemos:
-$$0 \leq \lbint_{[0,1]}s\,d\mu = 0 \mu\big(s^{-1}(\{0\})\big) + M \cdot \mu\Big(s^{-1}\big((0,M]\big)\Big) = 0$$
+$$0 \leq \lbint_{[0,1]}s\,d\mu = 0 \cdot \mu\big(s^{-1}(\{0\})\big) + M \cdot \mu\Big(s^{-1}\big((0,M]\big)\Big) = 0$$
 
 \vspace{6mm} \result{Propiedades básicas}
-\hspace{3mm}  Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $f,g : X \leftarrow [0, \infty]$ funciones medibles. Sean $E,F \in \Sigma$. Sea $c \in [0, +\infty)$. Se cumplen los siguientes enunciados:
+\hspace{3mm}  Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $f,g : X \rightarrow [0, \infty]$ funciones medibles. Sean $E,F \in \Sigma$. Sea $c \in [0, +\infty)$. Se cumplen los siguientes enunciados:
 \begin{enumerate}[label=\roman*)]
     \item $0 \leq f \leq g \Rightarrow \int_{X}f\,d\mu \leq \int_{X}g\,d\mu$
-    \item $\int_{X}c \dot f\,d\mu = c \cdot \int_{X}f\,d\mu$
+    \item $\int_{X}c \cdot f\,d\mu = c \cdot \int_{X}f\,d\mu$
     \item $f\equiv 0 \Rightarrow \int_{X}f\,d\mu = 0$
-    \item $\mu(E) = 0 \leq \int_{E}f\,d\mu = 0$
+    \item $\mu(E) = 0 \Rightarrow \int_{E}f\,d\mu = 0$
     \item Si $E \subseteq F$; entonces, $\int_{E}f\,d\mu = \int_{D}f \cdot X_E\,d\mu$ y $\int_{E}f\,d\mu \leq \int_{D}f\,d\mu$
 \end{enumerate}
 \vspace{2mm} \dem \newline \vspace{2mm} $\romannumeral 1)$ Sea $s : X \longrightarrow [0, +\infty)$ una función simple medible tal que $s \leq f$. Entonces se cumple $s \leq g$. Por tanto, siguiendo la notación del \hyperref[result:2.1.7]{resultado 2.1.7}, tenemos que $\mathcal{S}_X(f) \subseteq \mathcal{S}_X(g)$ luego ha de cumplirse: $$\int_{X}f\,d\mu = \sup \mathcal{S}_X(f) \leq \sup \mathcal{S}_X(g) = \int_{X}g\,d\mu$$
@@ -2587,8 +2587,8 @@ $$0 \leq \lbint_{[0,1]}s\,d\mu = 0 \mu\big(s^{-1}(\{0\})\big) + M \cdot \mu\Big(
 \vspace{4mm} $\romannumeral 2)$ Distinguimos dos casos: En primer lugar, si $c = 0$ se tiene: $$\int_{X}c \cdot f\,d\mu = \int_{X}0\,d\mu = 0 = 0 \cdot \int_{X}f\,d\mu$$
 Si $c \in (0, +\infty)$; entonces, tenemos:
 \begin{flalign*}
-    c \cdot \int_{X}f\,d\mu & = c \cdot \sup \left\{\lbint_{X}s\,d\mu : \hspace{2mm} 0 \leq s \leq f \hspace{2mm} \text{ con } s \text{ función medible simple}\right\} = \sup c \cdot \mathcal{S}_X(f)\\
-    \int_{X}c\cdot f\,d\mu & \sup \left\{\lbint_{X}s\,d\mu : \hspace{2mm} 0 \leq t \leq c\cdot f \hspace{2mm} \text{ con } t \text{ función medible simple}\right\} = \sup \mathcal{S}_X(c\cdot f)
+    c \cdot \int_{X}f\,d\mu & = c \cdot \sup \left\{\lbint_{X}s\,d\mu : \hspace{2mm} 0 \leq s \leq f \hspace{2mm} \text{ con } s \text{ función medible simple}\right\} = c \cdot \sup \mathcal{S}_X(f)\\
+    \int_{X}c\cdot f\,d\mu & \sup \left\{\lbint_{X}t\,d\mu : \hspace{2mm} 0 \leq t \leq c\cdot f \hspace{2mm} \text{ con } t \text{ función medible simple}\right\} = \sup \mathcal{S}_X(c\cdot f)
 \end{flalign*}
 Al cumplirse $c \in (0,+\infty)$, tenemos que $0 \leq f \leq s \iff 0 \leq c \cdot s \leq c \cdot f$ luego las integrales han de coincidir.
 
@@ -2596,7 +2596,7 @@ Al cumplirse $c \in (0,+\infty)$, tenemos que $0 \leq f \leq s \iff 0 \leq c \cd
 
 \vspace{4mm} $\romannumeral 5)$ Comencemos por ver la primera parte. Sea una función simple y medible $s : F \longrightarrow [0, +\infty)$ tal que $s \leq f \cdot X_E$. Entonces se tiene $s_{|E}$ es simple también. Además, se cumple:
 $$\lbint_{F}s\,d\mu = \lbint_{E}s_{|E}\,d\mu + \lbint_{F \setminus E}0\,d\mu = \int_{E}s_{|E}\,d\mu$$
-De manera similar, sea $t : E \longrightarrow [0,+\infty)$ simple tal que $t \leq f$, podemos extender $t$ a $F$ al considerar $\hat{t}(x) = t(x)$ si $x \in E$ ó $0$ si $x F \setminus E$. La función resultante $\hat{t}$ es simple, medible y cumple $\hat{t} \leq f \cdot X_E$. De este modo,
+De manera similar, sea $t : E \longrightarrow [0,+\infty)$ simple tal que $t \leq f$, podemos extender $t$ a $F$ al considerar $\hat{t}(x) = t(x)$ si $x \in E$ ó $0$ si $x \in F \setminus E$. La función resultante $\hat{t}$ es simple, medible y cumple $\hat{t} \leq f \cdot X_E$. De este modo,
 $$\lbint_{F}\hat{t}\,d\mu = \int_{F \setminus E}0\,d\mu + \lbint_{E}\hat{t}\,d\mu = \lbint_{E}t\,d\mu$$
 Por tanto, se cumple $\mathcal{S}_E(f) = \mathcal{S}_F(f \cdot X_E)$ luego las integrales coinciden.
 \vspace{4mm} \newline \indent Este razonamiento de extender $t$ a $\hat{t}$ demuestra también que $\mathcal{S}_E(f) \subseteq \mathcal{S}_F(f)$ luego por definición de supremo, se tiene:
@@ -2609,7 +2609,7 @@ Se cumple también la segunda parte.
 \begin{align*}
     \forall \hspace{1mm} x \in X \hspace{2mm} \forall n \in \N : f_n(x) \leq f_{n+1}(x) && f_n(x) \xrightarrow{n\to\infty} f(x)
 \end{align*}
-Entonces, existe el límite de la integrales y coincide con la integral de la función límite:
+Entonces, existe el límite de las integrales y coincide con la integral de la función límite:
 $$\lim_n \int_{X}f_n\,d\mu = \int_{X}\lim_n f_n\,d\mu = \int_{X}f\,d\mu$$
 \vspace{2mm} \dem
 
@@ -2618,10 +2618,10 @@ $$\lim_n \int_{X}f_n\,d\mu = \int_{X}\lim_n f_n\,d\mu = \int_{X}f\,d\mu$$
     \int_{X}f_n\,d\mu \leq \int_{X}f_{n+1}\,d\mu \Rightarrow \exists \hspace{1mm} \lim_n \int_{X}f_n\,d\mu = \alpha \in [0, +\infty]
 \end{flalign*}
 Al ser una sucesión monótona, o bien converge o diverge. Es por ello que podemos garantizar la existencia del límite, $\alpha$.
-\vspace{2mm} \newline \indent Como $f_n(x) \xrightarrow{n\to\infty}$ de manera creciente para todo $x \in X$, para cada $n \in \N$ tenemos $f_n \leq f \Rightarrow \int_{X}f_n\,d\mu \leq \int_{X}f\,d\mu \Rightarrow \alpha \leq \int_{X}f\,d\mu$. Queda demostrar $\int_{X}f\,d\mu \leq \alpha$. Para ello, sea $s : X \longrightarrow [0, +\infty]$ una función simple y medible con $s \leq f$, basta ver que $\lbint_{X}s\,d\mu \leq \alpha$.
-\vspace{4mm} \newline \indent Sea $\hspace{1mm} c \in [0, 1)$. Para cada $x \in X$ existe $n_x \in \N$ tal que $c \cdot s(x) \leq f_n(x) \leq f(x) \hspace{2mm} \forall n \geq n_x$. Podemos suponer sin pérdida de generalidad que $s(x) = \infty$ para aquellos $x$ con $f(x) = \infty$ par que se cumpla el razonamiento anterior. Para cada $n \in \N$, consideramos el siguiente conjunto:
+\vspace{2mm} \newline \indent Como $f_n(x) \xrightarrow{n\to\infty} f(x)$ de manera creciente para todo $x \in X$, para cada $n \in \N$ tenemos $f_n \leq f \Rightarrow \int_{X}f_n\,d\mu \leq \int_{X}f\,d\mu \Rightarrow \alpha \leq \int_{X}f\,d\mu$. Queda demostrar $\int_{X}f\,d\mu \leq \alpha$. Para ello, sea $s : X \longrightarrow [0, +\infty]$ una función simple y medible con $s \leq f$, basta ver que $\lbint_{X}s\,d\mu \leq \alpha$.
+\vspace{4mm} \newline \indent Sea $\hspace{1mm} c \in [0, 1)$. Para cada $x \in X$ existe $n_x \in \N$ tal que $c \cdot s(x) \leq f_n(x) \leq f(x) \hspace{2mm} \forall n \geq n_x$. Podemos suponer sin pérdida de generalidad que $s(x) < \infty$ para aquellos $x$ con $f(x) = \infty$ par que se cumpla el razonamiento anterior. Para cada $n \in \N$, consideramos el siguiente conjunto:
 %TODO preguntar en clase
-$$E_n :=  \{x \in X : c \cdot s_x \leq f_k(x) \leq f(x) \hspace{2mm} \forall k \geq n \} \hspace{2mm} \in \Sigma$$
+$$E_n :=  \{x \in X : c \cdot s(x) \leq f_k(x) \leq f(x) \hspace{2mm} \forall k \geq n \} \hspace{2mm} \in \Sigma$$
 Al ser $s, f_n, f$ medibles, podemos garantizar que $E_n$ es medible. Por definición, es claro que $E_n \subseteq E_{n+1}$ Además, se tiene $x \in X \Rightarrow x \in E_{n_x} \Rightarrow X = \smallcup_{n\in\N} E_n$.
 \vspace{4mm} \newline \indent Sea $\displaystyle s = \sum_{i = 1}^{m} \lambda_i \cdot X_{A_i}$ la expresión canónica de $s$, se cumple:
 \begin{flalign*}
@@ -2690,15 +2690,15 @@ En tal caso, se denotará como $f \overset{\mu-a.e.}{=} g$ ó $f = g \hspace{1mm
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida completo. Sean $f,g : X \longrightarrow \overline{\R}$ funciones tales que $f \overset{\mu-a.e.}{=}g$. Si $f$ es medible; entonces, $g$ es medible también.
 \vspace{4mm} \dem \vspace{2mm} \newline \indent Sea $A := \{x \in X : f(x) \neq g(x)\}$. Por hipótesis, $f \overset{\mu-a.e.}{=} g$ luego $\exists \hspace{1mm} B \in \Sigma$ con $\mu(B) = 0$ tal que $A \subseteq B$. Al ser $(X, \Sigma, \mu)$ completo por hipótesis, tenemos que $A \in \Sigma$ también. De este modo, sea $\alpha \in \R$ cualquiera,
 \begin{flalign*}
-    \{x \in X : g(x) < \alpha\} = \underbracket{\{x\in X : f(x) < \alpha\}\cap (X \setminus A)}:{\in\Sigma} \hspace{1mm} \cup \hspace{1mm} \underbracket{\{x \in X : g(x) < \alpha\} \cap A}_{\in \Sigma} \in \Sigma
+    \{x \in X : g(x) < \alpha\} = \underbracket{\{x\in X : f(x) < \alpha\}\cap (X \setminus A)}_{\in\Sigma} \hspace{1mm} \cup \hspace{1mm} \underbracket{\{x \in X : g(x) < \alpha\} \cap A}_{\in \Sigma} \in \Sigma
 \end{flalign*}
-El primer subconjunto es medible por ser $f$ medible por hipótesis. El segundo conjunto es medible al tener también medida nula por ser un subconjunto de $A$.
+El primer subconjunto es medible al ser $f$ medible por hipótesis. El segundo conjunto es medible al tener también medida nula por ser un subconjunto de $A$.
 
 \vspace{6mm}  
 \result{Integral de funciones iguales en casi todo punto}
 \hspace{3mm} Sea $(X, \Sigma, \mu)$ un espacio de medida. Sean $f,g : X \longrightarrow [0, +\infty]$ funciones medibles. Entonces, se cumple:
 $$ f \overset{\mu-a.e.}{=} g \Rightarrow \int_{X}f\,d\mu = \int_{X}g\,d\mu$$
-\vspace{2mm} \dem \vspace{2mm} Por ser $f,g$ medibles, $A:= \{x \in X : f(x) \neq g(x)\} \in \Sigma$. Además, $f \overset{\mu-a.e.}{=}g$luego $\mu(A) = 0$. De este modo,
+\vspace{2mm} \dem \vspace{2mm} Por ser $f,g$ medibles, $A:= \{x \in X : f(x) \neq g(x)\} \in \Sigma$. Además, $f \overset{\mu-a.e.}{=}g$ luego $\mu(A) = 0$. De este modo,
 \begin{flalign*}
     \int_{X}&f\,d\mu = \int_{X \setminus A}f\,d\mu + \int_{A}f\,d\mu = \int_{X \setminus A}f\,d\mu + 0 = \\
     &= \int_{X \setminus A}g\,d\mu + 0 = \int_{X \setminus A}g\,d\mu + \int_{A}g\,d\mu = \int_{X}g\,d\mu
@@ -2857,7 +2857,7 @@ $$\left|\int_{X}f_n \,d\mu - \int_{X}f\,d\mu\right| \overset{(*)}{=} \left|\int_
 \end{enumerate}
 Además, si $f \in \mathcal{R}\big([a,b]\big)$; entonces, $\int_{[a,b]}f\,d\mu = \int_{a}^{b}f$.
 
-\vspace{2mm} \dem \vspace{2mm} \newline \indent Al estar acotada, $\exists \hspace{1mm} M \in [0, +\infty)$ tal que $|f(x)|\leq M$ $\forall \hspace{1mm} \in [a,b]$. Consideramos una sucesión de particiones de $[a,b]$,
+\vspace{2mm} \dem \vspace{2mm} \newline \indent Al estar acotada, $\exists \hspace{1mm} M \in [0, +\infty)$ tal que $|f(x)|\leq M$ $\forall \hspace{1mm} x \in [a,b]$. Consideramos una sucesión de particiones de $[a,b]$,
 $$P_n = \{x_0^n = a < x_1^n < \ldots < x^n_{k_n} = b\}$$
 de modo que para cada $n \in \N$ $P_n$ verifica simultáneamente las siguientes condiciones:
 \begin{align*}
@@ -2921,10 +2921,10 @@ De este modo, $s \overset{\mu-a.e.}{=} f \overset{\mu-a.e.}{=}t$ luego al estar 
 \hspace{3mm} Sea $f: A \subseteq \R \longrightarrow \R$. Diremos que ``$f$ es localmente integrable en $A$'' si $f \in \mathcal{R}([a,b])$ para todo $[a,b] \subseteq A$. En tal caso, lo denotaremos como $f \in \mathcal{R}^l (A)$.
 \vspace{2mm} \newline Sean $-\infty < a < b < +\infty$, hay cuatro casos básicos:
 \begin{align*}
-    f \in \mathcal{R}\big([a,+\infty)\big) &&
-    f \in \mathcal{R}\big((-\infty,b]\big) &&
-    f \in \mathcal{R}\big([a,b)\big) &&
-    f \in \mathcal{R}\big((a,b]\big)
+    f \in \mathcal{R}^l\big([a,+\infty)\big) &&
+    f \in \mathcal{R}^l\big((-\infty,b]\big) &&
+    f \in \mathcal{R}^l\big([a,b)\big) &&
+    f \in \mathcal{R}^l\big((a,b]\big)
 \end{align*}
 Por ejemplo, para el primer caso, diremos que $\int_a^\infty f$ es\dots
 \begin{enumerate}[label=\roman*)]
@@ -2936,7 +2936,7 @@ Podemos extender estas definiciones para el resto de casos de manera análoga.
 
 \vspace{6mm}
 \result{Medibilidad de funciones localmente integrables}
-\hspace{3mm} Sea $f \in \mathcal{R}\big([a,+\infty)\big)$ (o cualquier \hyperref[result:2.3.2]{caso anterior}); entonces, $f$ es $\mu_1$-medible.
+\hspace{3mm} Sea $f \in \mathcal{R}^l\big([a,+\infty)\big)$ (o cualquier \hyperref[result:2.3.2]{caso anterior}); entonces, $f$ es $\mu_1$-medible.
 \vspace{2mm}\newline\dem \vspace{2mm} \newline \indent Por hipótesis, $\forall \hspace{1mm} n \in \N$ tenemos que $f \in \mathcal{R}\big([a,a+n]\big)$. Aplicando el \hyperref[result:2.3.1]{resultado 2.3.1}, tenemos que $f$ es medible en $\Big([a,a+n], \mathfrak{M}_1([a,+n]), \mu_{1|\mathfrak{M}_1([a,a+n])}\Big)$. Esto a su vez equivale a $f \cdot X_{[a,a+n]}$ medible en $(\R, \mathfrak{M}_1, \mu_1)$. Finalmente, como el límite puntual respeta la medibilidad, basta ver que:
 $$ f \cdot X_{[a,a+n]} \xrightarrow{n\to\infty} f \cdot X_{[a,+\infty)}$$
 
@@ -2958,7 +2958,7 @@ $$\exists \hspace{1mm} \int_{[a,+\infty]}|f|\,d\mu_1 = \int_a^\infty |f| < \inft
 Por definición de $\mathcal{L}_1 \big([a,+\infty)\big)$, $\exists$  $\int_{[a,\infty)}f\,d\mu_1 \in \R$. Ahora, aplicando la caracterización sucesional del límite y el Teorema de la Convergencia Dominada:
 \begin{flalign*}
     \int_a^\infty& f = \lim_{x\to\infty} \int_a^x f = \lim_{n\to\infty} \int_a^{a+n} f \overset{\hyperref[result:2.3.1]{2.3.1}}{=} \lim_{n\to\infty}\mathop{\int}_{[a,a+n]}f\,d\mu_1 = \lim_{n\to\infty} \int_{[a,+\infty)}f \cdot X_{[a,a+n]}\,d\mu_1 \overset{\hyperref[result:2.2.7]{TCMD}}{=} \\
-    &= \int_{[a,+\infty]}\lim_{n\to\infty} f \cdot X_{a,a+n}\,d\mu_1 = \int_{[a,+\infty)}f\,d\mu_1
+    &= \int_{[a,+\infty)}\lim_{n\to\infty} f \cdot X_{[a,a+n]}\,d\mu_1 = \int_{[a,+\infty)}f\,d\mu_1
 \end{flalign*}
 
 \vspace{6mm}
@@ -2966,10 +2966,10 @@ Por definición de $\mathcal{L}_1 \big([a,+\infty)\big)$, $\exists$  $\int_{[a,\
 \hspace{3mm} Veamos que no siempre se da la equivalencia. Por ejemplo, para la siguiente función $f$:
 $$f(x) = \sum_{n=1}^\infty (-1)^{n+1} \cdot \frac{1}{n} \cdot X_{[n-1, n)}(x)$$
 Veamos que $f$ no cumple ninguna de las hipótesis del \hyperref[result:2.3.4]{resultado anterior}:
-\begin{flalign*}
+\begin{align*}
     \int_0^\infty f = \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} < \infty &&
     \int_0^\infty |f| = \sum_{n=1}^\infty \frac{1}{n} = \infty
-\end{flalign*}
+\end{align*}
 Tenemos que $f$ no es no negativa, y que $|f|\notin \mathcal{L}_1 $. Veamos que $f$ no es integrable Lebesgue a pesar de sí ser integrable Riemann (impropiamente):
 \begin{align*}
     \int_0^\infty f^+ = \sum_{n=1}^\infty \frac{1}{2n-1} = \infty &&
@@ -2978,12 +2978,12 @@ Tenemos que $f$ no es no negativa, y que $|f|\notin \mathcal{L}_1 $. Veamos que 
 
 \vspace{6mm}
 \result{Definición de integral impropia de Lebesgue}
-\hspace{3mm} Si $f : [a, +\infty) \longrightarrow \overline{\R}$ cumple $f\notin \mathcal{L}_1\big([(]a,+\infty)\big)$ pero $f \in \mathcal{L}_1 \big([a,x]\big)$ $\forall \hspace{1mm} \in (a,\infty)$. Entonces, $f$ es medible en $[a,\infty)$. Se dice que $f$ es impropiamente integrable en el sentido de Lebesgue sobre $[a,\infty)$ si:
+\hspace{3mm} Si $f : [a, +\infty) \longrightarrow \overline{\R}$ cumple $f\notin \mathcal{L}_1\big((a,+\infty)\big)$ pero $f \in \mathcal{L}_1 \big([a,x]\big)$ $\forall \hspace{1mm} x \in (a,\infty)$. Entonces, $f$ es medible en $[a,\infty)$. Se dice que $f$ es impropiamente integrable en el sentido de Lebesgue sobre $[a,\infty)$ si:
 \begin{align*}
     \exists \hspace{1mm} \lim_{x\to \infty} \int_{[a,x]}f\,d\mu_1 = l \in \overline{\R} &&
     \text{ en tal caso, se denota } \int_{[a,+\infty)}f\,d\mu_1 = l
 \end{align*}
-En el \hyperref[result:2.3.6]{ejemplo anterior}, $f$ no es integrable en el sentido usual. Veamos que sí lo es en el impropio:
+En el \hyperref[result:2.3.6]{ejemplo anterior}, $f$ no es integrable en el sentido usual, pero sí lo es en el impropio (ver $\int_0^\infty f$ pues $\int_0^x f = \int_{[0,x]}f \,d\mu$; basta tomar límites).
 
 
 \vspace{6mm}
@@ -2992,7 +2992,7 @@ En el \hyperref[result:2.3.6]{ejemplo anterior}, $f$ no es integrable en el sent
 \begin{align*}
     f(\cdot, t) : E \longrightarrow \R && x \longmapsto f(\cdot, t)(x) = f(x,t)
 \end{align*}
-Si existe $\frac{\partial f}{\partial t} : E \times I \longrightarrow \R$ y además existe también $\phi \in \mathcal{L}_1(E)$ tal que
+Si existe $\frac{\partial f}{\partial t} : E \times I \longrightarrow \R$ y además existe también $\varphi \in \mathcal{L}_1(E)$ tal que
 $$\left|\frac{\partial f}{\partial t}(x,t)\right| \leq \varphi(x) \hspace{2mm} \forall \hspace{1mm} (x,t) \in (E,I)$$
 Entonces, sea $t_0 \in I$, se cumple:
 $$\exists \hspace{1mm} \frac{d}{d t} \int_{E}f(\cdot, t_0)(x)\,d\mu(x) = \int_{E}\frac{\partial f}{\partial t} (x,t_0)\,d\mu(x)$$
@@ -3044,7 +3044,7 @@ $$\exists F'(t) = f\big(t, b(t)\big) \cdot b'(t) - f\big(t, a(t)\big) \cdot a'(t
         \node at (0, -\omgr - 1.5*\omgm) {$I$};
     \end{tikzpicture}
 \end{center}
-Fijamos $t_0 \in I$ cualquiera. La función $F(t)$ ``recorre'' la variable $x$ integrando $f$ entre $a(t_0)$ y $b(t_0)$. Comencemos con la demostración.
+Fijamos $t_0 \in I$ cualquiera. La función $F(t_0)$ ``recorre'' la variable $x$ integrando $f$ entre $a(t_0)$ y $b(t_0)$. Comencemos con la demostración.
 \vspace{2mm} \newline \indent Sea $(t_n)_{n\in\N} \subseteq I \setminus \{t_0\}$ con $t_n \xrightarrow{n\to\infty} t_0$. Escribiremos la expresión de $F'(t_0)$ sin llegar todavía a tomar límites:
 \begin{flalign*}
     &\frac{F(t_n) - F(t_0)}{t_n - t_0} = \frac{1}{t_n - t_0}\left(\int_{a(t_n)}^{b(t_n)}f(t_n, x)dx - \int_{a(t_0)}^{b(t_0)}f(t_0, x)dx\right) = \\[2ex]

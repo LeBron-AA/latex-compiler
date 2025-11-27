@@ -160,7 +160,7 @@
 \newpage
 \setcounter{unit}{2}
 \unit{Espacios \texorpdfstring{$L_p$}{Lp} con \texorpdfstring{$1 \leq p \leq \infty$}{1 <= p <= infty}}
-\hspace{3mm} A lo largo de esta unidad, consideraremos $(X, \Sigma, mu)$ como un espacio de medida genérico.
+\hspace{3mm} A lo largo de esta unidad, consideraremos $(X, \Sigma, \mu)$ como un espacio de medida genérico.
 \chapter{Primeras definiciones}
 \vspace{2mm} \result{Definición de \texorpdfstring{$\mathcal{L}_p$}{Lp}}
 \hspace{3mm} Para $1 \leq p < \infty$, denotaremos como $\mathcal{L}_p(X)$ o como $\mathcal{L}_p(X, \Sigma, \mu)$ al conjunto de funciones medibles $f : X \longrightarrow \R$ para las que se cumple
@@ -172,11 +172,11 @@ Nótese que para el caso $p = 1$ se corresponde con la \hyperref[result:2.2.3]{d
 \vspace{6mm}
 \result{Definición de \texorpdfstring{$\mathcal{L}_\infty$}{L\_infty}}
 \hspace{3mm} Para $p=\infty$, $\mathcal{L}_\infty(X) = \mathcal{L}_\infty(X, \Sigma, \mu)$ denota el conjunto de todas las funciones medibles $f : X \longrightarrow \R$ para las que existe $\alpha \in [0, +\infty)$ que verifica:
-$$\mu\Big(\{x \in X : f(x) > \alpha \}\Big) = 0$$
+$$\mu\Big(\{x \in X : |f(x)| > \alpha \}\Big) = 0$$
 Esta condición equivale a su vez a las dos siguientes:
 \begin{align*}
-    \mu\Big(X \setminus \{x \in X : f(x) > \alpha\} \Big) = 0 &&
-    \{x \in X : f(x) > \alpha\} \overset{\mu-a.e.}{=} X
+    \mu\Big(X \setminus \{x \in X : |f(x)| \leq \alpha\} \Big) = 0 &&
+    \{x \in X : |f(x)| \leq \alpha\} \overset{\mu-a.e.}{=} X
 \end{align*}
 
 \vspace{6mm}
@@ -461,7 +461,7 @@ $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = 
 
 \vspace{6mm}
 \result{Definición de espacio vectorial seminormado}
-\hspace{3mm} Un $K$-espacio vectorial $V$ se dice ``seminormado'' si existe una aplicación \newline $||\cdot|| : V \longrightarrow\R$ (llamada ``seminorma de $V$'') que cumple las siguientes condiciones:
+\hspace{3mm} Un $K$-espacio vectorial $V$ se dice ``seminormado'' si existe una aplicación \newline $||\cdot|| : V \longrightarrow [0,+\infty)$ (llamada ``seminorma de $V$'') que cumple las siguientes condiciones:
 \begin{enumerate}[label=\roman*)]
     \item $||\lambda v|| = |\lambda| \cdot ||v||$ $\forall \hspace{1mm} \lambda \in K$ $\forall \hspace{1mm} v \in V$.
     \item $||x+y|| \leq ||x|| + ||y||$ $\forall \hspace{1mm} x,y \in V$.
