@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  28 NOV 2025 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  28 NOV 2025 21:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -790,12 +790,12 @@ Package hyperref Info: Link coloring ON on input line 30.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<uniovi.jpg, id=82, 1284.8pt x 946.53625pt>
+<uniovi.jpg, id=86, 1284.8pt x 946.53625pt>
 File: uniovi.jpg Graphic file (type jpg)
 <use uniovi.jpg>
 Package pdftex.def Info: uniovi.jpg  used on input line 39.
 (pdftex.def)             Requested size: 128.0387pt x 94.32698pt.
-<descarga.jpeg, id=83, 319.1925pt x 159.59625pt>
+<descarga.jpeg, id=87, 319.1925pt x 159.59625pt>
 File: descarga.jpeg Graphic file (type jpg)
 <use descarga.jpeg>
 Package pdftex.def Info: descarga.jpeg  used on input line 40.
@@ -829,26 +829,26 @@ been already used, duplicate ignored
                    \relax 
 l.64 \newpage
               [1]
-<media/algoritmos/monohilo/main.png, id=116, 461.47406pt x 392.96812pt>
+<media/algoritmos/monohilo/main.png, id=121, 461.47406pt x 392.96812pt>
 File: media/algoritmos/monohilo/main.png Graphic file (type png)
 <use media/algoritmos/monohilo/main.png>
 Package pdftex.def Info: media/algoritmos/monohilo/main.png  used on input line
  84.
 (pdftex.def)             Requested size: 384.1096pt x 327.08685pt.
  [2 <./media/algoritmos/monohilo/main.png>]
-<media/algoritmos/monohilo/filter.png, id=127, 1005.00468pt x 273.27094pt>
+<media/algoritmos/monohilo/filter.png, id=132, 1005.00468pt x 273.27094pt>
 File: media/algoritmos/monohilo/filter.png Graphic file (type png)
 <use media/algoritmos/monohilo/filter.png>
 Package pdftex.def Info: media/algoritmos/monohilo/filter.png  used on input li
 ne 93.
 (pdftex.def)             Requested size: 384.1096pt x 104.44029pt.
-<media/algoritmos/multihilo/struct.png, id=129, 778.40813pt x 326.72063pt>
+<media/algoritmos/multihilo/struct.png, id=134, 778.40813pt x 326.72063pt>
 File: media/algoritmos/multihilo/struct.png Graphic file (type png)
 <use media/algoritmos/multihilo/struct.png>
 Package pdftex.def Info: media/algoritmos/multihilo/struct.png  used on input l
 ine 104.
 (pdftex.def)             Requested size: 384.1096pt x 161.22617pt.
-<media/algoritmos/multihilo/distribution.png, id=130, 607.51968pt x 541.27219pt
+<media/algoritmos/multihilo/distribution.png, id=135, 607.51968pt x 541.27219pt
 >
 File: media/algoritmos/multihilo/distribution.png Graphic file (type png)
 <use media/algoritmos/multihilo/distribution.png>
@@ -857,45 +857,45 @@ nput line 109.
 (pdftex.def)             Requested size: 384.1096pt x 342.23389pt.
  [3 <./media/algoritmos/monohilo/filter.png> <./media/algoritmos/multihilo/stru
 ct.png>] [4 <./media/algoritmos/multihilo/distribution.png>]
-<media/algoritmos/simd/init.png, id=145, 615.0478pt x 215.30438pt>
+<media/algoritmos/simd/init.png, id=150, 615.0478pt x 215.30438pt>
 File: media/algoritmos/simd/init.png Graphic file (type png)
 <use media/algoritmos/simd/init.png>
 Package pdftex.def Info: media/algoritmos/simd/init.png  used on input line 123
 .
 (pdftex.def)             Requested size: 384.1096pt x 134.46306pt.
-<media/algoritmos/simd/packages.png, id=147, 818.30719pt x 487.8225pt>
+<media/algoritmos/simd/packages.png, id=152, 818.30719pt x 487.8225pt>
 File: media/algoritmos/simd/packages.png Graphic file (type png)
 <use media/algoritmos/simd/packages.png>
 Package pdftex.def Info: media/algoritmos/simd/packages.png  used on input line
  128.
 (pdftex.def)             Requested size: 384.1096pt x 228.9863pt.
  [5 <./media/algoritmos/simd/init.png> <./media/algoritmos/simd/packages.png>]
-<media/antes/monohilo.png, id=157, 525.965pt x 824.07875pt>
+<media/antes/monohilo.png, id=162, 525.965pt x 824.07875pt>
 File: media/antes/monohilo.png Graphic file (type png)
 <use media/antes/monohilo.png>
 Package pdftex.def Info: media/antes/monohilo.png  used on input line 143.
 (pdftex.def)             Requested size: 144.04109pt x 225.68556pt.
-<media/despues/monohilo.png, id=158, 527.9725pt x 817.0525pt>
+<media/despues/monohilo.png, id=163, 527.9725pt x 817.0525pt>
 File: media/despues/monohilo.png Graphic file (type png)
 <use media/despues/monohilo.png>
 Package pdftex.def Info: media/despues/monohilo.png  used on input line 149.
 (pdftex.def)             Requested size: 144.04109pt x 222.9011pt.
-<media/antes/simd.png, id=159, 313.77225pt x 489.027pt>
+<media/antes/simd.png, id=164, 313.77225pt x 489.027pt>
 File: media/antes/simd.png Graphic file (type png)
 <use media/antes/simd.png>
 Package pdftex.def Info: media/antes/simd.png  used on input line 161.
 (pdftex.def)             Requested size: 144.04109pt x 224.4925pt.
-<media/despues/simd.png, id=160, 314.3745pt x 489.027pt>
+<media/despues/simd.png, id=165, 314.3745pt x 489.027pt>
 File: media/despues/simd.png Graphic file (type png)
 <use media/despues/simd.png>
 Package pdftex.def Info: media/despues/simd.png  used on input line 167.
 (pdftex.def)             Requested size: 144.04109pt x 224.06717pt.
-<media/antes/multihilo.png, id=161, 313.17pt x 488.42474pt>
+<media/antes/multihilo.png, id=166, 313.17pt x 488.42474pt>
 File: media/antes/multihilo.png Graphic file (type png)
 <use media/antes/multihilo.png>
 Package pdftex.def Info: media/antes/multihilo.png  used on input line 179.
 (pdftex.def)             Requested size: 144.04109pt x 224.65575pt.
-<media/despues/multihilo.png, id=162, 313.77225pt x 489.027pt>
+<media/despues/multihilo.png, id=167, 313.77225pt x 489.027pt>
 File: media/despues/multihilo.png Graphic file (type png)
 <use media/despues/multihilo.png>
 Package pdftex.def Info: media/despues/multihilo.png  used on input line 185.
@@ -905,14 +905,14 @@ simd.png> <./media/despues/simd.png>]
 [7 <./media/antes/multihilo.png> <./media/despues/multihilo.png>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 192.
-<media/comparaciones/diffImages-monohilo-simd.png, id=179, 1252.68pt x 667.7446
+<media/comparaciones/diffImages-monohilo-simd.png, id=184, 1252.68pt x 667.7446
 9pt>
 File: media/comparaciones/diffImages-monohilo-simd.png Graphic file (type png)
 <use media/comparaciones/diffImages-monohilo-simd.png>
 Package pdftex.def Info: media/comparaciones/diffImages-monohilo-simd.png  used
  on input line 200.
 (pdftex.def)             Requested size: 362.77525pt x 193.37608pt.
-<media/comparaciones/diffImages-monohilo-simd2.png, id=180, 557.83406pt x 162.6
+<media/comparaciones/diffImages-monohilo-simd2.png, id=185, 557.83406pt x 162.6
 075pt>
 File: media/comparaciones/diffImages-monohilo-simd2.png Graphic file (type png)
 
@@ -920,14 +920,14 @@ File: media/comparaciones/diffImages-monohilo-simd2.png Graphic file (type png)
 Package pdftex.def Info: media/comparaciones/diffImages-monohilo-simd2.png  use
 d on input line 205.
 (pdftex.def)             Requested size: 362.77525pt x 105.75069pt.
-<media/comparaciones/diffImages_Multi_Mono.jpg, id=181, 903.375pt x 464.4853pt>
+<media/comparaciones/diffImages_Multi_Mono.jpg, id=186, 903.375pt x 464.4853pt>
 
 File: media/comparaciones/diffImages_Multi_Mono.jpg Graphic file (type jpg)
 <use media/comparaciones/diffImages_Multi_Mono.jpg>
 Package pdftex.def Info: media/comparaciones/diffImages_Multi_Mono.jpg  used on
  input line 213.
 (pdftex.def)             Requested size: 362.77525pt x 186.52792pt.
-<media/comparaciones/diffImages_Multi_Mono2.jpg, id=182, 583.42969pt x 92.59593
+<media/comparaciones/diffImages_Multi_Mono2.jpg, id=187, 583.42969pt x 92.59593
 pt>
 File: media/comparaciones/diffImages_Multi_Mono2.jpg Graphic file (type jpg)
 <use media/comparaciones/diffImages_Multi_Mono2.jpg>
@@ -951,7 +951,13 @@ Overfull \hbox (42.68925pt too wide) in paragraph at lines 265--275
  [][] 
  []
 
-[10] [11] [12] (memoria.aux
+[10] [11] [12]
+<media/config.jpeg, id=221, 769.37437pt x 444.15938pt>
+File: media/config.jpeg Graphic file (type jpg)
+<use media/config.jpeg>
+Package pdftex.def Info: media/config.jpeg  used on input line 337.
+(pdftex.def)             Requested size: 384.1096pt x 221.75381pt.
+ [13 <./media/config.jpeg>] (memoria.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -960,13 +966,13 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: C921E7F507484C5A7A89C3C50920D354;3460.
+(rerunfilecheck)             Checksum: 82F40E0E06AA9EFA625E7573963C3DE2;3689.
  ) 
 Here is how much of TeX's memory you used:
- 24837 strings out of 474486
- 456179 string characters out of 5753176
+ 24848 strings out of 474486
+ 456390 string characters out of 5753176
  1942542 words of memory out of 5000000
- 46676 multiletter control sequences out of 15000+600000
+ 46684 multiletter control sequences out of 15000+600000
  566822 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,93p,716b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -980,9 +986,9 @@ pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MikT
 ex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/MikTex/texmfs/i
 nstall/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/MikTex/texmfs/install/font
 s/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on memoria.pdf (13 pages, 3889679 bytes).
+Output written on memoria.pdf (14 pages, 3969750 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 255 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
+ 268 words of extra memory for PDF output out of 10000 (max. 10000000)
 

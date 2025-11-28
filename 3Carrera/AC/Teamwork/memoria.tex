@@ -258,7 +258,7 @@ La diferencia, aunque existente, es mínima. Consideramos también una versión 
 \end{table}
 
 \vspace{6mm}
-\subsection{Fase 2 – Multihilo}
+\subsection{Fase 2 - Multihilo}
 \begin{table}[H]
 \centering
 \caption*{Fase 2 Multihilo 10 hilos (2×5 procesadores)}
@@ -285,7 +285,7 @@ $$ S_{\text{implementación}} = \frac{T_{\text{monohilo}}}{T_{\text{implementaci
     La versión multihilo es aproximadamente un 59.8\% más rápida que la versión secuencial.
 
     \item \textbf{Aceleración del SIMD frente al monohilo}:
-    $$S_{\text{SIMD}} = \frac{8.972}{9.488} \approx \mathbf{0.95}$$
+    $$S_{\text{SIMD}} = \frac{8.972}{9.488} \approx \mathbf{0.946}$$
     La versión SIMD es más lenta que la versión monohilo los tipos de datos utilizados.
 \end{itemize}
 
@@ -328,4 +328,12 @@ $$ S_{\text{implementación}} = \frac{T_{\text{monohilo}}}{T_{\text{implementaci
 \end{itemize}
 
 \vspace{4mm} Si bien cada miembro se ha centrado en unas tareas determinadas, todos hemos revisado el proyecto en su totalidad.
+
+\newpage
+\section{Anexo: Configuración de la máquina}
+Configuración de VirtualBox para la máquina donde se realizaron las mediciones:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{media/config.jpeg}
+\end{figure}
 \end{document}
