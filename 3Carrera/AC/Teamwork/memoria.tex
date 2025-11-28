@@ -109,88 +109,10 @@ El algoritmo recorre los píxeles de la imagen, aplicando para cada uno de ellos
 \end{figure}
 \indent El parámetro \texttt{shared\_args} contiene la información común a todos los hilos, que ha sido agrupada en forma de \texttt{filter\_args\_t} para facilitar su manejo. A partir de él se inician los campos del resto de \texttt{structs} de este tipo.
 \vspace{2mm} \newline \indent Más aún, en este bucle se asignan los píxeles de inicio y final. Para ello, se calculan primero los píxeles base (\texttt{baseWorkPerThread}) de cada hilo, a los que se puede sumar un píxel extra en función del resto de la división. De este modo, nos aseguramos de que se procesen todos los píxeles de la imagen aunque el número total de ellos no sea múltiplo del número de hilos. Además, este sistema distribuye la carga de manera uniforme entre los hilos, en lugar de asignar todos los píxeles restantes (\texttt{remaining}) a un solo hilo.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{media/algoritmos/multihilo/task.png}
-\end{figure}
-\newpage
-\section{Resultados experimentales}
-
-\subsection{Fase 1 – SingleThread: DEF}
-
-\begin{table}[H]
-    \centering
-    \caption*{Fase 1 SingleThread: DEF}
-    \resizebox{1.1\textwidth}{!}{
-        \begin{tabular}{cccccccccccccc}
-        \toprule
-        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
-        \midrule
-        8.33 & 7.62 & 8.39 & 8.84 & 9.09 & 9.21 & 9.00 & 8.96 & 9.42 & 10.86 &
-        8.972 & 0.845442685 & 8.447989195 & 9.496011 \\
-        \bottomrule
-        \end{tabular}
-    }
-\end{table}
-
-\subsection{Fase 2 – SIMD}
-
-\begin{table}[H]
-\centering
-\caption*{Fase 2 SIMD}
-    \resizebox{1.1\textwidth}{!}{
-        \begin{tabular}{cccccccccccccc}
-        \toprule
-        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
-        \midrule
-        10.31 & 9.10 & 9.34 & 9.31 & 9.38 & 9.50 & 10.10 & 9.27 & 9.17 & 9.40 &
-        9.488 & 0.397570399 & 9.241583314 & 9.734417 \\
-        \bottomrule
-        \end{tabular}
-    }
-\end{table}
-
-\subsection{Fase 2 – Multihilo}
-
-\begin{table}[H]
-\centering
-\caption*{Fase 2 Multihilo 10 hilos (2×5 procesadores)}
-\resizebox{1.1\textwidth}{!}{
-    \begin{tabular}{cccccccccccccc}
-        \toprule
-        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
-        \midrule
-        6.10 & 5.25 & 5.20 & 5.13 & 5.78 & 5.90 & 6.12 & 5.48 & 5.96 & 5.23 &
-        5.615 & 0.39789027 & 5.368385056 & 5.861615 \\
-        \bottomrule
-    \end{tabular}
-}
-\end{table}
-
-\vspace{6mm}
-\subsection{Cálculo de aceleraciones}
-Los tres programas realizan la misma tarea (tienen la misma carga de trabajo), solamente cambia cómo la llevan a cambio. Por tanto, podemos calcular la aceleración a partir de los tiempos medios obtenidos para cada implementación. Calculamos la aceleración relativa frente a la versión monohilo, definida como:
-$$ S = \frac{T_{\text{monohilo}}}{T_{\text{implementación}}}$$
-
-\begin{itemize}
-    \item \textbf{Aceleración del multihilo frente al monohilo}:
-    \[
-    S_{\text{multihilo}} = \frac{8.972}{5.615} \approx \mathbf{1.598}
-    \]
-    Esto implica que la versión multihilo es aproximadamente un 59.8\% más rápida que la versión secuencial.
-
-    \item \textbf{Aceleración del SIMD frente al monohilo}:
-    \[
-    S_{\text{SIMD}} = \frac{8.972}{9.488} \approx \mathbf{0.95}
-    \]
-    El resultado indica que la versión SIMD es un 5\% más lenta que la versión monohilo en este caso concreto.
-\end{itemize}
-
-Estos valores muestran que, para nuestro algoritmo de inversión en blanco y negro, la paralelización mediante hilos ofrece una mejora significativa del rendimiento, mientras que la versión SIMD no logra superar al enfoque monohilo debido al pequeño volumen de píxeles por operación al ser solo 2 el ancho del paquete.
-
+\vspace{4mm} \newline \indent El programa itera \texttt{REPS} número de veces, creando y destruyendo en cada una de ellas los hilos, y asignándoles la carga de trabajo apropiada a cada uno. La implementación del paso a blanco y negro se lleva a cabo del mismo modo que en la versión monohilo, pero cada hilo solo itera por los píxeles que le corresponden.
 
 \newpage
-\section{Comparativa visual de los resultados}
+\section{Imágenes de entrada y salida}
 
 En esta sección se muestran las imágenes originales y las imágenes resultantes tras aplicar el algoritmo de inversión en blanco y negro para cada una de las implementaciones desarrolladas: monohilo, SIMD y multihilo.
 
@@ -248,7 +170,6 @@ En esta sección se muestran las imágenes originales y las imágenes resultante
 \caption*{Comparación visual para la implementación multihilo}
 \end{figure}
 
-
 \newpage
 \section{Comparativa mediante \texttt{diffImages}}
 
@@ -282,4 +203,76 @@ A continuación, se muestra la comparación entre la salida del programa multihi
     \includegraphics[width=0.85\textwidth]{media/comparaciones/diffImages_Multi_Mono2.jpg}
     \caption*{Salida por consola}
 \end{figure}
+
+\newpage
+\section{Resultados experimentales}
+
+\subsection{Fase 1 – SingleThread: DEF}
+
+\begin{table}[H]
+    \centering
+    \caption*{Fase 1 SingleThread: DEF}
+    \resizebox{1.1\textwidth}{!}{
+        \begin{tabular}{cccccccccccccc}
+        \toprule
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
+        \midrule
+        8.33 & 7.62 & 8.39 & 8.84 & 9.09 & 9.21 & 9.00 & 8.96 & 9.42 & 10.86 &
+        8.972 & 0.845442685 & 8.447989195 & 9.496011 \\
+        \bottomrule
+        \end{tabular}
+    }
+\end{table}
+
+\vspace{6mm}
+\subsection{Fase 2 – SIMD}
+\begin{table}[H]
+\centering
+\caption*{Fase 2 SIMD}
+    \resizebox{1.1\textwidth}{!}{
+        \begin{tabular}{cccccccccccccc}
+        \toprule
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
+        \midrule
+        10.31 & 9.10 & 9.34 & 9.31 & 9.38 & 9.50 & 10.10 & 9.27 & 9.17 & 9.40 &
+        9.488 & 0.397570399 & 9.241583314 & 9.734417 \\
+        \bottomrule
+        \end{tabular}
+    }
+\end{table}
+
+\vspace{6mm}
+\subsection{Fase 2 – Multihilo}
+\begin{table}[H]
+\centering
+\caption*{Fase 2 Multihilo 10 hilos (2×5 procesadores)}
+\resizebox{1.1\textwidth}{!}{
+    \begin{tabular}{cccccccccccccc}
+        \toprule
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
+        \midrule
+        6.10 & 5.25 & 5.20 & 5.13 & 5.78 & 5.90 & 6.12 & 5.48 & 5.96 & 5.23 &
+        5.615 & 0.39789027 & 5.368385056 & 5.861615 \\
+        \bottomrule
+    \end{tabular}
+}
+\end{table}
+
+\vspace{6mm}
+\subsection{Cálculo de aceleraciones}
+Los tres programas realizan la misma tarea (tienen la misma carga de trabajo), solamente cambia cómo la llevan a cabo. Por tanto, podemos calcular la aceleración a partir de los tiempos medios obtenidos para cada implementación. Calculamos la aceleración relativa frente a la versión monohilo, definida como:
+$$ S_{\text{implementación}} = \frac{T_{\text{monohilo}}}{T_{\text{implementación}}}$$
+
+\begin{itemize}
+    \item \textbf{Aceleración del multihilo frente al monohilo}:
+    $$S_{\text{multihilo}} = \frac{8.972}{5.615} \approx \mathbf{1.598}$$
+    La versión multihilo es aproximadamente un 59.8\% más rápida que la versión secuencial.
+
+    \item \textbf{Aceleración del SIMD frente al monohilo}:
+    $$S_{\text{SIMD}} = \frac{8.972}{9.488} \approx \mathbf{0.95}$$
+    La versión SIMD es más lenta que la versión monohilo los tipos de datos utilizados.
+\end{itemize}
+
+\section{Análisis de los resultados}
+\section{División del trabajo}
 \end{document}
