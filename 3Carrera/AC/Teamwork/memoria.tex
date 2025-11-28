@@ -12,6 +12,7 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{enumitem}
 
 %Colores
 \definecolor{verdeSuave}{HTML}{6AD58A}
@@ -127,7 +128,7 @@ Cada paquete albergará dos píxeles. Analicemos la implementación en código:
     \includegraphics[width=0.9\textwidth]{media/algoritmos/simd/packages.png}
 \end{figure}
 \indent De manera similar al caso multihilo, el número de píxeles podría no ser múltiplo del ancho de paquete. Por tanto, tratamos los píxeles sobrantes con el algoritmo monohilo (tras el comentario ``\textit{Remaining pixels}'' se tratan como en la versión monohilo, se ha omitido de la imagen al haberse explicado ya).
-
+\vspace{2mm} \newline \indent Como nota adicional, cabe señalar que en esta versión para \texttt{pDstImage} se pide memoria alineada con \texttt{\_mm\_malloc} y se libera con \texttt{\_mm\_free}.
 \newpage
 \section{Imágenes de entrada y salida}
 
@@ -289,5 +290,42 @@ $$ S_{\text{implementación}} = \frac{T_{\text{monohilo}}}{T_{\text{implementaci
 \end{itemize}
 
 \section{Análisis de los resultados}
+\hspace{3mm} La versión SIMD no logra mejorar el rendimiento debido al escaso ancho de paquete. Para trabajar con instrucciones SIMD es necesario incurrir en un preprocesado que no se compensa al trabajar en parejas de píxeles. Es por ello que se llega incluso a empeorar el rendimiento de la versión monohilo.
+\vspace{2mm} \newline \indent Es necesario tener en cuenta las especificaciones del problema y contemplar si tiene sentido o no utilizar instrucciones SIMD. Aunque su uso puede mejorar el desempeño de programas, no siempre es así, siendo nuestro caso un claro contraejemplo.
+
+\vspace{4mm} En cuanto a la versión multihilo, mejora claramente el rendimiento. El trabajo se divide entre los hilos de modo que sean independientes entre sí, pues iteran sobre partes distintas de la imagen. De este modo, se logra un alto nivel de paralelización. Además, el programa emplea un número de hilos proporcional al número de núcleos de la máquina, sacando el máximo partido posible del equipo.
+\newpage
 \section{División del trabajo}
+\hspace{3mm} Finalmente, estas son las labores realizadas por cada miembro del equipo, así como una estimación del tiempo dedicado como porcentaje:
+
+\vspace{4mm}
+\noindent \textbf{Jorge Gota Ortín (35\%):}
+\begin{itemize}
+    \item Desarrollo de la versión monohilo
+    \item Desarrollo de la versión multihilo
+    \item Mediciones de tiempos experimentales
+\end{itemize}
+
+\vspace{2mm}
+\noindent \textbf{Javier Ortín Rodenas (30\%):}
+\begin{itemize}
+    \item Desarrollo de la versión SIMD
+    \item Confección de la memoria
+\end{itemize}
+
+\vspace{2mm}
+\noindent \textbf{Andrés Fernández-Junquera Fernández (20\%):}
+\begin{itemize}
+    \item Desarrollo de la versión SIMD
+    \item Cálculo de aceleraciones
+\end{itemize}
+
+\vspace{2mm}
+\noindent \textbf{Alejandro Jarillo Pineda (15\%):}
+\begin{itemize}
+    \item Desarrollo de la versión multihilo
+    \item Refactorización de la versión monohilo
+\end{itemize}
+
+\vspace{4mm} Si bien cada miembro se ha centrado en unas tareas determinadas, todos hemos revisado el proyecto en su totalidad.
 \end{document}
