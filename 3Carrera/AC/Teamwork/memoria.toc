@@ -3,3 +3,15 @@
 \contentsline {subsection}{\numberline {1.1}Algoritmo matemático}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Funcionamiento general e implementación monohilo}{2}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}Implementación multihilo}{3}{subsubsection.1.2.1}%
+\contentsline {section}{\numberline {2}Resultados experimentales}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Fase 1 – SingleThread: DEF}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Fase 2 – SIMD}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Fase 2 – Multihilo (10 hilos → 2×5 procesadores)}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Análisis de aceleración}{5}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Comparativa visual de los resultados}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Implementación Monohilo}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Implementación SIMD}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Implementación Multihilo}{9}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Comparativa mediante \texttt {diffImages}}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}SIMD vs Monohilo}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Multihilo vs Monohilo}{11}{subsection.4.2}%

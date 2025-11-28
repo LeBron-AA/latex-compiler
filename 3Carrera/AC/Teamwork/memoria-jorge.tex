@@ -1,0 +1,279 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts, amssymb, amsthm}
+\usepackage{graphicx, tikz, xparse, array}
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage[x11names]{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{booktabs}
+
+%Colores
+\definecolor{verdeSuave}{HTML}{6AD58A}
+\definecolor{verdeFuerte}{HTML}{206936}
+\definecolor{blanco}{HTML}{FFFFFF}
+\definecolor{negro}{HTML}{000000}
+\definecolor{azulSuave}{HTML}{6ac9d5}
+\definecolor{naranjaSuave}{HTML}{d5c06a}
+\definecolor{rojoSuave}{HTML}{EF4949}
+\definecolor{amarilloSuave}{HTML}{D8E058}
+
+\setstretch{1.2}
+\decimalpoint
+
+\begin{document}
+
+% ---------------------------------------------------------
+% PORTADA
+% ---------------------------------------------------------
+  
+\begin{titlepage}
+  \centering  
+  \vspace*{1cm}
+  %\includegraphics[width=0.3\textwidth]{uniovi.jpg} \hspace{2cm}
+  %\includegraphics[width=0.3\textwidth]{descarga.jpeg} \\[1cm] 
+  \vspace{\fill}
+  \hrule
+  \vspace{0.5cm}
+  {\Huge \bfseries Arquitectura de Computadores\par}
+  \vspace{0.5cm}
+  {\Large \bfseries Trabajo en grupo\par}
+  \vspace{0.5cm}
+
+  \hrule
+  \vspace{1cm}
+  {\bfseries PL1-A \\ [4ex]
+  Jorge Gota Ortín UO301023\\[3ex]
+  Javier Ortín Rodenas UO299855\\[3ex]
+  Andrés Fernández-Junquera Fernández UO302086\\[3ex]
+  Alejandro Jarillo Pineda UO302394\par}
+  \vspace{\fill}
+\end{titlepage}
+
+\newpage
+\hypersetup{linkcolor=black}
+\tableofcontents
+\hypersetup{linkcolor=DeepSkyBlue3}
+
+\newpage
+
+% ---------------------------------------------------------
+% SECCIÓN ORIGINAL DEL DOCUMENTO
+% ---------------------------------------------------------
+
+\section{Algoritmo a aplicar a la imagen}
+\subsection{Algoritmo matemático}
+\label{result:1.1}
+
+\hspace{3mm} En nuestro caso, el algoritmo a implementar es el número 3. Tiene como entrada una única imagen y genera como salida una versión de la misma en blanco y negro. Sean $(R,G,B)$ las componentes de un píxel de la entrada, las componentes $(R',G',B')$ del píxel equivalente en la imagen de salida vienen dadas por:
+\begin{flalign*}
+    R' = G' = B' = 255 - (0.3 \cdot R + 0.59 \cdot G + 0.11 \cdot B)
+\end{flalign*}
+Se pasa a escala de grises con la siguiente media ponderada:
+$$L = 0.3 \cdot R + 0.59 \cdot G + 0.11 \cdot B$$
+A continuación, se invierte al hacer $R' = G' = B' = 255 - L$, de ahí el nombre de ``inversión en blanco y negro''.
+\vspace{2mm}  \newline Matemáticamente, los valores de la imagen destino deberían estar comprendidos siempre entre $0$ y $255$. Debido a la sencillez de este algoritmo, no será sencillo saturar, pues el resultado de las operaciones tendrá un valor adecuado siempre.
+
+\vspace{8mm}  
+\subsection{Funcionamiento general e implementación monohilo}
+Comencemos analizando la función \texttt{main} y el funcionamiento general del programa:
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=0.9\textwidth]{media/algoritmos/monohilo/main.png}
+\end{figure}
+\noindent El funcionamiento general del programa es el mismo para las tres implementaciones:
+
+\vspace{2mm} En primer lugar, cargamos la imagen teniendo en cuenta la posibilidad de que esta pueda no existir y manejando el error en tal caso. A continuación, iniciamos las variables necesarias, deteniendo la ejecución si no fuese posible asignar memoria adecuadamente. Una vez hecho esto, medimos el tiempo que tarda en ejecutarse el algoritmo 100 veces (para que tarde el tiempo mínimo deseado), manejando los errores de cronometrado en caso de haberlos. Finalmente, se muestra el tiempo transcurrido así como la imagen destino.
+
+\vspace{4mm} \noindent Veamos ahora cómo se estructura el algoritmo del filtro:
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=0.9\textwidth]{media/algoritmos/monohilo/filter.png}
+\end{figure}
+
+El algoritmo recorre los píxeles de la imagen, aplicando para cada uno de ellos el \hyperref[result:1.1]{algoritmo matemático} visto. 
+
+\vspace{8mm}
+\subsubsection{Implementación multihilo}
+\hspace{3mm} El funcionamiento general del programa es el mismo. Por tanto, nos centraremos únicamente en las modificaciones necesarias para implementar la funcionalidad multihilo.
+\vspace{2mm} \newline \indent En esta versión, se asignará un \texttt{filter\_args\_t} a cada hilo para que itere sobre los píxeles que le sean asignados. Por tanto, hemos modificado el \texttt{struct} para que almacene también los píxeles inicial y final que ha de recorrer:
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=0.9\textwidth]{media/algoritmos/multihilo/struct.png}
+\end{figure}
+\vspace{2mm} Veamos cómo se distribuye el trabajo entre los hilos:
+\begin{figure}[H]
+    \centering
+    %\includegraphics[width=0.9\textwidth]{media/algoritmos/multihilo/distribution.png}
+\end{figure}
+\indent El parámetro \texttt{shared\_args} contiene la información común a todos los hilos, que ha sido agrupada en forma de \texttt{filter\_args\_t} para facilitar su manejo. A partir de él se inician los campos del resto de \texttt{structs} de este tipo.
+\vspace{2mm} \newline \indent Más aún, en este bucle se asignan los píxeles de inicio y final. Para ello, se calculan primero los píxeles base (\texttt{baseWorkPerThread}) de cada hilo, a los que se puede sumar un píxel extra en función del resto de la división. De este modo, nos aseguramos de que se procesen todos los píxeles de la imagen aunque el número total de ellos no sea múltiplo del número de hilos. Además, este sistema distribuye la carga de manera uniforme entre los hilos, en lugar de asignar todos los píxeles restantes (\texttt{remaining}) a un solo hilo.
+
+% ---------------------------------------------------------
+% NUEVA PÁGINA PARA LAS TABLAS
+% ---------------------------------------------------------
+
+\newpage
+\section{Resultados experimentales}
+
+\subsection{Fase 1 – SingleThread: DEF}
+
+\begin{table}[H]
+\centering
+\caption{Fase 1 SingleThread: DEF}
+\begin{tabular}{cccccccccccccc}
+\toprule
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
+\midrule
+8.33 & 7.62 & 8.39 & 8.84 & 9.09 & 9.21 & 9.00 & 8.96 & 9.42 & 10.86 &
+8.972 & 0.845442685 & 8.447989195 & 9.496011 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Fase 2 – SIMD}
+
+\begin{table}[H]
+\centering
+\caption{Fase 2 SIMD}
+\begin{tabular}{cccccccccccccc}
+\toprule
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
+\midrule
+10.31 & 9.10 & 9.34 & 9.31 & 9.38 & 9.50 & 10.10 & 9.27 & 9.17 & 9.40 &
+9.488 & 0.397570399 & 9.241583314 & 9.734417 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Fase 2 – Multihilo (10 hilos → 2×5 procesadores)}
+
+\begin{table}[H]
+\centering
+\caption{Fase 2 Multihilo 10 hilos → 2×5 procesadores}
+\begin{tabular}{cccccccccccccc}
+\toprule
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Media & Desv. Típ. & Inf. 95\% & Sup. 95\% \\
+\midrule
+6.10 & 5.25 & 5.20 & 5.13 & 5.78 & 5.90 & 6.12 & 5.48 & 5.96 & 5.23 &
+5.615 & 0.39789027 & 5.368385056 & 5.861615 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Análisis de aceleración}
+
+A partir de los tiempos medios obtenidos para cada una de las tres implementaciones, calculamos la aceleración relativa frente a la versión monohilo, definida como:
+
+\[
+S = \frac{T_{\text{monohilo}}}{T_{\text{implementación}}}
+\]
+
+\begin{itemize}
+    \item \textbf{Aceleración del multihilo frente al monohilo}:
+    \[
+    S_{\text{multihilo}} = \frac{8.972}{5.615} \approx \mathbf{1.598}
+    \]
+    Esto implica que la versión multihilo es aproximadamente un 59.8\% más rápida que la versión secuencial.
+
+    \item \textbf{Aceleración del SIMD frente al monohilo}:
+    \[
+    S_{\text{SIMD}} = \frac{8.972}{9.488} \approx \mathbf{0.95}
+    \]
+    El resultado indica que la versión SIMD es un 5\% más lenta que la versión monohilo en este caso concreto.
+\end{itemize}
+
+Estos valores muestran que, para nuestro algoritmo de inversión en blanco y negro, la paralelización mediante hilos ofrece una mejora significativa del rendimiento, mientras que la versión SIMD no logra superar al enfoque monohilo debido al pequeño volumen de operaciones por píxel y a la sobrecarga asociada a las instrucciones vectoriales.
+
+
+\newpage
+\section{Comparativa visual de los resultados}
+
+En esta sección se muestran las imágenes originales y las imágenes resultantes tras aplicar el algoritmo de inversión en blanco y negro para cada una de las implementaciones desarrolladas: monohilo, SIMD y multihilo.
+
+\subsection{Implementación Monohilo}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\textwidth}
+\centering
+%\includegraphics[width=\textwidth]{media/antes_monohilo.png}
+\caption*{Imagen original}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+%\includegraphics[width=\textwidth]{media/despues_monohilo.png}
+\caption*{Resultado tras aplicar el algoritmo}
+\end{minipage}
+\caption{Comparación visual para la implementación monohilo}
+\end{figure}
+
+\subsection{Implementación SIMD}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\textwidth}
+\centering
+%\includegraphics[width=\textwidth]{media/antes_simd.png}
+\caption*{Imagen original}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+%\includegraphics[width=\textwidth]{media/despues_simd.png}
+\caption*{Resultado tras aplicar el algoritmo}
+\end{minipage}
+\caption{Comparación visual para la implementación SIMD}
+\end{figure}
+
+\subsection{Implementación Multihilo}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.45\textwidth}
+\centering
+%\includegraphics[width=\textwidth]{media/antes_multihilo.png}
+\caption*{Imagen original}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\centering
+%\includegraphics[width=\textwidth]{media/despues_multihilo.png}
+\caption*{Resultado tras aplicar el algoritmo}
+\end{minipage}
+\caption{Comparación visual para la implementación multihilo}
+\end{figure}
+
+
+\newpage
+\section{Comparativa mediante \texttt{diffImages}}
+
+En esta sección se muestran las capturas de la herramienta \texttt{diffImages}, utilizada para comparar pixel a pixel las imágenes generadas por las distintas implementaciones del algoritmo. Esta utilidad permite comprobar visualmente si existen diferencias entre los resultados producidos por cada variante del programa.
+
+\subsection{\texttt{diffImages}: SIMD vs Monohilo}
+
+En esta figura se incluye la ejecución de la aplicación \texttt{diffImages} comparando la imagen resultante del programa SIMD con la generada por la versión monohilo. Idealmente, al tratarse del mismo algoritmo matemático, la diferencia debe ser completamente nula.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=0.85\textwidth]{media/diff_simd_vs_monohilo.png}
+\caption{Ejecución de \texttt{diffImages} comparando SIMD con Monohilo}
+\end{figure}
+
+\subsection{\texttt{diffImages}: Multihilo vs Monohilo}
+
+A continuación, se muestra la comparación entre la salida del programa multihilo y la del programa monohilo. Nuevamente, al implementar exactamente la misma operación sobre cada píxel, el resultado debería ser idéntico.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=0.85\textwidth]{media/diff_multihilo_vs_monohilo.png}
+\caption{Ejecución de \texttt{diffImages} comparando Multihilo con Monohilo}
+\end{figure}
+% ---------------------------------------------------------
+\end{document}
