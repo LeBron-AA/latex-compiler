@@ -95,7 +95,7 @@ Comencemos analizando la función \texttt{main} y el funcionamiento general del 
 El algoritmo recorre los píxeles de la imagen, aplicando para cada uno de ellos el \hyperref[result:1.1]{algoritmo matemático} visto. 
 
 \vspace{8mm}
-\subsubsection{Implementación multihilo}
+\subsection{Implementación multihilo}
 \hspace{3mm} El funcionamiento general del programa es el mismo. Por tanto, nos centraremos únicamente en las modificaciones necesarias para implementar la funcionalidad multihilo.
 \vspace{2mm} \newline \indent En esta versión, se asignará un \texttt{filter\_args\_t} a cada hilo para que itere sobre los píxeles que le sean asignados. Por tanto, hemos modificado el \texttt{struct} para que almacene también los píxeles inicial y final que ha de recorrer:
 \begin{figure}[H]
@@ -111,6 +111,23 @@ El algoritmo recorre los píxeles de la imagen, aplicando para cada uno de ellos
 \vspace{2mm} \newline \indent Más aún, en este bucle se asignan los píxeles de inicio y final. Para ello, se calculan primero los píxeles base (\texttt{baseWorkPerThread}) de cada hilo, a los que se puede sumar un píxel extra en función del resto de la división. De este modo, nos aseguramos de que se procesen todos los píxeles de la imagen aunque el número total de ellos no sea múltiplo del número de hilos. Además, este sistema distribuye la carga de manera uniforme entre los hilos, en lugar de asignar todos los píxeles restantes (\texttt{remaining}) a un solo hilo.
 \vspace{4mm} \newline \indent El programa itera \texttt{REPS} número de veces, creando y destruyendo en cada una de ellas los hilos, y asignándoles la carga de trabajo apropiada a cada uno. La implementación del paso a blanco y negro se lleva a cabo del mismo modo que en la versión monohilo, pero cada hilo solo itera por los píxeles que le corresponden.
 
+\vspace{6mm}
+\subsection{Implementación SIMD}
+\hspace{3mm} Como las instrucciones que aplicamos a cada píxel son idénticas, podemos trabajar con instrucciones SIMD que realicen las mismas operaciones sobre una agrupación de píxeles. En nuestro caso, el enunciado nos asignó el tipo de píxel \texttt{double} y el tamaño de paquete de \texttt{128bits}, lo que se traduce en un tipo SIMD \texttt{\_\_m128d}.
+\vspace{2mm} \newline \indent En estas condiciones, nuestro ancho de paquete viene dado por:
+$$\texttt{width} = \frac{\texttt{sizeof}(\texttt{\_\_m128})}{\texttt{sizeof}(\texttt{double})} = \frac{\texttt{128bits}}{\texttt{64bits}} = 2 $$
+Cada paquete albergará dos píxeles. Analicemos la implementación en código:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{media/algoritmos/simd/init.png}
+\end{figure}
+\indent El filtro comienza cargando paquetes auxiliares con los coeficientes que intervienen en el \hyperref[result:1.1]{algoritmo matemático}. Este paso se realiza solo una vez en el filtro entero, no para cada píxel. Una vez hecho esto, se recorre la imagen por paquetes trabajando con las tres componentes a la vez (no se avanza componente a componente). Para cada paquete, se cargan los píxeles de la imagen fuente y se opera siguiendo el algoritmo matemático. En este caso, hemos optado por utilizar instrucciones combinadas SIMD que multiplican los dos últimos parámetros, sumando el resultado de esta operación al tercero:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{media/algoritmos/simd/packages.png}
+\end{figure}
+\indent De manera similar al caso multihilo, el número de píxeles podría no ser múltiplo del ancho de paquete. Por tanto, tratamos los píxeles sobrantes con el algoritmo monohilo (tras el comentario ``\textit{Remaining pixels}'' se tratan como en la versión monohilo, se ha omitido de la imagen al haberse explicado ya).
+
 \newpage
 \section{Imágenes de entrada y salida}
 
@@ -122,13 +139,13 @@ En esta sección se muestran las imágenes originales y las imágenes resultante
 \centering
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{media/antes/monohilo.png}
+    \includegraphics[width=0.75\textwidth]{media/antes/monohilo.png}
     \caption*{Imagen original}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{media/despues/monohilo.png}
+    \includegraphics[width=0.75\textwidth]{media/despues/monohilo.png}
     \caption*{Resultado tras aplicar el algoritmo}
 \end{minipage}
 \caption*{Comparación visual para la implementación monohilo}
@@ -140,13 +157,13 @@ En esta sección se muestran las imágenes originales y las imágenes resultante
 \centering
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{media/antes/simd.png}
+    \includegraphics[width=0.75\textwidth]{media/antes/simd.png}
     \caption*{Imagen original}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{media/despues/simd.png}
+    \includegraphics[width=0.75\textwidth]{media/despues/simd.png}
     \caption*{Resultado tras aplicar el algoritmo}
 \end{minipage}
 \caption*{Comparación visual para la implementación SIMD}
@@ -158,13 +175,13 @@ En esta sección se muestran las imágenes originales y las imágenes resultante
 \centering
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{media/antes/multihilo.png}
+    \includegraphics[width=0.75\textwidth]{media/antes/multihilo.png}
     \caption*{Imagen original}
 \end{minipage}
 \hfill
 \begin{minipage}{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{media/despues/multihilo.png}
+    \includegraphics[width=0.75\textwidth]{media/despues/multihilo.png}
     \caption*{Resultado tras aplicar el algoritmo}
 \end{minipage}
 \caption*{Comparación visual para la implementación multihilo}
@@ -174,11 +191,9 @@ En esta sección se muestran las imágenes originales y las imágenes resultante
 \section{Comparativa mediante \texttt{diffImages}}
 
 En esta sección se muestran las capturas de la herramienta \texttt{diffImages}, utilizada para comparar píxel a píxel las imágenes generadas por las distintas implementaciones del algoritmo. Esta utilidad permite comprobar visualmente si existen diferencias entre los resultados producidos por cada variante del programa.
+\vspace{2mm} \newline \indent Como el algoritmo matemático es el mismo para todas ellas, no debería de haber ninguna diferencia (idealmente).
 
 \subsection{SIMD vs Monohilo}
-
-En esta figura se incluye la ejecución de la aplicación \texttt{diffImages} comparando la imagen resultante del programa SIMD con la generada por la versión monohilo. Idealmente, al tratarse del mismo algoritmo matemático, la diferencia debe ser completamente nula.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{media/comparaciones/diffImages-monohilo-simd.png}
@@ -189,10 +204,9 @@ En esta figura se incluye la ejecución de la aplicación \texttt{diffImages} co
     \includegraphics[width=0.85\textwidth]{media/comparaciones/diffImages-monohilo-simd2.png}
     \caption*{Salida por consola}
 \end{figure}
+La diferencia, aunque existente, es mínima. Consideramos también una versión SIMD sin instrucciones combinadas \texttt{fmadd}, que sí producía exactamente la misma imagen. No obstante, esta otra versión tenía menor rendimiento. Al ser tan escasa la diferencia visual, terminamos por decantarnos por la versión con instrucciones \texttt{fmadd}. Las discrepancias se deben a la naturaleza de las propias instrucciones, pues la semántica del programa es la misma.
 
 \subsection{Multihilo vs Monohilo}
-A continuación, se muestra la comparación entre la salida del programa multihilo y la del programa monohilo. Nuevamente, al implementar exactamente la misma operación sobre cada píxel, el resultado debería ser idéntico.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{media/comparaciones/diffImages_Multi_Mono.jpg}
@@ -203,6 +217,7 @@ A continuación, se muestra la comparación entre la salida del programa multihi
     \includegraphics[width=0.85\textwidth]{media/comparaciones/diffImages_Multi_Mono2.jpg}
     \caption*{Salida por consola}
 \end{figure}
+\vspace{4mm} La imagen generada es exactamente la misma.
 
 \newpage
 \section{Resultados experimentales}
