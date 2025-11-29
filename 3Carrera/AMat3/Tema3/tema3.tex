@@ -532,4 +532,49 @@ Análogamente, $||v||- ||u|| \leq ||u-v|| = 0$. Queda ver que $||\cdot||'$ es un
 \end{enumerate}
 
 \vspace{4mm} \noindent \nota Habitualmente, solemos escribir $(V/N, ||\cdot||)$ en lugar de $(V/N, ||\cdot||')$.
+
+\newpage
+\result{Unicidad del conjunto \texorpdfstring{$N$}{N} en los \texorpdfstring{$\mathcal{L}_p(X)$}{L\_p(X)}}
+\hspace{3mm} Sea $1 \leq p \leq \infty$, se cumple:
+$$N_p := \{f \in \mathcal{L}_p(X) : ||f||_p = 0\} = N := \{f: X \to \R \text{ medible con }f \muae 0\}$$
+
+\vspace{2mm} \dem Distinguiremos varios casos.
+\vspace{2mm} \newline $\bullet$ Para $p = \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    $$||f||_\infty = 0 \iff \{x \in X : |f(x)| \leq 0\} \muae X \iff f \muae 0$$
+\end{adjustwidth}
+
+\vspace{2mm}
+\noindent $\bullet$ Caso $1 \leq p < \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    $$||f||_p = \left(\int_{X}|f(x)|^p\,d\mu(x)\right)^\frac{1}{p} = 0 \iff |f(x)|^p \muae 0 \iff f \muae 0$$
+\end{adjustwidth}
+
+\vspace{6mm}
+\result{Definición de espacios \texorpdfstring{$L_p$}{L\_p}}
+\hspace{3mm} Para cada $1 \leq p \leq \infty$, definimos siguiente espacio vectorial normado:
+$$L_p(X,\Sigma, \mu) := \Big(\mathcal{L}_p(X,\Sigma, \mu)/N, ||\cdot||_p\Big)$$
+\indent Cuando el contexto sea claro, escribiremos simplemente $L_p(X)$. Además, denotaremos $f \in L_p(X)$ en lugar de $f+N \in L_p(X)$ ó $[f]_\sim \in L_p(X)$.
+\vspace{2mm} \newline \indent Consideramos que $f = g$ en $L_p(X, \Sigma, \mu)$ significa $f(x) \muae g(x)$ como funciones.
+
+\vspace{6mm}
+\result{Espacios \texorpdfstring{$\ell_p$}{l\_p} como espacios \texorpdfstring{$L_p$}{L\_p}}
+\hspace{3mm} Estudiemos el caso particular $L_p(\N, \mathcal{P}(\N), m)$ para $m$ \hyperref[result:1.1.6]{medida de contar}.
+\vspace{2mm} \newline \indent Sea $s \in \mathcal{L}_p(\N , \mathcal{P}(\N), m)$, tenemos que $s$ es una función de la forma:
+\begin{align*}
+    s : \N \longrightarrow \R && n \mapsto s(n)
+\end{align*}
+De modo que $s \equiv (x_n)_{n\in \N}$. Por tanto,
+$$||s||_p = \left(\int_{\N}|s(n)|^p\,dm(n)\right)^\frac{1}{p} = \left(\sum_{n=1}^{\infty}|x_n|^p\right)^\frac{1}{p} \overset{s \in \mathcal{L}_p}{<} \infty$$
+Se corresponden con los espacios $\ell_p$ estudiados en Análisis Matemático 2. Además, en este caso, el conjunto $N$ contiene únicamente a la sucesión nula $0_{\ell_p} \equiv 0$.
+
+\vspace{6mm}
+\result{Teorema de Riesz-Fisher}
+\hspace{3mm} Sea $1 \leq p \leq \infty$. Sea $(f_n)_{n\in\N} \subseteq \mathcal{L}_p(X)$  sucesión de Cauchy en $L_p(X)$. Entonces, existen $(k_n)_n \subseteq (n)_n$ sucesión creciente de naturales, y $f \in \mathcal{L}_p(X)$ que verifican:
+\begin{enumerate}[label=\roman*)]
+    \item $f_{k_n}(x) \xrightarrow{n\to\infty} f(x)$ en casi todo punto ($\mu$-a.e.)
+    \item $||f_n - f||_p \xrightarrow{n\to\infty}0$
+    \item Para el caso $p = \infty$, podemos tomar $(k_n)_n = (n)_n$
+\end{enumerate}
+Como consecuencia, $L_p(X, \Sigma, \mu)$ es un espacio de Banach.
 \end{document}

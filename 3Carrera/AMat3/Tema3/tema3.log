@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  29 NOV 2025 19:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  29 NOV 2025 20:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -826,7 +826,12 @@ e 390.
 LaTeX Warning: Hyper reference `result:2.1.9' on page 10 undefined on input lin
 e 429.
 
-[10] [11] [12] [13] (tema3.aux)
+[10] [11] [12] [13]
+
+LaTeX Warning: Hyper reference `result:1.1.6' on page 14 undefined on input lin
+e 562.
+
+[14] [15] (tema3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -835,14 +840,23 @@ L3 programming layer <2024-01-04>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `tema3.out' has not changed.
-(rerunfilecheck)             Checksum: 2562D14017DFCEBACB82C4B46BEF3B07;3755.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `tema3.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `tema3.out':
+(rerunfilecheck)             Before: 8ECC6AE59B46B5DD242F21DAD5930A19;4487
+(rerunfilecheck)             After:  106286BABAA34805F0CDB255DB7481CF;4677.
  ) 
 Here is how much of TeX's memory you used:
- 28339 strings out of 474486
- 557408 string characters out of 5753176
+ 28356 strings out of 474486
+ 557663 string characters out of 5753176
  1945542 words of memory out of 5000000
- 50180 multiletter control sequences out of 15000+600000
+ 50188 multiletter control sequences out of 15000+600000
  573067 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,20n,87p,588b,685s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -860,9 +874,9 @@ nstall/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts
 cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MikTex/te
 xmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tema3.pdf (13 pages, 255786 bytes).
+Output written on tema3.pdf (15 pages, 267929 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 149 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 45 named destinations out of 1000 (max. 500000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 
