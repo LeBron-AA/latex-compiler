@@ -469,4 +469,67 @@ $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = 
 Nótese que como consecuencia de $(i)$ se cumple $||0_V|| = 0$.
 
 \vspace{4mm} En vista del \hyperref[result:3.2.5]{resultado anterior}, es claro que los $\elep{p}{X}$ son espacios vectoriales seminormados para $1 \leq p \leq \infty$.
+
+\newpage
+\chapter{Paso a conjuntos cocientes \texorpdfstring{$L_p$}{L\_p}}
+\result{Conjunto cociente dado por subespacio vectorial}
+\hspace{3mm} Sea $V$ un espacio vectorial. Sea $N \leq V$ un subespacio vectorial. Podemos definir una relación de equivalencia en $V$ como sigue:
+$$x \sim y \iff x - y \in N \hspace{4mm} \forall x,y \in V $$
+Veamos que es en efecto una relación de equivalencia.
+\vspace{4mm} \newline \noindent $\bullet$ Relfexividad:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{2mm}
+    Por ser $N$ un subespacio vectorial, tenemos $0_v = 0_N \in N$.
+    \vspace{2mm} \newline De este modo, sea $x\in V$ cualquiera, $x-x = 0_v \in N$.
+\end{adjustwidth}
+\vspace{4mm} \noindent $\bullet$ Simetría:
+\begin{adjustwidth}{0.07\textwidth}{}
+    Sean $x,y \in V$ tales que $x \sim y$, veamos que $y \sim x$.
+    \vspace{2mm} \newline Por definición, $x-y \in N \Rightarrow -(x-y) = y -x \in N$.
+    \vspace{2mm} \newline Se tiene el ser $N$ un espacio vectorial.
+\end{adjustwidth}
+\vspace{4mm} \noindent $\bullet$ Transitividad:
+\begin{adjustwidth}{0.07\textwidth}{}
+    Sean $x,y,< \in V$ tales que $x \sim y$, $\hspace{1mm} y \sim z$. Veamos que $x \sim z$.
+    \vspace{2mm} \newline Por definición, $x-y \in N$, $\hspace{1mm} y- z \in N$.
+    \vspace{2mm} \newline Así, $x-z = (x-y) - \underbracket{(z-y)}_{\in N} \in N$.
+\end{adjustwidth}
+\vspace{2mm} \indent Es muy común denotar al espacio cociente resultante como ${V}/{N}$ en lugar de ${V}/{~}$. De manera similar, sus elementos suelen denotarse como $v + N$ en lugar de $[v]_{\sim}$.
+\vspace{4mm} \newline \indent Además, respeta la estructura de espacio vectorial. Es decir, sean $x, y \in V$, $\alpha, \beta \in K$; se cumple:
+$$(\alpha x + \beta y) + N = \alpha(x+N) + \beta(y+N) $$
+
+\vspace{3mm} \noindent
+Esto se debe a que $\forall \hspace{1mm} z \in V$, $\forall \lambda \in K$,
+$$||x-y|| = 0 \iff ||\lambda x -\lambda y|| = 0$$
+$$||x-y||= 0 \iff ||(x+z) - (y+z)||= 0$$
+
+\vspace{6mm}
+\result{Convertir un espacio seminormado en uno normado}
+\hspace{3mm} Sea $(V, ||\cdot||)$ un $K$-espacio vectorial seminormado, veamos cómo obtener un espacio vectorial normado a partir de él. Veamos que el siguiente conjunto es un subespacio vectorial:
+$$ N = \{v \in V : ||v|| = 0\}$$
+Sean $u,v \in N$, sean $\alpha, \beta \in K$, se cumple:
+$$ ||\alpha u + \beta v|| \leq ||\alpha u ||+ ||\beta v|| = |\alpha|\cdot ||u|| + |\beta|\cdot ||v|| = 0 + 0 = 0$$
+Utilizaremos este subespacio para el paso a cocientes.
+
+\vspace{2mm} Proponemos la siguiente aplicación como candidata a norma:
+\begin{align*}
+    ||\cdot||' : V/N \to [0, \infty) && v+N \mapsto ||v+N||' = ||v||
+\end{align*}
+En primer lugar, veamos que está bien definida. Sean $u,v\in V$ tales que $u \sim v$, buscamos ver $||u||= ||v||$:
+$$||u|| = ||u+0_v|| = ||(u-v) + v||\leq ||u-v|| + ||v|| \Rightarrow ||u|| - ||v|| \leq ||u-v|| = 0$$
+Análogamente, $||v||- ||u|| \leq ||u-v|| = 0$. Queda ver que $||\cdot||'$ es una norma.
+
+
+\begin{enumerate}[label=\roman*)]
+    \item Sean $u\in V$, $\lambda \in K$,
+    $$||\lambda(u+N)||' = ||(\lambda u) + N ||' = ||\lambda x||= |\lambda| \cdot ||u|| = |\lambda|\cdot ||u+N||'$$
+
+    \item Sean $u,v\in V$,
+    $$||(u+v)+N||' = ||(u+N) + (v+N)||' = ||u+v||\leq||u||+||v||= ||u+N||'+||v+N||'$$
+
+    \item Sea $u\in V$ tal que $||u+N||' = 0$,
+    $$||u+N||' = 0 \Rightarrow ||u||= 0 \Rightarrow u \in N \Rightarrow u + N = N = 0_{V/N}$$
+\end{enumerate}
+
+\vspace{4mm} \noindent \nota Habitualmente, solemos escribir $(V/N, ||\cdot||)$ en lugar de $(V/N, ||\cdot||')$.
 \end{document}

@@ -12,3 +12,6 @@
 \contentsline {subsubsection}{\numberline {3.2.4}Desigualdad de Hölder}{8}{subsubsection.0.3.2.4}%
 \contentsline {subsubsection}{\numberline {3.2.5}Desigualdad de Minkowski}{10}{subsubsection.0.3.2.5}%
 \contentsline {subsubsection}{\numberline {3.2.6}Definición de espacio vectorial seminormado}{11}{subsubsection.0.3.2.6}%
+\contentsline {subsection}{3. Paso a conjuntos cocientes $L_p$}{12}{chapter.0.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Conjunto cociente dado por subespacio vectorial}{12}{subsubsection.0.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Convertir un espacio seminormado en uno normado}{13}{subsubsection.0.3.3.2}%
