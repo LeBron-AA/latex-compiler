@@ -117,8 +117,20 @@
 \contentsline {subsection}{1. Primeras definiciones}{104}{chapter.0.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Definición de $\mathcal {L}_p$}{104}{subsubsection.0.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Definición de $\mathcal {L}_\infty $}{104}{subsubsection.0.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Funciones sumables y funciones de $\mathcal {L}_p(X)$}{105}{subsubsection.0.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.3}Funciones sumables y funciones de $\mathcal {L}_p(X)$}{104}{subsubsection.0.3.1.3}%
 \contentsline {subsubsection}{\numberline {3.1.4}Definición de supremo esencial}{105}{subsubsection.0.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Mínimo esencial}{106}{subsubsection.0.3.1.5}%
-\contentsline {subsection}{2. Estructura de los $\mathcal {L}_p$}{107}{chapter.0.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Concepto de convexidad}{107}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.1.5}Mínimo esencial}{105}{subsubsection.0.3.1.5}%
+\contentsline {subsection}{2. Estructura de los $\mathcal {L}_p$}{106}{chapter.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Concepto de convexidad}{106}{subsubsection.0.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Los $\mathcal {L}_p(X)$ son espacios vectoriales}{107}{subsubsection.0.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Conjugado $p^*$}{109}{subsubsection.0.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Desigualdad de Hölder}{109}{subsubsection.0.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}Desigualdad de Minkowski}{111}{subsubsection.0.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Definición de espacio vectorial seminormado}{112}{subsubsection.0.3.2.6}%
+\contentsline {subsection}{3. Paso a conjuntos cocientes $L_p$}{113}{chapter.0.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Conjunto cociente dado por subespacio vectorial}{113}{subsubsection.0.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Convertir un espacio seminormado en uno normado}{114}{subsubsection.0.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}Unicidad del conjunto $N$ en los $\mathcal {L}_p(X)$}{115}{subsubsection.0.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}Definición de espacios $L_p$}{115}{subsubsection.0.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}Espacios $\ell _p$ como espacios $L_p$}{115}{subsubsection.0.3.3.5}%
+\contentsline {subsubsection}{\numberline {3.3.6}Teorema de Riesz-Fisher}{116}{subsubsection.0.3.3.6}%

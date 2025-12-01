@@ -16,6 +16,9 @@
 \usepackage{titlesec}
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
 
 % Margins
 %\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
@@ -97,7 +100,7 @@
 %Integral de Lebesgue con patas
 \newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
 
-% TODO: añadir
+%Espacios \mathcal{L}_p
 \newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
 
 % ----- Custom counters and counter commands -----
@@ -145,10 +148,11 @@
 \vbadness=10000
 \hfuzz=100pt
 \vfuzz=100pt
-%------------------------------
+% ---------------------------------------
 \title{Análisis Matemático III}
 \author{Javier Ortín Rodenas}
 \date{Curso 2025-2026}
+
 
 \begin{document}
 
@@ -577,4 +581,77 @@ Se corresponden con los espacios $\ell_p$ estudiados en Análisis Matemático 2.
     \item Para el caso $p = \infty$, podemos tomar $(k_n)_n = (n)_n$
 \end{enumerate}
 Como consecuencia, $L_p(X, \Sigma, \mu)$ es un espacio de Banach.
+
+\vspace{4mm} \dem Veremos dos casos.
+\vspace{2mm} \newline $\bullet$ Caso $1 \leq p < \infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    Como $(f_n)_n$ es de Cauchy en $L_p(X)$. Para cada $n \in \N$ podemos afirmar que existe cierto $k_n \in \N$ tal que:
+    $$ ||f_k - f_{k_n}||_p < \frac{1}{2^n} \hspace{2mm} \forall \hspace{1mm} k \geq k_n$$
+    En particular, $|f_{k_{n+1}} - f_{k_n}||_p < \frac{1}{2^n}$ $\forall \hspace{1mm} n \in \N$.
+    \vspace{2mm} \newline Consideramos las siguientes funciones medibles:
+    \begin{align*}
+        g_n(x) := \sum_{m=1}^{n}|f_{k_{m+1}}(x) - f_{k_m}(x)| &&
+        g(x) := \sum_{n=1}^{\infty}|f_{k_{n+1}}(x) - f_{k_n}(x)|
+    \end{align*}
+    Veamos que $g$ es sumable. Como es suma de términos no negativos, podemos aplicar el Teorema de Convergencia Monótona:
+    \begin{flalign*}
+        \int_{X}&g(x)^p\,d\mu(x) \overset{TCM}{=} \lim_{n} \int_{X}g_n(x)^p\,d\mu(x) = \lim_{n} \left| \left|\sum_{m=1}^{n}|f_{k_{m+1}}(x) - f_{k_m}(x)| \right| \right|_p^p \overset{\text{continuidad}}{=} \\
+        &= \left(\lim_n \left|\left|\sum_{m=1}^{n}|f_{k_{m+1}}(x) - f_{k_{m}}(x)|\right|\right|_p\right)^p \overset{D.T.}{\leq} \left(\lim_n \sum_{m=1}^{n}||f_{k_{m+1}} - f_{k_m}||_p\right)^p \leq
+    \end{flalign*}
+    \newpage
+    \begin{flalign*}
+        \hspace{6mm} \leq \left(\lim_{n}\sum_{m=1}^{n}\frac{1}{2^n}\right)^p < \infty &&
+    \end{flalign*}
+    Tenemos que $g(x) < \infty$ $\mu$-a.e. al ser sumable. Por tanto, para el siguiente conjunto, \\[-3ex]
+    $$ A := \{x \in X : g(x) = \infty\} \in \Sigma$$
+    tenemos que $\mu(A) = 0$. Sea $x \in X \setminus A$, tenemos $g(x) < \infty$ luego ha de cumplirse: \\[-3ex]
+    $$ \hat{g}(x) := \sum_{n=1}^{\infty}f_{k_{n+1}}(x) - f_{k_n}(x) < \infty$$
+    Al ser una serie telescópica, esto implica que $\exists \lim_{n}f_{k_n}(x) < \infty$.
+    \newline Definimos la función candidata a límite:
+    \begin{align*}
+        f: X \longrightarrow \R &&
+        x \longmapsto f(x) := \begin{cases}
+            \mlim{n} \hspace{1mm} f_{k_n}(x) &\text{ si } x \in X \setminus A\\
+            0 &\text{ si } x \in A
+        \end{cases}
+    \end{align*}
+    Tenemos garantizado que $f_{k_n}(x) \xrightarrow{n\to\infty}f(x)$ en $X \setminus A$ con $\mu(A) = 0$ luego hemos demostrado ya el primer apartado. Queda ver que se cumple el segundo.
+    \begin{flalign*}
+        \int_{X}&|f - f_{k_n}|^p\,d\mu = \int_{X \setminus A}|f - f_{k_n}|^p\,d\mu \overset{\hyperref[result:2.1.13]{Fatou}}{\leq} \linf{m} \int_{X \setminus A}|f_{k_m}(x) - f_{k_n}(x)|\,d\mu(x) = \\[1.5ex]
+        &= \left(\linf{m}||f_{k_m}-f_{k_n}||_p\right)^p \leq \left(\frac{1}{2^n}\right)^p
+    \end{flalign*}
+    \vspace{4mm} \newline \indent En particular, tomando $k_n = k_1$,
+    $$\int_{X}|f(x) - f_{k_1}(x)|^p \,d\mu(x) < \infty \Rightarrow f - f_{k_1} \in \mathcal{L}_p(X)$$
+    Como $f_{k_1} \in \mathcal{L}_p(X)$, al ser un espacio vectorial, $f \in \mathcal{L}_p(X)$.
+    \vspace{4mm} \newline Además, $||f-f_{k_n}||_p^p \leq \frac{1}{2^{np}} \xrightarrow{n\to\infty}0$.
+    \vspace{3mm} \newline Es decir, $f_{k_n} \xrightarrow{n\to\infty}f$ en $L_p(X)$.
+    \vspace{3mm} \newline Como $(f_n)_n$ es de Cauchy en $L_p(X)$, $||f_n - f||_p \xrightarrow{n\to\infty}0$.
+\end{adjustwidth}
+
+\newpage
+\noindent $\bullet$ Caso $p=\infty$:
+\begin{adjustwidth}{0.07\textwidth}{}
+    \vspace{2mm} Por hipótesis, tenemos $(f_n)_n$ de Cauchy en $L_\infty(X)$ luego
+    $$ \forall \hspace{1mm} \varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_\varepsilon \in \N \text{ tal que } ||f_n - f_m||_\infty < \varepsilon \hspace{3mm} \forall \hspace{1mm} n,m \geq n_\varepsilon$$
+    Para cada par $(n,m) \in \N^2$ definimos el siguiente conjunto auxiliar:
+    $$A_{n,m} := \Big\{x \in X : ||f_n(x) - f(x)||_\infty \leq ||f_n - f_m||_\infty \Big\} $$
+    Así, para $B_{n,m} := X \setminus A_{n,m} \in \Sigma$ tenemos $\mu(B_{n,m})=0$.
+    \vspace{3mm} \newline Y por tanto, $B := \smallcup_{(n,m)\in\N^2} B_{n,m} \in \Sigma$ con $\mu(B) = 0$.
+    \vspace{4mm} \newline Sea $\varepsilon > 0$. Tenemos:
+    $$ \forall \hspace{1mm} x \in X \setminus B, \hspace{2mm} \forall \hspace{1mm} n,m \geq n_\varepsilon : |f_n(x) - f_m(x)| \leq ||f_n - f_m|| < \varepsilon$$
+    Tenemos que para todo $x \in X \setminus B$ la sucesión $(f_n(x))_n$ es de Cauchy en $\R$.
+    \vspace{2mm} \newline Al ser un espacio métrico completo, converge en $\R$. Podemos definir:
+    \begin{align*}
+        f: X \longrightarrow \R &&
+        x \longmapsto f(x) := \begin{cases}
+            \mlim{n} \hspace{1mm} f_{n}(x) &\text{ si } x \in X \setminus B\\
+            0 &\text{ si } x \in B
+        \end{cases}
+    \end{align*}
+    Dados $x \in X \setminus B$, $m \geq n_\varepsilon$, se cumple:
+    $$|f(x) - f_m(x)| = \lim_n |f_n(x) - f_m(x)| \overset{n \geq n_\varepsilon}{\leq} \varepsilon$$
+    Tenemos $f = (f- f_m) + f_m \in \mathcal{L}_\infty(X)$, luego $f \in \mathcal{L}_\infty(X)$ al ser un espacio vectorial .
+    \vspace{3mm} \newline Además, $\forall \hspace{1mm} m \geq n_\varepsilon, ||f-f_m||_\infty < \varepsilon$.
+    \vspace{3mm} \newline Así, $f_m \xrightarrow{m\to\infty}f$ en $L_\infty(X)$.
+\end{adjustwidth}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  29 NOV 2025 20:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.11.11)  1 DEC 2025 10:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -693,48 +693,170 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 (C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
 arymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\MikTex\texmfs\install\tex/latex/pgfplots\pgfplots.sty
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotscore.code.tex
+\t@pgfplots@toka=\toks48
+\t@pgfplots@tokb=\toks49
+\t@pgfplots@tokc=\toks50
+\pgfplots@tmpa=\dimen287
+\c@pgfplots@coordindex=\count320
+\c@pgfplots@scanlineindex=\count321
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.tex)
+) (C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\pgfplotslibrary.code.tex)
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsup
+p_loader.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks51
+\t@pgf@tokb=\toks52
+\t@pgf@tokc=\toks53
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsup
+p_pgfutil-common-lists.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsutil.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsliststruct
+ure.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsliststruct
+ureext.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsarray.code
+.tex
+\c@pgfplotsarray@tmp=\count322
 )
-\c@unit=\count320
-\c@chapter=\count321
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsmatrix.cod
+e.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/numtable\pgfplotstableshared.cod
+e.tex
+\c@pgfplotstable@counta=\count323
+\t@pgfplotstable@a=\toks54
+)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsdeque.code
+.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsbinary.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsbinary.data.code.te
+x))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex)
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshad
+ing.code.tex
+\c@pgfplotslibrarysurf@no=\count324
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshadi
+ng.pgfsys-pdftex.def)))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotscolormap.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotscolor.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsstackedplots.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsplothandlers.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex))
+) (C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.scaling.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex
+) (C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.errorbars.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.markers.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsticks.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.paths.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arydecorations.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen288
+\pgfdecoratedremainingdistance=\dimen289
+\pgfdecoratedinputsegmentcompleteddistance=\dimen290
+\pgfdecoratedinputsegmentremainingdistance=\dimen291
+\pgf@decorate@distancetomove=\dimen292
+\pgf@decorate@repeatstate=\count325
+\pgfdecorationsegmentamplitude=\dimen293
+\pgfdecorationsegmentlength=\dimen294
+)
+\tikz@lib@dec@box=\box80
+)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arydecorations.pathmorphing.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries/decorations\pgflibrarydecor
+ations.pathmorphing.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arydecorations.pathreplacing.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries/decorations\pgflibrarydecor
+ations.pathreplacing.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contour
+lua.code.tex)
+\pgfplots@numplots=\count326
+\pgfplots@xmin@reg=\dimen295
+\pgfplots@xmax@reg=\dimen296
+\pgfplots@ymin@reg=\dimen297
+\pgfplots@ymax@reg=\dimen298
+\pgfplots@zmin@reg=\dimen299
+\pgfplots@zmax@reg=\dimen300
+)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+aryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryplotmarks.code.te
+x
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.fillbet
+ween.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\tikzlibraryfillbetwee
+n.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+aryintersections.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryintersections.cod
+e.tex
+\pgf@intersect@solutions=\count327
+))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\tikzlibrarydecoration
+s.softclip.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\pgflibraryfillbetween
+.code.tex)))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.decorat
+ions.softclip.code.tex))
+\c@unit=\count328
+\c@chapter=\count329
 
 (C:\MikTex\texmfs\install\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count322
-\l__pdf_internal_box=\box80
+\l__color_backend_stack_int=\count330
+\l__pdf_internal_box=\box81
 ) (tema3.aux)
 \openout1 = `tema3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
+LaTeX Font Info:    ... okay on input line 157.
 (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count323
-\scratchdimen=\dimen287
-\scratchbox=\box81
-\nofMPsegments=\count324
-\nofMParguments=\count325
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count326
-\MPscratchDim=\dimen288
-\MPnumerator=\count327
-\makeMPintoPDFobject=\count328
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count331
+\scratchdimen=\dimen301
+\scratchbox=\box82
+\nofMPsegments=\count332
+\nofMParguments=\count333
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count334
+\MPscratchDim=\dimen302
+\MPnumerator=\count335
+\makeMPintoPDFobject=\count336
+\everyMPtoPDFconversion=\toks56
 ) (C:\MikTex\texmfs\install\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -777,17 +899,21 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 153.
+Package hyperref Info: Link coloring ON on input line 157.
 (tema3.out) (tema3.out)
 \@outlinefile=\write4
 \openout4 = `tema3.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 156
+
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 160
 .
- (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
+(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 156
+LaTeX Font Info:    Trying to load font information for U+msb on input line 160
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
@@ -801,37 +927,46 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [2]
 
 LaTeX Warning: Hyper reference `result:2.2.3' on page 3 undefined on input line
- 170.
+ 174.
 
 
 LaTeX Warning: Hyper reference `result:2.2.6' on page 3 undefined on input line
- 186.
+ 190.
 
 [3] [4] [5]
 
 LaTeX Warning: Hyper reference `result:2.2.4' on page 6 undefined on input line
- 318.
+ 322.
 
 [6] [7] [8]
 
 LaTeX Warning: Hyper reference `result:2.1.17' on page 9 undefined on input lin
-e 389.
+e 393.
 
 
 LaTeX Warning: Hyper reference `result:2.1.17' on page 9 undefined on input lin
-e 390.
+e 394.
 
 [9]
 
 LaTeX Warning: Hyper reference `result:2.1.9' on page 10 undefined on input lin
-e 429.
+e 433.
 
 [10] [11] [12] [13]
 
 LaTeX Warning: Hyper reference `result:1.1.6' on page 14 undefined on input lin
-e 562.
+e 566.
 
-[14] [15] (tema3.aux)
+[14] [15]
+
+LaTeX Warning: Hyper reference `result:2.1.13' on page 16 undefined on input li
+ne 622.
+
+
+LaTeX Warning: Hyper reference `result:2.1.13' on page 16 undefined on input li
+ne 622.
+
+[16] [17] (tema3.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -843,23 +978,17 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-
-Package rerunfilecheck Warning: File `tema3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `tema3.out':
-(rerunfilecheck)             Before: 8ECC6AE59B46B5DD242F21DAD5930A19;4487
-(rerunfilecheck)             After:  106286BABAA34805F0CDB255DB7481CF;4677.
+Package rerunfilecheck Info: File `tema3.out' has not changed.
+(rerunfilecheck)             Checksum: 106286BABAA34805F0CDB255DB7481CF;4677.
  ) 
 Here is how much of TeX's memory you used:
- 28356 strings out of 474486
- 557663 string characters out of 5753176
+ 38841 strings out of 474486
+ 912207 string characters out of 5753176
  1945542 words of memory out of 5000000
- 50188 multiletter control sequences out of 15000+600000
+ 60513 multiletter control sequences out of 15000+600000
  573067 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,20n,87p,588b,685s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,20n,87p,774b,702s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/Mi
 kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
@@ -874,9 +1003,9 @@ nstall/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts
 cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MikTex/te
 xmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tema3.pdf (15 pages, 267929 bytes).
+Output written on tema3.pdf (17 pages, 281635 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 173 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
