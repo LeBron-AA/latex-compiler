@@ -6,7 +6,7 @@
       "pdfPath": "3Carrera/AMat3/apuntes.pdf",
       "subject": "Análisis Matemático III",
       "grade": 3,
-      "semester": 2,
+      "semester": 1,
       "language" : "es"
     },
     {
@@ -15,7 +15,16 @@
       "pdfPath": "3Carrera/AMat3/Ejercicios/ejercicios.pdf",
       "subject": "Análisis Matemático III",
       "grade": 3,
-      "semester": 2,
+      "semester": 1,
+      "language" : "es"
+    },
+    {
+      "title": "Primer parcial 2023",
+      "description": "Solo se muestra la solución al segundo problema",
+      "pdfPath": "3Carrera/Inferencia/test.pdf",
+      "subject": "Inferencia Estadística",
+      "grade": 3,
+      "semester": 1,
       "language" : "es"
     },
     {
