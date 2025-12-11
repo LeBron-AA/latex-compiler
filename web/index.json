@@ -21,7 +21,16 @@
     {
       "title": "Primer parcial 2023",
       "description": "Solo se muestra la solución al segundo problema",
-      "pdfPath": "3Carrera/Inferencia/test.pdf",
+      "pdfPath": "3Carrera/Inferencia/Parcial1-2023/test.pdf",
+      "subject": "Inferencia Estadística",
+      "grade": 3,
+      "semester": 1,
+      "language" : "es"
+    },
+    {
+      "title": "Primer parcial 2024",
+      "description": "Solo se muestra la solución al segundo problema",
+      "pdfPath": "3Carrera/Inferencia/Parcial1-2024/test.pdf",
       "subject": "Inferencia Estadística",
       "grade": 3,
       "semester": 1,
