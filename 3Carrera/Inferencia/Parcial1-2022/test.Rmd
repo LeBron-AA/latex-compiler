@@ -235,3 +235,131 @@ l_b < l_p
 ```
 
 Son muy similares. De hecho, al no haber utilizado "set.seed" cada vez que genero este PDF obtengo resultados comparativos distintos (a veces el percentil da menor longitud que el básico, pero en ocasiones se cumple lo contrario).
+ 
+\newpage
+## Problema 2 (3 puntos) Se quiere estudiar la calidad en la medición de las básculas de pesaje de dos marcas diferentes (Acme y Rigor). Para ello, se ha analizado el error de medición (en gramos) cometido por básculas de las dos marcas al pesar distintos objetos. Los datos recogidos se encuentran disponibles en el fichero `Pesaje.RData`.
+### a) Basándote en los datos recogidos, estudia si la distribución del error de medición dentro de cada marca es aproximadamente una normal de media cero. Compara la varianza del error de medición para ambas marcas y explica con qué marca te quedarías.
+
+Cargamos los datos para ver cómo son.
+```{r,include=TRUE}
+load("Pesaje.RData") #Carga dos listas: una por cada marca
+summary(tibble("Acme"=Acme, "Rigor"=Rigor))
+```
+
+A primera vita, parece que rigor tiene mejores resultados al acercarse más al 0 y tener aparentemente menos desviación. Estimaremos la desviación típica a partir de los datos muestrales. Veamos qué datos se adaptan mejor al supuesto de $N(0,\sigma)$.
+```{r,include=FALSE, warning=FALSE, message=FALSE}
+p1 = ggplot(data=tibble(x=Acme), aes(x=x)) +
+  geom_histogram(aes(y=after_stat(density)), fill="ivory3", col="black") +
+  stat_function(fun=dnorm, args=list(mean=0, sd=sd(Acme)), col="blue", linewidth=1) +
+  stat_function(fun=dnorm, args=list(mean=mean(Acme), sd=sd(Acme)), col="red", linewidth=1, linetype="dashed", alpha=0.7) +
+  labs(x="Error ACME", y="Densidad")
+
+p2 = ggplot(data=tibble(x=Rigor), aes(x=x)) +
+  geom_histogram(aes(y=after_stat(density)), fill="ivory3", col="black") +
+  stat_function(fun=dnorm, args=list(mean=0, sd=sd(Rigor)), col="blue", linewidth=1) +
+  stat_function(fun=dnorm, args=list(mean=mean(Rigor), sd=sd(Rigor)), col="red", linewidth=1, linetype="dashed", alpha=0.7) +
+  labs(x="Error Rigor", y="Densidad")
+
+p1 | p2
+```
+
+Se muestra en azul la densidad de la normal de media 0, y en rojo la normal con esperanza igual a la media muestral. Se observa un desvío en el caso de ACME, pero no en el de Rigor.
+
+```{r,include=FALSE, warning=FALSE, message=FALSE}
+p1 = ggplot(data=tibble(x=Acme), aes(x=x)) +
+  stat_ecdf(col="black", linewidth=1) +
+  stat_function(fun=pnorm, args=list(mean=0, sd=sd(Acme)), col="blue", linewidth=1) +
+  labs(x="Error ACME", y="Función de distribución")
+
+p2 = ggplot(data=tibble(x=Rigor), aes(x=x)) +
+  stat_ecdf(col="black", linewidth=1) +
+  stat_function(fun=pnorm, args=list(mean=0, sd=sd(Rigor)), col="blue", linewidth=1) +
+  labs(x="Error Rigor", y="Función de distribución")
+
+p1 | p2
+```
+
+Al igual que antes, se observa cómo Rigor se asemeja mucho más que ACME a la distribución del enunciado. Comparemos ahora sus varianzas:
+```{r,include=TRUE}
+c(Acme=var(Acme), Rigor=var(Rigor))
+```
+Rigor tiene su media más próxima al error nulo. Además, tiene menos varianza, haciendo que su media sea más representativa. Por todo lo anterior, Rigor presenta mejores mediciones que ACME.
+
+\vspace{6mm}
+### b) (1 punto) Calcula un intervalo de confianza al nivel de confianza 0,95 para el cociente de las varianzas del error de medición de ambas marcas. ¿Parece razonable asumir que ambas varianzas son iguales?
+Sean $X,Y$ dos variables aleatorias que siguen distribuciones $N(\mu_X, \sigma_X)$, $N(\mu_Y, \sigma_Y)$ independientes. Si se extraen dos m.a.s. de ellas de tamaños $n_X$, $n_Y$, se cumple:
+$$\frac{\sigma_Y^2 \cdot \hat{S^2_X}}{\sigma_X^2 \cdot \hat{S^2_Y}} \sim F_{n_X-1,n_Y-2}$$
+
+Las distribuciones de los errores parecen ser normales, luego podemos intentar estimar el cociente de las varianzas poblacionales de este modo. En este caso, $n_X = n_Y = 100$. Veamos qué intervalo de confianza nos brinda este método:
+
+```{r,include=TRUE}
+length(Acme) == length(Rigor)
+n = length(Acme)
+alpha = 0.05 # 1- alpha = 95%
+
+c1 = qf(p=alpha/2, df1=n-1, df2=n-2)
+c2 = qf(p=1-alpha/2, df1=n-1, df2=n-2)
+```
+Deshacemos el pivote para ver un intervalo acorde con nuestras muestras:
+$$c_1 \leq \frac{\sigma_Y^2 \cdot \hat{S^2_X}}{\sigma_X^2 \cdot \hat{S^2_Y}} \leq c2
+\iff c_1 \cdot \frac{\hat{S^2_Y}}{\hat{S^2_X}}
+\leq \frac{\sigma_Y^2}{\sigma_X^2}
+\leq c_2 \cdot \frac{\hat{S^2_Y}}{\hat{S^2_X}}$$
+En este caso, consideraremos $Y$ para ACME y $X$ para Rigor:
+```{r,include=TRUE}
+des_pivote = function(q) q * var(Acme)/var(Rigor)
+(intervalo = tibble(i1 = des_pivote(c1), i2=des_pivote(c2)))
+var(Acme)/var(Rigor)
+```
+
+En vista de este intervalo, no parece razonable asumir que las varianzas son iguales.
+
+\vspace{6mm}
+### c) (1 punto) Determina de manera aproximada el tamaño de muestra necesario (considerando el mismo para cada marca) si el objetivo es estimar el cociente de las varianzas con un error relativo máximo de 0,1 y confianza de 0,95. Se recuerda que el error relativo de estimación es igual al error absoluto de estimación entre el valor real a estimar.
+
+Estimaremos el cociente entre las varianzas poblacionales por el cociente de las varianzas muestrales. De este modo, buscamos un $n$ tal que el siguiente intervalo tenga una confianza del 95%:
+$$-0,1 \leq \frac{\frac{\hat{S^2}_X}{\hat{S^2}_Y}-\frac{\sigma^2_X}{\sigma^2_Y}}
+{\frac{\sigma^2_X}{\sigma^2_Y}} \leq 0,1 \iff
+-0,1 \leq F_{n-1,n-1} -1 \leq 0,1 \iff
+0,9 \leq F_{n-1,n-1}\leq 1,1$$
+
+Para valores altos de $n$, la distribución $F_{n-1,n-1}$ es cada vez más simétrica, luego tomaremos intervalos de confianza $1-\alpha = 0.95$ centrados. Sea $[q_n^1, q_n^2]$ el intervalo correspondiente, buscamos encontrar $n_0 \in \mathbb{N}$ tal que $[q_{n_0}^1, q_{n_0}^2] \subseteq [0,9, 1,1]$. Hagámoslo por simulación:
+
+```{r,include=TRUE, echo=TRUE}
+lower_bound = 0.9
+upper_bound = 1.1
+alpha = 0.05
+success = FALSE
+for (tam in 10:1e4) {
+  q1 = qf(alpha/2, df1=tam-1, df2=tam-1)
+  q2 = qf(1-alpha/2, df1=tam-1, df2=tam-1)
+  if(lower_bound <=q1 && q2 <= upper_bound) {
+    success = TRUE
+    break
+  }
+}
+if(success) {
+  paste("Menor tamaño muestral válido: ", tam)  
+} else {
+  print("No se ha encontrado un tamaño muestral adecuado")
+  print("Aumente el tamaño máximo permitido para iterar")
+  (intervalo_relativo = tibble(i1=q1, i2=q2))
+}
+```
+
+Concluimos que es posible para el tamaño muestrado. Veamos un ejemplo de simulación para comprobarlo.
+
+```{r,include=TRUE}
+mu1 = runif(n=1, min=-10, max=10)
+mu2 = runif(n=1, min=-10, max=10)
+sigma1 = runif(n=1, min=0.5, max=10)
+sigma2 = runif(n=1, min=0.5, max=10)
+muestra1 = rnorm(n=tam, mean=mu1, sd=sigma1)
+muestra2 = rnorm(n=tam, mean=mu2, sd=sigma2)
+
+#Error relativo:
+cociente_real = (sigma1/sigma2)^2
+cociente_muestra = var(muestra1)/var(muestra2)
+(error_rel = abs(cociente_muestra - cociente_real)/cociente_real)
+error_rel < 0.1
+```
