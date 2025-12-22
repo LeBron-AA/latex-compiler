@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  22 DEC 2025 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  20 DEC 2025 09:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/UNIOVI/latex-compiler/3Carrera/AMat3/Tema4/tema4.tex
-(d:/UNIOVI/latex-compiler/3Carrera/AMat3/Tema4/tema4.tex
+**d:/UNIOVI/latex-compiler/comp.tex
+(d:/UNIOVI/latex-compiler/comp.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\MikTex\texmfs\install\tex/latex/base\article.cls
@@ -693,170 +693,49 @@ Package: titlesec 2025/01/04 v2.17 Sectioning titles
 (C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
 arymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (C:\MikTex\texmfs\install\tex/latex/pgfplots\pgfplots.sty
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.revision.tex)
-Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
-
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotscore.code.tex
-\t@pgfplots@toka=\toks48
-\t@pgfplots@tokb=\toks49
-\t@pgfplots@tokc=\toks50
-\pgfplots@tmpa=\dimen287
-\c@pgfplots@coordindex=\count320
-\c@pgfplots@scanlineindex=\count321
-
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.tex)
-) (C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\pgfplotslibrary.code.tex)
-
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsup
-p_loader.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
-Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks51
-\t@pgf@tokb=\toks52
-\t@pgf@tokc=\toks53
-
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsup
-p_pgfutil-common-lists.tex))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsutil.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsliststruct
-ure.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsliststruct
-ureext.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsarray.code
-.tex
-\c@pgfplotsarray@tmp=\count322
 )
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsmatrix.cod
-e.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/numtable\pgfplotstableshared.cod
-e.tex
-\c@pgfplotstable@counta=\count323
-\t@pgfplotstable@a=\toks54
-)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsdeque.code
-.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsbinary.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsbinary.data.code.te
-x))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex)
-
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshad
-ing.code.tex
-\c@pgfplotslibrarysurf@no=\count324
-
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshadi
-ng.pgfsys-pdftex.def)))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotscolormap.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotscolor.code.tex))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsstackedplots.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsplothandlers.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex))
-) (C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.scaling.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex
-) (C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.errorbars.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.markers.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsticks.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.paths.code.tex)
-(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
-arydecorations.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen288
-\pgfdecoratedremainingdistance=\dimen289
-\pgfdecoratedinputsegmentcompleteddistance=\dimen290
-\pgfdecoratedinputsegmentremainingdistance=\dimen291
-\pgf@decorate@distancetomove=\dimen292
-\pgf@decorate@repeatstate=\count325
-\pgfdecorationsegmentamplitude=\dimen293
-\pgfdecorationsegmentlength=\dimen294
-)
-\tikz@lib@dec@box=\box80
-)
-(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
-arydecorations.pathmorphing.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgf/libraries/decorations\pgflibrarydecor
-ations.pathmorphing.code.tex))
-(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
-arydecorations.pathreplacing.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgf/libraries/decorations\pgflibrarydecor
-ations.pathreplacing.code.tex))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contour
-lua.code.tex)
-\pgfplots@numplots=\count326
-\pgfplots@xmin@reg=\dimen295
-\pgfplots@xmax@reg=\dimen296
-\pgfplots@ymin@reg=\dimen297
-\pgfplots@ymax@reg=\dimen298
-\pgfplots@zmin@reg=\dimen299
-\pgfplots@zmax@reg=\dimen300
-)
-(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
-aryplotmarks.code.tex
-File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryplotmarks.code.te
-x
-File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.fillbet
-ween.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\tikzlibraryfillbetwee
-n.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
-aryintersections.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryintersections.cod
-e.tex
-\pgf@intersect@solutions=\count327
-))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\tikzlibrarydecoration
-s.softclip.code.tex
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\pgflibraryfillbetween
-.code.tex)))
-(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.decorat
-ions.softclip.code.tex))
-\c@unit=\count328
-\c@chapter=\count329
+\c@unit=\count320
+\c@chapter=\count321
 
 (C:\MikTex\texmfs\install\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count330
-\l__pdf_internal_box=\box81
-) (tema4.aux)
-\openout1 = `tema4.aux'.
+\l__color_backend_stack_int=\count322
+\l__pdf_internal_box=\box80
+) (comp.aux)
+\openout1 = `comp.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 157.
-LaTeX Font Info:    ... okay on input line 157.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 145.
+LaTeX Font Info:    ... okay on input line 145.
+
 (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count331
-\scratchdimen=\dimen301
-\scratchbox=\box82
-\nofMPsegments=\count332
-\nofMParguments=\count333
-\everyMPshowfont=\toks55
-\MPscratchCnt=\count334
-\MPscratchDim=\dimen302
-\MPnumerator=\count335
-\makeMPintoPDFobject=\count336
-\everyMPtoPDFconversion=\toks56
+\scratchcounter=\count323
+\scratchdimen=\dimen287
+\scratchbox=\box81
+\nofMPsegments=\count324
+\nofMParguments=\count325
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count326
+\MPscratchDim=\dimen288
+\MPnumerator=\count327
+\makeMPintoPDFobject=\count328
+\everyMPtoPDFconversion=\toks49
 ) (C:\MikTex\texmfs\install\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -899,71 +778,157 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 157.
-(tema4.out) (tema4.out)
+Package hyperref Info: Link coloring ON on input line 145.
+(comp.out) (comp.out)
 \@outlinefile=\write4
-\openout4 = `tema4.out'.
+\openout4 = `comp.out'.
 
-
-Package pgfplots notification 'compat/show suggested version=true': document ha
-s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
-
-LaTeX Font Info:    Trying to load font information for U+msa on input line 160
+LaTeX Font Info:    Trying to load font information for U+msa on input line 148
 .
-(C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
+ (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 160
+LaTeX Font Info:    Trying to load font information for U+msb on input line 148
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map}] (tema4.toc)
+{C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map}] (comp.toc)
 \tf@toc=\write5
-\openout5 = `tema4.toc'.
+\openout5 = `comp.toc'.
 
- [2] [3] [4] (tema4.aux)
+ [2] [3] [4] [5]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 236
+.
+
+(C:\MikTex\texmfs\install\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [6] [7]
+Overfull \hbox (45.19534pt too wide) detected at line 265
+[]
+ []
+
+[8] [9]
+Overfull \hbox (2.19435pt too wide) detected at line 319
+[]
+ []
+
+[10] [11]
+Overfull \hbox (43.53526pt too wide) detected at line 359
+[]
+ []
+
+[12] [13] [14]
+Overfull \hbox (7.27437pt too wide) detected at line 452
+\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 g\OT1/cm
+r/m/n/12 )[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f \OT1/cmr/
+m/n/12 + \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 f \OT1/cmr/m/
+n/12 + \OML/cmm/m/it/12 g \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 f[] \OMS/cmsy/m/n/
+12 ^^@ \OML/cmm/m/it/12 f[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 g[] \OMS/cmsy/m/
+n/12 ^^@ \OML/cmm/m/it/12 g[] \OMS/cmsy/m/n/12 ) \OT1/cmr/m/n/12 (\OML/cmm/m/it
+/12 f \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )[] + \OML/cmm/m/it/1
+2 f[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 g[] \OT1/cmr/m/n/12 = (\OML/cmm/m/it/1
+2 f \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 g\OT1/cmr/m/n/12 )[] + \OML/cmm/m/it/12 
+f[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 g[]
+ []
+
+[15]
+Overfull \hbox (18.28813pt too wide) detected at line 457
+[]
+ []
+
+[16] [17] [18]
+Overfull \hbox (1.03253pt too wide) in paragraph at lines 517--517
+|[]\OT1/cmr/bx/n/14.4 Equivalencia de las in-te-grales de Rie-mann y Lebesgue| 
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 551--552
+
+ []
+
+[20]
+Overfull \hbox (8.60555pt too wide) detected at line 569
+\OT1/cmr/m/n/12 0 = [][] \OML/cmm/m/it/12 s \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/
+12 t d^^V \OT1/cmr/m/n/12 = [][] [] \OML/cmm/m/it/12 s[] \OMS/cmsy/m/n/12 ^^@ \
+OML/cmm/m/it/12 t[] d^^V [] [] [][] s[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 t
+[] d^^V \OT1/cmr/m/n/12 = [] [](\OML/cmm/m/it/12 f; P[]\OT1/cmr/m/n/12 ) \OMS/c
+msy/m/n/12 ^^@ []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f; P[]\OT1/cmr/m/n/12 )
+ []
+
+
+Overfull \hbox (19.657pt too wide) detected at line 577
+\OT1/cmr/m/n/12 0 \OMS/cmsy/m/n/12 ^^T [][] \OML/cmm/m/it/12 s \OMS/cmsy/m/n/12
+ ^^@ \OML/cmm/m/it/12 t d^^V \OT1/cmr/m/n/12 = [][] [] \OML/cmm/m/it/12 s[] \OM
+S/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 t[] d^^V \OT1/cmr/m/n/12 = [] [][] \OML/cmm/
+m/it/12 s[] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 t[] d^^V \OT1/cmr/m/n/12 = []
+ [](\OML/cmm/m/it/12 f; P[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr/m/
+n/12 (\OML/cmm/m/it/12 f; P[]\OT1/cmr/m/n/12 ) = 0
+ []
+
+[21] [22]
+Overfull \hbox (4.29837pt too wide) detected at line 620
+[]
+ []
+
+
+Overfull \hbox (41.65565pt too wide) detected at line 627
+[]
+ []
+
+[23] [24]
+Overfull \hbox (46.39322pt too wide) detected at line 676
+\OT1/cmr/m/n/12 (\OMS/cmsy/m/n/12 ^^C\OT1/cmr/m/n/12 ) = [] [][] [] \OML/cmm/m/
+it/12 d^^V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ) = [] [] [] \OML/
+cmm/m/it/12 d^^V \OT1/cmr/m/n/12 = [][] [](\OML/cmm/m/it/12 x; t[]\OT1/cmr/m/n/
+12 ) \OML/cmm/m/it/12 d^^V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 683--685
+
+ []
+
+[26] (comp.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `tema4.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `tema4.out':
-(rerunfilecheck)             Before: 5F4942977E512A278AEF469D71BF1232;799
-(rerunfilecheck)             After:  AC71B665ABCED37DF06F4D4714AAA964;1032.
+Package rerunfilecheck Info: File `comp.out' has not changed.
+(rerunfilecheck)             Checksum: F06F8E7394FF0A7955D49A04D8CDA69E;9467.
  ) 
 Here is how much of TeX's memory you used:
- 36328 strings out of 474486
- 859451 string characters out of 5753177
- 1937542 words of memory out of 5000000
- 58035 multiletter control sequences out of 15000+600000
- 567479 words of font info for 72 fonts, out of 8000000 for 9000
+ 26532 strings out of 474486
+ 518368 string characters out of 5753177
+ 1941542 words of memory out of 5000000
+ 48317 multiletter control sequences out of 15000+600000
+ 571062 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,10n,87p,774b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/Mi
-kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.
-pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/MikTe
-x/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb>
-Output written on tema4.pdf (4 pages, 136958 bytes).
+ 83i,18n,87p,566b,942s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\M
+ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/tex
+mfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install
+/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fonts/type
+1/public/amsfonts/cmextra/cmex8.pfb><C:/MikTex/texmfs/install/fonts/type1/publi
+c/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
+cm/cmmi6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/MikTex/
+texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/insta
+ll/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmr6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/ams
+fonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/M
+ikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs
+/install/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/MikTex/texmfs/install/fo
+nts/type1/public/amsfonts/euler/eufm10.pfb><C:/MikTex/texmfs/install/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb><C:/MikTex/texmfs/install/fonts/type1/publ
+ic/amsfonts/symbols/msbm7.pfb>
+Output written on comp.pdf (26 pages, 319341 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 471 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 301 words of extra memory for PDF output out of 10000 (max. 10000000)
 

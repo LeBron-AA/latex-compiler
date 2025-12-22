@@ -19,6 +19,15 @@
       "language" : "es"
     },
     {
+      "title": "Apuntes del tema 4",
+      "description": "En progreso...",
+      "pdfPath": "3Carrera/AMat3/Tema4/tema4.pdf",
+      "subject": "Análisis Matemático III",
+      "grade": 3,
+      "semester": 1,
+      "language" : "es"
+    },
+    {
       "title": "Primer parcial 2022",
       "description": "No se muestra la solución a las cuestiones teóricas",
       "pdfPath": "3Carrera/Inferencia/Parcial1-2022/test.pdf",

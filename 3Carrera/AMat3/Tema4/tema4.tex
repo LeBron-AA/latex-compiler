@@ -164,5 +164,55 @@
 \newpage
 \setcounter{unit}{3}
 \unit{Series de Fourier}
-\hspace{3mm} recordamos 
+\hspace{3mm} Recordamos que ${L}_2(X,K) \equiv \frac{\mathcal{L}_2(X,K)}{\sim}$ es un espacio de Hilbert; donde $X$ es un $K-$espacio vectorial, y $f \sim g \iff f \muae g$. El producto interior y su norma asociada se definen como:
+\begin{align*}
+    <f,g> = \int_X \bar{f} \cdot g && ||f||_2 = \sqrt{<f,f>}
+\end{align*}
+Nótese que cuando trabajamos con $\C$ como cuerpo el producto interno tiene linealidad directa en una componente, mientras que tiene linealidad por el conjugado en la otra. Asimismo, el producto interno da lugar a escalares del propio cuerpo sobre el que se define, luego podría dar lugar a valores complejos.
+
+\vspace{4mm}
+La idea de esta unidad es ``aproximar'' una función $f \in L_2(X,K)$ como ``suma'' de funciones más elementales. En particular, a partir de ahora, consideraremos $X = I = [0,2\pi]$, con $K = \R$ ó $\C$. Además, extenderemos las funciones en este conjunto con periodicidad $2\pi$ en $\R$.
+
+\vspace{6mm} 
+\chapter{Primeros conceptos}
+\result{Definición de sistema ortonormal}
+\hspace{3mm} Dado un espacio de Hilbert $V$, un sistema ortonormal en $V$ es un conjunto $\{\varphi_n\}_{n\in\N} \subseteq V$ que verifica:
+$$\langle\varphi_n, \varphi_m\rangle = \delta_{n,m} = \begin{cases}
+  1 & \text{ si } n = m \\
+  0 & \text{ si } n \neq m
+\end{cases}$$
+
+\vspace{6mm}
+\result{Ejemplos de sistemas ortonormales}
+\begin{enumerate}[label=\roman*)]
+    \item $K = \R$, $V = L_2([0,2\pi], \R)$. Consideramos el siguiente sistema:
+    \begin{align*}
+        \varphi_0(t) =  \frac{1}{\sqrt{2\pi}} &&
+        \varphi_{2n-1}(t) = \frac{\cos (nt)}{\sqrt{\pi}} &&
+        \varphi_{2n}(t) = \frac{\sin (nt)}{\sqrt{\pi}}
+    \end{align*}
+    Veamos que es ortonormal:
+    \begin{flalign*}
+        \int_0^{2\pi} \varphi_0^2(t) \,dt = \int_{0}^{2\pi}\frac{1}{2\pi}\,dt = 1&&
+    \end{flalign*}
+    \begin{flalign*}
+        \int_0^{2\pi} \varphi_{2n+1}^2(t) \,dt &= \int_{0}^{2\pi}\frac{\cos^2(nt)}{\pi}\,dt \overset{u = nt}{=} \frac{1}{n\pi}\int_{0}^{2n\pi}\frac{1+\cos(2u)}{2}du \overset{v=2u}{=} &&\\
+        &=\frac{1}{4n\pi} \int_{0}^{4n\pi} 1+ cos(v) = \frac{4n\pi}{4n\pi} + 0= 1
+    \end{flalign*}
+    \begin{flalign*}
+        \int_0^{2\pi} \varphi_{2n}^2(t) \,dt &= \int_{0}^{2\pi}\frac{\sin^2(nt)}{\pi}\,dt \overset{u = nt}{=} \frac{1}{n\pi}\int_{0}^{2n\pi}\frac{1-\cos(2u)}{2}du \overset{v=2u}{=}&&\\
+        &=\frac{1}{4n\pi} \int_{0}^{4n\pi} 1-(v) = \frac{4n\pi}{4n\pi} + 0 = 1
+    \end{flalign*}
+    Por ser funciones con periodo $2\pi$, para $n \in \N$ cualquiera, se cumple:
+    $$ \int_{0}^{2\pi}\varphi_{2n+1}(t)\,dt=\int_{0}^{2\pi}\varphi_{2n}(t)\,dt= \int_{0}^{2\pi}\varphi_{2n+1}(t)\cdot\varphi_{2n}(t)\,dt= 0$$
+    Hemos demostrado que el sistem
+    
+    \vspace{8mm}
+    \item Para $K = \C$, $V = L_2([0,2\pi], \C)$, el siguiente sistema es ortonormal:
+    $$ \left\{\varphi_n(t) = \frac{e^{i\cdot n\cdot t}}{\sqrt{\pi}}\right\}_{n\in\N}$$
+\end{enumerate}
+
+\vspace{6mm}  
+\result{Teorema de óptima aproximación}
+\hspace{3mm} Sea $V$ un espacio pre-Hilbert. Sea $\{\varphi_1, \ldots,\varphi_n\} \subseteq V$ un sistema ortonormal finito en $V$. Sea $f \in V$. Si $W$ es la clausura %ACABAR
 \end{document}
