@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  22 DEC 2025 14:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  22 DEC 2025 17:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -924,46 +924,37 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `tema4.toc'.
 
- [2] [3] [4] (tema4.aux)
+ [2] [3] [4] [5] [6] [7] (tema4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `tema4.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `tema4.out':
-(rerunfilecheck)             Before: 5F4942977E512A278AEF469D71BF1232;799
-(rerunfilecheck)             After:  AC71B665ABCED37DF06F4D4714AAA964;1032.
+Package rerunfilecheck Info: File `tema4.out' has not changed.
+(rerunfilecheck)             Checksum: 7BB6338229E4F8928B845F870CCDB6E1;1548.
  ) 
 Here is how much of TeX's memory you used:
- 36328 strings out of 474486
- 859451 string characters out of 5753177
- 1937542 words of memory out of 5000000
- 58035 multiletter control sequences out of 15000+600000
+ 36340 strings out of 474486
+ 859624 string characters out of 5753177
+ 1938542 words of memory out of 5000000
+ 58042 multiletter control sequences out of 15000+600000
  567479 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,10n,87p,774b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,15n,87p,774b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/Mi
 kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
 nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.
-pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/MikTe
-x/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/t
-ype1/public/amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
-amsfonts/symbols/msbm10.pfb>
-Output written on tema4.pdf (4 pages, 136958 bytes).
+ublic/amsfonts/cm/cmmi6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.
+pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikT
+ex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/MikTex/texmfs/ins
+tall/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/sym
+bols/msbm10.pfb>
+Output written on tema4.pdf (7 pages, 164596 bytes).
 PDF statistics:
- 112 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 147 PDF objects out of 1000 (max. 8388607)
+ 17 named destinations out of 1000 (max. 500000)
+ 69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

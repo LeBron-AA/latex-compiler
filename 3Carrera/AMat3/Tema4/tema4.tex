@@ -166,9 +166,9 @@
 \unit{Series de Fourier}
 \hspace{3mm} Recordamos que ${L}_2(X,K) \equiv \frac{\mathcal{L}_2(X,K)}{\sim}$ es un espacio de Hilbert; donde $X$ es un $K-$espacio vectorial, y $f \sim g \iff f \muae g$. El producto interior y su norma asociada se definen como:
 \begin{align*}
-    <f,g> = \int_X \bar{f} \cdot g && ||f||_2 = \sqrt{<f,f>}
+    \langle f,g\rangle = \int_X \bar{f} \cdot g && ||f||_2 = \sqrt{\langle f,f\rangle}
 \end{align*}
-Nótese que cuando trabajamos con $\C$ como cuerpo el producto interno tiene linealidad directa en una componente, mientras que tiene linealidad por el conjugado en la otra. Asimismo, el producto interno da lugar a escalares del propio cuerpo sobre el que se define, luego podría dar lugar a valores complejos.
+Nótese que cuando trabajamos con $\C$ como cuerpo el producto interno tiene linealidad directa en una componente, mientras que tiene linealidad por el conjugado en la otra. Asimismo, el producto interno da lugar a escalares del propio cuerpo sobre el que se define, luego podría dar lugar a valores complejos. Además, el producto interno no conmuta (en general) en $\C$.
 
 \vspace{4mm}
 La idea de esta unidad es ``aproximar'' una función $f \in L_2(X,K)$ como ``suma'' de funciones más elementales. En particular, a partir de ahora, consideraremos $X = I = [0,2\pi]$, con $K = \R$ ó $\C$. Además, extenderemos las funciones en este conjunto con periodicidad $2\pi$ en $\R$.
@@ -214,5 +214,62 @@ $$\langle\varphi_n, \varphi_m\rangle = \delta_{n,m} = \begin{cases}
 
 \vspace{6mm}  
 \result{Teorema de óptima aproximación}
-\hspace{3mm} Sea $V$ un espacio pre-Hilbert. Sea $\{\varphi_1, \ldots,\varphi_n\} \subseteq V$ un sistema ortonormal finito en $V$. Sea $f \in V$. Si $W$ es la clausura %ACABAR
+\hspace{3mm} Sea $V$ un $K$-espacio pre-Hilbert. Sea $\{\varphi_0, \ldots,\varphi_n\} \subseteq V$ un sistema ortonormal finito en $V$. Sea $f \in V$. Si $W$ es la clausura $K\langle \varphi_0,\ldots,\varphi_n\rangle$. Entonces, el elemento de $W$ que mejor aproxima $f$ (en cuanto a minimizar la norma de su diferencia) es
+$$ s_n = \sum_{k=0}^n \underbracket{\langle f, \varphi_k\rangle>}_{c_k}\varphi_k$$
+Es decir, dado $t_n = \smallsum_{k=0}^n b_k \cdot \varphi_k \in W$ cualquiera (formado a partir de escalares cualesquiera), se cumple $||f-s_n|| \leq ||f-t_n||$.
+
+\newpage\dem 
+\vspace{2mm} \newline \indent Al ser un espacio Pre-Hilbert por hipótesis, tenemos que :
+\begin{flalign*}
+    ||f &-t_n||^2 = \langle f-t_n, f-t_n\rangle = \langle f,f\rangle - \langle f, t_n\rangle - \langle t_n, f\rangle + \langle t_n, t_n\rangle =&&\\[2ex]
+    &= ||f||^2 - \left\langle f, \sum_{k=0}^{n}b_k \varphi_k\right\rangle - \left\langle \sum_{k=0}^n b_k \varphi_k, f\right\rangle + \left\langle \sum_{k=0}^n b_k \varphi_k, \sum_{k=0}^n b_k \varphi_k\right\rangle = \substack{\text{linealidad}\\[1ex] \text{ortonormalidad}} \\[2ex]
+    &= ||f||^2 - \sum_{k=0}^n{b_k} \langle f,  \varphi_k\rangle
+    - \sum_{k=0}^n\bar{b}_k \langle f,  \varphi_k\rangle + \sum_{k=0}^{n} \bar{b}_k \cdot b_k = \text{definición de }c_k \\
+    &= ||f||^2 + \sum_{k=0}^n \left[-b_k c_k - \bar{b}_k c_k + |b_k|^2\right] = (*)
+\end{flalign*}
+Comparamos ahora con la siguiente expresión:
+$$|b_k - c_k|^2 = (b_k - c_k)(\bar{b}_k - \bar{c}_k) = b_k \bar{b_k} - b_k \bar{c}_k - \bar{b}_k c_k + c_k \bar{c}_k = |b_k|^2 + |c_k|^2 - b_k \bar{c}_k - \bar{b}_k c_k$$
+\vspace{2mm}
+Sustituyendo en la igualdad anterior,
+$$(*) = ||f||^2 + \sum_{k=0}^{n} |b_k-c_k|^2 - |c_k|^2$$
+En particular, para $b_k = c_k$ tenemos $||f-s_n||^2 \leq ||f-t_n||^2$.
+
+\vspace{4mm}
+Motivados por este resultado, buscamos aproximar $f$ por una ``combinación lineal infinita'' de funciones de un sistema ortonormal.
+
+\vspace{6mm}
+\result{Definición de coeficientes de Fourier}
+\hspace{3mm} Dad una función $f \in L_2([0,2\pi])$, y un sistema ortonormal $\{\varphi_n\}_{n\in\N}$. Se denomina ``coeficiente $n$-ésimo de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$'' al escalar:
+$$ c_n := \langle f, \varphi_n\rangle = \int_{0}^{2\pi} \hat{f}(t)\cdot \varphi_n(t) \,dt$$
+Definimos la suma parcial $n$-ésima de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ como:
+$$s_n(x) = \sum_{k=0}^n c_k \cdot \varphi_k(x)$$
+Análogamente, la serie de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ viene dada po:
+$$s(x) = \sum_{k=0}^\infty c_k \cdot \varphi_k(x)$$
+
+\vspace{6mm}
+\result{Unicidad de las Series de Fourier}
+\hspace{3mm} Sea $f \in L_2(I,K)$. Sea $\{\varphi_n\}_{n\in\N}$ un sistema ortonormal. La serie de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ está bien definida, pues existe un único elemento $s \in L_2(I,K)$ que verifica:
+$$||s-s_n|| \xrightarrow{n\to\infty}0$$
+
+\vspace{4mm} \dem
+\vspace{2mm} \newline \indent Sean $p,q$ in $\N$ cualesquiera. Supongamos sin pérdida de generalidad que $q > p$. Entonces,
+\begin{flalign*}
+  ||s_p -& s_q||^2 = \left|\left| \sum_{k=p+1}^q s_k \right|\right|^2 = \left\langle\sum_{k=p+1}^{q}\langle f, \varphi_k\rangle \varphi_k,\sum_{k=p+1}^{q}\langle f, \varphi_k\rangle \varphi_k\right\rangle \overset{\text{ortonormalidad}}{=} &&\\
+  &= \sum_{k=p+1}^q \left|\langle f, \varphi_k\rangle\right|^2 = |a_p - a_q|^2 \hspace{4ex} \text{ donde } a_n = \sum_{k=0}^{n} |\langle f, \varphi_k\rangle|^2
+\end{flalign*}
+\vspace{2mm}
+Por el \hyperref[result:4.1.3]{Teorema de óptima aproximación}, para $n \in \N$ cualquiera tenemos que:
+$$||f-s_n||^2 = ||f||^2 - \underbracket{\sum_{k=0}^n |\langle f, \varphi_k\rangle|^2}_{a_n} = ||f||^2 - a_n$$
+Esto implica que $||f||^2 \geq a_n$. Así, tomando límites en $n$ tenemos que:
+$$a := \sum_{k=0}^\infty|\langle f, \varphi_k\rangle|^2 \leq ||f||^2$$
+Esta es la conocida como Desigualdad de Bessel.
+
+\vspace{2mm}
+Por tanto, tenemos que $(a_n)_n$ es de Cauchy, luego $(s_n)_n$ ha de serlo también. Al estar además en un espacio de Banach, podemos asegurarnos de que $(s_n)_n$ es convergente a $s$.
+
+\vspace{4mm}
+\nota \vspace{2mm} \newline \indent
+Este resultado garantiza la convergencia en norma de las sumas parciales de Fourier a su límite. No tiene por qué darse $f(x) = s(x)$. Cabe preguntarse si esto es a su vez equivalente a $||f-s_n|| \xrightarrow{n\to\infty}0$. Pasaremos a estudiar escenarios donde puede ocurrir.
+
+
 \end{document}
