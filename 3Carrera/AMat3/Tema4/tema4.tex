@@ -205,7 +205,7 @@ $$\langle\varphi_n, \varphi_m\rangle = \delta_{n,m} = \begin{cases}
     \end{flalign*}
     Por ser funciones con periodo $2\pi$, para $n \in \N$ cualquiera, se cumple:
     $$ \int_{0}^{2\pi}\varphi_{2n+1}(t)\,dt=\int_{0}^{2\pi}\varphi_{2n}(t)\,dt= \int_{0}^{2\pi}\varphi_{2n+1}(t)\cdot\varphi_{2n}(t)\,dt= 0$$
-    Hemos demostrado que el sistem
+    Hemos demostrado que el sistema es ortonormal.
     
     \vspace{8mm}
     \item Para $K = \C$, $V = L_2([0,2\pi], \C)$, el siguiente sistema es ortonormal:
@@ -319,23 +319,40 @@ $$s_k(t) = \sum_{n=0}^{k} \langle f, \varphi_n\rangle \hspace{1mm} \varphi_n(t) 
 \end{align*}
 \begin{flalign*}
     a_n &= \frac{1}{\pi}\int_{0}^{\pi}0 \cdot \cos(nt) \,dt + \frac{1}{\pi}\int_{\pi}^{2\pi}1 \cdot \cos(nt) \,dt = \frac{1}{\pi}\left[\frac{1}{n}\sin(nt)\right]_{t=\pi}^{t=2\pi} = 0&& \\[1ex]
-    b_n &= \frac{1}{\pi} \left[-\frac{1}{n}\cos(nt)\right]_{t=\pi}^{t=2\pi} = -\frac{2}{n\pi}
+    b_n &= \frac{1}{\pi} \left[-\frac{1}{n}\cos(nt)\right]_{t=\pi}^{t=2\pi} = \frac{-1}{n\pi}\Big(\underbracket{\cos(2n\pi)}_0 - \cos(n\pi)\Big) =
+    \begin{cases}
+      -\frac{2}{n\pi} & \text{ si } n \text{ es impar} \\
+      0 & \text{ si } n \text{ es par} \\
+    \end{cases}
 \end{flalign*}
 
 \vspace{4mm}
 Por tanto, tenemos que:
 $$f(t) \sim \frac{1}{2} - \frac{2}{\pi}\sum_{n=1}^\infty \frac{1}{2n+1}\sin\big((2n+1)t\big)$$
 
-\vspace{6ex}
+\vspace{4ex}
 \begin{center}
-\begin{tikzpicture}
-\def\f(#1){floor(#1/pi)}
-
-\draw[thick,<->] (-1,0) -- (1+2*pi,0) node[anchor=north west] {$t$};
-\draw[thick,<->] (0,-1) -- (0,2) node[above] {$f(t)$};
-\draw[blue, thick, domain=0:2*pi, samples=100] plot (\x,{\f(\x)});
-
-\end{tikzpicture}
+  \includegraphics[width=0.7\textwidth]{media/4-1-8.pdf}
+  \newline
+  Aproximación de $f$ por su serie de Fourier
 \end{center}
 
+\vspace{4mm} Para $t=\pi$, tenemos que $f(\pi) = 1$, pero $s(\pi) = \frac{1}{2} - \frac{2}{\pi}\smallsum_{n=1}^\infty 0 = \frac{1}{2}$. ¿Por qué ocurre esto? ¿Cuándo se da la convergencia puntual? ¿En qué partes de la función? El siguiente apartado de esta unidad estudia estas preguntas.
+
+\newpage
+\chapter{Estudio de la convergencia puntual}
+\result{Teorema de Riesz-Fisher}
+\begin{onehalfspace}
+  \hspace{3mm} Sea $\{\varphi_n\}_{n\in\N} \subseteq L_2(I,K)$ un sistema ortonormal. Sea $\{c_n\}_{n\in\N} \subseteq K$ que verifica $\sum_{n=0}^{\infty}|c_n|^2<\infty$. Entonces, existe una función $f$ de $L_2(I.K)$ que cumple simultáneamente:
+\end{onehalfspace}
+  \begin{align*}
+    c_n = \langle f,\varphi_n\rangle \hspace{2mm} \forall n \in \N && \sum_{n=0}^{\infty}|c_n|^2 < ||f||^2
+\end{align*}
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Recordemos que la sucesión $(s_n)_n = (\smallsum_{k=0}^{n}c_k\varphi_k)_n$ es de Cauchy, pues dados $p,q \in \N$ con $p < q$, se cumple:
+$$||s_p-s_q||^2 = \left|\left|\sum_{k=p+1}^{q}s_k\right|\right|^2 = \sum_{k=p+1}^{q}|c_k|^2 \xrightarrow{p,q\to\infty}0$$
+Por hipótesis, $\smallsum_{k=0}^\infty |c_k|^2 < \infty$ luego el término general tiende a cero. Así, la suma de términos generales también tenderá a cero.
+
+\vspace{2mm} Al trabajar con un espacio de Hilbert, podemos asegurar que existe $f \in L_2(I,K)$ tal que $||s_n - f|| \xrightarrow{n\to\infty}0$. Sea $k \in \N$ cualquiera, veamos que $c_k = \langle f, \varphi_k\rangle$:
 \end{document}

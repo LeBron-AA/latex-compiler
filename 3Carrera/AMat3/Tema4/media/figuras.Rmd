@@ -1,0 +1,38 @@
+---
+title: "Figuras Análisis III"
+author: "Javier Ortín Rodenas"
+date: "2025-12-23"
+output: pdf
+---
+
+```{r setup, include=FALSE, error=FALSE, warning=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(svglite)
+```
+
+## Resultado 4.1.8
+
+```{r}
+f = function(x) ifelse(x > pi & x < 2*pi, 1, 0)
+terms = 10
+fourier = function(x) {
+  if(x < 0 || x > 2*pi*0.999) return(0)
+  coef_odd = seq(1,2*terms+1,2)
+  sum_val = sum(sapply(coef_odd, function(q) 1/q*sin(q*x)))
+  return(0.5 - 2/pi*sum_val)
+}
+
+leyenda_fourier = paste0("Serie de Fourier (", terms, " términos)")
+
+# Crear gráfico con tema clásico
+p <- ggplot(data=tibble(x=c(0, 2*pi)), aes(x=x)) +
+  stat_function(fun = f, colour = "blue", linewidth = 1) +
+  stat_function(fun = Vectorize(fourier), colour = "red", linewidth = 1) +
+  labs(x = "t", y = "f(t)") +
+  theme_classic(base_size = 14)  # Fondo blanco, solo ejes
+
+# Guardar en PDF
+ggsave("4-1-8.pdf", plot = p, width = 7, height = 5)
+p
+```
