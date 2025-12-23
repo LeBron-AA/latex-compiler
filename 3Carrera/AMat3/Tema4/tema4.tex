@@ -225,13 +225,13 @@ Es decir, dado $t_n = \smallsum_{k=0}^n b_k \cdot \varphi_k \in W$ cualquiera (f
     &= ||f||^2 - \left\langle f, \sum_{k=0}^{n}b_k \varphi_k\right\rangle - \left\langle \sum_{k=0}^n b_k \varphi_k, f\right\rangle + \left\langle \sum_{k=0}^n b_k \varphi_k, \sum_{k=0}^n b_k \varphi_k\right\rangle = \substack{\text{linealidad}\\[1ex] \text{ortonormalidad}} \\[2ex]
     &= ||f||^2 - \sum_{k=0}^n{b_k} \langle f,  \varphi_k\rangle
     - \sum_{k=0}^n\bar{b}_k \langle f,  \varphi_k\rangle + \sum_{k=0}^{n} \bar{b}_k \cdot b_k = \text{definición de }c_k \\
-    &= ||f||^2 + \sum_{k=0}^n \left[-b_k c_k - \bar{b}_k c_k + |b_k|^2\right] = (*)
+    &= ||f||^2 + \sum_{k=0}^n \Big[-b_k c_k - \bar{b}_k c_k + |b_k|^2\Big] = (*)
 \end{flalign*}
 Comparamos ahora con la siguiente expresión:
 $$|b_k - c_k|^2 = (b_k - c_k)(\bar{b}_k - \bar{c}_k) = b_k \bar{b_k} - b_k \bar{c}_k - \bar{b}_k c_k + c_k \bar{c}_k = |b_k|^2 + |c_k|^2 - b_k \bar{c}_k - \bar{b}_k c_k$$
 \vspace{2mm}
 Sustituyendo en la igualdad anterior,
-$$(*) = ||f||^2 + \sum_{k=0}^{n} |b_k-c_k|^2 - |c_k|^2$$
+$$(*) = ||f||^2 + \sum_{k=0}^{n}\Big[ |b_k-c_k|^2 - |c_k|^2 \Big]$$
 En particular, para $b_k = c_k$ tenemos $||f-s_n||^2 \leq ||f-t_n||^2$.
 
 \vspace{4mm}
@@ -239,8 +239,8 @@ Motivados por este resultado, buscamos aproximar $f$ por una ``combinación line
 
 \vspace{6mm}
 \result{Definición de coeficientes de Fourier}
-\hspace{3mm} Dad una función $f \in L_2([0,2\pi])$, y un sistema ortonormal $\{\varphi_n\}_{n\in\N}$. Se denomina ``coeficiente $n$-ésimo de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$'' al escalar:
-$$ c_n := \langle f, \varphi_n\rangle = \int_{0}^{2\pi} \hat{f}(t)\cdot \varphi_n(t) \,dt$$
+\hspace{3mm} Dada una función $f \in L_2([0,2\pi])$, y un sistema ortonormal $\{\varphi_n\}_{n\in\N}$. Se denomina ``coeficiente $n$-ésimo de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$'' al escalar:
+$$ c_n := \langle f, \varphi_n\rangle = \int_{0}^{2\pi} \bar{f}(t)\cdot \varphi_n(t) \,dt$$
 Definimos la suma parcial $n$-ésima de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ como:
 $$s_n(x) = \sum_{k=0}^n c_k \cdot \varphi_k(x)$$
 Análogamente, la serie de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ viene dada po:
@@ -262,7 +262,7 @@ Por el \hyperref[result:4.1.3]{Teorema de óptima aproximación}, para $n \in \N
 $$||f-s_n||^2 = ||f||^2 - \underbracket{\sum_{k=0}^n |\langle f, \varphi_k\rangle|^2}_{a_n} = ||f||^2 - a_n$$
 Esto implica que $||f||^2 \geq a_n$. Así, tomando límites en $n$ tenemos que:
 $$a := \sum_{k=0}^\infty|\langle f, \varphi_k\rangle|^2 \leq ||f||^2$$
-Esta es la conocida como Desigualdad de Bessel.
+Esta es la conocida como \textbf{Desigualdad de Bessel}.
 
 \vspace{2mm}
 Por tanto, tenemos que $(a_n)_n$ es de Cauchy, luego $(s_n)_n$ ha de serlo también. Al estar además en un espacio de Banach, podemos asegurarnos de que $(s_n)_n$ es convergente a $s$.
@@ -271,5 +271,71 @@ Por tanto, tenemos que $(a_n)_n$ es de Cauchy, luego $(s_n)_n$ ha de serlo tambi
 \nota \vspace{2mm} \newline \indent
 Este resultado garantiza la convergencia en norma de las sumas parciales de Fourier a su límite. No tiene por qué darse $f(x) = s(x)$. Cabe preguntarse si esto es a su vez equivalente a $||f-s_n|| \xrightarrow{n\to\infty}0$. Pasaremos a estudiar escenarios donde puede ocurrir.
 
+\vspace{6mm}
+\result{Identidad de Parseval}
+\hspace{3mm} Sea $f \in L_2(I,K)$. Sea $\{\varphi_n\}_{n\in\N} \subseteq L_2(I,K)$ un sistema ortonormal. Sea $c_n := \langle f, \varphi_n\rangle$ para cada $n\in\N$. Entonces,
+$$||f-s_n|| \xrightarrow{n\to\infty} 0 \iff \sum_{n=0}^\infty |c_n|^2 = ||f||^2$$
+
+\vspace{4mm} \dem
+\vspace{2mm} \newline \indent Por el \hyperref[result:4.1.3]{Teorema de óptima aproximación}, sabemos que:
+$$||f-s_n||^2 = ||f||^2 - \sum_{k=0}^{n} |c_k|^2 \hspace{2mm}  \forall \hspace{1mm} n \in \N$$
+Despejamos y tomamos límites:
+$$\lim_n ||f-s_n||^2 = 0 \iff \sum_{k=0}^{\infty} |c_k|^2 = ||f||^2$$
+
+\vspace{6mm}
+\result{Definición de sistema ortonormal completo}
+\hspace{3mm} Sea $H$ un espacio de Hilbert. Sea $\{\varphi_n\}_{n\in\N}$ un sistema ortonormal. Se dice ``completo'' si satisface la Identidad de Parseval para cualquier $f \in H$. Es decir,
+$$\sum_{k=0}^{\infty}\langle f, \varphi_k\rangle = ||f||^2 \hspace{3mm} \forall \hspace{1mm} f \in H$$
+
+\newpage
+\nota
+\vspace{2mm} \newline \indent Por la \hyperref[result:4.1.5]{Desigualdad de Bessel}, sabemos que $\smallsum_{k=0}^{\infty}|c_k|^2 \leq ||f||^2$. Exigir la igualdad equivale a decir que la norma se resume completamente por el sistema ortonormal: el sistema puede aportar información sobre todo el espacio $H$. Por tanto, toda componente de $f$ queda recogida por cierto $\varphi_n$, luego $f \neq 0$ implica que no es ortogonal a todo el sistema.
+
+\vspace{6mm}
+\result{Ejemplo de sistema ortonormal completo}
+\hspace{3mm} En $L_2(I,K)$, el siguiente sistema ortonormal es completo:
+$$\left\{\frac{1}{\sqrt{2\pi}}, \frac{\cos(t)}{\sqrt{\pi}}, \frac{\sin(t)}{\sqrt{\pi}}, \frac{\cos(2t)}{\sqrt{\pi}}, \frac{\sin(2t)}{\sqrt{\pi}},\ldots\right\} $$
+La demostración es demasiado larga, luego no se verá.
+
+\vspace{4mm} Este es el sistema ortonormal más utilizado, y la serie de Fourier de una función $f$ respecto de él, se denomina simplemente ``serie de Fourier de $f$''. Viene representada por:
+$$f(t) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty}\Big[a_n\cos(nt) + b_n\sin(nt)\Big]$$
+Donde ``$\sim$'' significa convergencia en media cuadrática. Podemos obtener los coeficientes $a_n,b_n$ por identificación al aplicar la ortonormalidad. Por definición, la suma parcial $k$-ésima de Fourier de $f$ viene dada por:
+$$s_k(t) = \sum_{n=0}^{k} \langle f, \varphi_n\rangle \hspace{1mm} \varphi_n(t) = \frac{c_0}{\sqrt{2\pi}} + \sum_{n=1}^{k}\left[c_{2n-1}\frac{\cos(nt)}{\sqrt{\pi}}+c_{2n}\frac{\sin(nt)}{\sqrt{\pi}}\right]$$
+\vspace{2mm} De este modo, comparando:
+\begin{flalign*}
+  \hspace{3mm} a_n &= \frac{c_{2n-1}}{\sqrt{\pi}} = \frac{1}{\sqrt{\pi}} \langle f, \varphi_{2n-1}\rangle = \frac{1}{\pi} \int_{0}^{2\pi}\bar{f}(t) \cdot \cos(nt) \,dt &&\\
+  b_n &= \frac{c_{2n}}{\sqrt{\pi}} = \frac{1}{\sqrt{\pi}} \langle f, \varphi_{2n}\rangle = \frac{1}{\pi} \int_{0}^{2\pi}\bar{f}(t) \cdot \sin(nt) \,dt     
+\end{flalign*}
+
+\vspace{6mm}
+\result{Ejemplo de cálculo de serie de Fourier}
+\hspace{3mm} Hallemos la serie de Fourier de la siguiente función $f$:
+\begin{align*}
+    f: [0,2\pi] \longrightarrow \R &&
+    x \longmapsto f(x) = \begin{cases}
+      0 &\text{ si } x \in [0, \pi) \cup \{2\pi\} \\
+      1 &\text{ si } x \in [\pi, 2\pi)
+    \end{cases}
+\end{align*}
+\begin{flalign*}
+    a_n &= \frac{1}{\pi}\int_{0}^{\pi}0 \cdot \cos(nt) \,dt + \frac{1}{\pi}\int_{\pi}^{2\pi}1 \cdot \cos(nt) \,dt = \frac{1}{\pi}\left[\frac{1}{n}\sin(nt)\right]_{t=\pi}^{t=2\pi} = 0&& \\[1ex]
+    b_n &= \frac{1}{\pi} \left[-\frac{1}{n}\cos(nt)\right]_{t=\pi}^{t=2\pi} = -\frac{2}{n\pi}
+\end{flalign*}
+
+\vspace{4mm}
+Por tanto, tenemos que:
+$$f(t) \sim \frac{1}{2} - \frac{2}{\pi}\sum_{n=1}^\infty \frac{1}{2n+1}\sin\big((2n+1)t\big)$$
+
+\vspace{6ex}
+\begin{center}
+\begin{tikzpicture}
+\def\f(#1){floor(#1/pi)}
+
+\draw[thick,<->] (-1,0) -- (1+2*pi,0) node[anchor=north west] {$t$};
+\draw[thick,<->] (0,-1) -- (0,2) node[above] {$f(t)$};
+\draw[blue, thick, domain=0:2*pi, samples=100] plot (\x,{\f(\x)});
+
+\end{tikzpicture}
+\end{center}
 
 \end{document}
