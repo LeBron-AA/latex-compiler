@@ -352,7 +352,90 @@ $$f(t) \sim \frac{1}{2} - \frac{2}{\pi}\sum_{n=1}^\infty \frac{1}{2n+1}\sin\big(
 \vspace{4mm} \dem \vspace{2mm} \newline \indent
 Recordemos que la sucesión $(s_n)_n = (\smallsum_{k=0}^{n}c_k\varphi_k)_n$ es de Cauchy, pues dados $p,q \in \N$ con $p < q$, se cumple:
 $$||s_p-s_q||^2 = \left|\left|\sum_{k=p+1}^{q}s_k\right|\right|^2 = \sum_{k=p+1}^{q}|c_k|^2 \xrightarrow{p,q\to\infty}0$$
-Por hipótesis, $\smallsum_{k=0}^\infty |c_k|^2 < \infty$ luego el término general tiende a cero. Así, la suma de términos generales también tenderá a cero.
+Por hipótesis, $\smallsum_{k=0}^\infty |c_k|^2 < \infty$ luego el término general tiende a cero. Así, la suma de términos generales también tenderá a cero al considerar un índice inicial cada vez más alto.
 
 \vspace{2mm} Al trabajar con un espacio de Hilbert, podemos asegurar que existe $f \in L_2(I,K)$ tal que $||s_n - f|| \xrightarrow{n\to\infty}0$. Sea $k \in \N$ cualquiera, veamos que $c_k = \langle f, \varphi_k\rangle$:
+\begin{flalign*}
+    \left|c_k - \langle f, \varphi_k\rangle\right| \overset{n\geq k}{=} \left|\langle s_n, \varphi_k\rangle - \langle f,\varphi_k\rangle\right| = \left|\langle s_n - f, \varphi_k\rangle\right|
+\end{flalign*}
+Aplicando ahora la Desigualdad de Cauchy Schwartz,
+\begin{flalign*}
+    \left|\langle s_n-f, \varphi_k\rangle\right| \leq ||s_n-f||\cdot ||\varphi_k|| = ||s_n - f|| \xrightarrow{n\to\infty}0
+\end{flalign*}
+Aplicando ahora el \hyperref[result:4.1.3]{Teorema de óptima aproximación},
+$$ 0 \xleftarrow{n\to\infty} ||s_n - f|| = ||f||^2 - \sum_{k=0}^{\infty}|c_k|^2$$
+Por tanto, tenemos que $\smallsum_{k=0}^\infty |c_k|^2 = ||f||^2$.
+
+\vspace{6mm}
+\result{Suma parcial como integral de semisumas}
+\hspace{3mm} Sea $f\in L_2\big([0,2\pi],\R\big)$ extendida con periodo $2\pi$ a $\R$. Entonces, la suma parcial $n$-ésima de la serie de Fourier de $f$ satisface:
+$$s_n(x) = \frac{a_0}{2} + \sum_{k=0}^{n}a_k \cos(kx) + b_k \sin(kx) = \frac{1}{\pi}\int_{0}^{\pi} \Big(f(x+t)+f(x-t)\Big)D_n(t) \,dt$$
+$$ \text{Donde } \hspace{1mm}  D_n(t) = \begin{cases}
+0 &\text{ si } t = 2\pi n \\
+\frac{1}{2\sin\left(\frac{t}{2}\right)} \sin\Big((n+\frac{1}{2})\cdot t\Big) &\text{ en otro caso}
+\end{cases}$$
+
+\vspace{4mm} \dem
+\vspace{2mm} \newline \indent Por definición de la suma parcial,
+\begin{flalign*}
+    s_n&(x) = \sum_{k=0}^{n}\langle f, \varphi_k\rangle \hspace{1mm} \varphi_k(x) = \sum_{k=0}^n \varphi_k(x) \cdot \int_{0}^{2\pi}f(t) \cdot \varphi_k(t) \,dt =&&\\[1ex]
+    &=  \frac{1}{2\pi}\int_{0}^{2\pi}\hspace{-2mm} f(t) \,dt + \sum_{k=1}^{n}\left[\frac{\cos(kx)}{\pi} \int_{0}^{2\pi}\hspace{-2mm} \cos(kt) \cdot f(t) \,dt\right] + \sum_{k=1}^{n}\left[\frac{\sin(kx)}{\pi} \int_{0}^{2\pi}\hspace{-2mm} \sin(kt) \cdot f(t) \,dt\right] =\\[1ex]
+    &= \frac{1}{\pi} \int_{0}^{2\pi}\left[ f(t) \left(\frac{1}{2} + \sum_{k=1}^{n} \cos(kx) \cos(kt) + \sin(kx) \sin(kt)\right)\right]\,dt = \hspace{1mm} \substack{\text{identidad trigonométrica}\\ \text{coseno de la suma}}\\[1ex]
+    &= \frac{1}{\pi} \int_{0}^{2\pi} \left[f(t)\left(\frac{1}{2} + \sum_{k=1}^{n}\cos(kx - kt)\right)\right]\,dt
+\end{flalign*}
+
+\vspace{2mm}
+Sea $k \leq n$ cualquiera, para $A = \frac{1}{2}(x-t)$ y $B = k(x-t)$, usamos la siguiente identidad trigonométrica: $\sin(A+B) - \sin(B-A) = 2\sin(A) \cos(B)$. Por tanto, tenemos:
+$$\sin\left(\left(k+\frac{1}{2}\right) (x-t)\right)- \sin\left(\left(k-\frac{1}{2}\right) (x-t)\right) = 2 \sin\left(\frac{x-t}{2}\right) \cos\Big(k(x-t)\Big)$$
+
+\vspace{1mm} \noindent
+Sumamos ahora en $k$ hasta llegar a $n$. Al ser una suma telescópica,
+$$\sin\left(\left(n+\frac{1}{2}\right)(x-t)\right) - \sin\left(\frac{x-t}{2}\right) = 2 \sin\left(\frac{x-t}{2}\right)\sum_{k=1}^{n}\cos(kx-kt)$$
+\newpage
+Despejando,
+$$\sum_{k=1}^{n}\cos(kx-kt) = \frac{\sin\left(\left(n+\frac{1}{2}\right)(x-t)\right)}{2\sin\left(\frac{x-t}{2}\right)} - \frac{1}{2}$$
+Continuamos ahora en la igualdad de la integral inicial:
+\begin{flalign*}
+    s_n(x) &= \frac{1}{2\pi} \int_{0}^{2\pi} f(t) \cdot \frac{\sin\left(\left(n+\frac{1}{2}\right)(x-t)\right)}{2\sin\left(\frac{x-t}{2}\right)} \,dt = \substack{\text{cambio de variable}\\u = x-t} && \\[1ex]
+    &= -\frac{1}{2\pi} \int_{x}^{x-2\pi} f(x-u)\cdot D_n(u) \,du = \frac{1}{2\pi} \int_{0}^{2\pi}f(x-u) \cdot D_n(u) \,du = \\[1ex]
+    &= \frac{1}{\pi}\left[\int_{0}^{\pi}f(x-u) \cdot D_n(u) \,du + \int_{\pi}^{2\pi}f(x-u) \cdot D_n(u) \,du\right] \overset{v = 2\pi - u}{=}\\[1ex]
+    &= \frac{1}{\pi}\left[\int_{0}^{\pi}f(x-u)\cdot D_n(u) \,du + \int_{0}^{\pi}f(x+v)\cdot D_n(v) \,dv\right]
+\end{flalign*}
+Queda demostrada la igualdad. Expliquemos el último paso con algo más de detalle:
+\begin{flalign*}
+    \int_{\pi}^{2\pi}f(x-u) \cdot D_n(u) \,du = -\int_{\pi}^{0} f\big(x-(2\pi-v)\big)\cdot D_n(2\pi - v) \,dv
+\end{flalign*}
+Al ser tanto $f$ como $D_n$ funciones de periodo $2\pi$, su producto también lo es. Por tanto, podemos simplificar esta expresión para que coincida con la del enunciado.
+
+\vspace{6mm}
+\result{Lema de Riemann-Lebesgue}
+\hspace{3mm} Sea $f \in L_1(J, \R)$ con $J$ un intervalo compacto real. Entonces, para $\beta \in \R$ cualquiera, se cumple:
+$$ \lim_{\alpha \to \infty} \int_{J} f(t) \cdot \sin(\alpha t + \beta) \,dt = 0$$
+\vspace{4mm} \dem
+\vspace{2mm} \newline \indent
+Sea $\varepsilon > 0$ cualquiera, pero fijo. Veamos perimero que el resultado es cierto para funciones características sobre un intervalo compacto $[c,d] \subseteq J$.
+\begin{adjustwidth}{0.07\textwidth}{}
+    \begin{align*}
+        f : J \longrightarrow \R && x \longmapsto f(x) = \begin{cases}
+          1 &\text{ si } x \in [c,d] \\
+          0 &\text{ si } x \in J \setminus [c,d]
+        \end{cases}
+    \end{align*}
+    Entonces, para este caso,
+    \begin{flalign*}
+        \hspace{2mm} \lim_{\alpha \to \infty}& \int_J f(t) \sin(\alpha t + \beta) \,dt = \lim_{\alpha \to \infty}\int_{c}^{d}  \sin(\alpha t + \beta) \, dt = &&\\[1ex]
+        &= \lim_{\alpha \to \infty} \left[\frac{-1}{\alpha} \cos(\alpha t + \beta)\right]_{t=c}^{t=d} = 0
+    \end{flalign*}
+    El límite es nulo al tratarse de un infinitésimo por una función acotada. Hemos comprobado que se cumple para este tipo de funciones.
+\end{adjustwidth}
+
+\vspace{4mm}
+Aplicaremos ahora el siguiente resultado (no veremos su demostración):
+\begin{adjustwidth}{0.07\textwidth}{}
+  \vspace{2mm}
+  Sean $f \in L_1([a,b], \R)$ cualquiera, $\varepsilon > 0$ cualquiera. Existen $g \in L_1([a,b], \R)$ y $s: [a,b] \longrightarrow \R$ combinación lineal de funciones características de intervalos compactos en $[a,b]$ tales que: \\[-4ex]
+  \begin{align*}
+      f = s+g && \int_a^b |g(x)| \,dx < \varepsilon
+  \end{align*}
+\end{adjustwidth}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  23 DEC 2025 18:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  23 DEC 2025 21:41
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -925,27 +925,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `tema4.toc'.
 
  [2] [3] [4] [5] [6] [7] [8]
-<media/4-1-8.pdf, id=123, 505.89pt x 361.35pt>
+<media/4-1-8.pdf, id=133, 505.89pt x 361.35pt>
 File: media/4-1-8.pdf Graphic file (type pdf)
 <use media/4-1-8.pdf>
 Package pdftex.def Info: media/4-1-8.pdf  used on input line 335.
 (pdftex.def)             Requested size: 292.77629pt x 209.13101pt.
- [9 <./media/4-1-8.pdf>] [10] (tema4.aux)
+ [9 <./media/4-1-8.pdf>] [10] [11] [12] [13] (tema4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `tema4.out' has not changed.
-(rerunfilecheck)             Checksum: E276C36FBFDF7867F03F426E42240976;3012.
+(rerunfilecheck)             Checksum: 6AA4875FE2718E88A04057196CE9217F;3486.
  ) 
 Here is how much of TeX's memory you used:
- 36369 strings out of 474486
- 860206 string characters out of 5753177
- 1938542 words of memory out of 5000000
- 58062 multiletter control sequences out of 15000+600000
+ 36382 strings out of 474486
+ 860461 string characters out of 5753177
+ 1942542 words of memory out of 5000000
+ 58070 multiletter control sequences out of 15000+600000
  567479 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,16n,87p,774b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,18n,87p,774b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/Mi
 kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
@@ -958,9 +958,9 @@ tall/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/sym
 bols/msbm10.pfb>
-Output written on tema4.pdf (10 pages, 189699 bytes).
+Output written on tema4.pdf (13 pages, 207976 bytes).
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 26 named destinations out of 1000 (max. 500000)
- 122 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
