@@ -413,7 +413,7 @@ Al ser tanto $f$ como $D_n$ funciones de periodo $2\pi$, su producto también lo
 $$ \lim_{\alpha \to \infty} \int_{J} f(t) \cdot \sin(\alpha t + \beta) \,dt = 0$$
 \vspace{4mm} \dem
 \vspace{2mm} \newline \indent
-Sea $\varepsilon > 0$ cualquiera, pero fijo. Veamos perimero que el resultado es cierto para funciones características sobre un intervalo compacto $[c,d] \subseteq J$.
+Sea $\varepsilon > 0$ cualquiera, pero fijo. Veamos primero que el resultado es cierto para funciones características sobre un intervalo compacto $[c,d] \subseteq J$.
 \begin{adjustwidth}{0.07\textwidth}{}
     \begin{align*}
         f : J \longrightarrow \R && x \longmapsto f(x) = \begin{cases}
@@ -435,7 +435,111 @@ Aplicaremos ahora el siguiente resultado (no veremos su demostración):
   \vspace{2mm}
   Sean $f \in L_1([a,b], \R)$ cualquiera, $\varepsilon > 0$ cualquiera. Existen $g \in L_1([a,b], \R)$ y $s: [a,b] \longrightarrow \R$ combinación lineal de funciones características de intervalos compactos en $[a,b]$ tales que: \\[-4ex]
   \begin{align*}
-      f = s+g && \int_a^b |g(x)| \,dx < \varepsilon
+      f = s+g && \int_a^b |g(t)| \,dt < \varepsilon
   \end{align*}
 \end{adjustwidth}
-\end{document}
+
+\vspace{2mm} Así, para $\varepsilon_1 = \frac{\varepsilon}{2}$, sabemos que existen $g \in L_1(J,\R)$, $s : J \to \R$ combinación lineal de funciones características de intervalos compactos de $J$ tales que:
+\begin{align*}
+    f = s + g && \int_J |g(x)| \, dx < \varepsilon_1
+\end{align*}
+Como ya hemos demostrado el apartado anterior para funciones características, sabemos que para $\varepsilon_2 = \frac{\varepsilon}{2}$, existe $M \in \R$ tal que para todo $\alpha \geq M$ se cumple:
+$$ \left|\int_J s(t) \cdot \sin(\alpha t + \beta) \, dt\right| < \varepsilon_2 = \frac{\varepsilon}{2}$$
+De este modo, dado $\alpha \geq M$, tenemos:
+\begin{flalign*}
+    &\left| \int_J f(t) \cdot \sin(\alpha t + \beta)\,dt\right| \leq &&\\[1ex]
+    &\leq\left|\int_J \Big(\underbracket{f(t) - s(t)}_{g(t)}\Big)\sin(\alpha t + \beta) \,dt\right| + \left|\int_J s(t) \cdot \sin(\alpha t + \beta) \,dt\right| \leq \\[1ex]
+    &\leq \int_J \Big|g(t) \cdot \sin(\alpha t + \beta)\Big| \,dt + \varepsilon_2 \leq \int_{J} |g(t)| \,dt + \frac{\varepsilon}{2} < \varepsilon
+\end{flalign*}
+
+\result{Funciones de variación acotada}
+\hspace{3mm} Sea $f : [a,b] \longrightarrow \R$ una función. Sea $\mathcal{P}([a,b])$ el conjunto de particiones del intervalo $[a,b]$. Consideraremos cada partición como:
+$$p = \{a=x_0 < x_1 < \ldots < x_{n_p} = b\} \in \mathcal{P}([a,b])$$
+Definimos la variación de $f$ en $[a,b]$ como:
+$$V_f(a,b) = \sup_{p \in \mathcal{P}([a,b])} \sum_{i=1}^{n_p}|f(x_i) - f(x_{i-1})|$$
+
+Si $V_f(a,b) < \infty$, se dice que ``$f$ es de variación acotada en $[a,b]$''.
+
+\vspace{6mm}
+\result{Teorema de Localización de Riemann}
+\hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ una función de periodo $2\pi$ en $\R$. Entonces, la serie de Fourier de $f$ converge en $x$ si y solo si $\exists$ $\delta \in (0,\pi)$ tal que:
+$$\exists \lim_{n\to\infty} \frac{2}{\pi}\int_0^\delta \frac{f(x+t)+ f(x-t)}{2} \cdot \frac{\sin\big((n+ \frac{1}{2})t\big)}{t} \,dt$$
+En tal caso, converge al valor de dicho límite.
+
+\vspace{4mm} \dem
+\vspace{2mm} \newline \indent Dado $x \in \R$ cualquiera. Por el \hyperref[result:4.2.2]{resultado 4.2.2}, la serie de Fourier de $f$ converge en $x$ si y solo si:
+$$\exists \lim_{n\to\infty} s_n(x) = \lim_{n\to\infty} \hspace{1mm} \frac{1}{\pi} \int_{0}^{\pi} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\Big((n+\frac{1}{2})t\Big)}{2\sin(\frac{t}{2})} \,dt$$
+
+\vspace{2mm} \noindent
+Consideramos el siguiente límite auxiliar:
+$$ \lim_{n\to\infty} \frac{1}{\pi} \int_{0}^{\pi} \left(\frac{1}{t} - \frac{1}{2\sin(\frac{t}{2})}\right) \cdot \Big(f(x+t) + f(x-t)\Big) \cdot \sin \left((n + \frac{1}{2})t\right)\,dt$$
+
+\vspace{2mm}
+Al ser $f \in L_1([0,2\pi], \R)$ con periodo $2\pi$ por hipótesis, $f(x-t)$ y $f(x+t)$ han de serlo también. Además, la función $\frac{1}{t} - \frac{1}{2\sin(\frac{t}{2})}$ es de variación acotada en $[0,\pi]$ (sin demostración), luego es $L_1([0,\pi], \R)$. Aplicando el \hyperref[result:4.2.3]{Lema de Riemann-Lebesgue},
+\newpage
+$$ \lim_{n\to\infty} \frac{1}{\pi} \int_{0}^{\pi} \left(\frac{1}{t} - \frac{1}{2\sin(\frac{t}{2})}\right) \cdot \Big(f(x+t) + f(x-t)\Big) \cdot \sin \left((n + \frac{1}{2})t\right)\,dt = 0$$
+Por tanto, comparando con el límite original,
+$$ \lim_{n\to\infty}s_n(x) = \lim_{n\to\infty} \frac{1}{\pi} \int_{0}^{\pi}\Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt$$
+Sea $\delta \in (0,\pi)$ cualquiera, podemos dividir la integral como sigue:
+\begin{flalign*}
+    \lim_{n\to\infty} s_n(x) &= \frac{1}{\pi} \int_{0}^{\delta} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt + &\\
+    &+ \frac{1}{\pi} \int_{\delta}^{\pi} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt
+\end{flalign*}
+El segundo sumando es nulo por el \hyperref[result:4.2.3]{Lema de Riemann-Lebesgue}.
+
+\vspace{6mm}
+\result{Teorema de Jordan}
+\hspace{3mm} Si $g : [0,\delta] \longrightarrow \R$ es una función de variación acotada. Entonces, se cumple:
+$$\lim_{\alpha\to\infty} \frac{2}{\pi} \int_{0}^{\delta} g(t) \cdot \frac{\sin(\alpha t)}{t}\,dt = \lim_{t \to 0^+}g(t) =: g(0^+)$$
+\vspace{4mm} \dem No se verá la demostración.
+
+\vspace{6mm}
+\result{Condición de Jordan}
+\hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ una función con periodo $2\pi$ que además es de variación acotada en $[x-\varepsilon, x+\varepsilon]$ para ciertos $x \in [0,2]$, $\varepsilon > 0$. Entonces, la serie de Fourier de $f$ converge en $x$ si y solo si:
+$$ \exists \lim_{t \to 0^+} \frac{f(x+t) + f(x-t)}{2}$$
+En tal caso, converge al límite anterior.
+
+\newpage \dem \vspace{2mm} \newline \indent
+Fijado el $x$ del enunciado, tenemos que $g_1(t) := f(x-t)$ y $g_2(t) := f(x+t)$ son de variación acotada en $[-\varepsilon, \varepsilon]$. En particular, son es de variación acotada en $[0,\varepsilon]$. Aplicando el \hyperref[result:4.2.6]{Teorema de Jordan},
+$$ \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\varepsilon} g_1(t) \cdot \frac{\sin(\alpha t)}{t} \,dt = \lim_{t \to 0^+} g_1(t)$$
+Del mismo modo,
+$$ \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\varepsilon} g_2(t) \cdot \frac{\sin(\alpha t)}{t} \,dt = \lim_{t \to 0^+} g_2(t)$$
+\vspace{2mm} Aplicamos ahora el \hyperref[result:4.2.5]{Teorema de Localización de Riemann} para $\delta = \varepsilon$:
+\begin{flalign*}
+    &\lim_{n\to\infty} \frac{2}{\pi}\int_0^\varepsilon \frac{f(x+t)+ f(x-t)}{2} \cdot \frac{\sin\big((n+ \frac{1}{2})t\big)}{t} \,dt = &&\\[1ex]
+    &= \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\varepsilon}\frac{f(x+t)}{2} \cdot\frac{\sin(\alpha t)}{t} \,dt + \frac{2}{\pi} \int_{0}^{\varepsilon}\frac{f(x-t)}{2} \cdot\frac{\sin(\alpha t)}{t} \,dt =\\[1ex]
+    &= \lim_{t\to 0^+} \frac{f(x+t) + f(x-t)}{2}
+\end{flalign*}
+Como el \hyperref[result:4.2.5]{Teorema de Localización de Riemann} garantiza la convergencia al valor del límite, concluimos la demostración.
+
+\vspace{6mm}
+\result{Teorema de Dini}
+\hspace{3mm} Sea $g : [0,b] \longrightarrow \R$ tal que $\exists \lim_{t\to 0^+}g(t) =: g(0^+)$. Entonces, si existe $\delta \in (0,b)$ tal que
+$$ \frac{g(t) - g(0^+)}{t} \in L_1([0,\delta], \R)$$
+
+\vspace{2mm} \noindent se verifica: \vspace{2mm}
+$$ \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta} g(t) \cdot \frac{\sin(\alpha t)}{t} \,dt = g(0^+)$$
+
+\newpage \dem \vspace{2mm} \newline \indent
+Supongamos que existe tal $\delta \in (0, b)$. Así, podemos reescribir el límite del enunciado como:
+\begin{flalign*}
+    &\lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta} g(t) \cdot \frac{\sin(\alpha t)}{t} \,dt =\\[1ex]
+    &= \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta} \Big(g(t) - g(0^+)\Big) \cdot \frac{\sin(\alpha t)}{t} \,dt + \frac{2}{\pi} \int_{0}^{\delta} g(0^+) \cdot \frac{\sin(\alpha t)}{t} \,dt
+\end{flalign*}
+\vspace{2mm}
+Por hipótesis, $\frac{g(t) - g(0^+)}{t} \in L_1([0,\delta], \R)$. Aplicando el \hyperref[result:4.2.3]{Lema de Riemann-Lebesgue},
+$$\lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta} \frac{g(t) - g(0^+)}{t} \cdot \sin(\alpha t)\,dt = 0$$
+\vspace{2mm} Volviendo a la igualdad anterior,
+\begin{flalign*}
+  \hspace{3ex} &\lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta} g(t) \cdot \frac{\sin(\alpha t)}{t} \,dt = \lim_{\alpha \to \infty}  \frac{2}{\pi} \int_{0}^{\delta} g(0^+) \cdot \frac{\sin(\alpha t)}{t} \,dt =&&\\[1ex]
+  &= \frac{2}{\pi}\cdot g(0^+) \lim_{\alpha \to \infty} \int_{0}^{\delta} \frac{\sin(\alpha t)}{t} \,dt \overset{u = \alpha t}{=} \frac{2}{\pi}\cdot g(0^+) \int_{0}^{\infty} \frac{\sin(u)}{u}\,du = g(0^+)
+\end{flalign*}
+El último paso se debe a ser la integral bien conocida.
+
+\vspace{6mm}
+\result{Condición de Dini}
+\begin{onehalfspace}
+  \hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ con periodo $2\pi$. Fijado $x \in \R$ cualquiera, consideramos la función $g(t) := \frac{f(x+t) + f(x-t)}{t}$. Si existen $g(0^+) := \mlim{t\to0^+}$ y $\delta > 0$ tal que la función $\frac{g(t) - g(0^+)}{t}\in L_1([0,\delta], \R)$. Entonces, la serie de Fourier de $f$ converge en $x$ y lo hace al valor:
+\end{onehalfspace}
+  $$\lim_{t \to 0^+} \frac{f(x+t)+f(x-t)}{2}$$
+  \end{document}

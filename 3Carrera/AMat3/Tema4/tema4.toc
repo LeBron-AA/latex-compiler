@@ -13,3 +13,9 @@
 \contentsline {subsubsection}{\numberline {4.2.1}Teorema de Riesz-Fisher}{10}{subsubsection.0.4.2.1}%
 \contentsline {subsubsection}{\numberline {4.2.2}Suma parcial como integral de semisumas}{11}{subsubsection.0.4.2.2}%
 \contentsline {subsubsection}{\numberline {4.2.3}Lema de Riemann-Lebesgue}{12}{subsubsection.0.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Funciones de variación acotada}{14}{subsubsection.0.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Teorema de Localización de Riemann}{14}{subsubsection.0.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}Teorema de Jordan}{15}{subsubsection.0.4.2.6}%
+\contentsline {subsubsection}{\numberline {4.2.7}Condición de Jordan}{15}{subsubsection.0.4.2.7}%
+\contentsline {subsubsection}{\numberline {4.2.8}Teorema de Dini}{16}{subsubsection.0.4.2.8}%
+\contentsline {subsubsection}{\numberline {4.2.9}Condición de Dini}{17}{subsubsection.0.4.2.9}%
