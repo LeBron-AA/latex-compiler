@@ -495,12 +495,12 @@ $$\lim_{\alpha\to\infty} \frac{2}{\pi} \int_{0}^{\delta} g(t) \cdot \frac{\sin(\
 
 \vspace{6mm}
 \result{Condición de Jordan}
-\hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ una función con periodo $2\pi$ que además es de variación acotada en $[x-\varepsilon, x+\varepsilon]$ para ciertos $x \in [0,2]$, $\varepsilon > 0$. Entonces, la serie de Fourier de $f$ converge en $x$ si y solo si:
+\hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ una función con periodo $2\pi$ que además es de variación acotada en $[x-\varepsilon, x+\varepsilon]$ para ciertos $x \in [0,2\pi]$, $\varepsilon > 0$. Entonces, la serie de Fourier de $f$ converge en $x$ si y solo si:
 $$ \exists \lim_{t \to 0^+} \frac{f(x+t) + f(x-t)}{2}$$
 En tal caso, converge al límite anterior.
 
 \newpage \dem \vspace{2mm} \newline \indent
-Fijado el $x$ del enunciado, tenemos que $g_1(t) := f(x-t)$ y $g_2(t) := f(x+t)$ son de variación acotada en $[-\varepsilon, \varepsilon]$. En particular, son es de variación acotada en $[0,\varepsilon]$. Aplicando el \hyperref[result:4.2.6]{Teorema de Jordan},
+Fijado el $x$ del enunciado, tenemos que $g_1(t) := f(x-t)$ y $g_2(t) := f(x+t)$ son de variación acotada en $[-\varepsilon, \varepsilon]$. En particular, son de variación acotada en $[0,\varepsilon]$. Aplicando el \hyperref[result:4.2.6]{Teorema de Jordan},
 $$ \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\varepsilon} g_1(t) \cdot \frac{\sin(\alpha t)}{t} \,dt = \lim_{t \to 0^+} g_1(t)$$
 Del mismo modo,
 $$ \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\varepsilon} g_2(t) \cdot \frac{\sin(\alpha t)}{t} \,dt = \lim_{t \to 0^+} g_2(t)$$
@@ -539,7 +539,131 @@ El último paso se debe a ser la integral bien conocida.
 \vspace{6mm}
 \result{Condición de Dini}
 \begin{onehalfspace}
-  \hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ con periodo $2\pi$. Fijado $x \in \R$ cualquiera, consideramos la función $g(t) := \frac{f(x+t) + f(x-t)}{t}$. Si existen $g(0^+) := \mlim{t\to0^+}$ y $\delta > 0$ tal que la función $\frac{g(t) - g(0^+)}{t}\in L_1([0,\delta], \R)$. Entonces, la serie de Fourier de $f$ converge en $x$ y lo hace al valor:
+  \hspace{3mm} Sea $f \in L_1([0,2\pi], \R)$ con periodo $2\pi$. Fijado $x \in \R$ cualquiera, consideramos la función $g(t) := \frac{f(x+t) + f(x-t)}{2}$. Si existen $g(0^+) := \mlim{t\to0^+}$ y $\delta > 0$ tal que la función $\frac{g(t) - g(0^+)}{t}\in L_1([0,\delta], \R)$. Entonces, la serie de Fourier de $f$ converge en $x$ y lo hace al valor:
 \end{onehalfspace}
   $$\lim_{t \to 0^+} \frac{f(x+t)+f(x-t)}{2}$$
-  \end{document}
+
+\vspace{4mm} \dem Análoga a \hyperref[result:4.2.7]{la condición de Jordan}.
+\newpage \indent Al ser $f$ $2\pi$-periódica por hipótesis, también ha de serlo $g$. Razonando como en la Condición de Jordan,
+\begin{flalign*}
+    &\lim_{n\to\infty} \frac{2}{\pi}\int_0^\delta \frac{f(x+t)+ f(x-t)}{2} \cdot \frac{\sin\big((n+ \frac{1}{2})t\big)}{t} \,dt = &&\\[1ex]
+    &= \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta}\frac{f(x+t)}{2} \cdot\frac{\sin(\alpha t)}{t} \,dt + \frac{2}{\pi} \int_{0}^{\delta}\frac{f(x-t)}{2} \cdot\frac{\sin(\alpha t)}{t} \,dt =\\[1ex]
+    &= \lim_{t\to 0^+} \frac{f(x+t) + f(x-t)}{2}
+\end{flalign*}
+Hemos aplicado el \hyperref[result:4.2.6]{Teorema de Dini} al primer sumando (las hipótesis de este enunciado nos garantizan las condiciones para ello), y el \hyperref[result:4.2.3]{Lema de Riemann-Lebesgue} al segundo.
+
+\vspace{6mm}
+\result{Teorema de Carleson}
+\hspace{3mm} Si $f \in L_2([0,2\pi],\R)$; entonces, la serie de Fourier de $f$ converge y además converge a $f(x)$ en casi todo punto.
+
+\vspace{2mm} \dem Sin demostración.
+
+\vspace{2mm}
+La continuidad no basta para garantizar la convergencia puntual. ¿Que propiedades sí nos puede garantizar la continuidad?
+
+\vspace{6mm}
+\result{Ejemplo sobre una función concreta}
+\hspace{3mm} Consideramos la función $f(x) = x$ en $[0,2\pi]$ extendida periódicamente a $\R$. Veamos cómo calcular su serie de Fourier y estudiemos su convergencia puntual.
+$$f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty}\Big[a_n \cos(nx) + b_n \sin(nx)\Big]$$
+Comencemos calculando los coeficientes:
+\begin{flalign*}
+    a_0 = \frac{1}{\pi} \int_0^{2p\pi} f(t) \,dt = \frac{1}{\pi} \int_0^{2\pi}t\,dt = \frac{1}{\pi} \cdot \frac{2^2 \pi^2}{2} = 2\pi&&
+\end{flalign*}
+\newpage
+\begin{flalign*}
+    a_n &= \frac{1}{\pi}\int_0^{2\pi} f(t) \cdot \cos(nt) \,dt = \frac{1}{\pi}\left[\frac{t \sin(nt)}{n} - \frac{1}{n} \int \sin(nu) \,du\right]_{t=0}^{t=2\pi} =&&\\[1ex]
+    &= \frac{1}{\pi} \left[\frac{t \sin(nt)}{n} + \frac{\cos(nt)}{n^2}\right]_{t=0}^{t=2\pi} = \frac{1}{\pi} \left(\frac{\cos(2n\pi)}{n^2} - \frac{\cos(0)}{n^2}\right) = 0
+\end{flalign*}
+\begin{flalign*}
+    b_n &= \frac{1}{\pi}\int_0^{2\pi} f(t) \cdot \sin(nt) \,dt = \frac{1}{\pi}\left[\frac{-t \cos(nt)}{n} - \frac{1}{n} \int -\cos(nu) \,du\right]_{t=0}^{t=2\pi} =&&\\[1ex]
+    &= \frac{1}{\pi} \left[\frac{-t \cos(nt)}{n} + \frac{\sin(nt)}{n^2}\right]_{t=0}^{t=2\pi} = \frac{1}{\pi} \left(\frac{0\cdot\cos(0)}{n} - \frac{2\pi \cos(2n\pi)}{n}\right) = -\frac{2}{n}
+\end{flalign*}
+De este modo,
+$$ f(x) \sim \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n}$$
+
+\vspace{4ex}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+  \includegraphics[width=0.7\textwidth]{media/4-2-11a.pdf}
+  \newline
+  Representación de $f$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+  \begin{center}
+  \includegraphics[width=0.7\textwidth]{media/4-2-11b.pdf}
+  \newline
+  Serie de Fourier de $f$ con 20 términos
+\end{center}
+\end{minipage}
+
+$\bullet$ Condición de Jordan: Si $x \in [0,2\pi)$, $f$ es monótona y por tanto este variación acotada en $(x-\delta, x+\delta)$ para cierto $\delta > 0$. Si $x = 0$ ó $x = 2\pi$, $f$ es suma de funciones monótonas luego también es de variación acotada en $(x-\delta, x+\delta)$ para cierto $\delta > 0$. De este modo, la serie de Fourier de $f$ converge $\forall \hspace{1mm} x \in \R$, y lo hace al valor:
+$$\lim_{t\to 0^+} \frac{f(x+t)+f(x-t)}{2}$$
+\indent Tenemos que para todo $x\in (0,2\pi)$ converge a $f(x) = x$, y para $x \in \{0,2\pi\}$ converge a $\frac{0+2\pi}{2} = \pi$. Estas convergencias pueden extenderse por periodicidad en $\R$.
+
+\vspace{4mm}
+Por tanto, $\forall \hspace{1mm} x \in (0,2\pi)$ se cumple:
+$$x = \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n} \overset{x = \frac{\pi}{2}}{\Rightarrow} \frac{\pi}{4} = \sum_{n=1}^{\infty}\frac{(-1)^n}{2n+1}$$
+
+$\bullet$ Condición de Dini: Para $x \in [0,2\pi]$ fijo, consideramos la siguiente función auxiliar con periodo $2\pi$: 
+\vspace{2mm}
+$$g(t) := \frac{f(x+t) + f(x-t)}{2}$$ \vspace{2mm}
+\begin{onehalfspace}
+Para el caso $x\in (0,2\pi)$, tenemos que $g(t) = \frac{t-t}{2} = 0$. Además, existe $g(0^+) = 0$ y se cumple:
+$$ \frac{g(t) - g(0^+)}{t} = \frac{0}{t} = 0 \in L_1([0,\delta], \R)\text{ para cierto } \delta > 0$$
+Por tanto, la serie de Fourier de $f$ converge a $g(0^+) = x$ para cualquier $x \in (0,2\pi)$.
+\end{onehalfspace}
+
+\vspace{4mm}
+Si $x \in \{0,2\pi\}$, $g(t) =  \frac{2\pi+t-t}{2} = \pi$ luego $g(0^+) = \pi$. De este modo,
+$$ \frac{g(t) - g(0^+)}{t} = \frac{\pi - \pi}{t} = 0 \in L_1([0,\delta], \R)\text{ para cierto } \delta > 0$$
+En este caso, la serie de Fourier de $f$ converge a $g(0^+) = \pi$.
+
+\vspace{4mm}
+\nota La continuidad no basta para garantizar la convergencia puntual.
+
+\vspace{6mm}
+\result{Definición de convergencia Cesàro}
+\hspace{3mm} Sea $(a_n)_{n\in\N}$ una sucesión de números reales. Sea $(s_n)_{n\in\N} = (\smallsum_{k=1}^n a_k)_{n\in\N}$ la correspondiente sucesión de sumas parciales. Se dice que $\smallsum_{n=1}^\infty a_n$ es sumable Cesàro si verifica:
+$$\exists \lim_{n\to\infty} \sigma_n = \lim_{n\to\infty} \frac{1}{n} \sum_{k=1}^{n} s_k = \sigma \in \R$$
+En tal caso, diremos que $\sigma$ es la ``suma Cesàro de la serie''.
+
+\vspace{6mm}
+\nota Sin demostración:
+\vspace{2mm} \newline \indent Si $\smallsum_{n=1}^{\infty}a_n$ converge a $s$; entonces, $a_n$ es sumable Cesàro a $\sigma = s$.
+
+\newpage
+\result{Teorema de Fejèr}
+\hspace{3mm} Dada una función $f \in L_1([0,2\pi],\R)$ con periodo $2\pi$ en $\R$. Consideramos la siguiente función:
+$$s(x) := \lim_{t\to 0^+} \frac{f(x+t)+f(x-t)}{2} \hspace{3mm} \text{ en } x \in A := \Big\{x \in [0,2\pi] : s(x) \text{ bien definida}\Big\}$$
+Entonces, la serie de Fourier de $f$ converge Cesàro $\forall \hspace{1mm} x \in A$ a $s(x)$.
+
+\vspace{4mm}
+Además, si $f$ es continua en $\R$, las sumas de Fejèr ($\sigma_n$) convergen de manera uniforme a $s$ en $A = \R$; es decir,
+$$\forall \hspace{1mm} \varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in \N : |\sigma_n(x) - s(x)| < \varepsilon \hspace{2mm}  \forall x \in \R \hspace{2mm} \forall n \geq n_0$$
+
+\vspace{4mm} \dem Sin demostración.
+
+\vspace{6mm}
+\result{Propiedades de funciones continuas}
+\hspace{3mm} Sea $f$ una función continua en $\R$ con periodo $2\pi$; entonces,
+\begin{enumerate}[label=\roman*)]
+    \item $||s_n - f|| \xrightarrow{n\to\infty}0$
+    \item Se cumple la identidad de Parseval en $[0,2\pi]$:
+    $$ ||f||^2 = \sum_{k=0}^{\infty} |c_k|^2 = \frac{a_0^2}{4} + \sum_{n=1}^{\infty} a_n^2 + b_n^2$$
+    \item Si la serie de Fourier de $f$ converge en $x$, converge a $f(x)$.
+    \item La serie de Fourier es integrable término a término:
+    $$\int_0^x f(t) \,dt = \frac{a_0}{x} + \sum_{n=1}^{\infty} \int_0^x a_n \cos(nt) + b_n \sin(nt) \,dt$$
+\end{enumerate}
+\vspace{4mm}
+\dem
+\vspace{2mm} \newline \indent
+\begin{tcolorbox}[Subset-contingency]
+  $\romannumeral 1$ \hspace{3mm} Al ser $f$ continua, es $L_2([0,2\pi], \R)$. Basta aplicar el \hyperref[result:4.2.10]{Teorema de Carleson}.
+\end{tcolorbox}
+\vspace{2mm}
+\begin{tcolorbox}[Subset-contingency]
+  $\romannumeral 2$ \hspace{3mm} Se tiene al haber usado un \hyperref[result:4.1.8]{sistema ortonormal completo}.
+\end{tcolorbox}
+
+\end{document}

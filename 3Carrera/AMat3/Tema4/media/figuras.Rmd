@@ -36,3 +36,44 @@ p <- ggplot(data=tibble(x=c(0, 2*pi)), aes(x=x)) +
 ggsave("4-1-8.pdf", plot = p, width = 7, height = 5)
 p
 ```
+
+## Resultado 4.2.11
+```{r}
+# Dominio
+x <- seq(-2*pi, 4*pi, length.out = 2000)
+
+# Número de términos
+terms <- 20
+
+# Función original periódica
+f_per <- function(x) {
+  x %% (2*pi)
+}
+
+# Serie de Fourier (vectorizada correctamente)
+fourier <- function(x) {
+  x <- x %% (2*pi)
+  sapply(x, function(xx) {
+    n <- 1:terms
+    pi - 2 * sum(sin(n * xx) / n)
+  })
+}
+
+# Gráfica
+p <- ggplot(tibble(x = x), aes(x = x)) +
+  stat_function(fun = f_per,
+                color = "blue",
+                linewidth = 1) +
+  stat_function(fun = fourier,
+                color = "red",
+                linewidth = 1) +
+  labs(
+    x = "x",
+    y = "f(x)"
+  ) +
+  theme_classic(base_size = 14)
+
+# Guardar y mostrar
+ggsave("fourier_diente_sierra.pdf", plot = p, width = 7, height = 5)
+p
+```
