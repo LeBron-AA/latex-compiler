@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  25 DEC 2025 13:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  26 DEC 2025 13:12
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -925,35 +925,36 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `tema4.toc'.
 
  [2] [3] [4] [5] [6] [7] [8]
-<media/4-1-8.pdf, id=188, 505.89pt x 361.35pt>
+<media/4-1-8.pdf, id=198, 505.89pt x 361.35pt>
 File: media/4-1-8.pdf Graphic file (type pdf)
 <use media/4-1-8.pdf>
 Package pdftex.def Info: media/4-1-8.pdf  used on input line 335.
 (pdftex.def)             Requested size: 292.77629pt x 209.13101pt.
  [9 <./media/4-1-8.pdf>] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-<media/4-2-11a.pdf, id=246, 505.89pt x 361.35pt>
+<media/4-2-11a.pdf, id=256, 505.89pt x 361.35pt>
 File: media/4-2-11a.pdf Graphic file (type pdf)
 <use media/4-2-11a.pdf>
 Package pdftex.def Info: media/4-2-11a.pdf  used on input line 587.
 (pdftex.def)             Requested size: 146.38814pt x 104.56274pt.
-<media/4-2-11b.pdf, id=247, 505.89pt x 361.35pt>
+<media/4-2-11b.pdf, id=257, 505.89pt x 361.35pt>
 File: media/4-2-11b.pdf Graphic file (type pdf)
 <use media/4-2-11b.pdf>
 Package pdftex.def Info: media/4-2-11b.pdf  used on input line 594.
 (pdftex.def)             Requested size: 146.38814pt x 104.56274pt.
- [19 <./media/4-2-11a.pdf> <./media/4-2-11b.pdf>] [20] [21] (tema4.aux)
+ [19 <./media/4-2-11a.pdf> <./media/4-2-11b.pdf>] [20] [21] [22] [23] [24] (tem
+a4.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `tema4.out' has not changed.
-(rerunfilecheck)             Checksum: 78B4DA3F9BA9C6C89E5551502466D04D;5701.
+(rerunfilecheck)             Checksum: 9A22C5A22AE3EF8AACC50817C1592B1D;6128.
  ) 
 Here is how much of TeX's memory you used:
- 36514 strings out of 474486
- 863228 string characters out of 5753177
+ 36525 strings out of 474486
+ 863401 string characters out of 5753177
  1942542 words of memory out of 5000000
- 58179 multiletter control sequences out of 15000+600000
+ 58185 multiletter control sequences out of 15000+600000
  567479 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,18n,87p,774b,910s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -962,16 +963,17 @@ kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
 nts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fonts/type1/p
 ublic/amsfonts/cm/cmmi6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikT
-ex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/MikTex/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/sym
-bols/msbm10.pfb>
-Output written on tema4.pdf (21 pages, 259878 bytes).
+ts/cm/cmmi8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.
+pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikT
+ex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/MikTex/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb>
+Output written on tema4.pdf (24 pages, 278735 bytes).
 PDF statistics:
- 345 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 500000)
- 236 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 375 PDF objects out of 1000 (max. 8388607)
+ 59 named destinations out of 1000 (max. 500000)
+ 252 words of extra memory for PDF output out of 10000 (max. 10000000)
 

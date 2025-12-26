@@ -665,5 +665,57 @@ $$\forall \hspace{1mm} \varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in
 \begin{tcolorbox}[Subset-contingency]
   $\romannumeral 2$ \hspace{3mm} Se tiene al haber usado un \hyperref[result:4.1.8]{sistema ortonormal completo}.
 \end{tcolorbox}
+\newpage
+\begin{tcolorbox}[Subset-contingency]
+  \hspace{-2mm} $\romannumeral 3$ \hspace{2mm} Como $f$ es continua en $\R$, es $L_1([0,2\pi],\R)$. Aplicando el \hyperref[result:4.2.13]{Teorema de Fèjer},
+\end{tcolorbox}
+las sumas $\sigma_n$ convergen uniformemente a $s$, luego
+$$\sigma_n (x) \xrightarrow{n\to\infty} s(x) = \lim_{t\to 0^+} \frac{f(x+t)+f(x-t)}{2} = f(x)$$
 
-\end{document}
+\vspace{2mm}
+\begin{tcolorbox}[Subset-contingency]
+  \hspace{-1mm} $\romannumeral 4$ \hspace{2mm} Sea $F(x) = \int_0^x f(t) \,dt$
+\end{tcolorbox}
+\vspace{-3ex}
+\begin{flalign*}
+  \hspace{3mm} \text{Sea } g(x) = f(x) - \frac{a_0}{2} = f(x) - \frac{1}{2\pi}\int_0^{2\pi} f(x) \,dt = f(x) - m    &&
+\end{flalign*}
+Es claro que $g$ es continua y $2\pi$-periódica en $\R$ por serlo $f$. La serie de Fourier de $g$ será:
+$$g(x) \sim \sum_{n=1}^{\infty}a_n\cos(nx) + b_n \sin(nx) $$
+Donde los $a_n$, $b_n$ coinciden con los coeficientes de Fourier de la serie de $f$.
+\begin{flalign*}
+    \hspace{3mm} \text{La función } G(x) := \int_0^x g(t) \,dt \text{ es } \mathcal{C}^1(\R) \text{ y } 2\pi\text{-periódica} &&
+\end{flalign*}
+Su serie de Fourier viene dada por:
+$$G(x) \sim \frac{A_0}{2} + \sum_{n=1}^{\infty}A_n \cos(nx) + B_n \sin(nx)$$
+Veamos la relación que hay entre $A_n, B_n$ con $a_n, b_n$.
+\begin{flalign*}
+    A_n &= \frac{1}{\pi} \int_0^{2\pi} G(t) \cos(nt) \,dt = \hspace{3ex} \text{Integración por partes: } \substack{u = G(t) \\ dv = \cos(nt)} &&\\[1ex]
+    &= \left[\frac{1}{n\pi}G(t)\sin(nt)\right]_{t=0}^{t=2\pi} - \frac{1}{n\pi} \int_0^{2\pi} g(t) \sin(nt) \,dt =  -\frac{1}{n}b_n
+\end{flalign*}
+\begin{flalign*}
+    B_n &= \frac{1}{\pi} \int_0^{2\pi} G(t) \sin(nt) \,dt = \hspace{3ex} \substack{u = G(t) \\ dv = \sin(nt)} &&\\[1ex]
+    &= \left[-\frac{1}{n\pi}G(t)\cos(nt)\right]_{t=0}^{t=2\pi} + \frac{1}{n\pi} \int_0^{2\pi} g(t) \cos(nt) \,dt =  \frac{1}{n}a_n
+\end{flalign*}
+
+\newpage
+Por tanto, comparando con $F$,
+$$F(x) = \int_0^x f(t) \,dt = \int_0^x m\,dt + \int_0^x g(t)\,dt = mx + G(x)$$
+Por el \hyperref[result:4.2.13]{Teorema de Fejèr}, como $g$ es continua en $\R$ y con periodo $2\pi$, tenemos que las $\sigma_n^g(t)$ convergen uniformemente a $g(t)$ para todo $t \in \R$. De este modo, al tener convergencia uniforme podemos intercambiar el límite con la integral:
+$$G(x) = \int_0^x g(t) \,dt = \int_{0}^{x}\lim_{n\to\infty}\sigma_n^g(t) = \lim_{n\to\infty}\int_0^x \sigma_n^g(t) \,dt$$
+
+\vspace{2mm}
+Sea $n \in \N$ cualquiera, $\sigma_n^g = \frac{1}{n}\Big(s_1^g + \ldots + s_n^g\Big)$. Por haber escogido $g$ y no $f$, tenemos que todas las $s_k^g$ tienen su término independiente nulo.  %TODO acabar
+
+\newpage
+\result{Convergencia ante diferenciabilidad}
+\hspace{3mm} Sea $f \in L_2([0,2\pi],\R)$ una función con periodo $2\pi$ en $\R$. Si $f$ es diferenciable en $x_0$; entonces, su serie de Fourier converge en $x_0$ a $f(x_0)$.
+
+\vspace{4mm} \dem Sin demostración.
+
+\vspace{6mm}
+\result{Convergencia ante \texorpdfstring{$\mathcal{C}^2$}{C2}}
+\hspace{3mm} Sea $f \in \mathcal{C}^2(\R)$ una función con periodo $2\pi$. Entonces, la serie de Fourier de $f$ converge uniformemente a $f(x)$ para todo $x\in\R$. Esto a su vez implica que la serie de Fourier es derivable término a término.
+
+\vspace{4mm} \dem Sin demostración.
+\end{document} 
