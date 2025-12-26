@@ -303,4 +303,53 @@ Sean $s,t \in \R^N$ cualesquiera, se cumple:
 Despejando, obtenemos $0 \leq \varphi(t) - \varphi(s) \leq \varphi(t-s) \xrightarrow{s\to t} \varphi(0) = 0$.
 
 \vspace{4mm} Por todo lo anterior, concluimos que $\varphi$ es continua y acotada, luego es medible en $\mathfrak{B}_N$ y en $\mathfrak{M}_N$
+
+\newpage
+\unit{Series de Fourier}
+\chapter{Sistemas ortogonales}
+\result{Ejercicio 1}
+\hspace{3mm}  Una colección finita de funciones $(\varphi_k)_{k=0}^n$ (todas con dominio $I$) se dice \emph{linealmente independiente} si
+\[
+\sum_{k=0}^n \lambda_k \varphi_k \equiv 0 \quad \iff \quad \lambda_k=0\ \text{para todo }0\le k\le n.
+\]
+\indent Una colección de funciones $(\varphi_k)_{k=0}^\infty$ se dice \emph{linealmente independiente} si todo subconjunto finito suyo es linealmente independiente. Prueba que todo sistema ortonormal sobre $I$ es linealmente independiente.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Sea $\{\varphi_n\}_{n\in\N}$ un sistema ortonormal con dominio $I$. Sea $A := \{a_1, \ldots, a_n\} \subseteq \N$ finito. Supongamos que se cumple $\smallsum_{k=1}^n \lambda_k \varphi_{a_k} \equiv 0$.
+
+\vspace{2mm} Fijado $j \in \{q,\ldots, n\}$ cualquiera, tenemos:
+\begin{flalign*}
+    \langle \varphi_{a_j}, 0\rangle = 0 = \left\langle \varphi_{a_j}, \sum_{k=1}^n\lambda_k \varphi_{a_k} \right\rangle = \sum_{k=1}^{n}\lambda_k \langle \varphi_{a_j}, \varphi_{a_k}\rangle = \lambda_j
+\end{flalign*}
+La última igualdad se deduce como aplicación directa de la ortonormalidad. Como el $j$ escogido fue arbitrario, concluimos que el sistema es linealmente independiente.
+
+\vspace{6mm}  
+\result{Ejercicio 2}
+Proceso de ortogonalización de Gram-Schmidt. Sea $(f_n)_{n=0}^\infty$ un sistema de funciones linealmente independientes en $L^2(I)$. Sea la sucesión de funciones dada recursivamente por
+\[
+g_0:=f_0,\qquad 
+g_{n+1}:=f_{n+1}-\sum_{k=0}^n\frac{\langle f_{n+1},f_k\rangle}{\langle g_k,g_k\rangle}\,g_k.
+\]
+Demuestra que $(g_n)_{n=0}^\infty$ es un sistema ortogonal y que
+\[
+\operatorname{span}\{f_k\}_{k=0}^n=\operatorname{span}\{g_k\}_{k=0}^n
+\]
+para todo $n$.
+
+\vspace{4mm} \dem Aplicaremos inducción.
+\vspace{2mm} \newline \indent En primer lugar, probaremos que $\{g_k\}_{k=0}^n$ es ortogonal para todo $n\in\N$. Comprobemos el caso base:
+\begin{flalign*}
+    g_1 = f_1 - \frac{\langle f_1, f_0\rangle}{\langle g_0, g_0\rangle}g_0 = f_1 -\frac{\langle f_1, f_0\rangle}{\langle f_0, f_0\rangle}f_0
+\end{flalign*}
+Aplicando la linealidad del producto interno,
+\begin{flalign*}
+    \langle g_1, g_0\rangle = \langle f_1,f_0\rangle - \frac{\langle f_1,f_0\rangle}{\langle f_0,f_0\rangle} \cdot \langle f_0, f_0\rangle = 0
+\end{flalign*}
+Supongamos que la hipótesis es cierta para $n$ y comprobemos que se cumple para $n+1$. Sea $j \in \{1,\ldots,n\}$, aplicando de nuevo la linealidad,
+\begin{flalign*}
+  g_{n+1} &= f_{n+1} - \sum_{k=0}^{n}\frac{\langle f_{n+1}, g_k\rangle}{\langle g_k, g_k\rangle} \Rightarrow \langle g_{n+1}, g_j\rangle = \langle f_{n+1}, g_j\rangle - \sum_{k=0}^{n}\frac{\langle f_{n+1},g_k\rangle}{\langle g_k,g_k\rangle}\cdot \langle g_k, g_j\rangle =&&\\
+  &= \langle f_{n+1}, g_j\rangle - \frac{\langle f_{n+1},g_j\rangle}{\langle g_j,g_j\rangle}\cdot \langle g_j, g_j\rangle = 0
+\end{flalign*}
+
+\vspace{2mm} Tenemos la ortogonalidad. Queda ver que se respetan las clausuras.
 \end{document}
