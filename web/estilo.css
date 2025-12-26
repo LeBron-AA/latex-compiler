@@ -24,3 +24,17 @@ section {
 a, a:visited {
     color: #0a4875;
 }
+
+.math {
+  /*background-color: #f0f8ff; /* azul muy suave */
+  border-left: 4px solid #1e90ff; /* azul más intenso */
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.software {
+  /*background-color: #fffaf0; /* crema suave */
+  border-left: 4px solid #8d5006e7; /* naranja intenso */
+  padding: 10px;
+  margin-bottom: 15px;
+}

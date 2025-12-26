@@ -19,8 +19,32 @@ h1 {
     margin: auto;
 }
 
+h2 {
+  margin-bottom: 1ex;
+  color: #0a4875;
+  font-weight: 600;
+}
+
 section {
-    padding: 2vw 4vw;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+section {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+li:hover {
+    transform: translateX(+2px);
+}
+
+section {
+    padding: 1vw 2vw;
     margin: 2ex max(calc(20vw - 5em), 5vw) 1ex;
     display: flex;
     flex-direction: column;
