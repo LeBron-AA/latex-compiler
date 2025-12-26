@@ -21,22 +21,6 @@ h1 {
 
 h2 {
   margin-bottom: 1ex;
-  color: #0a4875;
-  font-weight: 600;
-}
-
-section {
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-section {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-section:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 li:hover {
@@ -56,4 +40,9 @@ ul {
     display: flex;
     flex-direction: column;
     row-gap: 2ex;
+}
+
+#search {
+  width: 100%;
+  padding: 1ex 2ex;
 }

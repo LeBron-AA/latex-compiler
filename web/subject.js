@@ -1,5 +1,5 @@
 export class Subject {
-    static #studyMap = {"Matemáticas" : "math", "Informática" : "software"}
+    static studyMap = {"Matemáticas" : "math", "Informática" : "software"}
     #name
     #grade
     #semester
@@ -23,7 +23,7 @@ export class Subject {
 
     matches(nameStr) {
         if(this.#isBlank(nameStr))  return true
-        return this.#name.matches(nameStr)
+        return this.#name.toLowerCase().includes(nameStr.toLowerCase())
     }
 
     addNote(note) {
@@ -37,7 +37,7 @@ export class Subject {
         this.#htmlList = this.#section.appendChild(document.createElement("ul"))
         
         header.textContent = this.#name
-        const studyClass = Subject.#studyMap[this.#study]
+        const studyClass = Subject.studyMap[this.#study]
         if (studyClass) {
             this.#section.classList.add(studyClass)
         }

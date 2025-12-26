@@ -11,6 +11,9 @@ class NotesManager {
         }).then(data => {
             this.loadNotes(data);
         });
+
+        const searchBar = document.getElementById("search")
+        searchBar.addEventListener("input", this.filterSubjects.bind(this))
     }
 
     loadNotes(data) {
@@ -19,11 +22,22 @@ class NotesManager {
             const subject = new Subject(subjectEntry.name, subjectEntry.grade, subjectEntry.semester, subjectEntry.study)
             this.#subjects.push(subject)
             subjectEntry.notes.forEach(note => {
-                subject.addNote(new Note(note.pdfPath, note.title, note.description, note.language))
+                subject.addNote(new Note(note.pdfPath, note.title, note.description, note.language, note.type))
             });
             main.appendChild(subject.getHtmlElement())
         });
 
+    }
+
+    filterSubjects(event) {
+        const filter = event.target.value
+        const main = document.querySelector("main")
+        main.innerHTML = ""
+        for (const subject of this.#subjects) {
+            if(subject.matches(filter)) {
+                main.appendChild(subject.getHtmlElement())
+            }
+        }
     }
 }
 
