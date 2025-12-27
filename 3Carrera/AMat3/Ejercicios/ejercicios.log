@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  27 DEC 2025 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  27 DEC 2025 16:49
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -704,24 +704,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (ejercicios.aux)
 \openout1 = `ejercicios.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
  (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count323
@@ -777,18 +777,18 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 132.
+Package hyperref Info: Link coloring OFF on input line 133.
 (ejercicios.out) (ejercicios.out)
 \@outlinefile=\write4
 \openout4 = `ejercicios.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 136
+LaTeX Font Info:    Trying to load font information for U+msa on input line 137
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 136
+LaTeX Font Info:    Trying to load font information for U+msb on input line 137
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
@@ -800,32 +800,39 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout5 = `ejercicios.toc'.
 
  [2] [3]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 178
+LaTeX Font Info:    Trying to load font information for U+euf on input line 179
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 224--226
+Underfull \hbox (badness 10000) in paragraph at lines 225--227
 
  []
 
 [7] [8] [9] [10]
-Overfull \hbox (85.35846pt too wide) detected at line 302
+Overfull \hbox (85.35846pt too wide) detected at line 303
 []
  []
 
 [11] [12]
-Overfull \hbox (15.61548pt too wide) detected at line 352
+Overfull \hbox (15.61548pt too wide) detected at line 353
 []
  []
 
 [13]
-Overfull \hbox (71.05856pt too wide) detected at line 379
+Overfull \hbox (71.05856pt too wide) detected at line 380
 []
  []
 
-[14] [15] [16] (ejercicios.aux)
+[14] [15] [16]
+Overfull \hbox (11.03143pt too wide) in paragraph at lines 443--444
+[]\OT1/cmr/m/n/12 Por el re-sul-tado 4.1.5 de los apuntes de Teor^^S^^Pa, sabe-
+mos que $\OML/cmm/m/it/12 s \OT1/cmr/m/n/12 := [][]\OMS/cmsy/m/n/12 h\OML/cmm/m
+/it/12 f; '[]\OMS/cmsy/m/n/12 i\OML/cmm/m/it/12 '[]$
+ []
+
+[17] (ejercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -834,13 +841,13 @@ Package rerunfilecheck Info: File `ejercicios.out' has not changed.
 (rerunfilecheck)             Checksum: 20FB3D47CE8D05E1403112ACF18F4F6A;2410.
  ) 
 Here is how much of TeX's memory you used:
- 25915 strings out of 474486
- 506013 string characters out of 5753177
+ 25993 strings out of 474486
+ 507785 string characters out of 5753177
  1938542 words of memory out of 5000000
- 47743 multiletter control sequences out of 15000+600000
+ 47820 multiletter control sequences out of 15000+600000
  569781 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,87p,687b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,12n,87p,687b,881s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/Mi
 kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
@@ -854,9 +861,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
 cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/euler/eufm10.p
 fb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ejercicios.pdf (16 pages, 217553 bytes).
+Output written on ejercicios.pdf (17 pages, 223796 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
- 43 named destinations out of 1000 (max. 500000)
+ 257 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

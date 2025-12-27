@@ -22,6 +22,7 @@
 
 % Custom operators
 \newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
 
 % Implication box setup
 \tcbset{Implication-number/.style={
@@ -392,8 +393,8 @@ $$\left\{\frac{1}{\sqrt{2}}, \hspace{1mm} \sqrt{\frac{3}{2}} x, \hspace{1mm} \sq
 \begin{enumerate}[label=(\arabic*)]
 \item los siguientes enunciados son equivalentes:
   \begin{enumerate}[label=(\alph*)]
-  \item dadas \(f\) y \(g\) en \(\mathcal L_2(I)\), \(\langle f,\varphi_n\rangle=\langle g,\varphi_n\rangle\) para todo \(n\) implica \(f\equiv g\) a.e.
-  \item dada \(f\in\mathcal L_2(I)\), \(\langle f,\varphi_n\rangle=0\) para todo \(n\) implica \(f\equiv 0\).
+  \item dadas \(f\) y \(g\) en \(\mathcal L_2(I)\), \(\langle f,\varphi_n\rangle=\langle g,\varphi_n\rangle\) para todo \(n\) implica $f \muae g$.
+  \item dada \(f\in\mathcal L_2(I)\), \(\langle f,\varphi_n\rangle=0\) para todo \(n\) implica \(f\muae 0\).
   \item Si \(T\) es un sistema ortonormal que contiene a \((\varphi_n)_{n=0}^\infty\), entonces \(T=(\varphi_n)_{n=0}^\infty\) (en cuyo caso se dice que \((\varphi_n)_{n=0}^\infty\) es un sistema ortonormal maximal).
   \end{enumerate}
 
@@ -410,7 +411,40 @@ $$\left\{\frac{1}{\sqrt{2}}, \hspace{1mm} \sqrt{\frac{3}{2}} x, \hspace{1mm} \sq
 y \(\bigl(e^{inx}/\sqrt{2\pi}\bigr)_{n\in\mathbb Z}\) son sistemas ortonormales maximales.
 \end{enumerate}
 
-\vspace{4mm} \dem \vspace{2mm} \newline \indent
+\vspace{4mm} \dem \vspace{2mm} \newline \noindent
 (1) Veamos que se cumplen todas las implicaciones:
+\begin{tcolorbox}[Implication-number]
+    $a \Rightarrow b$  \hspace{3mm} Se tiene al considerar $g = 0$.
+\end{tcolorbox}
+\begin{tcolorbox}[Implication-number]
+    $b \Rightarrow c$  \hspace{3mm} Supongamos que existe $f \in T \setminus \{\varphi_n\}_{n\in\N}$
+\end{tcolorbox}
+\begin{adjustwidth}{0.07\textwidth}{}
+    Al ser, $T$ ortonormal, $\{f\} \cup \{\varphi_n\}_{n\in\N}$ ha de serlo también. De este modo, $\langle f, \varphi_n\rangle = 0$ $\forall n \in \N$. Aplicando la hipótesis, tenemos que $f \muae 0$. Sabemos por el primer ejercicio de esta sección que todo sistema ortonormal es linealmente independiente, lo que entra en contradicción con $f \muae 0$.
+\end{adjustwidth}
+\begin{tcolorbox}[Implication-number]
+    $c \Rightarrow a$  \hspace{3mm} Supongamos $f, g \in \mathcal{L}_2([0,2\pi])$ tales que $\langle f, \varphi_n\rangle = \langle g, \varphi_n\rangle$ $\forall n \in \N$.
+\end{tcolorbox}
+\begin{adjustwidth}{0.07\textwidth}{}
+    Supongamos además que $f$ y $g$ no son iguales en casi todo punto; es decir, $f-g \neq 0$ en $L_2([0,2\pi])$.
 
+    \vspace{2mm} Sea $T = \{\varphi_n\}_{n\in\N}$ Aplicando la hipótesis, para $n \in \N$ cualquiera,
+    $$\langle f-g, \varphi_n\rangle = \langle f,\varphi_n\rangle - \langle g, \varphi_n\rangle = 0$$
+    \indent De este modo, $f-g$ es un vector no nulo ortogonal a todos los de $T$. Por tanto, normalizando, $\left\{\frac{f-g}{||f-g||}\right\} \cup T$ es un sistema ortonormal. Aplicando la hipótesis de maximalidad, ha de cumplirse $\frac{f-g}{||f-g||} \muae \varphi_j$ para cierto $j\in\N$.
+
+    \vspace{2mm} Como $T$ es ortonormal, tenemos que:
+    $$||f-g||\cdot ||\varphi_j||^2 = \langle f-g, \varphi_j\rangle = \langle f, \varphi_j\rangle - \langle g, \varphi_j\rangle \neq 0$$
+    Hemos llegado a una contradicción.
+\end{adjustwidth}
+
+\vspace{4mm} (2) Como hemos demostrado la caracterización en el apartado anterior, suponer que el sistema ortonormal $T$ verifica (c) es equivalente a suponer que verifica (a).
+\vspace{2mm}
+\begin{adjustwidth}{0.07\textwidth}{}
+    Por el resultado 4.1.5 de los apuntes de Teoría, sabemos que $s := \sum_{k=0}^{\infty}\langle f,\varphi_k\rangle \varphi_k$ converge y está bien definida. Sea $j \in \N$ cualquiera,
+    $$\langle s,\varphi_j\rangle = \left\langle \sum_{k=0}^{\infty}\langle f, \varphi_k\rangle \varphi_k, \varphi_j \right\rangle = \sum_{k=0}^{\infty} \langle f,\varphi_k \rangle\cdot \langle \varphi_k, \varphi_j\rangle = \langle f, \varphi_j\rangle$$
+  Por tanto, en vista de la afirmación (a), es claro que $f \muae s$. Por Análisis Matemático I, sabemos que la norma es una aplicación continua. De este modo,
+  $$\lim_{n\to\infty} \left|\left|f - \sum_{k=0}^{n}\langle f, \varphi_k\rangle \varphi_k \right|\right| = \left|\left|f - \sum_{k=0}^{\infty} \langle f, \varphi_k\rangle \varphi_k \right|\right| = 0$$
+
+  \vspace{4mm} La convergencia se da en norma, pero no tiene por qué ocurrir que $f = s$. Por tanto, sí sería una base de $L_2(I)$, pero no de $\mathcal{L}_2(I)$ al no ser este último un espacio de Banach.
+\end{adjustwidth}
 \end{document}

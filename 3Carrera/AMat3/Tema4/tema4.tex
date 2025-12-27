@@ -196,14 +196,14 @@ $$\langle\varphi_n, \varphi_m\rangle = \delta_{n,m} = \begin{cases}
         \int_0^{2\pi} \varphi_0^2(t) \,dt = \int_{0}^{2\pi}\frac{1}{2\pi}\,dt = 1&&
     \end{flalign*}
     \begin{flalign*}
-        \int_0^{2\pi} \varphi_{2n+1}^2(t) \,dt &= \int_{0}^{2\pi}\frac{\cos^2(nt)}{\pi}\,dt \overset{u = nt}{=} \frac{1}{n\pi}\int_{0}^{2n\pi}\frac{1+\cos(2u)}{2}du \overset{v=2u}{=} &&\\
+        \int_0^{2\pi} &\varphi_{2n+1}^2(t) \,dt = \int_{0}^{2\pi}\frac{\cos^2(nt)}{\pi}\,dt \overset{u = nt}{=} \frac{1}{n\pi}\int_{0}^{2n\pi}\frac{1+\cos(2u)}{2}du \overset{v=2u}{=} &&\\
         &=\frac{1}{4n\pi} \int_{0}^{4n\pi} 1+ cos(v) = \frac{4n\pi}{4n\pi} + 0= 1
     \end{flalign*}
     \begin{flalign*}
-        \int_0^{2\pi} \varphi_{2n}^2(t) \,dt &= \int_{0}^{2\pi}\frac{\sin^2(nt)}{\pi}\,dt \overset{u = nt}{=} \frac{1}{n\pi}\int_{0}^{2n\pi}\frac{1-\cos(2u)}{2}du \overset{v=2u}{=}&&\\
+        \int_0^{2\pi} &\varphi_{2n}^2(t) \,dt = \int_{0}^{2\pi}\frac{\sin^2(nt)}{\pi}\,dt \overset{u = nt}{=} \frac{1}{n\pi}\int_{0}^{2n\pi}\frac{1-\cos(2u)}{2}du \overset{v=2u}{=}&&\\
         &=\frac{1}{4n\pi} \int_{0}^{4n\pi} 1-(v) = \frac{4n\pi}{4n\pi} + 0 = 1
     \end{flalign*}
-    Por ser funciones con periodo $2\pi$, para $n \in \N$ cualquiera, se cumple:
+    Para $n \in \N$ cualquiera, se cumple:
     $$ \int_{0}^{2\pi}\varphi_{2n+1}(t)\,dt=\int_{0}^{2\pi}\varphi_{2n}(t)\,dt= \int_{0}^{2\pi}\varphi_{2n+1}(t)\cdot\varphi_{2n}(t)\,dt= 0$$
     Hemos demostrado que el sistema es ortonormal.
     
@@ -215,7 +215,7 @@ $$\langle\varphi_n, \varphi_m\rangle = \delta_{n,m} = \begin{cases}
 \vspace{6mm}  
 \result{Teorema de óptima aproximación}
 \hspace{3mm} Sea $V$ un $K$-espacio pre-Hilbert. Sea $\{\varphi_0, \ldots,\varphi_n\} \subseteq V$ un sistema ortonormal finito en $V$. Sea $f \in V$. Si $W$ es la clausura $K\langle \varphi_0,\ldots,\varphi_n\rangle$. Entonces, el elemento de $W$ que mejor aproxima $f$ (en cuanto a minimizar la norma de su diferencia) es
-$$ s_n = \sum_{k=0}^n \underbracket{\langle f, \varphi_k\rangle>}_{c_k}\varphi_k$$
+$$ s_n = \sum_{k=0}^n \underbracket{\langle f, \varphi_k\rangle}_{c_k}\varphi_k$$
 Es decir, dado $t_n = \smallsum_{k=0}^n b_k \cdot \varphi_k \in W$ cualquiera (formado a partir de escalares cualesquiera), se cumple $||f-s_n|| \leq ||f-t_n||$.
 
 \newpage\dem 
@@ -252,7 +252,7 @@ $$s(x) = \sum_{k=0}^\infty c_k \cdot \varphi_k(x)$$
 $$||s-s_n|| \xrightarrow{n\to\infty}0$$
 
 \vspace{4mm} \dem
-\vspace{2mm} \newline \indent Sean $p,q$ in $\N$ cualesquiera. Supongamos sin pérdida de generalidad que $q > p$. Entonces,
+\vspace{2mm} \newline \indent Sean $p,q \in \N$ cualesquiera. Supongamos sin pérdida de generalidad que $q > p$. Entonces,
 \begin{flalign*}
   ||s_p -& s_q||^2 = \left|\left| \sum_{k=p+1}^q s_k \right|\right|^2 = \left\langle\sum_{k=p+1}^{q}\langle f, \varphi_k\rangle \varphi_k,\sum_{k=p+1}^{q}\langle f, \varphi_k\rangle \varphi_k\right\rangle \overset{\text{ortonormalidad}}{=} &&\\
   &= \sum_{k=p+1}^q \left|\langle f, \varphi_k\rangle\right|^2 = |a_p - a_q|^2 \hspace{4ex} \text{ donde } a_n = \sum_{k=0}^{n} |\langle f, \varphi_k\rangle|^2
@@ -289,7 +289,7 @@ $$\sum_{k=0}^{\infty}\langle f, \varphi_k\rangle = ||f||^2 \hspace{3mm} \forall 
 
 \newpage
 \nota
-\vspace{2mm} \newline \indent Por la \hyperref[result:4.1.5]{Desigualdad de Bessel}, sabemos que $\smallsum_{k=0}^{\infty}|c_k|^2 \leq ||f||^2$. Exigir la igualdad equivale a decir que la norma se resume completamente por el sistema ortonormal: el sistema puede aportar información sobre todo el espacio $H$. Por tanto, toda componente de $f$ queda recogida por cierto $\varphi_n$, luego $f \neq 0$ implica que no es ortogonal a todo el sistema.
+\vspace{2mm} \newline \indent Por la \hyperref[result:4.1.5]{Desigualdad de Bessel}, sabemos que $\smallsum_{k=0}^{\infty}|c_k|^2 \leq ||f||^2$. Exigir la igualdad equivale a decir que la norma se resume completamente por el sistema ortonormal: el sistema puede aportar información sobre todo el espacio $H$. Por tanto, toda componente de $f$ queda recogida por cierto $\varphi_n$, luego ninguna función no nula $f$ es ortogonal al sistema entero.
 
 \vspace{6mm}
 \result{Ejemplo de sistema ortonormal completo}
@@ -343,10 +343,10 @@ $$f(t) \sim \frac{1}{2} - \frac{2}{\pi}\sum_{n=1}^\infty \frac{1}{2n+1}\sin\big(
 \chapter{Estudio de la convergencia puntual}
 \result{Teorema de Riesz-Fisher}
 \begin{onehalfspace}
-  \hspace{3mm} Sea $\{\varphi_n\}_{n\in\N} \subseteq L_2(I,K)$ un sistema ortonormal. Sea $\{c_n\}_{n\in\N} \subseteq K$ que verifica $\sum_{n=0}^{\infty}|c_n|^2<\infty$. Entonces, existe una función $f$ de $L_2(I.K)$ que cumple simultáneamente:
+  \hspace{3mm} Sea $\{\varphi_n\}_{n\in\N} \subseteq L_2(I,K)$ un sistema ortonormal. Sea $\{c_n\}_{n\in\N} \subseteq K$ que verifica $\smallsum_{n=0}^{\infty}|c_n|^2<\infty$. Entonces, existe una función $f$ de $L_2(I.K)$ que cumple simultáneamente:
 \end{onehalfspace}
   \begin{align*}
-    c_n = \langle f,\varphi_n\rangle \hspace{2mm} \forall n \in \N && \sum_{n=0}^{\infty}|c_n|^2 < ||f||^2
+    c_n = \langle f,\varphi_n\rangle \hspace{2mm} \forall n \in \N && \sum_{n=0}^{\infty}|c_n|^2 = ||f||^2
 \end{align*}
 
 \vspace{4mm} \dem \vspace{2mm} \newline \indent
@@ -567,7 +567,7 @@ La continuidad no basta para garantizar la convergencia puntual. ¿Que propiedad
 $$f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty}\Big[a_n \cos(nx) + b_n \sin(nx)\Big]$$
 Comencemos calculando los coeficientes:
 \begin{flalign*}
-    a_0 = \frac{1}{\pi} \int_0^{2p\pi} f(t) \,dt = \frac{1}{\pi} \int_0^{2\pi}t\,dt = \frac{1}{\pi} \cdot \frac{2^2 \pi^2}{2} = 2\pi&&
+    a_0 = \frac{1}{\pi} \int_0^{2\pi} f(t) \,dt = \frac{1}{\pi} \int_0^{2\pi}t\,dt = \frac{1}{\pi} \cdot \frac{2^2 \pi^2}{2} = 2\pi&&
 \end{flalign*}
 \newpage
 \begin{flalign*}
@@ -581,7 +581,7 @@ Comencemos calculando los coeficientes:
 De este modo,
 $$ f(x) \sim \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n}$$
 
-\vspace{4ex}
+\vspace{1ex}
 \begin{minipage}{0.5\textwidth}
   \begin{center}
   \includegraphics[width=0.7\textwidth]{media/4-2-11a.pdf}
@@ -597,6 +597,7 @@ $$ f(x) \sim \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n}$$
 \end{center}
 \end{minipage}
 
+\vspace{4mm}
 $\bullet$ Condición de Jordan: Si $x \in [0,2\pi)$, $f$ es monótona y por tanto este variación acotada en $(x-\delta, x+\delta)$ para cierto $\delta > 0$. Si $x = 0$ ó $x = 2\pi$, $f$ es suma de funciones monótonas luego también es de variación acotada en $(x-\delta, x+\delta)$ para cierto $\delta > 0$. De este modo, la serie de Fourier de $f$ converge $\forall \hspace{1mm} x \in \R$, y lo hace al valor:
 $$\lim_{t\to 0^+} \frac{f(x+t)+f(x-t)}{2}$$
 \indent Tenemos que para todo $x\in (0,2\pi)$ converge a $f(x) = x$, y para $x \in \{0,2\pi\}$ converge a $\frac{0+2\pi}{2} = \pi$. Estas convergencias pueden extenderse por periodicidad en $\R$.
@@ -653,7 +654,7 @@ $$\forall \hspace{1mm} \varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in
     $$ ||f||^2 = \sum_{k=0}^{\infty} |c_k|^2 = \frac{a_0^2}{4} + \sum_{n=1}^{\infty} a_n^2 + b_n^2$$
     \item Si la serie de Fourier de $f$ converge en $x$, converge a $f(x)$.
     \item La serie de Fourier es integrable término a término:
-    $$\int_0^x f(t) \,dt = \frac{a_0}{x} + \sum_{n=1}^{\infty} \int_0^x a_n \cos(nt) + b_n \sin(nt) \,dt$$
+    $$\int_0^x f(t) \,dt = \frac{a_0}{2}x + \sum_{n=1}^{\infty} \int_0^x a_n \cos(nt) + b_n \sin(nt) \,dt$$
 \end{enumerate}
 \vspace{4mm}
 \dem
@@ -705,7 +706,21 @@ Por el \hyperref[result:4.2.13]{Teorema de Fejèr}, como $g$ es continua en $\R$
 $$G(x) = \int_0^x g(t) \,dt = \int_{0}^{x}\lim_{n\to\infty}\sigma_n^g(t) = \lim_{n\to\infty}\int_0^x \sigma_n^g(t) \,dt$$
 
 \vspace{2mm}
-Sea $n \in \N$ cualquiera, $\sigma_n^g = \frac{1}{n}\Big(s_1^g + \ldots + s_n^g\Big)$. Por haber escogido $g$ y no $f$, tenemos que todas las $s_k^g$ tienen su término independiente nulo.  %TODO acabar
+Sea $n \in \N$ cualquiera, $\sigma_n^g = \frac{1}{n}\Big(s_1^g + \ldots + s_n^g\Big)$. Por haber escogido $g$ y no $f$, tenemos que todas las $s_k^g$ tienen su término independiente nulo. Además, para cada $n\in\N$ y para cada $k \in \{1,\ldots,n\}$ se tiene:
+$$\sigma_n ^g(t) = \frac{1}{n} \sum_{k=1}^{n} \sum_{i=1}^{k}a_i \cos(ix) +  b_i \sin(ix) = \sum_{k=1}^{n}\alpha_n^{(k)}\cos(kt) + \beta_n^{(k)}\sin(kt)$$
+\vspace{2mm} De este modo, para $n \geq k$, tenemos:
+\begin{align*}
+    \alpha_n^{(k)} = \frac{n+1-k}{n} \cdot a_k \xrightarrow{n\to\infty}a_k &&
+    \beta^{(k)} = \frac{n+1-k}{n} \cdot b_k \xrightarrow{n\to\infty}b_k 
+\end{align*}
+
+\vspace{2mm}\noindent
+Volviendo a la integral de $\sigma_n^g$, para cada $n\in\N$,
+$$\int_0^x \sigma_n^g(t) = \sum_{k=1}^{n}\left[ \frac{\alpha_n^{(k)}}{k}\sin(kt) - \frac{\beta_n^{(k)}}{k}\cos(kt)\right]_{t=0}^{t=x} \hspace{-2ex}
+=\sum_{k=1}^{n}\left[ \frac{\alpha_n^{(k)}}{k}\sin(kx) - \frac{\beta_n^{(k)}}{k}\cos(kx) +\frac{b^{(k)}}{k} \right]$$
+De este modo, tomando límites:
+$$\lim_{n\to\infty} \int_{0}^{x} \sigma_n^g(t) \,dt = \sum_{k=1}^{\infty} \frac{a_k}{k} \sin(kx) - \frac{b_k}{k} \cos(kx) + \frac{b_k}{k}$$
+Comparando la expresión de las integrales de $f$ y $g$ llegamos al resultado.
 
 \newpage
 \result{Convergencia ante diferenciabilidad}
