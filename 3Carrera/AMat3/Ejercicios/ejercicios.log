@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  26 DEC 2025 17:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  27 DEC 2025 15:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -816,26 +816,31 @@ Overfull \hbox (85.35846pt too wide) detected at line 302
  []
 
 [11] [12]
-Overfull \hbox (4.8502pt too wide) detected at line 352
+Overfull \hbox (15.61548pt too wide) detected at line 352
 []
  []
 
-[13] (ejercicios.aux)
+[13]
+Overfull \hbox (71.05856pt too wide) detected at line 379
+[]
+ []
+
+[14] [15] [16] (ejercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `ejercicios.out' has not changed.
-(rerunfilecheck)             Checksum: 416507F6D228C34F5296927089B756A5;2156.
+(rerunfilecheck)             Checksum: 20FB3D47CE8D05E1403112ACF18F4F6A;2410.
  ) 
 Here is how much of TeX's memory you used:
- 25899 strings out of 474486
- 505831 string characters out of 5753177
- 1937542 words of memory out of 5000000
- 47738 multiletter control sequences out of 15000+600000
+ 25915 strings out of 474486
+ 506013 string characters out of 5753177
+ 1938542 words of memory out of 5000000
+ 47743 multiletter control sequences out of 15000+600000
  569781 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,12n,87p,687b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,12n,87p,687b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/Mi
 kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/MikTex/texmfs/install/fo
@@ -849,9 +854,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
 cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/euler/eufm10.p
 fb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ejercicios.pdf (13 pages, 203632 bytes).
+Output written on ejercicios.pdf (16 pages, 217553 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 253 PDF objects out of 1000 (max. 8388607)
+ 43 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
