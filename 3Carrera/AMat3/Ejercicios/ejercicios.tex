@@ -447,4 +447,62 @@ y \(\bigl(e^{inx}/\sqrt{2\pi}\bigr)_{n\in\mathbb Z}\) son sistemas ortonormales 
 
   \vspace{4mm} La convergencia se da en norma, pero no tiene por qué ocurrir que $f = s$. Por tanto, sí sería una base de $L_2(I)$, pero no de $\mathcal{L}_2(I)$ al no ser este último un espacio de Banach.
 \end{adjustwidth}
+
+\newpage
+\chapter{Funciones de variación acotada}
+\hspace{3mm}
+Sea \(f:[a,b]\longrightarrow\mathbb{R}\) una función definida sobre un intervalo compacto no degenerado y sea \(P:=\{a=t_0<t_1<\dots< t_{n-1}<t_n=b\}\) una partición finita de \([a,b]\). Llamamos variación de \(f\), semi-variación positiva de \(f\) y semi-variación negativa de \(f\) respecto de \(P\) a los valores respectivos
+\[
+V(f,P):=\sum_{i=1}^n |f(t_i)-f(t_{i-1})|,
+\]
+\[
+V^+(f,P):=\sum_{i=1}^n (f(t_i)-f(t_{i-1}))^+,
+\]
+\[
+V^-(f,P):=\sum_{i=1}^n (f(t_i)-f(t_{i-1}))^-,
+\]
+donde, para \(x\in\mathbb{R}\), \(x^+:=\max\{x,0\}\) y \(x^-:=\max\{-x,0\}\).
+
+Como de costumbre, denotaremos por \(\mathcal{P}([a,b])\) al conjunto de todas las particiones finitas de \([a,b]\). Se llama variación de \(f\) al valor
+\[
+V(f):=\sup\{V(f,P):P\in\mathcal{P}([a,b])\}.
+\]
+
+Si \(V(f)<\infty\), se dice que \(f\) es de variación acotada. Las semi-variaciones positiva y negativa de \(f\) se definen como
+\[
+V^+(f):=\sup\{V^+(f,P):P\in\mathcal{P}([a,b])\},
+\qquad
+V^-(f):=\sup\{V^-(f,P):P\in\mathcal{P}([a,b])\}.
+\]
+
+\vspace{6mm}
+\result{Ejercicio 1}
+\hspace{3mm} Demuestra que una función \(f:[a,b]\longrightarrow\mathbb{R}\) es de variación acotada si y sólo si sus semi-variaciones positiva y negativa son ambas finitas.
+
+\newpage \dem \vspace{2mm} \newline \indent
+Sea $P:=\{a=t_0<t_1<\dots< t_{n-1}<t_n=b\} \in \mathcal{P}([a,b])$ cualquiera, tenemos:
+$$V(f,P):=\sum_{i=1}^n |f(t_i)-f(t_{i-1})| = \sum_{i=1}^n \Big(f(t_i)-f(t_{i-1})\Big)^+ +\Big(f(t_i)-f(t_{i-1})\Big)^- = V^+(f,P) + V^-(f,P)$$
+Tomando supremos, llegamos a que $V(f) \leq V^+(f) + V^-(f)$. Por tanto, si las semi-variaciones positiva y negativa son finitas, también tendrá que serlo $V(F)$.
+
+\vspace{2mm} En cuanto a la otra implicación, supongamos ahora que $V(f)^+ = \infty$ para ver que $V(f) = \infty$ (el caso $V^-(f) = \infty$ es análogo). Sea $K \in \R$; por hipótesis, existe $P \in \mathcal{P}([a,b])$ tal que $V^+(f,P) > K$. Por tanto, \vspace{-2ex}
+$$V(f,P) = V^+(f,P) + V^-(f,P) \geq V^+(f,P) > K$$
+
+\vspace{6mm}
+\result{Ejercicio 2}
+\hspace{3mm} Sea \(f:[a,b]\to\mathbb{R}\) una función de variación acotada tal que \(f(a)=0\). Demuestra que $f=g-h$, donde
+$$g(x)=V^{+}\bigl(f;[a,x]\bigr),\qquad h(x)=V^{-}\bigl(f;[a,x]\bigr)$$
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Fijamos $x \in [a,b]$ cualquiera. Sea $P = \{a = t_0 < \ldots < t_n = x\} \in \mathcal{P}([a,x])$ cualquiera, se cumple:
+\begin{flalign*}
+  V^+(f_{|[a,x]}, P)& - V^-(f_{|[a,x]}, P) = \sum_{i=1}^{n} \Big(f(t_i) - f(t_{i-1})\Big)^+ - \Big(f(t_i) - f(t_{i-1})\Big)^- =&&\\ 
+  &=\sum_{i=1}^{n}f(t_i) - f(t_{i-1}) = f(x) - f(a) = f(x)
+\end{flalign*}
+Se tiene por ser telescópica la suma. Tomando supremos (podemos hacerlo adecuadamente al ser de variación acotada) se llega al resultado.
+
+\result{Ejercicio 3}
+\hspace{3mm} Demuestra que toda función de variación acotada $f$ sobre un intervalo compacto $[a,b]$ puede descomponerse como $f = g_1 - g_2$, donde $g_1$ y $g_2$ son dos funciones crecientes y acotadas en $[a,b]$.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+
 \end{document}

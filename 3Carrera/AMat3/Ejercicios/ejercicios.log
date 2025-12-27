@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  27 DEC 2025 16:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  27 DEC 2025 22:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -832,19 +832,56 @@ mos que $\OML/cmm/m/it/12 s \OT1/cmr/m/n/12 := [][]\OMS/cmsy/m/n/12 h\OML/cmm/m
 /it/12 f; '[]\OMS/cmsy/m/n/12 i\OML/cmm/m/it/12 '[]$
  []
 
-[17] (ejercicios.aux)
+[17]
+Overfull \hbox (20.52089pt too wide) detected at line 476
+\OML/cmm/m/it/12 V[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 ) := []\
+OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 V[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f; P\OT1
+/cmr/m/n/12 ) : \OML/cmm/m/it/12 P \OMS/cmsy/m/n/12 2 P\OT1/cmr/m/n/12 ([\OML/c
+mm/m/it/12 a; b\OT1/cmr/m/n/12 ])\OMS/cmsy/m/n/12 g\OML/cmm/m/it/12 ;  V[]\OT1/
+cmr/m/n/12 (\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 ) := []\OMS/cmsy/m/n/12 f\OML/cmm
+/m/it/12 V[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f; P\OT1/cmr/m/n/12 ) : \OML/cmm/
+m/it/12 P \OMS/cmsy/m/n/12 2 P\OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 a; b\OT1/cmr/m
+/n/12 ])\OMS/cmsy/m/n/12 g\OML/cmm/m/it/12 :
+ []
+
+[18]
+Overfull \hbox (75.292pt too wide) detected at line 484
+\OML/cmm/m/it/12 V\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f; P\OT1/cmr/m/n/12 ) := []
+ \OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/
+cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m
+/it/12 t[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 j \OT1/cmr/m/n/12 = [] []\OML/cmm/m
+/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12
+ ^^@ \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )[]
+[] + []\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )
+ \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\O
+T1/cmr/m/n/12 )[][] = \OML/cmm/m/it/12 V[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f; 
+P\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 V[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f; P
+\OT1/cmr/m/n/12 )
+ []
+
+[19] [20] (ejercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-Package rerunfilecheck Info: File `ejercicios.out' has not changed.
-(rerunfilecheck)             Checksum: 20FB3D47CE8D05E1403112ACF18F4F6A;2410.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `ejercicios.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ejercicios.out':
+(rerunfilecheck)             Before: 1687DAD6B6E768DF6ABEE700DF79DD84;2900
+(rerunfilecheck)             After:  774C5189C5D26626B8A8976CAF3BEE8D;3027.
  ) 
 Here is how much of TeX's memory you used:
- 25993 strings out of 474486
- 507785 string characters out of 5753177
+ 26006 strings out of 474486
+ 507985 string characters out of 5753177
  1938542 words of memory out of 5000000
- 47820 multiletter control sequences out of 15000+600000
+ 47826 multiletter control sequences out of 15000+600000
  569781 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,12n,87p,687b,881s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -861,9 +898,9 @@ pe1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
 cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/euler/eufm10.p
 fb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ejercicios.pdf (17 pages, 223796 bytes).
+Output written on ejercicios.pdf (20 pages, 234257 bytes).
 PDF statistics:
- 257 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 
