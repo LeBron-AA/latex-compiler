@@ -24,7 +24,7 @@ export class Note {
             
             link.textContent = this.#title
             link.setAttribute("title", this.#description)
-            link.setAttribute("href", this.#pdfPath)
+            link.setAttribute("href", `${this.#pdfPath}?v=${Date.now()}`)
         }
         return this.#listEntry
     }
