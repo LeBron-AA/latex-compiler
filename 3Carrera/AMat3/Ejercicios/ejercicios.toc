@@ -18,3 +18,8 @@
 \contentsline {subsubsection}{\numberline {2.2.1}Ejercicio 1}{18}{subsubsection.0.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Ejercicio 2}{19}{subsubsection.0.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Ejercicio 3}{20}{subsubsection.0.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Ejercicio 4}{20}{subsubsection.0.2.2.4}%
+\contentsline {subsection}{3. Fallos en las condiciones de Dini o de Jordan}{22}{chapter.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Ejercicio 1}{22}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Ejercicio 2}{23}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Ejercicio 3}{24}{subsubsection.0.2.3.3}%

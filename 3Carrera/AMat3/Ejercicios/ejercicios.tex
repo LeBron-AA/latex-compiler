@@ -504,5 +504,155 @@ Se tiene por ser telescópica la suma. Tomando supremos (podemos hacerlo adecuad
 \hspace{3mm} Demuestra que toda función de variación acotada $f$ sobre un intervalo compacto $[a,b]$ puede descomponerse como $f = g_1 - g_2$, donde $g_1$ y $g_2$ son dos funciones crecientes y acotadas en $[a,b]$.
 
 \vspace{4mm} \dem \vspace{2mm} \newline \indent
+Por el ejercicio anterior, sabemos que para las siguientes funciones,
+\begin{align*}
+    g_1(x) = V^+(f_{|[a,x]}) + f(a) && g_2(x) = V^-(f_{|[a,x]})
+\end{align*}
+se cumple que $f(x) = g_1(x) - g_2(x)$. Veamos que $g_2$ es monótona (el caso $g_1$ es análogo).
 
+\vspace{2mm} Sean $x,y \in [a,b]$ con $x < y$, veamos que $g_2(x) \leq g_2(y)$. \newline \noindent Sea $P = \{a = t_0<\ldots<t_n=x\} \in \mathcal{P}([a,x])$, consideramos $\hat{P} := P \cup \{y\} \in \mathcal{P}([a,y])$. Así,
+\begin{flalign*}
+  V^-(f_{|[a,x]}&, P) = \sum_{i=1}^{n} \Big(f(t_i) - f(t_{i-1})\Big)^{-} \leq \Big(f(y) - f(x)\Big)^- +\sum_{i=1}^{n} \Big(f(t_i) - f(t_{i-1})\Big)^{-} =&&\\[1ex]
+  &= \sum_{i=1}^{n+1}\Big(f(t_i)- f(t_{i-1})\Big)^- = V^-(f_{|[a,y]}, \hat{P})
+\end{flalign*}
+En vista del primer ejercicio de esta sección, al ser $f$ de variación acotada, también lo son $g_1$ y $g_2$ (luego son acotadas). Tomando supremos podemos ver que son crecientes.
+
+\vspace{6mm}
+\result{Ejercicio 4}
+\hspace{3mm} Demuestra que si una función $f$ es de variación acotada, entonces todas sus discontinuidades son de salto finito o evitables.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Por el ejercicio anterior, sabemos que es posible descomponer $f$ como $f = g_1 - g_2$ con $g_1, g_2$ funciones crecientes acotadas. Basta ver que las discontinuidades de una función $g$ creciente son se salto finito. Para ello, veamos que existen siempre los límites laterales de $g$.
+
+\vspace{2mm} Fijado $x$ cualquiera, consideramos el siguiente conjunto:\newline \noindent $\mathcal{A} := \{g(t) : t < x\}$., que está acotado superiormente por ser $g$ creciente. De este modo, podemos considerar $A := \sup \mathcal{A}$.
+
+\vspace{2mm} Por definición de supremo, para $\varepsilon > 0$ cualquiera, existe $\delta > 0$ tal que: 
+$$g(x-\delta) > A - \varepsilon$$
+Al ser $g$ creciente, para cada $t \in (x-\delta, x)$, se cumple:
+\begin{align*}
+  A - \varepsilon < g(x-\delta) \leq g(t) \leq A &&
+  -A \leq -A < \varepsilon - A
+\end{align*}
+De este modo, sumando, $-\varepsilon < g(t) - A < \varepsilon$. Tenemos que existe el límite izquierdo. Análogamente, podemos comprobar la existencia del derecho.
+
+\vspace{2mm} Volviendo al problema original, tenemos $f = g_1 - g_2$ con $g_1$ y $g_2$ monótonas y acotadas. Por tanto, todas sus discontinuidades han de ser de salto finito. Al pasar a la resta, podrían producirse además discontinuidades evitables. Por ejemplo,
+\begin{align*}
+    g_1(x) = \begin{cases}
+      0 &\text{ si } x < 0\\
+      2 &\text{ si } x \geq 0
+    \end{cases} &&
+    g_1(x) = \begin{cases}
+      0 &\text{ si } x \leq 0\\
+      1 &\text{ si } x > 0
+    \end{cases} &&
+    f(x) = \begin{cases}
+      0 &\text{ si } x < 0\\
+      2 &\text{ si } x = 0\\
+      1 &\text{ si } x > 0  
+    \end{cases} &&
+\end{align*}
+Toda discontinuidad de $f$ ha de corresponderse con una discontinuidad de $g_1$ o de $g_2$ (o de ambas a la vez), luego han de ser de salto finito o evitables.
+
+\newpage
+\chapter{Fallos en las condiciones de Dini o de Jordan}
+\result{Ejercicio 1}
+\hspace{3mm} Consideremos la siguiente función:
+\begin{align*}
+    f: [-\pi, \pi] \longrightarrow \R &&
+    x \longmapsto f(x) = \begin{cases}
+      x\sin\left(\frac{1}{x}\right) &\text{ si } x \neq 0 \\
+      0 &\text{ si } x \neq 0      
+    \end{cases}
+\end{align*}
+extendida por periodicidad $2\pi$ en $\R$. Demuestra que $f$ es continua en $\R$, y que en $x = 0$ no se verifica la condición de Jordan, pero sí la de Dini.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Para $x = 0$, $\mlim{t\to 0} \hspace{1mm} f(t) = \mlim{t\to 0} \hspace{1mm} t \sin\left(\frac{1}{t}\right) = 0 = f(x)$: producto de un infinitésimo por una función acotada.
+
+\vspace{2mm} En el resto de $[-\pi, \pi]$, $f$ es claramente continua al ser producto de funciones continuas. Finalmente, por ser una función con simetría par, es continua en la frontera de las expansiones por periodicidad:
+$$\lim_{x\to \pi^-}f(x) = f(\pi) = \pi \sin\left(\frac{1}{\pi}\right) = -\pi \sin\left(-\frac{1}{\pi}\right) = f(-\pi) = \lim_{x \to -\pi^+}f(x)$$
+
+\vspace{4mm} Para ver que no se cumple la condición de Jordan, hemos de comprobar que $f$ no es de variación acotada en $[-\varepsilon, \varepsilon]$ para ningún $\varepsilon > 0$. Es decir,
+$$\forall \hspace{1mm} \varepsilon > 0, \hspace{1mm} \forall \hspace{1mm} K \in \R \hspace{2ex} \exists \hspace{1mm} P \in \mathcal{P}([-\varepsilon, \varepsilon]) : \hspace{2mm}  V(f,P) > K$$
+
+Consideramos la siguiente sucesión: $(a_n)_{n\in\N} = \left(\frac{2}{n\pi}\right)_{n\in\N}$. Sea $\varepsilon > 0$, sea $K \in \R$. Por la propiedad arquimediana, existe $n_0 \in \N$ tal que $a_n \in [-\varepsilon, \varepsilon]$ para todo $n \geq n_0$. Dado $n \geq n_0$, evaluamos $f$ en un término de la sucesión:
+$$f(a_n) = \frac{2}{n\pi} \sin\left(\frac{\pi}{2}\cdot n\right) = \frac{2}{\pi} \cdot \frac{1}{n} \cdot b_n \hspace{4ex} \text{ con } b_n = \begin{cases}
+  0 &\text{ si } \mod_2(n) = 0\\[-1ex]
+  1 &\text{ si } \mod_4(n) = 1\\[-1ex]
+  -1 &\text{ si } \mod_4(n) = 3
+\end{cases}$$
+
+\newpage
+Comparando con la expresión de la variación de $f$ en una partición, tenemos que:
+$$\sum_{k=n_0+1}^{\infty}|f(a_k) - f(a_{k-1})| \geq \sum_{k=n_0 + 1}^{\infty}\frac{2}{\pi} \cdot \frac{1}{k-1} > \sum_{k=n_0}^{\infty} \frac{2}{\pi} \cdot \frac{1}{k-1} = \infty$$
+Por tanto, podemos tomar un subconjunto finito de la sucesión contenido en $[-\varepsilon, \varepsilon]$ tal que la variación que induzca cualquier partición que lo contenga sea mayor que $K$. Hemos comprobado que no se cumple la condición de Jordan.
+
+\vspace{4mm} Veamos ahora que sí se verifica la condición de Dini. Como ya hemos comprobado antes, la función $f$ tiene simetría par. Por tanto, para $t > 0$ se tiene:
+$$g(t) := \frac{f(t) + f(-t)}{2} = \frac{2f(t)}{2} = f(t)$$
+Tomando límites, $g(0^+) = \mlim{t\to 0^+} \hspace{1mm} g(t) = 0$, como ya estudiamos antes. De este modo, sea $\delta \in (0, \pi)$ cualquiera,
+$$\frac{g(t) - g(0^+)}{t} = \frac{f(t)}{t} = \begin{cases}
+  \sin\left(\frac{1}{t}\right) &\text{ si } t \neq 0\\
+  0 &\text{ si } t = 0\\
+\end{cases} \hspace{1ex} \in L_1([0,\delta])$$
+Es $L_1([0,\delta])$ en virtud del criterio de integración de Lebesgue, pues la función es acotada y tiene un conjunto de discontinuidades de medida nula. Hemos comprobado que se cumple la condición de Dini.
+
+\vspace{6mm}
+\result{Ejercicio 2}
+\hspace{3mm} Consideremos la siguiente función:
+\begin{align*}
+    f: [-\pi, \pi] \longrightarrow \R &&
+    x \longmapsto f(x) = \begin{cases}
+      \frac{1}{\log\left(\frac{1}{|x|}\right)} &\text{ si } x \neq 0 \\
+      0 &\text{ si } x \neq 0      
+    \end{cases}
+\end{align*}
+extendida por periodicidad $2\pi$ en $\R$. Demuestra que $f$ es continua en $\R$, y que en $x = 0$ no se verifica la condición de Dini, pero sí la de Jordan.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+En primer lugar, veamos que es continua. Como $\mlim{x\to\infty} \hspace{1mm} \log(x) = \infty$, tenemos que $\lim_{x\to 0} f(x) = 0 = f(0)$. Además, al tener $f$ simetría par tenemos que:
+$$\lim_{x\to\pi^-}f(x) = f(\pi) = f(-\pi) = \lim_{x\to -\pi^+}$$
+Por tanto, $f$ es continua en $\R \setminus\{1\}$.
+
+\vspace{2mm} Veamos que $f$ sí cumple la condición de Jordan. Sea $\varepsilon \in (0, \pi)$ cualquiera, tenemos que $f$ es monótona en $[-\varepsilon, 0]$ y en $[0, \varepsilon]$, luego es de variación acotada. Como es continua en $\R$, es $L_1([0,2\pi])$. Por tener simetría par,
+$$\lim_{t\to 0^+} \frac{f(t)+f(-t)}{2} = \lim_{t\to 0^+} f(t) = f(0) = 0$$
+
+\vspace{4mm} Veamos ahora que no cumple la condición de Dini. Reutilizando lo explicado para la Condición de Jordan, fijamos $\delta > 0$ arbitrariamente pequeño. Se tiene:
+\begin{align*}
+    g(t) = \frac{f(t)+ f(-t)}{2} = f(t) && \frac{g(t) - g(0^+)}{t} = \frac{g(t)}{t} = \frac{1}{t\cdot \log\left(\frac{1}{|t|}\right)}
+\end{align*}
+Para $t > 0$ suficientemente pequeño, $\frac{1}{t} > e$, luego $\log\left(\frac{1}{t}\right) > 1$. De este modo,
+$$\left|\frac{1}{t}\cdot \frac{1}{\log\left(\frac{1}{t}\right)}\right| \geq \left|\frac{1}{t}\right| \notin L_1\left(\left[0, \delta\right]\right)$$
+Por tato, no se satisface la condición de Dini.
+
+\vspace{6mm}
+\result{Ejercicio 3}
+\hspace{3mm} Consideremos la función $h(x) = f(x) \cdot \sin^2\left(\frac{1}{x}\right)$, donde $f$ es la función del ejercicio anterior. Si la extendemos por periodicidad en $\R$, ¿dónde es continua? ¿Satisface la condición de Jordan? ¿Y la de Dini?
+\begin{align*}
+    h: [-\pi, \pi] \longrightarrow \R &&
+    x \longmapsto h(x) = \begin{cases}
+      \frac{\sin^2\left(\frac{1}{x}\right)}{\log\left(\frac{1}{|x|}\right)} &\text{ si } x \neq 0 \\
+      0 &\text{ si } x \neq 0      
+    \end{cases}
+\end{align*}
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+En primer lugar, tenemos que la función es continua en $0$, pues $\mlim{x \to 0} \hspace{1mm} h(x) = 0 = h(0)$ al ser $f$ un infinitésimo y $\sin^2\left(\frac{1}{x}\right)$ una función acotada. Una vez más, la función tiene simetría par, luego:
+$$\lim_{x\to\pi^-}h(x) = h(\pi) = h(-\pi) = \lim_{x\to -\pi^+}h(x)$$
+Por tanto, tenemos que $h$ es continua en $\R \setminus \{1\}$.
+
+\vspace{2mm} Veamos que no verifica la condición de Jordan. Consideramos la siguiente sucesión: $(a_n)_{n\in\N} = \left(\frac{2}{n\pi}\right)_{n\in\N}$. Para $\varepsilon > 0$ cualquiera, la sucesión estará contenida en $[-\varepsilon,\varepsilon]$ a partir de cierto término $n_0$. Dado $n \geq n_0$, comparando con la variación de $h$,
+$$\sum_{k=n_0 + 1}^\infty |f(a_k) - f(a_{k-1})| \geq \sum_{k=n_0}^{\infty} \frac{1}{\log\left(\frac{\pi}{2}\cdot k\right)} = \infty$$
+Como la serie diverge, podemos tomar sumas parciales arbitrariamente grandes. Así, para cada $K \in \R$ es posible tomar $P \in \mathcal{P}([-\varepsilon,\varepsilon])$ tal que $V(h,P) > K$. Concluimos que no cumple la condición de Jordan.
+
+\vspace{4mm}
+Veamos que no cumple la condición de Dini. Sea $\delta > 0$ cualquiera, sabemos que:
+\vspace{-4ex}
+\begin{align*}
+    g(t) = \frac{f(t)+ f(-t)}{2} = f(t) &&
+    \hat{g}(t) := \frac{g(t) - g(0^+)}{t} = \frac{g(t)}{t} = \frac{\sin^2\left(\frac{1}{t}\right)}{t\cdot \log\left(\frac{1}{|t|}\right)}
+\end{align*}
+\vspace{-1ex}
+Como $\left|\sin^2\left(\frac{1}{t}\right)\right| \leq 1$ y para $t$ suficientemente pequeño tenemos que $|f(t)| \leq 1$. Entonces, se cumple:
+$$|\hat{g}(t)| \leq \frac{1}{t} \notin L_1([0,\delta])  $$
+Hemos comprobado que no cumple la condición de Dini.
 \end{document}
