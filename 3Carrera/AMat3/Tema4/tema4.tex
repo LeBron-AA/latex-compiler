@@ -168,7 +168,7 @@
 \begin{align*}
     \langle f,g\rangle = \int_X \bar{f} \cdot g && ||f||_2 = \sqrt{\langle f,f\rangle}
 \end{align*}
-Nótese que cuando trabajamos con $\C$ como cuerpo el producto interno tiene linealidad directa en una componente, mientras que tiene linealidad por el conjugado en la otra. Asimismo, el producto interno da lugar a escalares del propio cuerpo sobre el que se define, luego podría dar lugar a valores complejos. Además, el producto interno no conmuta (en general) en $\C$.
+Nótese que cuando trabajamos con $\C$ como cuerpo, el producto interno tiene linealidad directa en una componente, mientras que tiene linealidad por el conjugado en la otra. Asimismo, el producto interno da lugar a escalares del propio cuerpo sobre el que se define, luego podría dar lugar a valores complejos. Además, el producto interno no conmuta (en general) en $\C$.
 
 \vspace{4mm}
 La idea de esta unidad es ``aproximar'' una función $f \in L_2(X,K)$ como ``suma'' de funciones más elementales. En particular, a partir de ahora, consideraremos $X = I = [0,2\pi]$, con $K = \R$ ó $\C$. Además, extenderemos las funciones en este conjunto con periodicidad $2\pi$ en $\R$.
@@ -231,7 +231,7 @@ Comparamos ahora con la siguiente expresión:
 $$|b_k - c_k|^2 = (b_k - c_k)(\bar{b}_k - \bar{c}_k) = b_k \bar{b_k} - b_k \bar{c}_k - \bar{b}_k c_k + c_k \bar{c}_k = |b_k|^2 + |c_k|^2 - b_k \bar{c}_k - \bar{b}_k c_k$$
 \vspace{2mm}
 Sustituyendo en la igualdad anterior,
-$$(*) = ||f||^2 + \sum_{k=0}^{n}\Big[ |b_k-c_k|^2 - |c_k|^2 \Big]$$
+$$(*) = ||f||^2 + \sum_{k=0}^{n}\Big[ |b_k-c_k|^2 - |c_k|^2 \Big] = ||f||^2 + ||t_n - s_n||^2 - ||s_n||^2$$
 En particular, para $b_k = c_k$ tenemos $||f-s_n||^2 \leq ||f-t_n||^2$.
 
 \vspace{4mm}
@@ -243,7 +243,7 @@ Motivados por este resultado, buscamos aproximar $f$ por una ``combinación line
 $$ c_n := \langle f, \varphi_n\rangle = \int_{0}^{2\pi} \bar{f}(t)\cdot \varphi_n(t) \,dt$$
 Definimos la suma parcial $n$-ésima de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ como:
 $$s_n(x) = \sum_{k=0}^n c_k \cdot \varphi_k(x)$$
-Análogamente, la serie de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ viene dada po:
+Análogamente, la serie de Fourier de $f$ respecto de $\{\varphi_n\}_{n\in\N}$ viene dada por:
 $$s(x) = \sum_{k=0}^\infty c_k \cdot \varphi_k(x)$$
 
 \vspace{6mm}
@@ -351,7 +351,7 @@ $$f(t) \sim \frac{1}{2} - \frac{2}{\pi}\sum_{n=1}^\infty \frac{1}{2n+1}\sin\big(
 
 \vspace{4mm} \dem \vspace{2mm} \newline \indent
 Recordemos que la sucesión $(s_n)_n = (\smallsum_{k=0}^{n}c_k\varphi_k)_n$ es de Cauchy, pues dados $p,q \in \N$ con $p < q$, se cumple:
-$$||s_p-s_q||^2 = \left|\left|\sum_{k=p+1}^{q}s_k\right|\right|^2 = \sum_{k=p+1}^{q}|c_k|^2 \xrightarrow{p,q\to\infty}0$$
+$$||s_p-s_q||^2 = \left|\left|\sum_{k=p+1}^{q}s_k\right|\right|^2 = \sum_{k=p+1}^{q}|c_k|^2 \leq \sum_{k=p+1}^{\infty}|c_k|^2 \xrightarrow{p\to\infty}0$$
 Por hipótesis, $\smallsum_{k=0}^\infty |c_k|^2 < \infty$ luego el término general tiende a cero. Así, la suma de términos generales también tenderá a cero al considerar un índice inicial cada vez más alto.
 
 \vspace{2mm} Al trabajar con un espacio de Hilbert, podemos asegurar que existe $f \in L_2(I,K)$ tal que $||s_n - f|| \xrightarrow{n\to\infty}0$. Sea $k \in \N$ cualquiera, veamos que $c_k = \langle f, \varphi_k\rangle$:
@@ -396,8 +396,8 @@ Despejando,
 $$\sum_{k=1}^{n}\cos(kx-kt) = \frac{\sin\left(\left(n+\frac{1}{2}\right)(x-t)\right)}{2\sin\left(\frac{x-t}{2}\right)} - \frac{1}{2}$$
 Continuamos ahora en la igualdad de la integral inicial:
 \begin{flalign*}
-    s_n(x) &= \frac{1}{2\pi} \int_{0}^{2\pi} f(t) \cdot \frac{\sin\left(\left(n+\frac{1}{2}\right)(x-t)\right)}{2\sin\left(\frac{x-t}{2}\right)} \,dt = \substack{\text{cambio de variable}\\u = x-t} && \\[1ex]
-    &= -\frac{1}{2\pi} \int_{x}^{x-2\pi} f(x-u)\cdot D_n(u) \,du = \frac{1}{2\pi} \int_{0}^{2\pi}f(x-u) \cdot D_n(u) \,du = \\[1ex]
+    s_n(x) &= \frac{1}{\pi} \int_{0}^{2\pi} f(t) \cdot \frac{\sin\left(\left(n+\frac{1}{2}\right)(x-t)\right)}{2\sin\left(\frac{x-t}{2}\right)} \,dt = \substack{\text{cambio de variable}\\u = x-t} && \\[1ex]
+    &= -\frac{1}{\pi} \int_{x}^{x-2\pi} f(x-u)\cdot D_n(u) \,du = \frac{1}{\pi} \int_{0}^{2\pi}f(x-u) \cdot D_n(u) \,du = \\[1ex]
     &= \frac{1}{\pi}\left[\int_{0}^{\pi}f(x-u) \cdot D_n(u) \,du + \int_{\pi}^{2\pi}f(x-u) \cdot D_n(u) \,du\right] \overset{v = 2\pi - u}{=}\\[1ex]
     &= \frac{1}{\pi}\left[\int_{0}^{\pi}f(x-u)\cdot D_n(u) \,du + \int_{0}^{\pi}f(x+v)\cdot D_n(v) \,dv\right]
 \end{flalign*}
