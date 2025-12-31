@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  30 DEC 2025 21:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  31 DEC 2025 17:12
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -931,15 +931,15 @@ File: media/4-1-8.pdf Graphic file (type pdf)
 Package pdftex.def Info: media/4-1-8.pdf  used on input line 335.
 (pdftex.def)             Requested size: 292.77629pt x 209.13101pt.
  [9 <./media/4-1-8.pdf>] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-<media/4-2-11a.pdf, id=257, 505.89pt x 361.35pt>
+<media/4-2-11a.pdf, id=256, 505.89pt x 361.35pt>
 File: media/4-2-11a.pdf Graphic file (type pdf)
 <use media/4-2-11a.pdf>
-Package pdftex.def Info: media/4-2-11a.pdf  used on input line 587.
+Package pdftex.def Info: media/4-2-11a.pdf  used on input line 588.
 (pdftex.def)             Requested size: 146.38814pt x 104.56274pt.
-<media/4-2-11b.pdf, id=258, 505.89pt x 361.35pt>
+<media/4-2-11b.pdf, id=257, 505.89pt x 361.35pt>
 File: media/4-2-11b.pdf Graphic file (type pdf)
 <use media/4-2-11b.pdf>
-Package pdftex.def Info: media/4-2-11b.pdf  used on input line 594.
+Package pdftex.def Info: media/4-2-11b.pdf  used on input line 595.
 (pdftex.def)             Requested size: 146.38814pt x 104.56274pt.
  [19 <./media/4-2-11a.pdf> <./media/4-2-11b.pdf>] [20] [21] [22] [23] [24] (tem
 a4.aux)
@@ -971,9 +971,9 @@ ype1/public/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/a
 msfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti12.pfb><
 C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tema4.pdf (24 pages, 294056 bytes).
+Output written on tema4.pdf (24 pages, 293858 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
+ 379 PDF objects out of 1000 (max. 8388607)
  59 named destinations out of 1000 (max. 500000)
  252 words of extra memory for PDF output out of 10000 (max. 10000000)
 

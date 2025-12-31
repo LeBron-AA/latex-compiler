@@ -482,8 +482,8 @@ Por tanto, comparando con el límite original,
 $$ \lim_{n\to\infty}s_n(x) = \lim_{n\to\infty} \frac{1}{\pi} \int_{0}^{\pi}\Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt$$
 Sea $\delta \in (0,\pi)$ cualquiera, podemos dividir la integral como sigue:
 \begin{flalign*}
-    \lim_{n\to\infty} s_n(x) &= \frac{1}{\pi} \int_{0}^{\delta} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt + &\\
-    &+ \frac{1}{\pi} \int_{\delta}^{\pi} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt
+    \lim_{n\to\infty} s_n(x) &= \lim_{n\to\infty} \frac{1}{\pi} \int_{0}^{\delta} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt + &\\
+    &+ \lim_{n\to\infty}  \frac{1}{\pi} \int_{\delta}^{\pi} \Big(f(x+t) + f(x-t)\Big) \cdot \frac{\sin\big((n+\frac{1}{2})t\big)}{t} \,dt
 \end{flalign*}
 El segundo sumando es nulo por el \hyperref[result:4.2.3]{Lema de Riemann-Lebesgue}.
 
@@ -514,7 +514,7 @@ Como el \hyperref[result:4.2.5]{Teorema de Localización de Riemann} garantiza l
 
 \vspace{6mm}
 \result{Teorema de Dini}
-\hspace{3mm} Sea $g : [0,b] \longrightarrow \R$ tal que $\exists \lim_{t\to 0^+}g(t) =: g(0^+)$. Entonces, si existe $\delta \in (0,b)$ tal que
+\hspace{3mm} Sea $g : [0,b] \longrightarrow \R$ tal que $\exists \mlim{t\to 0^+} \hspace{1mm} g(t) =: g(0^+)$. Si existe $\delta \in (0,b)$ tal que
 $$ \frac{g(t) - g(0^+)}{t} \in L_1([0,\delta], \R)$$
 
 \vspace{2mm} \noindent se verifica: \vspace{2mm}
@@ -547,16 +547,15 @@ El último paso se debe a ser la integral bien conocida.
 \newpage \indent Al ser $f$ $2\pi$-periódica por hipótesis, también ha de serlo $g$. Razonando como en la Condición de Jordan,
 \begin{flalign*}
     &\lim_{n\to\infty} \frac{2}{\pi}\int_0^\delta \frac{f(x+t)+ f(x-t)}{2} \cdot \frac{\sin\big((n+ \frac{1}{2})t\big)}{t} \,dt = &&\\[1ex]
-    &= \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta}\frac{f(x+t)}{2} \cdot\frac{\sin(\alpha t)}{t} \,dt + \frac{2}{\pi} \int_{0}^{\delta}\frac{f(x-t)}{2} \cdot\frac{\sin(\alpha t)}{t} \,dt =\\[1ex]
-    &= \lim_{t\to 0^+} \frac{f(x+t) + f(x-t)}{2}
+    &= \lim_{\alpha \to \infty} \frac{2}{\pi} \int_{0}^{\delta}g(t) \cdot\frac{\sin(\alpha t)}{t} \,dt = g(0^+) = \lim_{t\to 0^+} \frac{f(x+t) + f(x-t)}{2}
 \end{flalign*}
-Hemos aplicado el \hyperref[result:4.2.6]{Teorema de Dini} al primer sumando (las hipótesis de este enunciado nos garantizan las condiciones para ello), y el \hyperref[result:4.2.3]{Lema de Riemann-Lebesgue} al segundo.
+Aplicación directa del \hyperref[result:4.2.6]{Teorema de Dini}.Las hipótesis de este enunciado nos garantizan las condiciones para ello.
 
 \vspace{6mm}
 \result{Teorema de Carleson}
 \hspace{3mm} Si $f \in L_2([0,2\pi],\R)$; entonces, la serie de Fourier de $f$ converge y además converge a $f(x)$ en casi todo punto.
 
-\vspace{2mm} \dem Sin demostración.
+\vspace{4mm} \dem Sin demostración.
 
 \vspace{2mm}
 La continuidad no basta para garantizar la convergencia puntual. ¿Que propiedades sí nos puede garantizar la continuidad?
@@ -569,7 +568,7 @@ Comencemos calculando los coeficientes:
 \begin{flalign*}
     a_0 = \frac{1}{\pi} \int_0^{2\pi} f(t) \,dt = \frac{1}{\pi} \int_0^{2\pi}t\,dt = \frac{1}{\pi} \cdot \frac{2^2 \pi^2}{2} = 2\pi&&
 \end{flalign*}
-\newpage
+
 \begin{flalign*}
     a_n &= \frac{1}{\pi}\int_0^{2\pi} f(t) \cdot \cos(nt) \,dt = \frac{1}{\pi}\left[\frac{t \sin(nt)}{n} - \frac{1}{n} \int \sin(nu) \,du\right]_{t=0}^{t=2\pi} =&&\\[1ex]
     &= \frac{1}{\pi} \left[\frac{t \sin(nt)}{n} + \frac{\cos(nt)}{n^2}\right]_{t=0}^{t=2\pi} = \frac{1}{\pi} \left(\frac{\cos(2n\pi)}{n^2} - \frac{\cos(0)}{n^2}\right) = 0
@@ -578,10 +577,12 @@ Comencemos calculando los coeficientes:
     b_n &= \frac{1}{\pi}\int_0^{2\pi} f(t) \cdot \sin(nt) \,dt = \frac{1}{\pi}\left[\frac{-t \cos(nt)}{n} - \frac{1}{n} \int -\cos(nu) \,du\right]_{t=0}^{t=2\pi} =&&\\[1ex]
     &= \frac{1}{\pi} \left[\frac{-t \cos(nt)}{n} + \frac{\sin(nt)}{n^2}\right]_{t=0}^{t=2\pi} = \frac{1}{\pi} \left(\frac{0\cdot\cos(0)}{n} - \frac{2\pi \cos(2n\pi)}{n}\right) = -\frac{2}{n}
 \end{flalign*}
+
+\vspace{4ex}\noindent
 De este modo,
 $$ f(x) \sim \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n}$$
 
-\vspace{1ex}
+\vspace{4ex}
 \begin{minipage}{0.5\textwidth}
   \begin{center}
   \includegraphics[width=0.7\textwidth]{media/4-2-11a.pdf}
@@ -597,7 +598,7 @@ $$ f(x) \sim \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n}$$
 \end{center}
 \end{minipage}
 
-\vspace{4mm}
+\vspace{6ex}
 $\bullet$ Condición de Jordan: Si $x \in [0,2\pi)$, $f$ es monótona y por tanto este variación acotada en $(x-\delta, x+\delta)$ para cierto $\delta > 0$. Si $x = 0$ ó $x = 2\pi$, $f$ es suma de funciones monótonas luego también es de variación acotada en $(x-\delta, x+\delta)$ para cierto $\delta > 0$. De este modo, la serie de Fourier de $f$ converge $\forall \hspace{1mm} x \in \R$, y lo hace al valor:
 $$\lim_{t\to 0^+} \frac{f(x+t)+f(x-t)}{2}$$
 \indent Tenemos que para todo $x\in (0,2\pi)$ converge a $f(x) = x$, y para $x \in \{0,2\pi\}$ converge a $\frac{0+2\pi}{2} = \pi$. Estas convergencias pueden extenderse por periodicidad en $\R$.
@@ -606,6 +607,7 @@ $$\lim_{t\to 0^+} \frac{f(x+t)+f(x-t)}{2}$$
 Por tanto, $\forall \hspace{1mm} x \in (0,2\pi)$ se cumple:
 $$x = \pi - 2\sum_{n=1}^{\infty}\frac{\sin(nx)}{n} \overset{x = \frac{\pi}{2}}{\Rightarrow} \frac{\pi}{4} = \sum_{n=1}^{\infty}\frac{(-1)^n}{2n+1}$$
 
+\newpage
 $\bullet$ Condición de Dini: Para $x \in [0,2\pi]$ fijo, consideramos la siguiente función auxiliar con periodo $2\pi$: 
 \vspace{2mm}
 $$g(t) := \frac{f(x+t) + f(x-t)}{2}$$ \vspace{2mm}
