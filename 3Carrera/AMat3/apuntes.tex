@@ -203,7 +203,7 @@ Sea $A$ un conjunto cualquiera, diremos que es un conjunto infinito si existe ci
 
 \vspace{4mm}
 
-Aunque no entra dentro de los objetivos de esta asignatura, es interesante contemplar la siguiente observación: Si un conjunto no es un conjunto finito, podemos afirmar simplemente que es un conjunto "no finito". Si además incluimos el axioma de elección, sí podremos afirmar que tal conjunto es infinito. Dentro de los conjuntos infinitos, todos son o bien numerables o bien no numerables, sin intersección entre ambas categorías.
+Aunque no entra dentro de los objetivos de esta asignatura, es interesante contemplar la siguiente observación: Si un conjunto no es un conjunto finito, podemos afirmar simplemente que es un conjunto ``no finito''. Si además incluimos el axioma de elección, sí podremos afirmar que tal conjunto es infinito. Dentro de los conjuntos infinitos, todos son o bien numerables o bien no numerables, sin intersección entre ambas categorías.
 
 \vspace{4mm}
 
@@ -399,7 +399,7 @@ auxiliares disjuntos para simplificar el trato de los elementos duplicados:
 \vspace{-2mm}
 \begin{itemize}
     \item Para $n = 1$, definimos $B_1 := A_1$
-    \item Para $n > 1$, definimos $B_n := A_n \backslash \left(\bigcup_{k=1}^{n-1}A_k\right) = A_n \backslash B_{n-1}$
+    \item Para $n > 1$, definimos $B_n := A_n \backslash \left(\bigcup_{k=1}^{n-1}A_k\right) = A_n \backslash \left(\bigcup_{k=1}^{n-1}B_k\right)$
 \end{itemize}
 De este modo, los $B_i$ son disjuntos entre sí. Además, todos los $A_i$ son numerables por hipótesis, cada $B_i$ 
 ha de ser finito o numerable. Según el carácter de cada uno de ellos, introducimos la siguiente notación:
@@ -442,7 +442,7 @@ infinito numerable por hipótesis (no pueden ser finitos todos los $B_i$).
 \vspace{6mm}
 \result{Definición de conjunto de partes}
 \hspace{3mm}
-Sea $A$ un conjunto cualquiera, se denomina "conjunto de partes de $A$" y se denota como $\mathcal{P}(A)$
+Sea $A$ un conjunto cualquiera, se denomina ``conjunto de partes de $A$'' y se denota como $\mathcal{P}(A)$
 al conjunto cuyos elementos son todos los subconjuntos de $A$. En particular, siempre se cumple
 que $\varnothing, A \in \mathcal{P}(A)$.
 
@@ -537,7 +537,7 @@ Por tanto, debe considerarse como un axioma adicional independiente de ZFC: el a
 \vspace{4mm}
 \result{Definición de intervalo diádico}
 \hspace{3mm}
-Se llama "intervalo diádico de orden $n$" con $n \in \N$ a cualquier intervalo
+Se llama ``intervalo diádico de orden $n$'' con $n \in \N$ a cualquier intervalo
 real de la forma $\Big[\frac{j-1}{2^n}, \frac{j}{2^n}\Big)$ con $j \in \Z$.
 
 \vspace{4mm}
@@ -617,7 +617,7 @@ La siguiente figura ilustra este hecho:
 \vspace{6mm}
 \result{Definición de cubo diádico}
 \hspace{3mm}
-Llamamos "cubo diádico de $\R^N$ de orden $n$" con $n, N \in \N$ a cualquier conjunto de
+Llamamos ``cubo diádico de $\R^N$ de orden $n$'' con $n, N \in \N$ a cualquier conjunto de
 la forma $I_1, \times I_2 \times \ldots \times I_N$ donde cada $I_i$ es un intervalo diádico de orden $n$.
 
 \vspace{2mm} \noindent
@@ -691,8 +691,8 @@ está contenida en $O$. Queda probar el punto (1).
 
 \vspace{2mm}
 Intuitivamente, $\mathcal{G}_n$ modela los cubos 
-de un cierto orden que ``caben" en $O$. El paso a los $\mathcal{H}_n$ hace que solo se empiecen a usar cubos ``más pequeños" en las zonas donde no ``cabrían"
-cubos de un orden inferior (``más grandes").
+de un cierto orden que ``caben'' en $O$. El paso a los $\mathcal{H}_n$ hace que solo se empiecen a usar cubos ``más pequeños'' en las zonas donde no ``cabrían''
+cubos de un orden inferior (``más grandes'').
 \\[5ex]
 %G_1
 \begin{minipage}{0.50\textwidth}
@@ -819,7 +819,7 @@ que $m_0$ sea el mínimo de $\mathcal{A}_{x_0}$. Hemos demostrado que $C_0 \in \
 \newpage
 \chapter{Series dobles}
 El álgebra contempla únicamente la suma como operación binaria. Por la propiedad asociativa, es posible expresar cualquier suma finita como sumas binarias sucesivas.
-Para No obstante, el álgebra por sí misma no nos basta para sumar series.
+No obstante, el álgebra por sí misma no nos basta para sumar series.
 
 \vspace{4mm}
 \result{Definición de sucesión doble}
@@ -886,11 +886,11 @@ $$\sum_{k=1}^{n_0}a_{g(k)} \leq \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}}
 Como podemos hacer $\varepsilon$ arbitrariamente pequeño, concluimos que las dos series tienen el mismo límite.
 
 \vspace{4mm}
-$\bullet$ Segundo caso: $\sum_{n=1}\infty a_{g(n)} = +\infty$.
+$\bullet$ Segundo caso: $\smallsum_{n=1}^\infty a_{g(n)} = +\infty$.
 
 \vspace{2mm}
-Sea $K \in \R$, por definición, $\exists \hspace{1mm} n_0 \in \N \text{ tal que } \sum_{k=1}^{n} a_{g(k)} > K \hspace{2mm} \forall \hspace{1mm} n \geq n_0$.
-AL ser $g$ biyectiva, $\exists \hspace{1mm} m_0 \in \N \text{ tal que } g({1,\ldots,n_0}) \subseteq \{1,\ldots, m_0\} \times \{1,\ldots,m_0\}$. Así, dados $n \geq m_0, m\geq m_0$ se tiene:
+Sea $K \in \R$, por definición, $\exists \hspace{1mm} n_0 \in \N \text{ tal que } \smallsum_{k=1}^{n} a_{g(k)} > K \hspace{2mm} \forall \hspace{1mm} n \geq n_0$.
+Al ser $g$ biyectiva, $\exists \hspace{1mm} m_0 \in \N \text{ tal que } g({1,\ldots,n_0}) \subseteq \{1,\ldots, m_0\} \times \{1,\ldots,m_0\}$. Así, dados $n \geq m_0, m\geq m_0$ se tiene:
 \\[-3ex] $$K < \sum_{k=1}^{n_0} a_{g(k)} \leq \sum_{\substack{1\leq i \leq n\\1\leq j \leq m}} a_{ij}$$
 Es claro que la serie doble diverge a $+\infty$.
 
@@ -1013,7 +1013,7 @@ $\mu : \Sigma \longrightarrow [0,+\infty]$ es una medida sobre $\Sigma$ si verif
 
 \vspace{2mm}
 A la tríada $(X, \Sigma, \mu)$ se la denomina ``espacio de medida'', y a los conjuntos
-de $\Sigma$ se los llama ``conjuntos ($\mu$-medibles) de $X$''.
+de $\Sigma$ se los llama ``conjuntos ($\mu$-)medibles de $X$''.
 
 \result{Propiedades de los espacios de medida}
 \hspace{3mm} Sea $(X,\Sigma,\mu)$ un espacio de medida, se cumple:
@@ -1585,7 +1585,7 @@ a partir de los $I_k$:
         }
 \end{tikzpicture}
 \end{center}
-Los elementos de $\mathcal{A}$ son los extremos \textcolor{\cdrawL}{izquierdos} y \textcolor{\cdrawR}{derechos} de los \textcolor{\cdraw}{intervalos $I_k$} que se encuentren dentro de $C = (a,b)$. Gráficamente, podemos obtenerlos "proyectando" como en la figura anterior.
+Los elementos de $\mathcal{A}$ son los extremos \textcolor{\cdrawL}{izquierdos} y \textcolor{\cdrawR}{derechos} de los \textcolor{\cdraw}{intervalos $I_k$} que se encuentren dentro de $C = (a,b)$. Gráficamente, podemos obtenerlos ``proyectando'' como en la figura anterior.
 } %Fin del bloque de variables locales
 
 
