@@ -1435,7 +1435,7 @@ Donde $v_N$ es la el \hyperref[result:1.2.2]{volumen de los cubos anterior}.
 $$\mathcal{M}(A) := \left\{\sum_{i=1}^{\infty}v_N(I_i) : \{I_i : i \in \N\} \text{ cubos abiertos que recubren }A\right\}$$
 
 Por definición, $\mu^*_N(A) := \inf \mathcal{M}(A)$. Así, sean $\{I_i : i \in\N\}$ cubos abiertos tales que $A \subseteq \smallcup_{i\in\N}I_i$;
-entonces $\smallsum_{i=1}^\infty v_N(I_i) \in \mathcal{M}(A)$ luego $\mu^*_N(A) \leq \smallsum_{i=1}^\infty(I_i)$ por definición de ínfimo.
+entonces $\smallsum_{i=1}^\infty v_N(I_i) \in \mathcal{M}(A)$ luego $\mu^*_N(A) \leq \smallsum_{i=1}^\infty v_N(I_i)$ por definición de ínfimo.
 
 \vspace{2mm} De manera similar, sea $\varepsilon > 0$, si $\mu^*_N(A) < \infty$, podemos encontrar $\{I_i : i\in\N\}$ cubos abiertos con $A \subseteq \smallcup_{i\in\N}I_i$
 tales que $\smallsum_{i=1}^\infty v_N(I_i) < \mu^*_N(A) + \varepsilon$.
@@ -1770,7 +1770,7 @@ Además, $\tau_{\R^N} \subseteq \mathfrak{M}_N$ y $\mu_N(C) = v_N(C)$ para todo 
 Sean $\{E_i\}_{i\in\N} \subseteq \mathfrak{M}_N$, buscamos $\smallcup_{i\in\N}E_i \in \mathfrak{M}_N$.
 \begin{adjustwidth}{0.07\textwidth}{} %TODO: añadir explicaciones a la derecha
     Disjuntificamos: $F_1 := E_1$, $F_{n+1} := E_{n+1}\setminus \smallcup_{i=1}^nE_i$.
-    \newline De este modo, se tiene que $\smallcup_{i=1}^n E_i = \smallcup_{i=1}F_i \hspace{2mm} \forall \hspace{1mm} n \in \N$, luego $\smallcup_{i\in\N}E_i = \smallcup_{i\in\N}F_i$.
+    \newline De este modo, se tiene que $\smallcup_{i=1}^n E_i = \smallcup_{i=1}^n F_i \hspace{2mm} \forall \hspace{1mm} n \in \N$, luego $\smallcup_{i\in\N}E_i = \smallcup_{i\in\N}F_i$.
     \newline Sea $A \subseteq \R^N$ cualquiera, $\smallcup_{i=1}^n E_i \in \mathfrak{M}_N \hspace{2mm} \forall \hspace{1mm} n \in \N$. Por tanto,
     \begin{flalign*}
         \mu^*_N(A) &= \mu^*_N(A \cap \smallcup_{i=1}^n E_i) + \mu^*_N\big(A \cap (\smallcup_{i=1}^n E_i)^c\big) \geq \\
@@ -1827,7 +1827,7 @@ Definimos la $\sigma$-álgebra de Borel en $\R^N$ como $\mathfrak{B}_N := \small
 \noindent
 $(S.1)$ Buscamos ver que $\varnothing \in \mathfrak{B}_N$.
 \begin{adjustwidth}{0.07\textwidth}{}
-    Para cada $\Sigma$ in $\mathcal{S}$, tenemos que $\varnothing \in \Sigma$ aplicando $(S.1)$ en $\Sigma$.
+    Para cada $\Sigma\in\mathcal{S}$, tenemos que $\varnothing \in \Sigma$ aplicando $(S.1)$ en $\Sigma$.
     \newline Por tanto, $\varnothing \in \smallcap_{\Sigma \in \mathcal{S}} \Sigma = \mathfrak{B}_N$.
 \end{adjustwidth}
 
@@ -1976,7 +1976,7 @@ Al ser abiertos, $O_n \in \mathfrak{B}_N \hspace{2mm} \forall \hspace{1mm} n \in
     G \subseteq O_n \Rightarrow \mu_N(G) \leq \mu_N(O_n) = \frac{1}{n} \xrightarrow{n \to \infty} 0
 \end{flalign*} \indent
 De este modo, $M \subseteq G$ con $G \in \mathfrak{B}_N$ tal que $\mu_N(G) = 0$ luego $M \in \mathcal{N}$ por definición. Al estar trabajando con la compleción, $\mathcal{N} \subseteq \overset{\sim}{\mathfrak{B}_N}$.
-Por todo lo anterior, $$E = \underbracket{\hspace{1mm} D \hspace{1mm} }_{\in \mathfrak{B}_N} \cup \underbracket{\hspace{1mm} M \hspace{1mm}}_{\in \widetilde{\mathfrak{B}_N}} \in \widetilde{\mathfrak{B}}_N$$
+Por todo lo anterior, $$E = \underbracket{\hspace{1mm} D \hspace{1mm} }_{\in \mathfrak{B}_N} \cup \underbracket{\hspace{1mm} M \hspace{1mm}}_{\in \mathcal{N}} \in \widetilde{\mathfrak{B}}_N$$
 
 \newpage
 \chapter{Funciones medibles}
@@ -2165,7 +2165,7 @@ $\romannumeral 1)$ Se cumple (importante utilizar desigualdad estricta):
 $\romannumeral 2)$ Si $\lambda = 0$, $\lambda \hspace{0.5mm} f \equiv 0$ es medible trivialmente.
 \begin{itemize}
     \item Si $\lambda > 0$, $\{x \in X : \lambda \hspace{0.5mm} f(x) < \alpha\} = \{x \in X : f(x) < \frac{\alpha}{\lambda}\} \in \Sigma$.
-    \item Si $\lambda > 0$, $\{x \in X : \lambda \hspace{0.5mm} f(x) < \alpha\} = \{x \in X : f(x) > \frac{\alpha}{\lambda}\} \in \Sigma$.
+    \item Si $\lambda < 0$, $\{x \in X : \lambda \hspace{0.5mm} f(x) < \alpha\} = \{x \in X : f(x) > \frac{\alpha}{\lambda}\} \in \Sigma$.
 \end{itemize}
 
 $\romannumeral 3)$ Distinguimos dos casos:
@@ -2178,7 +2178,7 @@ $$\{x \in X : f^2(X) < \alpha\} = \underbracket{\{x \in X : f(x) < \sqrt{\alpha}
 
 \vspace{6mm}    
 \result{Medibilidad del límite cuando no existe}
-Sea $(X, \Sigma, \mu)$ un espacio de medida, sea ${f_n : X \to \overline{\R}}_{n\in\N}$ una sucesión de funciones medibles en él.
+Sea $(X, \Sigma, \mu)$ un espacio de medida, sea $\{f_n : X \to \overline{\R}\}_{n\in\N}$ una sucesión de funciones medibles en él.
 Definimos $A := \{x \in X : \nexists \hspace{1mm} \mlim{n}f_n(x)\}$. Se tiene que $A$ es medible.
 
 \vspace{2mm} \dem
@@ -2284,7 +2284,7 @@ Nótese que $X = \smallcup_{i=1}^n A_i$ y que $i \neq j \Rightarrow A_i \cap A_j
 \vspace{-2ex}$$s = \sum_{i=1}^n \lambda_i \cdot X_{A_i}  \hspace{2mm} \text{ es medible}$$
 
 \begin{tcolorbox}[Implication-number]
-    $\hspace{-7mm} \lnot \romannumeral 2 \Rightarrow \lnot \romannumeral 1)$ \hspace{1mm} Por hipótesis, $\exists \hspace{1mm} j \in \{1,\ldots,n\}$ tal que $A_j \notin \Sigma$.
+    $\hspace{-7mm} \lnot \romannumeral 2 \Rightarrow \lnot \romannumeral 1$ \hspace{1mm} Por hipótesis, $\exists \hspace{1mm} j \in \{1,\ldots,n\}$ tal que $A_j \notin \Sigma$.
 \end{tcolorbox}
 \noindent Veamos que $s$ no es medible.
 En caso de serlo, se cumpliría: $$\underbracket{s^{-1}\Big([-\infty, \lambda_j]\Big)}_{\in \Sigma} \cap \underbracket{s^{-1}\Big([\lambda_j, +\infty]\Big)}_{\in \Sigma} \in \Sigma$$
@@ -2326,7 +2326,7 @@ Es evidente que $(f \cdot g)_{|A_i} \equiv +\infty$ y que $(f \cdot g)_{|A_j} \e
 \vspace{3mm} Por tanto, para cada $i \in \{0,1,\ldots, 8\}$ tenemos que $(f\cdot g)_{|A_i}$ es medible en $(A_i, \Sigma(A_i), \mu_{|\Sigma(A_i)})$. Esto equivale a que $f \cdot g \cdot X_{A_i}$ es medible en $(X, \Sigma, \mu)$.
 Finalmente, se cumple:
 $$ f \cdot g = \sum_{k=0}^8 f \cdot g \cdot X_{A_k} \hspace{3mm} \text{ es medible}$$
-Al ser disjuntos los $A_i$ la función está bien definida. Además, es medible en $(X, \Sigma, \mu)$ al ser suma de funciones medibles en este espacio.
+Al ser disjuntos los $A_i$, la función está bien definida. Además, es medible en $(X, \Sigma, \mu)$ al ser suma de funciones medibles en este espacio.
 
 \vspace{6mm}
 \result{Definición de parte positiva y negativa}
