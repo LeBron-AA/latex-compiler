@@ -200,13 +200,13 @@ Por tanto, $J_k \setminus O$ ha de contener infinitos intervalos disjuntos de lo
 \hspace{3mm} Sea $A \in \mathfrak{M}_N$ con $\mu(A) < \infty$. Sea $\varepsilon > 0$, demuestra que existe $K \subseteq A$ conjunto compacto tal que $\mu(A \setminus K) < \varepsilon$. ¿Se cumple también si $\mu(A) = \infty$?
 \vspace{2mm}
 \dem \newline \indent Sea $A_n = A \cap [-n,n]$, tenemos que $(A_n)_n$ es una sucesión creciente de conjuntos medible que tiene como unión el conjunto $A$. Por tanto, se tiene
-$$\infty > \mu(A) \mu(\smallcup_{i\in\N} A_i) = \lim_{n} \mu(A_n)$$
+$$\infty > \mu(A) = \mu(\smallcup_{i\in\N} A_i) = \lim_{n} \mu(A_n)$$
 Por tanto, existe cierto $n_0 \in \N$ tal que $\mu(A) - \mu(A_{n_0}) = \mu(A \setminus A_{n_0}) < \frac{\varepsilon}{2}$. Hemos podido despejar sin indeterminaciones al estar en un caso de medida finita.
 
 \vspace{2mm} Como $A_{n_0}$ es medible, sabemos que existe un conjunto cerrado $C \subseteq A_{n_0}$ tal que $\mu(A_{n_0} \setminus C) < \frac{\varepsilon}{2}$. Al ser $A_{n_0}$ acotado y estar $C$ contenido en él, tenemos que $C$ es compacto. Por todo lo anterior:
 $$\mu(A \setminus C) = \mu(A) - \mu(C) = \mu(A) - \mu(A_{n_0}) + \mu(A_{n_0}) - \mu(C) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$$
 
-\vspace{2mm} En cambio, para el caso infinito, no tiene por qué cumplirse. Sea $A = R^N$, en la topología usual, los conjuntos compactos son aquellos cerrados y acotados. En espacios métricos, un conjunto es acotado sii existe una bola de radio finito que lo contiene. Por el Teorema de Hausdorff, podemos considerar la norma $||\cdot||_1$, que tiene como bolas a los cubos. Por tanto, todo compacto $K$ va a estar contenido en una bola de radio finito; es decir, en un cubo de volumen (medida) finito. Despejando:
+\vspace{2mm} En cambio, para el caso infinito, no tiene por qué cumplirse. Sea $A = \R^N$, en la topología usual, los conjuntos compactos son aquellos cerrados y acotados. En espacios métricos, un conjunto es acotado sii existe una bola de radio finito que lo contiene. Por el Teorema de Hausdorff, podemos considerar la norma $||\cdot||_1$, que tiene como bolas a los cubos. Por tanto, todo compacto $K$ va a estar contenido en una bola de radio finito; es decir, en un cubo de volumen (medida) finito. Despejando:
 $$\mu(\R^N \setminus K) = \mu(\R^N) - \mu(K) = \infty - \mu(K) = \infty > \varepsilon \hspace{2mm} \forall \varepsilon \in (0, +\infty) $$
 
 \newpage
@@ -249,13 +249,13 @@ Demuestra que para cada $A \in \mathfrak{M}_1$ con $\mu(A) < \infty$ y cada $\va
 \begin{align*}
     \mu\left(A \Delta \smallcup_{i=1}^m I_i\right) < \varepsilon && \text{ con } A \Delta B = (A \setminus B) \cup (B \setminus A)
 \end{align*}
-\vspace{2mm} \dem \newline \vspace{2mm} \indent Por ser $A$ un conjunto medible, es de la forma $A = (\smallcap_{i\in\N} G_i) \cup M$ para $(G_i)_{i\in\N}$ una sucesión decreciente de abiertos de $\R^N$ y $M$ un conjunto de medida nula.
-\vspace{2mm} \newline \indent Como $M$ no interfiere en la medida, tenemos que $\mu(A) = \lim_n \mu(G_n) < \infty$. Por definición de límite, $\exists \hspace{1mm} n_0 \in \N$ tal que $\mu(G_{n_0} \setminus A) = \mu(G_{n_0}) - \mu(A) < \frac{\varepsilon}{2}$. Hemos podido pasar a la medida de la diferencia de conjuntos al estar en el caso de medida finita. Por simplicidad, denotaremos $G = G_{n_0}$.
+\vspace{2mm} \dem \newline \vspace{2mm} \indent Por ser $A$ un conjunto medible, es de la forma $A = (\smallcap_{i\in\N} G_i) \setminus M$ para $(G_i)_{i\in\N}$ una sucesión decreciente de abiertos de $\R^N$ y $M$ un conjunto de medida nula.
+\vspace{2mm} \newline \indent Como $M$ no interfiere en la medida, tenemos que $\mu(A) = \mlim{n} \hspace{1mm} \mu(G_n) < \infty$. Por definición de límite, $\exists \hspace{1mm} n_0 \in \N$ tal que $\mu(G_{n_0} \setminus A) = \mu(G_{n_0}) - \mu(A) < \frac{\varepsilon}{2}$. Hemos podido pasar a la medida de la diferencia de conjuntos al estar en el caso de medida finita. Por simplicidad, denotaremos $G = G_{n_0}$.
 \vspace{2mm} \newline Al ser $G$ abierto, podemos expresarlo como unión numerable de bolas abiertas $\{J_i\}_{i\in\N}$. Para cada $n \in \N$ tomamos $O_n = \smallcup_{i=1}^n J_i$. Tenemos que $(O_n) _n$ es una sucesión de conjuntos crecientes cuya unión es igual a $G$. Razonando como en el caso anterior:
 \begin{align*}
-    \mu(G) = \mu(\smallcup_{i\in\N} O_i) = \lim_n \mu(O_n) \Rightarrow \exists \hspace{1mm} n_1 \in \N : \mu(G \setminus O_n) < \frac{\varepsilon}{2}
+    \mu(G) = \mu(\smallcup_{i\in\N} O_i) = \lim_n \mu(O_n) \Rightarrow \exists \hspace{1mm} n_1 \in \N : \mu(G \setminus O_{n_1}) < \frac{\varepsilon}{2}
 \end{align*}
-\indent Tomamos como $\{I_i\}_{i=1}^n$ las componentes conexas de $\{J_i\}_{i=1}^{n_1}$, que son disjuntas e intervalos (en $\R$ los conjuntos conexos son precisamente los intervalos). Además, hay un número finito de ellas (en el peor de los casos, cada $J_i$ sería una componente conexa). De este modo, aplicando la monotonía de la medida:
+\indent Tomamos como $\{I_i\}_{i=1}^n$ las componentes conexas de $O_{n_1}$, que son disjuntas e intervalos (en $\R$ los conjuntos conexos son precisamente los intervalos). Además, hay un número finito de ellas (en el peor de los casos, cada $J_i$ con $1\leq i \leq n_1$ sería una componente conexa). De este modo, aplicando la monotonía de la medida:
 \begin{flalign*}
     \mu\left(A \setminus \smallcup_{i=1}^n I_i\right) \leq \mu\left(G \setminus \smallcup_{i=1}^n I_i\right) < \frac{\varepsilon}{2} \\[2ex]
     \mu\left(\smallcup_{i=1}^n I_i \setminus A \right) \leq \mu\left(G \setminus A\right) < \frac{\varepsilon}{2}

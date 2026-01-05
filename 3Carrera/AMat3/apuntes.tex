@@ -3427,7 +3427,7 @@ $$ \int_{\R^p}\left(\int_{\R^q}f(x,y)\,d\mu_q(y)\right)\,d\mu_p(x) = \int_{\R^{p
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{-4ex}
     \begin{flalign*}
-        \text{a) }f_x = (X_E)_x = x_{E_x} \mu_q\text{-medible al ser }E_x \in \mathfrak{M}_q&&
+        \text{a) }f_x = (X_E)_x = X_{E_x} \mu_q\text{-medible al ser }E_x \in \mathfrak{M}_q&&
     \end{flalign*}
     \\[-8ex]
     \begin{flalign*}
@@ -3480,7 +3480,7 @@ $$\int_{\R^p \setminus A_n}\varphi_n(x)\,d\mu_p(x) = \int_{\R^{p+q}}s_n(x,y)\,d\
     \end{flalign*}
     \\[-8ex]
     \begin{flalign*}
-        \text{b) } \varphi(x)& = \int_{\R^q}\lim_{n\to\infty} s_{n_x}(y)\,d\mu_q(y) \overset{\hyperref[result:2.1.10]{TCM}}{=} \underbracket{\lim_{n\to\infty} \int_{\R^q}s_{n_x}(y)\,d\mu_q(y)}_{\varphi_n(x) \hspace{1mm} \mu_p \text{-medible}}  \hspace{2mm} \mu_p \text{-medible}&&
+        \text{b) } \varphi(x)& = \int_{\R^q}\lim_{n\to\infty} s_{n_x}(y)\,d\mu_q(y) \overset{\hyperref[result:2.1.10]{TCM}}{=} \lim_{n\to\infty}  \underbracket{\int_{\R^q}s_{n_x}(y)\,d\mu_q(y)}_{\varphi_n(x) \hspace{1mm} \mu_p \text{-medible}}  \hspace{2mm} \mu_p \text{-medible}&&
     \end{flalign*}
     \\[-8ex]
     \begin{flalign*}
@@ -3534,7 +3534,7 @@ $$f_x = (f_x)^+ - (f_x)^- \hyperref[result:2.4.2]{=} (f^+)_x - (f^-)_x \overset{
     \vspace{1.5mm} \newline $\varphi_1 : \R^p \setminus A_1 \to [0,+\infty]$ dada por $x \mapsto \int_{\R^q}f_x^+(y)\,d\mu_q(y)$ es $\mu_p$-medible.
     \vspace{1.5mm} \newline $\int_{\R^p \setminus A_1}\varphi_1(x)\,d\mu_p(x) = \int_{\R^{p+q}}f^+(x,y)\,d\mu_{p+q}$.
 \end{adjustwidth}
-\vspace{4mm} Aplicamos ahora el \hyperref[result:2.4.4]{Teorema de Tonelli} a $f^.$ y obtenemos:
+\vspace{4mm} Aplicamos ahora el \hyperref[result:2.4.4]{Teorema de Tonelli} a $f^-$ y obtenemos:
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{1mm}$\exists A_2 \in \mathfrak{M}_p$ con $\mu_p(A_2) = 0$ tal que $\forall x \hspace{1mm} \in \R^p \setminus A_2$, $f_x^-$ es $\mu_q$-medible.
     \vspace{1.5mm} \newline $\varphi_2 : \R^p \setminus A_2 \to [0,+\infty]$ dada por $x \mapsto \int_{\R^q}f_x^-(y)\,d\mu_q(y)$ es $\mu_p$-medible.
@@ -3643,13 +3643,13 @@ Como $\mu(A) = \mu(B) = 0$, tenemos que $f \overset{\mu-a.e.}{=} g$.
 \result{Definición de supremo esencial}
 \hspace{3mm} Para cada $f \in \mathcal{L}_\infty(X)$ definimos el siguiente conjunto:
 $$A_f := \Big\{\alpha \in [0,\infty) : \mu\big(\{x \in X : f(x) > \alpha\}\big) = 0 \Big\} $$
-A partir de él, definimos $||f||_p := \inf A_f$. Esta cantidad recibe el nombre de ``supremo esencial''.
+A partir de él, definimos $||f||_\infty := \inf A_f$. Esta cantidad recibe el nombre de ``supremo esencial''.
 
 \vspace{6mm}
 \result{Mínimo esencial}
 \hspace{3mm} El supremo esencial es en realidad un mínimo. Es decir; sea $f \in \mathcal{L}_\infty(X)$, se cumple:
-$$||f||_\infty \in \Big\{f(x) : x \in X\}  \text{ o equivalentemente } ||f||_\infty = \min A_f$$
-\dem \newline \vspace{2mm} Denotemos $\beta := \inf A_f$. Consideramos $(\beta_n)_{n\in\N} \subseteq A_f$ sucesión decreciente que verifica $\lim_{n\to\infty} \beta_n = \beta$. Para cada $n \in\N$ definimos el siguiente conjunto auxiliar:
+$$||f||_\infty \in \Big\{f(x) : x \in X\Big\}  \text{ o equivalentemente } ||f||_\infty = \min A_f$$
+\dem \newline \vspace{2mm} Denotemos $\beta := \inf A_f$. Consideramos $(\beta_n)_{n\in\N} \subseteq A_f$ sucesión decreciente que verifica $\mlim{n\to\infty} \hspace{1mm} \beta_n = \beta$. Para cada $n \in\N$ definimos el siguiente conjunto auxiliar:
 $$B_n := \Big\{x \in X : |f(x)| \leq \beta_n \Big\}$$
 \indent De este modo,  $\forall n \in \N$, $B_{n+1} \subseteq B_n$ y $B_n \in \Sigma$. Además, por ser $f \in \mathcal{L}_\infty(X)$ por hipótesis, tenemos que $B_n = X \setminus M_n$ con $M_n \in \Sigma$ tal que $\mu(M_n) = 0$. Por tanto, se cumple: \\[-3ex]
 $$\{x \in X : |f(x)| \leq \beta\} = \smallcap_{n\in\N} B_n = \smallcap_ {n\in \N}(X \setminus M_n) = X \setminus (\smallcup_{n\in\N}M_n)$$
@@ -3801,7 +3801,7 @@ Solo hay un único número en todo $\overline{\R}$ que verifica esto, pero ha de
 $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = \frac{p}{p-1} \overset{p\in[1,\infty]}{\in} (1, \infty)$$
 \indent Estas son algunas de las propiedades de este conjugado (claras por la definición):
 \begin{align*}
-    (p^*)^* = p && p + p^* = p\cdot p^* && p\cdot p^* - p^*p && p^* = \frac{p}{p-1} && p^*(p-1) = p
+    (p^*)^* = p && p + p^* = p\cdot p^* = \frac{p^2}{p-1} && p^* = \frac{p}{p-1} && p^*(p-1) = p
 \end{align*}
 
 \vspace{6mm}
@@ -3828,7 +3828,7 @@ $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = 
 \newpage
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{2mm} $||f||_p = 0 \Rightarrow = \int_{X}|f|^p\,d\mu(x) = 0 \overset{\hyperref[result:2.1.17]{2.1.17}}{\Rightarrow} |f|^p \muae 0 \Rightarrow f \muae 0$.
-    \vspace{2mm} \newline De este modo, $f \cdot g \muae 0 \Rightarrow |f\cdot g| = 0 \overset{\hyperref[result:2.1.17]{2.1.17}}{\Rightarrow} 0 = \int_{X}\,|f\cdot g|d\mu = ||f\cdot g||_1$.
+    \vspace{2mm} \newline De este modo, $f \cdot g \muae 0 \Rightarrow |f\cdot g| \muae 0 \overset{\hyperref[result:2.1.17]{2.1.17}}{\Rightarrow} 0 = \int_{X}\,|f\cdot g|d\mu = ||f\cdot g||_1$.
 \end{adjustwidth}
 
 \vspace{6mm} b) \noindent Supongamos ahora que $||f||_p \neq 0 \neq ||g||_{p^*}$. Así,
@@ -3853,19 +3853,19 @@ $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = 
     \end{flalign*}
     Deshacemos el cambio de variable y comparamos con la definición de $||\cdot||_p$ y de $||\cdot||_{p^*}$,
     \begin{flalign*}
-        (*_2) &= \frac{1}{p} \hspace{-5mm}\mathop{\int}_{X \setminus(A\cup B)}\hspace{-3mm} \frac{|f(x)|^p}{||f||_p^p}\,d\mu(x) + \frac{1}{p^*} \hspace{-5mm} \mathop{\int}_{X \setminus(A \cup B)}\hspace{-3mm} \frac{|g(x)|^{p^*}}{||g||^{p^*}_{p^*}}\,d\mu(x) \leq &&\\
-        &\leq \frac{1}{p \cdot ||f||^p_p} \cdot {\int}_{X}|f(x)|^p\,d\mu(x) + \frac{1}{p^* \cdot ||g||^{p^*}_{p^*}} \cdot {\int}_{X} \hspace{2mm} |g(x)|^{p^*}\,d\mu(x) = \\
+        (*_2) &= \frac{1}{p} \hspace{-5mm}\mathop{\int}_{X \setminus(A\cup B)}\hspace{-3mm} \frac{|f(x)|^p}{||f||_p^p}\,d\mu(x) + \frac{1}{p^*} \hspace{-5mm} \mathop{\int}_{X \setminus(A \cup B)}\hspace{-3mm} \frac{|g(x)|^{p^*}}{||g||^{p^*}_{p^*}}\,d\mu(x) = &&\\
+        &= \frac{1}{p \cdot ||f||^p_p} \cdot {\int}_{X}|f(x)|^p\,d\mu(x) + \frac{1}{p^* \cdot ||g||^{p^*}_{p^*}} \cdot {\int}_{X} \hspace{2mm} |g(x)|^{p^*}\,d\mu(x) = \\
         &= \frac{1}{p \cdot ||f||^p_p} \cdot ||f||^p_p + \frac{1}{p^* \cdot ||g||^{p^*}_{p^*}} \cdot ||g||^{p^*}_{p^*} = \frac{1}{p} + \frac{1}{p^*} = 1
     \end{flalign*}
     \newpage \noindent Sustituimos para resolver el problema inicial:
     \begin{flalign*}
-        \int_{X}\frac{|f(x)|}{||f||_p}\cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x)
+        \int_{X}\frac{|f(x)|}{||f||_p}\cdot \frac{|g(x)|}{||g||_{p^*}}\,d\mu(x) \leq 1
         \Rightarrow \int_{X}|f(x) \cdot g(x)|\,d\mu(x) \leq ||f||_p \cdot ||g||_{p^*} < \infty
     \end{flalign*}
 \end{adjustwidth}
 
 \vspace{6mm} \result{Desigualdad de Minkowski}
-\hspace{3mm} Sea $1 \leq p \leq \infty$. Sean $f,g \in \elep{p}{X}$. Entonces, $||f+g||p \leq ||f||_p + ||g||_p$.
+\hspace{3mm} Sea $1 \leq p \leq \infty$. Sean $f,g \in \elep{p}{X}$. Entonces, $||f+g||_p \leq ||f||_p + ||g||_p$.
 \vspace{4mm} \newline \dem Hemos de distinguir tres casos.
 \vspace{2mm} \newline $\bullet$ Caso $p=1$: \hyperref[result:2.1.9]{ya ha sido probado}.
 \vspace{2mm} \newline $\bullet$ Caso $p=\infty$:
@@ -3883,7 +3883,7 @@ $$\frac{1}{p} + \frac{1}{p^*} = 1 \Rightarrow p^* = \frac{1}{1 - \frac{1}{p}} = 
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{-4ex}
     \begin{flalign*}
-        &||f+p||_p^p = \int_{X}|f+g|^p\,d\mu = \int_{X}|f+g| \cdot |f+g|^{p-1}\,d\mu \leq &&\\[2ex]
+        &||f+g||_p^p = \int_{X}|f+g|^p\,d\mu = \int_{X}|f+g| \cdot |f+g|^{p-1}\,d\mu \leq &&\\[2ex]
         &= \hspace{2mm} \int_{X}\underbracket{\hspace{0.5mm} |f| \hspace{0.5mm}}_{\elep{p}{X}} \cdot \underbracket{\hspace{0.5mm}|f+g|^{p-1} \hspace{0.5mm}}_{\elep{p^*}{X}}\,d\mu
             + \int_{X}\underbracket{\hspace{0.5mm} |g| \hspace{0.5mm}}_{\elep{p}{X}} \cdot \underbracket{\hspace{0.5mm}|f+g|^{p-1} \hspace{0.5mm}}_{\elep{p^*}{X}}\,d\mu = (*)
     \end{flalign*}
@@ -3920,8 +3920,8 @@ Veamos que es en efecto una relación de equivalencia.
 \vspace{4mm} \newline \noindent $\bullet$ Relfexividad:
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{2mm}
-    Por ser $N$ un subespacio vectorial, tenemos $0_v = 0_N \in N$.
-    \vspace{2mm} \newline De este modo, sea $x\in V$ cualquiera, $x-x = 0_v \in N$.
+    Por ser $N$ un subespacio vectorial, tenemos $0_V = 0_N \in N$.
+    \vspace{2mm} \newline De este modo, sea $x\in V$ cualquiera, $x-x = 0_V \in N$.
 \end{adjustwidth}
 \vspace{4mm} \noindent $\bullet$ Simetría:
 \begin{adjustwidth}{0.07\textwidth}{}
@@ -3935,7 +3935,7 @@ Veamos que es en efecto una relación de equivalencia.
     \vspace{2mm} \newline Por definición, $x-y \in N$, $\hspace{1mm} y- z \in N$.
     \vspace{2mm} \newline Así, $x-z = (x-y) - \underbracket{(z-y)}_{\in N} \in N$.
 \end{adjustwidth}
-\vspace{2mm} \indent Es muy común denotar al espacio cociente resultante como ${V}/{N}$ en lugar de ${V}/{~}$. De manera similar, sus elementos suelen denotarse como $v + N$ en lugar de $[v]_{\sim}$.
+\vspace{2mm} \indent Es muy común denotar al espacio cociente resultante como ${V}/{N}$ en lugar de ${V}/{\sim}$. De manera similar, sus elementos suelen denotarse como $v + N$ en lugar de $[v]_{\sim}$.
 \vspace{4mm} \newline \indent Además, respeta la estructura de espacio vectorial. Es decir, sean $x, y \in V$, $\alpha, \beta \in K$; se cumple:
 $$(\alpha x + \beta y) + N = \alpha(x+N) + \beta(y+N) $$
 
@@ -4042,7 +4042,7 @@ Como consecuencia, $L_p(X, \Sigma, \mu)$ es un espacio de Banach.
     Tenemos que $g(x) < \infty$ $\mu$-a.e. al ser sumable. Por tanto, para el siguiente conjunto, \\[-3ex]
     $$ A := \{x \in X : g(x) = \infty\} \in \Sigma$$
     tenemos que $\mu(A) = 0$. Sea $x \in X \setminus A$, tenemos $g(x) < \infty$ luego ha de cumplirse: \\[-3ex]
-    $$ \hat{g}(x) := \sum_{n=1}^{\infty}f_{k_{n+1}}(x) - f_{k_n}(x) < \infty$$
+    $$g(x) := \sum_{n=1}^{\infty}f_{k_{n+1}}(x) - f_{k_n}(x) < \infty$$
     Al ser una serie telescópica, esto implica que $\exists \lim_{n}f_{k_n}(x) < \infty$.
     \newline Definimos la función candidata a límite:
     \begin{align*}
@@ -4054,7 +4054,7 @@ Como consecuencia, $L_p(X, \Sigma, \mu)$ es un espacio de Banach.
     \end{align*}
     Tenemos garantizado que $f_{k_n}(x) \xrightarrow{n\to\infty}f(x)$ en $X \setminus A$ con $\mu(A) = 0$ luego hemos demostrado ya el primer apartado. Queda ver que se cumple el segundo.
     \begin{flalign*}
-        \int_{X}&|f - f_{k_n}|^p\,d\mu = \int_{X \setminus A}|f - f_{k_n}|^p\,d\mu \overset{\hyperref[result:2.1.13]{Fatou}}{\leq} \linf{m} \int_{X \setminus A}|f_{k_m}(x) - f_{k_n}(x)|\,d\mu(x) = \\[1.5ex]
+        \int_{X}&|f - f_{k_n}|^p\,d\mu = \int_{X \setminus A} \linf{m} \hspace{1mm} |f_{k_m} - f_{k_n}|^p\,d\mu \overset{\hyperref[result:2.1.13]{Fatou}}{\leq} \linf{m} \int_{X \setminus A}|f_{k_m}(x) - f_{k_n}(x)|\,d\mu(x) = \\[1.5ex]
         &= \left(\linf{m}||f_{k_m}-f_{k_n}||_p\right)^p \leq \left(\frac{1}{2^n}\right)^p
     \end{flalign*}
     \vspace{4mm} \newline \indent En particular, tomando $k_n = k_1$,
@@ -4071,11 +4071,11 @@ Como consecuencia, $L_p(X, \Sigma, \mu)$ es un espacio de Banach.
     \vspace{2mm} Por hipótesis, tenemos $(f_n)_n$ de Cauchy en $L_\infty(X)$ luego
     $$ \forall \hspace{1mm} \varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_\varepsilon \in \N \text{ tal que } ||f_n - f_m||_\infty < \varepsilon \hspace{3mm} \forall \hspace{1mm} n,m \geq n_\varepsilon$$
     Para cada par $(n,m) \in \N^2$ definimos el siguiente conjunto auxiliar:
-    $$A_{n,m} := \Big\{x \in X : ||f_n(x) - f(x)||_\infty \leq ||f_n - f_m||_\infty \Big\} $$
+    $$A_{n,m} := \Big\{x \in X : |f_n(x) - f_m(x)| \leq ||f_n - f_m||_\infty \Big\} $$
     Así, para $B_{n,m} := X \setminus A_{n,m} \in \Sigma$ tenemos $\mu(B_{n,m})=0$.
     \vspace{3mm} \newline Y por tanto, $B := \smallcup_{(n,m)\in\N^2} B_{n,m} \in \Sigma$ con $\mu(B) = 0$.
     \vspace{4mm} \newline Sea $\varepsilon > 0$. Tenemos:
-    $$ \forall \hspace{1mm} x \in X \setminus B, \hspace{2mm} \forall \hspace{1mm} n,m \geq n_\varepsilon : |f_n(x) - f_m(x)| \leq ||f_n - f_m|| < \varepsilon$$
+    $$ \forall \hspace{1mm} x \in X \setminus B, \hspace{2mm} \forall \hspace{1mm} n,m \geq n_\varepsilon : |f_n(x) - f_m(x)| \leq ||f_n - f_m||_\infty < \varepsilon$$
     Tenemos que para todo $x \in X \setminus B$ la sucesión $(f_n(x))_n$ es de Cauchy en $\R$.
     \vspace{2mm} \newline Al ser un espacio métrico completo, converge en $\R$. Podemos definir:
     \begin{align*}
