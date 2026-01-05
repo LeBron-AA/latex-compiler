@@ -264,6 +264,45 @@ Sumando se llega al resultado.
 
 \newpage
 \chapter{Aplicaciones del lenguaje de la Teoría de la Medida}
+\result{Ejercicio 3}
+Teorema de Egorov. Sea \(E\in\mathcal{M}\) tal que \(\mu(E)<\infty\) y \((f_n)\) una sucesión de funciones medibles \(f_n: E\to\mathbb{R}\) que convergen puntualmente a la función \(f:E\to\mathbb{R}\). Demuestra que para todo \(\varepsilon>0\) existe un conjunto medible \(D\subset E\) tal que \(\mu(E\setminus D)<\varepsilon\) tal que la sucesión \((f_n|_D)\) converge uniformemente a \(f|_D\).
+
+Para probar el anterior teorema, sigue los pasos siguientes:
+\begin{enumerate}
+\item para cada par de números naturales \(i,j\), considera el conjunto
+\[
+E_{ij}:=\{x\in E:\ |f(x)-f_k(x)|<1/i\ \forall k\ge j\}.
+\]
+Demuestra que \(E_{ij}\) es medible;
+\item para cada \(k\), determina \(\displaystyle\bigcup_{j=1}^{\infty} E_{kj}\);
+\item para cada \(k\), encuentra \(i_k\in\mathbb{N}\) verificando \(\mu\bigl(E\setminus E_{k i_k}\bigr)<2^{-k}\varepsilon\);
+\item estudia el conjunto
+\[
+D:=\bigcap_{k=1}^{\infty} E_{k i_k}.
+\]
+\end{enumerate}
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+\textbf{1)} \hspace{3mm} Por ser límite de funciones medibles, $f$ es medible. Así, para cada $n \in \N$ tenemos $f - f_n$ medible, luego $|f - f_n|$ medible al componerse con una función continua. En vista de la definición de función medible, los $E_{i,j}$ son conjuntos medibles.
+
+\vspace{4mm} \noindent
+\textbf{2)} \hspace{3mm} Sea $k \in \N$ fijo, veamos $\smallcup_{j\in\N}E_{k,j} = E$. Sea $x \in E$, sabemos por hipótesis que $f_n(x) \xrightarrow{n\to\infty} f(x)$ luego para $\delta = \frac{1}{k}$ tenemos que existe $n_x \in \N$ tal que:
+$$ |f(x) - f_n(x)| < \frac{1}{k} \hspace{2mm} \forall \hspace{1mm}n \geq n_x$$
+De este modo, $x \in E_{k,n_x} \subseteq \smallcup_{j\in\N}E_{k,j}$.
+
+\vspace{4mm} \noindent
+\textbf{3)} \hspace{3mm} Sea $k \in \N$ fijo, por definición de los $E_{i,j}$ se tiene que $E_{k,n} \subseteq E_{k,n+1}$. Así, tenemos que $(E_{k,n})_{n\in\N}$ es una colección creciente de conjuntos medibles cuya unión es el propio $E$. Como $\mu(E) < \infty$ por hipótesis, podemos despejar adecuadamente:
+
+$$\mu(E \setminus E_{k,n}) = \mu(E) - \mu(E_{k,n})  \xrightarrow{n\to\infty} 0$$
+Por definición de límite, podemos tomar $i_k \in \N$ tal que $\mu(E \setminus E_{k,i_k}) < 2^{-k} \varepsilon$.
+
+\vspace{4mm} \noindent
+\textbf{4)} \hspace{3mm} Tenemos que $D$ es medible por ser intersección numerable de conjuntos medibles. Además, su medida queda acotada por:
+$$\mu(E \setminus D) = \mu(E \setminus (\smallcap_{k\in\N}E_{k,i_k})) = \mu\left(\cup_{i\in\N}(E \setminus E_{k,i_k})\right) \leq \sum_{k=1}^\infty \mu(E \setminus E_{k,i_k}) < \sum_{k=1}^\infty \frac{\varepsilon}{2^k} = \varepsilon$$
+
+Veamos que $f_n$ converge uniformemente en $D$. Sea $\delta > 0$, existe $n_\delta \in \N$ tal que $\frac{1}{n} < \delta$. Así, sea $x \in D \subseteq E_{n_\delta, i_{n_\delta}}$, se cumple $|f_n(x) - f(x)| < \delta$ para cualquier $n \geq i_{n_\delta}$, independientemente de $x$.
+
+\newpage
 \result{Ejercicio 5}
 \hspace{3mm} Sea $f : [a,b] \longrightarrow \R$ una función integrable Riemann tal que $f(x) > 0$ $\forall \hspace{1mm} x \in [a,b]$. Demuestra que $\int_{a}^{b}f(x) dx > 0$.
 
