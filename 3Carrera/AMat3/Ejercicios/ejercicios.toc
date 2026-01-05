@@ -6,20 +6,22 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Ejercicio 2}{6}{subsubsection.0.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}Ejercicio 3}{7}{subsubsection.0.1.2.2}%
 \contentsline {subsubsection}{\numberline {1.2.3}Ejercicio 5}{8}{subsubsection.0.1.2.3}%
-\contentsline {subsection}{3. Funciones medibles}{10}{chapter.0.1.3}%
+\contentsline {subsection}{3. Aplicaciones del lenguaje de la Teoría de la Medida}{10}{chapter.0.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Ejercicio 5}{10}{subsubsection.0.1.3.1}%
-\contentsline {section}{II Series de Fourier}{12}{unit.0.2}%
-\contentsline {subsection}{1. Sistemas ortogonales}{12}{chapter.0.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Ejercicio 1}{12}{subsubsection.0.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Ejercicio 2}{12}{subsubsection.0.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Ejercicio 3}{14}{subsubsection.0.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.1.4}Ejercicio 4}{15}{subsubsection.0.2.1.4}%
-\contentsline {subsection}{2. Funciones de variación acotada}{18}{chapter.0.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Ejercicio 1}{18}{subsubsection.0.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Ejercicio 2}{19}{subsubsection.0.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Ejercicio 3}{20}{subsubsection.0.2.2.3}%
-\contentsline {subsubsection}{\numberline {2.2.4}Ejercicio 4}{20}{subsubsection.0.2.2.4}%
-\contentsline {subsection}{3. Fallos en las condiciones de Dini o de Jordan}{22}{chapter.0.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Ejercicio 1}{22}{subsubsection.0.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Ejercicio 2}{23}{subsubsection.0.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Ejercicio 3}{24}{subsubsection.0.2.3.3}%
+\contentsline {subsection}{4. Funciones medibles}{11}{chapter.0.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Ejercicio 5}{11}{subsubsection.0.1.4.1}%
+\contentsline {section}{II Series de Fourier}{13}{unit.0.2}%
+\contentsline {subsection}{1. Sistemas ortogonales}{13}{chapter.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Ejercicio 1}{13}{subsubsection.0.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Ejercicio 2}{13}{subsubsection.0.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Ejercicio 3}{15}{subsubsection.0.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Ejercicio 4}{16}{subsubsection.0.2.1.4}%
+\contentsline {subsection}{2. Funciones de variación acotada}{19}{chapter.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Ejercicio 1}{19}{subsubsection.0.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Ejercicio 2}{20}{subsubsection.0.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Ejercicio 3}{21}{subsubsection.0.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Ejercicio 4}{21}{subsubsection.0.2.2.4}%
+\contentsline {subsection}{3. Fallos en las condiciones de Dini o de Jordan}{23}{chapter.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Ejercicio 1}{23}{subsubsection.0.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Ejercicio 2}{24}{subsubsection.0.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Ejercicio 3}{25}{subsubsection.0.2.3.3}%

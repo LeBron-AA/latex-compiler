@@ -262,6 +262,20 @@ Demuestra que para cada $A \in \mathfrak{M}_1$ con $\mu(A) < \infty$ y cada $\va
 \end{flalign*}
 Sumando se llega al resultado.
 
+\newpage
+\chapter{Aplicaciones del lenguaje de la Teoría de la Medida}
+\result{Ejercicio 5}
+\hspace{3mm} Sea $f : [a,b] \longrightarrow \R$ una función integrable Riemann tal que $f(x) > 0$ $\forall \hspace{1mm} x \in [a,b]$. Demuestra que $\int_{a}^{b}f(x) dx > 0$.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Sabemos que toda función integrable Riemann en un intervalo compacto está acotada. Por tanto, aplicando el resultado 2.3.1 de los apuntes de teoría, sabemos que $\mu(A) = 0$ para el siguiente conjunto:
+$$ A := \{x \in [a,b] : f \text{ no es continua en } x\}$$
+Además, al ser $f \in \mathcal{R}([a,b])$, la integral de Riemann coincide con la de Lebesgue, luego:
+$$ \int_a^b f(x) \,dx = \int_A f \,d\mu + \int_{[a,b] \setminus A}f \,d\mu$$
+Por ser $[a,b] \setminus A$ un conjunto medible de medida finita positiva, sabemos que contiene a un compacto $K$ con $\mu(K) > 0$ (ejercicio 2 de conjuntos medibles). De este modo, $f$ es continua en $K$, luego alcanza un mínimo $m$. Como $f > 0$ en $K$, $m > 0$. Definimos la función simple $s := \frac{m}{2} \cdot X_K$ luego $0 \leq s \leq f$ con $s$ función medible simple. Así,
+$$\lbint_{[a,b]} s \,d\mu = \frac{m}{2} \cdot \mu(K)> 0$$
+Así, por definición de Integral de Lebesgue, $\int_{[a,b]}f\,d\mu \geq \lbint_{[a,b]} s > 0$.
+
 %CAMBIO DE HOJA
 \newpage
 \chapter{Funciones medibles}
