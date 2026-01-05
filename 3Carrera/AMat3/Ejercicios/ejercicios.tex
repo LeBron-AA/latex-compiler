@@ -280,7 +280,7 @@ Así, por definición de Integral de Lebesgue, $\int_{[a,b]}f\,d\mu \geq \lbint_
 \newpage
 \chapter{Funciones medibles}
 \vspace{2mm}
-\result{Ejercicio 5}
+\result{Ejercicio 1}
 \hspace{3mm} Sea $f : \R^N \longrightarrow \R$ uniformemente continua y acotada, demuestra que la siguiente función es medible:
 \begin{align*}
     \varphi : \R^N \longrightarrow \R &&
@@ -318,6 +318,23 @@ Sean $s,t \in \R^N$ cualesquiera, se cumple:
 Despejando, obtenemos $0 \leq \varphi(t) - \varphi(s) \leq \varphi(t-s) \xrightarrow{s\to t} \varphi(0) = 0$.
 
 \vspace{4mm} Por todo lo anterior, concluimos que $\varphi$ es continua y acotada, luego es medible en $\mathfrak{B}_N$ y en $\mathfrak{M}_N$
+
+\vspace{6mm} \result{Ejercicio 4}
+\hspace{3mm} Dada una función con dominio $A \subseteq \R^N$ y llegada $\overline{\R}$, demuestra que si es continua en $x_0 \in A$; entonces, $f^+$ y $f^-$ también son continuas en $x_0$.
+
+\vspace{4mm} \dem \vspace{2mm} \newline \indent
+Supongamos en primer lugar que $f(x_0) \in (0, \infty)$. De ser así, para $\varepsilon = \frac{|f(x_0)|}{2}$ existe cierto $\delta > 0$ tal que $||x-x_0||< \delta \Rightarrow f(x) \in \left(\frac{f(x_0)}{2}, \frac{3f(x_0)}{2}\right) \subseteq (0, +\infty)$.
+
+\vspace{2mm}
+De este modo, en $B_{||\cdot||}(x_0, \delta) \subseteq A$, tenemos que $f^+ = f$, $f^- \equiv 0$, ambas continuas. En el caso $f(x) = \infty$ tendríamos $f(x) > K$ para cierto $K > 0$ fijo en lugar de trabajar con un error de $\varepsilon$. Este razonamiento también funciona para tal escenario. El caso $f(x) \in [-\infty, 0)$ se resuelve análogamente.
+
+\vspace{4mm} Si $f(x_0) = 0$, para $\varepsilon > 0$ cualquiera existe $\delta > 0$ tal que:
+$$||x-x_0|| < \delta \Rightarrow |f(x)| < \varepsilon$$
+Como $|f| = f^+ + f^-$ siendo ambos sumandos no negativos, esto implica que $f^+$ y $f^-$ son continuas al cumplir (para $x \in B_{||\cdot||}(x_0,\delta)$):
+\begin{flalign*}
+    |f^+(x) - f^+(x_0)| = f^+(x) \leq |f(x)| < \varepsilon \\[1ex]
+    |f^-(x) - f^-(x_0)| = f^-(x) \leq |f(x)| < \varepsilon    
+\end{flalign*}
 
 \newpage
 \unit{Series de Fourier}
@@ -634,9 +651,10 @@ $$\lim_{t\to 0^+} \frac{f(t)+f(-t)}{2} = \lim_{t\to 0^+} f(t) = f(0) = 0$$
 \begin{align*}
     g(t) = \frac{f(t)+ f(-t)}{2} = f(t) && \frac{g(t) - g(0^+)}{t} = \frac{g(t)}{t} = \frac{1}{t\cdot \log\left(\frac{1}{|t|}\right)}
 \end{align*}
-Para $t > 0$ suficientemente pequeño, $\frac{1}{t} > e$, luego $\log\left(\frac{1}{t}\right) > 1$. De este modo,
-$$\left|\frac{1}{t}\cdot \frac{1}{\log\left(\frac{1}{t}\right)}\right| \geq \left|\frac{1}{t}\right| \notin L_1\left(\left[0, \delta\right]\right)$$
-Por tato, no se satisface la condición de Dini.
+\begin{flalign*}
+  \int_{0}^\delta \frac{1}{t} \cdot \frac{1}{\log\left(\frac{1}{t}\right)} = \overset{u = \log\left(\frac{1}{t}\right)}{=} \int_{\infty}^{\log\left(\frac{1}{\delta}\right)} \hspace{-2mm} -e^{-u} \frac{1}{e^{-u}} \cdot\frac{1}{u} \,d\mu = \int^{\infty}_{\log\left(\frac{1}{\delta}\right)} \frac{1}{u} \,d\mu = \infty
+\end{flalign*}
+La integral diverge, luego no se cumple la condición de Dini.
 
 \vspace{6mm}
 \result{Ejercicio 3}
@@ -666,7 +684,4 @@ Veamos que no cumple la condición de Dini. Sea $\delta > 0$ cualquiera, sabemos
     \hat{g}(t) := \frac{g(t) - g(0^+)}{t} = \frac{g(t)}{t} = \frac{\sin^2\left(\frac{1}{t}\right)}{t\cdot \log\left(\frac{1}{|t|}\right)}
 \end{align*}
 \vspace{-1ex}
-Como $\left|\sin^2\left(\frac{1}{t}\right)\right| \leq 1$ y para $t$ suficientemente pequeño tenemos que $|f(t)| \leq 1$. Entonces, se cumple:
-$$|\hat{g}(t)| \leq \frac{1}{t} \notin L_1([0,\delta])  $$
-Hemos comprobado que no cumple la condición de Dini.
 \end{document}
