@@ -653,7 +653,7 @@ $$\forall \hspace{1mm} \varepsilon > 0 \hspace{2mm} \exists \hspace{1mm} n_0 \in
 \begin{enumerate}[label=\roman*)]
     \item $||s_n - f|| \xrightarrow{n\to\infty}0$
     \item Se cumple la identidad de Parseval en $[0,2\pi]$:
-    $$ ||f||^2 = \sum_{k=0}^{\infty} |c_k|^2 = \frac{a_0^2}{4} + \sum_{n=1}^{\infty} a_n^2 + b_n^2$$
+    $$ ||f||^2 = \sum_{k=0}^{\infty} |c_k|^2 = \frac{a_0^2}{4} + \sum_{n=1}^{\infty} \pi \cdot a_n^2 + \pi \cdot b_n^2$$
     \item Si la serie de Fourier de $f$ converge en $x$, converge a $f(x)$.
     \item La serie de Fourier es integrable término a término:
     $$\int_0^x f(t) \,dt = \frac{a_0}{2}x + \sum_{n=1}^{\infty} \int_0^x a_n \cos(nt) + b_n \sin(nt) \,dt$$
