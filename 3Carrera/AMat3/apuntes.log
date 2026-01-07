@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  7 JAN 2026 13:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  7 JAN 2026 13:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -939,17 +939,21 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81]
 [82] [83] [84] [85] [86] [87] [88] [89] [90] [91] [92] [93] [94] [95] [96]
 [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109]
-[110] [111] [112] [113] [114] [115] [116] [117] [118] (apuntes.aux)
+[110] [111] [112] [113] [114] [115] [116] [117] [118] [119] (apuntes.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `apuntes.out' has not changed.
 (rerunfilecheck)             Checksum: 80B837D51500F2FA675395DD1B88EBCB;34299.
  ) 
 Here is how much of TeX's memory you used:
- 40376 strings out of 474486
- 939266 string characters out of 5753177
+ 40377 strings out of 474486
+ 939274 string characters out of 5753177
  1955542 words of memory out of 5000000
  61710 multiletter control sequences out of 15000+600000
  576732 words of font info for 108 fonts, out of 8000000 for 9000
@@ -974,9 +978,9 @@ nts/type1/public/amsfonts/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/p
 ublic/amsfonts/euler/eufm10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts
 /symbols/msbm7.pfb>
-Output written on apuntes.pdf (118 pages, 773855 bytes).
+Output written on apuntes.pdf (119 pages, 774647 bytes).
 PDF statistics:
- 1616 PDF objects out of 1728 (max. 8388607)
- 376 named destinations out of 1000 (max. 500000)
+ 1620 PDF objects out of 1728 (max. 8388607)
+ 377 named destinations out of 1000 (max. 500000)
  1107 words of extra memory for PDF output out of 10000 (max. 10000000)
 
