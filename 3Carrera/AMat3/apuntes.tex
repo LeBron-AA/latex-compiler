@@ -2134,7 +2134,7 @@ $\romannumeral 4)$ Análogamente,
 \\[-2ex] $$ \Big\{x \in X : \inf \{f_i(x) : i \in \N\} \geq \alpha \Big\} = \bigcap_{i \in \N} \underbracket{\{x  \in X : f_i(x) \geq \alpha\}}_{\in \Sigma} \in \Sigma$$
 
 \newpage
-$\romannumeral 5)$ Por definición, $\linf{n}f_n(x) = \sup_{n\in\N} \inf_{k \geq n} f_k(x) = \sup_{n\in\N} g_n(x)$ para $g_n (x)= \inf_{k \geq n} f_k(x)$, que es medible por el apartado anterior. Aplicando el apartado $(\romannumeral 4)$ respecto de las $g_n$ llegamos al resultado.
+$\romannumeral 5)$ Por definición, $\linf{n}f_n(x) = \sup_{n\in\N} \inf_{k \geq n} f_k(x) = \sup_{n\in\N} g_n(x)$ para $g_n (x)= \displaystyle \inf_{k \geq n} f_k(x)$, que es medible por el apartado anterior. Aplicando el apartado $(\romannumeral 4)$ respecto de las $g_n$ llegamos al resultado.
 
 \vspace{4mm}
 $\romannumeral 6)$ Análogamente, $\displaystyle \overline{\mlim{n}} f_n = \inf_{n\in\N} \sup_{k \geq n} f_k(x)$.
@@ -2853,7 +2853,7 @@ $$\left|\int_{X}f_n \,d\mu - \int_{X}f\,d\mu\right| \overset{(*)}{=} \left|\int_
 \result{Equivalencia de las integrales de Riemann y Lebesgue}
 \hspace{3mm} Sea $f : [a,b] \longrightarrow \R$ acotada. Entonces, los siguientes enunciados son equivalentes:
 \begin{enumerate}[label=\roman*)]
-    \item $\mu_1\Big(\{x \in X : f \text{ es discontinua en } x\}\Big) = 0$.
+    \item $\mu_1\Big(\{x \in [a,b] : f \text{ es discontinua en } x\}\Big) = 0$.
     \item $f$ es integrable Riemann; es decir, $f \in \mathcal{R}\big([a,b]\big)$.
 \end{enumerate}
 Además, si $f \in \mathcal{R}\big([a,b]\big)$; entonces, $\int_{[a,b]}f\,d\mu = \int_{a}^{b}f$.
@@ -2901,7 +2901,7 @@ Volvamos al problema principal.
 \begin{tcolorbox}[Subset-contingency]
     $\Rightarrow$ \hspace{3mm} Supongamos $\mu\Big(\{x \in X : f \text{ es discontinua en }x\}\Big) = 0$.
 \end{tcolorbox}
-Denotando $D$ al conjunto anterior, tenemos que $\mu(D) = 0 \Rightarrow \mu(D \cap V) = 0$ para $V$ el conjunto de vértices de las particiones $P_n$. De este modo, $s \overset{\mu-a.e.}{=}t \Rightarrow s - t \overset{\mu-a.e.}{=} 0$. Por tanto, aplicando el \hyperref[result:2.1.16]{resultado 2.1.16},
+Denotando $D$ al conjunto anterior, tenemos que $\mu(D) = 0 \Rightarrow \mu(D \cup V) = 0$ para $V$ el conjunto de vértices de las particiones $P_n$. De este modo, $s \overset{\mu-a.e.}{=}t \Rightarrow s - t \overset{\mu-a.e.}{=} 0$. Por tanto, aplicando el \hyperref[result:2.1.16]{resultado 2.1.16},
 $$0 = \int_{[a,b]}s-t\,d\mu = \int_{[a,b]}\lim_n s_n - t_n\,d\mu \overset{\hyperref[result:2.2.7]{TCD}}{=} \lim_n \int_{[a,b]}s_n - t_n\,d\mu = \lim_n \overline{S}(f,P_n) - \underline{S}(f,P_n)$$
 Según el criterio de Cauchy de integración Riemann, tenemos que $f \in \mathcal{R}([a,b])$.
 
@@ -2914,7 +2914,7 @@ $$0 \leq \int_{[a,b]}s-t\,d\mu = \int_{[a,b]}\lim_n s_n - t_n\,d\mu = \lim_n \in
 De este modo, $s \overset{\mu-a.e.}{=} f \overset{\mu-a.e.}{=}t$ luego al estar en un espacio de medida completo tenemos que $f$ es medible. Por tanto,
 \begin{flalign*}
     &\underline{S}(f,P_n) \xrightarrow{n\to\infty} \int_a^b f \\
-    &\underline{S}(f,P_n) = \int_{[a,b]}t_n\,d\mu \overset{\hyperref[result:2.2.7]{TCD}}{=} \int_{[a,b]}t\,d\mu = \int_{[a,b]}f\,d\mu
+    &\lim_n \underline{S}(f,P_n) = \lim_n \int_{[a,b]}t_n\,d\mu \overset{\hyperref[result:2.2.7]{TCD}}{=} \int_{[a,b]}t\,d\mu = \int_{[a,b]}f\,d\mu
 \end{flalign*}
 
 \vspace{6mm}
@@ -2958,7 +2958,7 @@ $$ f \cdot X_{[a,a+n]} \xrightarrow{n\to\infty} f \cdot X_{[a,+\infty)}$$
 $$\exists \hspace{1mm} \int_{[a,+\infty]}|f|\,d\mu_1 = \int_a^\infty |f| < \infty \Rightarrow |f|, f \in \mathcal{L}_1 \big([a,+\infty)\big)$$
 Por definición de $\mathcal{L}_1 \big([a,+\infty)\big)$, $\exists$  $\int_{[a,\infty)}f\,d\mu_1 \in \R$. Ahora, aplicando la caracterización sucesional del límite y el Teorema de la Convergencia Dominada:
 \begin{flalign*}
-    \int_a^\infty& f = \lim_{x\to\infty} \int_a^x f = \lim_{n\to\infty} \int_a^{a+n} f \overset{\hyperref[result:2.3.1]{2.3.1}}{=} \lim_{n\to\infty}\mathop{\int}_{[a,a+n]}f\,d\mu_1 = \lim_{n\to\infty} \int_{[a,+\infty)}f \cdot X_{[a,a+n]}\,d\mu_1 \overset{\hyperref[result:2.2.7]{TCMD}}{=} \\
+    \int_a^\infty& f = \lim_{x\to\infty} \int_a^x f = \lim_{n\to\infty} \int_a^{a+n} f \overset{\hyperref[result:2.3.1]{2.3.1}}{=} \lim_{n\to\infty}\mathop{\int}_{[a,a+n]}f\,d\mu_1 = \lim_{n\to\infty} \int_{[a,+\infty)}f \cdot X_{[a,a+n]}\,d\mu_1 \overset{\hyperref[result:2.2.7]{TCD}}{=} \\
     &= \int_{[a,+\infty)}\lim_{n\to\infty} f \cdot X_{[a,a+n]}\,d\mu_1 = \int_{[a,+\infty)}f\,d\mu_1
 \end{flalign*}
 
@@ -3284,7 +3284,7 @@ Veamos cómo demostrar el apartado $(\romannumeral 2)$ en base a esta informaci�
     \end{flalign*}
 \end{adjustwidth}
 
-\vspace{6mm} $\romannumeral 3)$ Para $E = \smallcap_{n\in\N}O^n$ intersección de abiertos decrecientes. Aplicando el apartado anterior, sabemos que para $x \in \R^p$ cualquiera se cumple:
+\vspace{6mm} $\romannumeral 3)$ Para $E = \smallcap_{n\in\N}O^n$ intersección de abiertos decrecientes acotados. Aplicando el apartado anterior, sabemos que para $x \in \R^p$ cualquiera se cumple:
 \begin{align*}
     O^n_x \in \mathfrak{M}_q &&
     \varphi_n(x) = \mu_q(O_x^n) \hspace{2mm} \mu_p\text{-medible} &&
@@ -3309,7 +3309,7 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
 \end{adjustwidth}
 
 %TODO referenciar
-\vspace{6mm} $\romannumeral 4) \hspace{2mm} E \in \mathfrak{M}_{p+q}$ con $\mu_{p+q}(E) = 0$. Por la caracterización topológica de los conjuntos medibles, sabemos que existen $\{O^n\}_{n\in\N} \subseteq \tau_{\R^{p+q}}$ con $E \subseteq O^{n+1} \subseteq O^n$ y tales que $\mu_{p+q}(O^n) \xrightarrow{n\to\infty}0$. De este modo, tenemos $E \subseteq N:= \smallcap_{n\in\N}O^n \in \mathfrak{M}_{p+q}$. Aplicando el apartado anterior a $N$, tenemos que para $x\in\R^p$ se cumple:
+\vspace{6mm} $\romannumeral 4) \hspace{2mm} E \in \mathfrak{M}_{p+q}$ con $\mu_{p+q}(E) = 0$ acotado. Por la caracterización topológica de los conjuntos medibles, sabemos que existen $\{O^n\}_{n\in\N} \subseteq \tau_{\R^{p+q}}$ con $E \subseteq O^{n+1} \subseteq O^n$ y tales que $\mu_{p+q}(O^n) \xrightarrow{n\to\infty}0$. De este modo, tenemos $E \subseteq N:= \smallcap_{n\in\N}O^n \in \mathfrak{M}_{p+q}$. Aplicando el apartado anterior a $N$, tenemos que para $x\in\R^p$ se cumple:
 \vspace{-1.5ex}
 \begin{align*}
     N_x \in \mathfrak{M}_q &&
@@ -3322,7 +3322,7 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{-5ex}
     \begin{flalign*}
-        \text{a) }E_x \subseteq N_x \text{ con } \mu_q(E_x) \leq \mu_q(N_x) = \varphi_1(x) = 0 \text{ luego } E_x \in \mathfrak{M}_q.&&
+        \text{a) }E_x \subseteq N_x \text{ con } \mu_q^+(E_x) \leq \mu_q(N_x) = \varphi_1(x) = 0 \text{ luego } E_x \in \mathfrak{M}_q.&&
     \end{flalign*}
     \\[-10ex]
     \begin{flalign*}
@@ -3355,7 +3355,7 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
 \begin{adjustwidth}{0.07\textwidth}{}
     \vspace{-5ex}
     \begin{flalign*}
-        \text{a) }E_x \subseteq N_x \text{ con } \mu_q(E_x) \leq \mu_q(N_x) = \varphi_1(x) = 0 \text{ luego } E_x \in \mathfrak{M}_q.&&
+        \text{a) }E_x = G_x \setminus N_x \in \mathfrak{M}_q \text{ por ser } G_x, N_x \in \mathfrak{M}_q&&
     \end{flalign*}
     \\[-10ex]
     \begin{flalign*}
@@ -3363,7 +3363,7 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
     \end{flalign*}
     \\[-8ex]
     \begin{flalign*}
-        \text{c) }& \int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}0\,d\mu_p(x) = 0 = \mu_{p+q}(E)&&
+        \text{c) }& \int_{\R^p \setminus A}\varphi(x)\,d\mu_p(x) = \int_{\R^p \setminus A}0\,d\mu_p(x) = \varphi_1(x) - \varphi_2(x) = \mu_{p+q}(G) - 0 = \mu_{p+q}(E)&&
     \end{flalign*}
 \end{adjustwidth}
 
@@ -3372,7 +3372,7 @@ Demostraremos el apartado $(\romannumeral 3)$ con esta información:
 \begin{align*}
     E^n_x \in \mathfrak{M}_q &&
     \varphi_n(x) = \mu_q(E^n_x) \hspace{2mm} \mu_p\text{-medible} &&
-    \int_{\R^p \setminus A^n}\varphi_1(x)\,d\mu_p(x) = \mu_{p+q}(E^n)
+    \int_{\R^p \setminus A^n}\varphi_n(x)\,d\mu_p(x) = \mu_{p+q}(E^n)
 \end{align*}
 Consideramos el conjunto de anomalías $A := \smallcup_{n\in\N} A^n$ aplicando la subaditividad de la medida, es claro que $\mu_{p+q}(A) = 0$. Sea $x \in R^p \setminus A$, se cumple:
 \begin{adjustwidth}{0.07\textwidth}{}
@@ -3783,7 +3783,7 @@ Podemos extender la definición de convexidad de funciones al estudiar conjuntos
 
     \vspace{4mm} Sean $f,g \in \elep{p}{X}$. Veamos que $f+g\in \elep{p}{X}$:
     \begin{flalign*}
-        \int_{X}&|f(x)+p(x)|\,d\mu(x) = \int_{X} \Big|\hspace{1mm} \underbrace{\frac{1}{2}}_\lambda\cdot \hspace{1mm} 2f(x)+ \underbrace{\frac{1}{2}}_{1-\lambda}\cdot \hspace{1mm} 2g(x)\hspace{1mm} \Big|^p\,d\mu(x) = (*)
+        \int_{X}&|f(x)+g(x)|\,d\mu(x) = \int_{X} \Big|\hspace{1mm} \underbrace{\frac{1}{2}}_\lambda\cdot \hspace{1mm} 2f(x)+ \underbrace{\frac{1}{2}}_{1-\lambda}\cdot \hspace{1mm} 2g(x)\hspace{1mm} \Big|^p\,d\mu(x) = (*)
     \end{flalign*}
     La función $h(t) = |t|^p$ es convexa en $[0,+\infty]$ para $p > 1$. Por tanto,
     \begin{flalign*}
