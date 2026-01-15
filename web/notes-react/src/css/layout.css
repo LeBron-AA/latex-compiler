@@ -53,3 +53,11 @@ ul {
   width: 100%;
   padding: 1ex 2ex;
 }
+
+select {
+  padding: 0.25ex;
+}
+
+.vert > label {
+    margin-bottom: 1ex;
+}

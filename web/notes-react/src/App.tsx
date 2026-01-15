@@ -20,22 +20,24 @@ function normalizeText(text: string) {
 
 type NoteFilters = {
   dict : Record<string, string>,
-  property : keyof NoteProps
+  property : keyof NoteProps,
+  title : string
 }
 
 type SubjectFilters = {
   dict : Record<string, string>,
-  property : keyof SubjectProps
+  property : keyof SubjectProps,
+  title : string
 }
 
 export default function App() {
   const noteFilters: Array<NoteFilters> = [
-    {dict : noteTypeDict, property : "type"},
-    {dict : {en:"English", es:"Español"}, property : "language"}
+    {dict : noteTypeDict, property : "type", title:"Tipo"},
+    {dict : {en:"English", es:"Español"}, property : "language", title:"Idioma"}
   ];
 
   const subjectFilters : Array<SubjectFilters> = [
-    {dict : studyDict, property : "study"}
+    {dict : studyDict, property : "study", title: "Estudios"}
   ];
 
   const typedData = data as AppDataType;
@@ -64,25 +66,33 @@ export default function App() {
         <SearchFilter onSearch={handleSearch}/>
         <section className='dashboard'>
             {subjectFilters.map((filter, index) => {
-              return (<ComboFilter<SubjectProps> key={`comboFilterSubject-${index}`}
+              return (
+              <div className='vert'>
+              <label>{filter.title + ":"}</label>
+              <ComboFilter<SubjectProps> key={`comboFilterSubject-${index}`}
               dict={filter.dict} property={filter.property}
               changeFilter={(func) => {
                 const nextFilterFuncs = subjectFilterFunctions.slice();
                 nextFilterFuncs[index] = func;
                 console.log(func);
                 setSubjectFilterFunctions(nextFilterFuncs);
-              }}/>);
+              }}/>
+              </div>);
             })}
 
             {noteFilters.map((filter, index) => {
-              return (<ComboFilter<NoteProps> key={`comboFilterNotes-${index}`}
+              return (
+              <div className='vert'>
+              <label>{filter.title + ":"}</label>
+              <ComboFilter<NoteProps> key={`comboFilterNotes-${index}`}
               dict={filter.dict} property={filter.property}
               changeFilter={(func) => {
                 const nextFilterFuncs = noteFilterFunctions.slice();
                 nextFilterFuncs[index] = func;
                 console.log(func);
                 setNoteFilterFunctions(nextFilterFuncs);
-              }}/>);
+              }}/>
+              </div>);
             })}
         </section>
         </details>

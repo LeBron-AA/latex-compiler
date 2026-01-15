@@ -68,6 +68,14 @@ header details {
   content: "↦ ";
 }
 
+.vert {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  border-radius: 1ex;
+}
 
 #search {
   border: 0.5ex solid #ccc;
