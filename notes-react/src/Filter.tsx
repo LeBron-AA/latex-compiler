@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { isBlank } from "./css/strutils";
+import { isBlank } from "./strutils";
 
 type InputFunction = (e : React.ChangeEvent<HTMLInputElement>) => void;
 type DictType = Record<string, string>

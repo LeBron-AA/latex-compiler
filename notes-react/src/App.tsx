@@ -1,24 +1,24 @@
-import './css/layout.css';
-import "./css/dark.css";
+import React, { useState, useEffect } from 'react';
 
-import { useState } from 'react';
+import './css/layout.css';
+import "./css/style.css";
+
+import data from "./assets/index.json";
+import DarkIcon from "./assets/icons/dark-theme.svg?react";
+import LightIcon from "./assets/icons/light-theme.svg?react";
+
+
 
 import Subject, { noteTypeDict, studyDict } from "./Subject.tsx";
 import type {NoteProps, SubjectProps} from "./Subject.tsx";
-import data from "./assets/index.json";
 import {SearchFilter, ComboDashboard, type DashboardItem} from "./Filter.tsx";
-import { isBlank } from './css/strutils.ts';
+import { isBlank, normalizeText } from './strutils.ts';
 
 type AppDataType = {subjects : SubjectProps[]}
 
-/* Omit accents while filtering subjects, more lenient*/
-function normalizeText(text: string) {
-  return text
-    .normalize("NFD")              // separa letra y tilde
-    .replace(/[\u0300-\u036f]/g, "") // elimina tildes
-    .toLowerCase();
+function setThemeClass(isDark : boolean) {
+  document.querySelector("html")?.setAttribute("class", isDark ? "dark" : "light");
 }
-
 
 export default function App() {
   const noteFilters: Array<DashboardItem<NoteProps>> = [
@@ -36,8 +36,12 @@ export default function App() {
   const [subjects, setSubjects] = useState<SubjectProps[]>(typedData.subjects);
   const [noteFilterFunctions, setNoteFilterFunctions] = useState<Array<(note: NoteProps) => boolean>>(Array(noteFilters.length).fill(() => true));
   const [subjectFilterFunctions, setSubjectFilterFunctions] = useState<Array<(subject : SubjectProps) => boolean>>(Array(subjectFilters.length).fill(() => true));
-
-
+  const [darkTheme, setDarkTheme] = useState<boolean>(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  
+  useEffect(() => {
+    setThemeClass(darkTheme);
+  }, [darkTheme]); 
+  
   function handleSearch(e : React.ChangeEvent<HTMLInputElement>) {
     const filterName = e.currentTarget.value;
     if(isBlank(filterName)) {
@@ -52,6 +56,11 @@ export default function App() {
   return (
     <>
     <header>
+        <div className='toggles'>
+          <button onClick={() => setDarkTheme(!darkTheme)}>
+            {darkTheme ? <DarkIcon/> : <LightIcon/>}
+          </button>
+        </div>
         <h1>Apuntes de UNIOVI</h1>
         <details>
         <summary>Filtros</summary>

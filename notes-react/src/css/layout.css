@@ -71,3 +71,20 @@ ul {
     row-gap: 2ex;
 }
 
+.toggles {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.toggles > button {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+*.toggles svg {
+    width: 3ex;
+    height: 3ex;
+}

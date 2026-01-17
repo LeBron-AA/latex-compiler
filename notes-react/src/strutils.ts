@@ -8,3 +8,11 @@ export function capitalize(str: string): string {
 export function isBlank(str : string) {
     return !str || str.trim().length === 0
 }
+
+/* Omit accents while filtering subjects, more lenient*/
+export function normalizeText(text: string) {
+  return text
+    .normalize("NFD")              // separa letra y tilde
+    .replace(/[\u0300-\u036f]/g, "") // elimina tildes
+    .toLowerCase();
+}

@@ -10,10 +10,10 @@
   --text-main: #e6e6e6;
   --text-muted: #b3b3b3;
 
-  --accent-blue: #339dff;
-  --accent-orange: #ff8c00e7;
+  --accent-math: #339dff;
+  --accent-software: #ff8c00e7;
   --accent-green: #6dd58c;
-  --accent-yellow: #cbf513;
+  --accent-filter: #cbf513;
 
   --border-soft: #2e333b;
 }
@@ -66,13 +66,13 @@ header details {
 }
 
 .math {
-  border-left: 4px solid var(--accent-blue);
+  border-left: 4px solid var(--accent-math);
   padding: 10px;
   margin-bottom: 15px;
 }
 
 .software {
-  border-left: 4px solid var(--accent-orange);
+  border-left: 4px solid var(--accent-software);
   padding: 10px;
   margin-bottom: 15px;
 }
@@ -102,7 +102,7 @@ select {
 }
 
 select.active {
-  border-color: var(--accent-yellow);
+  border-color: var(--accent-filter);
   outline:none;
 }
 
@@ -116,7 +116,7 @@ select.active {
 }
 
 #search:focus, #search.active {
-  border-color: var(--accent-yellow);
+  border-color: var(--accent-filter);
 }
 
 #search::-webkit-search-cancel-button {
