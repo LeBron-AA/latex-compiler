@@ -1,11 +1,11 @@
-import './css/style.css';
+import './css/dark.css';
 import './css/layout.css';
 
 import { useState } from 'react';
 
 import Subject, { noteTypeDict, studyDict } from "./Subject.tsx";
 import type {NoteProps, SubjectProps} from "./Subject.tsx";
-import data from "./index.json";
+import data from "./assets/index.json";
 import {SearchFilter, ComboFilter} from "./Filter.tsx";
 
 type AppDataType = {subjects : SubjectProps[]}

@@ -19,13 +19,6 @@
           "pdfPath": "3Carrera/AMat3/Ejercicios/ejercicios.pdf",
           "language": "es",
           "type" : "ejercicios"
-        },
-        {
-          "title": "Apuntes del tema 4",
-          "description": "En progreso...  ",
-          "pdfPath": "3Carrera/AMat3/Tema4/tema4.pdf",
-          "language": "es",
-          "type" : "teoría"
         }
       ]
     },
