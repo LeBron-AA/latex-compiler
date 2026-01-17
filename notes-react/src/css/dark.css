@@ -2,8 +2,8 @@
 
 /* Variables de color */
 :root {
-  --bg-main: #121417;
-  --bg-header: #1a1d21;
+  --bg-header: #121417;
+  --bg-main: #1a1d21;
   --bg-section: #252a31;
   --bg-section-hover: #252a31e0;
 
@@ -22,11 +22,11 @@
 body {
   font-family:
     "Source Sans 3", sans-serif;
-    background-color: var(--bg-header);
+    background-color: var(--bg-main);
 }
 
 header {
-    background-color: var(--bg-main);
+    background-color: var(--bg-header);
     border-bottom: 0.5ex solid var(--border-soft);
 }
 
@@ -95,18 +95,19 @@ li::marker {
 }
 
 select {
-  background-color: var(--bg-section);
+  background-color: var(--bg-header);
   color: var(--text-main);
   border: 1px solid var(--border-soft);
-  border-radius: 4px;
-}
-
-select {
   border-radius: 1ex;
 }
 
+select.active {
+  border-color: var(--accent-yellow);
+  outline:none;
+}
+
 #search {
-  border: 0.5ex solid var(--border-soft);
+  border: 0.35ex solid var(--border-soft);
   border-radius: 2ex;
   color: var(--text-main);
   background-color: var(--bg-section);
@@ -114,6 +115,16 @@ select {
   transition: border-color 0.2s;
 }
 
-#search:focus {
+#search:focus, #search.active {
   border-color: var(--accent-yellow);
+}
+
+#search::-webkit-search-cancel-button {
+  color: var(--text-main);
+}
+
+.dashboard {
+  border: 0.25ex dashed var(--border-soft);
+  background-color: var(--bg-section);
+  border-radius: 8px;
 }

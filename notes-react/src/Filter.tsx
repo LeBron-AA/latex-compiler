@@ -1,28 +1,28 @@
+import { useState } from "react";
+import { capitalize, isBlank } from "./css/strutils";
+
 type InputFunction = (e : React.ChangeEvent<HTMLInputElement>) => void;
+type DictType = Record<string, string> | Record<number,number> | Record<number,string>
 
 type ComboProps<Item> = {
-    dict : Record<string, string>
+    dict : DictType
     property : keyof Item,
     changeFilter: (fn: (note: Item) => boolean) => void,
     anyValue ?: string
 }
 
-/* Makes the filter options more aesthetic */
-function capitalize(str: string): string {
-  if (!str) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
 export type DashboardItem<T> = {
-    dict : Record<string, string>,
+    dict : DictType,
     property : keyof T,
     title : string
 }
 
-export function ComboDashboard<T>({combos, setFilterFuncs, filterFuncs} : {combos : DashboardItem<T>[],
+export function ComboDashboard<T>({combos, title, setFilterFuncs, filterFuncs} : {combos : DashboardItem<T>[], title:string,
     filterFuncs : Array<(p: T) => boolean>, setFilterFuncs : (p: Array<(p: T) => boolean>) => void}) {
     return (
-        <section className="dashboard">
+        <fieldset className="dashboard">
+            <legend className="dashboardTitle">{title}</legend>
+            <div className="dashboardContents">
             {combos.map((filter, index) => {
                 return (
                 <div className="vert">
@@ -38,18 +38,26 @@ export function ComboDashboard<T>({combos, setFilterFuncs, filterFuncs} : {combo
                 </div>
                 );
             })}
-        </section>
+            </div>
+        </fieldset>
     );
 }
 
 export function ComboFilter<T>({dict, property, changeFilter, anyValue = "Cualquiera"} : ComboProps<T>) {
+    const [activeClass, setActiveClass] = useState<string>("");
+
     function valueFilter(value : string) {
-        if(value === anyValue) return () => true;
-        return (item : T) => item[property] === value;
+        if(value === anyValue) {
+            setActiveClass("");
+            return () => true;
+        }
+        setActiveClass("active");
+        return (item : T) => item[property] == value;
     }
 
     return (
         <select
+        className={activeClass}
         defaultValue={anyValue}
         onChange={(event) => changeFilter(valueFilter(event.currentTarget.value))}>
             <option key="anyvalue">{anyValue}</option>
@@ -60,13 +68,17 @@ export function ComboFilter<T>({dict, property, changeFilter, anyValue = "Cualqu
     );
 }
 
-export function SearchFilter({onSearch} : {onSearch : InputFunction}) {
+export function SearchFilter({onSearch, identifier = ""} : {onSearch : InputFunction, identifier?: string}) {
+    const [active, setActive] = useState<string>("");
     return (       
-        <section>
             <input
-            id="search"
+            className={active}
+            id={`search${identifier && `-${identifier}`}`}
             type='search'
             placeholder='Buscar asignaturas'
-            onChange={onSearch}/>
-        </section>);
+            onChange={(event) => {
+                setActive(isBlank(event.currentTarget.value) ? "" : "active");
+                onSearch(event);
+            }}/>
+        );
 }

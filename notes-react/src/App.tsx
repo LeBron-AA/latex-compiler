@@ -6,7 +6,8 @@ import { useState } from 'react';
 import Subject, { noteTypeDict, studyDict } from "./Subject.tsx";
 import type {NoteProps, SubjectProps} from "./Subject.tsx";
 import data from "./assets/index.json";
-import {SearchFilter, ComboFilter} from "./Filter.tsx";
+import {SearchFilter, ComboDashboard, type DashboardItem} from "./Filter.tsx";
+import { isBlank } from './css/strutils.ts';
 
 type AppDataType = {subjects : SubjectProps[]}
 
@@ -18,26 +19,17 @@ function normalizeText(text: string) {
     .toLowerCase();
 }
 
-type NoteFilters = {
-  dict : Record<string, string>,
-  property : keyof NoteProps,
-  title : string
-}
-
-type SubjectFilters = {
-  dict : Record<string, string>,
-  property : keyof SubjectProps,
-  title : string
-}
 
 export default function App() {
-  const noteFilters: Array<NoteFilters> = [
+  const noteFilters: Array<DashboardItem<NoteProps>> = [
     {dict : noteTypeDict, property : "type", title:"Tipo"},
     {dict : {en:"English", es:"Español"}, property : "language", title:"Idioma"}
   ];
 
-  const subjectFilters : Array<SubjectFilters> = [
-    {dict : studyDict, property : "study", title: "Estudios"}
+  const subjectFilters : Array<DashboardItem<SubjectProps>> = [
+    {dict : studyDict, property : "study", title: "Estudios"},
+    {dict : {1:1,2:2,3:3}, property: "grade", title : "Curso"},
+    {dict : {1:1,2:2}, property: "semester", title : "Semestre"}    
   ];
 
   const typedData = data as AppDataType;
@@ -48,7 +40,7 @@ export default function App() {
 
   function handleSearch(e : React.ChangeEvent<HTMLInputElement>) {
     const filterName = e.currentTarget.value;
-    if(!filterName || filterName.trim().length === 0) {
+    if(isBlank(filterName)) {
       setSubjects(typedData.subjects);
     } else {
       setSubjects(typedData.subjects.filter((subject) => {
@@ -63,38 +55,13 @@ export default function App() {
         <h1>Apuntes de UNIOVI</h1>
         <details>
         <summary>Filtros</summary>
+        <div className='filters'>
         <SearchFilter onSearch={handleSearch}/>
-        <section className='dashboard'>
-            {subjectFilters.map((filter, index) => {
-              return (
-              <div className='vert'>
-              <label>{filter.title + ":"}</label>
-              <ComboFilter<SubjectProps> key={`comboFilterSubject-${index}`}
-              dict={filter.dict} property={filter.property}
-              changeFilter={(func) => {
-                const nextFilterFuncs = subjectFilterFunctions.slice();
-                nextFilterFuncs[index] = func;
-                console.log(func);
-                setSubjectFilterFunctions(nextFilterFuncs);
-              }}/>
-              </div>);
-            })}
-
-            {noteFilters.map((filter, index) => {
-              return (
-              <div className='vert'>
-              <label>{filter.title + ":"}</label>
-              <ComboFilter<NoteProps> key={`comboFilterNotes-${index}`}
-              dict={filter.dict} property={filter.property}
-              changeFilter={(func) => {
-                const nextFilterFuncs = noteFilterFunctions.slice();
-                nextFilterFuncs[index] = func;
-                console.log(func);
-                setNoteFilterFunctions(nextFilterFuncs);
-              }}/>
-              </div>);
-            })}
-        </section>
+        <ComboDashboard<SubjectProps> combos={subjectFilters} title='Filtrar por asignaturas'
+          setFilterFuncs={setSubjectFilterFunctions}  filterFuncs={subjectFilterFunctions}/>          
+        <ComboDashboard<NoteProps> combos={noteFilters} title="Filtrar por apuntes"
+          setFilterFuncs={setNoteFilterFunctions}  filterFuncs={noteFilterFunctions}/>
+        </div>
         </details>
     </header>    
     <main>
