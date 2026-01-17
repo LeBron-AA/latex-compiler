@@ -36,11 +36,18 @@ export default function App() {
   const [subjects, setSubjects] = useState<SubjectProps[]>(typedData.subjects);
   const [noteFilterFunctions, setNoteFilterFunctions] = useState<Array<(note: NoteProps) => boolean>>(Array(noteFilters.length).fill(() => true));
   const [subjectFilterFunctions, setSubjectFilterFunctions] = useState<Array<(subject : SubjectProps) => boolean>>(Array(subjectFilters.length).fill(() => true));
-  const [darkTheme, setDarkTheme] = useState<boolean>(window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const [darkTheme, setDarkTheme] = useState<boolean>(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme !== null) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
   
   useEffect(() => {
     setThemeClass(darkTheme);
-  }, [darkTheme]); 
+    localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
+  }, [darkTheme]);
   
   function handleSearch(e : React.ChangeEvent<HTMLInputElement>) {
     const filterName = e.currentTarget.value;
