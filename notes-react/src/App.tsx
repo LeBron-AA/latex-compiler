@@ -1,5 +1,5 @@
-import './css/dark.css';
 import './css/layout.css';
+import "./css/dark.css";
 
 import { useState } from 'react';
 
@@ -28,15 +28,15 @@ export default function App() {
 
   const subjectFilters : Array<DashboardItem<SubjectProps>> = [
     {dict : studyDict, property : "study", title: "Estudios"},
-    {dict : {1:1,2:2,3:3}, property: "grade", title : "Curso"},
-    {dict : {1:1,2:2}, property: "semester", title : "Semestre"}    
+    {dict : {"1":"Primero","2":"Segundo","3":"Tercero"}, property: "grade", title : "Curso"},
+    {dict : {"1":"Primer","2":"Segundo", "anual" : "Anual"}, property: "semester", title : "Semestre"}    
   ];
 
   const typedData = data as AppDataType;
   const [subjects, setSubjects] = useState<SubjectProps[]>(typedData.subjects);
   const [noteFilterFunctions, setNoteFilterFunctions] = useState<Array<(note: NoteProps) => boolean>>(Array(noteFilters.length).fill(() => true));
   const [subjectFilterFunctions, setSubjectFilterFunctions] = useState<Array<(subject : SubjectProps) => boolean>>(Array(subjectFilters.length).fill(() => true));
-  
+
 
   function handleSearch(e : React.ChangeEvent<HTMLInputElement>) {
     const filterName = e.currentTarget.value;

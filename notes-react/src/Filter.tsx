@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { capitalize, isBlank } from "./css/strutils";
+import { isBlank } from "./css/strutils";
 
 type InputFunction = (e : React.ChangeEvent<HTMLInputElement>) => void;
-type DictType = Record<string, string> | Record<number,number> | Record<number,string>
+type DictType = Record<string, string>
 
 type ComboProps<Item> = {
     dict : DictType
@@ -62,7 +62,7 @@ export function ComboFilter<T>({dict, property, changeFilter, anyValue = "Cualqu
         onChange={(event) => changeFilter(valueFilter(event.currentTarget.value))}>
             <option key="anyvalue">{anyValue}</option>
             {Object.keys(dict).map((dictKey, index) => {
-                return <option key={index} value={dictKey}>{capitalize(dictKey)}</option>;
+                return <option key={index} value={dictKey}>{dict[dictKey]}</option>;
             })}
         </select>
     );

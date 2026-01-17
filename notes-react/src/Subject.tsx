@@ -3,18 +3,18 @@ export type NoteProps = {
     description : string,
     pdfPath : string,
     language : "es" | "en",
-    type: "teoría" | "ejercicios",
+    type: "theory" | "exercises",
 }
 
 export const noteTypeDict = {
-    "teoría" : "theory",
-    "ejercicios" : "exercises"
+    "theory" : "Teoría",
+    "exercises" : "Ejercicios"
 }
 
 function Note({props} : {props : NoteProps}) {
     return (
         <li
-        className={noteTypeDict[props.type] || "other"}>
+        className={noteTypeDict[props.type] ? props.type : "other"}>
             <a
             href={`${props.pdfPath}?v=${Date.now()}`}
             title={props.description}
@@ -29,19 +29,19 @@ export type SubjectProps = {
     name : string,
     grade : 1 | 2 | 3 | 4 | 5 | 6 | "other",
     semester : 1 | 2 | "anual",
-    study : "Matemáticas" | "Informática",
+    study : "math" | "software",
     notes : Array<NoteProps>
 }
 
 export const studyDict = {
-    "Matemáticas" : "math",
-    "Informática" : "software"
+    "math" : "Matemáticas",
+    "software" : "Informática"
 }
 
 export default function Subject({props, notesFilter}: {props: SubjectProps, notesFilter : (n : NoteProps) => boolean}) {
     const filteredNotes = props.notes.filter(notesFilter);
     return ( filteredNotes.length === 0 ? null :
-        <section className={studyDict[props.study] || "other"}>
+        <section className={studyDict[props.study] ? props.study : "other"}>
             <h2>{props.name}</h2>
             <ul>
                 {filteredNotes.map((noteProps) => {
