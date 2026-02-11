@@ -1,0 +1,235 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[table,x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{titlesec}
+\usepackage{tikz} % core TikZ
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Indent-subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm+0.07\textwidth]frame.north east) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea vertical
+  }
+}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
+
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
+
+%Espacios \mathcal{L}_p
+\newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Algoritmia}
+\author{Práctica 1.1}
+\date{8/2/2026}
+
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\result{Desbordamiento de fecha}
+\hspace{3mm} Sabemos que \texttt{currentTimeMillis()} devuelve un entero \texttt{long} de 64 bits. Así, al tener signo, el máximo valor que puede representar es $2^{63}-1$. Hagamos el factor de conversión de milisegundos a años:
+$$ (2^{63}-1)\text{ms} \cdot \frac{1 \text{s}}{10^3 \text{ms}} \cdot \frac{1\text{h}}{3600\text{s}} \cdot \frac{1\text{d}}{24\text{h}}\cdot\frac{1\text{año}}{365.25\text{d}} = 292.271.023 \text{años}$$
+
+\vspace{6mm}  
+\result{Toma de tiempos nulos en \texttt{Vector2}}
+\hspace{3mm} Para cargas suficientemente bajas, el tiempo transcurrido para la operación es inferior al milisegundo. Por tanto, al restar los resultados de \texttt{getCurrentTimeMillis()} antes y después de llamar al método se obtendrá 0 como resultado.
+
+\vspace{2mm}
+\hspace{3mm} La carga más baja para la que he podido tomar una medición fiable ha sido la siguiente:
+
+\begin{center}
+  \begin{verbatim}
+    t1=1770804162055  *** t2=1770804162106
+    n= 2000000	Tiempo metodo suma = 51
+    Resultado de la suma de elementos = 39692
+  \end{verbatim}
+\end{center}
+
+\vspace{1mm}
+\result{Toma de tiempos \texttt{Vector4}}
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Vector4.pdf}
+  \newline
+  Toma de tiempos para Vector4
+\end{center}
+El tiempo de respuesta para cada repetición parece seguir una correspondencia lineal con la carga, pues se duplica también (de manera aproximada).
+
+\vspace{6mm}
+\result{Suma vs Máximo}
+\hspace{3mm} Tras ejecutar \texttt{Vector4} y \texttt{Vector5} con 1000 repeticiones cada uno, estos han sido los tiempos resultantes (en $\mu$s):
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|c|c|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{Tsuma} & \textit{Tmaximo} \\
+\hline
+10000     & 269 & 337 \\ \hline
+20000     & 334 & 430 \\ \hline
+40000     & 799 & 1.049 \\ \hline
+80000     & 1.837 & 2.779 \\ \hline
+160000    & 3.568 & 5.513 \\ \hline
+320000    & 8.031 & 14.411 \\ \hline
+640000    & 15.815 & 32.013 \\ \hline
+1280000   & 27.232 & 61.351 \\ \hline
+2560000   & 51.124 & 132.819 \\ \hline
+5120000   & 105.653& FdT \\ \hline
+10240000  & FdT & FdT \\ \hline
+20480000  & FdT & FdT \\ \hline
+40960000  & FdT & FdT \\ \hline
+81920000  & FdT & FdT \\ \hline
+\end{tabular}
+\end{table}
+
+\vspace{4mm} Aunque el algoritmo ``máximo'' tiene tiempos más altos, ambos presentan un comportamiento lineal.
+
+\newpage
+\result{Condiciones de medida y características del ordenador}
+\hspace{3mm} Todas las mediciones han sido realizadas en un mismo ordenador con Eclipse IDE usando el argumento \texttt{-Xint} para la máquina virtual de java.
+\begin{itemize}
+  \item CPU: Intel Core i7-6700HQ CPU @ 2.60GHz \\[-3ex]
+  \item Memoria: 16GB RAM
+\end{itemize}
+\end{document} 
