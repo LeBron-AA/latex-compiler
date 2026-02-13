@@ -1,6 +1,21 @@
 {
   "subjects": [
     {
+      "name" : "Programación Matemática",
+      "grade" : 3,
+      "semester" : 2,
+      "study" : "math",
+      "notes" : [
+        {
+          "title" : "Ejercicios prácticos de programación lineal",
+          "description" : "De momento hay únicamente de solución gráfica...",
+          "pdfPath" : "3Carrera/ProgMat/Lab02/Ejercicios.pdf",
+          "language" : "es",
+          "type" : "exercises"
+        }
+      ]
+    },
+    {
       "name": "Análisis Matemático III",
       "grade": 3,
       "semester": 1,
