@@ -1,0 +1,460 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[table,x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{titlesec}
+\usepackage{tikz} % core TikZ
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Indent-subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm+0.07\textwidth]frame.north east) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea vertical
+  }
+}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
+
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
+
+%Espacios \mathcal{L}_p
+\newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Algoritmia}
+\author{Práctica 0}
+\date{8/2/2026}
+
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\result{Toma de tiempos Python A1 en dos ordenadores distintos}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|c|c|c|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & $T_1$ (ms) & $T_2$ (ms) & \textit{Cociente }$T_1$/$T_2$ \\
+\hline
+5.000      & 387    & 1.838   & 0,210554951 \\ \hline
+10.000     & 1.464  & 6.496   & 0,225369458 \\ \hline
+20.000     & 5.619  & 23.515  & 0,238953859 \\ \hline
+40.000     & 22.840 & 92.309  & 0,247429828 \\ \hline
+80.000     & 91.608 & FdT     & - \\ \hline
+160.000    & FdT    & FdT     & - \\ \hline
+\end{tabular}
+\end{table}
+El cociente de los tiempos se mantiene aun habiendo incrementado $n$ mucho, en línea con el principio de invarianza visto en teoría.
+
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 3cm 2cm 5cm,
+    clip
+  ]{media/PythonA1.pdf}
+  \\[-4ex]
+  Comparativa gráfica entre ambos ordenadores
+\end{center}
+Los tiempos mostrados se corresponden con las siguientes configuraciones de hardware:
+\begin{itemize}
+  \item $T_1$: CPU 12th Gen Intel(R) Core(TM) i5-12400 @ 2,5GHz + 16GB RAM\\
+  \item $T_2$: CPU: Intel Core i7-6700HQ CPU @ 2,60GHz + 16GB RAM
+\end{itemize}
+El resto de tomas de tiempos de esta memoria se realizarán con la configuración ``$T_2$'' de este apartado.
+
+\newpage
+\result{Tiempos en Java con y sin optimización para A2}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{Optim}(\text{ms})$} & \textit{$T_\text{-Xint}(\text{ms})$} \\
+\hline
+5.000     & 66    & 68    \\ \hline
+10.000    & 219   & 221   \\ \hline
+20.000    & 698   & 886   \\ \hline
+40.000    & 1.319 & 1.719 \\ \hline
+80.000    & 4.267 & 10.860 \\ \hline
+160.000   & 26.851 & 57.587 \\ \hline
+320.000   & FdT   & FdT   \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 3cm 2cm 5cm,
+    clip
+  ]{media/JavaA2.pdf}
+  \\[-4ex]
+\end{center}
+\newpage
+
+\result{Tiempos en Java con y sin optimización para A3}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{Optim}(\text{ms})$} & \textit{$T_\text{-Xint}(\text{ms})$} \\
+\hline
+5.000     & 48     & 50      \\ \hline
+10.000    & 113    & 169     \\ \hline
+20.000    & 663    & 212     \\ \hline
+40.000    & 1.734  & 1.406   \\ \hline
+80.000    & 8.588  & 8.489   \\ \hline
+160.000   & 24.114 & 41.085  \\ \hline
+320.000   & 64.550 & 163.845 \\ \hline
+640.000   & FdT    & FdT     \\ \hline
+\end{tabular}
+\end{table} 
+
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 3cm 2cm 5cm,
+    clip
+  ]{media/JavaA3.pdf}
+  \\[-4ex]
+\end{center}
+
+\newpage
+
+\result{Tiempos en Java con y sin optimización para A4}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{Optim}(\text{ms})$} & \textit{$T_\text{-Xint}(\text{ms})$} \\
+\hline
+5.000       & 43     & 109    \\ \hline
+10.000      & 1      & 1      \\ \hline
+20.000      & 1      & 1      \\ \hline
+40.000      & 4      & 4      \\ \hline
+80.000      & 12     & 11     \\ \hline
+160.000     & 38     & 28     \\ \hline
+320.000     & 75     & 55     \\ \hline
+640.000     & 147    & 128    \\ \hline
+1.280.000   & 292    & 146    \\ \hline
+2.560.000   & 448    & 321    \\ \hline
+5.120.000   & 1.064  & 903    \\ \hline
+10.240.000  & 2.216  & 1.914  \\ \hline
+20.480.000  & 3.113  & 3.934  \\ \hline
+40.960.000  & 8.503  & 6.835  \\ \hline
+81.920.000  & 14.329 & 15.591 \\ \hline
+163.840.000 & 31.754 & 30.892 \\ \hline
+\end{tabular}
+\end{table}
+La optimización no aporta cambios tan grandes o incluso empeora el rendimiento
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 3cm 2cm 5cm,
+    clip
+  ]{media/JavaA4.pdf}
+  \\[-4ex]
+\end{center}
+
+\newpage
+\result{Comparación de tiempos con optimización}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{JavaA1 (ms)} & \textit{JavaA2 (ms)} & \textit{JavaA3 (ms)} & \textit{JavaA4 (ms)} \\
+\hline
+5.000       & 543    & 66     & 48     & 43     \\ \hline
+10.000      & 1.083  & 219    & 113    & 1      \\ \hline
+20.000      & 3.895  & 698    & 663    & 1      \\ \hline
+40.000      & 11.454 & 1.319  & 1.734  & 4      \\ \hline
+80.000      & 49.932 & 4.267  & 8.588  & 12     \\ \hline
+160.000     & FdT    & 26.851 & 24.114 & 38     \\ \hline
+320.000     & FdT    & FdT    & 64.550 & 75     \\ \hline
+640.000     & FdT    & FdT    & FdT    & 147    \\ \hline
+1.280.000   & FdT    & FdT    & FdT    & 292    \\ \hline
+2.560.000   & FdT    & FdT    & FdT    & 448    \\ \hline
+5.120.000   & FdT    & FdT    & FdT    & 1.064  \\ \hline
+10.240.000  & FdT    & FdT    & FdT    & 2.216  \\ \hline
+20.480.000  & FdT    & FdT    & FdT    & 3.113  \\ \hline
+40.960.000  & FdT    & FdT    & FdT    & 8.503  \\ \hline
+81.920.000  & FdT    & FdT    & FdT    & 14.329 \\ \hline
+163.840.000 & FdT    & FdT    & FdT    & 31.754 \\ \hline
+\end{tabular}
+\end{table}
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 8.5cm 2cm 9.5cm,
+    clip
+  ]{media/Optim.pdf}
+  \\[-4ex]
+  Se han omitido datos de JavaA4 para evitar la distorsión de la gráfica
+\end{center}
+
+\newpage
+\result{Comparación entre algoritmos usando -Xint}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{JavaA1 (ms)} & \textit{JavaA2 (ms)} & \textit{JavaA3 (ms)} & \textit{JavaA4 (ms)} \\
+\hline
+5.000       & 278    & 68     & 50      & 109    \\ \hline
+10.000      & 1.364  & 221    & 169     & 1      \\ \hline
+20.000      & 5.860  & 886    & 212     & 1      \\ \hline
+40.000      & 21.258 & 1.719  & 1.406   & 4      \\ \hline
+80.000      & 66.728 & 10.860 & 8.489   & 11     \\ \hline
+160.000     & FdT    & 57.587 & 41.085  & 28     \\ \hline
+320.000     & FdT    & FdT    & FdT     & 55     \\ \hline
+640.000     & FdT    & FdT    & FdT     & 128    \\ \hline
+1.280.000   & FdT    & FdT    & FdT     & 146    \\ \hline
+2.560.000   & FdT    & FdT    & FdT     & 321    \\ \hline
+5.120.000   & FdT    & FdT    & FdT     & 903    \\ \hline
+10.240.000  & FdT    & FdT    & FdT     & 1.914  \\ \hline
+20.480.000  & FdT    & FdT    & FdT     & 3.934  \\ \hline
+40.960.000  & FdT    & FdT    & FdT     & 6.835  \\ \hline
+81.920.000  & FdT    & FdT    & FdT     & 15.591 \\ \hline
+163.840.000 & FdT    & FdT    & FdT     & 30.892 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 3cm 2cm 5cm,
+    clip
+  ]{media/Xint.pdf}
+  \\[-4ex]
+  Se han omitido datos de JavaA4 para evitar la distorsión de la gráfica
+\end{center}
+
+\newpage
+\result{Comparativa Java Python}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{JavaA1 (ms)} & \textit{PythonA1 (ms)} \\
+\hline
+5.000   & 278    & 1.838  \\ \hline
+10.000  & 1.364  & 6.496  \\ \hline
+20.000  & 5.860  & 23.515 \\ \hline
+40.000  & 21.258 & 92.309 \\ \hline
+80.000  & 66.728 & FdT    \\ \hline
+160.000 & FdT    & FdT    \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{JavaA2 (ms)} & \textit{PythonA2 (ms)} \\
+\hline
+5.000   & 68     & 148    \\ \hline
+10.000  & 221    & 939    \\ \hline
+20.000  & 886    & 2.994  \\ \hline
+40.000  & 1.719  & 12.533 \\ \hline
+80.000  & 10.860 & 44.993 \\ \hline
+160.000 & 57.587 & FdT    \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{JavaA3 (ms)} & \textit{PythonA3 (ms)} \\
+\hline
+5.000   & 50     & 68     \\ \hline
+10.000  & 169    & 281    \\ \hline
+20.000  & 212    & 1.188  \\ \hline
+40.000  & 1.406  & 5.828  \\ \hline
+80.000  & 8.489  & 22.621 \\ \hline
+160.000 & 41.085 & 80.348 \\ \hline
+320.000 & FdT    & FdT    \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{JavaA4 (ms)} & \textit{PythonA4 (ms)} \\
+\hline
+5.000       & 109    & 1      \\ \hline
+10.000      & 1      & 8      \\ \hline
+20.000      & 1      & 5      \\ \hline
+40.000      & 4      & 24     \\ \hline
+80.000      & 11     & 39     \\ \hline
+160.000     & 28     & 72     \\ \hline
+320.000     & 55     & 182    \\ \hline
+640.000     & 128    & 413    \\ \hline
+1.280.000   & 146    & 645    \\ \hline
+2.560.000   & 321    & 1.416  \\ \hline
+5.120.000   & 903    & 3.468  \\ \hline
+10.240.000  & 1.914  & 6.657  \\ \hline
+20.480.000  & 3.934  & 13.347 \\ \hline
+40.960.000  & 6.835  & 30.003 \\ \hline
+81.920.000  & 15.591 & 58.415 \\ \hline
+163.840.000 & 30.892 & FdT    \\ \hline
+\end{tabular}
+\end{table}
+
+
+\end{document} 

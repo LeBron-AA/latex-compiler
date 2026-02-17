@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  17 FEB 2026 22:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  17 FEB 2026 22:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/UNIOVI/latex-compiler/3Carrera/Algoritmia/Laboratorio/p11/memoria.tex
-(d:/UNIOVI/latex-compiler/3Carrera/Algoritmia/Laboratorio/p11/memoria.tex
+**d:/UNIOVI/latex-compiler/3Carrera/Algoritmia/Laboratorio/p12/memoria.tex
+(d:/UNIOVI/latex-compiler/3Carrera/Algoritmia/Laboratorio/p12/memoria.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\MikTex\texmfs\install\tex/latex/base\article.cls
@@ -950,56 +950,119 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [1
 
 {C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map}]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 172.
 
-
-pdfTeX warning: pdflatex.exe (file ./media/Vector4.pdf): PDF inclusion: found P
-DF version <1.7>, but at most version <1.5> allowed
-<media/Vector4.pdf, id=50, 794.97pt x 614.295pt>
-File: media/Vector4.pdf Graphic file (type pdf)
-<use media/Vector4.pdf>
-Package pdftex.def Info: media/Vector4.pdf  used on input line 193.
+pdfTeX warning: pdflatex.exe (file ./media/Bucle1.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle1.pdf, id=64, 794.97pt x 614.295pt>
+File: media/Bucle1.pdf Graphic file (type pdf)
+<use media/Bucle1.pdf>
+Package pdftex.def Info: media/Bucle1.pdf  used on input line 197.
 (pdftex.def)             Requested size: 376.42575pt x 210.04543pt.
-[2 <./media/Vector4.pdf>]
+[2 <./media/Bucle1.pdf>]
+Overfull \hbox (12.88106pt too wide) in paragraph at lines 209--225
+ [][] 
+ []
 
-pdfTeX warning: pdflatex.exe (file ./media/Lineales.pdf): PDF inclusion: found 
-PDF version <1.7>, but at most version <1.5> allowed
-<media/Lineales.pdf, id=69, 794.97pt x 614.295pt>
-File: media/Lineales.pdf Graphic file (type pdf)
-<use media/Lineales.pdf>
-Package pdftex.def Info: media/Lineales.pdf  used on input line 234.
+
+
+pdfTeX warning: pdflatex.exe (file ./media/Bucle2.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle2.pdf, id=83, 794.97pt x 614.295pt>
+File: media/Bucle2.pdf Graphic file (type pdf)
+<use media/Bucle2.pdf>
+Package pdftex.def Info: media/Bucle2.pdf  used on input line 233.
 (pdftex.def)             Requested size: 376.42575pt x 210.04543pt.
-[3] [4 <./media/Lineales.pdf>] [5] [6] (memoria.aux)
+[3 <./media/Bucle2.pdf>]
+Overfull \hbox (16.6269pt too wide) in paragraph at lines 245--261
+ [][] 
+ []
+
+
+
+pdfTeX warning: pdflatex.exe (file ./media/Bucle3.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle3.pdf, id=99, 794.97pt x 614.295pt>
+File: media/Bucle3.pdf Graphic file (type pdf)
+<use media/Bucle3.pdf>
+Package pdftex.def Info: media/Bucle3.pdf  used on input line 268.
+(pdftex.def)             Requested size: 376.42575pt x 210.04543pt.
+[4 <./media/Bucle3.pdf>]
+Overfull \hbox (12.88106pt too wide) in paragraph at lines 280--294
+ [][] 
+ []
+
+
+
+pdfTeX warning: pdflatex.exe (file ./media/Bucle4.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle4.pdf, id=114, 794.97pt x 614.295pt>
+File: media/Bucle4.pdf Graphic file (type pdf)
+<use media/Bucle4.pdf>
+Package pdftex.def Info: media/Bucle4.pdf  used on input line 301.
+(pdftex.def)             Requested size: 418.25368pt x 233.38306pt.
+[5 <./media/Bucle4.pdf>] [6]
+Overfull \hbox (16.6269pt too wide) in paragraph at lines 360--374
+ [][] 
+ []
+
+
+
+pdfTeX warning: pdflatex.exe (file ./media/Bucle5.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle5.pdf, id=133, 794.97pt x 614.295pt>
+File: media/Bucle5.pdf Graphic file (type pdf)
+<use media/Bucle5.pdf>
+Package pdftex.def Info: media/Bucle5.pdf  used on input line 382.
+(pdftex.def)             Requested size: 376.42575pt x 210.04543pt.
+[7 <./media/Bucle5.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./media/Bucle6.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle6.pdf, id=149, 794.97pt x 614.295pt>
+File: media/Bucle6.pdf Graphic file (type pdf)
+<use media/Bucle6.pdf>
+Package pdftex.def Info: media/Bucle6.pdf  used on input line 411.
+(pdftex.def)             Requested size: 376.42575pt x 210.04543pt.
+[8 <./media/Bucle6.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./media/Bucle7.pdf): PDF inclusion: found PD
+F version <1.7>, but at most version <1.5> allowed
+<media/Bucle7.pdf, id=164, 794.97pt x 614.295pt>
+File: media/Bucle7.pdf Graphic file (type pdf)
+<use media/Bucle7.pdf>
+Package pdftex.def Info: media/Bucle7.pdf  used on input line 441.
+(pdftex.def)             Requested size: 376.42575pt x 210.04543pt.
+[9 <./media/Bucle7.pdf>]
+Overfull \hbox (27.73pt too wide) in paragraph at lines 449--461
+ [][] 
+ []
+
+[10] (memoria.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: A831BBA362CE5C5FD2A16314B289E32F;1527.
+(rerunfilecheck)             Checksum: 9331B8846D22556A822A7F5AFB2B3CC3;1190.
  ) 
 Here is how much of TeX's memory you used:
- 36580 strings out of 474486
- 863441 string characters out of 5753177
- 1935542 words of memory out of 5000000
- 58271 multiletter control sequences out of 15000+600000
- 568248 words of font info for 75 fonts, out of 8000000 for 9000
+ 36618 strings out of 474486
+ 864321 string characters out of 5753177
+ 1938542 words of memory out of 5000000
+ 58303 multiletter control sequences out of 15000+600000
+ 567742 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,14n,87p,782b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Mi
-kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fo
-nts/type1/public/amsfonts/cm/cmmi6.pfb><C:/MikTex/texmfs/install/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfont
-s/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr17.p
-fb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MikTex
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/MikTex/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmti8.pfb><C:/MikTex/texmfs/install/fonts/type1/public
-/amsfonts/cm/cmtt12.pfb>
-Output written on memoria.pdf (6 pages, 193403 bytes).
+<C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTe
+x/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.pfb><
+C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on memoria.pdf (10 pages, 456692 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 14 named destinations out of 1000 (max. 500000)
- 91 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 170 words of extra memory for PDF output out of 10000 (max. 10000000)
 

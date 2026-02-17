@@ -17,6 +17,7 @@
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
 \usepackage{pgfplots}
+\usepackage{float}
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{fillbetween}
 
@@ -206,26 +207,112 @@ El tiempo de respuesta para cada repetición parece seguir una correspondencia l
 \rowcolor{LightSteelBlue2}
 \textit{n} & \textit{Tsuma} & \textit{Tmaximo} \\
 \hline
-10000     & 269 & 337 \\ \hline
-20000     & 334 & 430 \\ \hline
-40000     & 799 & 1.049 \\ \hline
-80000     & 1.837 & 2.779 \\ \hline
-160000    & 3.568 & 5.513 \\ \hline
-320000    & 8.031 & 14.411 \\ \hline
-640000    & 15.815 & 32.013 \\ \hline
-1280000   & 27.232 & 61.351 \\ \hline
-2560000   & 51.124 & 132.819 \\ \hline
-5120000   & 105.653& FdT \\ \hline
-10240000  & FdT & FdT \\ \hline
-20480000  & FdT & FdT \\ \hline
-40960000  & FdT & FdT \\ \hline
-81920000  & FdT & FdT \\ \hline
+10.000     & 269 & 337 \\ \hline
+20.000     & 334 & 430 \\ \hline
+40.000     & 799 & 1.049 \\ \hline
+80.000     & 1.837 & 2.779 \\ \hline
+160.000    & 3.568 & 5.513 \\ \hline
+320.000    & 8.031 & 14.411 \\ \hline
+640.000    & 15.815 & 32.013 \\ \hline
+1.280.000   & 27.232 & 61.351 \\ \hline
+2.560.000   & 51.124 & 132.819 \\ \hline
+5.120.000   & 105.653& FdT \\ \hline
+10.240.000  & FdT & FdT \\ \hline
+20.480.000  & FdT & FdT \\ \hline
+40.960.000  & FdT & FdT \\ \hline
+81.920.000  & FdT & FdT \\ \hline
 \end{tabular}
 \end{table}
 
 \vspace{4mm} Aunque el algoritmo ``máximo'' tiene tiempos más altos, ambos presentan un comportamiento lineal.
 
-\newpage
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Lineales.pdf}
+  \newline
+  Comparativa gráfica entre los tiempos de \texttt{suma} y \texttt{maximo}
+\end{center}
+
+\vspace{6ex}
+\result{Coincidencias 1 vs Coincidencias 2}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|c|c|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{Coincidencias 1(ms)} & \textit{Coincidencias 2(ms)} \\
+\hline
+10.000     & 1.161   & 0,42   \\ \hline
+20.000     & 4.955   & 0,54   \\ \hline
+40.000     & 18.178  & 1,16   \\ \hline
+80.000     & 73.149  & 3,061  \\ \hline
+160.000    & 291.764 & 4,841  \\ \hline
+320.000    & FdT     & 11,926 \\ \hline
+640.000    & FdT     & 20,15  \\ \hline
+1.280.000  & FdT     & 43,668 \\ \hline
+2.560.000  & FdT     & 89,01  \\ \hline
+5.120.000  & FdT     & 180,352 \\ \hline
+\end{tabular}
+\end{table}
+Debido al elevado coste temporal de ejecutar \texttt{Coincidencias1}, las tomas de tiempos de este algoritmo se hicieron con una única repetición. Las de \texttt{Coincidencias2}; en cambio, se tomaron como promedio de 1000 repeticiones (de ahí los decimales al hacer la media).
+
+\vspace{6ex}   
+\result{Comparación con tiempos teóricos}
+\hspace{3mm} Los algoritmos \texttt{suma} y \texttt{maximo} iteran por cada elemento del array, realizando operaciones de tiempo constante en cada paso. Por tanto, tienen complejidad $O(n)$. Veamos si el cociente entre los tiempos empíricos y $n$ tiende a una constante no nula.
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|c|c|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{Suma}/n$} & \textit{$T_\text{Max}/n$} \\
+\hline
+10.000     & 0,0269 & 0,0337 \\ \hline
+20.000     & 0,0167 & 0,0215 \\ \hline
+40.000     & 0,0200 & 0,0262 \\ \hline
+80.000     & 0,0230 & 0,0347 \\ \hline
+160.000    & 0,0223 & 0,0345 \\ \hline
+320.000    & 0,0251 & 0,0450 \\ \hline
+640.000    & 0,0247 & 0,0500 \\ \hline
+1.280.000  & 0,0213 & 0,0479 \\ \hline
+2.560.000  & 0,0200 & 0,0519 \\ \hline
+5.120.000  & 0,0206 & -\\\hline
+\end{tabular}
+\end{table}
+
+Aun habiendo modificado $n$ en gran medida, los cocientes parecen mantenerse estables, sobre todo para \texttt{suma}. Los cocientes d máximo, aunque lo logran, tardan algo más en estabilizarse.
+
+\vspace{4mm}
+Veamos ahora el la comparativa para \texttt{coincidencias1} y \texttt{coincidencias2}. El primero de ellos, itera sobre el primer vector y en cada paso recorre el segundo vector al completo. Si $n$ es el tamaño de cada vector (ambos de igual tamaño), la complejidad del algoritmo es por tanto $O(n^2)$. En cuanto a \texttt{coincidencias2}, itera sobre ambos vectores simultáneamente utilizando una única variable índice, luego su complejidad es $O(n)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|c|c|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$n^2/T_1$} & \textit{$n/T_2$} \\
+\hline
+10.000     & 86132,64427 & 23809,52381 \\ \hline
+20.000     & 80726,53885 & 37037,03704 \\ \hline
+40.000     & 88018,48388 & 34482,75862 \\ \hline
+80.000     & 87492,65198 & 26135,24992 \\ \hline
+160.000    & 87742,14776 & 33051,02252 \\ \hline
+320.000    & - & 26832,13148 \\ \hline
+640.000    & - & 31761,7866 \\ \hline
+1.280.000  & - & 29312,08207 \\ \hline
+2.560.000  & - & 28760,81339 \\ \hline
+5.120.000  & - & 28388,92832 \\ \hline
+\end{tabular}
+\end{table}
+
+Por legibilidad, hemos optado por dividir $\frac{f_i(n)}{T_i}$ (el resultado sigue siendo válido).
+
+\vspace{6ex}
 \result{Condiciones de medida y características del ordenador}
 \hspace{3mm} Todas las mediciones han sido realizadas en un mismo ordenador con Eclipse IDE usando el argumento \texttt{-Xint} para la máquina virtual de java.
 \begin{itemize}

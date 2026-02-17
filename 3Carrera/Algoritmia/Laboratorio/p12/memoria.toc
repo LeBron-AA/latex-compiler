@@ -1,0 +1,10 @@
+\contentsline {subsubsection}{\numberline {1.}Bucle 1}{2}{subsubsection.0.0.0.1}%
+\contentsline {subsubsection}{\numberline {2.}Bucle 2}{3}{subsubsection.0.0.0.2}%
+\contentsline {subsubsection}{\numberline {3.}Bucle 3}{4}{subsubsection.0.0.0.3}%
+\contentsline {subsubsection}{\numberline {4.}Bucle 4}{5}{subsubsection.0.0.0.4}%
+\contentsline {subsubsection}{\numberline {5.}Comparativas entre bucles}{6}{subsubsection.0.0.0.5}%
+\contentsline {subsubsection}{\numberline {6.}Bucle 5}{7}{subsubsection.0.0.0.6}%
+\contentsline {subsubsection}{\numberline {7.}Bucle 6}{8}{subsubsection.0.0.0.7}%
+\contentsline {subsubsection}{\numberline {8.}Bucle 7}{9}{subsubsection.0.0.0.8}%
+\contentsline {subsubsection}{\numberline {9.}Python vs Java (Bucle4)}{10}{subsubsection.0.0.0.9}%
+\contentsline {subsubsection}{\numberline {10.}Condiciones de medida}{10}{subsubsection.0.0.0.10}%

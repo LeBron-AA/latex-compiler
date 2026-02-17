@@ -1,0 +1,472 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[table,x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{titlesec}
+\usepackage{tikz} % core TikZ
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\usepackage{float}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Indent-subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm+0.07\textwidth]frame.north east) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea vertical
+  }
+}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
+
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
+
+%Espacios \mathcal{L}_p
+\newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Algoritmia}
+\author{Práctica 1.2}
+\date{15/2/2026}
+
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\result{Bucle 1}
+\hspace{3mm} El método \texttt{bucle1} tiene dos partes anidadas. La primera de ellas recorre $n^2$ elementos, multiplicando el contador de índice por 3 en cada paso. Así, la complejidad teórica esperada es de $O(\log n^2) = O(\log n)$. La segunda abarca $2n$ elementos saltando de 3 en 3, luego la complejidad de esta parte es $O(n)$. En total, \texttt{bucle1} es $O(n\log n)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{T empírico (ms)} & \textit{Repeticiones} & \textit{T teórico (ms)} \\
+\hline
+100     & 51        & 10.000 & - \\ \hline
+200     & 99        & 10.000 & 117,35 \\ \hline
+400     & 192       & 10.000 & 223,90 \\ \hline
+800     & 458       & 10.000 & 428,42 \\ \hline
+1.600   & 993       & 10.000 & 1.010,98 \\ \hline
+3.200   & 2.111     & 10.000 & 2.172,59 \\ \hline
+6.400   & 4.793     & 10.000 & 4.584,59 \\ \hline
+12.800  & 10.285    & 10.000 & 10.344,15 \\ \hline
+25.600  & 23.169    & 10.000 & 22.077,64 \\ \hline
+51.200  & 49.114    & 10.000 & 49.502,33 \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle1.pdf}
+  \newline
+  Comparación de tiempos empíricos y teóricos de \texttt{bucle1}
+\end{center}
+
+\newpage
+\result{Bucle 2}
+\hspace{3mm} El método \texttt{bucle2} contiene un bucle externo que divide su variable de control entre 3 en cada iteración hasta llegar a 1, lo que supone $O(\log n)$. En cada una de esas iteraciones se ejecutan dos bucles anidados: el primero recorre $n$ elementos y el segundo aproximadamente $n/2$, por lo que juntos aportan una complejidad $O(n^2)$. En consecuencia, la complejidad total de \texttt{bucle2} es $O(n^2\log n)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{emp}$ total (ms)} & \textit{Repeticiones} & \textit{$T_\text{teo}$ total (ms)} & \textit{$\overline{T_\text{emp}}$ (ms)} & \textit{$\overline{T_\text{teo}}$ (ms)} \\
+\hline
+100     & 54       & 10.000 & -           & 0,0054    & - \\ \hline
+200     & 151      & 10.000 & 248,5112    & 0,0151    & 0,0249 \\ \hline
+400     & 694      & 10.000 & 683,0177    & 0,0694    & 0,0683 \\ \hline
+800     & 3.159    & 10.000 & 3.097,1530  & 0,3159    & 0,3097 \\ \hline
+1.600   & 10.200   & 10.000 & 13.946,2643 & 1,0200    & 1,3946 \\ \hline
+3.200   & 40.955   & 10.000 & 44.633,1972 & 4,0955    & 4,4633 \\ \hline
+6.400   & 156      & 10     & 177,8892    & 15,6000   & 17,7889 \\ \hline
+12.800  & 663      & 10     & 673,3520    & 66,3000   & 67,3352 \\ \hline
+25.600  & 2.897    & 10     & 2.846,3732  & 289,7000  & 284,6373 \\ \hline
+51.200  & 11.410   & 10     & 12.379,3216 & 1.141,0000 & 1.237,9322 \\ \hline
+\end{tabular}
+\end{table}
+Tiempos empíricos y teóricos totales (tiempo de todas las repeticiones) y medios (entre el número de repeticiones)
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle2.pdf}
+  \newline
+  Las repeticiones, luego  hemos de graficar usando los tiempos medios
+\end{center}
+
+\newpage
+\result{Bucle 3}
+\hspace{3mm} El método \texttt{bucle3} tiene su bucle más externo que recorre $2n$ elementos, por lo que su complejidad es $O(n)$. En cada iteración, un segundo bucle recorre desde el valor actual (\texttt{i}) hasta 0 decrementando de 2 en 2, lo que supone una complejidad $O(n)$. Además, existe un tercer bucle que duplica su variable hasta alcanzar $n$, aportando una capa más de complejidad $O(\log n)$. Así, se obtiene una complejidad total $O(n^2\log n)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{emp}$ total (ms)} & \textit{Repeticiones} & \textit{$T_\text{teo}$ total (ms)} & \textit{$\overline{T_\text{emp}}$ (ms)} & \textit{$\overline{T_\text{teo}}$ (ms)} \\
+\hline
+100      & 82      & 100   & -           & 0,82       & - \\ \hline
+200      & 350     & 100   & 377,3689    & 3,50       & 3,7737 \\ \hline
+400      & 1.498   & 100   & 1.583,1536  & 14,98      & 15,8315 \\ \hline
+800      & 6.422   & 100   & 6.685,2091  & 64,22      & 66,8521 \\ \hline
+1.600    & 26.802  & 100   & 28.351,6648 & 268,02     & 283,5166 \\ \hline
+3.200    & 11.298  & 10    & 11.728,0289 & 1.129,80   & 1.172,8029 \\ \hline
+6.400    & 47.576  & 10    & 49.073,1884 & 4.757,60   & 4.907,3188 \\ \hline
+12.800   & 19.801  & 1     & 20.535,5104 & 19.801,00  & 20.535,5104 \\ \hline
+25.600   & 83.367  & 1     & 85.009,1037 & 83.367,00  & 85.009,1037 \\ \hline
+51.200   & Fdt     & -     & -           & -          & - \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle3.pdf}
+  \newline
+  Una vez más, comparamos las medias en igualdad de unidades
+\end{center}
+
+\newpage
+\result{Bucle 4}
+\hspace{3mm} El método \texttt{bucle4} consta de tres bucles anidados donde el primero recorre $n$ elementos. El segundo bucle, en la iteración $i$-ésima del primero recorre $i$ elementos. Análogamente, el tercer bucle recorre $j$ (índice del segundo) elementos. En total, la complejidad del método es de $O(n^3)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{emp}$ total (ms)} & \textit{Repeticiones} & \textit{$T_\text{teo}$ total (ms)} & \textit{$\overline{T_\text{emp}}$ (ms)} & \textit{$\overline{T_\text{teo}}$ (ms)} \\
+\hline
+100      & 70       & 100   & -           & 0,70       & - \\ \hline
+200      & 478      & 100   & 560,00      & 4,78       & 5,60 \\ \hline
+400      & 3.560    & 100   & 3.824,00    & 35,60      & 38,24 \\ \hline
+800      & 28.111   & 100   & 28.480,00   & 281,11     & 284,80 \\ \hline
+1.600    & 2.325    & 1     & 2.248,88    & 2.325,00   & 2.248,88 \\ \hline
+3.200    & 18.583   & 1     & 18.600,00   & 18.583,00  & 18.600,00 \\ \hline
+6.400    & 149.392  & 1     & 148.664,00  & 149.392,00 & 148.664,00 \\ \hline
+12.800   & FdT      & -     & -           & -          & - \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+  \includegraphics[
+    width=\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle4.pdf}
+\end{center}
+
+\newpage
+\result{Comparativas entre bucles}
+\hspace{3mm} Cociente \texttt{bucle1} y \texttt{bucle2}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_1$ (ms)} & \textit{$T_2$ (ms)} & \textit{$T_1 / T_2$} \\
+\hline
+100      & 0,0051     & 0,0054     & 0,9444 \\ \hline
+200      & 0,0099     & 0,0151     & 0,6556 \\ \hline
+400      & 0,0192     & 0,0694     & 0,2767 \\ \hline
+800      & 0,0458     & 0,3159     & 0,1450 \\ \hline
+1.600    & 0,0993     & 1,0200     & 0,0974 \\ \hline
+3.200    & 0,2111     & 4,0955     & 0,0515 \\ \hline
+6.400    & 0,4793     & 15,6000    & 0,0307 \\ \hline
+12.800   & 1,0285     & 66,3000    & 0,0155 \\ \hline
+25.600   & 2,3169     & 289,7000   & 0,0080 \\ \hline
+51.200   & 4,9114     & 1.141,0000 & 0,0043 \\ \hline
+\end{tabular}
+\end{table}
+Los cocientes van decreciendo claramente en cada iteración, en línea con el resultado que esperábamos por sus complejidades teóricas.
+
+
+\vspace{6mm} Cociente \texttt{bucle3} vs \texttt{bucle1}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_3$ (ms)} & \textit{$T_2$ (ms)} & \textit{$T_3 / T_2$} \\
+\hline
+100      & 0,82      & 0,0054    & 151,8519 \\ \hline
+200      & 3,50      & 0,0151    & 231,7881 \\ \hline
+400      & 14,98     & 0,0694    & 215,8501 \\ \hline
+800      & 64,22     & 0,3159    & 203,2922 \\ \hline
+1.600    & 268,02    & 1,0200    & 262,7647 \\ \hline
+3.200    & 1.129,8   & 4,0955    & 275,8638 \\ \hline
+6.400    & 4.757,6   & 15,6000   & 304,9744 \\ \hline
+12.800   & 19.801    & 66,3000   & 298,6576 \\ \hline
+25.600   & 83.367    & 289,7000  & 287,7701 \\ \hline
+51.200   & -         & 1.141,0000 & - \\ \hline
+\end{tabular}
+\end{table}
+Los cocientes se estabilizan para $n$ grande, en línea con lo que esperábamos (mismas complejidades teóricas).
+
+\newpage
+\result{Bucle 5}
+\hspace{3mm} Para lograr un bucle de complejidad $O(n^2 \log^2 n)$ de manera sencilla, hemos optado por usar dos bucles de complejidad $O(n)$ y otros  dos de complejidad $O(\log n)$, todos ellos anidados.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{emp}$ total (ms)} & \textit{Repeticiones} & \textit{$T_\text{teo}$ total (ms)} & \textit{$\overline{T_\text{emp}}$ (ms)} & \textit{$\overline{T_\text{teo}}$ (ms)} \\
+\hline
+100      & 699       & 100   & -           & 6,99       & - \\ \hline
+200      & 3.181     & 100   & 3.701,0226  & 31,81      & 37,0102 \\ \hline
+400      & 15.338    & 100   & 16.270,980  & 153,38     & 162,7098 \\ \hline
+800      & 848       & 1     & 763,6865    & 848,00     & 763,6865 \\ \hline
+1.600    & 3.073     & 1     & 4.131,9246  & 3.073,00   & 4.131,9246 \\ \hline
+3.200    & 17.538    & 1     & 14.710,1879 & 17.538,00  & 14.710,1879 \\ \hline
+6.400    & 72.779    & 1     & 82.719,0401 & 72.779,00  & 82.719,0401 \\ \hline
+12.800   & FdT       & -     & -           & -          & - \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle5.pdf}
+\end{center}
+
+\newpage
+\result{Bucle 6}
+\hspace{3mm} Para lograr un bucle de complejidad $O(n^3 \log n)$ usamos tres bucles de complejidad $O(n)$ y otro de complejidad $\log n$, todos ellos anidados.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{emp}$ (ms)} & \textit{Repeticiones} & \textit{$T_\text{teo}$ (ms)} \\
+\hline
+100      & 66        & 1     & - \\ \hline
+200      & 429       & 1     & 607,4719 \\ \hline
+400      & 3.880     & 1     & 3.880,9880 \\ \hline
+800      & 33.469    & 1     & 34.630,9899 \\ \hline
+1.600    & FdT       & -     & - \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle6.pdf}
+\end{center}
+
+
+\newpage
+\result{Bucle 7}
+\hspace{3mm} Para lograr un bucle de complejidad $O(n^4)$ podemos usar 4 bucles anidados de complejidad $O(n)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{emp}$ (ms)} & \textit{Repeticiones} & \textit{$T_\text{teo}$ (ms)} \\
+\hline
+100      & 85       & 1     & - \\ \hline
+200      & 1.151    & 1     & 1.360 \\ \hline
+400      & 17.339   & 1     & 18.416 \\ \hline
+800      & 261.464  & 1     & 277.424 \\ \hline
+1.600    & FdT      & -     & - \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=0 3cm 0 3cm,
+    clip
+  ]{media/Bucle7.pdf}
+\end{center}
+
+\newpage
+\result{Python vs Java (Bucle4)}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{Python}$ (ms)} & \textit{$T_\text{Java total}$ (ms)} & \textit{Repeticiones Java} & \textit{$T_\text{Java medio}$ (ms)} & \textit{$T_\text{Py} / T_\text{J}$} \\
+\hline
+200      & 113       & 468       & 100   & 4,68       & 24,1453 \\ \hline
+400      & 800       & 234       & 1     & 234,00     & 3,4188 \\ \hline
+800      & 7.985     & 1.569     & 1     & 1.569,00   & 5,0892 \\ \hline
+1.600    & 69.665    & 14.186    & 1     & 14.186,00  & 4,9108 \\ \hline
+3.200    & FdT       & 110.528   & 1     & 110.528,00 & - \\ \hline
+6.400    & FdT       & FdT       & -     & -          & - \\ \hline
+\end{tabular}
+\end{table}
+El cociente de tiempos se va estabilizando.
+
+\vspace{6mm}
+\result{Condiciones de medida}
+\hspace{3mm} Todas las medidas en Java han sido realizadas con Eclipse IDE usando la opción \texttt{-Xint} como argumento para la JVM.
+
+\vspace{2mm} Los apartados 1 al 5 de esta memoria han usado las siguientes especificaciones:
+[CPU 12th Gen Intel(R) Core(TM) i5-12400 @ 2,5GHz + 16GB RAM]
+, y el resto
+[CPU: Intel Core i7-6700HQ CPU @ 2,60GHz + 16GB RAM].
+\end{document} 
