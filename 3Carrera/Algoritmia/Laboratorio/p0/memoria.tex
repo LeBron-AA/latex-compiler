@@ -17,6 +17,8 @@
 \usepackage{tikz} % core TikZ
 \usetikzlibrary{matrix}
 \usepackage{pgfplots}
+\usepackage{float}
+
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{fillbetween}
 
@@ -429,7 +431,7 @@ La optimización no aporta cambios tan grandes o incluso empeora el rendimiento
 \end{tabular}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|r|r|r|}
@@ -456,5 +458,49 @@ La optimización no aporta cambios tan grandes o incluso empeora el rendimiento
 \end{tabular}
 \end{table}
 
+\vspace{2mm}
+\begin{center}
+  \includegraphics[
+    width=0.95\textwidth,
+    trim=2cm 3cm 2cm 5cm,
+    clip
+  ]{media/PythonConjunto.pdf}
+  \\[-4ex]
+  Se han omitido datos de A3 y A4 para no distorsionar el eje de abscisas
+\end{center}
 
+\newpage
+\result{Algortimo A5: Criba de Atkin}
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{Python (ms)} & \textit{-Xint (ms)} & \textit{Cociente Py/J} \\
+\hline
+5.000        & 3      & 99      & 0,0303 \\ \hline
+10.000       & 6      & 5       & 1,2000 \\ \hline
+20.000       & 13     & 10      & 1,3000 \\ \hline
+40.000       & 34     & 18      & 1,8889 \\ \hline
+80.000       & 82     & 36      & 2,2778 \\ \hline
+160.000      & 153    & 72      & 2,1250 \\ \hline
+320.000      & 442    & 140     & 3,1571 \\ \hline
+640.000      & 799    & 193     & 4,1399 \\ \hline
+1.280.000    & 1.552  & 403     & 3,8511 \\ \hline
+2.560.000    & 3.544  & 894     & 3,9642 \\ \hline
+5.120.000    & 5.938  & 1.891   & 3,1401 \\ \hline
+10.240.000   & 13.359 & 3.736   & 3,5757 \\ \hline
+20.480.000   & 27.652 & 7.588   & 3,6442 \\ \hline
+40.960.000   & 53.071 & 15.416  & 3,4426 \\ \hline
+81.920.000   & FdT    & 27.186  & -      \\ \hline
+163.840.000  & FdT    & 53.810  & -      \\ \hline
+327.680.000  & FdT    & FdT     & -      \\ \hline
+\end{tabular}
+\end{table}
+Comparativa de tiempos entre Python y Java con \texttt{-Xint}. Podemos observar que los cocientes tienden a una constante no nula, en línea con el principio de invarianza visto en teoría.
+
+\vspace{2mm} Puesto que el algoritmo A4 ya produce tiempos mucho menores que el resto, se ha optado por no mostrar A5 con los demás algoritmos, pues su grafo coincidiría estéticamente con el de A4, provocando ruido en la figura.
+
+\vspace{2mm} Aun teniendo Atkin una complejidad teórica menor, el tamaño de carga $n$ no es lo suficientemente grande como para superar en rendimiento a la criba de Erastótenes en la práctica.
 \end{document} 

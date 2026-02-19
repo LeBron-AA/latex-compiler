@@ -1,0 +1,29 @@
+\contentsline {subsection}{1. Primeros pasos en unix}{3}{chapter.0.0.1}%
+\contentsline {subsubsection}{\numberline {1.4}Fichero de \texttt {man}}{3}{subsubsection.0.0.1.4}%
+\contentsline {subsubsection}{\numberline {1.10}Última orden del historial}{3}{subsubsection.0.0.1.10}%
+\contentsline {subsubsection}{\numberline {1.11}Órdenes con ``p''}{4}{subsubsection.0.0.1.11}%
+\contentsline {subsubsection}{\numberline {1.12}Última orden en bash como shell}{4}{subsubsection.0.0.1.12}%
+\contentsline {subsubsection}{\numberline {1.13}Órdenes internas y externas}{4}{subsubsection.0.0.1.13}%
+\contentsline {subsubsection}{\numberline {1.14}Orden \texttt {whatis}}{5}{subsubsection.0.0.1.14}%
+\contentsline {subsubsection}{\numberline {1.15}\texttt {man} como \texttt {apropos}}{5}{subsubsection.0.0.1.15}%
+\contentsline {subsubsection}{\numberline {1.16}Más partido a \texttt {history}}{5}{subsubsection.0.0.1.16}%
+\contentsline {subsection}{2. El sistema de ficheros}{7}{chapter.0.0.2}%
+\contentsline {subsubsection}{\numberline {2.1}Volver al directorio de trabajo}{7}{subsubsection.0.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.2}Rutas relativas y absolutas}{7}{subsubsection.0.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.3}Contenido del directorio raíz}{7}{subsubsection.0.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.4}Enlace a un archivo}{8}{subsubsection.0.0.2.4}%
+\contentsline {subsubsection}{\numberline {2.7}Permisos en directorio}{8}{subsubsection.0.0.2.7}%
+\contentsline {subsubsection}{\numberline {2.8}Directorio de solo acceso}{9}{subsubsection.0.0.2.8}%
+\contentsline {subsubsection}{\numberline {2.9}Expresión regular con ``.''}{9}{subsubsection.0.0.2.9}%
+\contentsline {subsubsection}{\numberline {2.10}Inspección de ciertos ficheros}{10}{subsubsection.0.0.2.10}%
+\contentsline {subsubsection}{\numberline {2.11}Enlaces en HOME}{10}{subsubsection.0.0.2.11}%
+\contentsline {subsubsection}{\numberline {2.14}Archivos cuyo nombre termina con dígito}{11}{subsubsection.0.0.2.14}%
+\contentsline {subsubsection}{\numberline {2.15}Archivos que no acaben en ``.c''}{11}{subsubsection.0.0.2.15}%
+\contentsline {subsubsection}{\numberline {2.16}Ficheros de 2 o más caracteres de nombre}{11}{subsubsection.0.0.2.16}%
+\contentsline {subsubsection}{\numberline {2.17}Ficheros \texttt {.} y \texttt {..}}{11}{subsubsection.0.0.2.17}%
+\contentsline {subsubsection}{\numberline {2.18}Directorio \texttt {/dev}}{12}{subsubsection.0.0.2.18}%
+\contentsline {subsubsection}{\numberline {2.19}Orden \texttt {df}}{12}{subsubsection.0.0.2.19}%
+\contentsline {subsubsection}{\numberline {2.20}Orden \texttt {mount}}{13}{subsubsection.0.0.2.20}%
+\contentsline {subsubsection}{\numberline {2.21}Permisos mínimos para crear un archivo en un directorio}{13}{subsubsection.0.0.2.21}%
+\contentsline {subsubsection}{\numberline {2.22}Permisos mínimos de ejecución}{14}{subsubsection.0.0.2.22}%
+\contentsline {subsubsection}{\numberline {2.23}}{14}{subsubsection.0.0.2.23}%

@@ -32,5 +32,7 @@
     "diádicos",
     "suprayectiva",
     "tabularmente"
-  ]
+  ],
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.rootFile.useSubFile": false,
 }

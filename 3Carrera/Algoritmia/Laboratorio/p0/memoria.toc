@@ -5,3 +5,4 @@
 \contentsline {subsubsection}{\numberline {5.}Comparación de tiempos con optimización}{6}{subsubsection.0.0.0.5}%
 \contentsline {subsubsection}{\numberline {6.}Comparación entre algoritmos usando -Xint}{7}{subsubsection.0.0.0.6}%
 \contentsline {subsubsection}{\numberline {7.}Comparativa Java Python}{8}{subsubsection.0.0.0.7}%
+\contentsline {subsubsection}{\numberline {8.}Algortimo A5: Criba de Atkin}{10}{subsubsection.0.0.0.8}%

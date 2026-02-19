@@ -1,0 +1,536 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[table,x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{tocloft}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings, breakable}
+
+\renewcommand{\contentsname}{Contenidos}
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\thechapter.\arabic{subsubsection}}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+  {\normalfont\large\bfseries}
+  {\thesubsubsection}{0.75em}{}
+
+\setlength{\cftsubsubsecindent}{1.5em}   % margen izquierdo
+\setlength{\cftsubsubsecnumwidth}{2.5em} % espacio reservado al número
+
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Sistemas Operativos}
+\author{Ejercicios de Unix}
+\date{18/02/2026}
+%-----------------------------------------
+\lstdefinestyle{terminal}{
+  backgroundcolor=\color{black!5},
+  basicstyle=\ttfamily\small,
+  frame=single,
+  breaklines=true
+}
+
+%-----------------------------
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\chapter{Primeros pasos en unix}
+\setcounter{subsubsection}{3}
+\result{Fichero de \texttt{man}}
+\textbf{¿Qué fichero se ejecuta cuando introducimos la orden \texttt{man}?}
+
+\vspace{2mm}
+Usando type:
+
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~/EjerciciosShell$ type man
+    man is /usr/bin/man
+\end{lstlisting}
+\vspace{2mm}
+Veamos qué pasa al ejecutar este archivo directamente:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~/EjerciciosShell$ /usr/bin/man
+    What manual page do you want?
+    For example, try 'man man'.
+
+    UO299855@Ubuntu-24:~/EjerciciosShell$ /usr/bin/man --help
+    Usage: man [OPTION...] [SECTION] PAGE...
+
+    -C, --config-file=FILE     use this user configuration file
+    -d, --debug                emit debugging messages
+    ...
+\end{lstlisting}
+En efecto, se corresponde con el comportamiento esperado al usar directamente el comando \texttt{man}.
+
+\vspace{6mm}
+\setcounter{subsubsection}{9}
+\result{Última orden del historial}
+\textbf{La orden \texttt{history}, ¿es interna o externa?}
+
+Comprobamos con \texttt{type}:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~/EjerciciosShell$ type history
+    history is a shell builtin
+\end{lstlisting}
+
+\vspace{2mm}
+\textbf{Reproduce la última orden introducida}
+
+Tras consultar la ayuda de la orden con \texttt{help history}, sabemos que es posible utilizar índices negativos para acceder a entradas del historial. En tal caso, comenzará a contarse por el final de la lista:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~/EjerciciosShell$ echo Orden mas reciente
+    Orden mas reciente
+    UO299855@Ubuntu-24:~/EjerciciosShell$ !-1
+    echo Orden mas reciente
+    Orden mas reciente
+    UO299855@Ubuntu-24:~/EjerciciosShell$
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Órdenes con ``p''}
+\textbf{Utilizando las facilidades del shell, averigua qué órdenes externas comienzan con la
+letra p. ¿Cuántas por ``pa''? ¿Y por ``pas''?}
+
+Pulsando dos veces la tecla del tabulador para completar:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~/EjerciciosShell$ p
+    Display all 148 possibilities? (y or n)
+    UO299855@Ubuntu-24:~/EjerciciosShell$ pa
+    pager                  pam_extrausers_update  pam_timestamp_check    partx                  pastebinit
+    pam-auth-update        pam_getenv             parted                 passwd                 patch
+    pam_extrausers_chkpwd  pam_namespace_helper   partprobe              paste                  pathchk
+    UO299855@Ubuntu-24:~/EjerciciosShell$ pas
+    passwd      paste       pastebinit
+    UO299855@Ubuntu-24:~/EjerciciosShell$
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Última orden en bash como shell}
+\textbf{¿Cómo puedo repetir la ultima orden que he introducido, si estoy utilizando el bash
+como shell?}
+
+\vspace{2mm}
+Si estamos en bash interactivo, podemos usar \texttt{!-1} ó \texttt{!!} para ejecutar la última orden, como en el \hyperref[result:1.10]{ejercicio 1.10}. Esto no funciona en bash de scripts.
+
+\vspace{6mm}
+\result{Órdenes internas y externas}
+\textbf{¿Con qué orden puedo saber si una orden es interna o externa del shell? ¿Cómo se
+utiliza?}
+
+Usando el comando \texttt{type}, podemos saber si una orden es interna (\textit{builtin}) o externa. Podemos obtener información sobre las primeras con \texttt{help} y de las segundas con \texttt{man}.
+
+\begin{enumerate}
+    \item \hyperref[result:1.10]{Ejemplo de orden interna} \\[-3ex]
+    \item \hyperref[result:1.4]{Ejemplo de orden externa}
+\end{enumerate}
+
+\vspace{6mm}
+\result{Orden \texttt{whatis}}
+\hspace{3mm} La orden \texttt{whatis} nos da información muy resumida sobre la función de otras órdenes, ya sean internas o externas:
+
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ whatis history
+    history (3readline)  - GNU History Library
+
+    UO299855@Ubuntu-24:~$ whatis man
+    man (1) - interfaz de los manuales de referencia del sistema
+\end{lstlisting}
+
+Se nutre de entradas en el \texttt{man} (en concreto, devuelve el apartado \texttt{NAME}); luego es necesario que la orden a consultar tenga una entrada en él.
+
+\vspace{6mm}
+\result{\texttt{man} como \texttt{apropos}}
+\textbf{¿Qué opción del \texttt{man} hace que funcione de manera similar a la orden \texttt{apropos}? }
+
+Podemos usar la opción \texttt{-k} para que funcione de manera equivalente a \texttt{apropos}. Además, la opción \texttt{-K} cumple esta función, pero además buscando en todas las páginas (\texttt{apropos} solo busca en NAME, de donde también se nutre \texttt{whatis}).
+
+\vspace{6mm}
+\result{Más partido a \texttt{history}}
+\textbf{Ejecutar comando de hace 6 órdenes y la última que empiece por ``hi''}
+
+En primer lugar, podemos usar \texttt{!-6}
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ history 10
+    613  echo 2
+    614  echo 3
+    615  echo 4
+    616  echo 5
+    617  echo 6
+    618  echo 7
+    619  echo 8
+    620  echo 9
+    621  echo 10
+    622  history 10
+    UO299855@Ubuntu-24:~$ !-6
+    echo 6
+    6
+\end{lstlisting}
+
+\vspace{2mm}
+Para ejecutar la orden más reciente que comience por ```hi''', usamos \texttt{!hi}
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ !hi
+    history 10
+    617  echo 6
+    618  echo 7
+    619  echo 8
+    620  echo 9
+    621  echo 10
+    622  history 10
+    623  echo 6
+    624  clear
+    625  man history
+    626  history 10
+\end{lstlisting}
+
+\vspace{2mm}
+Si en su lugar queremos ejecutar la orden más reciente que contenga el substring ``hi'', podemos usar \texttt{!?hi}:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ man history
+    UO299855@Ubuntu-24:~$ !?hi
+    man history
+    NAME
+        history - GNU History Library
+    ...
+\end{lstlisting}
+
+\newpage
+\chapter{El sistema de ficheros}
+\result{Volver al directorio de trabajo}
+\textbf{Vete al directorio raíz y utiliza la orden cd de la manera más sencilla posible
+para volver a tu directorio de trabajo}
+
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ cd /
+    UO299855@Ubuntu-24:/$ cd
+    UO299855@Ubuntu-24:~$
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Rutas relativas y absolutas}
+\textbf{Accede a tu directorio de trabajo desde \texttt{/etc} con rutas relativas y absolutas}
+
+Usando las dos formas:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ ls
+    archivo1.txt          archivo.txt     claves.txt 
+    UO299855@Ubuntu-24:~$ pwd
+    /home/UO299855
+    UO299855@Ubuntu-24:~$ cd /etc
+    UO299855@Ubuntu-24:/etc$ ls /home/UO299855
+    archivo1.txt          archivo.txt     claves.txt
+    UO299855@Ubuntu-24:/etc$ ls ../home/UO299855
+    archivo1.txt          archivo.txt     claves.txt
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Contenido del directorio raíz}
+\text{Sitúate en el directorio raíz. Comprueba qué contenido tiene. ¿Existen directorios?}
+
+\vspace{2mm}
+Contenido total:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ ls -l /
+    total 84
+    drwxr-xr-x   2 root root  4096 feb 26  2024 bin.usr-is-merged
+    drwxr-xr-x   5 root root  4096 feb 10 06:41 boot
+    drwxr-xr-x  18 root root  4040 feb 13 13:47 dev
+    ...
+\end{lstlisting}
+Podemos saber que hay directorios al haber entradas que comienzan por \texttt{d}.
+
+\result{Enlace a un archivo}
+\hspace{3mm} Usando \texttt{ln} sin la opción \texttt{-s} crearemos un enlace directo (\textit{hard}) a un archivo.
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~/EjerciciosShell$ echo Hola > f1.txt
+    UO299855@Ubuntu-24:~/EjerciciosShell$ ln f1.txt f2.txt
+    UO299855@Ubuntu-24:~/EjerciciosShell$ ls -l
+    total 8
+    -rw-rw-r-- 2 UO299855 UO299855  5 feb 19 10:24 f1.txt
+    -rw-rw-r-- 2 UO299855 UO299855  5 feb 19 10:24 f2.txt
+    UO299855@Ubuntu-24:~/EjerciciosShell$ echo caracola >> f1.txt
+    UO299855@Ubuntu-24:~/EjerciciosShell$ cat f2.txt
+    Hola
+    caracola
+    UO299855@Ubuntu-24:~/EjerciciosShell$
+\end{lstlisting}
+Nótese el número 2 en el listado de los archivos, que indica que ambos referencian la misma información.
+
+\vspace{6mm}
+\setcounter{subsubsection}{6}
+\result{Permisos en directorio}
+\textbf{Crear un directorio de prueba. Copia algunos ficheros a su interior. Modifica sus
+permisos de éste para que sólo el propietario pueda leerlo. Intenta situarte en él.
+¿Puedes? ¿Por qué?. Intenta ver su contenido. ¿Puedes? ¿Por qué?}
+
+\begin{lstlisting}[style=terminal]
+    $ mkdir prueba
+    $ cp f* prueba/
+    $ chmod 400 prueba
+    $ cd prueba
+    bash: cd: prueba: Permission denied
+    $ ls prueba
+    ls: cannot access 'prueba/f1.txt': Permission denied
+    ls: cannot access 'prueba/f2.txt': Permission denied
+    f1.txt  f2.txt
+    $ dir prueba
+    f1.txt  f2.txt
+\end{lstlisting}
+
+\vspace{2mm} No es posible entrar directamente al directorio, pues esta operación requiere permisos de ejecución (\texttt{x}), que no tenemos. Sí podemos ver los nombres de archivos al requerir esto solo lectura.
+
+La orden \texttt{ls} nos da error, ya que intenta mostrar estadísticas de los archivos, que requiere de nuevo permisos de ejecución. El comando \texttt{dir} solo necesita permisos de lectura, luego funciona.
+
+
+\vspace{6mm}
+\result{Directorio de solo acceso}
+\textbf{Cambia los permisos del directorio anterior para que sólo el propietario pueda
+acceder a él. Intenta situarte en él. ¿Puedes? ¿Por qué?. Intenta ver su contenido.
+¿Puedes? ¿Por qué?}
+
+\vspace{2mm}
+Continuando con el \hyperref[result:2.7]{ejercicio anterior},
+\begin{lstlisting}[style=terminal]
+    $ chmod 100 prueba
+    $ cd prueba
+    $ dir
+    dir: cannot open directory '.': Permission denied
+    $ cat f1.txt
+    Hola
+    caracola
+\end{lstlisting}
+
+En este caso, ocurre justamente lo contrario: Podemos situarnos en el directorio, pero no listar sus contenidos. Sí podemos acceder a los archivos si sabemos su nombre, tal y como hemos hecho con \texttt{cat}.
+
+\vspace{6mm}
+\text{Expresión regular de tres caracteres}
+\textbf{Indica la expresión regular que hay que introducir para referirnos a todos los
+ficheros cuyo nombre contenga tres caracteres, siendo el primero necesariamente
+una letra (mayúscula o minúscula).}
+
+\vspace{2mm}
+Podemos usar la siguiente expresión: \texttt{[a-zA-Z]??}
+\begin{lstlisting}[style=terminal]
+    $ ls
+    3ff  f3789  f3A  fAB
+    $ ls [a-zA-Z]??
+    f3A  fAB
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Expresión regular con ``.''}
+\textbf{Indica la expresión regular que hay que introducir para referirnos a todos los
+ficheros cuyo nombre contenga un "." en cualquier posición a excepción de la
+primera.}
+
+\vspace{2mm}
+Podemos usar la expresión \texttt{[!.]*.*}
+\begin{lstlisting}[style=terminal]
+    $ ls -a
+    . .. buenos.dias  bDias  buenos.dias.hello
+    .secret  .cia.txt
+    $ ls -a [!.]*.*
+    buenos.dias  buenos.dias.hello
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Inspección de ciertos ficheros}
+
+\vspace{2mm}
+Comprobando los contenidos para mi usuario:
+\begin{lstlisting}[style=terminal]
+    $ grep 299855 /etc/passwd
+    UO299855:x:1166:1166::/home/UO299855:/bin/bash
+    $ grep 1166 /etc/group
+    UO299855:x:1166:
+\end{lstlisting}
+En este caso, cada usuario tiene un grupo de nombre igual al de su nombre de usuario, y los IDs de usuario y grupo también coinciden. podemos comprobarlo con \texttt{id}:
+\begin{lstlisting}[style=terminal]
+ $ id
+ uid=1166(UO299855) gid=1166(UO299855) groups=1166(UO299855)
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Enlaces en HOME}
+\textbf{Ve a tu directorio HOME. Mira cuántos enlaces tiene. Crea un directorio dentro
+de él. Comprueba cuántos enlaces tiene ahora tu directorio HOME. ¿Por qué ha
+cambiado así?}
+
+\begin{lstlisting}[style=terminal]
+    $ ls -ld ~
+    drwx------ 9 UO299855 UO299855 4096 feb 19 11:14 /home/UO299855
+    $ mkdir ~/OtroMas
+    $ ls -ld ~
+    drwx------ 10 UO299855 UO299855 4096 feb 19 11:15 /home/UO299855
+\end{lstlisting}
+Al crear el directorio, el número ha subido a otro más. Tal y como hemos podido ejecutar en el \hyperref[result:2.9]{ejercicio 2.9}, al hacer \texttt{ls -al} podemos comprobar que cada directorio tiene los enlaces \texttt{.} (directorio actual) y \texttt{..} (directorio padre). Al crear una subcarpeta en \texttt{HOME}, el enlace \texttt{..} de \texttt{OtroMas} apunta a \texttt{HOME}, incrementando por tanto en uno el número de enlaces que apuntan a ella.
+
+\setcounter{subsubsection}{13}
+\vspace{6mm}
+\result{Archivos cuyo nombre termina con dígito}
+\textbf{Indica la expresión regular que hay que introducir para referirnos a todos los
+ficheros cuyo nombre comience por "a" y terminen por un dígito.}
+
+\vspace{2mm} Podemos usar la expresión: \texttt{a*[1-9]}
+\begin{lstlisting}[style=terminal]
+    $ dir
+    2a2  a1  a2  a2d  adosa2
+    $ ls a*[1-9]
+    a1  a2  adosa2
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Archivos que no acaben en ``.c''}
+Expresión: \texttt{!(*.c)}
+\begin{lstlisting}[style=terminal]
+    $ dir
+    c  c.c  holac  hola.c.txt
+    $ ls !(*.c)
+    c  holac  hola.c.txt
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Ficheros de 2 o más caracteres de nombre}
+Expresión: \texttt{??*}
+\begin{lstlisting}[style=terminal]
+    $ dir
+    c  c.c  holac  hola.c.txt
+    $ ls ??*
+    c.c  holac  hola.c.txt
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Ficheros \texttt{.} y \texttt{..}}
+\textbf{ Inspeccionando los ficheros que tengo en mi directorio me he encontrado con
+que tengo uno que se llama "." y otro "..". Yo no los he creado y no sé lo que
+significan. ¿Quién los ha creado, y qué utilidad tienen?}
+
+\vspace{2mm} Son los enlaces al directorio actual y al directorio padre. Se crean de manera automática, tal y como hemos visto en el  \hyperref[result2.11]{ejercicio 2.11}.
+
+\vspace{6mm}
+\result{Directorio \texttt{/dev}}
+\textbf{Ve al directorio /dev y comprueba que contiene ficheros de tipo "dispositivo".
+Comprobar también que se da información acerca del número mayor y menor
+justo antes de la fecha de modificación.}
+
+Al hacer \texttt{ls -l}, podemos ver que algunas entradas comienzan por ``c''.
+\begin{lstlisting}[style=terminal]
+    $ ls -l | grep ^c
+    crw-r--r--  1 root root     10, 235 feb 13 13:47 autofs
+    crw-rw----  1 root disk     10, 234 feb 13 13:47 btrfs-control
+    crw--w----  1 root tty       5,   1 feb 13 13:48 console
+    ...
+\end{lstlisting}
+Estos son dispositivos de caracteres, aunque existen otros tipos. El número mayor indica el controlador o tipo de dispositivo, mientras que el otro número indica el dispositivo en particular que está siendo gestionado por ese controlador.
+
+\vspace{6mm}
+\result{Orden \texttt{df}}
+\hspace{3mm} La orden \texttt{df}, de \textit{disk free} indica el tamaño disponible en disco:
+\begin{lstlisting}[style=terminal]
+    $ df
+    Filesystem     1K-blocks     Used Available Use% Mounted on
+    tmpfs            1634560     1568   1632992   1% /run
+    /dev/xvda1      29378688 26430712   2931592  91% /
+    tmpfs            8172784        0   8172784   0% /dev/shm
+    tmpfs               5120        0      5120   0% /run/lock
+    /dev/xvda16       901520   119220    719172  15% /boot
+    /dev/xvda15       106832     6250    100582   6% /boot/efi
+    tmpfs            1634556       16   1634540   1% /run/user/1006
+    tmpfs            1634556       16   1634540   1% /run/user/1003
+    ...
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Orden \texttt{mount}}
+Esta orden permite montar un disco de hardware adicional para su uso en el SO. No es práctica para usar por el usuario. Si se usa sin parámetros, dirá qué discos están montados y dónde.
+
+\vspace{6mm}
+\result{Permisos mínimos para crear un archivo en un directorio}
+Necesitamos tener permisos de ejecución y de escritura en el directorio:
+\begin{lstlisting}[style=terminal]
+    $ mkdir prueba
+    $ chmod 000 prueba
+    $ echo Hola > prueba/test.txt
+    bash: prueba/test.txt: Permission denied
+    $ chmod 200 prueba
+    $ echo Hola > prueba/test.txt
+    bash: prueba/test.txt: Permission denied
+    $ chmod 300 prueba
+    $ echo Hola > prueba/test.txt
+    $
+\end{lstlisting}
+
+Veamos qué ocurre con los permisos de fichero:
+\begin{lstlisting}[style=terminal]
+    $ umask 0777
+    $ cd ..
+    $ chmod 300 prueba
+    $ echo hola > holaTest.txt
+    $ echo hola > holaTest.txt
+    bash: holaTest.txt: Permission denied
+    $
+\end{lstlisting}
+No hace falta tener permiso ninguno para escribir, pero sí para remplazar.
+
+\vspace{2mm} En conclusión, para crear un archivo en un directorio es necesario tener \texttt{w} y \texttt{x} en el directorio, pero no se necesita permiso ninguno para el fichero. Aun creando un fichero dentro del directorio actual, es necesario tener \texttt{x} para ello.
+
+\vspace{6mm}
+\result{Permisos mínimos de ejecución}
+Necesitamos \textit{r,x} en los permisos de fichero, y \texttt{x} en los de directorio:
+\begin{lstlisting}[style=terminal]
+    $ chmod 100 prueba
+    $ cd prueba
+    $ ./ejecutable.bash
+    Hola
+    ... # Cambio de permisos para ls
+    -r-x------ 1 UO299855 UO299855 10 feb 19 12:04 ejecutable.bash
+\end{lstlisting}
+Si quitásemos alguno de estos permisos, la ejecución no podría llevarse a cabo.
+
+\vspace{6mm}
+\result{}
+\end{document}

@@ -1,6 +1,21 @@
 {
   "subjects": [
     {
+      "name" : "Sistemas Operativos",
+      "grade" : 3,
+      "semester" : 2,
+      "study" : "software",
+      "notes" : [
+        {
+          "title" : "Ejercicios de shell",
+          "description" : "En proceso...",
+          "pdfPath" : "3Carrera/SO/EjerciciosShell/ejercicios.pdf",
+          "language" : "es",
+          "type" : "exercises"
+        }
+      ]
+    },
+    {
       "name" : "Programación Matemática",
       "grade" : 3,
       "semester" : 2,
