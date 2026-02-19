@@ -50,6 +50,21 @@
 \setlength{\cftsubsubsecindent}{1.5em}   % margen izquierdo
 \setlength{\cftsubsubsecnumwidth}{2.5em} % espacio reservado al número
 
+% Patch de addcontentsline para capítulos
+\makeatletter
+\newcommand{\chaptertoc}[1]{%
+  \addtocontents{toc}{\vskip 10pt} % más espacio vertical
+  \addcontentsline{toc}{subsection}{\textbf{\thechapter. #1}} % en negrita
+}
+\makeatother
+
+% Modificamos tu comando \chapter
+\renewcommand{\chapter}[1]{%
+    \refstepcounter{chapter}%
+    \subsection*{\Large{\S \thechapter. #1}}%
+    \chaptertoc{#1}%
+}
+
 % ----------------------------------------
 \hbadness=10000
 \vbadness=10000
@@ -583,5 +598,156 @@ Permisos de directorio: basta con \texttt{x}, y \texttt{r} no sirve.
 
 \vspace{6mm}
 \result{Permisos para modificar un fichero}
+Basta tener permiso de ejecución a nivel de carpeta, y permiso de escritura a nivel de archivo:
+\begin{lstlisting}[style=terminal]
+    $ chmod 100 .
+    $ chmod 200 hola.txt
+    $ echo buenos dias >> hola.txt
+    ...
+    $ cat hola.txt
+    Hola
+    buenos dias
+    $
+\end{lstlisting}
 
+\vspace{6mm}
+\result{Borrar todos los ficheros del directorio actual}
+Suponiendo que tengamos los permisos necesarios, basta usar \texttt{rm *}
+\begin{lstlisting}[style=terminal]
+    $ dir
+    1.txt  2.txt  3.txt  hola.txt
+    $ rm *
+    $ dir
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Borrar un subdirectorio y su contenido}
+\textbf{Quiero borrar un directorio "d1", perteneciente al directorio actual, y todo su
+contenido. Suponiendo que tengo los permisos necesarios, ¿cómo puedo hacerlo
+mediante una única orden?}
+
+\begin{lstlisting}[style=terminal]
+$ ls -l
+total 4
+-rw-r--r-- 1 javier javier    0 Feb 19 19:45 a.out
+drwxr-xr-x 3 javier javier 4096 Feb 19 19:47 d1
+$ ls -l ./d1
+total 16
+-rw-r--r-- 1 javier javier   11 Feb 19 19:47 ejecutable
+-rw-r--r-- 1 javier javier    5 Feb 19 19:47 file2.txt
+-rw-r--r-- 1 javier javier    5 Feb 19 19:47 hola.txt
+drwxr-xr-x 2 javier javier 4096 Feb 19 19:48 otroDirDentro
+$ rm -r d1/*
+$ ls
+a.out  d1
+$ cd d1
+$ ls
+$
+\end{lstlisting}
+
+Esta opción no borra el propio directorio y puede saltarse archivos ``ocultos'' como \texttt{.archivo}. Si queremos que esto ocurra, hay que usar \texttt{rm -rf} (recursivo y forzoso).
+
+\vspace{6mm}
+\result{Cambiar directorio actual a uno de sus hermanos}
+\textbf{Quiero cambiar el directorio actual a un "hermano" (hijo del mismo padre) del
+actual. El directorio al que quiero cambiar se llama "d1".¿ Cómo se hace con una
+única orden}
+
+Podemos usar el acceso al directorio madre mediante \texttt{..}
+\begin{lstlisting}[style=terminal]
+    $ pwd
+    /home/javier/EjerciciosShell/prueba/actual
+    $ cd ../d1
+    $ pwd
+    /home/javier/EjerciciosShell/prueba/d1
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Conocer información del directorio actual}
+\hspace{3mm} Podemos usar la orden \texttt{ls -lh .} para ello:
+\begin{lstlisting}[style=terminal]
+    $ ls -ldsh .
+    4.0K drwxr-xr-x 3 javier javier 4.0K Feb 19 20:02 .
+    $
+\end{lstlisting}
+La opción \texttt{-sh} muestra el tamaño de manera más legible para un humano. La opción \texttt{-d} es para mostrar el propio directorio y no su contenido.
+
+\vspace{6mm}
+\result{Información del directorio padre al actual}
+Análogo al ejercicio anterior, pero usando \texttt{..}
+\begin{lstlisting}[style=terminal]
+    $ ls -ldsh ..
+    4.0K drwx------ 5 javier javier 4.0K Feb 19 19:53 ..
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Copiar todos los ficheros del actual a otro directorio}
+Basta usar \texttt{cp * <ruta>} donde \texttt{<ruta>} apunta al otro directorio.
+\begin{lstlisting}[style=terminal]
+    $ ls -l
+    total 12
+    drwxr-xr-x 2 javier javier 4096 Feb 19 20:02 bobo
+    -rw-r--r-- 1 javier javier   12 Feb 19 20:08 dias.txt
+    -rw-r--r-- 1 javier javier   16 Feb 19 19:55 pocaCosa.txt
+    $ ls -l ../otroDir
+    total 8
+    -rw-r--r-- 1 javier javier 12 Feb 19 20:10 dias.txt
+    -rw-r--r-- 1 javier javier 16 Feb 19 20:10 pocaCosa.txt
+    $
+\end{lstlisting}
+Como no hemos usado la opción \texttt{-r}, se omite \texttt{bobo} al ser este un directorio.
+
+\vspace{6mm}
+\result{Crear hijo de otro directorio}
+\textbf{Quiero crear un directorio hijo del directorio "d1", que es hijo del directorio
+actual. Indique cómo se hace con una única orden?}
+
+Usamos \texttt{mkdir} con una ruta apropiada:
+\begin{lstlisting}[style=terminal]
+    $ mkdir d1
+    $ mkdir d1/OtroHijo
+    $ dir
+    d1
+    $ cd d1
+    $ dir
+    OtroHijo
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Mover ficheros del directorio actual a otro}
+
+Usamos la orden \texttt{mv}:
+\begin{lstlisting}[style=terminal]
+    $ ls -l
+    total 12
+    drwxr-xr-x 2 javier javier 4096 Feb 19 20:13 carpeta
+    -rw-r--r-- 1 javier javier    5 Feb 19 20:13 hola.txt
+    -rw-r--r-- 1 javier javier    5 Feb 19 20:13 otroFichero.txt
+    $ mv * ../dir2
+    $ ls -l
+    total 0
+    $ ls -l ../dir2
+    total 12
+    drwxr-xr-x 2 javier javier 4096 Feb 19 20:13 carpeta
+    -rw-r--r-- 1 javier javier    5 Feb 19 20:13 hola.txt
+    -rw-r--r-- 1 javier javier    5 Feb 19 20:13 otroFichero.txt
+    $
+\end{lstlisting}
+
+\newpage
+\chapter{Procesos y usuarios}
+\result{Usuarios conectados actualmente}
+Basta usar \texttt{who}. Al estar trabajando con \texttt{WSL} en mi máquina personal, salgo únicamente yo:
+\begin{lstlisting}[style=terminal]
+    $ who
+    javier   pts/1        2026-02-19 19:33
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Diferencia entre órdenes con sleep}
 \end{document}

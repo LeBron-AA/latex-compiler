@@ -1,4 +1,5 @@
-\contentsline {subsection}{1. Primeros pasos en unix}{3}{chapter.0.0.1}%
+\vskip 10pt
+\contentsline {subsection}{\textbf {1. Primeros pasos en unix}}{3}{chapter.0.0.1}%
 \contentsline {subsubsection}{\numberline {1.4}Fichero de \texttt {man}}{3}{subsubsection.0.0.1.4}%
 \contentsline {subsubsection}{\numberline {1.10}Última orden del historial}{3}{subsubsection.0.0.1.10}%
 \contentsline {subsubsection}{\numberline {1.11}Órdenes con ``p''}{4}{subsubsection.0.0.1.11}%
@@ -7,7 +8,8 @@
 \contentsline {subsubsection}{\numberline {1.14}Orden \texttt {whatis}}{5}{subsubsection.0.0.1.14}%
 \contentsline {subsubsection}{\numberline {1.15}\texttt {man} como \texttt {apropos}}{5}{subsubsection.0.0.1.15}%
 \contentsline {subsubsection}{\numberline {1.16}Más partido a \texttt {history}}{5}{subsubsection.0.0.1.16}%
-\contentsline {subsection}{2. El sistema de ficheros}{7}{chapter.0.0.2}%
+\vskip 10pt
+\contentsline {subsection}{\textbf {2. El sistema de ficheros}}{7}{chapter.0.0.2}%
 \contentsline {subsubsection}{\numberline {2.1}Volver al directorio de trabajo}{7}{subsubsection.0.0.2.1}%
 \contentsline {subsubsection}{\numberline {2.2}Rutas relativas y absolutas}{7}{subsubsection.0.0.2.2}%
 \contentsline {subsubsection}{\numberline {2.3}Contenido del directorio raíz}{7}{subsubsection.0.0.2.3}%
@@ -29,3 +31,15 @@
 \contentsline {subsubsection}{\numberline {2.23}Permisos para eliminar un fichero}{14}{subsubsection.0.0.2.23}%
 \contentsline {subsubsection}{\numberline {2.24}Permisos para leer un fichero}{14}{subsubsection.0.0.2.24}%
 \contentsline {subsubsection}{\numberline {2.25}Permisos para modificar un fichero}{15}{subsubsection.0.0.2.25}%
+\contentsline {subsubsection}{\numberline {2.26}Borrar todos los ficheros del directorio actual}{15}{subsubsection.0.0.2.26}%
+\contentsline {subsubsection}{\numberline {2.27}Borrar un subdirectorio y su contenido}{16}{subsubsection.0.0.2.27}%
+\contentsline {subsubsection}{\numberline {2.28}Cambiar directorio actual a uno de sus hermanos}{16}{subsubsection.0.0.2.28}%
+\contentsline {subsubsection}{\numberline {2.29}Conocer información del directorio actual}{17}{subsubsection.0.0.2.29}%
+\contentsline {subsubsection}{\numberline {2.30}Información del directorio padre al actual}{17}{subsubsection.0.0.2.30}%
+\contentsline {subsubsection}{\numberline {2.31}Copiar todos los ficheros del actual a otro directorio}{17}{subsubsection.0.0.2.31}%
+\contentsline {subsubsection}{\numberline {2.32}Crear hijo de otro directorio}{18}{subsubsection.0.0.2.32}%
+\contentsline {subsubsection}{\numberline {2.33}Mover ficheros del directorio actual a otro}{18}{subsubsection.0.0.2.33}%
+\vskip 10pt
+\contentsline {subsection}{\textbf {3. Procesos y usuarios}}{19}{chapter.0.0.3}%
+\contentsline {subsubsection}{\numberline {3.1}Usuarios conectados actualmente}{19}{subsubsection.0.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.2}Diferencia entre órdenes con sleep}{19}{subsubsection.0.0.3.2}%
