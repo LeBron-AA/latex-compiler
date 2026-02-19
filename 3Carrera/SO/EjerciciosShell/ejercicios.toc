@@ -26,4 +26,6 @@
 \contentsline {subsubsection}{\numberline {2.20}Orden \texttt {mount}}{13}{subsubsection.0.0.2.20}%
 \contentsline {subsubsection}{\numberline {2.21}Permisos mínimos para crear un archivo en un directorio}{13}{subsubsection.0.0.2.21}%
 \contentsline {subsubsection}{\numberline {2.22}Permisos mínimos de ejecución}{14}{subsubsection.0.0.2.22}%
-\contentsline {subsubsection}{\numberline {2.23}}{14}{subsubsection.0.0.2.23}%
+\contentsline {subsubsection}{\numberline {2.23}Permisos para eliminar un fichero}{14}{subsubsection.0.0.2.23}%
+\contentsline {subsubsection}{\numberline {2.24}Permisos para leer un fichero}{14}{subsubsection.0.0.2.24}%
+\contentsline {subsubsection}{\numberline {2.25}Permisos para modificar un fichero}{15}{subsubsection.0.0.2.25}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  19 FEB 2026 12:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  19 FEB 2026 14:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -843,7 +843,7 @@ File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 LaTeX Warning: Hyper reference `result2.11' on page 12 undefined on input line 
 452.
 
-[12] [13] [14] (ejercicios.aux)
+[12] [13] [14] [15] (ejercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -861,14 +861,14 @@ Package rerunfilecheck Warning: File `ejercicios.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `ejercicios.out':
-(rerunfilecheck)             Before: 6FBC49F18C11C805B3B599D2EBB1E769;5620
-(rerunfilecheck)             After:  C9B67C8AAF149F1F7CBDB1218DACA64A;5682.
+(rerunfilecheck)             Before: C9B67C8AAF149F1F7CBDB1218DACA64A;5682
+(rerunfilecheck)             After:  8794FCECE25682320DC5E1818C88AFD9;6346.
  ) 
 Here is how much of TeX's memory you used:
- 24861 strings out of 474486
- 451612 string characters out of 5753177
- 2096542 words of memory out of 5000000
- 46495 multiletter control sequences out of 15000+600000
+ 24903 strings out of 474486
+ 452276 string characters out of 5753177
+ 2095542 words of memory out of 5000000
+ 46498 multiletter control sequences out of 15000+600000
  568623 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,7n,87p,600b,1989s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -879,9 +879,9 @@ mfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install
 /public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsf
 onts/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmt
 t10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ejercicios.pdf (14 pages, 186336 bytes).
+Output written on ejercicios.pdf (15 pages, 195421 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
- 258 named destinations out of 1000 (max. 500000)
- 237 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 577 PDF objects out of 1000 (max. 8388607)
+ 297 named destinations out of 1000 (max. 500000)
+ 245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

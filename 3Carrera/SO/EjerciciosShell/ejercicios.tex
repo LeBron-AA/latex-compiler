@@ -532,5 +532,56 @@ Necesitamos \textit{r,x} en los permisos de fichero, y \texttt{x} en los de dire
 Si quitásemos alguno de estos permisos, la ejecución no podría llevarse a cabo.
 
 \vspace{6mm}
-\result{}
+\result{Permisos para eliminar un fichero}
+En cuanto a ficheros, no es necesario tener ningún permiso, aunque \texttt{rm} nos dará un prompt en caso de que no podamos escribir en ellos:
+\begin{lstlisting}[style=terminal]
+    $ chmod 000 hola.txt
+    $ rm hola.txt
+    rm: remove write-protected regular file 'hola.txt'? y
+    $ dir
+    $
+\end{lstlisting}
+En cuanto a permisos de carpetas, son necesarios \textit{write} y \textit{execute}:
+\begin{lstlisting}[style=terminal]
+    $ echo Hola > hola.txt
+    $ chmod 200 .
+    $ rm hola.txt
+    rm: cannot remove 'hola.txt': Permission denied
+    ...
+    $ chmod 100 .
+    $ rm hola.txt
+    rm: cannot remove 'hola.txt': Permission denied
+    ...
+    $ chmod 300 .
+    $ rm hola.txt
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Permisos para leer un fichero}
+Permisos de fichero: basta con \textit{read}.
+\begin{lstlisting}[style=terminal]
+    $ chmod 000 hola.txt
+    $ cat hola.txt
+    cat: hola.txt: Permission denied
+    $ chmod 400 hola.txt
+    $ cat hola.txt
+    Hola
+    $
+\end{lstlisting}
+Permisos de directorio: basta con \texttt{x}, y \texttt{r} no sirve.
+\begin{lstlisting}[style=terminal]
+    $ chmod 400 .
+    $ cat hola.txt
+    cat: hola.txt: Permission denied
+    ...
+    $ chmod 100 .
+    $ cat hola.txt
+    Hola
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Permisos para modificar un fichero}
+
 \end{document}
