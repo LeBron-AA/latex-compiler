@@ -750,4 +750,52 @@ Basta usar \texttt{who}. Al estar trabajando con \texttt{WSL} en mi máquina per
 
 \vspace{6mm}
 \result{Diferencia entre órdenes con sleep}
+\textbf{Ejecuta las siguientes líneas:}
+\begin{enumerate}[label=\roman*)]
+    \item \texttt{sleep 15; echo He terminado}
+    \item \texttt{(sleep 15; echo He terminado)}
+\end{enumerate}
+La primera opción trabaja en primer plano, dejando un retardo de 15s para después imprimir ``He terminado'' por pantalla. La segunda opción hace lo mismo pero en segundo plano, dejando al usuario la posibilidad de ejecutar otras órdenes en la terminal mientras espera el otro proceso por el retardo.
+
+\vspace{6mm}
+\result{Terminación de programas en primer y en segundo plano}
+\textbf{Ejecuta el programa /home/profesores/albizu/publico/bucle en primer plano. Haz
+que termine. Haz lo mismo, pero lanzándolo en en segundo plano.}
+TODO, mirar máquina remota
+
+\vspace{6mm}
+\setcounter{subsubsection}{5}
+\result{Interpreta los campos de la orden \texttt{top}}
+\begin{verbatim}
+    $ top
+top - 21:01:00 up  1:28,  1 user,  load average: 0.07, 0.02, 0.00
+Tasks:  22 total,   1 running,  21 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni, 99.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7896.2 total,   7407.5 free,    464.3 used,    175.0 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7431.9 avail Mem
+
+PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+1083 javier    20   0    9316   5504   3328 R   0.3   0.1   0:00.01 top
+1 root      20   0   21932  12772   9444 S   0.0   0.2   0:01.75 systemd
+8 root      20   0    3136   2024   1920 S   0.0   0.0   0:00.00 init
+...
+\end{verbatim}
+
+Veamos qué es cada campo de la tabla:
+\begin{itemize}
+    \item PID: identificador de proceso
+    \item USER: usuario al que pertenece el proceso
+    \item VIRT: tamaño de la memoria virtual del proceso en KiB
+    \item RES: tamaño de la memoria física ocupada en KiB
+    \item SHR: tamaño de memoria compartida en KiB
+    \item S: estado del proceso (en ejecución, zombie...)
+    \item \%CPU: uso de CPU
+    \item \%MEM: uso de memoria (según el campo RES)
+    \item TIME+: tiempo de CPU
+    \item COMMAND: comando asociado al proceso
+\end{itemize}
+El párrafo anterior anterior a la tabla resume la información de esta y muestra la carga promedio.
+
+\vspace{6mm}
+
 \end{document}

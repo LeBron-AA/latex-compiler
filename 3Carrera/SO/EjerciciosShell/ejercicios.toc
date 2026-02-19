@@ -43,3 +43,5 @@
 \contentsline {subsection}{\textbf {3. Procesos y usuarios}}{19}{chapter.0.0.3}%
 \contentsline {subsubsection}{\numberline {3.1}Usuarios conectados actualmente}{19}{subsubsection.0.0.3.1}%
 \contentsline {subsubsection}{\numberline {3.2}Diferencia entre órdenes con sleep}{19}{subsubsection.0.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.3}Terminación de programas en primer y en segundo plano}{19}{subsubsection.0.0.3.3}%
+\contentsline {subsubsection}{\numberline {3.6}Interpreta los campos de la orden \texttt {top}}{19}{subsubsection.0.0.3.6}%

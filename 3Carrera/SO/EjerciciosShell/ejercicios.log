@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  19 FEB 2026 20:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  19 FEB 2026 21:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -843,7 +843,7 @@ File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 LaTeX Warning: Hyper reference `result2.11' on page 12 undefined on input line 
 467.
 
-[12] [13] [14] [15] [16] [17] [18] [19] (ejercicios.aux)
+[12] [13] [14] [15] [16] [17] [18] [19] [20] (ejercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -852,36 +852,28 @@ L3 programming layer <2024-01-04>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `ejercicios.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ejercicios.out':
-(rerunfilecheck)             Before: 90E87D2C2B733D29D9966234D8C302BF;8919
-(rerunfilecheck)             After:  7C1A506CCA96F0227A262E235DE27B72;9403.
+Package rerunfilecheck Info: File `ejercicios.out' has not changed.
+(rerunfilecheck)             Checksum: 55BE0A37A96A71C38BDECB735AFB793D;10036.
  ) 
 Here is how much of TeX's memory you used:
- 25026 strings out of 474486
- 454281 string characters out of 5753177
- 2096542 words of memory out of 5000000
- 46520 multiletter control sequences out of 15000+600000
- 568623 words of font info for 77 fonts, out of 8000000 for 9000
+ 25046 strings out of 474486
+ 454663 string characters out of 5753177
+ 2095542 words of memory out of 5000000
+ 46534 multiletter control sequences out of 15000+600000
+ 568960 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,7n,87p,600b,1989s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\M
-ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/tex
-mfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1
-/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsf
-onts/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmt
-t10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ejercicios.pdf (19 pages, 228341 bytes).
+ <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\M
+ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\MikTex\te
+xmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/texmfs/inst
+all/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
+amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
+cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+<C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ejercicios.pdf (20 pages, 239228 bytes).
 PDF statistics:
- 755 PDF objects out of 1000 (max. 8388607)
- 398 named destinations out of 1000 (max. 500000)
- 333 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 785 PDF objects out of 1000 (max. 8388607)
+ 403 named destinations out of 1000 (max. 500000)
+ 365 words of extra memory for PDF output out of 10000 (max. 10000000)
 
