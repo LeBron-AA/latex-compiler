@@ -151,8 +151,8 @@
 \vfuzz=100pt
 % ---------------------------------------
 \title{Algoritmia}
-\author{Práctica 1.2}
-\date{15/2/2026}
+\author{Práctica 2}
+\date{21/2/2026}
 
 
 \begin{document}
@@ -164,7 +164,7 @@
 \hypersetup{linkcolor=Ivory4}
 \newpage
 
-\result{Ordenación por burbuja}
+\result{Ordenación por Burbuja}
 
 \vspace{2mm}
 \begin{table}[H]
@@ -190,8 +190,25 @@
   ]{media/Burbuja.pdf}
 \end{center}
 
+Para este algoritmo; los casos mejor, peor y medio tienen todos complejidad teórica de $O(n^2)$. Veamos si los datos empíricos lo respaldan:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$n^2$/$T_\text{ord}$}  & \textit{$n^2$/$T_\text{inv}$} & \textit{$n^2$/$T_\text{alea}$} \\\hline
+10.000 & 297.619,0476 & 85.034,0136 & 111.111,1111 \\\hline
+20.000 & 305.576,7762 & 86.169,7544 & 114.285,7143 \\\hline
+40.000 & 310318,0760 & 87.003,8064 &112.541,3238 \\\hline 
+80.000 & 306.616,2027 & 86.480,6432 &112.747,5160 \\\hline 
+160.000 & 307.271,2869 & - & - \\\hline
+\end{tabular}  
+\end{table}
+\noindent Los cocientes son estables, se respalda la complejidad teórica.
+
 \vspace{4mm}
-\result{Ordenación por selección}
+\result{Ordenación por Selección}
 \vspace{2mm}
 \begin{table}[H]
 \centering
@@ -219,7 +236,23 @@
   Este algoritmo no depende tanto del orden previo del vector
 \end{center}
 
-\newpage{5mm}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$n^2$/$T_\text{ord}$}  & \textit{$n^2$/$T_\text{inv}$} & \textit{$n^2$/$T_\text{alea}$} \\\hline
+10.000 & 320.512,8205 & 331.125,8278 & 308.641,9753\\\hline
+20.000 & 318.217,9793 & 351.185,2502 & 316.205,5336 \\\hline
+40.000 & 319.106,5018 & 340.860,6732 & 315.208,8258 \\\hline 
+80.000 & 317.886,0577& 342.539,0709& 319.952,0072\\\hline 
+160.000 & 315.733,6491&336.372,9535& 319.225,8772\\\hline
+\end{tabular}  
+\end{table}
+Los cocientes son estables en los tres casos: se sigue la complejidad teórica
+
+\vspace{5mm}
 \result{Ordenación por \textit{QuickSort}}
 \vspace{2mm}
 \begin{table}[H]
@@ -251,4 +284,23 @@
 \end{center}
 
 Podemos observar en la gráfica que los tiempos siguen claramente un patrón de líneas rectas. Al estar ambos ejes en escala logarítmica, este es un fuerte indicativo de que el algoritmo implementado sigue su complejidad teórica de $O(n\log n)$.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$n \log(n)$/$T_\text{ord}$}  & \textit{$n \log(n)$/$T_\text{inv}$} & \textit{$n \log(n)$/$T_\text{alea}$} \\\hline
+10.000 & 161,2903 & 134,6801  & 106,1008 \\\hline
+20.000 & 158,7096 & 141,7143 & 108,3383 \\\hline
+40.000 & 160,6304 & 147,8573 &108,3475 \\\hline 
+80.000 & 160,2972  & 144,3146 &108,5355 \\\hline 
+160.000 & 163,8126  & 145,4427  & 109,9075 \\\hline
+320.000 & 165,3664 & 150,5553 & 110,8303 \\\hline
+640.000 & 166,0169 & 151,3689 &109,9102 \\\hline
+1.280.000 &165,4545 & 153,3482 &109,7201  \\\hline
+\end{tabular}  
+\end{table}
+Los cocientes son estables en los tres casos.
 \end{document} 

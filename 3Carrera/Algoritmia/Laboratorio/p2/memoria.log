@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  21 FEB 2026 11:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  21 FEB 2026 13:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -958,50 +958,50 @@ File: media/Burbuja.pdf Graphic file (type pdf)
 <use media/Burbuja.pdf>
 Package pdftex.def Info: media/Burbuja.pdf  used on input line 190.
 (pdftex.def)             Requested size: 418.25368pt x 203.44296pt.
-
+[2 <./media/Burbuja.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./media/Seleccion.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<media/Seleccion.pdf, id=32, 794.97pt x 614.295pt>
+<media/Seleccion.pdf, id=48, 794.97pt x 614.295pt>
 File: media/Seleccion.pdf Graphic file (type pdf)
 <use media/Seleccion.pdf>
-Package pdftex.def Info: media/Seleccion.pdf  used on input line 217.
+Package pdftex.def Info: media/Seleccion.pdf  used on input line 234.
 (pdftex.def)             Requested size: 418.25368pt x 203.44296pt.
-[2 <./media/Burbuja.pdf>] [3 <./media/Seleccion.pdf>]
+[3 <./media/Seleccion.pdf>]
 
 pdfTeX warning: pdflatex.exe (file ./media/QuickSort.pdf): PDF inclusion: found
  PDF version <1.7>, but at most version <1.5> allowed
-<media/QuickSort.pdf, id=62, 794.97pt x 614.295pt>
+<media/QuickSort.pdf, id=63, 794.97pt x 614.295pt>
 File: media/QuickSort.pdf Graphic file (type pdf)
 <use media/QuickSort.pdf>
-Package pdftex.def Info: media/QuickSort.pdf  used on input line 248.
+Package pdftex.def Info: media/QuickSort.pdf  used on input line 281.
 (pdftex.def)             Requested size: 418.25368pt x 203.44296pt.
-[4 <./media/QuickSort.pdf>] (memoria.aux)
+[4 <./media/QuickSort.pdf>] [5] (memoria.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
 Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 1E9E504A3D7A2FA9596C881766E9E08E;545.
+(rerunfilecheck)             Checksum: B8042EC827CD7FEA64D0F4C2B1272720;545.
  ) 
 Here is how much of TeX's memory you used:
- 36560 strings out of 474486
- 863179 string characters out of 5753177
- 1936542 words of memory out of 5000000
+ 36561 strings out of 474486
+ 863185 string characters out of 5753177
+ 1937542 words of memory out of 5000000
  58258 multiletter control sequences out of 15000+600000
  567932 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,13n,87p,781b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,14n,87p,781b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTe
 x/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/MikTex/texmfs/
 install/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fon
 ts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/pub
 lic/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts
-/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.p
-fb>
-Output written on memoria.pdf (4 pages, 262851 bytes).
+/cm/cmr8.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti12.pf
+b><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+Output written on memoria.pdf (5 pages, 276379 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 8 named destinations out of 1000 (max. 500000)
+ 125 PDF objects out of 1000 (max. 8388607)
+ 9 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
