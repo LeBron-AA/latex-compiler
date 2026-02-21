@@ -904,4 +904,64 @@ Comprobando con el \texttt{top} de nuevo,
 \begin{lstlisting}[style=terminal]
 977 javier    20   0    3128   1664   1664 T   0.0   0.0   0:00.00 sleep
 \end{lstlisting}
+
+\vspace{6mm}
+\result{Alternativas para eliminar procesos en ejecución}
+
+Podemos usar \texttt{kill} para enviar una señal de terminación a un proceso del que conocemos su PID. Según qué señal enviemos, el proceso terminará de manera ordinaria o forzosa:
+
+\begin{itemize}
+    \item SIGTERM (15): Terminación ``ordenada'', permite la liberación de recursos. Es la opción por defecto
+    \item SIGKILL (9): Terminación forzosa, no puede ser capturada ni ignorada
+\end{itemize}
+Alternativamente, órdenes como \texttt{top} nos permiten terminar procesos desde su interfaz introduciendo el PID correspondiente. No obstante, estas utilidades llaman por debajo a \texttt{kill}, luego tienen el comportamiento anteriormente descrito.
+
+\newpage
+\chapter{Conductos, Filtros y Redirecciones de E/S}
+\result{Eliminar mensajes de otros usuarios}
+Basta usar \texttt{mesg n}.
+
+\vspace{6mm}
+\result{Crear un fichero usando \texttt{cat}}
+Redirigiendo la salida de esta orden,
+\begin{lstlisting}[style=terminal]
+    $ cat . 2> ficheroCat.txt
+    $ cat ficheroCat.txt
+    cat: .: Is a directory
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Visualizar el fichero de contraseñas}
+\textbf{Visualiza a través de una tubería el contenido del fichero \texttt{/etc/passwd}, haciendo que la pantalla se detenga cuando ésta se llene.}
+
+\vspace{2mm}
+Una posible opción es usar \texttt{cat /etc/passwd | less}, que da lugar a una visualización del contenido con un formato igual al de \texttt{man}.
+
+\vspace{6mm}
+\result{Añade texto a un fichero ya existente}
+Redirigimos la salida de \texttt{echo} así:
+\begin{lstlisting}[style=terminal]
+    $ cat ficheroCat.txt
+    cat: .: Is a directory
+    $ echo Otra linea mas >> ficheroCat.txt
+    $ cat ficheroCat.txt
+    cat: .: Is a directory
+    Otra linea mas
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Redirecciona una salida de error a un fichero}
+La redirección del \hyperref[result:4.1]{ejercicio 4.1} es la de la salida de error.
+
+\vspace{6mm}
+\result{Contar usuarios conectados}
+La orden \texttt{who} muestra los usuarios conectados, tomando la información de cada uno una línea. Así, contar el número de líneas equivale a contar el número de usuarios (no hay líneas extra). Para ello, usamos \texttt{wc -l} (\textit{word count} por líneas).
+\begin{lstlisting}[style=terminal]
+$ who | wc -l
+1
+$
+\end{lstlisting}
+
 \end{document}

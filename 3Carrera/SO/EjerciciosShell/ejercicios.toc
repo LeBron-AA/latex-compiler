@@ -52,3 +52,12 @@
 \contentsline {subsubsection}{\numberline {3.11}Suspender el proceso en primer plano}{22}{subsubsection.0.0.3.11}%
 \contentsline {subsubsection}{\numberline {3.12}Lista de procesos que hemos lanzado en segundo plano}{22}{subsubsection.0.0.3.12}%
 \contentsline {subsubsection}{\numberline {3.13}Suspender un proceso de otra terminal}{23}{subsubsection.0.0.3.13}%
+\contentsline {subsubsection}{\numberline {3.14}Alternativas para eliminar procesos en ejecución}{23}{subsubsection.0.0.3.14}%
+\vskip 10pt
+\contentsline {subsection}{\textbf {4. Conductos, Filtros y Redirecciones de E/S}}{24}{chapter.0.0.4}%
+\contentsline {subsubsection}{\numberline {4.1}Eliminar mensajes de otros usuarios}{24}{subsubsection.0.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.2}Crear un fichero usando \texttt {cat}}{24}{subsubsection.0.0.4.2}%
+\contentsline {subsubsection}{\numberline {4.3}Visualizar el fichero de contraseñas}{24}{subsubsection.0.0.4.3}%
+\contentsline {subsubsection}{\numberline {4.4}Añade texto a un fichero ya existente}{24}{subsubsection.0.0.4.4}%
+\contentsline {subsubsection}{\numberline {4.5}Redirecciona una salida de error a un fichero}{25}{subsubsection.0.0.4.5}%
+\contentsline {subsubsection}{\numberline {4.6}Contar usuarios conectados}{25}{subsubsection.0.0.4.6}%
