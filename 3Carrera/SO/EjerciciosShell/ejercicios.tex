@@ -797,5 +797,111 @@ Veamos qué es cada campo de la tabla:
 El párrafo anterior anterior a la tabla resume la información de esta y muestra la carga promedio.
 
 \vspace{6mm}
+\result{Suspender y reanudar un proceso}
+\textbf{Define una orden para suspender el proceso en primer plano. Ejecuta la orden
+man y suspende su ejecución. Usa ps para ver el estado en que está. Reanuda la
+ejecución del proceso.}
 
+Podemos usar \texttt{CNTRL+Z} envía la señal 20 al proceso en primer plano (al igual que podría hacerlo \texttt{kill}), que actúa como la 19, pero puede ser ignorada por el proceso en ciertas circunstancias:
+\begin{lstlisting}[style=terminal]
+    $ man man
+    man: can't resolve man7/groff_man.7
+
+    [1]+  Stopped                 man man
+    $ fg
+    man man
+    $
+\end{lstlisting}
+El \texttt{Stopped} se corresponde con lo ocurrido al hacer \texttt{CNTRL+Z}.
+
+\vspace{6mm}
+\result{Conocer procesos que el usuario tiene en ejecución}
+
+Podemos usar la opción \texttt{-u} con las órdenes \texttt{ps} o \texttt{top} para filtrar por usuarios:
+\begin{lstlisting}[style=terminal]
+$ top -u javier
+...
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    351 javier    20   0    6180   4992   3456 S   0.0   0.1   0:00.24 bash
+    397 javier    20   0   20116  10880   9088 S   0.0   0.1   0:00.18 systemd
+    398 javier    20   0   21156   3520   1792 S   0.0   0.0   0:00.00 (sd-pam)
+    422 javier    20   0    6056   4992   3456 S   0.0   0.1   0:00.04 bash
+    695 javier    20   0    9280   5120   3072 R   0.0   0.1   0:00.01 top
+
+$ ps -u javier
+    PID TTY          TIME CMD
+    351 pts/0    00:00:00 bash
+    397 ?        00:00:00 systemd
+    398 ?        00:00:00 (sd-pam)
+    422 pts/1    00:00:00 bash
+    696 pts/0    00:00:00 ps
+$
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Lanzar procesos en segundo plano}
+Basta usar \texttt{\&} como en el \hyperref[result:3.1]{ejercicio 3.1}.
+
+\vspace{6mm}
+\result{Reanudar en segundo plano un proceso suspendido}
+Podemos usar la orden \texttt{bg} para ello.
+\begin{lstlisting}[style=terminal]
+    $ (sleep 60; echo He terminado)
+    ^Z
+    [1]+  Stopped                 ( sleep 60; echo He terminado )
+    $ bg
+    [1]+ ( sleep 60; echo He terminado ) &
+    $ echo Otra cosa mientras
+    Otra cosa mientras
+    $ echo Esperamos un poco mas...
+    Esperamos un poco mas...
+    $ He terminado
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Suspender el proceso en primer plano}
+Basta usar \texttt{CNTRL+Z}.
+
+\vspace{6mm}
+\result{Lista de procesos que hemos lanzado en segundo plano}
+Podemos usar \texttt{jobs}:
+\begin{lstlisting}[style=terminal]
+    $ (sleep 60; echo Segundo plano 1)&
+    [1] 810
+    $ (sleep 60; echo Segundo plano 2)&
+    [2] 812
+    $ (sleep 60; echo Segundo plano 3)&
+    [3] 814
+    $ jobs
+    [1]   Running  ( sleep 60; echo Segundo plano 1 ) &
+    [2]-  Running  ( sleep 60; echo Segundo plano 2 ) &
+    [3]+  Running  ( sleep 60; echo Segundo plano 3 ) &
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Suspender un proceso de otra terminal}
+\textbf{Indica cómo podemos suspender un proceso que no está en primer plano, pero
+que se ha lanzado desde otra terminal.}
+
+Al estar en otra terminal, debemos usar la orden \texttt{kill}.
+\begin{lstlisting}[style=terminal]
+    javier@MSI:/mnt/c/Users/Javier$ (sleep 600; echo Otra terminal)
+
+\end{lstlisting}
+
+Comprobamos de qué proceso se trata usando \texttt{top}
+\begin{lstlisting}[style=terminal]
+ PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+977 javier    20   0    3128   1664   1664 S   0.0   0.0   0:00.00 sleep
+\end{lstlisting}
+En este caso será el \texttt{977} al ser de \texttt{sleep}. Enviaremos ahora una señal:
+\begin{lstlisting}[style=terminal]
+    $ kill -19 977  
+\end{lstlisting}
+
+Comprobando con el \texttt{top} de nuevo,
+\begin{lstlisting}[style=terminal]
+977 javier    20   0    3128   1664   1664 T   0.0   0.0   0:00.00 sleep
+\end{lstlisting}
 \end{document}

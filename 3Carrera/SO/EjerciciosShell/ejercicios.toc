@@ -45,3 +45,10 @@
 \contentsline {subsubsection}{\numberline {3.2}Diferencia entre órdenes con sleep}{19}{subsubsection.0.0.3.2}%
 \contentsline {subsubsection}{\numberline {3.3}Terminación de programas en primer y en segundo plano}{19}{subsubsection.0.0.3.3}%
 \contentsline {subsubsection}{\numberline {3.6}Interpreta los campos de la orden \texttt {top}}{19}{subsubsection.0.0.3.6}%
+\contentsline {subsubsection}{\numberline {3.7}Suspender y reanudar un proceso}{20}{subsubsection.0.0.3.7}%
+\contentsline {subsubsection}{\numberline {3.8}Conocer procesos que el usuario tiene en ejecución}{21}{subsubsection.0.0.3.8}%
+\contentsline {subsubsection}{\numberline {3.9}Lanzar procesos en segundo plano}{22}{subsubsection.0.0.3.9}%
+\contentsline {subsubsection}{\numberline {3.10}Reanudar en segundo plano un proceso suspendido}{22}{subsubsection.0.0.3.10}%
+\contentsline {subsubsection}{\numberline {3.11}Suspender el proceso en primer plano}{22}{subsubsection.0.0.3.11}%
+\contentsline {subsubsection}{\numberline {3.12}Lista de procesos que hemos lanzado en segundo plano}{22}{subsubsection.0.0.3.12}%
+\contentsline {subsubsection}{\numberline {3.13}Suspender un proceso de otra terminal}{23}{subsubsection.0.0.3.13}%

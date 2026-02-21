@@ -1,0 +1,254 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[table,x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{titlesec}
+\usepackage{tikz} % core TikZ
+\usetikzlibrary{matrix}
+\usepackage{pgfplots}
+\usepackage{float}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Indent-subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm+0.07\textwidth]frame.north east) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea vertical
+  }
+}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
+
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
+
+%Espacios \mathcal{L}_p
+\newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}.}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Algoritmia}
+\author{Práctica 1.2}
+\date{15/2/2026}
+
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\result{Ordenación por burbuja}
+
+\vspace{2mm}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{ord}$ (ms)} & \textit{$T_\text{inv}$ (ms)} & \textit{$T_\text{alea}$ (ms)} & \textit{Repeticiones} \\ \hline
+10.000 & 336 & 1.176 & 900 & 1 \\ \hline
+20.000 & 1.309 &4.642 & 3.500 & 1 \\ \hline
+40.000 & 5.156 & 18.309 & 14.217 & 1 \\ \hline
+80.000 & 20.873 & 74.005 & 56.764 & 1 \\ \hline
+160.000 & 83.314 & FdT & FdT & 1 \\ \hline
+320.000 & FdT & FdT & FdT & 1 \\ \hline
+\end{tabular}  
+\end{table}
+\begin{center}
+  \includegraphics[
+    width=\textwidth,
+    trim=0 4cm 0 4cm,
+    clip
+  ]{media/Burbuja.pdf}
+\end{center}
+
+\vspace{4mm}
+\result{Ordenación por selección}
+\vspace{2mm}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{ord}$ (ms)} & \textit{$T_\text{inv}$ (ms)} & \textit{$T_\text{alea}$ (ms)} & \textit{Repeticiones} \\ \hline
+10.000 & 312 & 302 & 324 & 1 \\ \hline
+20.000 & 1.257 & 1.139 & 1.265 & 1 \\ \hline
+40.000 & 5.014 & 4.694 & 5.076 & 1 \\ \hline
+80.000 & 20.133 & 18.684 & 20.003 & 1 \\ \hline
+160.000 & 81.081 & 76.106 & 80.194 & 1 \\ \hline
+320.000 & FdT & FdT & FdT & 1 \\ \hline
+\end{tabular}  
+\end{table}
+
+\begin{center}
+  \includegraphics[
+    width=\textwidth,
+    trim=0 4cm 0 4cm,
+    clip
+  ]{media/Seleccion.pdf}
+  \newline
+  Este algoritmo no depende tanto del orden previo del vector
+\end{center}
+
+\newpage{5mm}
+\result{Ordenación por \textit{QuickSort}}
+\vspace{2mm}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\textit{n} & \textit{$T_\text{ord}$ (ms)} & \textit{$T_\text{inv}$ (ms)} & \textit{$T_\text{alea}$ (ms)} & \textit{Repeticiones} \\ \hline
+10.000 & 248 & 297 & 377 & 1 \\ \hline
+20.000 & 542 & 607 & 794 & 1 \\ \hline
+40.000 & 1.146 & 1.245 & 1.699 & 1 \\ \hline
+80.000 & 2.447 & 2.718 & 3.614 & 1 \\ \hline
+160.000 & 5.083 & 5.725 & 7.576  & 1 \\ \hline
+320.000 & 10.653 & 11.701 & 15.895 & 1 \\ \hline
+640.000 & 22.383 & 24.549 & 33.809 & 1 \\ \hline
+1.280.000 & 47.247 & 50.977 & 71.247 & 1 \\ \hline
+\end{tabular}  
+\end{table}
+
+\begin{center}
+  \includegraphics[
+    width=\textwidth,
+    trim=0 4cm 0 4cm,
+    clip
+  ]{media/QuickSort.pdf}
+  \newline
+  El algoritmo con mejor rendimiento entre los que hemos visto hasta ahora
+\end{center}
+
+Podemos observar en la gráfica que los tiempos siguen claramente un patrón de líneas rectas. Al estar ambos ejes en escala logarítmica, este es un fuerte indicativo de que el algoritmo implementado sigue su complejidad teórica de $O(n\log n)$.
+\end{document} 

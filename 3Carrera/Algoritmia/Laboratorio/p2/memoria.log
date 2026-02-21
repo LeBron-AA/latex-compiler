@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  20 FEB 2026 12:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  21 FEB 2026 11:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/UNIOVI/latex-compiler/3Carrera/SO/EjerciciosShell/ejercicios.tex
-(d:/UNIOVI/latex-compiler/3Carrera/SO/EjerciciosShell/ejercicios.tex
+**d:/UNIOVI/latex-compiler/3Carrera/Algoritmia/Laboratorio/p2/memoria.tex
+(d:/UNIOVI/latex-compiler/3Carrera/Algoritmia/Laboratorio/p2/memoria.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\MikTex\texmfs\install\tex/latex/base\article.cls
@@ -392,75 +392,18 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 (C:\MikTex\texmfs\install\tex/latex/setspace\setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(C:\MikTex\texmfs\install\tex/latex/titlesec\titlesec.sty
-Package: titlesec 2025/01/04 v2.17 Sectioning titles
-\ttl@box=\box57
-\beforetitleunit=\skip65
-\aftertitleunit=\skip66
-\ttl@plus=\dimen177
-\ttl@minus=\dimen178
-\ttl@toksa=\toks35
-\titlewidth=\dimen179
-\titlewidthlast=\dimen180
-\titlewidthfirst=\dimen181
-)
-(C:\MikTex\texmfs\install\tex/latex/float\float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count297
-\float@exts=\toks36
-\float@box=\box58
-\@float@everytoks=\toks37
-\@floatcapt=\box59
-)
-(C:\MikTex\texmfs\install\tex/latex/tocloft\tocloft.sty
-Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
-Package tocloft Info: The document has section divisions on input line 51.
-\cftparskip=\skip67
-\cftbeforetoctitleskip=\skip68
-\cftaftertoctitleskip=\skip69
-\cftbeforepartskip=\skip70
-\cftpartnumwidth=\skip71
-\cftpartindent=\skip72
-\cftbeforesecskip=\skip73
-\cftsecindent=\skip74
-\cftsecnumwidth=\skip75
-\cftbeforesubsecskip=\skip76
-\cftsubsecindent=\skip77
-\cftsubsecnumwidth=\skip78
-\cftbeforesubsubsecskip=\skip79
-\cftsubsubsecindent=\skip80
-\cftsubsubsecnumwidth=\skip81
-\cftbeforeparaskip=\skip82
-\cftparaindent=\skip83
-\cftparanumwidth=\skip84
-\cftbeforesubparaskip=\skip85
-\cftsubparaindent=\skip86
-\cftsubparanumwidth=\skip87
-\cftbeforeloftitleskip=\skip88
-\cftafterloftitleskip=\skip89
-\cftbeforefigskip=\skip90
-\cftfigindent=\skip91
-\cftfignumwidth=\skip92
-\c@lofdepth=\count298
-\c@lotdepth=\count299
-\cftbeforelottitleskip=\skip93
-\cftafterlottitleskip=\skip94
-\cftbeforetabskip=\skip95
-\cfttabindent=\skip96
-\cfttabnumwidth=\skip97
-)
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
 
 (C:\MikTex\texmfs\install\tex/latex/pgf/basiclayer\pgf.sty
 (C:\MikTex\texmfs\install\tex/latex/pgf/utilities\pgfrcs.sty
 (C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgfutil-common.tex
-\pgfutil@everybye=\toks38
-\pgfutil@tempdima=\dimen182
-\pgfutil@tempdimb=\dimen183
+\pgfutil@everybye=\toks35
+\pgfutil@tempdima=\dimen177
+\pgfutil@tempdimb=\dimen178
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgfutil-latex.def
-\pgfutil@abb=\box60
+\pgfutil@abb=\box57
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgfrcs.code.tex
 (C:\MikTex\texmfs\install\tex/generic/pgf\pgf.revision.tex)
@@ -474,33 +417,33 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
 (C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks39
-\pgfkeys@temptoks=\toks40
+\pgfkeys@pathtoks=\toks36
+\pgfkeys@temptoks=\toks37
 
 (C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code
 .tex
-\pgfkeys@tmptoks=\toks41
+\pgfkeys@tmptoks=\toks38
 ))
-\pgf@x=\dimen184
-\pgf@y=\dimen185
-\pgf@xa=\dimen186
-\pgf@ya=\dimen187
-\pgf@xb=\dimen188
-\pgf@yb=\dimen189
-\pgf@xc=\dimen190
-\pgf@yc=\dimen191
-\pgf@xd=\dimen192
-\pgf@yd=\dimen193
+\pgf@x=\dimen179
+\pgf@y=\dimen180
+\pgf@xa=\dimen181
+\pgf@ya=\dimen182
+\pgf@xb=\dimen183
+\pgf@yb=\dimen184
+\pgf@xc=\dimen185
+\pgf@yc=\dimen186
+\pgf@xd=\dimen187
+\pgf@yd=\dimen188
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count300
-\c@pgf@countb=\count301
-\c@pgf@countc=\count302
-\c@pgf@countd=\count303
-\t@pgf@toka=\toks42
-\t@pgf@tokb=\toks43
-\t@pgf@tokc=\toks44
-\pgf@sys@id@count=\count304
+\c@pgf@counta=\count297
+\c@pgf@countb=\count298
+\c@pgf@countc=\count299
+\c@pgf@countd=\count300
+\t@pgf@toka=\toks39
+\t@pgf@tokb=\toks40
+\t@pgf@tokc=\toks41
+\pgf@sys@id@count=\count301
  (C:\MikTex\texmfs\install\tex/generic/pgf/systemlayer\pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -514,8 +457,8 @@ File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )))
 (C:\MikTex\texmfs\install\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count305
-\pgfsyssoftpath@bigbuffer@items=\count306
+\pgfsyssoftpath@smallbuffer@items=\count302
+\pgfsyssoftpath@bigbuffer@items=\count303
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -525,12 +468,12 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmath.code.tex
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmathutil.code.tex)
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmathparser.code.tex
-\pgfmath@dimen=\dimen194
-\pgfmath@count=\count307
-\pgfmath@box=\box61
-\pgfmath@toks=\toks45
-\pgfmath@stack@operand=\toks46
-\pgfmath@stack@operation=\toks47
+\pgfmath@dimen=\dimen189
+\pgfmath@count=\count304
+\pgfmath@box=\box58
+\pgfmath@toks=\toks42
+\pgfmath@stack@operand=\toks43
+\pgfmath@stack@operation=\toks44
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmathfunctions.code.tex)
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex)
@@ -548,54 +491,54 @@ ode.tex)
 ics.code.tex)
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmathcalc.code.tex)
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count308
+\c@pgfmathroundto@lastzeros=\count305
 ))
 (C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfint.code.tex)
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@picminx=\dimen195
-\pgf@picmaxx=\dimen196
-\pgf@picminy=\dimen197
-\pgf@picmaxy=\dimen198
-\pgf@pathminx=\dimen199
-\pgf@pathmaxx=\dimen256
-\pgf@pathminy=\dimen257
-\pgf@pathmaxy=\dimen258
-\pgf@xx=\dimen259
-\pgf@xy=\dimen260
-\pgf@yx=\dimen261
-\pgf@yy=\dimen262
-\pgf@zx=\dimen263
-\pgf@zy=\dimen264
+\pgf@picminx=\dimen190
+\pgf@picmaxx=\dimen191
+\pgf@picminy=\dimen192
+\pgf@picmaxy=\dimen193
+\pgf@pathminx=\dimen194
+\pgf@pathmaxx=\dimen195
+\pgf@pathminy=\dimen196
+\pgf@pathmaxy=\dimen197
+\pgf@xx=\dimen198
+\pgf@xy=\dimen199
+\pgf@yx=\dimen256
+\pgf@yy=\dimen257
+\pgf@zx=\dimen258
+\pgf@zy=\dimen259
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.
 tex
 File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@path@lastx=\dimen265
-\pgf@path@lasty=\dimen266
+\pgf@path@lastx=\dimen260
+\pgf@path@lasty=\dimen261
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
 File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@shorten@end@additional=\dimen267
-\pgf@shorten@start@additional=\dimen268
+\pgf@shorten@end@additional=\dimen262
+\pgf@shorten@start@additional=\dimen263
 ) (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box62
-\pgf@hbox=\box63
-\pgf@layerbox@main=\box64
-\pgf@picture@serial@count=\count309
+\pgfpic=\box59
+\pgf@hbox=\box60
+\pgf@layerbox@main=\box61
+\pgf@picture@serial@count=\count306
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.t
 ex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgflinewidth=\dimen269
+\pgflinewidth=\dimen264
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcoretransformations.cod
 e.tex
 File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@pt@x=\dimen270
-\pgf@pt@y=\dimen271
-\pgf@pt@temp=\dimen272
+\pgf@pt@x=\dimen265
+\pgf@pt@y=\dimen266
+\pgf@pt@temp=\dimen267
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -609,20 +552,20 @@ File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
 File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowsep=\dimen273
+\pgfarrowsep=\dimen268
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@max=\dimen274
-\pgf@sys@shading@range@num=\count310
-\pgf@shadingcount=\count311
+\pgf@max=\dimen269
+\pgf@sys@shading@range@num=\count307
+\pgf@shadingcount=\count308
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box65
+\pgfexternal@startupbox=\box62
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -639,22 +582,22 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (C:\MikTex\texmfs\install\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box66
+\pgfnodeparttextbox=\box63
 )
 (C:\MikTex\texmfs\install\tex/generic/pgf/modules\pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
 (C:\MikTex\texmfs\install\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
-\pgf@nodesepstart=\dimen275
-\pgf@nodesepend=\dimen276
+\pgf@nodesepstart=\dimen270
+\pgf@nodesepend=\dimen271
 ) (C:\MikTex\texmfs\install\tex/latex/pgf/compatibility\pgfcomp-version-1-18.st
 y
 Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 )) (C:\MikTex\texmfs\install\tex/latex/tools\verbatim.sty
 Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks48
-\verbatim@line=\toks49
+\every@verbatim=\toks45
+\verbatim@line=\toks46
 \verbatim@in@stream=\read3
 )
 (C:\MikTex\texmfs\install\tex/latex/environ\environ.sty
@@ -663,53 +606,85 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (C:\MikTex\texmfs\install\tex/latex/trimspaces\trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\tcb@titlebox=\box67
-\tcb@upperbox=\box68
-\tcb@lowerbox=\box69
-\tcb@phantombox=\box70
-\c@tcbbreakpart=\count312
-\c@tcblayer=\count313
-\c@tcolorbox@number=\count314
-\l__tcobox_tmpa_box=\box71
-\l__tcobox_tmpa_dim=\dimen277
+\tcb@titlebox=\box64
+\tcb@upperbox=\box65
+\tcb@lowerbox=\box66
+\tcb@phantombox=\box67
+\c@tcbbreakpart=\count309
+\c@tcblayer=\count310
+\c@tcolorbox@number=\count311
+\l__tcobox_tmpa_box=\box68
+\l__tcobox_tmpa_dim=\dimen272
+\tcb@temp=\box69
+\tcb@temp=\box70
+\tcb@temp=\box71
 \tcb@temp=\box72
-\tcb@temp=\box73
-\tcb@temp=\box74
-\tcb@temp=\box75
 )
-(C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcblistings.code.tex
-Library (tcolorbox): 'tcblistings.code.tex' version '6.2.0'
-(C:\MikTex\texmfs\install\tex/latex/listings\listings.sty
-\lst@mode=\count315
-\lst@gtempboxa=\box76
-\lst@token=\toks50
-\lst@length=\count316
-\lst@currlwidth=\dimen278
-\lst@column=\count317
-\lst@pos=\count318
-\lst@lostspace=\dimen279
-\lst@width=\dimen280
-\lst@newlines=\count319
-\lst@lineno=\count320
-\lst@maxwidth=\dimen281
-
-(C:\MikTex\texmfs\install\tex/latex/listings\lstmisc.sty
-File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count321
-\lst@skipnumbers=\count322
-\lst@framebox=\box77
-)
-(C:\MikTex\texmfs\install\tex/latex/listings\listings.cfg
-File: listings.cfg 2023/02/27 1.9 listings configuration
+(C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
+(C:\MikTex\texmfs\install\tex/latex/pgf/frontendlayer\tikz.sty
+(C:\MikTex\texmfs\install\tex/latex/pgf/utilities\pgffor.sty
+(C:\MikTex\texmfs\install\tex/latex/pgf/utilities\pgfkeys.sty
+(C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgfkeys.code.tex))
+(C:\MikTex\texmfs\install\tex/latex/pgf/math\pgfmath.sty
+(C:\MikTex\texmfs\install\tex/generic/pgf/math\pgfmath.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen273
+\pgffor@skip=\dimen274
+\pgffor@stack=\toks47
+\pgffor@toks=\toks48
 ))
-Package: listings 2023/02/27 1.9 (Carsten Heinz)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 
-(C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcblistingscore.code.tex
-Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
-(C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbprocessing.code.tex
-Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryplothandlers.code
+.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count312
+\pgfplotmarksize=\dimen275
 )
-\c@tcblisting=\count323
+\tikz@lastx=\dimen276
+\tikz@lasty=\dimen277
+\tikz@lastxsaved=\dimen278
+\tikz@lastysaved=\dimen279
+\tikz@lastmovetox=\dimen280
+\tikz@lastmovetoy=\dimen281
+\tikzleveldistance=\dimen282
+\tikzsiblingdistance=\dimen283
+\tikz@figbox=\box73
+\tikz@figbox@bg=\box74
+\tikz@tempbox=\box75
+\tikz@tempbox@bg=\box76
+\tikztreelevel=\count313
+\tikznumberofchildren=\count314
+\tikznumberofcurrentchild=\count315
+\tikz@fig@count=\count316
+
+(C:\MikTex\texmfs\install\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count317
+\pgfmatrixcurrentcolumn=\count318
+\pgf@matrix@numberofcolumns=\count319
+)
+\tikz@expandcount=\count320
+
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(C:\MikTex\texmfs\install\tex/latex/tikzfill\tikzfill.image.sty
+Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
+
+(C:\MikTex\texmfs\install\tex/latex/tikzfill\tikzfill-common.sty
+Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
+)
+(C:\MikTex\texmfs\install\tex/latex/tikzfill\tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
+\l__tikzfill_img_box=\box77
+))
+(C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 )) (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/pdfcol\pdfcol.sty
@@ -720,48 +695,193 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@totalupperbox=\box79
 \tcb@totallowerbox=\box80
 )
-\c@unit=\count324
-\c@chapter=\count325
+(C:\MikTex\texmfs\install\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box81
+\beforetitleunit=\skip65
+\aftertitleunit=\skip66
+\ttl@plus=\dimen284
+\ttl@minus=\dimen285
+\ttl@toksa=\toks49
+\titlewidth=\dimen286
+\titlewidthlast=\dimen287
+\titlewidthfirst=\dimen288
+)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (C:\MikTex\texmfs\install\tex/latex/pgfplots\pgfplots.sty
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotscore.code.tex
+\t@pgfplots@toka=\toks50
+\t@pgfplots@tokb=\toks51
+\t@pgfplots@tokc=\toks52
+\pgfplots@tmpa=\dimen289
+\c@pgfplots@coordindex=\count321
+\c@pgfplots@scanlineindex=\count322
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.tex)
+) (C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\pgfplotslibrary.code.tex)
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsup
+p_loader.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks53
+\t@pgf@tokb=\toks54
+\t@pgf@tokc=\toks55
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsup
+p_pgfutil-common-lists.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsutil.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsliststruct
+ure.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsliststruct
+ureext.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsarray.code
+.tex
+\c@pgfplotsarray@tmp=\count323
+)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsmatrix.cod
+e.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/numtable\pgfplotstableshared.cod
+e.tex
+\c@pgfplotstable@counta=\count324
+\t@pgfplotstable@a=\toks56
+)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/liststructure\pgfplotsdeque.code
+.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsbinary.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsbinary.data.code.te
+x))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex)
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshad
+ing.code.tex
+\c@pgfplotslibrarysurf@no=\count325
+
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshadi
+ng.pgfsys-pdftex.def)))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotscolormap.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/util\pgfplotscolor.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsstackedplots.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsplothandlers.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex))
+) (C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.scaling.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex
+) (C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.errorbars.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.markers.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplotsticks.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots\pgfplots.paths.code.tex)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arydecorations.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen290
+\pgfdecoratedremainingdistance=\dimen291
+\pgfdecoratedinputsegmentcompleteddistance=\dimen292
+\pgfdecoratedinputsegmentremainingdistance=\dimen293
+\pgf@decorate@distancetomove=\dimen294
+\pgf@decorate@repeatstate=\count326
+\pgfdecorationsegmentamplitude=\dimen295
+\pgfdecorationsegmentlength=\dimen296
+)
+\tikz@lib@dec@box=\box82
+)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arydecorations.pathmorphing.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries/decorations\pgflibrarydecor
+ations.pathmorphing.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+arydecorations.pathreplacing.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries/decorations\pgflibrarydecor
+ations.pathreplacing.code.tex))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contour
+lua.code.tex)
+\pgfplots@numplots=\count327
+\pgfplots@xmin@reg=\dimen297
+\pgfplots@xmax@reg=\dimen298
+\pgfplots@ymin@reg=\dimen299
+\pgfplots@ymax@reg=\dimen300
+\pgfplots@zmin@reg=\dimen301
+\pgfplots@zmax@reg=\dimen302
+)
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+aryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryplotmarks.code.te
+x
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (C:\MikTex\texmfs\install\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count328
+\float@exts=\toks57
+\float@box=\box83
+\@float@everytoks=\toks58
+\@floatcapt=\box84
+)
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.fillbet
+ween.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\tikzlibraryfillbetwee
+n.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibr
+aryintersections.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgf/libraries\pgflibraryintersections.cod
+e.tex
+\pgf@intersect@solutions=\count329
+))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\tikzlibrarydecoration
+s.softclip.code.tex
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/pgfcontrib\pgflibraryfillbetween
+.code.tex)))
+(C:\MikTex\texmfs\install\tex/generic/pgfplots/libs\tikzlibrarypgfplots.decorat
+ions.softclip.code.tex))
+\c@unit=\count330
+\c@chapter=\count331
 
 (C:\MikTex\texmfs\install\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count326
-\l__pdf_internal_box=\box81
+\l__color_backend_stack_int=\count332
+\l__pdf_internal_box=\box85
 )
-(ejercicios.aux)
-\openout1 = `ejercicios.aux'.
+(memoria.aux)
+\openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 87.
-LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 158.
+LaTeX Font Info:    ... okay on input line 158.
  (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
-\scratchdimen=\dimen282
-\scratchbox=\box82
-\nofMPsegments=\count328
-\nofMParguments=\count329
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count330
-\MPscratchDim=\dimen283
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count333
+\scratchdimen=\dimen303
+\scratchbox=\box86
+\nofMPsegments=\count334
+\nofMParguments=\count335
+\everyMPshowfont=\toks59
+\MPscratchCnt=\count336
+\MPscratchDim=\dimen304
+\MPnumerator=\count337
+\makeMPintoPDFobject=\count338
+\everyMPtoPDFconversion=\toks60
 ) (C:\MikTex\texmfs\install\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -804,85 +924,84 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 87.
-(ejercicios.out) (ejercicios.out)
+Package hyperref Info: Link coloring ON on input line 158.
+(memoria.out) (memoria.out)
 \@outlinefile=\write4
-\openout4 = `ejercicios.out'.
-
-\c@lstlisting=\count333
-LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
+\openout4 = `memoria.out'.
 
 
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 161
+.
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 161
+.
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (ejercicios.toc [1
-
-{C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map}])
+) (memoria.toc)
 \tf@toc=\write5
-\openout5 = `ejercicios.toc'.
+\openout5 = `memoria.toc'.
 
- [2]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 98.
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 99.
-LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-105.
+ [1
 
-(C:\MikTex\texmfs\install\tex/latex/base\ts1cmtt.fd
-File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [3] [4] [5] [6] [7]
-[8] [9] [10] [11]
+{C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map}]
 
-LaTeX Warning: Hyper reference `result2.11' on page 12 undefined on input line 
-467.
+pdfTeX warning: pdflatex.exe (file ./media/Burbuja.pdf): PDF inclusion: found P
+DF version <1.7>, but at most version <1.5> allowed
+<media/Burbuja.pdf, id=30, 794.97pt x 614.295pt>
+File: media/Burbuja.pdf Graphic file (type pdf)
+<use media/Burbuja.pdf>
+Package pdftex.def Info: media/Burbuja.pdf  used on input line 190.
+(pdftex.def)             Requested size: 418.25368pt x 203.44296pt.
 
-[12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] (ejercicios.aux)
+
+pdfTeX warning: pdflatex.exe (file ./media/Seleccion.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<media/Seleccion.pdf, id=32, 794.97pt x 614.295pt>
+File: media/Seleccion.pdf Graphic file (type pdf)
+<use media/Seleccion.pdf>
+Package pdftex.def Info: media/Seleccion.pdf  used on input line 217.
+(pdftex.def)             Requested size: 418.25368pt x 203.44296pt.
+[2 <./media/Burbuja.pdf>] [3 <./media/Seleccion.pdf>]
+
+pdfTeX warning: pdflatex.exe (file ./media/QuickSort.pdf): PDF inclusion: found
+ PDF version <1.7>, but at most version <1.5> allowed
+<media/QuickSort.pdf, id=62, 794.97pt x 614.295pt>
+File: media/QuickSort.pdf Graphic file (type pdf)
+<use media/QuickSort.pdf>
+Package pdftex.def Info: media/QuickSort.pdf  used on input line 248.
+(pdftex.def)             Requested size: 418.25368pt x 203.44296pt.
+[4 <./media/QuickSort.pdf>] (memoria.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `ejercicios.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `ejercicios.out':
-(rerunfilecheck)             Before: E0F8992BB674EE40D35B57AE65AB48CB;11860
-(rerunfilecheck)             After:  9EFA98B7333F9052E7E5FEBE2345C5D5;12068.
+Package rerunfilecheck Info: File `memoria.out' has not changed.
+(rerunfilecheck)             Checksum: 1E9E504A3D7A2FA9596C881766E9E08E;545.
  ) 
 Here is how much of TeX's memory you used:
- 25128 strings out of 474486
- 456009 string characters out of 5753177
- 2129542 words of memory out of 5000000
- 46548 multiletter control sequences out of 15000+600000
- 568960 words of font info for 78 fonts, out of 8000000 for 9000
+ 36560 strings out of 474486
+ 863179 string characters out of 5753177
+ 1936542 words of memory out of 5000000
+ 58258 multiletter control sequences out of 15000+600000
+ 567932 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,7n,87p,600b,1989s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\M
-ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\MikTex\te
-xmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
-cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-<C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ejercicios.pdf (23 pages, 262884 bytes).
+ 83i,13n,87p,781b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTe
+x/texmfs/install/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/MikTex/texmfs/
+install/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/MikTex/texmfs/install/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts
+/cm/cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmti8.p
+fb>
+Output written on memoria.pdf (4 pages, 262851 bytes).
 PDF statistics:
- 905 PDF objects out of 1000 (max. 8388607)
- 471 named destinations out of 1000 (max. 500000)
- 421 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 116 PDF objects out of 1000 (max. 8388607)
+ 8 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

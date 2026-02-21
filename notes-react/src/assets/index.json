@@ -16,6 +16,36 @@
       ]
     },
     {
+      "name" : "Algoritmia",
+      "grade" : 2,
+      "semester" : 2,
+      "study" : "software",
+      "notes" : [
+        {
+          "title" : "Memoria práctica 0",
+          "description" : "Ejemplo",
+          "pdfPath" : "3Carrera/Algoritmia/Laboratorio/p0/memoria.pdf",
+          "language" : "es",
+          "type" : "exercises"
+        },
+        {
+          "title" : "Memoria práctica 1.1",
+          "description" : "Ejemplo",
+          "pdfPath" : "3Carrera/Algoritmia/Laboratorio/p11/memoria.pdf",
+          "language" : "es",
+          "type" : "exercises"
+        },
+        {
+          "title" : "Memoria práctica 1.2",
+          "description" : "Ejemplo",
+          "pdfPath" : "3Carrera/Algoritmia/Laboratorio/p12/memoria.pdf",
+          "language" : "es",
+          "type" : "exercises"
+        }
+      ]
+    },
+    
+    {
       "name" : "Programación Matemática",
       "grade" : 3,
       "semester" : 2,
