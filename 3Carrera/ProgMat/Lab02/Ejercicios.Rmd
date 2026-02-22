@@ -152,3 +152,158 @@ Grafiquemos el resultado:
 p + geom_point(data=puntos, aes(x=V1, y=V2), col="purple", size=2.5) +
   geom_point(data=maximo, aes(x=V1, y=V2), col="purple", size=3.5)
 ```
+
+\newpage
+## Paquete \texttt{lpSolve}
+### Ejercicios 2.4.3
+\textbf{1. Primer ejercicio}
+Maximizar $5x_1 + 7x_2$ sujeto a:
+$$\begin{cases}
+8x_1 + 14x_2 \leq 63 \\
+10x_1 + 4x_2 \leq 45 \\
+x_1,x_2 \in \mathbb{Z}^+
+\end{cases}$$
+```{r,echo=FALSE,warning=FALSE,message=FALSE}
+library(lpSolve)
+```
+```{r}
+coef = c(5,7)
+A = rbind(c(8,14), c(10,4))
+b = c(63,45)
+sol = lp(direction = "max", objective.in = coef, const.mat = A,
+         const.rhs = b, const.dir = c("<=", "<="), all.int=TRUE)
+sol
+sol$solution
+```
+Es necesario usar el parámetro \texttt{all.int} para garantizar que $x_1, x_2 \in \mathbb{Z}^+$.
+
+\vspace{6mm}
+\textbf{2. Segundo ejercicio}
+Maximizar $ x_1 -2x_2 -3x_3 -x_4$ sujeto a:
+$$\begin{cases}
+x_1 - x_2 - 2x_3 -x_4 &\leq 4 \\
+2x_1 + x_3 -4x_4 &\leq 2 \\
+-2x_1 + x_2 + x4 &\leq 1\\
+x_i \geq 0 & i=1,2,3,4
+\end{cases}$$
+Modelamos las restricciones:
+```{r}
+coef = c(1,-2,-3,-1)
+A = rbind(c(1, -1,-2,-1),
+          c(2,0,1,-4),
+          c(-2,1,0,1))
+b = c(4,2,1)
+
+sol = lp("max", coef, A, rep("<=", 3), b)
+sol
+sol$solution
+```
+
+\vspace{6mm}
+\textbf{3. Tercer ejercicio}
+Minimizar $-2x_2 + x_3$ sujeto a:
+$$\begin{cases}
+-x_1 - 2x_2 &\geq -3\\
+4x_1 + x_2 + 7x_3 &\geq -1\\
+2x_1 - 3x_2 + x_3 &\geq -5\\
+x_i \geq 0 & i=1,2,3
+\end{cases}$$
+Al igual que en los casos anteriores,
+```{r}
+coef = c(0,-2,1)
+A = rbind(c(-1,-2,0),
+          c(4,1,7),
+          c(2,-3,1))
+b = c(-3,-1,-5)
+
+sol = lp("min", coef, A, rep(">=", 3), b)
+sol
+sol$solution
+```
+
+\vspace{6mm}
+\textbf{4. Cuarto ejercicio}
+Una compañía está evaluando 5 proyectos a desarrollar durante los próximos 3 años. Cada año dispone de 25 millones de euros para invertir en proyectos. El beneficio esperado (en millones) para cada proyecto, así como la cantidad a invertir cada año (en millones) para el mantenimiento del proyecto vienen dadas por la siguiente tabla:
+\begin{table}[h]
+\centering
+\begin{tabular}{c|ccc|c}
+\hline
+ & \multicolumn{3}{c|}{inversión / año} &  \\
+\hline
+proyecto & 1 & 2 & 3 & beneficio \\
+\hline
+1 & 5 & 1 & 8 & 20 \\
+2 & 4 & 7 & 10 & 40 \\
+3 & 3 & 9 & 2 & 20 \\
+4 & 7 & 4 & 1 & 15 \\
+5 & 8 & 6 & 10 & 30 \\
+\hline
+\end{tabular}
+\end{table}
+
+¿Qué proyectos se deberían desarrollar para obtener un beneficio mayor?
+
+\vspace{4mm}
+\textbf{Resolución:}
+Podemos modelar el problema usando programación booleana. Para cada $i$-ésimo proyecto ($i \in \{1,2,3,4,5\}$), la variable booleana $x_i$ será 1 si la empresa decide apostar por él, ó $0$ en caso de no hacerlo.
+
+Por tanto, el problema se reduce a maximizar $20x_1 + 40x_2 + 20x_3 + 15x_4 + 30x_5$ sujeto a:
+$$\begin{cases}
+5x_1 + 4x_2 + 3x_3 + 7x_4 + 8x_5  &\leq 25 \\
+x_1 + 7x_2 + 9x_3 + 4x_4 + 6x_5 &\leq 25 \\
+8x_1 + 10x_2 + 2x_3 + x_4 + 10x_5 &\leq 25 \\
+x_i \in \{0,1\} & i \in \{1,\ldots,5\}
+\end{cases}$$
+
+Usando ahora R para resolver el problema:
+```{r}
+coef = c(20,40,20,15,30)
+A = rbind(c(5,4,3,7,8),
+          c(1,7,9,4,6),
+          c(8,10,2,1,10))
+b = rep(25,3)
+
+sol = lp("max", coef, A, rep("<=", 3), b, all.bin = TRUE)
+sol
+sol$solution
+```
+
+La empresa puede invertir en los proyectos 1,2,3 y 4; logrando un beneficio esperado de 95 millones.
+
+\vspace{6mm}
+\textbf{5. Quinto ejercicio}
+Una empresa esta estudiando llevar a cabo una campaña publicitaria, para ello dispone de 1.000.000 de euros. Puede difundir sus anuncios en dos canales publicitarios distintos, el primero de ellos cobra 15.000 euros cada vez que emite un anuncio, mientras que el segundo cobra el doble. La probabilidad de que un anuncio del primer canal sea visto es del 30 %, mientras que del segundo es del 70 %. Como mínimo deben emitirse 26 anuncios en el primer canal y 13 en el segundo. Determinar el numero de anuncios que debe lanzar en cada canal de manera que maximice la probabilidad de que se vea el anuncio de la empresa, teniendo en cuenta la restriccion presupuestaria y las del número de anuncios.
+
+\vspace{4mm}
+\textbf{Resolución}
+Las variables de decisión serán el número de anuncios que se emiten en cada canal. Por tanto, este es un problema de programación entera. Las restricciones vienen dadas por el presupuesto y el mínimo de anuncios en cada cadena. Queda maximizar la probabilidad de que vea un cliente un anuncio.
+
+Si se emiten $x_1$ anuncios en el primer canal, la probabilidad de que no se vea ninguno de ellos es de $0,7^{x_1}$. Análogamente, si se emiten $x_2$ anuncios en el segundo medio, la probabilidad de no ver ninguno es de $0,3^{x_2}$. Si las emisiones en ambos canales son independientes, la probabilidad de que se vea al menos un anuncio es de $1 - 0,7^{x_1} \cdot 0,3^{x^2}$.
+
+Este no es, a priori, un problema de optimización lineal, pero podemos transformarlo para que sí lo sea:
+Maximizar la función anterior equivale a minimizar $0,7^{x_1} \cdot 0,3^{x^2}$. Al ser $\log$ una función estrictamente, esto equivale a su vez a minimizar $\log(0.7)x_1 + \log(0.3)x_2$.
+Este ya es un problema de optimización lineal. Podemos obtener el punto óptimo con \texttt{lp} directamente, pero el valor de la función hemos de calcularlo ``a mano''.
+
+```{r}
+coef = c(log(0.7), log(0.3))
+A = rbind(c(15e3, 30e3), # presupuesto
+          c(1,0),
+          c(0,1)) # mínimo canal 1
+
+b = c(1e6,26,13)
+dir=c("<=", ">=", ">=")
+sol = lp("min", coef, A, dir, b, all.int=TRUE)
+
+sol # Podemos observar que no es una probabilidad
+anuncios = sol$solution
+anuncios # Este sí es el punto de interés
+```
+Veamos cuál es la probabilidad obtenida real:
+```{r}
+probabilidadVerAnuncios = function(x) 1 - 0.7^x[1] * 0.3^x[2]
+probabilidadVerAnuncios(anuncios)
+```
+Es casi certero que se vean los anuncios de la empresa. La probabilidad de que no lo vean (calulada así para que R imprima con más decimales) es de:
+```{r}
+exp(anuncios[1]*log(0.7) + anuncios[2]*log(0.3))
+```
