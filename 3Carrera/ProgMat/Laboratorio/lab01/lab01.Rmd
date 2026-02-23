@@ -33,7 +33,7 @@ Una vez ejecutada la línea anterior, el valor de la variable a cambiará en la 
 a[3]
 a[1:3]
 ```
-Podemos usar la función \texttt{seqç de R para generar vectores siguiento el formato "start, step, stop":
+Podemos usar la función \texttt{seq} de R para generar vectores siguiento el formato "start, step, stop":
 ```{r}
 seq(4,10,2) #Desde 4 hasta 10 en pasos de 2
 ```
@@ -102,7 +102,7 @@ solve(A,b)
 #Alternativamente
 solve(A) %*% b
 ```
-En la última línea, \texttt{solve(A)} halla la matriz inversa de \texttt{A}.Finalmente, hacemos el producto de matrices con \texttt{%*%}.
+En la última línea, \texttt{solve(A)} halla la matriz inversa de \texttt{A}.Finalmente, hacemos el producto de matrices con `%*%`.
 
 
 ## Listas en R
