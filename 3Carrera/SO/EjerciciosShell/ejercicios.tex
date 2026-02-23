@@ -964,4 +964,101 @@ $ who | wc -l
 $
 \end{lstlisting}
 
+\vspace{6mm}
+\result{Conexiones en el último mes}
+Podemos usar la orden \texttt{last} pasándole nuestro usuario. Para filtrar las conexiones desde el último mes, usamos la opción \texttt{-s} (o \texttt{--since}), seguida de la fecha anterior a la actual por un mes:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ last UO299855 --since 2026-01-22 15:00
+    UO299855 pts/4        156.35.225.235   Sun Feb 22 14:58   still logged in
+    UO299855 pts/0        156.35.225.235   Thu Feb 19 13:31 - 14:17  (00:45)
+    UO299855 pts/10       156.35.225.235   Thu Feb 19 10:01 - 12:16  (02:14)
+    UO299855 pts/6        156.35.225.235   Wed Feb 18 19:51 - 21:18  (01:26)
+    UO299855 pts/28       156.35.225.28    Mon Feb 16 15:48 - 16:42  (00:53)
+
+    wtmp begins Wed Feb 11 00:05:30 2026
+    UO299855@Ubuntu-24:~$
+\end{lstlisting}
+La orden \texttt{last} también muestra cuándo fue iniciado el fichero \texttt{/var/log/wtmp}, que es el que lleva la cuenta de esta información. En este caso, es imposible tener logueos anteriores al 11 de febrero de 2026.
+
+\vspace{6mm}
+\result{Número de usuarios distintos dados de alta}
+Podemos obtener información sobre todos los usuarios por medio del fichero \texttt{/etc/passwd}:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ cat /etc/passwd
+    root:x:0:0:root:/root:/bin/bash
+    daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+    bin:x:2:2:bin:/bin:/usr/sbin/nologin
+    sys:x:3:3:sys:/dev:/usr/sbin/nologin
+    ...
+    UO307758:x:1206:1206::/home/UO307758:/bin/bash
+    UO301919:x:1207:1207:,,,:/home/UO301919:/bin/bash
+    UO299821:x:1208:1208::/home/UO299821:/bin/bash
+    UO299651:x:1209:1209::/home/UO299651:/bin/bash
+    ...
+\end{lstlisting}
+Podemos usar la orden \texttt{cut} para quedarnos con el primer elemento anterior al caracter ":". Así, obtendremos los nombres de usuario, estando cada uno en una línea. Finalmente, usaremos \texttt{wc -l} para contar el número de líneas:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ cat /etc/passwd | cut -f1 -d: | wc -l
+    256
+    UO299855@Ubuntu-24:~$
+\end{lstlisting}
+
+\vspace{6mm}
+\result{Usuarios conectados en el último mes}
+Combinaremos lo visto en ejercicios anteriores. En primer lugar, la lista de usuarios que se conectaron hoy es:
+\begin{lstlisting}[style=terminal]
+UO299855@Ubuntu-24:~$ last -s 2026-02-22 | cut -f1 -d" " | sort | uniq
+
+    UO299855
+    UO305955
+    UO306054
+    UO306200
+    UO306425
+    UO306725
+    UO307145
+    UO307200
+    UO307315
+    UO307410
+    UO307788
+    UO307832
+    UO307845
+    UO308287
+    UO308701
+    UO308964
+    UO318723
+    wtmp
+    UO299855@Ubuntu-24:~$
+\end{lstlisting}
+Hemos usado la fecha actual para que la lista de usuarios sea menor. Nótese que hay dos líneas extras: una línea en blanco, y otra que pone ``\texttt{wtmp}'', ambas vienen del formato de salida de la orden \texttt{last}. Así, cambiando la fecha para que sea un mes anterior, y contando el número de líneas:
+\begin{lstlisting}[style=terminal]
+$ last -s 2026-01-22 | cut -f1 -d" " | sort | uniq | wc -l
+193
+UO299855@Ubuntu-24:~$
+\end{lstlisting}
+Se conectaron 191 usuarios distintos en el último mes.
+
+\vspace{6mm}
+\result{Contenido del directorio en un fichero}
+Para almacenar el contenido de un directorio en un fichero, basta redirigir la salida de una orden que liste sus contenidos a un archivo. Por ejemplo,
+\begin{lstlisting}[style=terminal]
+    $ ls -l > contenidoDir.txt
+    $ cat contenidoDir.txt
+    total 16
+    -rw-r--r-- 1 javier javier    0 Feb 22 15:27 contenidoDir.txt
+    -rw-r--r-- 1 javier javier   16 Feb 20 12:35 f1.txt
+    -rw-r--r-- 1 javier javier   17 Feb 20 12:35 f2.txt
+    -rw-r--r-- 1 javier javier   38 Feb 21 17:48 ficheroCat.txt
+    drwx------ 5 javier javier 4096 Feb 19 20:13 prueba
+    $
+\end{lstlisting}
+
+\vspace{6mm}
+\setcounter{subsubsection}{14}
+\result{Contar el número de gurpos de la máquina}
+La información de grupos está contenida en \texttt{/etc/group}:
+\begin{lstlisting}[style=terminal]
+    UO299855@Ubuntu-24:~$ cat /etc/group | wc -l
+    287
+    UO299855@Ubuntu-24:~$
+\end{lstlisting}
 \end{document}

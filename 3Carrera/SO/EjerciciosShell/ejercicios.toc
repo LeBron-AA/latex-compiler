@@ -1,63 +1,68 @@
 \vskip 10pt
-\contentsline {subsection}{\textbf {1. Primeros pasos en unix}}{3}{chapter.0.0.1}%
-\contentsline {subsubsection}{\numberline {1.4}Fichero de \texttt {man}}{3}{subsubsection.0.0.1.4}%
-\contentsline {subsubsection}{\numberline {1.10}Última orden del historial}{3}{subsubsection.0.0.1.10}%
-\contentsline {subsubsection}{\numberline {1.11}Órdenes con ``p''}{4}{subsubsection.0.0.1.11}%
-\contentsline {subsubsection}{\numberline {1.12}Última orden en bash como shell}{4}{subsubsection.0.0.1.12}%
-\contentsline {subsubsection}{\numberline {1.13}Órdenes internas y externas}{4}{subsubsection.0.0.1.13}%
-\contentsline {subsubsection}{\numberline {1.14}Orden \texttt {whatis}}{5}{subsubsection.0.0.1.14}%
-\contentsline {subsubsection}{\numberline {1.15}\texttt {man} como \texttt {apropos}}{5}{subsubsection.0.0.1.15}%
-\contentsline {subsubsection}{\numberline {1.16}Más partido a \texttt {history}}{5}{subsubsection.0.0.1.16}%
+\contentsline {subsection}{\textbf {1. Primeros pasos en unix}}{4}{chapter.0.0.1}%
+\contentsline {subsubsection}{\numberline {1.4}Fichero de \texttt {man}}{4}{subsubsection.0.0.1.4}%
+\contentsline {subsubsection}{\numberline {1.10}Última orden del historial}{4}{subsubsection.0.0.1.10}%
+\contentsline {subsubsection}{\numberline {1.11}Órdenes con ``p''}{5}{subsubsection.0.0.1.11}%
+\contentsline {subsubsection}{\numberline {1.12}Última orden en bash como shell}{5}{subsubsection.0.0.1.12}%
+\contentsline {subsubsection}{\numberline {1.13}Órdenes internas y externas}{5}{subsubsection.0.0.1.13}%
+\contentsline {subsubsection}{\numberline {1.14}Orden \texttt {whatis}}{6}{subsubsection.0.0.1.14}%
+\contentsline {subsubsection}{\numberline {1.15}\texttt {man} como \texttt {apropos}}{6}{subsubsection.0.0.1.15}%
+\contentsline {subsubsection}{\numberline {1.16}Más partido a \texttt {history}}{6}{subsubsection.0.0.1.16}%
 \vskip 10pt
-\contentsline {subsection}{\textbf {2. El sistema de ficheros}}{7}{chapter.0.0.2}%
-\contentsline {subsubsection}{\numberline {2.1}Volver al directorio de trabajo}{7}{subsubsection.0.0.2.1}%
-\contentsline {subsubsection}{\numberline {2.2}Rutas relativas y absolutas}{7}{subsubsection.0.0.2.2}%
-\contentsline {subsubsection}{\numberline {2.3}Contenido del directorio raíz}{7}{subsubsection.0.0.2.3}%
-\contentsline {subsubsection}{\numberline {2.4}Enlace a un archivo}{8}{subsubsection.0.0.2.4}%
-\contentsline {subsubsection}{\numberline {2.7}Permisos en directorio}{8}{subsubsection.0.0.2.7}%
-\contentsline {subsubsection}{\numberline {2.8}Directorio de solo acceso}{9}{subsubsection.0.0.2.8}%
-\contentsline {subsubsection}{\numberline {2.9}Expresión regular con ``.''}{9}{subsubsection.0.0.2.9}%
-\contentsline {subsubsection}{\numberline {2.10}Inspección de ciertos ficheros}{10}{subsubsection.0.0.2.10}%
-\contentsline {subsubsection}{\numberline {2.11}Enlaces en HOME}{10}{subsubsection.0.0.2.11}%
-\contentsline {subsubsection}{\numberline {2.14}Archivos cuyo nombre termina con dígito}{11}{subsubsection.0.0.2.14}%
-\contentsline {subsubsection}{\numberline {2.15}Archivos que no acaben en ``.c''}{11}{subsubsection.0.0.2.15}%
-\contentsline {subsubsection}{\numberline {2.16}Ficheros de 2 o más caracteres de nombre}{11}{subsubsection.0.0.2.16}%
-\contentsline {subsubsection}{\numberline {2.17}Ficheros \texttt {.} y \texttt {..}}{11}{subsubsection.0.0.2.17}%
-\contentsline {subsubsection}{\numberline {2.18}Directorio \texttt {/dev}}{12}{subsubsection.0.0.2.18}%
-\contentsline {subsubsection}{\numberline {2.19}Orden \texttt {df}}{12}{subsubsection.0.0.2.19}%
-\contentsline {subsubsection}{\numberline {2.20}Orden \texttt {mount}}{13}{subsubsection.0.0.2.20}%
-\contentsline {subsubsection}{\numberline {2.21}Permisos mínimos para crear un archivo en un directorio}{13}{subsubsection.0.0.2.21}%
-\contentsline {subsubsection}{\numberline {2.22}Permisos mínimos de ejecución}{14}{subsubsection.0.0.2.22}%
-\contentsline {subsubsection}{\numberline {2.23}Permisos para eliminar un fichero}{14}{subsubsection.0.0.2.23}%
-\contentsline {subsubsection}{\numberline {2.24}Permisos para leer un fichero}{14}{subsubsection.0.0.2.24}%
-\contentsline {subsubsection}{\numberline {2.25}Permisos para modificar un fichero}{15}{subsubsection.0.0.2.25}%
-\contentsline {subsubsection}{\numberline {2.26}Borrar todos los ficheros del directorio actual}{15}{subsubsection.0.0.2.26}%
-\contentsline {subsubsection}{\numberline {2.27}Borrar un subdirectorio y su contenido}{16}{subsubsection.0.0.2.27}%
-\contentsline {subsubsection}{\numberline {2.28}Cambiar directorio actual a uno de sus hermanos}{16}{subsubsection.0.0.2.28}%
-\contentsline {subsubsection}{\numberline {2.29}Conocer información del directorio actual}{17}{subsubsection.0.0.2.29}%
-\contentsline {subsubsection}{\numberline {2.30}Información del directorio padre al actual}{17}{subsubsection.0.0.2.30}%
-\contentsline {subsubsection}{\numberline {2.31}Copiar todos los ficheros del actual a otro directorio}{17}{subsubsection.0.0.2.31}%
-\contentsline {subsubsection}{\numberline {2.32}Crear hijo de otro directorio}{18}{subsubsection.0.0.2.32}%
-\contentsline {subsubsection}{\numberline {2.33}Mover ficheros del directorio actual a otro}{18}{subsubsection.0.0.2.33}%
+\contentsline {subsection}{\textbf {2. El sistema de ficheros}}{8}{chapter.0.0.2}%
+\contentsline {subsubsection}{\numberline {2.1}Volver al directorio de trabajo}{8}{subsubsection.0.0.2.1}%
+\contentsline {subsubsection}{\numberline {2.2}Rutas relativas y absolutas}{8}{subsubsection.0.0.2.2}%
+\contentsline {subsubsection}{\numberline {2.3}Contenido del directorio raíz}{8}{subsubsection.0.0.2.3}%
+\contentsline {subsubsection}{\numberline {2.4}Enlace a un archivo}{9}{subsubsection.0.0.2.4}%
+\contentsline {subsubsection}{\numberline {2.7}Permisos en directorio}{9}{subsubsection.0.0.2.7}%
+\contentsline {subsubsection}{\numberline {2.8}Directorio de solo acceso}{10}{subsubsection.0.0.2.8}%
+\contentsline {subsubsection}{\numberline {2.9}Expresión regular con ``.''}{10}{subsubsection.0.0.2.9}%
+\contentsline {subsubsection}{\numberline {2.10}Inspección de ciertos ficheros}{11}{subsubsection.0.0.2.10}%
+\contentsline {subsubsection}{\numberline {2.11}Enlaces en HOME}{11}{subsubsection.0.0.2.11}%
+\contentsline {subsubsection}{\numberline {2.14}Archivos cuyo nombre termina con dígito}{12}{subsubsection.0.0.2.14}%
+\contentsline {subsubsection}{\numberline {2.15}Archivos que no acaben en ``.c''}{12}{subsubsection.0.0.2.15}%
+\contentsline {subsubsection}{\numberline {2.16}Ficheros de 2 o más caracteres de nombre}{12}{subsubsection.0.0.2.16}%
+\contentsline {subsubsection}{\numberline {2.17}Ficheros \texttt {.} y \texttt {..}}{12}{subsubsection.0.0.2.17}%
+\contentsline {subsubsection}{\numberline {2.18}Directorio \texttt {/dev}}{13}{subsubsection.0.0.2.18}%
+\contentsline {subsubsection}{\numberline {2.19}Orden \texttt {df}}{13}{subsubsection.0.0.2.19}%
+\contentsline {subsubsection}{\numberline {2.20}Orden \texttt {mount}}{14}{subsubsection.0.0.2.20}%
+\contentsline {subsubsection}{\numberline {2.21}Permisos mínimos para crear un archivo en un directorio}{14}{subsubsection.0.0.2.21}%
+\contentsline {subsubsection}{\numberline {2.22}Permisos mínimos de ejecución}{15}{subsubsection.0.0.2.22}%
+\contentsline {subsubsection}{\numberline {2.23}Permisos para eliminar un fichero}{15}{subsubsection.0.0.2.23}%
+\contentsline {subsubsection}{\numberline {2.24}Permisos para leer un fichero}{15}{subsubsection.0.0.2.24}%
+\contentsline {subsubsection}{\numberline {2.25}Permisos para modificar un fichero}{16}{subsubsection.0.0.2.25}%
+\contentsline {subsubsection}{\numberline {2.26}Borrar todos los ficheros del directorio actual}{16}{subsubsection.0.0.2.26}%
+\contentsline {subsubsection}{\numberline {2.27}Borrar un subdirectorio y su contenido}{17}{subsubsection.0.0.2.27}%
+\contentsline {subsubsection}{\numberline {2.28}Cambiar directorio actual a uno de sus hermanos}{17}{subsubsection.0.0.2.28}%
+\contentsline {subsubsection}{\numberline {2.29}Conocer información del directorio actual}{18}{subsubsection.0.0.2.29}%
+\contentsline {subsubsection}{\numberline {2.30}Información del directorio padre al actual}{18}{subsubsection.0.0.2.30}%
+\contentsline {subsubsection}{\numberline {2.31}Copiar todos los ficheros del actual a otro directorio}{18}{subsubsection.0.0.2.31}%
+\contentsline {subsubsection}{\numberline {2.32}Crear hijo de otro directorio}{19}{subsubsection.0.0.2.32}%
+\contentsline {subsubsection}{\numberline {2.33}Mover ficheros del directorio actual a otro}{19}{subsubsection.0.0.2.33}%
 \vskip 10pt
-\contentsline {subsection}{\textbf {3. Procesos y usuarios}}{19}{chapter.0.0.3}%
-\contentsline {subsubsection}{\numberline {3.1}Usuarios conectados actualmente}{19}{subsubsection.0.0.3.1}%
-\contentsline {subsubsection}{\numberline {3.2}Diferencia entre órdenes con sleep}{19}{subsubsection.0.0.3.2}%
-\contentsline {subsubsection}{\numberline {3.3}Terminación de programas en primer y en segundo plano}{19}{subsubsection.0.0.3.3}%
-\contentsline {subsubsection}{\numberline {3.6}Interpreta los campos de la orden \texttt {top}}{19}{subsubsection.0.0.3.6}%
-\contentsline {subsubsection}{\numberline {3.7}Suspender y reanudar un proceso}{20}{subsubsection.0.0.3.7}%
-\contentsline {subsubsection}{\numberline {3.8}Conocer procesos que el usuario tiene en ejecución}{21}{subsubsection.0.0.3.8}%
-\contentsline {subsubsection}{\numberline {3.9}Lanzar procesos en segundo plano}{22}{subsubsection.0.0.3.9}%
-\contentsline {subsubsection}{\numberline {3.10}Reanudar en segundo plano un proceso suspendido}{22}{subsubsection.0.0.3.10}%
-\contentsline {subsubsection}{\numberline {3.11}Suspender el proceso en primer plano}{22}{subsubsection.0.0.3.11}%
-\contentsline {subsubsection}{\numberline {3.12}Lista de procesos que hemos lanzado en segundo plano}{22}{subsubsection.0.0.3.12}%
-\contentsline {subsubsection}{\numberline {3.13}Suspender un proceso de otra terminal}{23}{subsubsection.0.0.3.13}%
-\contentsline {subsubsection}{\numberline {3.14}Alternativas para eliminar procesos en ejecución}{23}{subsubsection.0.0.3.14}%
+\contentsline {subsection}{\textbf {3. Procesos y usuarios}}{20}{chapter.0.0.3}%
+\contentsline {subsubsection}{\numberline {3.1}Usuarios conectados actualmente}{20}{subsubsection.0.0.3.1}%
+\contentsline {subsubsection}{\numberline {3.2}Diferencia entre órdenes con sleep}{20}{subsubsection.0.0.3.2}%
+\contentsline {subsubsection}{\numberline {3.3}Terminación de programas en primer y en segundo plano}{20}{subsubsection.0.0.3.3}%
+\contentsline {subsubsection}{\numberline {3.6}Interpreta los campos de la orden \texttt {top}}{20}{subsubsection.0.0.3.6}%
+\contentsline {subsubsection}{\numberline {3.7}Suspender y reanudar un proceso}{21}{subsubsection.0.0.3.7}%
+\contentsline {subsubsection}{\numberline {3.8}Conocer procesos que el usuario tiene en ejecución}{22}{subsubsection.0.0.3.8}%
+\contentsline {subsubsection}{\numberline {3.9}Lanzar procesos en segundo plano}{23}{subsubsection.0.0.3.9}%
+\contentsline {subsubsection}{\numberline {3.10}Reanudar en segundo plano un proceso suspendido}{23}{subsubsection.0.0.3.10}%
+\contentsline {subsubsection}{\numberline {3.11}Suspender el proceso en primer plano}{23}{subsubsection.0.0.3.11}%
+\contentsline {subsubsection}{\numberline {3.12}Lista de procesos que hemos lanzado en segundo plano}{23}{subsubsection.0.0.3.12}%
+\contentsline {subsubsection}{\numberline {3.13}Suspender un proceso de otra terminal}{24}{subsubsection.0.0.3.13}%
+\contentsline {subsubsection}{\numberline {3.14}Alternativas para eliminar procesos en ejecución}{24}{subsubsection.0.0.3.14}%
 \vskip 10pt
-\contentsline {subsection}{\textbf {4. Conductos, Filtros y Redirecciones de E/S}}{24}{chapter.0.0.4}%
-\contentsline {subsubsection}{\numberline {4.1}Eliminar mensajes de otros usuarios}{24}{subsubsection.0.0.4.1}%
-\contentsline {subsubsection}{\numberline {4.2}Crear un fichero usando \texttt {cat}}{24}{subsubsection.0.0.4.2}%
-\contentsline {subsubsection}{\numberline {4.3}Visualizar el fichero de contraseñas}{24}{subsubsection.0.0.4.3}%
-\contentsline {subsubsection}{\numberline {4.4}Añade texto a un fichero ya existente}{24}{subsubsection.0.0.4.4}%
-\contentsline {subsubsection}{\numberline {4.5}Redirecciona una salida de error a un fichero}{25}{subsubsection.0.0.4.5}%
-\contentsline {subsubsection}{\numberline {4.6}Contar usuarios conectados}{25}{subsubsection.0.0.4.6}%
+\contentsline {subsection}{\textbf {4. Conductos, Filtros y Redirecciones de E/S}}{25}{chapter.0.0.4}%
+\contentsline {subsubsection}{\numberline {4.1}Eliminar mensajes de otros usuarios}{25}{subsubsection.0.0.4.1}%
+\contentsline {subsubsection}{\numberline {4.2}Crear un fichero usando \texttt {cat}}{25}{subsubsection.0.0.4.2}%
+\contentsline {subsubsection}{\numberline {4.3}Visualizar el fichero de contraseñas}{25}{subsubsection.0.0.4.3}%
+\contentsline {subsubsection}{\numberline {4.4}Añade texto a un fichero ya existente}{25}{subsubsection.0.0.4.4}%
+\contentsline {subsubsection}{\numberline {4.5}Redirecciona una salida de error a un fichero}{26}{subsubsection.0.0.4.5}%
+\contentsline {subsubsection}{\numberline {4.6}Contar usuarios conectados}{26}{subsubsection.0.0.4.6}%
+\contentsline {subsubsection}{\numberline {4.7}Conexiones en el último mes}{26}{subsubsection.0.0.4.7}%
+\contentsline {subsubsection}{\numberline {4.8}Número de usuarios distintos dados de alta}{27}{subsubsection.0.0.4.8}%
+\contentsline {subsubsection}{\numberline {4.9}Usuarios conectados en el último mes}{27}{subsubsection.0.0.4.9}%
+\contentsline {subsubsection}{\numberline {4.10}Contenido del directorio en un fichero}{28}{subsubsection.0.0.4.10}%
+\contentsline {subsubsection}{\numberline {4.15}Contar el número de gurpos de la máquina}{28}{subsubsection.0.0.4.15}%

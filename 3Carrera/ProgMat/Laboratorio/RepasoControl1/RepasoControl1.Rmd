@@ -1,0 +1,249 @@
+---
+title: "Repaso Control1"
+author: "Javier Ortín"
+date: "2026-02-12"
+output: pdf_document
+---
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(lpSolve)
+```
+
+## Ejercicio 1
+Maximizar $x_1 + x_2$ sujeto a:
+$$\begin{cases}
+4x_1 + x_2 &\leq 12 \\
+x_1 + x_2 &\geq 2\\
+x_1,x_2 &\geq 0
+\end{cases}$$
+
+#### Solución gráfica
+Hallemos los puntos de intersección de las restricciones con el eje OX para ver sobre qué región representar los datos:
+$$x_2 = 12 - 4x_1 = 0 \Rightarrow x_1 = 3 $$
+$$x_2 = 2 - x_1 = 0 \Rightarrow x_2 = 2$$
+Pasemos a definir los datos en R:
+```{r}
+x1 = seq(-1, 4,length.out=200)
+R1 = function(x) 12 - 4*x
+R2 = function(x) 2 - x
+
+datos = data.frame(x1 = x1,
+                   x2 = R1(x1),
+                   x2.2 = R2(x1))
+
+p = ggplot(data=datos, aes(x=x1)) +
+      geom_line(aes(y=x2), col="green", linewidth = 1) +
+      geom_line(aes(y=x2.2), col="orange", linewidth = 1) +
+      geom_hline(yintercept = 0, col="red", size=0.75) +
+      geom_vline(xintercept = 0, col="red", size=0.75)
+p
+```
+Rellenemos ahora la región factible:
+```{r}
+p = p + geom_ribbon(data = transform(datos, yMin=pmax(0,datos$x2.2),
+                                        yMax=ifelse(datos$x1 > 0, pmax(datos$x2,0), datos$x2.2)),
+                aes(ymin = yMin, ymax = yMax),
+                fill="blue", alpha=0.3)
+p
+```
+Queda ahora hallar los extremos y evaluar la función:
+```{r}
+A = rbind(c(4,1),
+          c(1,1),
+          c(1,0),
+          c(0,1))
+b = c(12,2,0,0)
+
+pto.R1x10 = solve(A[c(1,3),], b[c(1,3)])
+pto.R1x20 = solve(A[c(1,4),], b[c(1,4)])
+pto.R2x10 = solve(A[c(2,3),], b[c(2,3)])
+pto.R2x20 = solve(A[c(2,4),], b[c(2,4)])
+
+puntos = rbind(pto.R1x10, pto.R1x20, pto.R2x10, pto.R2x20)
+puntos = data.frame(puntos)
+puntos
+
+f_obj = function(x) x$X1 + x$X2
+maximo = puntos[which.max(f_obj(puntos)),]
+maximo
+
+p + geom_point(data=puntos, aes(x=X1, y=X2), col="purple", size=2.5) +
+    geom_point(data=maximo, aes(x=X1, y=X2), col="purple", size=4)
+```
+Hemos encontrado un máximo.
+
+
+\vspace{6mm}
+#### Solución con \texttt{lp}
+Veamos ahora cómo hacerlo con la librería \texttt{lpSolve}:
+```{r}
+coef = c(1,1)
+A = rbind(c(4,1),
+          c(1,1))
+b = c(12,2)
+dir = c("<=", ">=")
+sol = lp("max", coef, A, dir, b)
+sol
+sol$solution
+```
+
+Hemos obtenido el mismo resultado.
+
+\newpage
+## Ejercicio 2
+Maximizar $60x_1 + 30x_2 + 20x_3$ sujeto a:
+$$\begin{cases}
+8x_1 + 6x_2 + x_3 &\leq 48\\
+8x_1 + 4_2 + 3x_3 &\leq 40\\
+4x_1 + 3_2 + x_3 &\leq 16\\
+x1,x2,x3 \geq 0
+\end{cases}$$
+```{r}
+coef = c(60,30,20)
+A = rbind(c(8,6,1),
+          c(8,4,3),
+          c(4,3,1))
+b = c(48,40,16)
+dir = rep("<=", 3)
+
+sol = lp("max", coef, A, dir, b)
+sol
+sol$solution
+```
+
+\vspace{6mm}
+## Ejercicio 3
+Maximizar $x_1 + 5x_2 -x_3$ sujeto a:
+$$\begin{cases}
+x_1+x_2+x_3 &\geq 100\\
+5x_1-x_2+8x_3 &\leq 500\\
+-x_1+x_2+2x_3&=0\\
+2x_1+x_2+12x_3 &\leq 800 \\
+x_1,x_2,x_3\geq0
+\end{cases}$$
+```{r}
+coef = c(1,5,-1)
+A = rbind(c(1,1,1),
+          c(5,-1,8),
+          c(-1,1,2),
+          c(2,1,12))
+
+dir = c(">=", "<=","=", "<=")
+b = c(100, 500,0, 800)
+
+sol = lp("max",coef, A, dir, b)
+sol
+sol$solution
+```
+
+\vspace{6mm}
+## Ejercicio 4
+Un fabricante de muebles tiene 6 planchas de madera y 28 horas de trabajo disponibles, durante las cuales fabricará biombos decorativos. Con anterioridad, se han vendido bien dos modelos, de manera que se limitará a producir estos dos. Estima que el modelo I requiere 2 planchas de madera y 7 horas del tiempo disponible, mientras que el modelo II necesita 1 plancha de madera y 8 horas. Los precios de los modelos son 120 y 80 euros respectivamente. ¿Cuántos biombos de cada modelo debe fabricar si desea maximizar su ingreso por la venta?
+
+\textbf{Resolución:}
+Las unidades vendidas de cada modelo han de ser enteras, necesitamos hacer uso del parámetro\texttt{all.int} de la función \texttt{lp}. Consideramos $x_1$ como "número de modelos I vendidos", y $x_2$ como "número de modelos II venididos". Así, el problema se reduce a maximizar $120x_1 + 80x_2$ sujeto a:
+$$\begin{cases}
+2x_1 + x_2 & \leq 6\\
+7x_1 + 8x_2 & \leq 28\\
+x_1,x_2\geq 0
+\end{cases}$$
+```{r}
+coef = c(120,80)
+A = rbind(c(2,1),c(7,8))
+dir = rep("<=",2)
+b = c(6,28)
+
+sol = lp("max",coef, A, dir, b, all.int=TRUE)
+sol
+sol$solution
+```
+La mejor opción es vender 3 unidades del modelo I y 0 del II. Así, ganará 360€.
+
+\vspace{6mm}
+## Ejercicio 6
+Con motivo de su inauguración, una heladería quiere repartir dos tipos de tarrinas de helados. El primer tipo de tarrina está compuesto por 100g de helado de chocolate, 200g de helado de straciatella y 1 barquillo. El segundo tipo llevará 150 g de helado de chocolate, 150 g de helado de straciatella y 2 barquillos. Sólo se dispone de 8 Kg de helado de chocolate, 10 Kg de helado de straciatella y 100 barquillos. ¿Cuántas tarrinas de cada tipo se deben preparar para repartir el máximo número posible de tarrinas?
+
+\vspace{4mm}
+\textbf{Resolución}
+Consideramos $x1$ = "número de tarrinas a repartir del primer tipo", $x_2$ = "número de tarrinas a repartir del segundo tipo". Es evidente que ambas son variables enteras. Buscamos maximizar su suma, pues representael número total de tarrinas repartidas. Las restricciones vienen dadas por los ingredientes que tiene la heladería:
+$$\begin{cases}
+100x_1 + 150x_2 &\leq 8000\\
+200x_1 + 150x_2 &\leq 10000\\
+x_1 + 2x_2 &\leq 100\\
+x_1,x_2 \in \mathbb{Z}^+
+\end{cases}$$
+Con R:
+```{r}
+coef = c(1,1)
+A = rbind(c(100,150),
+          c(200,150),
+          c(1,2))
+
+dir = rep("<=", 3)
+b = c(8000,10000,100)
+
+sol = lp("max", coef, A, dir, b)
+sol
+sol$solution
+```
+La solución óptima es repartir 20 tarrinas del primer tipo y 40 del segundo (60 en total).
+
+\vspace{6mm}
+# Ejercicio 7
+En dos granjas se cultiva trigo y maíz. Según el tipo de suelo hay diferencia en la producción y en los costos de ambas granjas, como se muestra en la tabla. Cada granja dispone de 100 Ha para los cultivos. Hay que producir 11000 Kg. de trigo y 7000 Kg. de maíz. Determinar un plan de siembra que minimice los costes para satisfacer estas demandas.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcccc}
+\hline
+ & Producción de maíz/Ha & Producción de trigo/Ha & Coste/Ha de maíz & Coste/Ha de trigo \\
+\hline
+Granja 1 & 500 Kg. & 400 Kg. & 100 euros & 90 euros \\
+Granja 2 & 650 Kg. & 350 Kg. & 120 euros & 80 euros \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{4mm}
+\textbf{Resolución}
+Consideramos las siguientes variables:
+\begin{itemize}
+\item $x_{1,1}$: Hectáreas de maíz en la granja 1\\
+\item $x_{1,2}$: Hectáreas de trigo en la granja 1\\
+\item $x_{2,1}$: Hectáreas de maíz en la granja 2\\
+\item $x_{2,2}$: Hectáreas de trigo en la granja 2
+\end{itemize}
+Buscamos minimizar el coste de manenimiento. Las restricciones en este caso son los requerimientos mínimos de la producción, y las dimensiones de las granjas. Por tanto, el problema se reduce a minimizar $100x_{1,1} + 90x_{1,2} + 120x_{2,1} + 80x_{2,2}$ sujeto a:
+$$\begin{cases}
+x_{1,1} + x_{1,2} &\leq 100\\
+x_{2,1} + x_{2,2} &\leq 100\\
+500x_{1,1} + 650x_{2,1} &\geq 7000\\
+400x_{1,2} + 350x_{2,2} &\geq 11000\\
+x_{i,j} \geq 0 & i,j \in \{1,2\}
+\end{cases}$$
+En R:
+```{r}
+coef = c(100,90,120,80)
+A = rbind(c(1,1,0,0),
+          c(0,0,1,1),
+          c(500,0,650,0),
+          c(0,400,0,350))
+
+dir = c("<=", "<=", ">=", ">=")
+b = c(100,100,7e3,11e3)
+
+sol = lp("min", coef, A, dir, b)
+sol
+sol$solution
+```
+Lo más óptimo es lo siguiente:
+\begin{table}[h]
+\begin{tabular}{c|r|r|}
+\cline{2-3}
+\multicolumn{1}{l|}{}          & \multicolumn{1}{c|}{Ha maíz} & \multicolumn{1}{c|}{Ha trigo} \\ \hline
+\multicolumn{1}{|c|}{Granja 1} & 0                            & 27.50                         \\ \hline
+\multicolumn{1}{|c|}{Granja 2} & 10.77                        & 0                             \\ \hline
+\end{tabular}
+\end{table}

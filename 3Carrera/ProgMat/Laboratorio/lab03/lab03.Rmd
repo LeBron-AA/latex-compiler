@@ -1,0 +1,44 @@
+---
+title: "ProgM Lab03"
+author: "Javier Ortín"
+date: "2026-02-02"
+output: pdf_document
+---
+
+```{r setup, include=FALSE,message=FALSE,echo=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+# Programación lineal
+
+Usaremos problemas con dos variables de decisión, luego una posible alternativa es hallar la solución gráficamente.
+
+## Problema 1
+Maximizar $3x_1 + x_2$.
+Sujeto a:
+$$\begin{cases}
+3x_1 + x_2 \leq 6\\
+x_1 + 3x_2 \leq 9\\
+x_1,x_2 \geq 0
+\end{cases}$$
+
+Comencemos por graficar la región factible.
+
+```{r}
+# Restricción 1
+R1 = function(x1) 6 - 2*x1
+#Restricción 2
+R2 = function(x1) 3-x1/3
+
+#Para graficar necesitamos varias observaciones de x1 en un DataFrame
+x1 = seq(-1,100, length.out=100) #length.out indica el número de valores
+
+# Creamos el DataFrame
+#Una variable "x1" con los valores del vector anterior
+datos = data.frame(x1=x1, x2=R1(x1), x2.2=R2(x1))
+
+p = ggplot(data=datos, aes(x=x1)) + geom_line(aes(y=x2))
+
+p
+```

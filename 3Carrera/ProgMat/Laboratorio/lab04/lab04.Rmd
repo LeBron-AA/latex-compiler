@@ -95,18 +95,14 @@ p + geom_point(data= puntos[which.max(aux$V1),],
 # Más allá de dos variables de decisión
 ## Algoritmo simplex
 R tiene dos librerías que implementan este algoritmo:
-$$
 \begin{itemize}
 \item \texttt{boot} tiene \texttt{simplex} \\
 \item \texttt{lpsolve} tiene \texttt{lp}
 \end{itemize}
-$$
 
 La primera opción tiene un rendimiento malo, luego no la veremos en clase. En su lugar, usaremos $\texttt{lpsolve}$.
-```{r}
-install.packages("lpSolve")
+```{r, include=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
 library(lpSolve)
-?lp
 ```
 Maximizar $x_1 + 9x_2 + 3x_3$ sujeto a:
 $$

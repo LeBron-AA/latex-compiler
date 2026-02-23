@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  21 FEB 2026 17:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  22 FEB 2026 18:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -827,7 +827,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write5
 \openout5 = `ejercicios.toc'.
 
- [2]
+ [2] [3]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 98.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
@@ -837,14 +837,14 @@ LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line
 
 (C:\MikTex\texmfs\install\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [3] [4] [5] [6] [7]
-[8] [9] [10] [11]
+) [4] [5] [6] [7] [8]
+[9] [10] [11] [12]
 
-LaTeX Warning: Hyper reference `result2.11' on page 12 undefined on input line 
+LaTeX Warning: Hyper reference `result2.11' on page 13 undefined on input line 
 467.
 
-[12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
-(ejercicios.aux)
+[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27]
+[28] [29] (ejercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -862,28 +862,32 @@ Package rerunfilecheck Warning: File `ejercicios.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `ejercicios.out':
-(rerunfilecheck)             Before: 692BE405D561A1CDA88DE3317B1C27A7;13418
-(rerunfilecheck)             After:  FC52C75E6B6B7662F43E390C8A1B13B1;14213.
+(rerunfilecheck)             Before: 16423F702E8AF02993E0B85C4EA54684;15571
+(rerunfilecheck)             After:  680960F5BA967FD9410C95C10E796EBA;15571.
  ) 
 Here is how much of TeX's memory you used:
- 25167 strings out of 474486
- 456647 string characters out of 5753177
+ 25257 strings out of 474486
+ 458104 string characters out of 5753177
  2129542 words of memory out of 5000000
- 46560 multiletter control sequences out of 15000+600000
+ 46574 multiletter control sequences out of 15000+600000
  568960 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,7n,87p,600b,1989s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\M
-ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\MikTex\te
-xmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/texmfs/inst
-all/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install/fonts/t
-ype1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/
-amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/
-cmti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-<C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on ejercicios.pdf (25 pages, 275129 bytes).
+
+pdfTeX warning (dest): name{subsubsection.0.0.4.11} has been referenced but doe
+s not exist, replaced by a fixed one
+
+ <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Mik
+Tex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\MikTex\texm
+fs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/texmfs/instal
+l/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/am
+sfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cm
+ti12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C
+:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on ejercicios.pdf (29 pages, 300792 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 498 named destinations out of 1000 (max. 500000)
- 461 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1099 PDF objects out of 1200 (max. 8388607)
+ 574 named destinations out of 1000 (max. 500000)
+ 525 words of extra memory for PDF output out of 10000 (max. 10000000)
 

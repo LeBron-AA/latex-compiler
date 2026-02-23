@@ -1,0 +1,118 @@
+---
+title: "ProgM Lab02"
+author: "Javier Ortín"
+date: "2026-01-28"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Repaso de R
+
+## Manejo de datos
+Simulamos una base de datos...
+```{r}
+datos = rbind(c(4,15,101),
+              c(11,28,132)); datos
+colnames(datos) = c("Edad", "Peso", "Altura"); datos
+datos[,1]
+mean(datos[,"Edad"])
+
+#Añadimos una nueva columna
+datos2 = cbind(datos, Colegio=c("Colegio1", "Colegio2")); datos2
+mean(datos2[,"Edad"])
+```
+
+La penúltima línea modifica los tipos de datos a string. No es un comportamiento adecuado. Como las matrices no son heterogéneas, \texttt{datos2 convierte sus elementos a \texttt{chr para mantener un único tipo. Es por ello que la última línea produce un comportamiento inesperado.
+Es preferible trabajar con \texttt{dataframe para este manejo de datos.
+
+```{r}
+datos = as.data.frame(datos) #a partir de una matriz
+#desde cero
+datos = data.frame(Edad=c(4,11),
+                   Peso=c(15,18),
+                   Altura=c(101,132))
+View(datos)
+```
+La última línea abre una pestaña en RStudio para examinar los contenidos de \texttt{datos.
+Podemos seguir operando con el \texttt{dataframe de manera similar a cómo lo hacíamos con las matrices.
+```{r}
+datos[,1]
+datos[,"Edad"]
+datos$Altura
+```
+En este caso sí se puede añadir una columna nueva por asignación directa. Sigue siendo posible usar \texttt{cbind, aunque puede dar luga a duplicados. Para remediar esto, podemos asignarle un valor nulo: por defecto elimina solo una ocurrencia.
+```{r}
+datos$Colegio = c("Colegio1", "Colegio2")
+datos = cbind(datos, Colegio=c("Colegio1", "Colegio2"))
+datos #Columna duplicada
+datos$Colegio = NULL
+datos #sin duplicado
+```
+Si volviésemos a asignar \texttt{NULL a \texttt{datos$Colegio nos quedaríamos sin esta columna.
+Podemos acceder a individuos indexando como con matrices:
+```{r}
+datos[1,]
+datos[which.min(datos$Edad)]
+datos[which(datos$Edad > 10)]
+subset(datos, Edad>10 | Altura < 130) #filtrado con "or"
+```
+
+Podemos añadir una nueva observación tanto con asignación directa como con rbind:
+```{r}
+datos2 = rbind(datos, c(12,29,133,"Colegio1")); datos2
+```
+Todos los campos de \texttt{datos2 son del tipo \texttt{chr, pues aunque el \texttt{dataframe puede tener tipos distintos, el vector que se le une no. Aunque se pueden añadir datos con rbind, es preferible hacerlo con otro \texttt{dataframe:
+```{r}
+datos2 = rbind(datos, data.frame(
+  Edad=12, Peso=29, Altura=133, Colegio="Colegio1")); datos2
+```
+
+En este caso sí se mantiene la integridad de los tipos.
+
+Podemos hacer transformaciones de nuestros datos:
+```{r}
+datos2 = transform(datos, Var=Edad*Altura); datos2
+```
+
+##Tidyverse y tibbles
+Los tibbles son un tipo de dataframe.
+
+```{r}
+library(tidyverse)
+data("starwars")
+?dplyr #recomendado por la profesora
+?magrittr #%>%
+```
+
+## Gráficos en R
+Al haber cargado \texttt{tidyverse, ya tenemos activo \texttt{ggplot2.
+```{r}
+data(iris) # Conjunto de datos de ejemplo
+?iris # Se usa para clasificación
+
+p = ggplot(iris) # de primeras crea una lista de 11 variables
+#visualmente, genera una gráfica en blanco (en este punto)
+
+p = p + aes(x=Petal.Length, y=Petal.Width); p #ya genera la cuadrícula y los ejes etiquetados
+
+p + geom_point(size=2.5, col="magenta"); #ya tenemos cómo se relacionan las variables
+
+# ¿Cómo podemos hacer que se coloreen los puntos según las especioes de plantas?
+p = p + aes(col=Species) + geom_point(size=2.5); p
+
+#Podemos cambiar el tema
+p + theme_minimal() # theme_bw() es otra opción
+```
+
+
+## Addins de R
+Se instalan como una librería de R, pero no se tienen que cargar. Una vez instalados, aparecen en el menú siempre. Podemos cargar, por ejemplo, un asistente de \texttt{ggplot.
+```{r}
+# ejecutar si no se tiene:
+#install.packages("ggThemeAssist")
+```
+
+Aparece una interfaz visual para configurar el tema de los gráficos.

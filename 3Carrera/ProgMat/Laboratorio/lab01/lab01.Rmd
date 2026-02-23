@@ -1,0 +1,190 @@
+---
+title: "ProgM Lab01"
+author: "Javier Ortín"
+date: "2026-01-28"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Repaso de R
+Podemos usar el índice de R (arriba a la derecha en la parte de scripting del IDE). Si estamos en un RScript, podemos añadir "----" al final de un comentario para generar un título.
+
+## Elementos básicos
+```{r}
+a <- 7
+b <- 3
+d <-  a+b
+```
+No funciona como una hoja de cálculo: si cambiamos el valor de b, el valor de d no cambia automáticamente, sino que hay que volve a ejecutar la línea que asigna su valor.
+
+##Vectores en R
+Los vectores se definien con la función "c" (de concatenar)
+```{r}
+a <- c(2,4,6,8);a
+```
+Una vez ejecutada la línea anterior, el valor de la variable a cambiará en la tabla "Values" de RStudio.
+```{r}
+1:4
+4:1
+a[3]
+a[1:3]
+```
+Podemos usar la función \texttt{seqç de R para generar vectores siguiento el formato "start, step, stop":
+```{r}
+seq(4,10,2) #Desde 4 hasta 10 en pasos de 2
+```
+
+Podemos acceder a ciertas posiciones de un vector al indexar por otro vector:
+```{r}
+a[c(1,3)] #Posiciones 1 y 3
+a[-3] # Todos los índices salvo el 3
+a[-c(1,3)] # Todos menos el 1 y el 3
+```
+
+Hallar mínimos de un vector:
+```{r}
+min(a)
+a[which.min(a)] #which.min devuelve los índices de los mínimos
+```
+
+## Matrices en R
+```{r}
+?matrix
+A = matrix(1:9, ncol=3); A
+A = matrix(1:9, ncol=3, byrow=T); A #rellenar por filas
+```
+En este caso, RStudio muestra la variable A en la sección de "Data", no de "Values". Además, muestra los contenidos de la matriz por columnas.
+Veamos cómo se accede a los elementos de una matriz:
+```{r}
+A[3,1] #Acceso a un elemento
+A[3,]  #Acceso a una fila
+A[,1]  #Acceso a una columna
+A[,-2] #Todo menos la columna 2
+```
+A diferencia de listas y dataframes, no se pueden añadir filas a las matrices por asignación directa.
+
+```{r}
+A = cbind(A, 10:13); A
+
+# Definición de matriz como vector de vectores:
+#Por filas
+A = rbind(c(1,3,5),
+          c(3,4,5),
+          c(1,7,8)); A
+
+#Por columnas
+A = cbind(c(1,3,5),
+          c(3,4,5),
+          c(1,7,8)); A
+
+```
+
+## Resolución de sistemas de ecuaciones en R
+Resolveremos el siguiente sistema:
+$$
+\begin{cases}
+5x_2 + x_3 = 7 \\
+7x_2 - x_3 = 5 \\
+11x_1 + x_2 + x_3 = 14
+\end{cases}
+$$
+```{r}
+A = rbind(c(0,5,1),
+          c(0,7,-1),
+          c(11,1,1)); A
+b = c(7,5,14); b
+solve(A,b)
+
+#Alternativamente
+solve(A)%*%b
+```
+En la última línea, \texttt{solve(A)} halla la matriz inversa de \texttt{A}.Finalmente, hacemos el producto de matrices con \texttt{%*%}.
+
+
+## Listas en R
+Las listas en R son heterogéneas: podemos almacenar elementos dispares de cualquier dimensión.
+```{r}
+ejemplo = list(1:13, A, "cadena", c(T,F), list(7,b)); ejemplo
+```
+
+La variable \texttt{ejemplo} aparece recogida en la sección \texttt{Dataç de RStudio como "\texttt{List of 5}". Veamos cómo acceder a sus elementos:
+```{r}
+ejemplo[[2]] # Accedemos a la matriz A
+ejemplo[[2]][3,1] # Elemento (3,1) de A
+ejemplo[[5]][[2]][3] #Accedemos al tercer elemento de b
+```
+
+Para evitar esta sintaxis tan poco amigable, podemos dar nombres a los elementos de la lista y acceder a ellos en base a sus alias usando el signo $.
+```{r}
+names(ejemplo) = c("A","B","C","D","E")
+names(ejemplo$E) = c("a","b")
+ejemplo$E$b[3] #Accedemos al tercer elemento de b
+ejemplo[["A"]] #Accedemos al primer elemento de ejemplo
+```
+Nótese que aunque los alias son cadenas de texto, accedemos a los elementos sin usar comillas cuando indexamos con "$", pero las usamos con "[]".
+
+## Funciones en R
+Los corchetes son necesarios si vamos a programar una función cuyo código abarque más de una línea.
+Veamos un ejemplo muy sencillo: una función que calcule el área de un rectángulo.
+```{r}
+#En este caso no es necesario usar "{}"
+area = function(lado1, lado2) lado1 * lado2
+area(2,3)
+
+#Otra versión que imprima el área además de devolverla:
+area = function(lado1, lado2) {
+  a = lado1 * lado2
+  print(paste("El área es",a))
+  return(a)
+}
+x = area(2,6)
+```
+Podemos asignar valores por defecto a los argumentos de una función para que tomen valores por omisión cuando no se expliciten. Es necesario ordenar los parámetros de modo que aquellos sin valor por defecto precedan a todos los que sí lo tengan.
+```{r}
+area = function(lado1, lado2=1) {
+  a = lado1 * lado2
+  print(paste("El área es",a))
+  return(a)
+}
+x = area(10)
+```
+
+Adicionalmente, podemos usar "..." para aceptar una lista variable de argumentos sin tener que declararlos uno a uno. Ha de estar al final.
+
+## Estructuras condicionales
+Podemos usar \texttt{ifç para comprobar si se cumple o no una condición.
+```{r}
+area = function(lado1, lado2=1) {
+  if(lado1 == lado2) {
+    print("Es un cuadrado")
+  } else {
+    print("Es un rectángulo")
+  }
+  a = lado1 * lado2
+  print(paste("El área es",a))
+  return(a)
+}
+
+x = area(2,2)
+x = area(2,3)
+```
+
+Podemos usar \texttt{ifelseç de manera similar a un operador ternario. Aunque puede ejecutar sentencias (no solo devuelve expresiones), no es recomendable usarlo para esto:
+
+## Bucles en R
+El bucle \texttt{forç ejecuta una serie de instrucciones para una variable que itera por un vector.
+```{r}
+for(i in 1:5) print(i)
+```
+
+El bucle \texttt{whileç itera mientras se cumpla una condición:
+```{r}
+x = 3
+while(x <= 5) {
+  print(x)
+  x= x+1
+}
+```
