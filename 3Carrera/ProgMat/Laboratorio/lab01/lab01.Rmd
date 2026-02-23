@@ -3,6 +3,7 @@ title: "ProgM Lab01"
 author: "Javier Ortín"
 date: "2026-01-28"
 output: pdf_document
+render_with_liquid: false
 ---
 
 ```{r setup, include=FALSE}
@@ -99,7 +100,7 @@ b = c(7,5,14); b
 solve(A,b)
 
 #Alternativamente
-solve(A)%*%b
+solve(A) %*% b
 ```
 En la última línea, \texttt{solve(A)} halla la matriz inversa de \texttt{A}.Finalmente, hacemos el producto de matrices con \texttt{%*%}.
 
