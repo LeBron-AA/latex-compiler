@@ -1,3 +1,7 @@
 \contentsline {subsubsection}{\numberline {1.}Ordenación por Burbuja}{2}{subsubsection.0.0.0.1}%
 \contentsline {subsubsection}{\numberline {2.}Ordenación por Selección}{3}{subsubsection.0.0.0.2}%
-\contentsline {subsubsection}{\numberline {3.}Ordenación por \textit {QuickSort}}{4}{subsubsection.0.0.0.3}%
+\contentsline {subsubsection}{\numberline {3.}Ordenación por Inserción}{4}{subsubsection.0.0.0.3}%
+\contentsline {subsubsection}{\numberline {4.}Ordenación por \textit {QuickSort}}{6}{subsubsection.0.0.0.4}%
+\contentsline {subsubsection}{\numberline {5.}Tiempo teórico de ordenación de un vector}{7}{subsubsection.0.0.0.5}%
+\contentsline {subsubsection}{\numberline {6.}Mediciones con tiempos bajos}{9}{subsubsection.0.0.0.6}%
+\contentsline {subsubsection}{\numberline {7.}Condiciones de medida}{11}{subsubsection.0.0.0.7}%

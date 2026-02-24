@@ -252,7 +252,65 @@ Para este algoritmo; los casos mejor, peor y medio tienen todos complejidad teó
 \end{table}
 Los cocientes son estables en los tres casos: se sigue la complejidad teórica
 
-\vspace{5mm}
+\vspace{6mm}
+\result{Ordenación por Inserción}
+Este algoritmo presenta complejidades teóricas distintas según el orden previo del vector.
+
+\vspace{2mm}
+Inserción con vector previo ordenado:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\multicolumn{1}{|c|}{n} & \multicolumn{1}{c|}{Tiempo total (ms)} & \multicolumn{1}{c|}{Repeticiones} & \multicolumn{1}{c|}{n/$T_\text{total}$} \\ \hline
+10.000                   & 223                                    & 1000                              & 44,8430                  \\ \hline
+20.000                   & 406                                    & 1000                              & 49,2611                  \\ \hline
+40.000                   & 831                                    & 1000                              & 48,1348                  \\ \hline
+80.000                   & 1.634                                   & 1000                              & 48,9596                  \\ \hline
+160.000                  & 3.239                                   & 1000                              & 49,3980                  \\ \hline
+320.000                  & 6.500                                   & 1000                              & 49,2308                  \\ \hline
+640.000                  & 12.972                                  & 1000                              & 49,3370                  \\ \hline
+1.280.000                 & 26.190                                  & 1000                              & 48,8736                  \\ \hline
+\end{tabular}
+\end{table}
+Los datos empíricos respaldan la complejidad teórica de $O(n)$
+
+\vspace{4mm}
+Resto de casos:
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+n      & Repeticiones & T\_inverso (ms) & T\_aleatorio (ms) & $n^2/T_\text{inv}$ & $n^2/T_\text{alea}$ \\ \hline
+10.000  & 1            & 324             & 174               & 308.641,975                  & 574.712,644                   \\ \hline
+20.000  & 1            & 1.315            & 714               & 304.182,510                  & 560.224,090                   \\ \hline
+40.000  & 1            & 5.284            & 2.697              & 302.800,908                  & 593.251,761                   \\ \hline
+80.000  & 1            & 21.431           & 10.942             & 298.632,822                  & 584.902,212                   \\ \hline
+160.000 & 1            & 85.710           & 43.823             & 298.681,601                  & 584.168,131                   \\ \hline
+320.000 & 1            & Fdt             & 174.247            & -                           & 587.671,524                   \\ \hline
+\end{tabular}
+\end{table}
+De nuevo, los datos respaldan la complejidad teórica de $O(n^2)$
+
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=4cm 4cm 6cm 4cm,
+    clip
+  ]{media/insercion.pdf}
+  \newline
+  Se han omitido valores para evitar la distorsión de la gráfica
+\end{center}
+
+\vspace{4mm}
+Podemos observar una clara diferencia entre los tiempos empíricos incluso representando únicamente los valores de $n$ para los que no se va fuera de tiempo el algoritmo en los casos inverso y aleatorio.
+
+
+\newpage
 \result{Ordenación por \textit{QuickSort}}
 \vspace{2mm}
 \begin{table}[H]
@@ -285,6 +343,8 @@ Los cocientes son estables en los tres casos: se sigue la complejidad teórica
 
 Podemos observar en la gráfica que los tiempos siguen claramente un patrón de líneas rectas. Al estar ambos ejes en escala logarítmica, este es un fuerte indicativo de que el algoritmo implementado sigue su complejidad teórica de $O(n\log n)$.
 
+\vspace{2mm}
+\textbf{Nota:} no se alcanza el peor caso de complejidad teórica $O(n^2)$ debido a los casos de prueba abordados y al haber tomado el elemento central como pivote en nuestra implementación.
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.2}
@@ -303,4 +363,98 @@ Podemos observar en la gráfica que los tiempos siguen claramente un patrón de 
 \end{tabular}  
 \end{table}
 Los cocientes son estables en los tres casos.
+
+\vspace{6mm}  
+\result{Tiempo teórico de ordenación de un vector}
+\hspace{3mm}
+En el problema propuesto, el vector está ordenado aleatoriamente. Por tanto, hemos de usar la complejidad teórica correspondiente al caso medio para cada algoritmo. Esta es de $O(n^2)$ para todos los algoritmos vistos; a excepción de \textit{QuickSort}, que tiene una complejidad de $O(n \log n)$ para este caso.
+
+\vspace{4mm}
+Sea $f_i$ la función de complejidad teórica para el algoritmo teórico $i$-ésimo, conocido el tiempo $t_1$ que emplea ese mismo algoritmo para una carga $n_1$, podemos predecir el tiempo para otra carga $n_2$ como:
+$$ t_2 = t_1 \hspace{1mm} \cdot \frac{f_i(n_2)}{f_i(n_1)}$$
+
+Intentaremos resolver este problema teórico usando el tiempo de mayor carga medido para cada algoritmo. Al usar el caso de mayor $n$ estudiado, las variaciones que pueden ocurrir al llamar a una función ajenas al algoritmo de ordenación se ven mitigadas: El coste fijo del problema (ajeno al tamaño de la carga) se vuelve despreciable.
+
+\vspace{2mm}
+\begin{itemize}
+  \item \textbf{Burbuja:} 56.764ms para una repetición en el caso $n=80.000$.
+  $$56.764ms \cdot \frac{81.920.000^2}{80.000^2}\cdot \frac{1d}{86.400.00 ms} = 688,9047d$$
+  \newpage
+  \item \textbf{Selección:} 80.194ms para el caso $n=160.000$
+  $$80.194ms \cdot \frac{81.920.000^2}{160.000^2}\cdot \frac{1d}{86.400.00 ms} = 243,3145d$$
+
+  \vspace{4mm}
+  \item \textbf{Inserción:} 174.247ms para el caso $n=320.000$
+  $$174.247ms \cdot \frac{81.920.000^2}{320.000^2}\cdot \frac{1d}{86.400.00 ms} = 132,1696d$$
+
+  \vspace{4mm}
+  \item \textbf{\textit{QuickSort:}} 71.247ms para el caso $n=1.280.000$ en 100 repeticiones.
+  $$\frac{71.247ms}{100} \cdot \frac{81.920.000 \cdot \log(81.920.000)}{1.280.000 \cdot \log(1.280.000)}\cdot = 59,0835ms$$
+  En días, son $6,8384 \cdot 10^{-7}d$.
+
+\end{itemize}
+
+\newpage
+\result{Mediciones con tiempos bajos}
+\hspace{3mm}
+En primer lugar, hemos medido los tiempos de Inserción y \textit{QuickSort} para cargas bajas. Para ello, hemos tenido en cuenta el tiempo del bucle al completo, en lugar de ir sumando los tiempos de cada paso. De este modo, no tenemos problemas con hipotéticas medidas nulas.
+
+\vspace{4mm}
+Aunque \textit{QuickSort} maneja mejor problemas grades, es más lento que Inserción para cargas bajas. Tras medir estos dos algoritmos empíricamente, hemos diseñado un tercero que usa el más rápido según el tamaño del problema: Divide la carga con \textit{QuickSort} hasta llegar a un tamaño en el que Inserción es más rápido, en cuyo caso llama a este último método. Por simplicidad, se presentan los tiempos de los tres algoritmos en una misma tabla:
+
+\vspace{4mm}
+\begin{center}
+  \includegraphics[
+    width=0.9\textwidth,
+    trim=2cm 4cm 2cm 4cm,
+    clip
+  ]{media/Bajos.pdf}
+  \newline
+\end{center}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|r|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\multicolumn{1}{|c|}{n} & \multicolumn{1}{c|}{Repeticiones} & \multicolumn{1}{c|}{$T_\text{ins}$ (ms)} & \multicolumn{1}{c|}{$T_\text{quick}$ (ms)} & \multicolumn{1}{c|}{$T_\text{mixto}$ (ms)} \\ \hline
+10                      & 10.000                             & 63                               & 79                                 & 67                                 \\ \hline
+15                      & 10.000                             & 76                               & 104                                & 75                                 \\ \hline
+20                      & 10.000                             & 109                              & 130                                & 98                                 \\ \hline
+25                      & 10.000                             & 132                              & 164                                & 125                                \\ \hline
+30                      & 10.000                             & 165                              & 197                                & 161                                \\ \hline
+35                      & 10.000                             & 201                              & 237                                & 188                                \\ \hline
+40                      & 10.000                             & 243                              & 274                                & 224                                \\ \hline
+45                      & 10.000                             & 282                              & 342                                & 266                                \\ \hline
+50                      & 10.000                             & 324                              & 349                                & 303                                \\ \hline
+55                      & 10.000                             & 367                              & 379                                & 344                                \\ \hline
+60                      & 10.000                             & 410                              & 418                                & 393                                \\ \hline
+65                      & 10.000                             & 459                              & 488                                & 438                                \\ \hline
+70                      & 10.000                             & 521                              & 474                                & 494                                \\ \hline
+75                      & 10.000                             & 562                              & 518                                & 462                                \\ \hline
+80                      & 10.000                             & 609                              & 555                                & 514                                \\ \hline
+85                      & 10.000                             & 677                              & 589                                & 535                                \\ \hline
+90                      & 10.000                             & 749                              & 626                                & 564                                \\ \hline
+95                      & 10.000                             & 816                              & 662                                & 614                                \\ \hline
+100                     & 10.000                             & 883                              & 750                                & 626                                \\ \hline
+\end{tabular}
+\end{table}
+El nuevo algoritmo mixto parece dar buenos resultados.
+
+
+\newpage
+\result{Condiciones de medida}
+\hspace{3mm}
+Todas las tomas de tiempos de esta memoria han sido realizadas en Eclipse IDE usando el argumento de máquina virtual \texttt{-Xint} para la ejecución de los programas de cronometrado.
+
+\vspace{2mm}
+Los apartados 1 al 4 de esta memoria han sido medidos con el siguiente equipo:
+
+\verb|CPU 12th Gen Intel(R) Core(TM) i5-12400 @ 2,5GHz + 16GB RAM|
+
+\vspace{4mm}
+El apartado 6 ha sido medido usando el siguiente hardware:
+
+\verb|CPU: Intel Core i7-6700HQ CPU @ 2,60GHz + 16GB RAM|
 \end{document} 
