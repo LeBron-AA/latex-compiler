@@ -1,0 +1,303 @@
+\documentclass[12pt,a4paper]{article}
+
+% Paquetes básicos
+\usepackage[table,x11names]{xcolor}
+\usepackage{alltt}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{titlesec}
+\usepackage{float}
+
+\usepackage{listings}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible
+}
+
+% Margins
+%\geometry{left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+% Custom operators
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\muae}{\overset{\mu-a.e.}{=}}
+
+% Implication box setup
+\tcbset{Implication-number/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-133mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm]frame.north east) -- ([xshift=-133mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Implication-number-ds/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] ([yshift=5mm]frame.south west) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-133mm, yshift=-3mm]frame.north east) -- ([xshift=-133mm, yshift=5mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm]frame.north east) -- ([xshift=-140mm]frame.south east); % línea vertical
+  }
+}}
+
+\tcbset{Indent-subset-contingency/.style={
+  enhanced,
+  boxsep=2pt,
+  colback=white,
+  frame hidden,
+  sharp corners,
+  left=2pt, right=2pt, top=1pt, bottom=1pt,
+  underlay={
+    \draw[line width=0.5pt] (frame.south west) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea horizontal
+    \draw[line width=0.5pt] ([xshift=-140mm+0.07\textwidth]frame.north east) -- ([xshift=-140mm+0.07\textwidth]frame.south east); % línea vertical
+  }
+}}
+
+% Useful commands
+\renewcommand{\contentsname}{Contenidos}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\smallcup}{\mathop{\cup}\limits}
+\newcommand{\smallcap}{\mathop{\cap}\limits}
+\newcommand{\smallsum}{\mathop{\sum}\limits}
+\newcommand{\smallprod}{\mathop{\prod}\limits}
+
+\newcommand{\linf}[1]{\displaystyle{\mathop{\underline{\lim}}_{#1}}}
+\newcommand{\mlim}[1]{\displaystyle{\lim_{#1}}}
+
+%Integral de Lebesgue con patas
+\newcommand{\lbint}{\mathop{\int_{\!\!\!\!\!|\!}^{\!|\!}}}
+
+%Espacios \mathcal{L}_p
+\newcommand{\elep}[2]{\mathcal{L}_{#1}(#2)}
+
+% ----- Custom counters and counter commands -----
+% Custom counter hierarchy
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\arabic{chapter}.\arabic{subsubsection}.}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+    {\normalfont\large\bfseries} % mismo tamaño que \subsection
+    {\thesubsubsection}{1em}{}
+  
+%---- Custom proof commands-----
+\newcommand{\dem}{
+    \noindent \underline{\textbf{Demostración:}}
+}
+\newcommand{\nota}{
+    \noindent \underline{\textbf{Nota:}}
+}
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Algoritmia}
+\author{Práctica 3}
+\date{21/2/2026}
+
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\chapter{Divide y vencerás por sustracción}
+\result{Complejidades teóricas de los algoritmos}
+Usaremos el Teorema Maestro para calcular la complejidad temporal para cada método recursivo de esta práctica. Siguiendo la notación usual,
+\begin{itemize}
+  \item \textbf{Sustracción 1:} 
+  \begin{flalign*}
+      \begin{cases}
+        k = 0\\
+        a = 1\\
+        b = 1
+      \end{cases} \Rightarrow T_{S_1}(n) = O(n) &&
+  \end{flalign*}
+  \item \textbf{Sustracción 2:} 
+  \begin{flalign*}
+      \begin{cases}
+        k = 1\\
+        a = 1\\
+        b = 1
+      \end{cases} \Rightarrow T_{S_2}(n) = O(n^2) &&
+  \end{flalign*}
+  \item \textbf{Sustracción 3:} 
+  \begin{flalign*}
+      \begin{cases}
+        k = 0\\
+        a = 2\\
+        b = 1
+      \end{cases} \Rightarrow T_{S_3}(n) = O\left(2^n\right) &&
+  \end{flalign*}
+  \item \textbf{Sustracción 4:} 
+  \begin{flalign*}
+      \begin{cases}
+        k = 2\\
+        a = 1\\
+        b = 1
+      \end{cases} \Rightarrow T_{S_4}(n) = O(n^3) &&
+  \end{flalign*}
+  \item \textbf{Sustracción 5:} 
+  \begin{flalign*}
+      \begin{cases}
+        k = 0\\
+        a = 3\\
+        b = 2
+      \end{cases} \Rightarrow T_{S_5}(n) = O\left(3^\frac{n}{2}\right) &&
+  \end{flalign*}
+\end{itemize}
+
+\newpage
+\result{Valores de \texorpdfstring{$n$}{n} para los que se aborta la ejecución}
+\hspace{3mm} Ejecutando las clases \texttt{Sustraccion1} y \texttt{Sustraccion2} (con una sola repetición en cada caso), podemos observar que se aborta la ejecución:
+
+\begin{itemize}
+  \item \textbf{Sustracción 1:} \\[-4ex]
+  \begin{alltt}
+ n=1000 TIEMPO=0  nVeces=1
+ n=2000 TIEMPO=0  nVeces=1
+ n=4000 TIEMPO=0  nVeces=1
+ n=8000 TIEMPO=1  nVeces=1
+ \textcolor{Firebrick2}{Exception in thread "main" java.lang.StackOverflowError}
+\end{alltt}
+
+\item \textbf{Sustracción 2:} \\[-4ex]
+\begin{alltt}
+ n=1000 TIEMPO=6  nVeces=1
+ n=2000 TIEMPO=27  nVeces=1
+ n=4000 TIEMPO=104  nVeces=1
+ n=8000 TIEMPO=400  nVeces=1
+ \textcolor{Firebrick2}{Exception in thread "main" java.lang.StackOverflowError}
+\end{alltt}
+\end{itemize}
+
+Para los dos métodos, la altura del árbol de llamadas es tal que se llega a un desbordamiento de pila. En ambos casos, cada llamada al método correspondiente con tamaño $n$ induce otra de tamaño $n-1$ hasta que el problema tenga un tamaño fijo (caso base). Así, la altura del arbol de llamadas es lineal: $O(n)$.
+
+\vspace{6mm}
+\result{Final de \texttt{sustraccion3} para tamaño \texorpdfstring{$n=80$}{n=80}}
+\hspace{3mm} Basándonos en los datos empíricos medidos para este método, para el caso $n=29$ tenemos un tiempo de ejecución de $22.057ms$. Comparando ahora con la complejidad teórica:
+$$t_2 = t_1 \cdot \frac{f(n_2)}{f(n_1)} = 22.057ms \cdot \frac{2^{80}}{2^{29}}\cdot\frac{1h}{3,6 \cdot 10^6}ms \cdot \frac{1\text{año}}{24*365h}= 1,5750 \cdot 10^9 \text{años}$$
+
+\newpage
+\result{Toma de tiempos para \texttt{sustraccion4}}
+\hspace{3mm} Tal y como hemos mencionado en el \hyperref[result:1.1.]{apartado 1.1}, para lograr la complejidad teórica de $O(n^3)$, hemos empleado recursividad por sustracción haciendo uso de los siguientes parámetros:
+\begin{align*}
+    k = 2 && a = 1 && b =1
+\end{align*}
+Veamos qué tiempos empíricos registramos para este algoritmo:
+
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.2}
+\centering
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor{LightSteelBlue2}
+\multicolumn{1}{|c|}{n} & \multicolumn{1}{c|}{Tiempo (ms)} & \multicolumn{1}{c|}{Repeticiones} & \multicolumn{1}{c|}{$n^3/T_\text{medio}$} \\ \hline
+100                     & 51                               & 10                                & 196.078,4314                                       \\ \hline
+200                     & 384                              & 10                                & 208.333,3333                                       \\ \hline
+400                     & 2.831                            & 10                                & 226.068,5270                                       \\ \hline
+800                     & 22.475                           & 10                                & 227.808,6763                                       \\ \hline
+1.600                   & 17.705                           & 1                                 & 231.347,0771                                       \\ \hline
+3.200                   & 142.593                          & 1                                 & 229.800,9019                                       \\ \hline
+6.400                & FdT                              & -                                 & -                                                  \\ \hline
+\end{tabular}
+\end{table}
+Podemos observar que los tiempos empíricos respaldan la complejidad teórica.
+
+\vspace{6mm}  
+\result{Toma de tiempos para \texttt{sustraccion5}}
+Análogamente, para este método:
+\begin{table}[H]
+\renewcommand{\arraystretch}{1.2}
+\centering
+\begin{tabular}{|r|r|r|r|}
+\rowcolor{LightSteelBlue2}
+\hline
+\multicolumn{1}{|c|}{n} & \multicolumn{1}{c|}{Tiempo (ms)} & \multicolumn{1}{c|}{Repeticiones} & \multicolumn{1}{c|}{3\textasciicircum{}\{n/2\}/T} \\ \hline
+30                      & 422                              & 1                                 & 34.002,1493                                       \\ \hline
+32                      & 1.280                             & 1                                 & 33.630,2508                                       \\ \hline
+34                      & 3.792                             & 1                                 & 34.055,9502                                       \\ \hline
+36                      & 11.445                            & 1                                 & 33.850,6325                                       \\ \hline
+38                      & 34.310                            & 1                                 & 33.875,2978                                       \\ \hline
+40                      & 103.475                           & 1                                 & 33.696,8775                                       \\ \hline
+42                      & FdT                              & -                                 & -                                                 \\ \hline
+\end{tabular}
+\end{table}
+Sigue la complejidad esperada
+
+\newpage
+\result{Tiempo para \texttt{sustraccion5} con \texorpdfstring{$n=80$}{n=80}}
+Razonando como en el \hyperref[result:1.3.]{apartado 1.3}, al comparar con la tabla anterior,
+$$t_2 = 103.475ms \cdot \frac{3^{\frac{80}{2}}}{3^{\frac{40}{2}}}  \cdot\frac{1h}{3,6 \cdot 10^6}ms \cdot \frac{1\text{año}}{24*365h}= 1,144 \cdot 10^4 \text{años}$$
+
+\newpage
+\chapter{Divide y vencerás por división}
+\result{Complejidades teóricas}
+
+\end{document} 
