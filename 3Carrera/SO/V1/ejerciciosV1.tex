@@ -1,0 +1,200 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[table,x11names]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools, amssymb, amsthm}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{tocloft}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyvrb}
+\usepackage{verbatim}
+\tcbuselibrary{listings, breakable}
+
+% Definir colores tipo VSCode
+\definecolor{vscodeBackground}{RGB}{30,30,30} % fondo oscuro
+\definecolor{vscodeText}{RGB}{220,220,220}    % texto principal
+\definecolor{vscodeKeyword}{RGB}{86,156,214}  % palabras clave
+\definecolor{vscodeComment}{RGB}{106,153,85}  % comentarios
+\definecolor{vscodeString}{RGB}{206,145,120}  % strings
+
+
+
+\renewcommand{\contentsname}{Contenidos}
+\newcounter{unit}[section]
+\newcounter{chapter}[unit]
+\makeatletter
+\@addtoreset{subsubsection}{chapter}
+\makeatother
+
+\renewcommand{\theunit}{\arabic{unit}}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesubsubsection}{\thechapter.\arabic{subsubsection}}
+
+% Custom content hierarchy behavior
+\newcommand{\chapter}[1]{
+    \refstepcounter{chapter}
+    \subsection*{\Large{\S \thechapter. #1}}
+    \addcontentsline{toc}{subsection}{\thechapter. #1}
+}
+\newcommand{\unit}[1]{
+    \refstepcounter{unit}
+    \section*{\Huge{\Roman{unit} #1}}
+    \addcontentsline{toc}{section}{\Roman{unit} #1}
+}
+
+\newcommand{\result}[1]{%
+  \subsubsection{#1}%
+  \label{result:\thesubsubsection}
+}
+  
+\titleformat{\subsubsection}
+  {\normalfont\large\bfseries}
+  {\thesubsubsection}{0.75em}{}
+
+\setlength{\cftsubsubsecindent}{1.5em}   % margen izquierdo
+\setlength{\cftsubsubsecnumwidth}{2.5em} % espacio reservado al número
+
+% Patch de addcontentsline para capítulos
+\makeatletter
+\newcommand{\chaptertoc}[1]{%
+  \addtocontents{toc}{\vskip 10pt} % más espacio vertical
+  \addcontentsline{toc}{subsection}{\textbf{\thechapter. #1}} % en negrita
+}
+\makeatother
+
+% Modificamos tu comando \chapter
+\renewcommand{\chapter}[1]{%
+    \refstepcounter{chapter}%
+    \subsection*{\Large{\S \thechapter. #1}}%
+    \chaptertoc{#1}%
+}
+
+% ----------------------------------------
+\hbadness=10000
+\vbadness=10000
+\hfuzz=100pt
+\vfuzz=100pt
+% ---------------------------------------
+\title{Sistemas Operativos}
+\author{Ejercicios de Unix}
+\date{18/02/2026}
+%-----------------------------------------
+\definecolor{termred}{RGB}{220,50,47}
+\definecolor{termgreen}{RGB}{133,153,0}
+\definecolor{termcyan}{RGB}{42,161,152}
+
+\definecolor{termBG}{HTML}{F5F5F5}      % fondo gris muy claro (se integra con el documento)
+\definecolor{termFG}{HTML}{FFFFFF}      % texto blanco
+\definecolor{termgreen}{HTML}{00D787}   % verde terminal moderno
+\definecolor{termPrompt}{HTML}{00AFFF}  % cian del prompt
+\definecolor{termred}{HTML}{FF5F5F}     % rojo error tipo terminal
+\definecolor{termBorder}{HTML}{D0D0D0}  % borde suave
+
+\newtcolorbox{terminal}{
+  colback=termBG,
+  colframe=termBorder,
+  arc=4pt,
+  boxrule=0.6pt,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  fontupper=\ttfamily\scriptsize,
+  breakable
+}
+
+
+%-----------------------------
+
+\begin{document}
+
+\maketitle
+\hypersetup{linkcolor=black}
+\vspace{4mm}
+\tableofcontents
+\hypersetup{linkcolor=Ivory4}
+\newpage
+
+\result{Ejercicio 6}
+\textbf{Ejecuta el simulador con una cantidad de procesos suberior a la capacidad de la tabla de procesos. ¿Qué ocurre?}
+Revisando el código, la capacidad máxima de la tabla es de 4, luego ejecutando más:
+\begin{terminal}
+\$ ./Simulator prog prog prog prog
+
+  41 messages loaded from file 'messagesTCH.txt'
+
+2 messages loaded from file 'messagesSTD.txt'
+
+0 Asserts Loaded
+
+[\textcolor{termred}{0}] 
+\textcolor{termred}{STARTING simulation
+}
+[\textcolor{termred}{0}] 
+User programs list:
+
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	
+[\textcolor{termred}{0}] 
+Arrival Time Queue:
+
+		[\textcolor{termgreen}{SystemIdleProcess}, \textcolor{termred}{0}, \textcolor{termgreen}{DAEMON-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [0] created from program [SystemIdleProcess]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [1] created from program [prog]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [2] created from program [prog]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [3] created from program [prog]}
+
+Segmentation fault (core dumped)
+
+\$
+\end{terminal}
+
+Revisando el código de la función \texttt{OperatingSystem\_LongTermScheduler}, podemos observar que los procesos cuyo archivo sí exista se van a ir moviendo uno a uno al estado ``\texttt{READY}'' llamando a la función \texttt{OperatingSystem\_MoveToTheREADYState}. Aquí, se accede a posiciones de memoria proporcionales al PID del proceso sin comprobar si están o no en rango. Por tanto, se produce el mensaje de \texttt{Segmentation fault}. Este razonamiento es válido, pues se corresponde con el código a ejecutar justo después del mensaje de ``proceso creado'' que se muestra por consola, luego el fallo ha de producirse después.
+
+\vspace{2mm}
+Para corregir esto, hemos de crear solo aquellos procesos que puedan tener un hueco en la tabla, en lugar de crearlos a ciegas.
+
+\vspace{4ex}
+\textbf{a) Modificar la función de creado de procesos}
+Esta es la función una vez modificada. Si no encuentra un hueco libre en la tabla, retorna antes:
+\newpage
+\input{code/6a.tex}
+
+\vspace{6mm}  
+\textbf{}
+\end{document}

@@ -1,0 +1,102 @@
+41 messages loaded from file 'messagesTCH.txt'
+
+2 messages loaded from file 'messagesSTD.txt'
+
+0 Asserts Loaded
+
+[\color{termred}{0}]
+\textcolor{termred}{STARTING simulation
+}
+[\textcolor{termred}{0}]
+User programs list:
+
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	
+[\textcolor{termred}{0}]
+Arrival Time Queue:
+
+		[\textcolor{termgreen}{SystemIdleProcess}, \textcolor{termred}{0}, \textcolor{termgreen}{DAEMON-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+	
+[\textcolor{termred}{0}]
+\textcolor{termgreen}{Process [0] created from program [SystemIdleProcess]}
+
+	
+[\textcolor{termred}{0}]
+\textcolor{termgreen}{Process [1] created from program [prog]}
+
+[\textcolor{termred}{1}]
+{0D 000 000}
+ IRET 0 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{0}, Accumulator: \textcolor{termred}{0}, PSW: \textcolor{termred}{0002} [\textcolor{termred}{--------------Z-}], IntLine: [\textcolor{termred}{0000}])
+
+[2]
+{01 000 803}
+ ADD 0 -3 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{1}, Accumulator: \textcolor{termred}{-3}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0000}])
+
+[3]
+{08 00F 000}
+ WRITE 15 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{2}, Accumulator: \textcolor{termred}{-3}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0000}])
+
+[4]
+{0E 000 001}
+ MOV 0 1 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{3}, Accumulator: \textcolor{termred}{-3}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0000}])
+
+[5]
+{01 000 000}
+ ADD 0 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{4}, Accumulator: \textcolor{termred}{0}, PSW: \textcolor{termred}{0002} [\textcolor{termred}{--------------Z-}], IntLine: [\textcolor{termred}{0000}])
+
+[6]
+{11 00F 001}
+ MEMADD 15 1 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{5}, Accumulator: \textcolor{termred}{0}, PSW: \textcolor{termred}{0002} [\textcolor{termred}{--------------Z-}], IntLine: [\textcolor{termred}{0000}])
+
+[7]
+{0E 001 000}
+ MOV 1 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{6}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0000}])
+
+[8]
+{04 003 000}
+ TRAP 3 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{7}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0004}])
+
+[\textcolor{termred}{9}]
+{0C 002 000}
+ OS 2 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{242}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0084} [\textcolor{termred}{--------X----N--}], IntLine: [\textcolor{termred}{0000}])
+
+	
+[\textcolor{termred}{10}]
+\textcolor{termred}{Process [1 - prog] has requested to terminate}
+
+[\textcolor{termred}{10}]
+\textcolor{termred}{The SystemIdleProcess is ready to shut down the simulator when dispatched...
+}
+[\textcolor{termred}{11}]
+{0D 000 000}
+ IRET 0 0 (PID: \textcolor{termgreen}{0}, PC: \textcolor{termred}{3}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0084} [\textcolor{termred}{--------X----N--}], IntLine: [\textcolor{termred}{0000}])
+
+[\textcolor{termred}{12}]
+{04 003 000}
+ TRAP 3 0 (PID: \textcolor{termgreen}{0}, PC: \textcolor{termred}{4}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0084} [\textcolor{termred}{--------X----N--}], IntLine: [\textcolor{termred}{0004}])
+
+[\textcolor{termred}{13}]
+{0C 002 000}
+ OS 2 0 (PID: \textcolor{termgreen}{0}, PC: \textcolor{termred}{242}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0084} [\textcolor{termred}{--------X----N--}], IntLine: [\textcolor{termred}{0000}])
+
+	
+[\textcolor{termred}{14}]
+\textcolor{termred}{Process [0 - SystemIdleProcess] has requested to terminate}
+
+[\textcolor{termred}{14}]
+\textcolor{termred}{The system will shut down now...
+}
+[\textcolor{termred}{15}]
+{0D 000 000}
+ IRET 0 0 (PID: \textcolor{termgreen}{-1}, PC: \textcolor{termred}{241}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0084} [\textcolor{termred}{--------X----N--}], IntLine: [\textcolor{termred}{0000}])
+
+[\textcolor{termred}{16}]
+{0B 000 000}
+ HALT 0 0 (PID: \textcolor{termgreen}{-1}, PC: \textcolor{termred}{241}, Accumulator: \textcolor{termred}{-6}, PSW: \textcolor{termred}{0085} [\textcolor{termred}{--------X----N-S}], IntLine: [\textcolor{termred}{0000}])
+
+[\textcolor{termred}{16}]
+\textcolor{termred}{END of the simulation
+}
