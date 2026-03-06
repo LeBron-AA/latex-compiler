@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,fontsize=\footnotesize]
+\PY{k+kt}{int}\PY{+w}{ }\PY{n+nf}{OperatingSystem\PYZus{}LongTermScheduler}\PY{p}{(}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
+\PY{+w}{  }
+\PY{k+kt}{int}\PY{+w}{ }\PY{n}{createdProcessPID}\PY{p}{,}\PY{+w}{ }\PY{n}{i}\PY{p}{,}
+\PY{+w}{    }\PY{n}{numberOfSuccessfullyCreatedProcesses}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{;}
+
+\PY{k}{while}\PY{+w}{ }\PY{p}{(}\PY{n}{OperatingSystem\PYZus{}IsThereANewProgram}\PY{p}{(}\PY{p}{)}\PY{o}{!}\PY{o}{=}\PY{n}{EMPTYQUEUE}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
+\PY{+w}{  }\PY{n}{i}\PY{o}{=}\PY{n}{Heap\PYZus{}poll}\PY{p}{(}\PY{n}{arrivalTimeQueue}\PY{p}{,}\PY{n}{QUEUE\PYZus{}ARRIVAL}\PY{p}{,}\PY{o}{\PYZam{}}\PY{n}{numberOfProgramsInArrivalTimeQueue}\PY{p}{)}\PY{p}{;}
+\PY{+w}{  }\PY{n}{createdProcessPID}\PY{o}{=}\PY{n}{OperatingSystem\PYZus{}CreateProcess}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{;}
+\PY{+w}{  }\PY{k}{switch}\PY{+w}{ }\PY{p}{(}\PY{n}{createdProcessPID}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
+\PY{+w}{    }\PY{k}{case}\PY{+w}{ }\PY{n+no}{NOFREEENTRY}\PY{p}{:}\PY{+w}{   }\PY{c+c1}{// New case (modification)}
+\PY{+w}{       }\PY{p}{(}\PY{n}{TIMED\PYZus{}MESSAGE}\PY{p}{,}\PY{+w}{ }\PY{l+m+mi}{51}\PY{p}{,}\PY{+w}{ }\PY{n}{ERROR}\PY{p}{,}\PY{+w}{ }\PY{n}{programList}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{o}{\PYZgt{}}\PY{n}{executableName}\PY{p}{)}\PY{p}{;}
+\PY{+w}{       }\PY{k}{break}\PY{p}{;}
+\PY{c+c1}{// Rest of the function...}
+\end{Verbatim}

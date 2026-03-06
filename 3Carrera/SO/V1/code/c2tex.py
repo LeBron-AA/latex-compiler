@@ -1,44 +1,46 @@
 import sys
 import subprocess
-import re
 from pathlib import Path
 
-def generate_clean_tex(input_file):
+
+def ensure_style():
+    style_file = Path("pygments_style.tex")
+
+    if not style_file.exists():
+        print("Generando estilos de pygments...")
+        with open(style_file, "w", encoding="utf8") as f:
+            subprocess.run(
+                ["pygmentize", "-S", "vs", "-f", "latex"],
+                stdout=f,
+                check=True
+            )
+
+
+def generate_tex(input_file):
     input_path = Path(input_file)
+
     if not input_path.exists():
-        print(f"Error: el archivo {input_file} no existe.")
+        print(f"Error: {input_file} no existe")
         return
+
+    ensure_style()
 
     output_file = input_path.with_suffix(".tex")
 
-    # 1️⃣ Ejecutar pygments para generar el archivo .tex
-    cmd = [
-        sys.executable, "-m", "pygments",
+    subprocess.run([
+        "pygmentize",
+        "-l", "c",
         "-f", "latex",
-        "-O", "style=vs,linenos=1,full",
+        "-O", "style=vs,linenos=1,verboptions=fontsize=\\footnotesize,obeytabs=true,tabsize=4",
         "-o", str(output_file),
         str(input_path)
-    ]
-    print("Ejecutando:", " ".join(cmd))
-    subprocess.run(cmd, check=True)
+    ], check=True)
 
-    # 2️⃣ Limpiar el archivo: quitar \documentclass, \usepackage, \begin{document}, \end{document}
-    cleaned_lines = []
-    pattern_skip = re.compile(r"^(\\documentclass|\\usepackage|\\begin\{document\}|\\end\{document\})")
-    
-    with open(output_file, "r", encoding="utf-8") as f:
-        for line in f:
-            if not pattern_skip.match(line.strip()):
-                cleaned_lines.append(line)
+    print(f"Generado: {output_file}")
 
-    # 3️⃣ Sobrescribir el archivo .tex con la versión limpia
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.writelines(cleaned_lines)
-
-    print(f"Archivo limpio generado: {output_file}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Uso: python generate_tex.py archivo.c")
     else:
-        generate_clean_tex(sys.argv[1])
+        generate_tex(sys.argv[1])

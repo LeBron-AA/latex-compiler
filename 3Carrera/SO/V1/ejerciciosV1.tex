@@ -17,7 +17,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fancyvrb}
 \usepackage{verbatim}
+\usepackage{fvextra}
 \tcbuselibrary{listings, breakable}
+
+\include{code/pygments_style}
 
 % Definir colores tipo VSCode
 \definecolor{vscodeBackground}{RGB}{30,30,30} % fondo oscuro
@@ -124,6 +127,8 @@
 \hypersetup{linkcolor=Ivory4}
 \newpage
 
+
+\newpage
 \result{Ejercicio 6}
 \textbf{Ejecuta el simulador con una cantidad de procesos suberior a la capacidad de la tabla de procesos. ¿Qué ocurre?}
 Revisando el código, la capacidad máxima de la tabla es de 4, luego ejecutando más:
@@ -189,12 +194,90 @@ Revisando el código de la función \texttt{OperatingSystem\_LongTermScheduler},
 \vspace{2mm}
 Para corregir esto, hemos de crear solo aquellos procesos que puedan tener un hueco en la tabla, en lugar de crearlos a ciegas.
 
-\vspace{4ex}
-\textbf{a) Modificar la función de creado de procesos}
-Esta es la función una vez modificada. Si no encuentra un hueco libre en la tabla, retorna antes:
-\newpage
-\input{code/6a.tex}
+\vspace{4ex} \noindent
+\textbf{a) Modificar la función \texttt{OperatingSystem\_CreateProcess}}
 
-\vspace{6mm}  
-\textbf{}
+\vspace{2mm}
+Esta es la función una vez modificada. Si no encuentra un hueco libre en la tabla, retorna antes, devolviendo el código de error asociado:
+\input{code/6a.tex}
+La última línea de código se corresponde con las modificaciones realizadas.
+
+\vspace{6ex}  \noindent
+\textbf{b) Modificar la función \texttt{OperatingSystem\_LongTermScheduler}}
+
+\vspace{2mm}
+Añadimos un nuevo \texttt{case} al switch de la función:
+\input{code/6b.tex}
+
+\vspace{2mm}
+Si ahora ejecutamos el simulador con un número de programas superior al límite:
+\begin{terminal}
+41 messages loaded from file 'messagesTCH.txt'
+
+2 messages loaded from file 'messagesSTD.txt'
+
+0 Asserts Loaded
+
+[\textcolor{termred}{0}] 
+\textcolor{termred}{STARTING simulation
+}
+[\textcolor{termred}{0}] 
+User programs list:
+
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
+	
+[\textcolor{termred}{0}] 
+Arrival Time Queue:
+
+		[\textcolor{termgreen}{SystemIdleProcess}, \textcolor{termred}{0}, \textcolor{termgreen}{DAEMON-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [0] created from program [SystemIdleProcess]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [1] created from program [prog]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [2] created from program [prog]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termgreen}{Process [3] created from program [prog]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termred}{ERROR: There are not free entries in the process table for the program [prog]}
+
+	
+[\textcolor{termred}{0}] 
+\textcolor{termred}{ERROR: There are not free entries in the process table for the program [prog]}
+
+[\textcolor{termred}{1}] 
+{0D 000 000}
+ IRET 0 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{0}, Accumulator: \textcolor{termred}{0}, PSW: \textcolor{termred}{0002} [\textcolor{termred}{--------------Z-}], IntLine: [\textcolor{termred}{0000}])
+
+[2] 
+{01 000 803}
+ ADD 0 -3 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{1}, Accumulator: \textcolor{termred}{-3}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0000}])
+
+ // Continua la ejecución...
+\end{terminal}
+El simulador ahora muestra un mensaje de error por cada proceso que esté por encima del tamaño máximo permitido. Los procesos que sí estén dentro del límite se ejecutarán con normalidad. Para el caso anterior, como el número de procesos supera al máximo en dos unidades, se imprimen dos mensajes de error.
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  4 MAR 2026 22:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  6 MAR 2026 11:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -711,6 +711,59 @@ Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
 \FV@StepNumber=\count325
 \FV@OutFile=\write4
 )
+(C:\MikTex\texmfs\install\tex/latex/fvextra\fvextra.sty
+Package: fvextra 2025/05/29 v1.13.2 fvextra - extensions and patches for fancyv
+rb
+
+(C:\MikTex\texmfs\install\tex/latex/upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(C:\MikTex\texmfs\install\tex/latex/lineno\lineno.sty
+Package: lineno 2026/02/16 line numbers on paragraphs v5.7
+\linenopenalty=\count326
+\output=\toks51
+\linenoprevgraf=\count327
+\linenumbersep=\dimen282
+\linenumberwidth=\dimen283
+\c@linenumber=\count328
+\c@pagewiselinenumber=\count329
+\c@LN@truepage=\count330
+\c@internallinenumber=\count331
+\c@internallinenumbers=\count332
+\quotelinenumbersep=\dimen284
+\bframerule=\dimen285
+\bframesep=\dimen286
+\bframebox=\box79
+\@LN@amsmath@ams@eqpen=\count333
+)
+\c@FancyVerbWriteLine=\count334
+\c@FancyVerbBufferLine=\count335
+\c@FV@TrueTabGroupLevel=\count336
+\c@FV@TrueTabCounter=\count337
+\FV@TabBox@Group=\box80
+\FV@bgcolorstructbox=\box81
+\FV@TmpLength=\skip98
+\c@FV@HighlightLinesStart=\count338
+\c@FV@HighlightLinesStop=\count339
+\FV@LoopCount=\count340
+\FV@NCharsBox=\box82
+\FV@BreakIndent=\dimen287
+\FV@BreakIndentNChars=\count341
+\FV@BreakSymbolSepLeft=\dimen288
+\FV@BreakSymbolSepLeftNChars=\count342
+\FV@BreakSymbolSepRight=\dimen289
+\FV@BreakSymbolSepRightNChars=\count343
+\FV@BreakSymbolIndentLeft=\dimen290
+\FV@BreakSymbolIndentLeftNChars=\count344
+\FV@BreakSymbolIndentRight=\dimen291
+\FV@BreakSymbolIndentRightNChars=\count345
+\c@FancyVerbLineBreakLast=\count346
+\FV@LineBox=\box83
+\FV@LineIndentBox=\box84
+\c@FV@BreakBufferDepth=\count347
+\FV@LineWidth=\dimen292
+)
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcblistings.code.tex
 Library (tcolorbox): 'tcblistings.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcblistingscore.code.tex
@@ -718,60 +771,65 @@ Library (tcolorbox): 'tcblistingscore.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbprocessing.code.tex
 Library (tcolorbox): 'tcbprocessing.code.tex' version '6.2.0'
 )
-\c@tcblisting=\count326
+\c@tcblisting=\count348
 )) (C:\MikTex\texmfs\install\tex/latex/tcolorbox\tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 (C:\MikTex\texmfs\install\tex/latex/pdfcol\pdfcol.sty
 Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 )
 Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
-\tcb@testbox=\box79
-\tcb@totalupperbox=\box80
-\tcb@totallowerbox=\box81
+\tcb@testbox=\box85
+\tcb@totalupperbox=\box86
+\tcb@totallowerbox=\box87
 )
-\c@unit=\count327
-\c@chapter=\count328
+
+LaTeX Warning: \include should only be used after \begin{document} on input lin
+e 23.
+
+(code/pygments_style.tex)
+\c@unit=\count349
+\c@chapter=\count350
 
 (C:\MikTex\texmfs\install\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count329
-\l__pdf_internal_box=\box82
+\l__color_backend_stack_int=\count351
+\l__pdf_internal_box=\box88
 )
 (ejerciciosV1.aux)
 \openout1 = `ejerciciosV1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
 
 (C:\MikTex\texmfs\install\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count330
-\scratchdimen=\dimen282
-\scratchbox=\box83
-\nofMPsegments=\count331
-\nofMParguments=\count332
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count333
-\MPscratchDim=\dimen283
-\MPnumerator=\count334
-\makeMPintoPDFobject=\count335
-\everyMPtoPDFconversion=\toks52
+\scratchcounter=\count352
+\scratchdimen=\dimen293
+\scratchbox=\box89
+\nofMPsegments=\count353
+\nofMParguments=\count354
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count355
+\MPscratchDim=\dimen294
+\MPnumerator=\count356
+\makeMPintoPDFobject=\count357
+\everyMPtoPDFconversion=\toks53
 ) (C:\MikTex\texmfs\install\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -814,19 +872,23 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 118.
+Package hyperref Info: Link coloring ON on input line 121.
 (ejerciciosV1.out) (ejerciciosV1.out)
 \@outlinefile=\write5
 \openout5 = `ejerciciosV1.out'.
 
-\c@lstlisting=\count336
-LaTeX Font Info:    Trying to load font information for U+msa on input line 121
+
+(C:\MikTex\texmfs\install\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+\c@lstlisting=\count358
+LaTeX Font Info:    Trying to load font information for U+msa on input line 124
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 121
+LaTeX Font Info:    Trying to load font information for U+msb on input line 124
 .
 
 (C:\MikTex\texmfs\install\tex/latex/amsfonts\umsb.fd
@@ -840,12 +902,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/MikTex/texmfs/data/fonts/map/pdftex/pdftex.map}]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
-131.
+134.
 
 (C:\MikTex\texmfs\install\tex/latex/base\ts1cmtt.fd
 File: ts1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [2] (code/6a.tex) [3]
-(ejerciciosV1.aux)
+)
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 196.
+ (code/6a.tex [2])
+(code/6b.tex) [3] [4] (ejerciciosV1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -854,23 +919,23 @@ Package rerunfilecheck Info: File `ejerciciosV1.out' has not changed.
 (rerunfilecheck)             Checksum: 7EDB27DC850317A86C89CDD05977BF86;113.
  ) 
 Here is how much of TeX's memory you used:
- 24794 strings out of 474486
- 452486 string characters out of 5753177
- 1932542 words of memory out of 5000000
- 46674 multiletter control sequences out of 15000+600000
- 567466 words of font info for 73 fonts, out of 8000000 for 9000
+ 26120 strings out of 474486
+ 479834 string characters out of 5753177
+ 1934542 words of memory out of 5000000
+ 47977 multiletter control sequences out of 15000+600000
+ 567634 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,7n,87p,729b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,7n,87p,729b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt0800.pk><C:/Mi
 kTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs
 /install/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/MikTex/texmfs/install/fon
 ts/type1/public/amsfonts/cm/cmr17.pfb><C:/MikTex/texmfs/install/fonts/type1/pub
 lic/amsfonts/cm/cmr6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/
-cm/cmtt12.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pf
-b>
-Output written on ejerciciosV1.pdf (3 pages, 82738 bytes).
+cm/cmtt10.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.p
+fb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on ejerciciosV1.pdf (4 pages, 104989 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
+ 72 PDF objects out of 1000 (max. 8388607)
+ 6 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
