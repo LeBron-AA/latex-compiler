@@ -88,8 +88,9 @@
 \vfuzz=100pt
 % ---------------------------------------
 \title{Sistemas Operativos}
-\author{Ejercicios de Unix}
-\date{18/02/2026}
+\author{Ejercicios de la versión V1\\
+  Javier Ortín Rodenas}
+\date{01/03/2026}
 %-----------------------------------------
 \definecolor{termred}{RGB}{220,50,47}
 \definecolor{termgreen}{RGB}{133,153,0}
@@ -123,73 +124,117 @@
 \maketitle
 \hypersetup{linkcolor=black}
 \vspace{4mm}
+
+\noindent
+\textbf{Nota:}
+
+\vspace{2mm}
+En este PDF se muestran ejemplos de salida de terminal. Las indentaciones de estos ejemplos pueden diferir ligeramente de la salida real del simulador (solo a nivel estético).
+
 \tableofcontents
 \hypersetup{linkcolor=Ivory4}
 \newpage
 
 
-\newpage
+\chapter{Ejercicios obligatorios}
+\result{Ejercicio 1}
+\textbf{Implementar la función \texttt{MEMADD}}
+En primer lugar, añadimos una nueva entrada al fichero \texttt{instructions.def}:
+\begin{terminal}
+  //... Rest of the file
+  INST(CALL)   // 16   0x10
+  INST(MEMADD) //17   0X11    // Custom
+\end{terminal}
+Ahora añadiremos un nuevo \texttt{case} al \texttt{switch} de la función \newline \texttt{Processor\_DecodeAndExecuteInstruction}:
+\input{code/1.tex}
+
+Se muestra solo la parte de la función relevante para el ejercicio. El funcionamiendo de esta instrucción es similar al de las instrucciones \texttt{READ} e \texttt{INC} combinadas. En el caso \texttt{default} del \texttt{switch}, consideramos el registro acumulador como registro por defecto en caso de que el segundo operando no sea un código de registro válido, tal y como especifica el enunciado.
+
+\vspace{6mm}
+\result{Ejercicio 2}
+\textbf{Función \texttt{ComputerSystem\_PrintProgramList}}
+Este es el código de la función. Debido al momento en el que llamamos a esta función, podemos iterar solo por el número real de procesos, en lugar de llegar al tamaño máximo:
+\input{code/2.tex}
+
+\vspace{6mm}
+\result{Ejercicio 3}
+\textbf{Llamada a la lista de programas. ¿Por qué difiere de la cola de procesos?}
+
+\vspace{2mm}
+Incluimos la llamada a la función del apartado anterior en el siguiente punto de \texttt{ComputerSystem\_PowerOn}:
+\input{code/3.tex}
+
+\vspace{2mm} \noindent
+Veamos qué ocurre cuando ejecutamos el simulador:
+\begin{terminal}
+\input{terminal/3.tex}
+\end{terminal}
+Los procesos listados se corresponden únicamente con los creados por el usuario. En el \hyperref[result:1.2]{apartado anterior}, al haber comenzado a recorrer \texttt{programList} con índice inicial \texttt{i=1}, hemos excluido de la lista el proceso \texttt{ProcessSystemIdle} del sistema. Este es un comportamiento esperado, de acuerdo con las especificaciones del ejercicio 2.
+
+\vspace{6mm}
+\result{Ejercicio 4}
+\textbf{Ejecución simultánea de dos programas}
+
+\vspace{2mm}
+Programas como el \texttt{programVerySimple} por defecto adjunto a la V1 original, acaban su ejecución con la instrucción \texttt{HALT}. Así, el primer proceso en concluir apaga la simulación al completo, por lo que no puede ejecutarse el otro. Para solucionarlo, hemos de sustituir  la instrucción \texttt{HALT} por \text{TRAP 3} para terminar el proceso de manera ordenada y que el SO pueda ceder el turno de ejecución al siguiente proceso.
+
+\vspace{2mm} \noindent
+Ejemplo de salida para dos instancias del siguiente programa:
+\begin{terminal}
+  30
+
+  5
+
+  ADD 0 -3
+
+  WRITE 15
+
+  HALT
+\end{terminal}
+\noindent Si lo ejecutamos dos veces en el simulador...
+\begin{terminal}
+\input{terminal/4a.tex}
+\end{terminal}
+\noindent Podemos observar cómo el segundo proceso no llega a ejecutarse. Si ahora modificamos el programa anterior cambiando \texttt{HALT} por \texttt{TRAP 3} y volvemos a ejecutar el Simulador,
+\begin{terminal}
+\input{terminal/4b.tex}
+\end{terminal}
+Ahora sí terminan de ejecutarse ambos adecuadamente.
+
+\vspace{6mm}
+\result{Ejercicio 5}
+\textbf{Ejecución de un programa inexistente}
+\vspace{2mm}
+Esto es lo que sucede si intentamos ejecutar el simulador pasando como parámetro un nombre de archivo que no está presente:
+\begin{terminal}
+\input{terminal/5.tex}
+\end{terminal}
+El proceso se muestra en la lista de los procesos de usuario, pues se van creando según los parámetros con los que se llama al simulador. Más adelante, cuando el LTS (planificador a largo plazo) busca pasar un proceso creado para que se ejecute, comprueba antes que el nombre de archivo sea válido. En caso de no serlo, se imprime el mensaje de error que vemos. Así, el proceso de usuario de crea, pero no se llega a ejecutar. Por tanto, la traza que vemos se debe a la gestión del simulador de los programas del sistema.
+
+\vspace{4mm} \noindent
+Esta es la región del código relevante:
+\vspace{2mm}
+\begin{adjustwidth}{0.07\textwidth}{}
+  \input{code/5.tex}
+\end{adjustwidth}
+
+\vspace{6mm}
 \result{Ejercicio 6}
 \textbf{Ejecuta el simulador con una cantidad de procesos suberior a la capacidad de la tabla de procesos. ¿Qué ocurre?}
-Revisando el código, la capacidad máxima de la tabla es de 4, luego ejecutando más:
+
+\vspace{2mm} 
+Revisando el código, la capacidad máxima de la tabla es de 4 (incluyendo al proceso inactivo del sistema), luego ejecutando más:
 \begin{terminal}
-\$ ./Simulator prog prog prog prog
-
-  41 messages loaded from file 'messagesTCH.txt'
-
-2 messages loaded from file 'messagesSTD.txt'
-
-0 Asserts Loaded
-
-[\textcolor{termred}{0}] 
-\textcolor{termred}{STARTING simulation
-}
-[\textcolor{termred}{0}] 
-User programs list:
-
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	
-[\textcolor{termred}{0}] 
-Arrival Time Queue:
-
-		[\textcolor{termgreen}{SystemIdleProcess}, \textcolor{termred}{0}, \textcolor{termgreen}{DAEMON-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [0] created from program [SystemIdleProcess]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [1] created from program [prog]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [2] created from program [prog]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [3] created from program [prog]}
-
-Segmentation fault (core dumped)
-
-\$
+\input{terminal/6.tex}
 \end{terminal}
 
 Revisando el código de la función \texttt{OperatingSystem\_LongTermScheduler}, podemos observar que los procesos cuyo archivo sí exista se van a ir moviendo uno a uno al estado ``\texttt{READY}'' llamando a la función \texttt{OperatingSystem\_MoveToTheREADYState}. Aquí, se accede a posiciones de memoria proporcionales al PID del proceso sin comprobar si están o no en rango. Por tanto, se produce el mensaje de \texttt{Segmentation fault}. Este razonamiento es válido, pues se corresponde con el código a ejecutar justo después del mensaje de ``proceso creado'' que se muestra por consola, luego el fallo ha de producirse después.
+
+\vspace{2mm} \noindent
+Esta es la zona del código a la que hacemos alusión:
+\input{code/6bis.tex}
+\indent
+Si no validamos el índice, podríamos provocar un \texttt{Segmentation fault} al intentar escribir en una zona de memoria más allá del espacio designado a la tabla de procesos.
 
 \vspace{2mm}
 Para corregir esto, hemos de crear solo aquellos procesos que puedan tener un hueco en la tabla, en lugar de crearlos a ciegas.
@@ -209,75 +254,10 @@ La última línea de código se corresponde con las modificaciones realizadas.
 Añadimos un nuevo \texttt{case} al switch de la función:
 \input{code/6b.tex}
 
-\vspace{2mm}
+\vspace{2mm} \noindent
 Si ahora ejecutamos el simulador con un número de programas superior al límite:
 \begin{terminal}
-41 messages loaded from file 'messagesTCH.txt'
-
-2 messages loaded from file 'messagesSTD.txt'
-
-0 Asserts Loaded
-
-[\textcolor{termred}{0}] 
-\textcolor{termred}{STARTING simulation
-}
-[\textcolor{termred}{0}] 
-User programs list:
-
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	Program [\textcolor{termcyan}{prog}] with arrival time [\textcolor{termcyan}{0}]
-	
-[\textcolor{termred}{0}] 
-Arrival Time Queue:
-
-		[\textcolor{termgreen}{SystemIdleProcess}, \textcolor{termred}{0}, \textcolor{termgreen}{DAEMON-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-		[\textcolor{termgreen}{prog}, \textcolor{termred}{0}, \textcolor{termgreen}{USER-PROGRAM}]
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [0] created from program [SystemIdleProcess]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [1] created from program [prog]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [2] created from program [prog]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termgreen}{Process [3] created from program [prog]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termred}{ERROR: There are not free entries in the process table for the program [prog]}
-
-	
-[\textcolor{termred}{0}] 
-\textcolor{termred}{ERROR: There are not free entries in the process table for the program [prog]}
-
-[\textcolor{termred}{1}] 
-{0D 000 000}
- IRET 0 0 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{0}, Accumulator: \textcolor{termred}{0}, PSW: \textcolor{termred}{0002} [\textcolor{termred}{--------------Z-}], IntLine: [\textcolor{termred}{0000}])
-
-[2] 
-{01 000 803}
- ADD 0 -3 (PID: \textcolor{termgreen}{1}, PC: \textcolor{termred}{1}, Accumulator: \textcolor{termred}{-3}, PSW: \textcolor{termred}{0004} [\textcolor{termred}{-------------N--}], IntLine: [\textcolor{termred}{0000}])
-
- // Continua la ejecución...
+  \input{terminal/6b.tex}
 \end{terminal}
 El simulador ahora muestra un mensaje de error por cada proceso que esté por encima del tamaño máximo permitido. Los procesos que sí estén dentro del límite se ejecutarán con normalidad. Para el caso anterior, como el número de procesos supera al máximo en dos unidades, se imprimen dos mensajes de error.
 \end{document}

@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,fontsize=\footnotesize]
+\PY{k+kt}{int}\PY{+w}{ }\PY{n+nf}{OperatingSystem\PYZus{}LongTermScheduler}\PY{p}{(}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
+\PY{+w}{  }\PY{c+c1}{//..[code gap]...}
+\PY{+w}{  }\PY{c+c1}{// Process creation has succeeded: additional actions}
+\PY{+w}{  }\PY{c+c1}{// Show message \PYZdq{}Process [createdProcessPID] created from program [executableName]\PYZbs{}n\PYZdq{}}
+\PY{+w}{  }\PY{n}{ComputerSystem\PYZus{}DebugMessage}\PY{p}{(}\PY{n}{TIMED\PYZus{}MESSAGE}\PY{p}{,}\PY{l+m+mi}{70}\PY{p}{,}\PY{n}{SYSPROC}\PY{p}{,}
+\PY{+w}{    }\PY{n}{createdProcessPID}\PY{p}{,}\PY{n}{programList}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{o}{\PYZgt{}}\PY{n}{executableName}\PY{p}{)}\PY{p}{;}
+\PY{+w}{  }\PY{n}{numberOfSuccessfullyCreatedProcesses}\PY{o}{+}\PY{o}{+}\PY{p}{;}
+\PY{+w}{  }\PY{k}{if}\PY{+w}{ }\PY{p}{(}\PY{n}{programList}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{o}{\PYZgt{}}\PY{n}{type}\PY{o}{=}\PY{o}{=}\PY{n}{USERPROGRAM}\PY{p}{)}\PY{+w}{ }
+\PY{+w}{    }\PY{n}{numberOfNotTerminatedUserProcesses}\PY{o}{+}\PY{o}{+}\PY{p}{;}
+\PY{+w}{  }\PY{c+c1}{// Move process to the ready state}
+\PY{+w}{  }\PY{n}{OperatingSystem\PYZus{}MoveToTheREADYState}\PY{p}{(}\PY{n}{createdProcessPID}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{//..Rest of the function...}
+\PY{p}{\PYZcb{}}
+
+\PY{k+kt}{void}\PY{+w}{ }\PY{n+nf}{OperatingSystem\PYZus{}MoveToTheREADYState}\PY{p}{(}\PY{k+kt}{int}\PY{+w}{ }\PY{n}{PID}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{+w}{ }
+\PY{+w}{  }\PY{k+kt}{int}\PY{+w}{ }\PY{n}{processQueueID}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{processTable}\PY{p}{[}\PY{n}{PID}\PY{p}{]}\PY{p}{.}\PY{n}{queueID}\PY{p}{;}
+\PY{+w}{  }\PY{k}{if}\PY{+w}{ }\PY{p}{(}\PY{n}{Heap\PYZus{}add}\PY{p}{(}\PY{n}{PID}\PY{p}{,}\PY{+w}{ }\PY{n}{readyToRunQueue}\PY{p}{[}\PY{n}{processQueueID}\PY{p}{]}\PY{p}{,}\PY{n}{QUEUE\PYZus{}PRIORITY}\PY{p}{,}
+\PY{+w}{        }\PY{o}{\PYZam{}}\PY{p}{(}\PY{n}{numberOfReadyToRunProcesses}\PY{p}{[}\PY{n}{processQueueID}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{o}{\PYZgt{}}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
+\PY{+w}{            }
+\PY{+w}{    }\PY{n}{processTable}\PY{p}{[}\PY{n}{PID}\PY{p}{]}\PY{p}{.}\PY{n}{state}\PY{o}{=}\PY{n}{READY}\PY{p}{;}\PY{+w}{ }\PY{c+c1}{// possible segmentation fault}
+\PY{+w}{  }\PY{p}{\PYZcb{}}\PY{+w}{ }
+\PY{p}{\PYZcb{}}
+\end{Verbatim}

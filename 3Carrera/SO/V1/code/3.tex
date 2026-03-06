@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1,fontsize=\footnotesize]
+\PY{k+kt}{void}\PY{+w}{ }\PY{n+nf}{ComputerSystem\PYZus{}PowerOn}\PY{p}{(}\PY{k+kt}{int}\PY{+w}{ }\PY{n}{argc}\PY{p}{,}\PY{+w}{ }\PY{k+kt}{char}\PY{+w}{ }\PY{o}{*}\PY{n}{argv}\PY{p}{[}\PY{p}{]}\PY{p}{,}\PY{+w}{ }\PY{k+kt}{int}\PY{+w}{ }\PY{n}{paramIndex}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
+\PY{+w}{    }\PY{n}{ComputerSystem\PYZus{}DebugMessage}\PY{p}{(}\PY{n}{TIMED\PYZus{}MESSAGE}\PY{p}{,}\PY{+w}{ }\PY{l+m+mi}{99}\PY{p}{,}\PY{+w}{ }\PY{n}{POWERON}\PY{p}{,}\PY{+w}{ }\PY{l+s}{\PYZdq{}}\PY{l+s}{STARTING simulation}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+\PY{+w}{    }
+\PY{+w}{    }\PY{c+c1}{// Obtain a list of programs in the command line}
+\PY{+w}{    }\PY{k+kt}{int}\PY{+w}{ }\PY{n}{programsFromFilesBaseIndex}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{ComputerSystem\PYZus{}ObtainProgramList}\PY{p}{(}\PY{n}{argc}\PY{p}{,}\PY{+w}{ }\PY{n}{argv}\PY{p}{,}\PY{+w}{ }\PY{n}{paramIndex}\PY{p}{)}\PY{p}{;}
+\PY{+w}{    }\PY{n}{ComputerSystem\PYZus{}PrintProgramList}\PY{p}{(}\PY{n}{argc}\PY{p}{)}\PY{p}{;}
+\PY{c+c1}{//...Rest of the funcition...}
+\end{Verbatim}
