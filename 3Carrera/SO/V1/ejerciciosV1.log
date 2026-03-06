@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  6 MAR 2026 12:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1 Portable) (preloaded format=pdflatex 2025.12.8)  6 MAR 2026 13:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -921,13 +921,13 @@ Package rerunfilecheck Info: File `ejerciciosV1.out' has not changed.
 (rerunfilecheck)             Checksum: 54268CADACA2D897D687A639FC6DB9B7;939.
  ) 
 Here is how much of TeX's memory you used:
- 26229 strings out of 474486
- 482096 string characters out of 5753177
+ 26235 strings out of 474486
+ 482212 string characters out of 5753177
  1936542 words of memory out of 5000000
- 48042 multiletter control sequences out of 15000+600000
+ 48048 multiletter control sequences out of 15000+600000
  567974 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,8n,87p,729b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,8n,87p,729b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\MikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tctt0800.pk> <C:\M
 ikTex\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1728.pk><C:/MikTex/tex
 mfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install
@@ -936,7 +936,7 @@ mfs/install/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/MikTex/texmfs/install
 onts/cm/cmr6.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt1
 0.pfb><C:/MikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/M
 ikTex/texmfs/install/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on ejerciciosV1.pdf (9 pages, 132153 bytes).
+Output written on ejerciciosV1.pdf (9 pages, 133873 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  17 named destinations out of 1000 (max. 500000)

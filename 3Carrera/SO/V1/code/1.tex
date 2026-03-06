@@ -2,32 +2,30 @@
 \PY{k+kt}{void}\PY{+w}{ }\PY{n+nf}{Processor\PYZus{}DecodeAndExecuteInstruction}\PY{p}{(}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
 \PY{c+c1}{//... [code gap]}
 \PY{k}{switch}\PY{+w}{ }\PY{p}{(}\PY{n}{operationCode}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
-\PY{k}{case}\PY{+w}{ }\PY{n+no}{MEMADD\PYZus{}INST}\PY{p}{:}
+\PY{+w}{  }\PY{k}{case}\PY{+w}{ }\PY{n+no}{MEMADD\PYZus{}INST}\PY{p}{:}
 \PY{+w}{    }\PY{n}{registerMAR\PYZus{}CPU}\PY{o}{=}\PY{n}{operand1}\PY{p}{;}\PY{+w}{ }\PY{c+c1}{// set address}
 \PY{+w}{    }\PY{n}{Buses\PYZus{}write\PYZus{}AddressBus\PYZus{}From\PYZus{}To}\PY{p}{(}\PY{n}{CPU}\PY{p}{,}\PY{+w}{ }\PY{n}{MMU}\PY{p}{)}\PY{p}{;}
 \PY{+w}{    }\PY{n}{registerCTRL\PYZus{}CPU}\PY{o}{=}\PY{n}{CTRLREAD}\PY{p}{;}\PY{+w}{ }\PY{c+c1}{// read}
 \PY{+w}{    }\PY{n}{Buses\PYZus{}write\PYZus{}ControlBus\PYZus{}From\PYZus{}To}\PY{p}{(}\PY{n}{CPU}\PY{p}{,}\PY{n}{MMU}\PY{p}{)}\PY{p}{;}
 \PY{+w}{    }\PY{k}{switch}\PY{+w}{ }\PY{p}{(}\PY{n}{operand2}\PY{p}{)}\PY{+w}{ }\PY{p}{\PYZob{}}
-\PY{+w}{        }\PY{k}{case}\PY{+w}{ }\PY{n+no}{REGISTERACCUMULATOR\PYZus{}CPU}\PY{p}{:}
-\PY{+w}{            }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{p}{;}
-\PY{+w}{            }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{o}{+}\PY{o}{=}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
-\PY{+w}{            }\PY{k}{break}\PY{p}{;}
-\PY{+w}{        }\PY{k}{case}\PY{+w}{ }\PY{n+no}{REGISTERA\PYZus{}CPU}\PY{p}{:}
-\PY{+w}{            }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerA\PYZus{}CPU}\PY{p}{;}
-\PY{+w}{            }\PY{n}{registerA\PYZus{}CPU}\PY{o}{+}\PY{o}{=}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
-\PY{+w}{            }\PY{k}{break}\PY{p}{;}
-\PY{+w}{        }\PY{k}{case}\PY{+w}{ }\PY{n+no}{REGISTERB\PYZus{}CPU}\PY{p}{:}
-\PY{+w}{            }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerB\PYZus{}CPU}\PY{p}{;}
-\PY{+w}{            }\PY{n}{registerB\PYZus{}CPU}\PY{o}{+}\PY{o}{=}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
-\PY{+w}{            }\PY{k}{break}\PY{p}{;}
-\PY{+w}{        }\PY{k}{default}\PY{o}{:}
-\PY{+w}{            }\PY{c+c1}{//Accumulator as default registry}
-\PY{+w}{            }\PY{n}{operand2}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{REGISTERACCUMULATOR\PYZus{}CPU}\PY{p}{;}
-\PY{+w}{            }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{p}{;}
-\PY{+w}{            }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{o}{+}\PY{o}{=}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
-\PY{+w}{    }\PY{p}{\PYZcb{}}
-\PY{+w}{    }\PY{n}{Processor\PYZus{}CheckOverflow}\PY{p}{(}\PY{n}{operand1}\PY{p}{,}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{,}\PY{n}{operand2}\PY{p}{)}\PY{p}{;}
-\PY{+w}{    }\PY{n}{registerPC\PYZus{}CPU}\PY{o}{+}\PY{o}{+}\PY{p}{;}
-\PY{+w}{    }\PY{k}{break}\PY{p}{;}
+\PY{+w}{      }\PY{k}{case}\PY{+w}{ }\PY{n+no}{REGISTERACCUMULATOR\PYZus{}CPU}\PY{p}{:}
+\PY{+w}{        }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{p}{;}
+\PY{+w}{        }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{o}{+}\PY{o}{=}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
+\PY{+w}{        }\PY{k}{break}\PY{p}{;}
+\PY{+w}{      }\PY{k}{case}\PY{+w}{ }\PY{n+no}{REGISTERA\PYZus{}CPU}\PY{p}{:}
+\PY{+w}{        }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerA\PYZus{}CPU}\PY{p}{;}
+\PY{+w}{        }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerA\PYZus{}CPU}\PY{+w}{ }\PY{o}{+}\PY{+w}{ }\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
+\PY{+w}{        }\PY{k}{break}\PY{p}{;}
+\PY{+w}{      }\PY{k}{case}\PY{+w}{ }\PY{n+no}{REGISTERB\PYZus{}CPU}\PY{p}{:}
+\PY{+w}{        }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerB\PYZus{}CPU}\PY{p}{;}
+\PY{+w}{        }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerB\PYZus{}CPU}\PY{+w}{ }\PY{o}{+}\PY{+w}{ }\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
+\PY{+w}{        }\PY{k}{break}\PY{p}{;}
+\PY{+w}{      }\PY{k}{default}\PY{o}{:}
+\PY{+w}{        }\PY{n}{tempAcc}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{p}{;}
+\PY{+w}{        }\PY{n}{registerAccumulator\PYZus{}CPU}\PY{o}{+}\PY{o}{=}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{;}
+\PY{+w}{      }\PY{p}{\PYZcb{}}
+\PY{+w}{      }\PY{n}{Processor\PYZus{}CheckOverflow}\PY{p}{(}\PY{n}{operand1}\PY{p}{,}\PY{n}{registerMBR\PYZus{}CPU}\PY{p}{.}\PY{n}{cell}\PY{p}{,}\PY{n}{registerAccumulator\PYZus{}CPU}\PY{p}{)}\PY{p}{;}
+\PY{+w}{      }\PY{n}{registerPC\PYZus{}CPU}\PY{o}{+}\PY{o}{+}\PY{p}{;}
+\PY{+w}{      }\PY{k}{break}\PY{p}{;}
 \PY{c+c1}{//Rest of the funcion...}
 \end{Verbatim}

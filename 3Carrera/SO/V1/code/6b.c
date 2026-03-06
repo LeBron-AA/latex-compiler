@@ -8,6 +8,6 @@ while (OperatingSystem_IsThereANewProgram()!=EMPTYQUEUE) {
   createdProcessPID=OperatingSystem_CreateProcess(i);
   switch (createdProcessPID) {
     case NOFREEENTRY:	// New case (modification)
-	   (TIMED_MESSAGE, 51, ERROR, programList[i]->executableName);
+	   (TIMED_MESSAGE, 50, ERROR, programList[i]->executableName);
 	   break;
 // Rest of the function...

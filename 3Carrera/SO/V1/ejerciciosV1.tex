@@ -148,7 +148,7 @@ En primer lugar, añadimos una nueva entrada al fichero \texttt{instructions.def
 Ahora añadiremos un nuevo \texttt{case} al \texttt{switch} de la función \newline \texttt{Processor\_DecodeAndExecuteInstruction}:
 \input{code/1.tex}
 
-Se muestra solo la parte de la función relevante para el ejercicio. El funcionamiendo de esta instrucción es similar al de las instrucciones \texttt{READ} e \texttt{INC} combinadas. En el caso \texttt{default} del \texttt{switch}, consideramos el registro acumulador como registro por defecto en caso de que el segundo operando no sea un código de registro válido, tal y como especifica el enunciado.
+Se muestra solo la parte de la función relevante para el ejercicio. El funcionamiendo de esta instrucción es similar al de las instrucciones \texttt{READ} e \texttt{INC} combinadas. En el caso \texttt{default} del \texttt{switch}, consideramos el registro acumulador como registro por defecto en caso de que el segundo operando no sea un código de registro válido, tal y como especifica el enunciado. De manera similar, el resultado siempre irá en el registro acumulador, sin importar el registro del segundo operando.
 
 \vspace{6mm}
 \result{Ejercicio 2}
@@ -199,7 +199,18 @@ Ejemplo de salida para dos instancias del siguiente programa:
 \begin{terminal}
 \input{terminal/4b.tex}
 \end{terminal}
-Ahora sí terminan de ejecutarse ambos adecuadamente.
+Ahora sí terminan de ejecutarse ambos adecuadamente. Por tanto, un posible programa \texttt{prog-V1-E4} que especifica el enunciado podría ser:
+\begin{terminal}
+    30
+
+  5
+
+  ADD 0 -3
+
+  WRITE 15
+
+  TRAP 3
+\end{terminal}
 
 \vspace{6mm}
 \result{Ejercicio 5}
